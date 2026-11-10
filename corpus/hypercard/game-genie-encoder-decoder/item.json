@@ -1,0 +1,15 @@
+{
+  "id": "game-genie-encoder-decoder",
+  "title": "Game Genie Encoder-Decoder",
+  "source": "https://archive.org/details/game-genie-encoder-decoder",
+  "stacks": [
+    {
+      "name": "Game Genie Encoder/Decoder",
+      "path": "Game Genie Encoder/Decoder",
+      "file": "Game Genie Encoder_Decoder.stak",
+      "data_bytes": 16384,
+      "rsrc_bytes": 586,
+      "creator": "WILD"
+    }
+  ]
+}

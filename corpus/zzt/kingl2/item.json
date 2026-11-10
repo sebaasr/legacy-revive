@@ -1,0 +1,15 @@
+{
+  "title": "Castle of King Lucius",
+  "author": [
+    "Eli Tremblay"
+  ],
+  "release_date": "1992-01-08",
+  "source": "https://museumofzzt.com/file/view/kingl2/",
+  "reference": "Museum of ZZT title-screen render",
+  "worlds": [
+    {
+      "file": "KINGL2.ZZT",
+      "bytes": 53211
+    }
+  ]
+}

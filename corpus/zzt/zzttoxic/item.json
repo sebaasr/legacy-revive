@@ -1,0 +1,23 @@
+{
+  "title": "Smiley Guy & Toxic Terminator",
+  "author": [
+    "Al Payne"
+  ],
+  "release_date": "1992-08-24",
+  "source": "https://museumofzzt.com/file/view/zzttoxic/",
+  "reference": "Museum of ZZT title-screen render",
+  "worlds": [
+    {
+      "file": "TOXIC.ZZT",
+      "bytes": 235480
+    },
+    {
+      "file": "TOXHINTS.ZZT",
+      "bytes": 14132
+    },
+    {
+      "file": "SMILEY.ZZT",
+      "bytes": 111238
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "title": "The Lost Pyramid",
+  "author": [
+    "James Holub"
+  ],
+  "release_date": "1992-04-19",
+  "source": "https://museumofzzt.com/file/view/pyramid/",
+  "reference": "Museum of ZZT title-screen render",
+  "worlds": [
+    {
+      "file": "PYRAMID.ZZT",
+      "bytes": 174729
+    }
+  ]
+}

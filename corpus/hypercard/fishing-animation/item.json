@@ -1,0 +1,15 @@
+{
+  "id": "fishing-animation",
+  "title": "Fishing Animation",
+  "source": "https://archive.org/details/fishing-animation",
+  "stacks": [
+    {
+      "name": "Fishing",
+      "path": "Fishing \u0192/Fishing",
+      "file": "Fishing.stak",
+      "data_bytes": 147520,
+      "rsrc_bytes": 110588,
+      "creator": "WILD"
+    }
+  ]
+}

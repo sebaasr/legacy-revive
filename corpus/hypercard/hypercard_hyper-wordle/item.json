@@ -1,0 +1,15 @@
+{
+  "id": "hypercard_hyper-wordle",
+  "title": "Hyper-Wordle",
+  "source": "https://archive.org/details/hypercard_hyper-wordle",
+  "stacks": [
+    {
+      "name": "Hyper-Wordle",
+      "path": "Hyper-Wordle",
+      "file": "Hyper-Wordle.stak",
+      "data_bytes": 127232,
+      "rsrc_bytes": 1835,
+      "creator": "WILD"
+    }
+  ]
+}

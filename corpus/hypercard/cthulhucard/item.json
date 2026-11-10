@@ -1,0 +1,15 @@
+{
+  "id": "cthulhucard",
+  "title": "CthulhuCard",
+  "source": "https://archive.org/details/cthulhucard",
+  "stacks": [
+    {
+      "name": "CthulhuCard",
+      "path": "CthulhuCard",
+      "file": "CthulhuCard.stak",
+      "data_bytes": 237568,
+      "rsrc_bytes": 0,
+      "creator": "WILD"
+    }
+  ]
+}

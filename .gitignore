@@ -1,0 +1,4 @@
+corpus/**/disk.img
+__pycache__/
+*.log
+*.aux

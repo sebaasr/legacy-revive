@@ -1,0 +1,15 @@
+{
+  "title": "The Lost Monkeys",
+  "author": [
+    "Chris Jong"
+  ],
+  "release_date": "1992-12-29",
+  "source": "https://museumofzzt.com/file/view/lostmonk/",
+  "reference": "Museum of ZZT title-screen render",
+  "worlds": [
+    {
+      "file": "lostmonk.zzt",
+      "bytes": 235368
+    }
+  ]
+}
