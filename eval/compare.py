@@ -40,9 +40,15 @@ def compare(ref_path: Path, app_path: Path, tol: int = 1, out: Path | None = Non
     recall = count(ImageChops.multiply(ref, app_near)) / ref_ink if ref_ink else 1.0
     f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
     same = ref.width * ref.height - count(ImageChops.difference(ref, app))
+    # colour-aware check for colour programs: share of pixels whose RGB values are close (max channel diff <= 48)
+    ref_rgb = Image.open(ref_path).convert("RGB")
+    app_rgb = Image.open(app_path).convert("RGB").crop((0, 0, *ref.size))
+    diff_max = ImageChops.difference(ref_rgb, app_rgb).convert("L", (1 / 3, 1 / 3, 1 / 3, 0))
+    close = sum(diff_max.histogram()[:17])  # mean channel diff <= 16
     result = {
         "ink_f1": round(f1, 4), "precision": round(precision, 4), "recall": round(recall, 4),
         "pixel_agreement": round(same / (ref.width * ref.height), 4),
+        "color_match": round(close / (ref.width * ref.height), 4),
         "ref_ink": ref_ink, "app_ink": app_ink,
     }
     if out:
