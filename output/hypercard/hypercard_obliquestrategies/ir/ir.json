@@ -1,0 +1,2922 @@
+{
+ "ir_version": 1,
+ "program": "hypercard",
+ "source": {
+  "file": "Oblique Strategies.stak",
+  "bytes": 106496
+ },
+ "name": "Oblique Strategies",
+ "size": {
+  "width": 512,
+  "height": 342
+ },
+ "units": "px",
+ "start_screen": "card-3843",
+ "script": {
+  "language": "hypertalk",
+  "text": "on openStack\rhide titleBar\rset userlevel to 1\rvisual effect dissolve\rwait 1 second\rgo card 2\rend openStack\r\r\r"
+ },
+ "layers": [
+  {
+   "id": "bkgnd-2648",
+   "name": "",
+   "image": "assets/bkgnd-2648.png",
+   "objects": [
+    {
+     "id": "bkgnd-2648/button-5",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      37,
+      324,
+      58,
+      339
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": "assets/icon-28022.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect dissolve slowly\rput the random of 127 into randomcardVar\radd 3 to randomcardVar\rgo to card randomcardVar\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 5,
+      "flags_a": 0,
+      "flags_b": 4097,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 28022,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2648/button-7",
+     "kind": "button",
+     "name": "New Button 2",
+     "number": 2,
+     "rect": [
+      82,
+      325,
+      99,
+      340
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button 2",
+     "icon": "assets/icon-15420.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect wipe left very slowly\rif the number of this card is 130¬\ror the number of this card is 2 then\rgo card 4\relse\rgo next card\rend if\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 7,
+      "flags_a": 0,
+      "flags_b": 4100,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 15420,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2648/button-8",
+     "kind": "button",
+     "name": "New Button",
+     "number": 3,
+     "rect": [
+      63,
+      325,
+      79,
+      340
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": "assets/icon-13982.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect wipe right very slowly\rif the number of this card is 4¬\ror the number of this card is 2 then\rgo last card\relse\rgo previous card\rend if\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 8,
+      "flags_a": 0,
+      "flags_b": 4100,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 13982,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2648/button-9",
+     "kind": "button",
+     "name": "New Button",
+     "number": 4,
+     "rect": [
+      17,
+      325,
+      33,
+      339
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect dissolve slowly\rgo card 2\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 9,
+      "flags_a": 0,
+      "flags_b": 4096,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 3071,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "script": null
+  }
+ ],
+ "screens": [
+  {
+   "id": "card-3843",
+   "name": "",
+   "number": 1,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-3843.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-69896",
+   "name": "",
+   "number": 2,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-69896.png",
+   "objects": [
+    {
+     "id": "card-69896/button-4",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      17,
+      324,
+      33,
+      340
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-2",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\ranswer \"Leave Oblique Strategies?\" with \"No\" or \"Yes\"\rif the value of it is \"yes\" then\rdoMenu \"Quit HyperCard\"\rend if\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 2,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 3358,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69896/button-3",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      104,
+      325,
+      120,
+      342
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect dissolve very slowly\rgo to card 3\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 26635,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-69605",
+   "name": "",
+   "number": 3,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-69605.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4200",
+   "name": "",
+   "number": 4,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-4200.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4853",
+   "name": "",
+   "number": 5,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-4853.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14564",
+   "name": "",
+   "number": 6,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-14564.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14911",
+   "name": "",
+   "number": 7,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-14911.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15386",
+   "name": "",
+   "number": 8,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-15386.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-16084",
+   "name": "",
+   "number": 9,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-16084.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-16561",
+   "name": "",
+   "number": 10,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-16561.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-16998",
+   "name": "",
+   "number": 11,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-16998.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17438",
+   "name": "",
+   "number": 12,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-17438.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17957",
+   "name": "",
+   "number": 13,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-17957.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-18513",
+   "name": "",
+   "number": 14,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-18513.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-19174",
+   "name": "",
+   "number": 15,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-19174.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-19571",
+   "name": "",
+   "number": 16,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-19571.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-20060",
+   "name": "",
+   "number": 17,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-20060.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-20622",
+   "name": "",
+   "number": 18,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-20622.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-21094",
+   "name": "",
+   "number": 19,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-21094.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-21668",
+   "name": "",
+   "number": 20,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-21668.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-22021",
+   "name": "",
+   "number": 21,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-22021.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-22686",
+   "name": "",
+   "number": 22,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-22686.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-23218",
+   "name": "",
+   "number": 23,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-23218.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-23603",
+   "name": "",
+   "number": 24,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-23603.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-24122",
+   "name": "",
+   "number": 25,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-24122.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-24702",
+   "name": "",
+   "number": 26,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-24702.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-25169",
+   "name": "",
+   "number": 27,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-25169.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-25617",
+   "name": "",
+   "number": 28,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-25617.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-26259",
+   "name": "",
+   "number": 29,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-26259.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-26782",
+   "name": "",
+   "number": 30,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-26782.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-27335",
+   "name": "",
+   "number": 31,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-27335.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-27801",
+   "name": "",
+   "number": 32,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-27801.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-28262",
+   "name": "",
+   "number": 33,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-28262.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-28753",
+   "name": "",
+   "number": 34,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-28753.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-29230",
+   "name": "",
+   "number": 35,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-29230.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-29737",
+   "name": "",
+   "number": 36,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-29737.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-30364",
+   "name": "",
+   "number": 37,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-30364.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-30766",
+   "name": "",
+   "number": 38,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-30766.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-31473",
+   "name": "",
+   "number": 39,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-31473.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-31929",
+   "name": "",
+   "number": 40,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-31929.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-32299",
+   "name": "",
+   "number": 41,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-32299.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-32975",
+   "name": "",
+   "number": 42,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-32975.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-33378",
+   "name": "",
+   "number": 43,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-33378.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-33944",
+   "name": "",
+   "number": 44,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-33944.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-34321",
+   "name": "",
+   "number": 45,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-34321.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-35060",
+   "name": "",
+   "number": 46,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-35060.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-35554",
+   "name": "",
+   "number": 47,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-35554.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-35943",
+   "name": "",
+   "number": 48,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-35943.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-36398",
+   "name": "",
+   "number": 49,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-36398.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-37030",
+   "name": "",
+   "number": 50,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-37030.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-37390",
+   "name": "",
+   "number": 51,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-37390.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-38061",
+   "name": "",
+   "number": 52,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-38061.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-38492",
+   "name": "",
+   "number": 53,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-38492.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-39152",
+   "name": "",
+   "number": 54,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-39152.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-39482",
+   "name": "",
+   "number": 55,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-39482.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-40047",
+   "name": "",
+   "number": 56,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-40047.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-40666",
+   "name": "",
+   "number": 57,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-40666.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-41001",
+   "name": "",
+   "number": 58,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-41001.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-41637",
+   "name": "",
+   "number": 59,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-41637.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-42195",
+   "name": "",
+   "number": 60,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-42195.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-42717",
+   "name": "",
+   "number": 61,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-42717.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-43107",
+   "name": "",
+   "number": 62,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-43107.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-43686",
+   "name": "",
+   "number": 63,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-43686.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-44206",
+   "name": "",
+   "number": 64,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-44206.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-44674",
+   "name": "",
+   "number": 65,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-44674.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-45222",
+   "name": "",
+   "number": 66,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-45222.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-45722",
+   "name": "",
+   "number": 67,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-45722.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-46310",
+   "name": "",
+   "number": 68,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-46310.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-46688",
+   "name": "",
+   "number": 69,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-46688.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-47165",
+   "name": "",
+   "number": 70,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-47165.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-47651",
+   "name": "",
+   "number": 71,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-47651.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-48371",
+   "name": "",
+   "number": 72,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-48371.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-48758",
+   "name": "",
+   "number": 73,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-48758.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-49169",
+   "name": "",
+   "number": 74,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-49169.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-49908",
+   "name": "",
+   "number": 75,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-49908.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-50177",
+   "name": "",
+   "number": 76,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-50177.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-50792",
+   "name": "",
+   "number": 77,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-50792.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-51420",
+   "name": "",
+   "number": 78,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-51420.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-51946",
+   "name": "",
+   "number": 79,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-51946.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-52251",
+   "name": "",
+   "number": 80,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-52251.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-52897",
+   "name": "",
+   "number": 81,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-52897.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-53453",
+   "name": "",
+   "number": 82,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-53453.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-53764",
+   "name": "",
+   "number": 83,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-53764.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-54475",
+   "name": "",
+   "number": 84,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-54475.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-54811",
+   "name": "",
+   "number": 85,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-54811.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-55382",
+   "name": "",
+   "number": 86,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-55382.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-55812",
+   "name": "",
+   "number": 87,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-55812.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-56384",
+   "name": "",
+   "number": 88,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-56384.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-56969",
+   "name": "",
+   "number": 89,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-56969.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-57466",
+   "name": "",
+   "number": 90,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-57466.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-57859",
+   "name": "",
+   "number": 91,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-57859.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-58589",
+   "name": "",
+   "number": 92,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-58589.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59110",
+   "name": "",
+   "number": 93,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-59110.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59464",
+   "name": "",
+   "number": 94,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-59464.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59976",
+   "name": "",
+   "number": 95,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-59976.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-60597",
+   "name": "",
+   "number": 96,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-60597.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-61038",
+   "name": "",
+   "number": 97,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-61038.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-61643",
+   "name": "",
+   "number": 98,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-61643.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-61967",
+   "name": "",
+   "number": 99,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-61967.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-62661",
+   "name": "",
+   "number": 100,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-62661.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-63083",
+   "name": "",
+   "number": 101,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-63083.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-63702",
+   "name": "",
+   "number": 102,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-63702.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-64027",
+   "name": "",
+   "number": 103,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-64027.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-64531",
+   "name": "",
+   "number": 104,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-64531.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-65228",
+   "name": "",
+   "number": 105,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-65228.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-65733",
+   "name": "",
+   "number": 106,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-65733.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-66261",
+   "name": "",
+   "number": 107,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-66261.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-66794",
+   "name": "",
+   "number": 108,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-66794.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-67258",
+   "name": "",
+   "number": 109,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-67258.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-67633",
+   "name": "",
+   "number": 110,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-67633.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-68194",
+   "name": "",
+   "number": 111,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-68194.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-68864",
+   "name": "",
+   "number": 112,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-68864.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6513",
+   "name": "",
+   "number": 113,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-6513.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8937",
+   "name": "",
+   "number": 114,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-8937.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-2824",
+   "name": "",
+   "number": 115,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-2824.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5379",
+   "name": "",
+   "number": 116,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-5379.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6010",
+   "name": "",
+   "number": 117,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-6010.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6720",
+   "name": "",
+   "number": 118,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-6720.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-7611",
+   "name": "",
+   "number": 119,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-7611.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8127",
+   "name": "",
+   "number": 120,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-8127.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8461",
+   "name": "",
+   "number": 121,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-8461.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9307",
+   "name": "",
+   "number": 122,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-9307.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10169",
+   "name": "",
+   "number": 123,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-10169.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10913",
+   "name": "",
+   "number": 124,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-10913.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11264",
+   "name": "",
+   "number": 125,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-11264.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11865",
+   "name": "",
+   "number": 126,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-11865.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-12505",
+   "name": "",
+   "number": 127,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-12505.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13004",
+   "name": "",
+   "number": 128,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-13004.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13479",
+   "name": "",
+   "number": 129,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-13479.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14031",
+   "name": "",
+   "number": 130,
+   "layers": [
+    "bkgnd-2648"
+   ],
+   "image": "assets/card-14031.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  }
+ ],
+ "assets": [
+  {
+   "id": "bkgnd-2648",
+   "kind": "image",
+   "file": "assets/bkgnd-2648.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-3843",
+   "kind": "image",
+   "file": "assets/card-3843.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-69896",
+   "kind": "image",
+   "file": "assets/card-69896.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-69605",
+   "kind": "image",
+   "file": "assets/card-69605.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-4200",
+   "kind": "image",
+   "file": "assets/card-4200.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-4853",
+   "kind": "image",
+   "file": "assets/card-4853.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-14564",
+   "kind": "image",
+   "file": "assets/card-14564.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-14911",
+   "kind": "image",
+   "file": "assets/card-14911.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-15386",
+   "kind": "image",
+   "file": "assets/card-15386.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-16084",
+   "kind": "image",
+   "file": "assets/card-16084.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-16561",
+   "kind": "image",
+   "file": "assets/card-16561.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-16998",
+   "kind": "image",
+   "file": "assets/card-16998.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-17438",
+   "kind": "image",
+   "file": "assets/card-17438.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-17957",
+   "kind": "image",
+   "file": "assets/card-17957.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-18513",
+   "kind": "image",
+   "file": "assets/card-18513.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-19174",
+   "kind": "image",
+   "file": "assets/card-19174.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-19571",
+   "kind": "image",
+   "file": "assets/card-19571.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-20060",
+   "kind": "image",
+   "file": "assets/card-20060.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-20622",
+   "kind": "image",
+   "file": "assets/card-20622.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-21094",
+   "kind": "image",
+   "file": "assets/card-21094.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-21668",
+   "kind": "image",
+   "file": "assets/card-21668.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-22021",
+   "kind": "image",
+   "file": "assets/card-22021.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-22686",
+   "kind": "image",
+   "file": "assets/card-22686.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-23218",
+   "kind": "image",
+   "file": "assets/card-23218.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-23603",
+   "kind": "image",
+   "file": "assets/card-23603.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-24122",
+   "kind": "image",
+   "file": "assets/card-24122.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-24702",
+   "kind": "image",
+   "file": "assets/card-24702.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-25169",
+   "kind": "image",
+   "file": "assets/card-25169.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-25617",
+   "kind": "image",
+   "file": "assets/card-25617.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-26259",
+   "kind": "image",
+   "file": "assets/card-26259.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-26782",
+   "kind": "image",
+   "file": "assets/card-26782.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-27335",
+   "kind": "image",
+   "file": "assets/card-27335.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-27801",
+   "kind": "image",
+   "file": "assets/card-27801.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-28262",
+   "kind": "image",
+   "file": "assets/card-28262.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-28753",
+   "kind": "image",
+   "file": "assets/card-28753.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-29230",
+   "kind": "image",
+   "file": "assets/card-29230.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-29737",
+   "kind": "image",
+   "file": "assets/card-29737.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-30364",
+   "kind": "image",
+   "file": "assets/card-30364.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-30766",
+   "kind": "image",
+   "file": "assets/card-30766.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-31473",
+   "kind": "image",
+   "file": "assets/card-31473.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-31929",
+   "kind": "image",
+   "file": "assets/card-31929.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-32299",
+   "kind": "image",
+   "file": "assets/card-32299.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-32975",
+   "kind": "image",
+   "file": "assets/card-32975.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-33378",
+   "kind": "image",
+   "file": "assets/card-33378.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-33944",
+   "kind": "image",
+   "file": "assets/card-33944.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-34321",
+   "kind": "image",
+   "file": "assets/card-34321.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-35060",
+   "kind": "image",
+   "file": "assets/card-35060.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-35554",
+   "kind": "image",
+   "file": "assets/card-35554.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-35943",
+   "kind": "image",
+   "file": "assets/card-35943.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-36398",
+   "kind": "image",
+   "file": "assets/card-36398.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-37030",
+   "kind": "image",
+   "file": "assets/card-37030.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-37390",
+   "kind": "image",
+   "file": "assets/card-37390.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-38061",
+   "kind": "image",
+   "file": "assets/card-38061.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-38492",
+   "kind": "image",
+   "file": "assets/card-38492.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-39152",
+   "kind": "image",
+   "file": "assets/card-39152.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-39482",
+   "kind": "image",
+   "file": "assets/card-39482.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-40047",
+   "kind": "image",
+   "file": "assets/card-40047.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-40666",
+   "kind": "image",
+   "file": "assets/card-40666.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-41001",
+   "kind": "image",
+   "file": "assets/card-41001.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-41637",
+   "kind": "image",
+   "file": "assets/card-41637.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-42195",
+   "kind": "image",
+   "file": "assets/card-42195.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-42717",
+   "kind": "image",
+   "file": "assets/card-42717.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-43107",
+   "kind": "image",
+   "file": "assets/card-43107.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-43686",
+   "kind": "image",
+   "file": "assets/card-43686.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-44206",
+   "kind": "image",
+   "file": "assets/card-44206.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-44674",
+   "kind": "image",
+   "file": "assets/card-44674.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-45222",
+   "kind": "image",
+   "file": "assets/card-45222.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-45722",
+   "kind": "image",
+   "file": "assets/card-45722.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-46310",
+   "kind": "image",
+   "file": "assets/card-46310.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-46688",
+   "kind": "image",
+   "file": "assets/card-46688.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-47165",
+   "kind": "image",
+   "file": "assets/card-47165.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-47651",
+   "kind": "image",
+   "file": "assets/card-47651.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-48371",
+   "kind": "image",
+   "file": "assets/card-48371.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-48758",
+   "kind": "image",
+   "file": "assets/card-48758.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-49169",
+   "kind": "image",
+   "file": "assets/card-49169.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-49908",
+   "kind": "image",
+   "file": "assets/card-49908.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-50177",
+   "kind": "image",
+   "file": "assets/card-50177.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-50792",
+   "kind": "image",
+   "file": "assets/card-50792.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-51420",
+   "kind": "image",
+   "file": "assets/card-51420.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-51946",
+   "kind": "image",
+   "file": "assets/card-51946.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-52251",
+   "kind": "image",
+   "file": "assets/card-52251.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-52897",
+   "kind": "image",
+   "file": "assets/card-52897.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-53453",
+   "kind": "image",
+   "file": "assets/card-53453.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-53764",
+   "kind": "image",
+   "file": "assets/card-53764.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-54475",
+   "kind": "image",
+   "file": "assets/card-54475.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-54811",
+   "kind": "image",
+   "file": "assets/card-54811.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-55382",
+   "kind": "image",
+   "file": "assets/card-55382.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-55812",
+   "kind": "image",
+   "file": "assets/card-55812.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-56384",
+   "kind": "image",
+   "file": "assets/card-56384.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-56969",
+   "kind": "image",
+   "file": "assets/card-56969.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-57466",
+   "kind": "image",
+   "file": "assets/card-57466.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-57859",
+   "kind": "image",
+   "file": "assets/card-57859.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-58589",
+   "kind": "image",
+   "file": "assets/card-58589.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-59110",
+   "kind": "image",
+   "file": "assets/card-59110.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-59464",
+   "kind": "image",
+   "file": "assets/card-59464.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-59976",
+   "kind": "image",
+   "file": "assets/card-59976.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-60597",
+   "kind": "image",
+   "file": "assets/card-60597.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-61038",
+   "kind": "image",
+   "file": "assets/card-61038.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-61643",
+   "kind": "image",
+   "file": "assets/card-61643.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-61967",
+   "kind": "image",
+   "file": "assets/card-61967.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-62661",
+   "kind": "image",
+   "file": "assets/card-62661.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-63083",
+   "kind": "image",
+   "file": "assets/card-63083.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-63702",
+   "kind": "image",
+   "file": "assets/card-63702.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-64027",
+   "kind": "image",
+   "file": "assets/card-64027.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-64531",
+   "kind": "image",
+   "file": "assets/card-64531.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-65228",
+   "kind": "image",
+   "file": "assets/card-65228.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-65733",
+   "kind": "image",
+   "file": "assets/card-65733.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-66261",
+   "kind": "image",
+   "file": "assets/card-66261.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-66794",
+   "kind": "image",
+   "file": "assets/card-66794.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-67258",
+   "kind": "image",
+   "file": "assets/card-67258.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-67633",
+   "kind": "image",
+   "file": "assets/card-67633.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-68194",
+   "kind": "image",
+   "file": "assets/card-68194.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-68864",
+   "kind": "image",
+   "file": "assets/card-68864.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6513",
+   "kind": "image",
+   "file": "assets/card-6513.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8937",
+   "kind": "image",
+   "file": "assets/card-8937.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-2824",
+   "kind": "image",
+   "file": "assets/card-2824.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-5379",
+   "kind": "image",
+   "file": "assets/card-5379.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6010",
+   "kind": "image",
+   "file": "assets/card-6010.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6720",
+   "kind": "image",
+   "file": "assets/card-6720.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-7611",
+   "kind": "image",
+   "file": "assets/card-7611.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8127",
+   "kind": "image",
+   "file": "assets/card-8127.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8461",
+   "kind": "image",
+   "file": "assets/card-8461.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9307",
+   "kind": "image",
+   "file": "assets/card-9307.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-10169",
+   "kind": "image",
+   "file": "assets/card-10169.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-10913",
+   "kind": "image",
+   "file": "assets/card-10913.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11264",
+   "kind": "image",
+   "file": "assets/card-11264.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11865",
+   "kind": "image",
+   "file": "assets/card-11865.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-12505",
+   "kind": "image",
+   "file": "assets/card-12505.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-13004",
+   "kind": "image",
+   "file": "assets/card-13004.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-13479",
+   "kind": "image",
+   "file": "assets/card-13479.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-14031",
+   "kind": "image",
+   "file": "assets/card-14031.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "icon-13982",
+   "kind": "image",
+   "file": "assets/icon-13982.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-15420",
+   "kind": "image",
+   "file": "assets/icon-15420.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-28022",
+   "kind": "image",
+   "file": "assets/icon-28022.png",
+   "width": 32,
+   "height": 32
+  }
+ ],
+ "notes": [
+  "icon 3071 (bkgnd-2648/button-9): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 3358 (card-69896/button-4): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 26635 (card-69896/button-3): not in stack resource fork (HyperCard application icon), not exported",
+  "resource fork: 1 icl4 colour icon(s) skipped (no palette)",
+  "resource fork: 1 icl8 colour icon(s) skipped (no palette)",
+  "resource fork: 1 ics4 colour icon(s) skipped (no palette)",
+  "resource fork: 1 ics8 colour icon(s) skipped (no palette)",
+  "resource fork types: ICN#(1), ICON(6), icl4(1), icl8(1), ics#(1), ics4(1), ics8(1)",
+  "button flags B bits 0x1000 set (meaning unknown): 4 part(s), e.g. bkgnd-2648/button-5, bkgnd-2648/button-7, bkgnd-2648/button-8",
+  "unknown button style number 1: 1 part(s), e.g. bkgnd-2648/button-5",
+  "unknown button style number 2: 1 part(s), e.g. card-69896/button-4",
+  "unknown button style number 4: 2 part(s), e.g. bkgnd-2648/button-7, bkgnd-2648/button-8"
+ ]
+}

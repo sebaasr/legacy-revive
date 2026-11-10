@@ -1,0 +1,2901 @@
+{
+ "ir_version": 1,
+ "program": "hypercard",
+ "source": {
+  "file": "FLC 1.1.stak",
+  "bytes": 51008
+ },
+ "name": "FLC 1.1",
+ "size": {
+  "width": 416,
+  "height": 240
+ },
+ "units": "px",
+ "start_screen": "card-4138",
+ "script": {
+  "language": "hypertalk",
+  "text": "on openStack\rglobal SYL, NUM\rhide menuBar\rend openStack\r\ron arrowKey\rgo this card\rend arrowKey\r\ron closeStack\rdoMenu \"Compact Stack\"\rshow menuBar\rend closeStack\r"
+ },
+ "layers": [
+  {
+   "id": "bkgnd-3624",
+   "name": "",
+   "image": "assets/bkgnd-3624.png",
+   "objects": [
+    {
+     "id": "bkgnd-3624/button-13",
+     "kind": "button",
+     "name": "Sort/Export",
+     "number": 1,
+     "rect": [
+      216,
+      213,
+      301,
+      236
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Sort/Export",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\ranswer \"Do you wish to Sort your Lexicon, Export it, or Both?\" with \"Both\" or \"Export\" or \"Sort\"\rif it is \"Both\" then\rdo sortLex\rdo exportLex\relse if it is \"Export\" then\rdo exportLex\relse if it is \"Sort\" then\rdo sortLex\rend if\rend mouseUp\r\ron sortLex\ranswer \"Do you want to sort the words ascending or descending?\" with \"Descending\" or \"Ascending\"\rif it is \"Ascending\" then\rsort lines of cd fld Lexicon ascending\relse if it is \"Descending\" then\rsort lines of cd fld Lexicon descending\rend if\rend sortLex\r\ron exportLex\rput \"Trade Talk Lexicon\" into fileName\rask \"Export lexicon to what file (specify path) ?\" with fileName\rif it is empty then exit exportLex\rput it into fileName\ropen file fileName\rwrite card field Lexicon to file fileName\rclose file fileName\rend exportLex"
+     },
+     "extra": {
+      "part_id": 13,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-3624/button-14",
+     "kind": "button",
+     "name": "Print",
+     "number": 2,
+     "rect": [
+      113,
+      213,
+      198,
+      236
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Print",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\ranswer \"Do you want to print out the Lexicon or the Glossary?\" with \"Cancel\" or \"Lexicon\" or \"Glossary\"\rif it is \"Lexicon\" then\ropen printing\rprint cd fld Lexicon\rclose printing\relse if it is \"Glossary\" then\ropen printing\rprint cd fld Lexicon\rclose printing\relse if it is \"Cancel\" then\rexit mouseUp\rend if\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 14,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-3624/button-15",
+     "kind": "button",
+     "name": "Save Word",
+     "number": 3,
+     "rect": [
+      12,
+      213,
+      97,
+      236
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Save Word",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rshow cd fld Lexicon\rhide cd fld Glossary\rhide cd fld Pronounce\rset hilite of cd button Lexicon to true\rset hilite of cd btn \"Batch List\" to false\rif cd fld Batch is empty then\rdo noBatch\relse if cd fld Batch is not empty then\ranswer \"Do you want to save your batch words?\" with \"Yes\" or \"No\"\rif it is \"Yes\" then\rdo yesBatch\relse if it is \"No\" then\rdo noBatch\rend if\rend if\rhide cd fld Batch\rend mouseUp\r\ron noBatch\ranswer \"Should I delete the current batch list?\" with \"No\" or \"Yes\"\rif it is \"Yes\" then\rput empty into cd fld Batch\relse if it is \"No\" then\rend if\rput 1 into LIN\rif line LIN of cd fld Lexicon is empty then\rput line 1 of card field Word into line LIN of card field Lexicon\relse repeat until line LIN of card field Lexicon is empty\radd 1 to LIN\rend repeat\rput line 1 of card field Word into line LIN of card field Lexicon\rend noBatch\r\ron yesBatch\rput 1 into LIN\rif line LIN of cd fld Lexicon is empty then\rput cd fld Batch into line LIN of card field Lexicon\relse if line LIN of cd fld Lexicon is not empty then\rrepeat until line LIN of card field Lexicon is empty\radd 1 to LIN\rend repeat\rput cd fld Batch into line LIN of card field Lexicon\rend if\rend yesBatch\r"
+     },
+     "extra": {
+      "part_id": 15,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "script": null
+  }
+ ],
+ "screens": [
+  {
+   "id": "card-4138",
+   "name": "Main",
+   "number": 1,
+   "layers": [
+    "bkgnd-3624"
+   ],
+   "image": "assets/card-4138.png",
+   "objects": [
+    {
+     "id": "card-4138/field-7",
+     "kind": "field",
+     "name": "Glossary",
+     "number": 1,
+     "rect": [
+      12,
+      63,
+      322,
+      163
+     ],
+     "visible": false,
+     "style": {
+      "shape": "scrolling",
+      "font": "Monaco",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 7,
+      "flags_a": 132,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 4,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4138/field-8",
+     "kind": "field",
+     "name": "Pronounce",
+     "number": 2,
+     "rect": [
+      12,
+      63,
+      322,
+      163
+     ],
+     "visible": false,
+     "style": {
+      "shape": "scrolling",
+      "font": "Monaco ANSI",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 8,
+      "flags_a": 132,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 512,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4138/button-13",
+     "kind": "button",
+     "name": "Begin",
+     "number": 3,
+     "rect": [
+      307,
+      91,
+      409,
+      142
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 18,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Begin",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect stretch from bottom fast\rgo cd \"Trade\"\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 13,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 24,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4138/button-14",
+     "kind": "button",
+     "name": "About",
+     "number": 4,
+     "rect": [
+      307,
+      142,
+      409,
+      193
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 18,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "About",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect stretch from top fast\rgo cd \"About\"\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 14,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 24,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4138/button-15",
+     "kind": "button",
+     "name": "Home",
+     "number": 5,
+     "rect": [
+      12,
+      203,
+      160,
+      236
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 18,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Home",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\ranswer \"Are you sure you want to go home\" with \"Yes\" or \"No\"\rif it is \"Yes\" then\rgo Home\relse if it is \"No\" then\rexit mouseUp\rend if\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 15,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 24,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4138/button-16",
+     "kind": "button",
+     "name": "Quit",
+     "number": 6,
+     "rect": [
+      160,
+      203,
+      301,
+      236
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 18,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Quit",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\ranswer \"Are you sure you want to quit\" with \"Yes\" or \"No\"\rif it is \"Yes\" then\rdoMenu \"Quit HyperCard\"\relse if it is \"No\" then\rexit mouseUp\rend if\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 16,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 24,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-2221",
+   "name": "Trade",
+   "number": 2,
+   "layers": [
+    "bkgnd-3624"
+   ],
+   "image": "assets/card-2221.png",
+   "objects": [
+    {
+     "id": "card-2221/field-3",
+     "kind": "field",
+     "name": "NumS",
+     "number": 1,
+     "rect": [
+      12,
+      39,
+      41,
+      59
+     ],
+     "visible": true,
+     "style": {
+      "shape": "rectangle",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 5,
+      "flags_b": 8194,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/field-4",
+     "kind": "field",
+     "name": "Sylab",
+     "number": 2,
+     "rect": [
+      44,
+      39,
+      212,
+      59
+     ],
+     "visible": true,
+     "style": {
+      "shape": "rectangle",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 4,
+      "flags_a": 5,
+      "flags_b": 8194,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/field-5",
+     "kind": "field",
+     "name": "Word",
+     "number": 3,
+     "rect": [
+      215,
+      39,
+      400,
+      59
+     ],
+     "visible": true,
+     "style": {
+      "shape": "rectangle",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 5,
+      "flags_a": 5,
+      "flags_b": 8194,
+      "style_number": 2,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/field-7",
+     "kind": "field",
+     "name": "Glossary",
+     "number": 4,
+     "rect": [
+      12,
+      63,
+      300,
+      206
+     ],
+     "visible": false,
+     "style": {
+      "shape": "scrolling",
+      "font": "Monaco",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "Glossary\r________\r\r     The first part of the glossary contains various proper names of places as well as the names of various people.\r     The second part contain selected words in English and their equivalents in\rJaanaka (Trade Tongue).\r\rPart 1 - Names\r\rAg Gari - river in Raithé\rAksu - Pantanathean City-State\rAnebryum - Plains south of Cararthé\rAnika - name [f]\rAris Tor - Lord of the Waters [god]\rAsclepius - name [m]\rAserah - Pantanathean City-State\rAyn - Country on the western side of the \r     Inner Sea\rBayn - Pantanathean City-State\rBylus - Captitol of Ayn\rCaalyena - Capitol of Caldayn\rCaana - Pantanathean City-State\rCae - forest in Raithé\rCaldayn - Country on the western side of \r     the Inner Sea\rCana - name [f]\rCararthé - Empire of the Red People\rCarehdis - The Iron Desert\rCazélon - Largest continent on Késhyr\rCol Asam - Pantanathean City-State\rCordova - Pantanathean City-State\rCroesus - name [m]\rCrusmi - a continent in the south Kesh \r     Ocean\rDagé - Pantanathean City-State\rDakhlah - name of the tribes living west \r     of Odaar\rDaon Kel - God of War and Strife\rDarios Kypin - port city in Erenti\rDarius - name [m]\rDenzancs - Sea located northwest of the \r     Cazélon\rDevora - Pantanathean City-State\rDraug - name [m]\rDuine - name [m]\rEana Kae - forest north of Raithé\rÉderyon - state god of Cararthé\rÉbrae Doch - forest southwest of Errach\rErenthinar - Massive city of the City-\r     State Erenti\rErenti - Largest Pantanathean City-State \r     [islands]\rEriat - Sun God; The Sun\rErrach - Capitol of Raithé\rEsideva - Pantanathean City-State\rFelasyn - small continent south of Telamor\rFenm - sea located between Torm and \r     Felasyn\rGabliyon - Gulf on the south of the \r     Cazélon\rGeimreadh - Borderland city\rHaelen - name [m]\rHotan - Pantanathean trading post [Tenari] \rHrit - name of a mountainous nation on the \r     east coast of the Cazélon\rIdehan - desert nation southwest of Maca\rInara - Storm Goddess\rIvar - name [m]\rJaanakis - God of Commerce and \r     Communication\rJaanaka - this language\rJehandi - Pantanathean City-State\rJehasta - Boderland City\rJehel - Pantanathean City-State\rJijin - Pantanathean City-State\rJin - surname\rKalab Ar - Sea northeast of the contintent \r     [Sea of Kalab]\rKalta - name given to the tribes living on \r     the northeast coast\rKanaga - name [m]\rKashi - Pantanathean City-State\rKellen - name [m]\rKesh - Great Ocean to the east of the \r     contintent\rKéshyr - the world\rKhéndeh - The Releaser [god]\rKiarn - name of a captain in the \r     Melenitian Guard\rKormé - Pantanathean City-State\rKumul - Borderland city\rMaca - Nomadic people living in Odaar\rMalticus - Cararthé sorgal\rMeledryni - Sorcerer's Isle; nation of \r     sorcerers\rMelev - Pantanathean City-State\rMelinita - Borderland city; City Goddess\rMeria - Goddess of Fertility\rMobé - Country on the western side of the \r     Inner Sea\rMytheilas - mountain range on the east \r     coast of Cazélon\rNaes - Ocean south of Telamor\rNagada - name of a théhr-amaer residing in \r     the Borderlands\rNathum - small city in Caldayn\rNigan - name [m]\rOdaar - steppes in the west central \r     portian of the Cazélon\rOnver - name [m]\rOsstad - Borderland city\rOstia - Pantanathean City-State\rOures - Pantanathean City-State\rPalamé - Pantanathean City-State\rPantanathea - Confederacy of City-States\rPaschal - name [m]\rPaultinas - name [m]\rPlieasan - ocean west and southwest of \r     Cazélon\rPtolamaas - Pantanathean City-State\rRaeva - name [f]\rRaithé - Country on the northwestern side \r     of the Inner Sea\rRels - Pantanathean City-State\rRimata - Pantanathean City-State\rRogadmen - continent in the southwestern \r     Kesh ocean.\rSagander - God of Knowledge\rSaran -  One of the three inner seas.\rSaris - surname\rScen - sea north of Crusmi\rSebkhat - desert nation south of Maca\rSelevor - name given to the tribes living \r     north of Pantanathea and northwest \r     of the Borderlands\rSelvar - Pantanathean trading post \r     [Selevor]\rSelyr - noble surname\rSoer - surname\rSolr - surname\rSprae - Pantanathean City-State\rStûrm - surname\rStyra - Pantanathean City-State\rTak - Pantanathean City-State\rTargrim - blue rock; Name of mountains \r     north of Raithé\rTaynlor - ocean south of Cazélon\rTelamor - second largest continent; east \r     of the Kesh ocean\rTeleryn - Large city in Raithé\rTenari - name given to the tribes living \r     south of Pantanathea\rTolahr - name [m]\rTorm - continent between the Taynlor and \r     Plieasan oceans\rTrin - name [f]\rVad Hieg - Massive ocean spanning \r     archipelago east of Cazélon\rVatsthyana - Name given to the nation \r     southeast of Cararthé\rXerisa - Pantanathean City-State\rXyrus - name [m]\r\rPart 2 - English-Jaanka Glossary\r\ram - co\rand - el\rapple - eska\rarmor - kurva\rbe - ab\rbear - olmadh\rbeer - sepas\rbeing - abar\rblack - dashvek\rblood - théhr\rblue - tar\rbronze - geri\rcat - aelki\rcopper - asnaka\rcraft - sarna\rcrafter - sarnir\rdarkness - doru\rdesert - careh\rdo - ir\rdo not - iros\rdog - pelyé\rdragon - nagis\rdrink - amaer\rduke - arténbos\rdwarf - naugrym\reat - cismé\relf - aryi\rempire - caran\remporer - carza\rfarmer - tashaan\rfemale - mar\rfolk - saer\rfood - iko\rfruit - éstrar\rgive - ja\rgod - hrah\rgoddess - hranneh\rgold - fin\rgreen - karo\rhalf - ban\rhalfling - ban-kila\rherder - ehra\rhuman - kila\rhunter - oumbés\rI - A\rI'm - Aco\rillumination - lirmiadé\riron - dis\rjewelry - berorpal\rking - ciandé\rlead - ptoth\rmagic - daen\rmale - marum\rme - al\rmine - alar\rmountain - aryn\rmy - neh\rmyself - negun\rnight - dorun\rno - nos\rof - ar\rogre - sorgal\rpaper - dansina\rpen - dal\rplains - ashsalaan\rpriest - sonrel\rpurple- palomal\rred - thé\rrelease - lirmiadé\rrock - grim\rself - gun\rshaman - simra\rsilver - issin\rslave - talr\rsoldier - saermivar\rsorcerer - meledar\rsorcery - meled\rspear - kaov\rspell - daenoch\rsteal - gias\rsteel - diran\rsword - azer\rthief - giaser\rtin - tarla\rtrade - janka\rtree - basori\rtroll - dorusae\rvampire - théhr-amaer\rwarrior - saermi\rwhite - olpa\rwine - almith\rwood - baso\ryellow - naylr\ryes - xae\ryou - an\ryourself - angun\r",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 7,
+      "flags_a": 133,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 4,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 8,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 9,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 1280,
+        "style_id": 7
+       },
+       {
+        "start": 17,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 240,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 254,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 4657,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 4689,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/field-6",
+     "kind": "field",
+     "name": "Lexicon",
+     "number": 5,
+     "rect": [
+      12,
+      63,
+      300,
+      206
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Monaco",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 6,
+      "flags_a": 4,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 4,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/field-8",
+     "kind": "field",
+     "name": "Pronounce",
+     "number": 6,
+     "rect": [
+      12,
+      63,
+      300,
+      206
+     ],
+     "visible": false,
+     "style": {
+      "shape": "scrolling",
+      "font": "Monaco",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "Pronunciation\r_____________\r\r     There are several things to know about pronunciation.  First, feel free to pronounce the words however you wish.  What follows is a short guide as to how the words are intended to be pronounced.  If a word just doesn't sound right to you and you like the way it looks, please, pronounce it how you will.\r     This guide is divided into three sections.  One section for consonants that appear at the beginning of a syllable, on for consonants that appear at the end of a syllable and one for vowels.\r\r     When generated the words will all be singular.  To pluralize a word simply add an 's' or and 'i' on the end to your satisfaction.\r\rConsonants at the beginning of syllables\r\rb    back\rc    cold\rd    do\rf    fit\rg    give\rgr   great\rh    hit\rhl   as hlack\rhr   as hrack\rj    just\rk    kept\rkh   as loch (Scottish)\rl    low\rm    my\rn    now\rp    pot\rpl   as plate\rpt   as kept\rr    read\rs    see\rscl  as sclack\rsl   slop\rspr  sprawl\rst   stake\rt    ten\rth   thought\rtr   trip\rv    voice\rx    as vision\ry    yes\rz    zeal\r\rVowels\r\ra    bat\raa   as bat but longer\rae   way\rai   as bite\rao   as ow\rau   as awe\ray   way\re    ebb\ré    flambé\reh   as breath\rei   bite\ri    if unless at the word end then bee\ria   as maria\rie   as bee\rio   polio\riu   as eeus\ro    either over or ox\roe   as no\rou   as you\ru    up\rû    urge\ry    deny\r\rConsonants at the end of syllables\r\rb    cab\rch   as loch (Scottish)\rd    bed\rdh   as bed and hew\rg    beg\rh    as hew\rk    take\rl    all\rlr   taller\rls   sells\rm    him\rn    on\rncs  tanks\rnm   as enemy\rp    stop\rr    near\rrr   rolled r (Spanish)\rs    miss\rsch  as scotch\rsh   push\rt    bit\rth   path\rts   knots\rv    live\r",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 8,
+      "flags_a": 133,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 4,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 13,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 14,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 27,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 670,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 710,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 717,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 718,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 727,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 728,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 737,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 738,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 745,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 746,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 754,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 755,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 764,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 766,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 775,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 776,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 787,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 789,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 801,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 803,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 812,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 813,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 822,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 823,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 837,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 839,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 856,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 857,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 865,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 866,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 873,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 874,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 882,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 883,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 894,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 896,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 910,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 912,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 918,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 919,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 928,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 929,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 940,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 943,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 952,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 954,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 962,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 965,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 974,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 976,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 985,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 986,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 994,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 996,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1007,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1009,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1017,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1018,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1033,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1035,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1043,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1044,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1052,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1053,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1058,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1064,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1072,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1073,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1084,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1085,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1104,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1106,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1116,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1117,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1128,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1130,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1139,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1142,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1149,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1151,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1157,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1158,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1171,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1172,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1183,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1185,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1194,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1195,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1203,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1204,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1235,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1237,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1249,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1251,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1261,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1263,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1272,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1274,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1283,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1286,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1300,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1301,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1308,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1309,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1320,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1321,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1331,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1333,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1339,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1340,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1347,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1348,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1360,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1361,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1363,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1397,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1406,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1407,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1418,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1420,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1439,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1440,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1451,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1452,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1457,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1458,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1468,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1469,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1478,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1479,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1489,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1490,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1498,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1500,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1508,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1512,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1520,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1523,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1531,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1532,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1539,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1540,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1548,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1551,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1561,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1564,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1574,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1575,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1584,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1585,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1598,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1599,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1617,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1619,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1628,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1630,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1642,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1644,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1652,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1653,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1661,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1663,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1672,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1674,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1682,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 9,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1683,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 9,
+        "style": 0,
+        "style_id": 1
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/button-9",
+     "kind": "button",
+     "name": "New",
+     "number": 7,
+     "rect": [
+      178,
+      6,
+      286,
+      35
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rdo makeWord\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 9,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/button-10",
+     "kind": "button",
+     "name": "Longer Words",
+     "number": 8,
+     "rect": [
+      307,
+      63,
+      409,
+      87
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-5",
+      "font": "Monaco Mac",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Longer Words",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 10,
+      "flags_a": 0,
+      "flags_b": 40965,
+      "style_number": 5,
+      "text_style": 256,
+      "line_height": 12,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-2221/button-16",
+     "kind": "button",
+     "name": "Batch",
+     "number": 9,
+     "rect": [
+      292,
+      6,
+      400,
+      35
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Monaco Mac",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Batch",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rglobal BTC, LNG\rask \"How many words do you wish to generate?\" with \"12\"\rput it into BTC\rif BTC >= 50 then\rput \"A list of \" into LNG\rput the number of words in LNG into WRD\radd 1 to WRD\rput BTC into word WRD of LNG\rput the number of words in LNG into WRD\radd 1 to WRD\rput \" will take several minutes to generate.  Do you wish to proceed?\" into word WRD of LNG\ranswer LNG with \"Ok\" or \"Cancel\"\rif it is \"Cancel\" then\rexit mouseUp\relse if it is \"Ok\" then\rdo genWords\rend if\relse if BTC <= 49 then\rdo genWords\rend if\rend mouseUp\r\ron genWords\rglobal BTC, LNG\rput empty into cd fld Batch\rshow cd fld Batch\rhide cd fld Lexicon\rhide cd fld Glossary\rhide cd fld Pronounce\rset hilite of cd button \"Batch List\" to true\rset hilite of cd btn Lexicon to false\rset hilite of cd btn Glossary to false\rset hilite of cd btn Pronunciation to false\rput BTC into cd fld Count\rput 1 into BLoc\rrepeat for BTC\rdo makeWord\rput cd fld Word into line BLoc of cd fld Batch\radd 1 to BLoc\rsubtract 1 from cd fld Count\rend repeat\rput empty into cd fld Count\rsort lines of cd fld Batch ascending\rend genWords\r\r"
+     },
+     "extra": {
+      "part_id": 16,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/field-20",
+     "kind": "field",
+     "name": "Batch",
+     "number": 10,
+     "rect": [
+      12,
+      63,
+      300,
+      206
+     ],
+     "visible": false,
+     "style": {
+      "shape": "scrolling",
+      "font": "Monaco",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "atmaeca\rsacahkun\rsylpalr\rta\rtencesve\rzinpoichconcs",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 20,
+      "flags_a": 132,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 4,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/button-21",
+     "kind": "button",
+     "name": "Main",
+     "number": 11,
+     "rect": [
+      307,
+      198,
+      409,
+      236
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 18,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Main",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect stretch from top fast\rgo cd Main\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 21,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 24,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/field-22",
+     "kind": "field",
+     "name": "Count",
+     "number": 12,
+     "rect": [
+      121,
+      7,
+      171,
+      20
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Monaco Mac",
+      "size": 9,
+      "align": "right",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 22,
+      "flags_a": 5,
+      "flags_b": 1,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2221/button-23",
+     "kind": "button",
+     "name": "Lexicon",
+     "number": 13,
+     "rect": [
+      307,
+      91,
+      409,
+      117
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-6",
+      "font": "Monaco Mac",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": true,
+      "locked": false
+     },
+     "text": "Lexicon",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rset hilite of cd btn Lexicon to true\rshow cd fld Lexicon\rset hilite of cd btn Glossary to false\rhide cd fld Glossary\rset hilite of cd btn Pronunciation to false\rhide cd fld Pronounce\rset hilite of cd btn \"Batch List\" to false\rhide cd fld Batch\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 23,
+      "flags_a": 0,
+      "flags_b": 49158,
+      "style_number": 6,
+      "text_style": 256,
+      "line_height": 12,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-2221/button-24",
+     "kind": "button",
+     "name": "Glossary",
+     "number": 14,
+     "rect": [
+      307,
+      116,
+      409,
+      142
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-6",
+      "font": "Monaco Mac",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Glossary",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rset hilite of cd btn Glossary to true\rshow cd fld Glossary\rset hilite of cd btn Lexicon to false\rhide cd fld Lexicon\rset hilite of cd btn Pronunciation to false\rhide cd fld Pronounce\rset hilite of cd button \"Batch List\" to false\rhide cd fld Batch\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 24,
+      "flags_a": 0,
+      "flags_b": 32774,
+      "style_number": 6,
+      "text_style": 256,
+      "line_height": 12,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-2221/button-25",
+     "kind": "button",
+     "name": "Pronunciation",
+     "number": 15,
+     "rect": [
+      307,
+      141,
+      409,
+      167
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-6",
+      "font": "Monaco Mac",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Pronunciation",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rset hilite of cd btn Pronunciation to true\rshow cd fld Pronounce\rset hilite of cd btn Lexicon to false\rhide cd fld Lexicon\rset hilite of cd btn Glossary to false\rhide cd fld Glossary\rset hilite of cd btn \"Batch List\" to false\rhide cd fld Batch\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 25,
+      "flags_a": 0,
+      "flags_b": 32774,
+      "style_number": 6,
+      "text_style": 256,
+      "line_height": 12,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-2221/button-26",
+     "kind": "button",
+     "name": "Batch List",
+     "number": 16,
+     "rect": [
+      307,
+      166,
+      409,
+      192
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-6",
+      "font": "Monaco Mac",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Batch List",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rset hilite of cd btn \"Batch List\" to true\rshow cd fld Batch\rset hilite of cd btn Lexicon to false\rhide cd fld Lexicon\rset hilite of cd btn Glossary to false\rhide cd fld Glossary\rset hilite of cd btn Pronunciation to false\rhide cd fld Pronounce\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 26,
+      "flags_a": 0,
+      "flags_b": 32774,
+      "style_number": 6,
+      "text_style": 256,
+      "line_height": 12,
+      "font_id": 32500,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": {
+    "language": "hypertalk",
+    "text": "on openCard\rglobal wordLoc, SYL, SF, BTC\rglobal LNG, SPL\rput empty into cd fld Word\rput empty into cd fld Sylab\rput empty into cd fld NumS\rhide cd fld \"Pronounce\"\rhide cd fld \"Glossary\"\rshow cd fld \"Lexicon\"\rpass openCard\rend openCard\r\r\ron makeWord\rglobal wordLoc, SYL, SPL\rput empty into cd fld Sylab\rput empty into cd fld Word\rput empty into SYL\rif hilite of card button \"Longer Words\" is not true then\rput the random of 4 into SPL\rif SPL <= 3 then\rput the random of 3 into NUM\relse if SPL = 4 then\rput the random of 2 + 2 into NUM\rend if\relse if hilite of card button \"Longer Words\" is true then\rput the random of 4 + 2 into NUM\rend if\rput NUM into cd fld NumS\rput 1 into LOC\rput 1 into wordLoc\rrepeat for NUM\rif SYL is CVC then do sylCvc\rif SYL is CV then do sylCv\rif SYL is VC then do sylVc\rif SYL is V then do sylV\relse do basicSyl\rrepeat until word LOC of cd fld Sylab is empty\radd 1 to LOC\rend repeat\rif SYL is V then put V into word LOC of cd fld Sylab\relse if SYL is VC then put VC into word LOC of cd fld Sylab\relse if SYL is CV then put CV into word LOC of cd fld Sylab\relse if SYL is CVC then put CVC into word LOC of cd fld Sylab\rif SYL is V then\rdo Vowel\rend if\rif SYL is VC then\rdo Vowel\rdo FinCon\rend if\rif SYL is CV then\rdo IniCon\rdo Vowel\rend if\rif SYL is CVC then\rdo IniCon\rdo Vowel\rdo FinCon\rend if\rend repeat\rend makeWord\r\ron basicSyl\rglobal SYL, SF\rput the random of 20 into SF\rif SF <= 12 then put CVC into SYL\relse if SF >= 13 and SF <= 16 then put CV into SYL\relse if SF >= 17 and SF <= 19 then put VC into SYL\relse if SF >= 20 then put V into SYL\rend basicSyl\r\ron sylCvc\rglobal SYL, SF\rput the random of 20 into SF\rif SF <= 1 then put cvc into SYL\relse if SF >= 2 and SF <= 3 then put cv into SYL\relse if SF >= 4 and SF <= 10 then put vc into SYL\relse if SF >= 11 then put v into SYL\rend sylCvc\r\ron sylCv\rglobal SYL, SF\rput the random of 20 into SF\rif SF <= 10 then put cvc into SYL\relse if SF >= 11 and SF <= 17 then put cv into SYL\relse if SF = 18 then put vc into SYL\relse if SF >= 19 then put v into SYL\rend sylCv\r\ron sylVc\rglobal SYL, SF\rput the random of 20 into SF\rif SF <= 2 then put cvc into SYL\relse if SF = 3 then put cv into SYL\relse if SF >= 4 and SF <= 13 then put vc into SYL\relse if SF >= 14 then put v into SYL\rend sylVc\r\ron sylV\rglobal SYL, SF\rput the random of 20 into SF\rif SF <= 9 then put cvc into SYL\relse if SF >= 10 and SF <= 18 then put cv into SYL\relse if SF = 19 then put vc into SYL\relse if SF = 20 then put v into SYL\rend sylV\r\ron IniCon\rglobal wordLoc\rput wordLoc into LCN\rput the random of 147 into INC\rif INC <= 3 then\rput b into word LCN of cd fld Word\relse if INC >= 4 and INC <= 15 then\rput c into word LCN of cd fld Word\relse if INC >= 16 and INC <= 31 then\rput d into word LCN of cd fld Word\relse if INC = 32 then\rput f into word LCN of cd fld Word\relse if INC >= 33 and INC <= 40 then\rput g into word LCN of cd fld Word\relse if INC = 41 then\rput gr into word LCN of cd fld Word\relse if INC >= 42 and INC <= 43 then\rput h into word LCN of cd fld Word\relse if INC = 44 then\rput hl into word LCN of cd fld Word\relse if INC = 45 then\rput hr into word LCN of cd fld Word\relse if INC >= 46 and INC <= 52 then\rput j into word LCN of cd fld Word\relse if INC >= 53 and INC <= 62 then\rput k into word LCN of cd fld Word\relse if INC = 63 then\rput kh into word LCN of cd fld Word\relse if INC >= 64 and INC <= 71 then\rput l into word LCN of cd fld Word\relse if INC >= 72 and INC <= 81 then\rput m into word LCN of cd fld Word\relse if INC >= 82 and INC <= 91 then\rput n into word LCN of cd fld Word\relse if INC >= 92 and INC <= 97 then\rput p into word LCN of cd fld Word\relse if INC = 98 then\rput pl into word LCN of cd fld Word\relse if INC = 99 then\rput pt into word LCN of cd fld Word\relse if INC >= 100 and INC <= 109 then\rput r into word LCN of cd fld Word\relse if INC >= 110 and INC <= 119 then\rput s into word LCN of cd fld Word\relse if INC = 120 then\rput scl into word LCN of cd fld Word\relse if INC = 111 then\rput sl into word LCN of cd fld Word\relse if INC = 112 then\rput spr into word LCN of cd fld Word\relse if INC >= 113 and INC <= 115 then\rput st into word LCN of cd fld Word\relse if INC >= 116 and INC <= 131 then\rput t into word LCN of cd fld Word\relse if INC >= 132 and INC <= 135 then\rput th into word LCN of cd fld Word\relse if INC = 136 then\rput tr into word LCN of cd fld Word\relse if INC >= 137 and INC <= 141 then\rput v into word LCN of cd fld Word\relse if INC >= 142 and INC <= 143 then\rput x into word LCN of cd fld Word\relse if INC >= 144 and INC <= 146 then\rput y into word LCN of cd fld Word\relse if INC = 147 then\rput z into word LCN of cd fld Word\rend if\radd 1 to LCN\rput LCN into wordLoc\rend IniCon\r\ron Vowel\rglobal wordLoc\rput wordLoc into LCN\rput the random of 264 into VCF\rif VCF <= 94 then\rput a into word LCN of cd fld Word\relse if VCF >= 95 and VCF <= 100 then\rput aa into word LCN of cd fld Word\relse if VCF >= 101 and VCF <= 106 then\rput ae into word LCN of cd fld Word\relse if VCF = 107 then\rput ai into word LCN of cd fld Word\relse if VCF = 108 then\rput ao into word LCN of cd fld Word\relse if VCF >= 109 and VCF <= 111 then\rput au into word LCN of cd fld Word\relse if VCF >= 112 and VCF <= 114 then\rput ay into word LCN of cd fld Word\relse if VCF >= 115 and VCF <= 156 then\rput e into word LCN of cd fld Word\relse if VCF >= 157 and VCF <= 164 then\rput é into word LCN of cd fld Word\relse if VCF >= 165 and VCF <= 171 then\rput eh into word LCN of cd fld Word\relse if VCF >= 172 and VCF <= 173 then\rput ea into word LCN of cd fld Word\relse if VCF >= 174 and VCF <= 175 then\rput ei into word LCN of cd fld Word\relse if VCF >= 176 and VCF <= 207 then\rput i into word LCN of cd fld Word\relse if VCF >= 208 and VCF <= 209 then\rput ia into word LCN of cd fld Word\relse if VCF = 210 then\rput ie into word LCN of cd fld Word\relse if VCF = 211 then\rput io into word LCN of cd fld Word\relse if VCF >= 212 and VCF <= 213 then\rput iu into word LCN of cd fld Word\relse if VCF >= 214 and VCF <= 238 then\rput o into word LCN of cd fld Word\relse if VCF >= 239 and VCF <= 240 then\rput oe into word LCN of cd fld Word\relse if VCF >= 241 and VCF <= 242 then\rput ou into word LCN of cd fld Word\relse if VCF >= 243 and VCF <= 252 then\rput u into word LCN of cd fld Word\relse if VCF >= 253 and VCF <= 254 then\rput û into word LCN of cd fld Word\relse if VCF >= 255 then\rput y into word LCN of cd fld Word\rend if\radd 1 to LCN\rput LCN into wordLoc\rend Vowel\r\ron FinCon\rglobal wordLoc\rput wordLoc into LCN\rput the random of 175 into FNC\rif FNC <= 6 then\rput b into word LCN of cd fld Word\relse if FNC >= 7 and FNC <= 8 then\rput ch into word LCN of cd fld Word\relse if FNC >= 9 and FNC <= 13 then\rput d into word LCN of cd fld Word\relse if FNC = 14 then\rput dh into word LCN of cd fld Word\relse if FNC >= 15 and FNC <= 16 then\rput g into word LCN of cd fld Word\relse if FNC >= 17 and FNC <= 20 then\rput h into word LCN of cd fld Word\relse if FNC >= 21 and FNC <= 26 then\rput k into word LCN of cd fld Word\relse if FNC >= 27 and FNC <= 48 then\rput l into word LCN of cd fld Word\relse if FNC = 49 then\rput lr into word LCN of cd fld Word\relse if FNC = 50 then\rput ls into word LCN of cd fld Word\relse if FNC >= 51 and FNC <= 61 then\rput m into word LCN of cd fld Word\relse if FNC >= 62 and FNC <= 105 then\rput n into word LCN of cd fld Word\relse if FNC = 106 then\rput ncs into word LCN of cd fld Word\relse if FNC = 107 then\rput nm into word LCN of cd fld Word\relse if FNC = 108 then\rput p into word LCN of cd fld Word\relse if FNC >= 109 and FNC <= 142 then\rput r into word LCN of cd fld Word\relse if FNC = 143 then\rput rr into word LCN of cd fld Word\relse if FNC >= 144 and FNC <= 162 then\rput s into word LCN of cd fld Word\relse if FNC = 163 then\rput sch into word LCN of cd fld Word\relse if FNC >= 164 and FNC <= 165 then\rput sh into word LCN of cd fld Word\relse if FNC >= 166 and FNC <= 169 then\rput t into word LCN of cd fld Word\relse if FNC >= 170 and FNC <= 171 then\rput th into word LCN of cd fld Word\relse if FNC = 172 then\rput ts into word LCN of cd fld Word\relse if FNC >= 173 then\rput v into word LCN of cd fld Word\rend if\radd 1 to LCN\rput LCN into wordLoc\rend FinCon"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-4423",
+   "name": "About",
+   "number": 3,
+   "layers": [
+    "bkgnd-3624"
+   ],
+   "image": "assets/card-4423.png",
+   "objects": [
+    {
+     "id": "card-4423/field-3",
+     "kind": "field",
+     "name": "About",
+     "number": 1,
+     "rect": [
+      10,
+      41,
+      404,
+      238
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Monaco",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "Fantasy Language Creator 1.1\r____________________________\r\rThis program is dedicated to Cosima Stiefer.\r\rIntroduction\r\r     When I was young I, like many people, read and became fascinated by Tolkien's works.  As I got older I became interested in Role Playing Games.  The game I became the most involved with was RuneQuest™.  I created an elaborate world of my own, replete with maps, races, cultures and of course languages.\r     I created many words and names for things.  I have done some work on grammatical and syllabic structures.  Still, there are time when I tire of thinking up words for things and names for people and place.  \r     To that end I have created, based solely upon the language I have created, a HyperCard program capable of generating words that follow the rules I have set upon my language.\r\rHow it works\r\r     The program is quite simple.  It randomly generates a number of syllables, then it generates the type of syllable, and then the specific letters of each syllable.  It follows the structure of the language I have created and since the implementation works well most words are pronounceable.  There are times however that it will generate ludicrous or unpronounceable words.\r\rThe program\r\r• Main Screen\r     There are four buttons on the Main Screen:\r\r     Begin - Takes you to the word generator.\r     About - Takes you to this screen.\r     Home - Takes you to your home stack.\r     Quit - Quits HyperCard.\r\r• Jaanaka\r     There are eleven buttons on this screen:\r\r     Six shadow box buttons:\r     New - When this button is clicked it will generate a single word of one to four syllables.  This gives greater control over the selection of words to be saved.\r     Batch - When this button is clicked it will ask you how many words you would like to generate.  The upper limit is probably in the vicinity of 32768.  It will warn you if you ask it to generate fifty or more words.  Note also that each time you generate a batch of words the field is cleared beforehand.\r     Save Word - This allows you to save words you have generated to the Lexicon.  If the batch list is full it will ask if that is what you wish to save.  If you do not wish to save the Batch List it will ask if you want to delete the contents of the Batch field and in any case will save the word in the Word field if one is present.\r     Print - This will print the Lexicon.\r     Sort/Export - When chosen this will give you the option to Sort the Lexicon, Export it, or both.  You may sort either alphabetical or reverse.\r     Main - This will take you back to the Main Screen.\r\r     One check box:\r     Longer Words - When this is checked the generator will generate longer words of three to six syllables.\r\r     Four radio buttons:\r     Lexicon - This will bring the Lexicon field forward.\r     Glossary - This will bring the Glossary field forward.\r     Pronunciation - This will bring the Pronunciation field forward.\r     Batch List - This will bring the Batch List field forward.\r\r     There are eight fields on this screen.\r\r     Number of Syllables - This small field just beneath the word Trade Tongue shows the number of syllables for the word being generated.\r     Type of Syllables - The next field shows the type of syllables being generated (i.e., CV, VC, etc.)  It progresses as the word generation does.\r     Word Generation - Then next field over is where the word itself appears.\r     Count - This field appears very near the words Jaanaka.  When you do a Batch generation this field counts down allowing you to have an idea of how much longer it is going to take.\r     Lexicon - This field and the ones below are in the same location on the screen.  They are the largest fields on the screen as well.  Lexicon holds the words that you have decided to save.  It is editable and you may make notes of define the words you have saved.\r     Glossary - This field is not editable.  It contains a smattering of the words I have created over the years as well as some that I have generated with this program.\r     Pronunciation - This is not able to be edited either.  This contains information on the correct pronunciation of the words as well as some information about the syllabic structure.\r     Batch - This contains the words that were generated by the Batch command.  This is editable as well allowing you to correct the words to your liking before saving them to the Lexicon.\r\r• About FLC\r\r     This screen.  Information about the program and myself.\r\r     There are two buttons on this screen:\r     Main - which is the same as above.\r     Begin - which is the same as above.\r\rThe future of this stack\r\r     I would like to add a number of features to this stack.  Among additions I would like to make to this stack would be to add several different language generators, such as generators for the languages of Dwarves, Elves, and various cultural.  I would also like to improve support for Batch generation, exporting functions, user modification of the syllabic structure.\r\rAbout me\r\r     My name is Dan Zappone and I am freelance contractor.  I program in Pascal, C, and of course HyperTalk.  I run a BBS called The CyberSpace Institute (+1.512.206.0274).  I enjoy RPGs and have spent a great deal of time creating a world for use with them.  I can be reached on the Internet as jagwire@io.com.\r\rShareware Notice\r\r     This is a sharestack.  Please feel free to copy and distribute at will.  Please send the $10.00 shareware fee if you like this stack and use it.  Please send me a post card if you like this stack and don't use it.\r     Please email me if you have any suggections for this stack or for any other game aids you would like to see developed.\r\r     Dan Zappone\r     P.O. Box 650232\r     Austin, TX 78765-0232\r\r     jagwire@io.com  (internet)\r",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 5,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 4,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 28,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 29,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 57,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 105,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 117,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 819,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 831,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1212,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 1223,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1225,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1238,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 1445,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 1454,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 4406,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 4417,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 4606,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 4630,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 5005,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 5013,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 5328,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 1280,
+        "style_id": 6
+       },
+       {
+        "start": 5344,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 5695,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 5706,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 5712,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 5727,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 5733,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 5754,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 5761,
+        "font": "Monaco Mac",
+        "font_id": 32500,
+        "size": 12,
+        "style": 256,
+        "style_id": 5
+       },
+       {
+        "start": 5787,
+        "font": "Monaco",
+        "font_id": 4,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4423/button-4",
+     "kind": "button",
+     "name": "Main",
+     "number": 2,
+     "rect": [
+      192,
+      6,
+      290,
+      38
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Main",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect stretch from bottom fast\rgo cd Main\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 18,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4423/button-5",
+     "kind": "button",
+     "name": "Begin",
+     "number": 3,
+     "rect": [
+      305,
+      6,
+      403,
+      38
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Begin",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect stretch from top fast\rgo cd Trade\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 5,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 18,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  }
+ ],
+ "assets": [
+  {
+   "id": "bkgnd-3624",
+   "kind": "image",
+   "file": "assets/bkgnd-3624.png",
+   "width": 416,
+   "height": 240
+  },
+  {
+   "id": "card-4138",
+   "kind": "image",
+   "file": "assets/card-4138.png",
+   "width": 416,
+   "height": 240
+  },
+  {
+   "id": "card-2221",
+   "kind": "image",
+   "file": "assets/card-2221.png",
+   "width": 416,
+   "height": 240
+  },
+  {
+   "id": "card-4423",
+   "kind": "image",
+   "file": "assets/card-4423.png",
+   "width": 416,
+   "height": 240
+  }
+ ],
+ "notes": [
+  "PRNT block id 3886 at 0xC540 (320 bytes): print settings, not decoded, skipped",
+  "PRST block id 3015 at 0xC680 (160 bytes): print settings, not decoded, skipped",
+  "resource fork: 1 icl4 colour icon(s) skipped (no palette)",
+  "resource fork: 1 icl8 colour icon(s) skipped (no palette)",
+  "resource fork: 1 ics4 colour icon(s) skipped (no palette)",
+  "resource fork: 1 ics8 colour icon(s) skipped (no palette)",
+  "resource fork types: FOND(1), FONT(7), ICN#(1), icl4(1), icl8(1), ics#(1), ics4(1), ics8(1), vers(1)",
+  "button flags B bits 0x2000 set (meaning unknown): 13 part(s), e.g. bkgnd-3624/button-13, bkgnd-3624/button-14, bkgnd-3624/button-15",
+  "field flags A bits 0x04 set (meaning unknown): 11 part(s), e.g. card-4138/field-7, card-4138/field-8, card-2221/field-3",
+  "field flags B bits 0x2000 set (meaning unknown): 10 part(s), e.g. card-4138/field-7, card-4138/field-8, card-2221/field-3",
+  "unknown button style number 4: 3 part(s), e.g. bkgnd-3624/button-13, bkgnd-3624/button-14, bkgnd-3624/button-15",
+  "unknown button style number 5: 1 part(s), e.g. card-2221/button-10",
+  "unknown button style number 6: 4 part(s), e.g. card-2221/button-23, card-2221/button-24, card-2221/button-25",
+  "unknown field style number 1: 1 part(s), e.g. card-2221/field-22"
+ ]
+}

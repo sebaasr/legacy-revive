@@ -1,0 +1,1958 @@
+{
+ "ir_version": 1,
+ "program": "hypercard",
+ "source": {
+  "file": "Inigo Gets Out.stak",
+  "bytes": 154848
+ },
+ "name": "Inigo Gets Out",
+ "size": {
+  "width": 512,
+  "height": 342
+ },
+ "units": "px",
+ "start_screen": "card-2927",
+ "script": null,
+ "layers": [
+  {
+   "id": "bkgnd-2575",
+   "name": "",
+   "image": "assets/bkgnd-2575.png",
+   "objects": [],
+   "script": null
+  }
+ ],
+ "screens": [
+  {
+   "id": "card-2927",
+   "name": "",
+   "number": 1,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-2927.png",
+   "objects": [
+    {
+     "id": "card-2927/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      235,
+      140,
+      326,
+      312
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 3695\rend mouseUp\r\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2927/button-3",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      432,
+      26,
+      491,
+      78
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 11284\rend mouseUp\r\r"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 19678,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11284",
+   "name": "",
+   "number": 2,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-11284.png",
+   "objects": [],
+   "layer_text": {},
+   "script": {
+    "language": "hypertalk",
+    "text": "on mouseUp\rgo to card id 2927\rend mouseUp"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-3695",
+   "name": "",
+   "number": 3,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-3695.png",
+   "objects": [
+    {
+     "id": "card-3695/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      185,
+      127,
+      299,
+      240
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 3502\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-3695/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      4,
+      118,
+      147,
+      266
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 9939\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-3695/button-3",
+     "kind": "button",
+     "name": "New Button",
+     "number": 3,
+     "rect": [
+      349,
+      0,
+      511,
+      272
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 8940\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-3502",
+   "name": "",
+   "number": 4,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-3502.png",
+   "objects": [
+    {
+     "id": "card-3502/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      25,
+      67,
+      228,
+      272
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 4132\rgo to card id 4926\rplay harpsichord fast d1 d d d d d d d d d d d d d d d\rflash 6\rgo to card id 5419\rgo to card id 5756\rgo to card id 6426\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-3502/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      261,
+      17,
+      406,
+      146
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 3156\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-3502/button-3",
+     "kind": "button",
+     "name": "New Button",
+     "number": 3,
+     "rect": [
+      418,
+      151,
+      505,
+      221
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 8138\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4132",
+   "name": "",
+   "number": 5,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-4132.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4926",
+   "name": "",
+   "number": 6,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-4926.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5419",
+   "name": "",
+   "number": 7,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-5419.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5756",
+   "name": "",
+   "number": 8,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-5756.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6426",
+   "name": "",
+   "number": 9,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-6426.png",
+   "objects": [
+    {
+     "id": "card-6426/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      215,
+      0,
+      355,
+      130
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 3156\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-6426/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      413,
+      115,
+      487,
+      173
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 8138\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-3156",
+   "name": "",
+   "number": 10,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-3156.png",
+   "objects": [
+    {
+     "id": "card-3156/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      70,
+      81,
+      325,
+      276
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 7525\rplay harpsichord gb1\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-3156/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      430,
+      28,
+      512,
+      87
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 8138\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-7525",
+   "name": "",
+   "number": 11,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-7525.png",
+   "objects": [
+    {
+     "id": "card-7525/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      411,
+      96,
+      512,
+      249
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 8138\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-7525/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      121,
+      99,
+      282,
+      237
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord gb1\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8138",
+   "name": "",
+   "number": 12,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-8138.png",
+   "objects": [
+    {
+     "id": "card-8138/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      118,
+      93,
+      406,
+      293
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 8581\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8581",
+   "name": "",
+   "number": 13,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-8581.png",
+   "objects": [
+    {
+     "id": "card-8581/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      149,
+      115,
+      194,
+      194
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 9001\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9001",
+   "name": "",
+   "number": 14,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-9001.png",
+   "objects": [
+    {
+     "id": "card-9001/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      202,
+      126,
+      250,
+      165
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord c4 a3 f c4 a3 f c4 d c c c\rgo to card id 9494\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9494",
+   "name": "",
+   "number": 15,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-9494.png",
+   "objects": [],
+   "layer_text": {},
+   "script": {
+    "language": "hypertalk",
+    "text": "on mouseUp\rgo to card id 2927\rend mouseUp"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-9939",
+   "name": "",
+   "number": 16,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-9939.png",
+   "objects": [
+    {
+     "id": "card-9939/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      197,
+      46,
+      310,
+      321
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay boing\rgo to card id 10666\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10666",
+   "name": "",
+   "number": 17,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-10666.png",
+   "objects": [
+    {
+     "id": "card-10666/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      180,
+      85,
+      260,
+      156
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 11074\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11074",
+   "name": "",
+   "number": 18,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-11074.png",
+   "objects": [
+    {
+     "id": "card-11074/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      178,
+      151,
+      271,
+      241
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 11851\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-11074/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      397,
+      80,
+      490,
+      155
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 12665\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-12665",
+   "name": "",
+   "number": 19,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-12665.png",
+   "objects": [
+    {
+     "id": "card-12665/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      340,
+      226,
+      430,
+      298
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 13017\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11851",
+   "name": "",
+   "number": 20,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-11851.png",
+   "objects": [
+    {
+     "id": "card-11851/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      171,
+      267,
+      285,
+      332
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 11074\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13017",
+   "name": "",
+   "number": 21,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-13017.png",
+   "objects": [
+    {
+     "id": "card-13017/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      352,
+      195,
+      439,
+      266
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 13638\rplay harpsichord fast a7 b c d e f gw\rgo to card id 13948\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13638",
+   "name": "",
+   "number": 22,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-13638.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13948",
+   "name": "",
+   "number": 23,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-13948.png",
+   "objects": [
+    {
+     "id": "card-13948/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      385,
+      116,
+      512,
+      273
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 14466\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-13948/button-2",
+     "kind": "button",
+     "name": "New Button",
+     "number": 2,
+     "rect": [
+      1,
+      232,
+      104,
+      328
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord e6\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14466",
+   "name": "",
+   "number": 24,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-14466.png",
+   "objects": [
+    {
+     "id": "card-14466/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      61,
+      139,
+      453,
+      342
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect scroll left\rgo to card id 14932\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14932",
+   "name": "",
+   "number": 25,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-14932.png",
+   "objects": [
+    {
+     "id": "card-14932/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      30,
+      27,
+      267,
+      109
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 15631\rgo to card id 15432\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15631",
+   "name": "",
+   "number": 26,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-15631.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15432",
+   "name": "",
+   "number": 27,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-15432.png",
+   "objects": [
+    {
+     "id": "card-15432/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      0,
+      55,
+      80,
+      176
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 16689\rvisual effect dissolve to black\rgo to card id 3985\rwait 1 seconds\rgo to card id 17277\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-16689",
+   "name": "",
+   "number": 28,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-16689.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-3985",
+   "name": "",
+   "number": 29,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-3985.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17277",
+   "name": "",
+   "number": 30,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-17277.png",
+   "objects": [
+    {
+     "id": "card-17277/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      89,
+      248,
+      182,
+      317
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 3695\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8940",
+   "name": "",
+   "number": 31,
+   "layers": [
+    "bkgnd-2575"
+   ],
+   "image": "assets/card-8940.png",
+   "objects": [
+    {
+     "id": "card-8940/button-1",
+     "kind": "button",
+     "name": "New Button",
+     "number": 1,
+     "rect": [
+      12,
+      58,
+      90,
+      174
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": null,
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 16689\rvisual effect dissolve to black\rgo to card id 3985\rwait 1 seconds\rgo to card id 17277\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  }
+ ],
+ "assets": [
+  {
+   "id": "bkgnd-2575",
+   "kind": "image",
+   "file": "assets/bkgnd-2575.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-2927",
+   "kind": "image",
+   "file": "assets/card-2927.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11284",
+   "kind": "image",
+   "file": "assets/card-11284.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-3695",
+   "kind": "image",
+   "file": "assets/card-3695.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-3502",
+   "kind": "image",
+   "file": "assets/card-3502.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-4132",
+   "kind": "image",
+   "file": "assets/card-4132.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-4926",
+   "kind": "image",
+   "file": "assets/card-4926.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-5419",
+   "kind": "image",
+   "file": "assets/card-5419.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-5756",
+   "kind": "image",
+   "file": "assets/card-5756.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6426",
+   "kind": "image",
+   "file": "assets/card-6426.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-3156",
+   "kind": "image",
+   "file": "assets/card-3156.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-7525",
+   "kind": "image",
+   "file": "assets/card-7525.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8138",
+   "kind": "image",
+   "file": "assets/card-8138.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8581",
+   "kind": "image",
+   "file": "assets/card-8581.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9001",
+   "kind": "image",
+   "file": "assets/card-9001.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9494",
+   "kind": "image",
+   "file": "assets/card-9494.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9939",
+   "kind": "image",
+   "file": "assets/card-9939.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-10666",
+   "kind": "image",
+   "file": "assets/card-10666.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11074",
+   "kind": "image",
+   "file": "assets/card-11074.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-12665",
+   "kind": "image",
+   "file": "assets/card-12665.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11851",
+   "kind": "image",
+   "file": "assets/card-11851.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-13017",
+   "kind": "image",
+   "file": "assets/card-13017.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-13638",
+   "kind": "image",
+   "file": "assets/card-13638.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-13948",
+   "kind": "image",
+   "file": "assets/card-13948.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-14466",
+   "kind": "image",
+   "file": "assets/card-14466.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-14932",
+   "kind": "image",
+   "file": "assets/card-14932.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-15631",
+   "kind": "image",
+   "file": "assets/card-15631.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-15432",
+   "kind": "image",
+   "file": "assets/card-15432.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-16689",
+   "kind": "image",
+   "file": "assets/card-16689.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-3985",
+   "kind": "image",
+   "file": "assets/card-3985.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-17277",
+   "kind": "image",
+   "file": "assets/card-17277.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8940",
+   "kind": "image",
+   "file": "assets/card-8940.png",
+   "width": 512,
+   "height": 342
+  }
+ ],
+ "notes": [
+  "no FTBL (format 8): font names unknown, style.font = null",
+  "icon 19678 (card-2927/button-3): stack has no resource fork (HyperCard application icon), not exported"
+ ]
+}

@@ -1,0 +1,1571 @@
+{
+ "ir_version": 1,
+ "program": "hypercard",
+ "source": {
+  "file": "What is HyperCard_.stak",
+  "bytes": 36352
+ },
+ "name": "What is HyperCard_",
+ "size": {
+  "width": 480,
+  "height": 296
+ },
+ "units": "px",
+ "start_screen": "card-2992",
+ "script": {
+  "language": "hypertalk",
+  "text": "∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞\rWhat is HyperCard?\rVersion 2.3\r\r©Copyright 1993-1995 by Apple Computer,Inc.\rAll Rights Reserved.\r\rCreated by Instructional Products at Apple Computer, Inc.\rVers. 1.0 by Pat Chaney, Eli Cochran, Pete Harbeson, and Sarah McGranaghan\r∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞\r\r-- S T A C K  S C R I P T\r-- THE SCRIPTS FOR THIS STACK ARE IN THE BACKGROUND SCRIPT AND\r-- SOME OF THE BACKGROUND OBJECTS"
+ },
+ "layers": [
+  {
+   "id": "bkgnd-2619",
+   "name": "Content",
+   "image": "assets/bkgnd-2619.png",
+   "objects": [
+    {
+     "id": "bkgnd-2619/field-24",
+     "kind": "field",
+     "name": "Body Player",
+     "number": 1,
+     "rect": [
+      121,
+      3,
+      477,
+      262
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 14,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 24,
+      "flags_a": 133,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-1",
+     "kind": "button",
+     "name": "Welcome",
+     "number": 2,
+     "rect": [
+      6,
+      6,
+      114,
+      28
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": true,
+      "locked": false
+     },
+     "text": "Welcome",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 24832,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-4",
+     "kind": "button",
+     "name": "Introduction",
+     "number": 3,
+     "rect": [
+      6,
+      32,
+      114,
+      54
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Introduction",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-13",
+     "kind": "button",
+     "name": "HyperCard",
+     "number": 4,
+     "rect": [
+      6,
+      58,
+      114,
+      80
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "HyperCard",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 13,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-14",
+     "kind": "button",
+     "name": "What's Next",
+     "number": 5,
+     "rect": [
+      6,
+      240,
+      114,
+      262
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "What's Next",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 14,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-15",
+     "kind": "button",
+     "name": "Stacks",
+     "number": 6,
+     "rect": [
+      6,
+      84,
+      114,
+      106
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Stacks",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 15,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-16",
+     "kind": "button",
+     "name": "Cards",
+     "number": 7,
+     "rect": [
+      6,
+      110,
+      114,
+      132
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Cards",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 16,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-17",
+     "kind": "button",
+     "name": "Buttons",
+     "number": 8,
+     "rect": [
+      6,
+      136,
+      114,
+      158
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Buttons",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 17,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-18",
+     "kind": "button",
+     "name": "Home",
+     "number": 9,
+     "rect": [
+      6,
+      162,
+      114,
+      184
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Home",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 18,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-19",
+     "kind": "button",
+     "name": "More Stacks",
+     "number": 10,
+     "rect": [
+      6,
+      188,
+      114,
+      210
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "More Stacks",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 19,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-20",
+     "kind": "button",
+     "name": "Creating Stacks",
+     "number": 11,
+     "rect": [
+      6,
+      214,
+      114,
+      236
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "N Helvetica Narrow",
+      "size": 14,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Creating Stacks",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoTopic\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 20,
+      "flags_a": 0,
+      "flags_b": 8448,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 15,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-21",
+     "kind": "button",
+     "name": "Previous",
+     "number": 12,
+     "rect": [
+      124,
+      266,
+      152,
+      290
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Previous",
+     "icon": "assets/icon-19858.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoPrev\rend mouseUp\r\ron goPrev\rgo previous card\rend goPrev"
+     },
+     "extra": {
+      "part_id": 21,
+      "flags_a": 1,
+      "flags_b": 8193,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 19858,
+      "enabled": false,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/button-22",
+     "kind": "button",
+     "name": "Next",
+     "number": 13,
+     "rect": [
+      446,
+      266,
+      474,
+      290
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Next",
+     "icon": "assets/icon-30394.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgoNext\rend mouseUp\r\ron goNext\rgo next card\rend goNext"
+     },
+     "extra": {
+      "part_id": 22,
+      "flags_a": 0,
+      "flags_b": 8193,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 30394,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/field-26",
+     "kind": "field",
+     "name": "Body Dev",
+     "number": 14,
+     "rect": [
+      121,
+      3,
+      477,
+      262
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 14,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 26,
+      "flags_a": 5,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 18,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/field-25",
+     "kind": "field",
+     "name": "Tag Dev",
+     "number": 15,
+     "rect": [
+      121,
+      199,
+      477,
+      257
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Helvetica",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 25,
+      "flags_a": 5,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 21,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2619/field-27",
+     "kind": "field",
+     "name": "Tag Player",
+     "number": 16,
+     "rect": [
+      121,
+      199,
+      477,
+      257
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Helvetica",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 27,
+      "flags_a": 133,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 21,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "script": {
+    "language": "hypertalk",
+    "text": "∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞\rWhat is HyperCard?\rVersion 1.0\r\r©Copyright 1993 by Apple Computer,Inc.\rAll Rights Reserved.\r\rCreated by Instructional Products at Apple Computer, Inc.\rVers. 1.0 by Pat Chaney, Eli Cochran, Pete Harbeson, and Sarah McGranaghan\r∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞\r\r-- B A C K G R O U N D  S C R I P T\r-- \"--∆\" indicates strings which need to be localized.\r\r------  SYSTEM MESSAGES  ------\r\ron openStack\rcheckHCversion\rshowTextFields\rchoose browse tool\rset the editBkgnd to false\rend openStack\r\ron closeStack\rlock screen\rset the hilite of bkgnd btn \"Welcome\" to true\rend closeStack\r\ron resumeStack\rchoose browse tool\rset the editBkgnd to false\rend resumeStack\r\ron openCard\r-- enable/disable naviagation buttons\rget the number of this card\rset the enabled of bkgnd btn \"Previous\" to NOT (it = 1)\rset the enabled of bkgnd btn \"Next\" to NOT (it = the number of cards)\r-- hilight the topic button\rget the short name of this card\rif there is a bkgnd btn it\rthen set the hilite of bkgnd btn it to true\rend openCard\r\ron arrowKey whichArrow\rif whichArrow is \"Right\" OR whichArrow is \"Down\" then\rclick at the loc of bkgnd btn \"Next\"\relse if whichArrow is \"Left\" OR whichArrow is \"Up\" then\rclick at the loc of bkgnd btn \"Previous\"\rend if\rend arrowKey\r\ron goTopic\rgo card (the short name of the target)\rend goTopic\r\ron checkHCVersion\rif the version < 2.2 then\rrequiresTwoTwoMessage\rlock messages\rif the number of lines in the stacks > 1 then close card window\relse go back\rexit to HyperCard\rend if\rend checkHCVersion\r\ron requiresTwoTwoMessage -- ∆ Localize the string.\ranswer \"“\" & the short name of this stack & \"”\" && ¬\r\"requires version 2.2 of HyperCard or the HyperCard Player.\" && ¬\r\"(You’re using version\" && the version & \".)\"\rend requiresTwoTwoMessage\r\ron showTextFields\rget (the environment is \"Development\")\rset the visible of fld \"Body Dev\" to it\rset the visible of fld \"Tag Dev\" to it\rset the visible of fld \"Body Player\" to not it\rset the visible of fld \"Tag Player\" to not it\rend showTextFields"
+   }
+  }
+ ],
+ "screens": [
+  {
+   "id": "card-2992",
+   "name": "Welcome",
+   "number": 1,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-2992.png",
+   "objects": [],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4222",
+   "name": "Introduction",
+   "number": 2,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-4222.png",
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2619/field-24": "Introduction\r\rWelcome to HyperCard!\r\rThe HyperCard Player comes already installed on your computer’s hard disk. This introduction shows you what you can do with the HyperCard Player.\r\r\r\r\rTo continue, choose the next topic by clicking the “HyperCard” button to the left — or click this button:",
+    "bkgnd-2619/field-26": "Introduction\r\rWelcome to HyperCard!\r\rThis introduction shows you what you can do with HyperCard. \r\r\r\r\r\rTo continue, choose the next topic by clicking the “HyperCard” button to the left — or click this button:"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4745",
+   "name": "HyperCard",
+   "number": 3,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-4745.png",
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2619/field-24": "What is HyperCard?\r\rHyperCard is an application program you use with interactive documents called “stacks.” The version of HyperCard that comes with your computer is called the HyperCard Player. You use the HyperCard Player to work with stacks created with other versions of HyperCard.\r\rYou’re using a HyperCard stack right now.",
+    "bkgnd-2619/field-25": "\rThe HyperCard Icon                         A Stack Icon",
+    "bkgnd-2619/field-26": "What is HyperCard?\r\rHyperCard is an application program you use with interactive documents called “stacks.”  You can use HyperCard to create your own stacks or to browse stacks created by others.\r\rYou’re using a HyperCard stack right now."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4950",
+   "name": "Stacks",
+   "number": 4,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-4950.png",
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2619/field-24": "What are Stacks?\r\rHyperCard stacks are documents you can interact with. You can get stacks designed to balance your checkbook, play games, organize information, show animated movies, and many other things. \r\rStacks are made up of cards. Each “page” of a stack is a card. Stacks can contain any number of cards. This stack contains ten cards — one card for each of the topics listed to the left. \r",
+    "bkgnd-2619/field-25": "Stacks let you move among cards:                                                     \r",
+    "bkgnd-2619/field-26": "What are Stacks?\r\rHyperCard stacks are documents you can interact with. You can get stacks designed to balance your checkbook, play games, organize information, show animated movies, and many other things. \r\rStacks are made up of cards. Each “page” of a stack is a card. Stacks can contain any number of cards. This stack contains ten cards — one card for each of the topics listed to the left. \r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5244",
+   "name": "Cards",
+   "number": 5,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-5244.png",
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2619/field-24": "What are cards?\r\rEach screenful of information in a HyperCard stack is a “card.” A card can be any size, but it’s always a rectangle. Cards contain text, pictures, and buttons. \r",
+    "bkgnd-2619/field-26": "What are cards?\r\rEach screenful of information in a HyperCard stack is a “card.” A card can be any size, but it’s always a rectangle. Cards contain text, pictures, and buttons. \r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5608",
+   "name": "Buttons",
+   "number": 6,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-5608.png",
+   "objects": [
+    {
+     "id": "card-5608/button-2",
+     "kind": "button",
+     "name": "Standard",
+     "number": 1,
+     "rect": [
+      144,
+      149,
+      243,
+      171
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-8",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Standard",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay stop\rput max(2,(min(5,random(5)))) into pitch -- get a pitch between 2 and 5\rput \"g\" & pitch into note\rplay harpsichord note\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 40968,
+      "style_number": 8,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-5608/button-4",
+     "kind": "button",
+     "name": "Radio Button",
+     "number": 2,
+     "rect": [
+      135,
+      116,
+      251,
+      142
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-6",
+      "font": "Palatino",
+      "size": 14,
+      "align": "center",
+      "show_name": true,
+      "highlight": true,
+      "locked": false
+     },
+     "text": "Radio Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseDown\rplay flute\rend mouseDown\r\ron mouseUp\rplay flute\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 57350,
+      "style_number": 6,
+      "text_style": 512,
+      "line_height": 18,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-5608/button-5",
+     "kind": "button",
+     "name": "",
+     "number": 3,
+     "rect": [
+      282,
+      119,
+      341,
+      179
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord a\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 5,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-6",
+     "kind": "button",
+     "name": "",
+     "number": 4,
+     "rect": [
+      348,
+      113,
+      401,
+      181
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord b\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 6,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-7",
+     "kind": "button",
+     "name": "",
+     "number": 5,
+     "rect": [
+      411,
+      124,
+      464,
+      177
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord c\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 7,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-8",
+     "kind": "button",
+     "name": "",
+     "number": 6,
+     "rect": [
+      439,
+      185,
+      464,
+      213
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-5102.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseDown\rplay harpsichord a2s\rend mouseDown\r\ron mouseUp\rplay harpsichord c3s\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 8,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 5102,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-9",
+     "kind": "button",
+     "name": "Hilite",
+     "number": 7,
+     "rect": [
+      211,
+      185,
+      253,
+      220
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Hilite",
+     "icon": "assets/icon-9301.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay flute b2e c3e d2e f3e g2e\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 9,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 9301,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-10",
+     "kind": "button",
+     "name": "Hilite",
+     "number": 8,
+     "rect": [
+      254,
+      185,
+      296,
+      220
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Hilite",
+     "icon": "assets/icon-27009.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord tempo 150 b4e c5e d3e f4e g3q\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 10,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 27009,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-11",
+     "kind": "button",
+     "name": "Hilite",
+     "number": 9,
+     "rect": [
+      297,
+      188,
+      339,
+      223
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Hilite",
+     "icon": "assets/icon-3835.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay flute d3s\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 11,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 3835,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-12",
+     "kind": "button",
+     "name": "Hilite",
+     "number": 10,
+     "rect": [
+      340,
+      188,
+      382,
+      223
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Hilite",
+     "icon": "assets/icon-29484.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay flute d4s\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 12,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 29484,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-13",
+     "kind": "button",
+     "name": "Letter",
+     "number": 11,
+     "rect": [
+      387,
+      190,
+      427,
+      214
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Letter",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay boing tempo 1000 a b a b a bw\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 13,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-14",
+     "kind": "button",
+     "name": "Hilite",
+     "number": 12,
+     "rect": [
+      124,
+      187,
+      166,
+      222
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Hilite",
+     "icon": "assets/icon-5100.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord tempo 300 a#2q c3w\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 14,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 5100,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5608/button-15",
+     "kind": "button",
+     "name": "Hilite",
+     "number": 13,
+     "rect": [
+      169,
+      187,
+      211,
+      222
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Hilite",
+     "icon": "assets/icon-5101.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay harpsichord tempo 300 c#4q g#3q\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 15,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 5101,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-2619/field-24": "What are buttons?\r\rOne way you use a HyperCard stack is by clicking buttons. Buttons perform actions. They can show you different cards, play sounds, open stacks, and more. HyperCard buttons  can look like almost anything.",
+    "bkgnd-2619/field-25": "\r\rThese are all sample buttons.",
+    "bkgnd-2619/field-26": "What are buttons?\r\rOne way you use a HyperCard stack is by clicking buttons. Buttons perform actions. They can show you different cards, play sounds, open stacks, and more. HyperCard buttons  can look like almost anything."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5738",
+   "name": "Home",
+   "number": 7,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-5738.png",
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2619/field-24": "What is Home?\r\rHome is the name of a special stack that HyperCard needs in order to run. You can use the Home stack to open other stacks to use. Most stacks contain buttons like these that take you to the Home stack. ",
+    "bkgnd-2619/field-25": "\rThese buttons are just samples; they don’t\r really take you to the Home stack.",
+    "bkgnd-2619/field-26": "What is Home?\r\rHome is the name of a special stack that HyperCard needs in order to run. You can use the Home stack to open other stacks to use. Most stacks contain buttons like these that take you to the Home stack. "
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-7374",
+   "name": "More Stacks",
+   "number": 8,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-7374.png",
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2619/field-24": "More Stacks\r\rA good way to get started with HyperCard is to look at different stacks. You have stacks already — you can find them in the same folder as the HyperCard Player. You can get more stacks from user groups, other HyperCard users, and software dealers. If you have a modem, you can get stacks from on-line services, too.",
+    "bkgnd-2619/field-26": "More Stacks\r\rA good way to get started with HyperCard is to look at different stacks. You can get stacks from user groups, other HyperCard users, and software dealers. If you have a modem, you can get stacks from on-line services, too."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6220",
+   "name": "Creating Stacks",
+   "number": 9,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2619/field-24": "Creating Stacks\r\rThe HyperCard Player lets you use stacks, but not create new ones. To learn more about HyperCard, create your own stacks, and find out how to write the instructions (called “scripts”) that make stacks work, you need HyperCard 2.4, which is available as a retail product. HyperCard 2.4 includes the fully-featured version of HyperCard, as well as all the tools and documentation you need to use all of HyperCard’s features — including color and QuickTime™ movies. \r",
+    "bkgnd-2619/field-25": "More information about HyperCard is available on the web site: http://hypercard.apple.com",
+    "bkgnd-2619/field-26": "Creating Stacks\r\rHyperCard lets you use existing stacks, and create new ones. To learn more about HyperCard, how to create your own stacks, and find out how to write the instructions (called “scripts”) that make stacks work, refer to the documentation that comes with HyperCard. It will tell you how to use all of HyperCard’s features — including color and QuickTime™ movies. \r\r\r",
+    "bkgnd-2619/field-27": "To order HyperCard 2.4, call 1-800-538-9696 for the Apple Software Reseller nearest you. Or visit the Apple Store at http://www.apple.com"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6449",
+   "name": "What's Next",
+   "number": 10,
+   "layers": [
+    "bkgnd-2619"
+   ],
+   "image": "assets/card-6449.png",
+   "objects": [
+    {
+     "id": "card-6449/button-2",
+     "kind": "button",
+     "name": "Next",
+     "number": 1,
+     "rect": [
+      284,
+      265,
+      314,
+      291
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Next",
+     "icon": "assets/icon-10381.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo Home\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 8193,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16383,
+      "icon_id": 10381,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-2619/field-24": "What's Next\r\rYou’re ready to start exploring HyperCard stacks! \r\rYour Home stack is a good place to start exploring. \rTo go Home, click the Home button at the bottom of this card.\r\rIf you want to stop using HyperCard for now, choose Quit HyperCard from the File menu.",
+    "bkgnd-2619/field-26": "What's Next\r\rYou’re ready to start exploring HyperCard stacks! \r\rYour Home stack is a good place to start exploring. \rTo go Home, click the Home button at the bottom of this card.\r\rIf you want to stop using HyperCard for now, choose Quit HyperCard from the File menu."
+   },
+   "script": null,
+   "grid": null
+  }
+ ],
+ "assets": [
+  {
+   "id": "bkgnd-2619",
+   "kind": "image",
+   "file": "assets/bkgnd-2619.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-2992",
+   "kind": "image",
+   "file": "assets/card-2992.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-4222",
+   "kind": "image",
+   "file": "assets/card-4222.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-4745",
+   "kind": "image",
+   "file": "assets/card-4745.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-4950",
+   "kind": "image",
+   "file": "assets/card-4950.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-5244",
+   "kind": "image",
+   "file": "assets/card-5244.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-5608",
+   "kind": "image",
+   "file": "assets/card-5608.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-5738",
+   "kind": "image",
+   "file": "assets/card-5738.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-7374",
+   "kind": "image",
+   "file": "assets/card-7374.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "card-6449",
+   "kind": "image",
+   "file": "assets/card-6449.png",
+   "width": 480,
+   "height": 296
+  },
+  {
+   "id": "icon-3835",
+   "kind": "image",
+   "file": "assets/icon-3835.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-5100",
+   "kind": "image",
+   "file": "assets/icon-5100.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-5101",
+   "kind": "image",
+   "file": "assets/icon-5101.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-5102",
+   "kind": "image",
+   "file": "assets/icon-5102.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-9301",
+   "kind": "image",
+   "file": "assets/icon-9301.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-10381",
+   "kind": "image",
+   "file": "assets/icon-10381.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-19858",
+   "kind": "image",
+   "file": "assets/icon-19858.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-27009",
+   "kind": "image",
+   "file": "assets/icon-27009.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-29484",
+   "kind": "image",
+   "file": "assets/icon-29484.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-30394",
+   "kind": "image",
+   "file": "assets/icon-30394.png",
+   "width": 32,
+   "height": 32
+  }
+ ],
+ "notes": [
+  "PRNT block id 2284 at 0x8C00 (320 bytes): print settings, not decoded, skipped",
+  "PRST block id 2457 at 0x8D40 (160 bytes): print settings, not decoded, skipped",
+  "resource fork types: ICON(10), ftag(1), vers(2)",
+  "button flags B bits 0x2000 set (meaning unknown): 16 part(s), e.g. bkgnd-2619/button-21, bkgnd-2619/button-22, card-5608/button-2",
+  "button flags B bits 0x2100 set (meaning unknown): 10 part(s), e.g. bkgnd-2619/button-1, bkgnd-2619/button-4, bkgnd-2619/button-13",
+  "field flags A bits 0x04 set (meaning unknown): 4 part(s), e.g. bkgnd-2619/field-24, bkgnd-2619/field-26, bkgnd-2619/field-25",
+  "field flags B bits 0x2000 set (meaning unknown): 4 part(s), e.g. bkgnd-2619/field-24, bkgnd-2619/field-26, bkgnd-2619/field-25",
+  "unknown button style number 1: 3 part(s), e.g. bkgnd-2619/button-21, bkgnd-2619/button-22, card-6449/button-2",
+  "unknown button style number 6: 1 part(s), e.g. card-5608/button-4",
+  "unknown button style number 8: 1 part(s), e.g. card-5608/button-2"
+ ]
+}

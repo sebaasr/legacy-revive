@@ -1,0 +1,2888 @@
+{
+ "ir_version": 1,
+ "program": "hypercard",
+ "source": {
+  "file": "CthulhuCard.stak",
+  "bytes": 237568
+ },
+ "name": "CthulhuCard",
+ "size": {
+  "width": 512,
+  "height": 342
+ },
+ "units": "px",
+ "start_screen": "card-3185",
+ "script": {
+  "language": "hypertalk",
+  "text": "on OpenStack\rhide menubar\rplay \"DkCasMus\"\rend OpenStack"
+ },
+ "layers": [
+  {
+   "id": "bkgnd-4587",
+   "name": "bg 1",
+   "image": "assets/bkgnd-4587.png",
+   "objects": [
+    {
+     "id": "bkgnd-4587/field-2",
+     "kind": "field",
+     "name": "info field",
+     "number": 1,
+     "rect": [
+      257,
+      61,
+      506,
+      278
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-4587/button-5",
+     "kind": "button",
+     "name": "Prev",
+     "number": 2,
+     "rect": [
+      363,
+      283,
+      408,
+      333
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Prev",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo prev\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 5,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1014,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-4587/button-6",
+     "kind": "button",
+     "name": "1st Card",
+     "number": 3,
+     "rect": [
+      315,
+      281,
+      361,
+      336
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "1st Card",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rglobal soundoff\rif soundoff = \"on\" then\rplay \"Don't Worry.snd\"\rwait until the sound is \"done\"\rplay \"Be Happy.snd\"\rwait until the sound is \"done\"\rend if\rgo first\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 6,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 30557,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-4587/button-7",
+     "kind": "button",
+     "name": "Home",
+     "number": 4,
+     "rect": [
+      260,
+      282,
+      307,
+      333
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Home",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rGo Home\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 7,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 21700,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-4587/button-8",
+     "kind": "button",
+     "name": "Next",
+     "number": 5,
+     "rect": [
+      411,
+      283,
+      455,
+      333
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Next",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo next\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 8,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1013,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "script": null
+  },
+  {
+   "id": "bkgnd-2158",
+   "name": "BG 2",
+   "image": "assets/bkgnd-2158.png",
+   "objects": [],
+   "script": null
+  },
+  {
+   "id": "bkgnd-2854",
+   "name": "BG 3",
+   "image": "assets/bkgnd-2854.png",
+   "objects": [],
+   "script": null
+  }
+ ],
+ "screens": [
+  {
+   "id": "card-3185",
+   "name": "Title card",
+   "number": 1,
+   "layers": [
+    "bkgnd-2854"
+   ],
+   "image": "assets/card-3185.png",
+   "objects": [
+    {
+     "id": "card-3185/button-5",
+     "kind": "button",
+     "name": "Run Away!!",
+     "number": 1,
+     "rect": [
+      128,
+      213,
+      191,
+      260
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Run Away!!",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "\ron mouseUp\rplay \"Don't Worry.snd\"\rwait until the sound is \"done\"\rgo home\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 5,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 21700,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-3185/button-7",
+     "kind": "button",
+     "name": "Alpha Search",
+     "number": 2,
+     "rect": [
+      207,
+      208,
+      268,
+      266
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Alpha Search",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "••••••••••••••••••••> POWERHEADER™ For This Script <•••••••••••[3.4.3]••\rLOCATION:  Card Button\rNAME:      Alpha Search                  ID: 7\rLENGTH:    48 Bytes\r\rHANDLERS:  mouseUp\r\rMODS BY:   Pete McBride\rDATE/TIME: Saturday, April 7, 1990  @  10:22 AM\rMACHINE:   Macintosh Plus            SYSTEM: 6.0.4      BITS/PIXEL: 1\r••••••••••••••••••••••••> ©1990 TIME RESEARCH <•••••••••••••••••••••••••\ron mouseUp\rgo to card \"list card\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 7,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 32670,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-3185/button-8",
+     "kind": "button",
+     "name": "Credits",
+     "number": 3,
+     "rect": [
+      280,
+      210,
+      332,
+      263
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Credits",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 2523\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 8,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1009,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-3185/button-13",
+     "kind": "button",
+     "name": "Questions?",
+     "number": 4,
+     "rect": [
+      339,
+      207,
+      410,
+      265
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Questions?",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 4180\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 13,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 23078,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": {
+    "language": "hypertalk",
+    "text": "on stackopen\rplay \"DkCasMus\"\rend stackopen\r"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-6935",
+   "name": "list card",
+   "number": 2,
+   "layers": [
+    "bkgnd-2854"
+   ],
+   "image": "assets/card-6935.png",
+   "objects": [
+    {
+     "id": "card-6935/field-53",
+     "kind": "field",
+     "name": "",
+     "number": 1,
+     "rect": [
+      129,
+      84,
+      377,
+      241
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "Azathoth\rByakhee\rCthulhu\rDark Young\rDeep One\rDhole\rDimensional Shambler\rElder Thing\rFlying Polyp\rFormless Spawn\rFungi from Yuggoth\rGhast\rGhoul\rGreat Race of Yith\rHound of Tindalos\rHunting Horror\rIthaqua\rMoon Beast\rNightgaunt\rNyarlathotep\rServitor of the Outer Gods\rShantak\rShoggoth\rShub-Niggurath\rStar Vampire\rYog-Sothoth",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mousedown\r-- hilight selection and follow drag\rput the clickLoc into ClickedHere\rset lockText of target to false\rclick at left of target + 1,item 2 of ClickedHere\rclick at right of target - 20, item 2 of ClickedHere with shiftKey\rput selection into holder\rgo to cd holder\rset lockText of target to true\rif holder = \"\" then beep\rend mousedown\r"
+     },
+     "extra": {
+      "part_id": 53,
+      "flags_a": 1,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-6935/button-55",
+     "kind": "button",
+     "name": "Go Back",
+     "number": 2,
+     "rect": [
+      386,
+      118,
+      433,
+      170
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Go Back",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo prev\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 55,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1012,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-3967",
+   "name": "Azathoth",
+   "number": 3,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-3967.png",
+   "objects": [
+    {
+     "id": "card-3967/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      463,
+      285,
+      503,
+      326
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"What do i do?.snd\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:  \r     Azathoth is a seething, pulsing mass proto-plasm, the size of a star.  It is power without limit, but apparently, power without intelligence or focus either.  Azathoth is commonly regarded as the most powerful of the \"Outer Gods,\" and placed in the same category of power as Shub-Niggurath, Yog-Sothoth and Nyarlathotep.\r\r    Distribution:\r    Azathoth is found at the center of the known universe, where it sits upon its throne, pulsing and writhing to the music of its many servitor gods.  It can be summoned to Earth with the use of truly mighty magic.\r    In the past, this being has made numerous visits to Earth.  Perhaps the most well known of these is the Siberian Explosion of 1908.  This visitation destroyed many square miles of wilderness, leaving a blasted landscape and alkali pits in its wake.  \r\r    Habits:\r    When on its throne, Azathoth is unlikely to notice anything short of another deity.  It rarely leaves its throne, often sending ser-vitors, or the god Nyarlathotep off on its missions\r    When encountered upon Earth, Azathoth starts off as a mass about 2 meters in diameter.  The mass begins to grow, in a geometric progression after its arrival.  After just a few minutes, Azathoth can reach a size of thousands of meters across, crushing anything in its way.  Azathoth's growth, if left unchecked could easily destroy the entire planet, (or the entire solar system) it is believed.\r \r    Warning Signs:\r    • None.  Either you know Azathoth is there, or it isn't.  \r    • Azathoth is often mistaken for Yog-Sothoth or Shub-Niggurath, but may be positively identified by its rapid growth pattern, which the other Outer Gods do not exhibit. \r    \r    If Encountered:\r    Attempt to stop the summoning ceremony.  If Azathoth is here, you're too late.  The only hope then, is to magically dismiss the deity.  Failing that, flee.  \r    Under no circumstances should you attempt to directly attack this entity.\r    \r    Louis Says:\r    This guy is big.  Huge.\r    He is also the boss.  My expert advice is to run away.  You *can't* fight him/it.  Just hope he/it ignores you long enough for you to leave the immediate galaxy.\r\r    The Button:\r    If you think you can take it out....\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5098",
+   "name": "Byakhee",
+   "number": 4,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-5098.png",
+   "objects": [
+    {
+     "id": "card-5098/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"byakhee\"\rwait until the sound is \"done\"\rplay \"byakhee\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Byakhee are noisy, gregarious creatures, found in flocks of five or more.  They stand about man-sized, having great wings, and  bodies covered with fine hair.  \r    Their bodies are composed of a very tough substance, giving them the ability to survive interstellar vacuums and cold.  Typically, they are minor servitor beings for a cult, often in the service of Hastur.\r    \r    Distribution:\r    These beings are not native to Earth.  It is believed that their normal habitat is in the airless void of space.  When on a planet, they are either hunting, or serving a cult.\r\r    Habits:\r    Byakhee are social creatures, often hunting in packs.  They do not eat solid food.  Rather, they suck the vital fluids from their victims, leaving a dessicated corpse.\r    They are believed to be intelligent, and are very canny hunters.  Occasionally, cults will keep Byakhee as flying mounts, or as hunts-beasts.\r\r    Warning Signs:\r    • Chattering Sounds (listen to recording)\r    • Bodies turning up without blood\r    • \"UFO\" Activity\r\r    If Encountered:\r    Try to force the Byakhee into a place where it cannot use its agilty against you.  Single Byakhee are not great threats, but packs can be very dangerous.\r    The presence of Byakhee usually indicate that darker things are to be found nearby.  Watch yourself\r\r    Louis Says:\r    Pretty hard to kill, but they pass the flame test.  I also recommend acid baths.  They do fall down when you shoot them, but they have a tendency to get back up unless you are a good shot and a xenobiologist.  Running is a good option.\r\r    The Button:\r    Recording of Byakhee chatterings.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8146",
+   "name": "Cthonian",
+   "number": 5,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-8146.png",
+   "objects": [
+    {
+     "id": "card-8146/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Ahhh\"\rEnd mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    These worm-like creatures often grow to enormous size, reaching over two hundred feet in the larger of observed specimens.  They are eyeless, but sense their surround-ings through the use of their tentacles and their telepathic powers.  They are very intelligent, and magically inclined.\r    These beings are not typically associated with any Cthuloid entities, save Shudde M'ell;     the ruler of all Cthonians, who has a small cult following on Earth. \r    Cthonians have telepathy which allows them to communicate with humans.  This telepathy can be used to dominate humans, too.  They often use this power to mentally paralyze a person, so that they cannot escape.\r    In addition to their telepathy, Cthonians have the power to generate earthquakes.  A group of thirty adult Cthonians can create an earthquake of around 8.0 on the Richter scale.\r\r    Distribution:\r    It is unknown whether or not these creatures are native to earth, or if they came from the stars.  At any rate, these beasts seem to have set themselves up quite well.  They spend much time in the upper reaches of Earth's crust.  It is rumored that there is a city in northern Africa called G'harne, where Cthonians congregate.\r    \r    Habits:\r    The adults spend most of their time either feeding themselves, or caring for their young.  The young gain nourishment through organic liquids, while the mature Cthonian gains energy and nourishment directly from the Earth.  The parents are very protective of their young, and will kill anything threatening the small ones.\r\r    Warning Signs:\r    • Strange chanting noises\r    • Unusual earthquake activity\r    • Unexplained slime trails\r    • Foul odor\r    \r    If Encountered:\r    Do not attempt to destroy any small Cthonians, as the parents are vindictive.  These beings consider humans as nothing more than fodder for their young.  Act accordingly.\r\r    Louis Says:\r    The little ones aren't difficult to kill, but the big ones aren't scared of much short of a tacnuke.  Don't kill the little ones, though; the big ones take it personally.  Let the professor types talk about elder signs as panaceas.  I figure that if it doesn't fall down when I shoot it and it doesn't burn, it's time to run away.\r\r    The Button:\r    Typical Investigator reaction upon sighting a fully grown Cthonian.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8455",
+   "name": "Cthulhu",
+   "number": 6,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-8455.png",
+   "objects": [
+    {
+     "id": "card-8455/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"game over, man.snd\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Cthulhu is the most powerful (and most famous) member of a species of creatures which fell from the sky and landed upon Earth millions of years ago.  They appear as giant humanoids, with heads that resemble octopi.  They also posess wings which are capable of bearing them aloft. \r    These beings are highly plastic, almost amorphous.  This ability gives them great resilience against physical attacks.  \r    Cthulhu and his spawn also have the ability to fly from planet to planet when \"the stars are right.\"  However, their great power is bound to some kind of cosmic cycle of waxing and waning powers.  Luckily, we are in a period where Cthulhu is weak, but nothing lasts forever... \r    Cthulhu is worshipped as a Great Old One, immensely powerful, but not a true god, as are Nyarlathotep, Yog-Sothoth, or Shub-Niggurath.  Cthulhu and his spawn are the most worshipped of any of the Great Old Ones.   \r\r    Distribution:\r    Currently, he and his kind are locked down in the city of R'leyh, somewhere at the bottom of the Pacific.  Cthulhu is kept in a massive tomb, sealed by an Elder Sign.  Here, he cannot directly attack humanity.  However, he can broadcast telepathic messages \"dreams\" to his worshippers.   His cults work towards freeing Cthulhu from his tomb in R'leyh.  Cthulhu is also served by Deep Ones, fish-men who live in great undersea cities.\r    \r    Habits:\r     Since he is locked in his tomb at R'leyh, he acts through his cult.  Rarely are his kind encountered.   They are highly intelligent, magically potent, and physical powerhouses.  You are not the poorer if you have not had a run-in with one of these entities.\r\r    Warning Signs:\r    • Smell of dead and rotting fish\r    • Uncharted isles appearing and disappear-ing again\r    • Mass lunacy/nightmares\r\r    If Encountered:\r    Contact with these beings is physically and psychically detrimental, to say the least.  The best course of action is to RUN, as even Elder Signs are not guaranteed protection against these entities.  \r\r    Louis Says:\r    The button says it all.\r\r    The Button:\r   If you encounter Cthulhu....\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8902",
+   "name": "Dark Young",
+   "number": 7,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-8902.png",
+   "objects": [
+    {
+     "id": "card-8902/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"DYOSN\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    These creatures are the \"Young\" referred to in Shub-Niggurath's full title (\"Black Goat of the Wood with a Thousand Young\".)  Whether or not they are actually offspring of Shub-Niggurath or is not truly known.  They are often employed by those in the cult of Shub-Niggurath, though.\r    Dark Young have three legs which join in a squat body, topped with at least four thick tentacles, and innumerable smaller ones.  The body is covered with large mouths that resemble open sores.\r\r    Distribution:\r    Typically, these beasts are found in overgrown, sparsely populated areas.  Most often, they are employed as attack beasts by a cult.  It is unknown if these creatures are native to Earth; most investigators assume they are not.\r\r    Habits:\r    This creature hunts singly, looking for prey rich in blood.  Typically they eat animals, but they have been known to snack upon humans when the opportunity presents itself.  \r    Its preferred mode of hunting is to stand motionless, wait for prey to pass by it, then snatch the prey up in its tentacles.  Of course, the tree-like shape of a Dark Young assists it greatly in catching prey in this manner.  Once the prey has been captured, the Dark Young stuffs the food into one of its many mouths.\r\r    Warning Signs:\r    • Foul Smell:  \"Kinda like broccoli gone bad\"\r\r    If Encountered:\r    It is recommended that investigators not directly engage these creatures.  Their bodies are extremely tough, and highly resistant to physical weaponry.  \r\rLouis Says\r    Sorta smelly.  Embarrassing on a first date.  Definitely anti-social.  Also it has tentacles.  Number one sign that it should be dead.  Shoot it with 70mm solid slugs until those tentacles stop waving around.  Then burn it.  Then bury the bits in different places.  Then run.\r\r    The Button:\r    Recorded growl of a Dark Young\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8995",
+   "name": "Deep One",
+   "number": 8,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-8995.png",
+   "objects": [
+    {
+     "id": "card-8995/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"DeepOne.snd\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    These creatures are a foul amalgamation of fish, frog, and human.  They have scaly skin, colored anywhere from green to mottled gray.  Their bellies are lighter in color, and smooth like a frog.\r    They are water dwellers, but appear to have no problems dealing with living on land.  Underwater, they have built great cities.  Above water, they have interbred with humans, and propagate their cults.\r    These creatures are either in the service of Dagon and Hydra (\"Father and Mother\" of all Deep Ones), or they are in the service of one of Cthulhu's cults. \r\r    Distribution:\r    Underwater, their cities cover huge areas of the ocean floor.  Typically, they build in shallower waters, rarely making cities lower than .5Km beneath the surface.  They can be found in any ocean, save those near the polar reigons.\r    Above water, Deep Ones have footholds in almost every major port city.  A large colony of Deep Ones was established in Innsmouth, Massachusetts.  They have been found everywhere from San Francisco to Shanghai.\r\r    Habits:\r    Deep Ones usually build their cities close to human settlements, so they will not have to go far in order to feed and mate.\r    Deep Ones mate with humans (usually during some disgusting fertility ritual.)  The childern born of these unions appear normal for the first twenty or so years of life.  After this time, they acquire the \"Innsmouth Look.\"  \r    The \"Look\" manifests itself with a flaking of the skin, bulging, watery eyes; ears and nose shrivelling, loss of body hair.  These are the early signs.  Later on, the young Deep One begins to hunch its back, and walk with a hopping gait.  By the age of 40, the Deep One transformation has usually run its course, and the Deep One will go and join its kin in the open sea.\r    Whole communities (as was the case with Innsmouth) can become involved with these cults (and the attendant physical change).  \r\r    Warning Signs:\r    • Strong fishy odor\r    • The \"Innsmouth Look\"\r\r    If Encountered:\r    A small group of Deep Ones do not present a huge threat to a trained group of Investigators.  However, watch out for Deep One priests, and watch out for the Deep Ones who are armed with spearguns.\r    \r    Louis Says:\r    Relative pansies.  These guys are tough fighters and they stink like anything, but a solid slug shotgun blast will do the trick.  Of course, that means you're practically on top of the bastard, but if you use WP shells, you can watch the perverted thing squirm as it fries.\r    Not the kind of creep I'd let my sister go out with.\r\r    The Button:\r    Deep One leader's war cry, recorded in the field.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9418",
+   "name": "Dhole",
+   "number": 9,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-9418.png",
+   "objects": [
+    {
+     "id": "card-9418/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"HOLY SHIT.snd\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Dholes are enormous worm-like creatures.  They appear to be nearly mindless, but hugely powerful.  Their sheer size (1000' or more in length) makes them among the more terrifying creatures that an investigator could ever hope to come up against.\r    The place of Dholes in the Cthulhu Mythos is sadly, unknown.  All that is known about Dholes is that they spell doom for an infested planet. \r\r    Distribution:\r    These creatures appear to originate in the dimension known as the Dreamlands, though little is known of them in their native dimension.  It is believed that Dholes have travelled to other planets in the past and laid waste to them.  Luckily, there appears to have been little Dhole activity upon Earth.\r\r    Habits:\r    Dholes are, for all intents and purposes, like their smaller counterpart, the earth-worm.  Like earthworms, Dholes subsist upon naturally ocurring orgainc matter to be found in the upper crust of most life supporting planets. They tunnel through the upper crust, subsisting on hydrocarbons (oil, naturally ocurring methane, dead animal/plant matter, etc.)\r    However, Dholes need hundreds of tons of hydrocarbons on a daily basis.  Given this, Dholes rapidly throw the ecology of an infested planet out of balance.  Within a few years, the panet is reduced to litle more than a barren rock, riddled with tunnels.\r    It is unknown how Dholes travel from planet to planet, or if they are even capable of interplanetary travel unaided.\r\r    Warning Signs:\r    • Unusual earthquake activity, usually reported as a weak, sustained vibration.\r    • Unusual depletion of fossil fuel reserves.\r\r    If Encountered:\r    There is little that investigators can do, but report Dhole activity to the armed forces.\r    The best course of action is to put as many miles between you and the Dhole as you can.  This may not save you, as these creatures can spit an acidic slime for great distances.\r\r    Louis Says:\r    Next planet, please.\r\r    The Button:\r    Typical investigator response to a Dhole sighting.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9631",
+   "name": "Dimensional Shambler",
+   "number": 10,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-9631.png",
+   "objects": [
+    {
+     "id": "card-9631/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"UhOh\"\rwait until the sound is \"done\"\rplay \"DS\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    The Dimensional Shambler looks vaguely like a strangely proportioned human.  Its long arms easily reach the ground, even as it stands fully upright.  They don't have real facial features, except for empty eye sockets.  They also posess a baggy hide, which makes the Dimensional Shambler look three sizes too small for its own skin.\r    These beings are summoned for rituals by human cultists.  Other than this, their place in the mythos is unclear.  \r\r    Distribution:\r    These entities make their home in the same  \"in-between\" dimension that beings like Yog-Sothoth live in.  Shamblers hop in and out of this dimension, stopping in our dimension to feed.  This dimension hopping ability allows a Shambler to appear anywhere or anywhen on Earth.\r\r    Habits:\r    These beings hunt live prey.  Typically, Shamblers watch their prey from their \"home\" dimension, waiting for the moment to strike.  When it strikes, the Shambler quickly materializes near its prey, grasps it, then goes back into its home dimension.  People or beings so captured are never heard from again.\r\r    Warning Signs:\r    • None\r\r    If Encountered:\r    These beings remain in our dimension only briefly, there isn't much that can be done about them.  Shamblers appear to be highly resistant to conventional weaponry.  Try magic. \r\r    Louis Says:\r    These guys are really obnoxious.  They don't stick around long enough to get shot.  They pretty much ignore fire, too.  This makes 'em trouble in my book.  \r    Stuck one with a ceremonial blade once, though.  Critter didn't like that at all, zapped itself away pronto.  \r\r    The Button:\r    Scream of an unfortunate Shambler victim being carried off into the Shambler's home dimension.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9747",
+   "name": "Elder Thing",
+   "number": 11,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-9747.png",
+   "objects": [
+    {
+     "id": "card-9747/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Elder Thing\"\rwait until the sound is \"done\"\rplay \"Elder Thing\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Elder Things, (also called \"Old Ones\") are a race of half animal/half vegetable creatures.  Their bodies are barrel like, with a starfish like head at the top.  At the bottom of their bodies are five large tentacles, used for walking.  Elder Things also have five wings, and five smaller arm tentacles.\r    Millions of years ago, these beings came to Earth from the stars.  They built great cities upon the land, and under the seas.  It is believed Old Ones created the first life on Earth, in order feed themselves.  Elder Things also created the Shoggoths as slave beasts, which would later prove to be their undoing.\r    After a series of wars with other alien beings upon Earth (Mi-Go, etc.) these beings began to be forced out of their cities.  After a massive uprising by the Shoggoths, Elder Things were all but forced from their cities.  Their last land city was in what is now Antartica.\r    In their heyday, these creatures were very technologically sophisticated, especially in the areas of genetic engineering and arch-itecture.  These beings were also magically inclined, having great mental powers. \r\r    Distribution:\r    Only a fraction of the original population of these beings remains on Earth today.  Most of these will be found in the deep ocean, at depths of more than 1Km.  Their home planet has yet to be identified. \r\r    Habits:\r    These beings are omnivorous, eating anything they can lay their tentacles upon.  It is believed that Elder Things can gain nutrients from inorganic substances, much like a lichen does.  In their hunting for food, these creatures sometimes use finely crafted hand weapons.  More often then not, they use their mental powers to help capture food. \r    Elder Things reproduce through spores, which grow rapidly into new Elder Things.  \r\r    Warning Signs:\r    • Strange fluting noises (listen to recording)\r\r    If Encountered:\r    These beings consider humans as (at best) an experiment that went awry.  They are highly intelligent, exhibit mental powers, and are capable of surviving any climatic extreme that Earth has to offer.  It is unknown whether or not these creatures are capable of space-flight, though Elder Things still can fly through a planetary atmosphere.\r\r    Louis Says:\r    Little baaaaby quiffids!\r    Fire works ok on these, but they are very tough customers.  Your best bet is very strong acid when they are still young and incapable of movement.  They propagate via spores, and their rate of growth is phenomenal.  Also, they enslave men's minds. *ALWAYS* terminate these creatures.  If you have no acid or incendiary, you haven't got a prayer, but run away anyhow.\r    \r    The Button:\r    Elder Thing speech.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9984",
+   "name": "Flying Polyp",
+   "number": 12,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-9984.png",
+   "objects": [
+    {
+     "id": "card-9984/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"polyp\"\rwait until the sound is \"done\"\rplay \"polyp\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Flying Polyps are a monstrous mass of pulsing flesh.  They much resemble Shoggoths in size and general appearance.  However, these creatures lapse in and out of invisibility, a feature which sets them apart from most other Cthuloid entities.\r    These beings rarely align themselves with any Cthuloid deity or cult.  However, there is a great enemity between Flying Polyps and the Great Race.\r\r    Distribution:\r    These beings originally came from space, and landed on Earth in search of prey.  At their height, Flying Polyps lived in window-less cities of black basalt.  Today, hese beings, for the most part, live underground, in great caverns unknown to man.  Rarely do they come above the surface and into the sunlight.\r\r    Habits:\r    Flying Polyps are great hunters, using their power of wind control to help them catch  prey.  They may be intelligent, but do not appear to have true civilizations as the Elder Things or the Great Race did.  Flying Polyps are carnivorous and malignant.\r    They constantly make a piping laugh, which helps locate them, even when invisible.\r\r    Warning Signs:\r    • Unusual winds:  winds that suck, not blow.  Winds that go around obstacles.\r    • Distinctive five toed, circular tracks.\r    • Piping, whistling sound.\r\r    If Encountered:\r    Their invisibility makes Polyps difficult targets.  These beings are also extremely tough and strong.  Add to this, their power of wind control, and you have a creature which you'd best not encounter.\r\r    Louis Says:\r    These are really ugly suckers, when you can see 'em.  They ignore gunfire, they've got tentacles.  What more do I have to say? RUN!\r\r    The Button:\r    Piping sound of a Flying Polyp on the hunt.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10397",
+   "name": "Formless Spawn",
+   "number": 13,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-10397.png",
+   "objects": [
+    {
+     "id": "card-10397/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"UhOh\"\rwait until the sound is \"done\"\rplay \"Yuck\"\rwait until the sound is \"done\"\rplay \"Belch\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    These beings resemble nothing more than \"a couple hundred gallons of tar with an attitude.\"  They can form temporary legs, mouths, arms, even wings, with lightning speed.  Formless Spawn rarely keep the same form for more than a few seconds at a time.\r    Formless Spawn are associated with a Great Old One called Tsathoggua.  Whether they are actually his \"spawn\" (as the name \"Formless Spawn of Tsathoggua\" would indicate), or simply his servitors is unknown.\r    As yet, it has proved almost impossibe to find out if these creatures posess true intelligence, or are simply servant beings. \r\r    Distribution:\r    Typically, Formless Spawn are found in lightless caverns.  They also can be found in temples of Tsathoggua, serving as guardian beasts.  It is unknown if these creatures are native ot Earth.\r\r    Habits:\r    These beings subsist upon organic material, whether dead or alive.  They have no problem hunting living beings.  Formless Spawn are quite stealthy, and almost invisible in their natural surroundings.\r    Though stone images of Tsathuoggua have been found in caverns with these beasts, it has been impossible to prove that Formless Spawn actually carved these statues themselves.\r    Formless Spawn, like most underground creatures, do not venture into daylight, though light does not appear to actively harm them.\r\r    Warning Signs:\r    • None.\r\r    If Encountered:\r    Try to imagine attacking living tar.  Bullets don't even faze it, but flames slow it.  It can go under doors, through cracks in the wall, etc.  Assume a defensive posture, then back off.\r\r    Louis Says:\r    Goop.  Definite goop factor here.  These things look like old oil from the crankcase of my Landrover.  Shooting the goop doesn't work great, but flames should hold it up for a while.  Roast goop isn't particularly appetizing, but it beats roast human.\r\r    The Button:\r    Hapless investigator stumbling upon a Formless Spawn.  \r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10516",
+   "name": "Fungi from Yuggoth",
+   "number": 14,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-10516.png",
+   "objects": [
+    {
+     "id": "card-10516/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Mi-Go\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Fungi from Yuggoth (also called Mi-Go, in some circles) are pinkish crustacean beings.  They are not really fungi, as the name suggests.  These beings have large, flat wings, six limbs ending in pincers.  Their heads are convoluted, sometimes described as \"brain like.\"  Fungi communicate with each other by changing their head color, and projecting colored light.\r    Fungi are very intelligent, and capable of communicating with humans by changing their vocal organs to approximate human voice boxes.  The result is a buzzing mimicry of a human voice.\r    These beings are capable of changing their bodily forms.  These transformations are not quick like those of a truly amorphous creature (say a Formless Spawn, for instance.)  With this ability, they can adapt to any environment.  On Earth, most Fungi posess two wings (as pictured here.)  However, they are clumsy flyers, unlike Byakhee.\r  Fungi have mastered technology which enables them to remove the brains from living organisms, and preserve them, in order to gain the knowledge posessed by other races.  Fungi also can create powerful weapons unlike anything seen before on Earth. \r\r    Distribution:\r    The Fungi have an interstellar empire, which is believed to span much of our own galaxy.  Their closest outpost to Earth is on the planet Pluto (called \"Yuggoth,\" in the Mi-Go language.)  \r    On Earth, they have bases placed in remote locations.  Typically, these bases are located in high altitude mountain ranges, where they mine minerals found only on Earth.  These bases typically employ carefully selected humans (who oversee the other human workers,) so Fungi contact with humanity is kept at a minimum.\r    Millions of years ago, Fungi had bases throughout the northern hemisphere of the Earth.  Over time, the Fungi abandoned these bases, retreating to higher altitudes.\r\r    Habits:\r    These beings descend from the stars and land in planetary atmospheres to oversee their mining operations.  They can adapt to any planetary climate with the use of their transformative powers.\r    Occasionally, these beings call upon one or another of the Cthuloid dieties, when their technology is not sufficient to complete their plans.\r\r    Warning Signs:\r    • Strange buzzing voices\r    • \"UFO\" activity\r\r    If Encountered:\r    These beings are very intelligent, and wield powerful technology.  Use appropriate caution.  Their unusual structure makes it difficult to capture them on film.  This structure also degrades rapidly upon the event of a Fungi's death. About a half-hour after one of these beings is killed, only a foul-smelling stain is left.\r    These beings have been known to kill humans, and replace them with disguised Fungi.  Be wary of strangers with buzzing voices.\r\r    Louis Says:\r    Sure these guys got weird guns, but that deoesn't stop 'em from falling down after they take a shotgun blast to the head.  Burn the remains.  \"Roast Fungi, anyone?\"\r\r    The Button:\r    The buzzing voice of a Fungi from Yuggoth.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10824",
+   "name": "Ghast",
+   "number": 15,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-10824.png",
+   "objects": [
+    {
+     "id": "card-10824/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Ahhh\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Ghasts are horrible subterrenean beings, with pale rubbery skin and dimly glowing eyes.  They are huge, standing up to 15' high in some cases.\r    Ghasts are never found outside of their caverns, as any light will harm them.  Flash-lights irritate them, while direct sunlight will kill them in minutes.\r    These beings are not usually affiliated with human cults, unlike Ghouls.\r\r    Distribution:\r    Always found underground, for reasons explained above.   Like their smaller cousins, Ghouls, Ghasts are believed to originate from the Dreamlands.  There, they are numerous.  Upon Earth, Ghasts are found only in the most dismal, dark places.\r\r    Habits:\r    Ghasts will eat anything that they can get their paws on.  This ranges from underground fungi, to the unwary human who wanders into a Ghast cavern.  They appear to be solitary, unlike Ghouls, who almost always hunt in small packs.\r    Ghasts probably do not pack up because of the tendency towards cannibalism that most Ghasts have exhibited.\r    These beings are fierce hunters, using their jumping ability to catch up with prey.  They are capable of jumping upwards of five times the distance that human atheletes can attain; keep that in mind while you wait for the creature to jump into range...\r\r    Warning Signs:\r    • None.  Ghouls usually keep away from the surface world.\r\r    If Encountered:\r    Remember, your best bet is to hit them with your portable spotlight.  This will drive off all but the largest, fiercest Ghasts.\r\r    Louis Says:\r    Jumpin' Jehosaphat.  These are big and they jump all over your case if you let 'em.  You'll need firepower that isn't really man-portable, as their sheer mass is enough to keep 'em going even after you've let 'em have it with a gun that would stop a mastodon.  They make pretty good glue, though.  Wonderful for book bindings.\r\r    The Button:\r    Investigator reaction to a Ghast that refuses to be driven off by a 500,000 candlepower spotlight.\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11209",
+   "name": "Ghoul",
+   "number": 16,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-11209.png",
+   "objects": [
+    {
+     "id": "card-11209/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Dead\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Ghouls are semi-human beings who live beneath the surface, in great warrens.  They have a humanoid form, but have a canine facial structure, including a slightly elongated mouth, and sharp teeth.\r    The hides of Ghouls have been called rubbery or almost elastic.  Their hands end in claws, which they use for digging.  Their toes are split, leaving a distinctive almost \"V\" shaped track.\r    Ghouls are ubiquitous, and are used as guards or servants by many cults.  They ap-pear to be very cunning, but they do not have a true \"civilization,\" like Deep Ones, for in-stance, do.\r\r    Distribution:\r    As mentioned above, these beings can be found on every continent, save for Antartica.  Ghouls avoid bright light, and almost never come out in sunlight, though it does not appear to harm them.\r    Ghouls prefer to build their tunnels near human habitations or graveyards, probably to insure that they will have a good food supply.  These tunnels reach for miles and miles below ground, and have numerous entrances to the surface world.\r    Ghouls are also prevalent in the Dream-lands.  However, it is not known if Ghouls can readily travel back and forth between Earth and the Dreamlands. \r\r    Habits:\r    Living in large groups, Ghouls appear to have some loose \"tribal\" organization, with the strongest Ghoul as the leader.\r    These beings usually subsist upon carrion, human or otherwise.  They commonly rob graveyards/morgues in search of food.  This does not prevent Ghouls from taking down live prey.  Ghouls have been known to add a little variety to their diets in the form of of small animals, or even the occasional investigator.\r    There is strong evidence to show that Ghouls are somehow related to or descended from humans.  However, the particulars of this process is not known.  It is rumored that the famed artist Richard Pickman (ca. 1920's) underwent this transformation, but this is little more than rumor.  There are cases of humans becoming Ghouls by choice, but not of the reverse.\r\r    Warning Signs:\r    • Ghouls have a peculiar meeping, mewling voice (which, we, unfortunately have not had a chance to record yet.)\r    • Grave robberies\r    • Morgue robberies\r\r    If Encountered:\r    Bright light will probably not drive these things off (unlike Ghasts.)  They are resistant to gunfire, but will go down eventually.\r    Chasing Ghouls into a warren is probably not a really good idea.  \r\r    Louis Says:\r    Relative pansies.  These actually fall down when you shoot them.\r\r    The Button:\r    Investigator mistakenly referring to a Ghoul as an undead.  Ghouls are living beings, unlike zombies.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11505",
+   "name": "Great Race of Yith",
+   "number": 17,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-11505.png",
+   "objects": [
+    {
+     "id": "card-11505/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Yith\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    The Great Race of Yith is a race of beings who have given up their original physical bodies, to become creatures of thought.  They are masters of interstellar travel, and of travel through time.  The Great Race spends their lives changing from body to body, learning whatever they can.\r    The creature pictured to the left is the form that the Great Race took millions of years ago, upon Earth.  There are few of these beings still on Earth in our time.  It is believed that the Great Race civilization will flourish again millions of years in our future.\r    The Great Race seems to be on the periph-ery of the Mythos, never really taking sides in conflicts between Cthuloid dieties  and humanity.  They seem to have nothing more than a scholar's interest in the entire process.\r\r    Distribution:\r    The few remaining members of the Great Race in our time may be found in tropical climates, typically in jungles far from humanity.\r    In the peak of their earlier civilization, the Great Race had settlements all across the Earth, living in the bodies pictured here.  They fled this civilization in the wake of many wars with assorted alien races, primarily  Flying Polyps.\r\r    Habits:\r    The Great Race pursue knowledge above all other things.  The whole of their civilization orbited around the gathering of all knowledge form all races.  To further this gain, mem-bers of the Great Race will swap minds with humans of our time.  While in a human body, the Yithian will seek all types of knowledge that the time period has to offer.\r    It is unknown how many races the Great Race has fleeced of knowledge.  It is also unknown what happens to the human who swaps places with the Yithian.  What we do know is that when the victim of the mind transfer usually suffers nightmares and madness after their return.\r    \r    Warning Signs:\r    • If a human has been seized by a Yithian, the person will usually shun contact with their former associates and disappear.  After about five years, the person will return.  However, they will have amnesia regarding the last five years.  \r    Typically, they will also suffer nightmares.  Oftentimes, the victim will have vague mem-ories of the time, though these memories will only surface with the aid of hypnosis.\r    The nightmares/memories usually revolve around the conical creature pictured to the left.\r\r    If Encountered:\r    Yithians usually have little more than contempt for the mass of humantiy at large.  However, there are cases of Yithians aiding investigators against some Cthuloid beings, but these may be just rumors.\r    If engaged, these creatures are capable of fighting back with technological weaponry that is very powerful.  Think twice before attacking.\r\r    Louis Says:\r    They're big and they're ugly!  Also, they got weapons that would make a Mi-Go weep with envy.  But, they're one of the only THINGS that might talk to a human on a one to one level.\r    Now all we gotta do is figure out how to talk to 'em.  They only talk by clicking their freaky claws.\r\r    The Button:\r    Recording of a Yithian communicating by rapidly clicking its claws.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11571",
+   "name": "Hound of Tindalos",
+   "number": 18,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-11571.png",
+   "objects": [
+    {
+     "id": "card-11571/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Hound\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Hounds of Tindalos are extradimensional beasts whose material form is suggestive of a  skeletal wolf.  They are about the size of a very large dog, often 4' or more at the shoul-der.  Their cadaverous forms are covered with an opaque blue substance, much like bluish blood or lymphatic fluid\r    These beasts are usually solitary when encountered on Earth, but in their home dimension, they have been known to roam in packs.  Very rarely, Hounds are tamed to serve a strong master (typically an Outer God, or like being. )\r\r    Distribution:\r    Their home dimension is thought to be the same dimension that Dimensional Shamblers inhabit.  These beings are known to roam deep space.  However, it is unknown whether these beings spend extended periods of time in space, or if they just forage for food there.\r    Hounds can come to Earth.  When here, they are always in search of prey.  Upon Earth, they can survive any climatic extreme.\r\r    Habits:\r    Hounds spend all of their time searching for food, apparently.  It is unknown whether or not these beings are intelligent above an animal level.  When a Hound catches a scent, nothing will stand between it and its prey.\r    No amount of space, or even time can prevent a Hound from finding its prey.  When a Hound gets close to its earthly prey, the Hound begins to manifest itself as roiling smoke coming from a corner near the victim.\r    Once it has completed manifestation, the Hound will leap at its victim, thrusting its tongue (referred to as a \"glossus\") into the victim.  At this time, the Hound feeds upon the \"essence\" of the victim, killing it. \r\r    Warning Signs:\r    • Clouds of smoke originating in corners, with no apparent explanation.\r    • Smears of a bluish substance on or around the victim.\r\r    If Encountered:\r    If you have been scented by a Hound, you still have a chance.  Depending upon the time/space distance of the Hound from you, it will take time for the Hound to reach you.\r    One way to prevent the manifestation of the Hound is to hide in a place free of corners.  However, the Hound can come from any corner, no matter how small.  However, if you leave this sanctuary, the Hound will consider you      \"fair game.\"\r    Like most extradimensional beings, Hounds appear to take no damage from material weapons.  Magic is the only thing that seems to slow these things down.\r    *WARNING* Human contact of any kind with Hounds is extremely dangerous, and it cannot be strongly enough discouraged.\r\r   Louis Says:\r    You can run, but you can't hide.  Your only hope is an elder sign.\r\r    The Button:\r    Growl of a Hound of Tindalos\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-12027",
+   "name": "Hunting Horror",
+   "number": 19,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-12027.png",
+   "objects": [
+    {
+     "id": "card-12027/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Danger, Danger\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Hunting Horrors are winged, snakelike creatures.  Their bodies are composed of a writhing, twitching, ropelike black substance.  Even when at rest, these beings are never completely still, bodies pulsing and heaving.\r    These beings are very intelligent, and sometimes magically inclined.  Hunting Horrors are often \"employed\" by earthly cults of the Outer Gods, especially Nyarlathotep.\r    Hunting Horrors avoid light, and are only seen out at night, or in lightless caves.\r\r    Distribution:\r    These nocturnal creatures shun sunlight.  This being the case, they will only be found in near areas where they can hide during daylight, (caves, abandoned warehouses, etc.)  They could be found anywhere on Earth, since many cults use them as guard beasts.  If found on Earth, they are either acting as a servitor, or they are independently hunting earthly prey.\r    Hunting Horrors are not native to Earth, or our dimension, for that matter.  They have been known to bear intelligent creatures through space without difficulty.\r\r    Habits:\r    Hunting Horrors are almost always solitary.  They avoid light, so they typically spend the daylight period hidden in a dark place, so they may come out at night and seek prey.  Since they dislike light, it is unknown how they tolerate the perpetual solar radiation of interstellar travel.\r    They make powerful, if somewhat unruly servant beasts; however, they will serve a strong master.  Usually, the presence of a Hunting Horror indicates that there are foul things afoot.\r \r    Warning Signs:\r    • None really.\r\r    If Encountered:\r    Like with all extradimensional creatures, physical weaponry has little or no effect upon Hunting Horrors.  If possible, try to force them into sunlight, where they will be at a disadvantage.\r    Most investigators should not attempt to engage these creatures.  Their invulnerability, their magic knowledge, and their sharp teeth make them dangerous opponents.\r\r    Louis Says:\r    Remember what I said about tentacles?  These critters are basically one giant tentacle.  They don't burn real good, they ignore bullets, and they can zap you with magic.  Just back off, and hope the sun comes up before it turns you into critter chow.\r\r    The Button:\r    Investigator warning.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-12117",
+   "name": "Ithaqua",
+   "number": 20,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-12117.png",
+   "objects": [
+    {
+     "id": "card-12117/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Ithaq1\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Ithaqua is a huge humanoid creature, stand-ing well over sixty feet high.  Ithaqua is believed to be a single member of a species of creatures that roam the galaxy.\r    On Earth, Ithaqua is worshipped as a Great Old One, like Cthulhu.  It has a small cult, but is mostly served by creatures called Wendigos.  These beings are smaller versions of Ithaqua himself, warped by his magic.  Typically, these beings were at one time, human.  Wherever it walks, blizzards and freezing storms are sure to follow.\r\r    Distribution:\r    Upon Earth, Ithaqua seems to be limited in range to the northern lattitudes.  It is found mostly in North America, in the Yukon Territories, or Alaska.  Ithaqua does not appear to have been in Antartica, though it is unknown why.\r    Ithaqua and his kin have been known to roam space, settling down on a planet to find prey.\r\r    Habits:\r    Ithaqua is beleived to spend much time in space, travelling from planet to planet.  It touches down on Earth, probably in search of prey, or to bestow favors upon its servitors.\r\r    Warning Signs:\r    People who have been transformed by Ithaqua usually have these features.\r    • Feet have been mutated, made huge.\r    • Invulnerability to cold, their hearts have been frozen.\r    • Cannibalistic tendencies\r    • Madness\r    • Ithaqua himself is accompanied by unusual storm acvity, and a haunting howl.\r\r    If Encountered:\r    Ithaqua himself is a Great Old One, treat him with appropriate caution.  However, if you've met him on his home territory, give it up.  He can control winds and storms, and is so large that he ignores most physical damage.\r    Lesser Wendigos (those that Ithaqua has created) are less trouble to deal with.  They are still, more or less, human, and can be killed.\r    There is a wealth of knowledge on this creature in the folklore of the Algonquian Indian Tribe.  Read up.\r\r    Louis Says:\r    What do you fight ice with?  Fire and a 70mm grenade launcher, that's what.\r\r    The Button:\r    Winds preceeding an attack by the Wendigo.  \r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4674",
+   "name": "Moon Beast",
+   "number": 21,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-4674.png",
+   "objects": [
+    {
+     "id": "card-4674/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Goop\"\rwait until the sound is \"done\"\rplay \"Aliens\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Moon Beasts are grayish, toadlike creatures.  They are highly intelligent, and malicious, deriving pleasure from the pain of other intelligent beings.  They have oily, warty skins, and are able to expand and contract their bodily masses, much like a mollusk.\r    Moon Beasts appear to be blind, but a clump of sensory tentacles on their snouts appears to compensate for the lack of \"normal\" sensory input.  Their intelligence has given them a huge technological advantage over many other races.  Moon Beasts use this advantage to their bebnefit, either in hunting, or in enslaving other races.\r\r    Distribution:\r    Moon Beasts appear not to inhabit Earth, rather they live in a dimension coterminous with ours, the Dreamlands.  There, Moon Beasts have many colonies, and even a few cities.  They also pilot great slave ships which sail from city to city within the Dreamlands.\r    It is believed that a small colony of Moon Beasts lives upon Earth's moon, but this has yet to be substantiated.  There may be other colonies of these creature elsewhere in space.  Their technology would conceivably allow them to colonize all but the most inhospitable worlds.\r\r    Habits:\r    As described above, Moon Beasts spend much of their time gathering slaves for trade.  In this endeavor, they have assistance from a group of men called \"Men from Leng\" (named for the fabled Plateau of Leng.)  These beings serve as intermediaries between the Moon Beasts and the Dreamlands.  These \"men\" much resemble Satyrs of Earthly myth.\r    Somehow, Moon Beasts gain pleasure or even nourishment from the pain of other beings.  For this reason, Moon Beasts and their servants are shunned by all but the most degenerate of human societies.\r\r    Warning Signs:\r    • None.  No Moon Beasts have been yet found upon Earth.\r\r    If Encountered:\r    These beings would like nothing more than to torture you to death.  Act accordingly.\r\r    Louis Says:\r    These things are really disgusting, take it from me.  They've got oily skin and an acne problem like nothing you've ever seen.  Now I don't know about you, but if it's oily and disgusting, I burn it.\r    But that's just me.\r\r    The Button:\r    Moon Beast noises.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5273",
+   "name": "Nightgaunt",
+   "number": 22,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-5273.png",
+   "objects": [
+    {
+     "id": "card-5273/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Wahoo\"\rplay \"WAhaha\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Nightgaunts are winged humanoids, with oily black skin.  They have huge, bat-like wings, with which they can silently fly.\r    These beings are silent, probably because they have no apparatus for speech.  They also lack eyes, nose, and ears, posessing only a        \"suggestive blankness\" (in the words of Lovecraft) where the face would be found.\r    They are social, but appear to be unin-telligent, or to have any group structure.  Typically, they serve as pets to a stronger master.  Nightgaunts are also nocturnal, avoiding daylight, though they appear not to be adversely effected by it.\r\r    Distribution:\r    Wherever their master bids them.  They can be found anywhere on Earth, though only in remote, desolate places.  Typically, they only stray from their territory when their master bids it.\r    Nightgaunts have been known to roam the depth so space too, but only for short periods of time.  Nightgaunts are also known to frequent the Dreamlands, far more than they frequent Earth.\r\r    Habits:\r    Nightgaunts do not seek prey, unless on a mission for their master.  They have no visible sense organs, or organs for obtaining nourishment.  In short, these beings are as enigmatic as their \"suggestive\" blank faces.\r    What we do know is that Nightgaunts are posessive and territorial when it comes to their nests, but no young Nightgaunts have ever been found.\r    Nightgaunts are also social, often flocking up in groups of ten or more.\r  \r    Warning Signs:\r     • \"UFO\" activity\r\r    If Encountered:\r    Nightgaunts attack by silently sneaking up on their prey, grabbing and immobilizing them \"the old clutch and tickle play,\" as some investigators have called it.  Unruly foes are simply dropped from a great height.  Foes who do not struggle are dropped off in desolate, dangerous places.\r    They are material creatures, so weapons might be effective.  Showing the Elder Sign to these creatures will not cause them to back off.\r\r    Louis Says:\r    Hope you're not ticklish or afraid of heights.\rIf so, you have relatively little to worry about.\r\r    The Button:\r    Struggling investigator being tickled by a Nightgaunt just prior to being dropped.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-2638",
+   "name": "Nyarlathotep",
+   "number": 23,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-2638.png",
+   "objects": [
+    {
+     "id": "card-2638/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Howl\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Nyarlathotep is one of the deities put in the category of \"Outer Gods.\"  Where all of the other Outer Gods are only mindless chaos, Nyarlathotep has a will, and even a \"person-ality.\"  He serves as intermediary between the Outer Gods and those races which worship them.\r    Nyarlathotep has 999 forms, other than the one pictured.  It uses each form for a specific purpose.  If Nyarlathotep himself does not have the power to deal with a threat, then he taps into the immense powers of his masters, making him almost unstoppable.\r    Like any of the Other Outer Gods, Nyarlath-otep's plans seem to be nothing shore of pure evil or destruction.\r\r    Distribution:\r    Anywhere or any time that he wishes.\r\r    Habits:\r    Nyarlathotep acts to enforce the wishes of his masters.  He goes where they bid.  Usually, he will try to round up support in the form of human cultists and their allies, before coming into the conflict directly.\r\r    Warning Signs:\r    • None\r\r    If Encountered:\r    The vast majority of Nyarlathotep's forms are monstrous and immensely powerful.  To detail the characteristics of each form here would be an enormous undertaking.  \r    If the form is human in shape, Nyarlathotep may be communicated with directly, and dealt with as an intelligent being.  However, in these forms he is magically powerful, exercise great caution.\r\r    Louis Says:\r    He's a god, for cryin' out loud!  You can't stop him with bullets or bombs or elder signs, just run away real fast!\r\r    The Button:\r    The howl of \"The Howler in Darkness,\" the form pictured to the left, and coincidentally, one of the most commonly seen forms of Nyarlathotep.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5476",
+   "name": "Servitor of the Outer Gods",
+   "number": 24,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-5476.png",
+   "objects": [
+    {
+     "id": "card-5476/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"goop\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Servitors have been described as vaguely toad like massed of tentacled flesh.  They move by rolling themselves from to place to place.  They have a degree of control over their bodies which allows them to form organs and limbs, including wings, as they wish.\r  Often, they play a flute like instrument, from which issues insane music.  They are the pipers to which Azathoth writhes and dances upon his throne.  \r    These beings are used by the Outer Gods as messangers and slaves.  Servitors are intelligent though, and often wield magic.\r\r    Distribution:\r    They can be found anywhere, if their masters feel it is necessary.  If not on a mission, these beings can be found at the throne of Azathoth, piping wildly for him.\r\r    Habits:\r    These beings do their utmost to carry out their master's orders.  Usually these com-mands have something to do with furthering an Outer God cult on Earth.\r    Servitors are sometimes lone heads of a cult, and will often have humans serving it.\r\r    Warning Signs:\r    • Pipe music unlike any other on Earth.\r\r    If Encountered:\r    These beings are extremely tough, and resist any variation in climate or atmosphere.  When you add this to their occult and magical powers, you get a very dangerous creature.  Remember, if you find one of these, you're porbably onto a major cult, watch it.\r\r    Louis Says:\r    Huge goop factor.  If you see one of these things, it's on a mission for something even slimier than it is.  These are not particularly useful except as doorstops for loading bay doors.\r\r    The Button:\r    Sound of  a Servitor flopping towards its prey.  The pipe music was deemed too sanity blasting to be exposed to users of this stack.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5856",
+   "name": "Shantak",
+   "number": 25,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-5856.png",
+   "objects": [
+    {
+     "id": "card-5856/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Shantak\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Shantaks are huge reptilian creatures, much resembling dragons of myth.  They posess great wings (and evidently tremendous strength, just in order to keep itself flying.)\r    These beasts are used as steeds by many different beings.  Shantaks are not particular-ly intelligent, but not particularly malign or predatory, either.\r\r    Distribution:\r    On Earth, Shantaks inhabit remote plateaus and canyons.  It also has been known to fly through outer space, but does not make its home there.\r    Mainly, though, Shantaks can be found in the Dreamlands.  There, they are used as steeds by the intelligent inhabitants.\r\r    Habits:\r    Shantaks eat plants, for the most part.  Despite their ferocious appearance, humans have little to fear from a wild Shantak.  However, those trained by other races, will probably not only be unafraid of humans, but attack them as well.\r    It is known that Shantaks lay eggs, but these are very rare, and like all parents, Shantaks are very protective.\r    For some reason, Shantaks are deathly afraid of Nightgaunts.  The reason for this fear is unknown.  Even trained Shantaks will flee from an agressive Nightgaunt.\r\r    Warning Signs:\r    • Smell of nitre or lime, which comes from the dung of a Shantak.  It is very pungent, and your best clue.\r\r    If Encountered:\r    Remain calm.  If the Shantak is untrained, it will probably leave you alone, since Shantaks mostly eat plants.  However, don't use this as an opportunity for Shantak-egg hunts.\r    If it is being ridden, best watch out, unless you know the rider personally.\r    These things can be effected by normal weapons, but they have very tough skin.\r\r    Louis Says:\r    If you're being bugged by one of these, just call a Nightgaunt.  Problem solved.\r\r    The Button:\r    Shantak \"whinny.\"\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6097",
+   "name": "Shoggoth",
+   "number": 26,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-6097.png",
+   "objects": [
+    {
+     "id": "card-6097/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"WET SLUMP\"\rwait until the sound is \"done\"\rplay \"WET SLUMP\"\rwait until the sound is \"done\"\rplay \"Belch\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Shoggoths are among the most frightening creatures that an investigator could ever hope to encounter.\r    They are multicellular masses of muscles, eyes, and tentacles.  Shoggoths can be any size from a 1' sphere to a mound over 20' around and 6' high.  These beings have absolute control over their masses, and can generate any organ they wish (though no winged shoggoths have been found, thank god) in seconds.\r    Shoggoths were originally created by the Elder Things as slaves.  Kept under a state of hypnosis, the Shoggoths were placid slaves until the revolts.  How the Shoggoths rebelled against their masters is unknown.\r\r    Distribution:\r    These beings live underwater, for the most part, in the ruins of Elder Thing cities.  How-ever, they can instantly adapt themselves to land life.\r    Anywhere that Elder Things have been, Shoggoths will be.  \r\r    Habits:\r    Shoggoths are only nominally intelligent.  They do not have much to do but seek prey.  When prey is caught, the Shoggoth uses a powerful sucking motion to rip the victim apart, to be later consumed at leisure.\r    Shoggoths can reproduce by budding.  Exercise extreme caution with any Shoggoth tissue samples, lest you become overrun with baby Shoggoths.\r\r    Warning Signs:\r    • None.  You either know there's one nearby, or you don't.\r\r    If Encountered:\r    Shoggoths are immensely tough, and do not seem to notice anything short of white phosphorous grenades.  They are immune to any extreme in cold or heat that Earth has to offer.  Pressure too, does not slow them down.\r    Try running really fast.\r\r    Louis Says:\r    Pink concrete.  Fire doesn't hurt it.  Bullets don't hurt it.  It is so big, it would take weeks to microwave it.  Acid is your only hope of attack short of nuclear devices, and if you're close enough to use that, you're too close.  Run away and nuke 'em.\r\r    The Button:\r    Shoggoth ripping apart an unfortunate victim.  It's not pretty, but neither are they.\r\r    Note:  \r    The photographer of this particular specimen was killed seconds after this photo was taken.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6271",
+   "name": "Shub-Niggurath",
+   "number": 27,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-6271.png",
+   "objects": [
+    {
+     "id": "card-6271/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"no use\"\rwait until the sound is \"done\"\rplay \"Ahhh\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    Shub-Niggurath is a loathsome member of the group known as the Outer Gods.  She is believed to be the progenitor of the \"Dark Young.\"  Shub-Niggurath might best be described as a giant tentacled boil, allowed to fester for all time.\r    She is actively worshipped and has many cults on Earth.  She is believed to serve as some kind of monstrous fertility goddess within the Cthulhu Mythos.\r\r    Distribution:\r    Liek all of the other Outer Gods, Shub-Niggurath is not subject to the normal laws of space-time.  \"She\" can be anywhere or anywhen she wants.\r\r    Habits:\r    Shub-Niggurath appears to do little else besides eat and produce monstrous offspring.  It is unknown whether or not she is aware of her worshippers, or if she is anything more than a spawning machine, unlimited growth, like a cancer cell.\r\r    Warning Signs:\r    • None\r\r    If Encountered:\r    Run.\r\r    Louis Says:\r    This thing is all tentacles and slime and goo dripping mouths.  Yuck fest.\r    You could try napalm, but it didn't work for me.  Don't say I didn't warn you.\r\r    The Button:\r    Investigators realizing that napalm really doesn't work.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6495",
+   "name": "Star Vampire",
+   "number": 28,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-6495.png",
+   "objects": [
+    {
+     "id": "card-6495/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"SV\"\rwait until the sound is \"done\"\rplay \"SV\"\rwait until the sound is \"done\"\rplay \"SV\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    A Star Vampire is normally invisible, only when it has eaten can it be seen.  When visible, it resembles little more than a stomach with a few clawed limbs, and hundreds of small tube mouths, through which it feeds.\r    Star Vampires are capable of interstellar flight at great speeds.  \r    When hunting, the Star Vampire makes unsettling tittering laughs, often giving away its position.\r\r    Distribution:\r    Star Vampires are usually found in deep space.  When they drop in on planets, it is always to feed.\r\r    Habits:\r    Star Vampires are solitary, roving from planet to planet within a system, seeking food.  It is unknown if these beings are truly intelligent, no evidence to prove or disprove intelligence has been found.\r    Occasionally, these creatures are bound to a strong master, and made to serve as attack beasts\r\r    Warning Signs:\r    • Tittering laughter\r    • Bodies being drained of blood\r\r    If Encountered:\r    These beings usually dart away quickly after feeding.  Unless you've sprayed them with paint, or some other opaque susbstance, this is the only time they'll be visible.\r    In truth, though, whether or not you can see them is a moot point.  They are extradimen-sional, so they are not affected by most physical punishments or weapons.\r\r    Louis Says:\r    Just remember, when a bloodsucker goes its never pretty, and they always try to take you with them.\r\r    The Button:\r    Star Vampire titterings.\r\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6731",
+   "name": "Yog-Sothoth",
+   "number": 29,
+   "layers": [
+    "bkgnd-4587"
+   ],
+   "image": "assets/card-6731.png",
+   "objects": [
+    {
+     "id": "card-6731/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      462,
+      289,
+      504,
+      325
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"HOLY SHIT.snd\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-6731/button-2",
+     "kind": "button",
+     "name": "Next",
+     "number": 2,
+     "rect": [
+      410,
+      283,
+      456,
+      334
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Next",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 3185\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1013,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-4587/field-2": "\r    Description:\r    When it appears on Earth, Yog-Sothoth appears as a mass of spheres, ever growing and ever changing.  The globes are of all different colors and sizes, though Yog-Sothoth keeps a constant size of about 120' tall.\r    Yog-Sothoth is one of the Outer Gods, in the same category are Shub-Niggurath and Azathoth.  It has also been called \"The Opener of the Way,\" \"The Gate and the Key,\" and           \"Tawil at Um'r.\"\r    Yog-Sothoth seems to be a very highly ranked god, but its exact duties are unknown.\r\r    Distribution:\r    Yog-Sothoth co-exists with all time and all space, but is somehow locked out of our dimension.  However, the wall between it and Earth can be broken with powerful spells.  Theoretically, it can be found anywhere at any time.\r\r    Habits:\r    Yog-Sothoth appears to be a giver of information unavailabe by other means.  Other than that, no real speculations can be made.\r\r    Warning Signs:\r    • Weird colored lights\r\r    If Encountered:\r    Try to stop the summoning ceremony if possible.  If you're too late, you'd do best to run.\r    Contacting this entity is damaging to both body and psyche, it is not recommended.\r\r    Louis Says:\r    If you see this thing, you have two choices: do yourself a favor and run away, or do the universe a favor and kill the asswipe who brought him here.  In the process of that execution, you should knock over the big ol' spike that was used to summon this thing.\r\r    The Button:\r    Investigator reaction to Yog-Sothoth upon its summoning.\r"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-2523",
+   "name": "credits",
+   "number": 30,
+   "layers": [
+    "bkgnd-2158"
+   ],
+   "image": "assets/card-2523.png",
+   "objects": [
+    {
+     "id": "card-2523/button-1",
+     "kind": "button",
+     "name": "Go Back!!",
+     "number": 1,
+     "rect": [
+      433,
+      204,
+      494,
+      257
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Go Back!!",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo first\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1012,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-2523/field-2",
+     "kind": "field",
+     "name": "Credits/Explanation",
+     "number": 2,
+     "rect": [
+      96,
+      164,
+      436,
+      310
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "\r     Thank you to all of the brave investigators who have helped in the gathering of information related here.  The authors of this stack are indebted to those investigators who gathered information, and those who died in the attempt: Clint, Dusk, Louis,  Feck and Jamaal.  We are also indebted to Dr. Nathaniel Guest, Coroner for his assistance.\r    \r   Louis Says:\r   Remember: gasoline, vaseline, sodium, white phosphorous, and HFl -- these are your best protection.  Good fortune, and may  the gods ignore you.\r\r    \r    Giving Credit Where It's Due.\r    The Authors of this stack wish to credit Tom Sullivan for his excellent portraits of the Cthuloid entities within.  Douglas Wayne Barlowe painted the protrait of the Elder Thing for             \"Barlowe's Guide to Extraterrestrials.\"  Gene Day painted the original portrait of Cthulhu used in this stack.\r    \r    Much of the information catalogued herein was previously codified in \"S. Petersen's  Field Guide to Cthulhu Monsters.\"  This fine piece of work (invaluable to any investigator of Cthuloid phenomena) was published  by Chaosium Games in 1988.  We wish to thank the authors of this text:  Sandy Petersen, Tom Sullivan, and Lynn Willis.\r\r    This stack is respectfully dedicated to Howard Phillips Lovecraft......\r              ......and those who keep his works alive today.\r\r\r",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2523/button-4",
+     "kind": "button",
+     "name": "About",
+     "number": 3,
+     "rect": [
+      22,
+      202,
+      78,
+      254
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "About",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 19562\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 32462,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-19562",
+   "name": "Lovecraft Info",
+   "number": 31,
+   "layers": [
+    "bkgnd-2158"
+   ],
+   "image": "assets/card-19562.png",
+   "objects": [
+    {
+     "id": "card-19562/button-1",
+     "kind": "button",
+     "name": "Go Back!",
+     "number": 1,
+     "rect": [
+      453,
+      263,
+      498,
+      324
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Go Back!",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 2523\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1012,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-19562/button-2",
+     "kind": "button",
+     "name": "Home",
+     "number": 2,
+     "rect": [
+      459,
+      28,
+      496,
+      81
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Home",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Don't Worry.snd\"\rwait until the sound is \"done\"\rgo home\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 21700,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-19562/field-3",
+     "kind": "field",
+     "name": "Lovecraft info",
+     "number": 3,
+     "rect": [
+      247,
+      79,
+      450,
+      302
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "\r    H.P. Lovecraft was an American author of \"weird fiction.\"  He is best remembered for his creation of the    Cthulhu Mythos in a series of stories written for \"Weird Tales\" magazine in the nineteen twenties.\r    These stories went on to inspire authors like August Derleth (who went on to expand the Mythos), Robert Bloch (who is best known for the original \"Psycho,\" Brian Lumely (who wrote the \"Necroscope\" series) and even Stephen King (the \"Master of Modern American Horror.\")\r    Lovecraft has seen something of a resurgence in popular interest, with the movies \"Re-Animator,\" \"From Beyond,\" and \"The Lurking Fear.\"      (Though many Lovecraft fans wish those movies had never been made.)\r      Before those movies, some of Lovecraft's works have been adapted to film in \"The Dunwich Horror,\" and \"Die, Monster Die!\" (both of which occasionally turn up on late-night horror movie shows.)\r    All of Lovecraft's stories are based (directly or indirectly) on the premise that there are terrible and powerful beings just out of the range of our senses, just beyond our ability to understand them.  These beings use subtlety to swing the balance of human affairs in their favor, thus bringing the world closer to destruction.  And when our world is destroyed, theirs will begin anew.\r\r    If anything in this stack has interested you, you might want to go out and read some Lovecraft (or any of the other Cthulhu Mythos authors.)  There are many reprints of his work available, try your local bookstore.  If that doesn't work, you can order direct (or just get a catalog) from Arkham House Publishers.\r     \r    Arkham House Publishers, Inc.\r    PO Box 546\r    Sauk City, WI 53583\r\r    (Personally, i recommend \"The Dunwich Horror and Others.\"  It has what i consider to be the best of Lovecraft's stories.)\r\r    Unsolicited Testimonial:\r    You might also wish to look into the collection of Cthuloid material put out by Chaosium Games.  The role-playing game \"Call of Cthulhu,\" is one of the better games out on the market.  \r    In a world of fantasy, cyberpunk, or somewhat dull tactical games, \"Call of Cthulhu\" provides a welcome change of pace.  The supplements        (which include the \"Field Guide to Cthulhu Monsters,\" that inspired this stack) are usually well written, well illustrated, and generally provide large amounts of historical background and vividity.\r\r    Chaosium's Address is:\r    Chaosium, Inc.\r    PO Box 6302\r    Albany, CA 94706-0302\r\r\r    Sweet Dreams, and remember\r      ........Cthulhu Calls!\r\r",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4180",
+   "name": "",
+   "number": 32,
+   "layers": [
+    "bkgnd-2158"
+   ],
+   "image": "assets/card-4180.png",
+   "objects": [
+    {
+     "id": "card-4180/button-1",
+     "kind": "button",
+     "name": "Home",
+     "number": 1,
+     "rect": [
+      442,
+      258,
+      495,
+      306
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Home",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Don't Worry.Snd\"\rwait until the sound is \"done\"\rgo home\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 21700,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-4180/button-2",
+     "kind": "button",
+     "name": "Go Back!",
+     "number": 2,
+     "rect": [
+      445,
+      162,
+      492,
+      215
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Go Back!",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 3185\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1012,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-4180/button-3",
+     "kind": "button",
+     "name": "Panic Button",
+     "number": 3,
+     "rect": [
+      19,
+      246,
+      82,
+      312
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Panic Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rplay \"Don't Worry.snd\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-4180/field-5",
+     "kind": "field",
+     "name": "",
+     "number": 4,
+     "rect": [
+      96,
+      165,
+      436,
+      310
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "\rA Word of Explanation:  \r    This stack is a catalog of Cthuloid monsters.  These beings are believed to be only the products of the imagination of an American science fiction author: Howard Phillips Lovecraft.\r    Most people would never guess the horrible truth: that these creatures are very real.  There are hundreds of cases on record of these creatures attacking humans.\r    The authors of this stack believe that it is best that the general public be informed of this global menace.  So, we have written this stack so that people might prepare themselves for the event of an onslaught of Cthuloid beings.\r\rFormat --\r    Each entry has information organized in the following format:\r\r    Description:  \r    A general description of the appearance of the creature/entity, including its importance in the mythos.\r\r    Distribution:  \r    Where the creature may be found.\r\r    Habits:  \r    General living/eating/reproduction habits of the creature.\r\r    Warning Signs:\r    Signs of infestation by particular creatures.  \r\r     If Encountered:  \r     A subjective evaluation of the threat levels of certain creatures.  Some include a general plan to deal with the creature in question.\r\r     Louis Says:  \r     Louis Stone was a phenomenal investigator.  By the age of 23, he had the single greatest kill record of any investigator that the author of this stack has ever heard of.  Just before the time of his death, he was considered for an honorary PhD in Medieval Metaphysics from Miskatonic University (in recognition of lasting contribution to the study [and confrontation] of Cthuloid phenomena.)  \r    When his mind snapped (as is likely to happen in this line of work)  he was stricken with megalomania.  Louis became  convinced that he could single-handedly drive Cthulhu back to his planet of origin.  He was last seen trying to swim to R'yleh.\r    This section of the entry shows just a fraction of Louis' extensive notes on Cthuloid field studies.  Unfortunately, the bulk of the notes were scribbled towards the end of his career, when his madness began to manifest itself.  Some consider these notes to be demented babblings, while others feel that they represent the single best weapon agianst the onslaught of Cthuloid activity that we have today.  You decide.\r\r     \"The Big C\" Button:  Pressing this button will play a sound.  All of these sounds were recorded during field investigations.  Some of them are sounds made by Cthuloid entities, while others are investigator's reactions to these entities.\r\r    Finally, a word to the wise:\r    \"Save the last bullet/bomb/incendiary device for yourself....\"\r                    --Louis Stone, 1988\r\r    ",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 5,
+      "flags_a": 0,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4180/button-7",
+     "kind": "button",
+     "name": "About",
+     "number": 5,
+     "rect": [
+      20,
+      164,
+      74,
+      220
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "About",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rgo to card id 19562\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 7,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 32462,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  }
+ ],
+ "assets": [
+  {
+   "id": "bkgnd-4587",
+   "kind": "image",
+   "file": "assets/bkgnd-4587.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "bkgnd-2158",
+   "kind": "image",
+   "file": "assets/bkgnd-2158.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "bkgnd-2854",
+   "kind": "image",
+   "file": "assets/bkgnd-2854.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-3185",
+   "kind": "image",
+   "file": "assets/card-3185.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6935",
+   "kind": "image",
+   "file": "assets/card-6935.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-3967",
+   "kind": "image",
+   "file": "assets/card-3967.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-5098",
+   "kind": "image",
+   "file": "assets/card-5098.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8146",
+   "kind": "image",
+   "file": "assets/card-8146.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8455",
+   "kind": "image",
+   "file": "assets/card-8455.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8902",
+   "kind": "image",
+   "file": "assets/card-8902.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-8995",
+   "kind": "image",
+   "file": "assets/card-8995.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9418",
+   "kind": "image",
+   "file": "assets/card-9418.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9631",
+   "kind": "image",
+   "file": "assets/card-9631.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9747",
+   "kind": "image",
+   "file": "assets/card-9747.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-9984",
+   "kind": "image",
+   "file": "assets/card-9984.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-10397",
+   "kind": "image",
+   "file": "assets/card-10397.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-10516",
+   "kind": "image",
+   "file": "assets/card-10516.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-10824",
+   "kind": "image",
+   "file": "assets/card-10824.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11209",
+   "kind": "image",
+   "file": "assets/card-11209.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11505",
+   "kind": "image",
+   "file": "assets/card-11505.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-11571",
+   "kind": "image",
+   "file": "assets/card-11571.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-12027",
+   "kind": "image",
+   "file": "assets/card-12027.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-12117",
+   "kind": "image",
+   "file": "assets/card-12117.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-4674",
+   "kind": "image",
+   "file": "assets/card-4674.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-5273",
+   "kind": "image",
+   "file": "assets/card-5273.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-2638",
+   "kind": "image",
+   "file": "assets/card-2638.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-5476",
+   "kind": "image",
+   "file": "assets/card-5476.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-5856",
+   "kind": "image",
+   "file": "assets/card-5856.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6097",
+   "kind": "image",
+   "file": "assets/card-6097.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6271",
+   "kind": "image",
+   "file": "assets/card-6271.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6495",
+   "kind": "image",
+   "file": "assets/card-6495.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-6731",
+   "kind": "image",
+   "file": "assets/card-6731.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-2523",
+   "kind": "image",
+   "file": "assets/card-2523.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-19562",
+   "kind": "image",
+   "file": "assets/card-19562.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-4180",
+   "kind": "image",
+   "file": "assets/card-4180.png",
+   "width": 512,
+   "height": 342
+  }
+ ],
+ "notes": [
+  "icon 1014 (bkgnd-4587/button-5): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 30557 (bkgnd-4587/button-6): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 21700 (bkgnd-4587/button-7): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1013 (bkgnd-4587/button-8): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 21700 (card-3185/button-5): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 32670 (card-3185/button-7): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1009 (card-3185/button-8): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 23078 (card-3185/button-13): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1012 (card-6935/button-55): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1013 (card-6731/button-2): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1012 (card-2523/button-1): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 32462 (card-2523/button-4): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1012 (card-19562/button-1): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 21700 (card-19562/button-2): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 21700 (card-4180/button-1): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1012 (card-4180/button-2): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 1015 (card-4180/button-3): stack has no resource fork (HyperCard application icon), not exported",
+  "icon 32462 (card-4180/button-7): stack has no resource fork (HyperCard application icon), not exported",
+  "sound \"Ahhh\" played by a script: not in the stack's resource fork",
+  "sound \"Aliens\" played by a script: not in the stack's resource fork",
+  "sound \"Be Happy.snd\" played by a script: not in the stack's resource fork",
+  "sound \"Belch\" played by a script: not in the stack's resource fork",
+  "sound \"DS\" played by a script: not in the stack's resource fork",
+  "sound \"DYOSN\" played by a script: not in the stack's resource fork",
+  "sound \"Danger, Danger\" played by a script: not in the stack's resource fork",
+  "sound \"Dead\" played by a script: not in the stack's resource fork",
+  "sound \"DeepOne.snd\" played by a script: not in the stack's resource fork",
+  "sound \"DkCasMus\" played by a script: not in the stack's resource fork",
+  "sound \"Don't Worry.Snd\" played by a script: not in the stack's resource fork",
+  "sound \"Don't Worry.snd\" played by a script: not in the stack's resource fork",
+  "sound \"Elder Thing\" played by a script: not in the stack's resource fork",
+  "sound \"Goop\" played by a script: not in the stack's resource fork",
+  "sound \"HOLY SHIT.snd\" played by a script: not in the stack's resource fork",
+  "sound \"Hound\" played by a script: not in the stack's resource fork",
+  "sound \"Howl\" played by a script: not in the stack's resource fork",
+  "sound \"Ithaq1\" played by a script: not in the stack's resource fork",
+  "sound \"Mi-Go\" played by a script: not in the stack's resource fork",
+  "sound \"SV\" played by a script: not in the stack's resource fork",
+  "sound \"Shantak\" played by a script: not in the stack's resource fork",
+  "sound \"UhOh\" played by a script: not in the stack's resource fork",
+  "sound \"WAhaha\" played by a script: not in the stack's resource fork",
+  "sound \"WET SLUMP\" played by a script: not in the stack's resource fork",
+  "sound \"Wahoo\" played by a script: not in the stack's resource fork",
+  "sound \"What do i do?.snd\" played by a script: not in the stack's resource fork",
+  "sound \"Yith\" played by a script: not in the stack's resource fork",
+  "sound \"Yuck\" played by a script: not in the stack's resource fork",
+  "sound \"byakhee\" played by a script: not in the stack's resource fork",
+  "sound \"game over, man.snd\" played by a script: not in the stack's resource fork",
+  "sound \"goop\" played by a script: not in the stack's resource fork",
+  "sound \"no use\" played by a script: not in the stack's resource fork",
+  "sound \"polyp\" played by a script: not in the stack's resource fork"
+ ]
+}

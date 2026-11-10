@@ -1,0 +1,3977 @@
+{
+ "ir_version": 1,
+ "program": "hypercard",
+ "source": {
+  "file": "PATIENTS _  Version 1.5.stak",
+  "bytes": 65536
+ },
+ "name": "PATIENTS _  Version 1.5",
+ "size": {
+  "width": 512,
+  "height": 342
+ },
+ "units": "px",
+ "start_screen": "card-227564",
+ "script": {
+  "language": "hypertalk",
+  "text": "ON CC\rSEND MOUSEUP TO BKGND BUTTON \"CC\"\rEND CC\rON IM\rSEND MOUSEUP TO BKGND BUTTON \"IMP\"\rEND IM\rON DI\rSEND MOUSEUP TO BKGND BUTTON \"DISP\"\rEND DI\rON N\rSEND MOUSEUP TO BKGND BUTTON \"NEW PATIENT\"\rEND N\rON R\rSEND MOUSEUP TO BKGND BUTTON \"RETURN\"\rEND R\rON P\rSEND MOUSEUP TO BKGND BUTTON \"PRINT\"\rEND P\rON F\rSEND MOUSEUP TO BKGND BUTTON \"FIND\"\rEND F\r\rON openStack\rSET LOCKSCREEN TO TRUE\rSET LOCKMESSAGES TO TRUE\rGLOBAL HOPROBLEMLIST,HOPROBLEMLIST1,NFUMALE,NFUFEM,EXTEMALE,EXTEFEM\rGO TO CARD ID 260168\rGET FIELD \"MENU HOLDER\"\rPUT IT INTO HOPROBLEMLIST\rGO TO CARD ID 4434\rGET FIELD \"MENU HOLDER\"\rPUT IT INTO HOPROBLEMLIST1\rGO TO CARD ID 69212\rPUT CD FLD \"NFUFEM\" INTO NFUFEM\rPUT CD FLD \"NFUMALE\" INTO NFUMALE\rPUT CD FLD \"EXTEMALE\" INTO EXTEMALE\rPUT CD FLD \"EXTEFEM\" INTO EXTEFEM\rGO TO CARD ID 227564\rPUSH CARD\rhide message box\rSET LOCKSCREEN TO FALSE\rSET LOCKMESSAGES TO FALSE\rIF THERE IS NOT A MENU \"PROCEDURE\"\rTHEN\rCREATE MENU \"Procedure\"\rput \"Colonoscopy,EGD\"¬\rinto  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"\rEND IF\rEND OPENSTACK\r\ron resume\rSET LOCKSCREEN TO TRUE\rSET LOCKMESSAGES TO TRUE\rGLOBAL HOPROBLEMLIST,HOPROBLEMLIST1,NFUMALE,NFUFEM,EXTEMALE,EXTEFEM\rGO TO CARD ID 260168\rGET FIELD \"MENU HOLDER\"\rPUT IT INTO HOPROBLEMLIST\rGO TO CARD ID 4434\rGET FIELD \"MENU HOLDER\"\rPUT IT INTO HOPROBLEMLIST1\rGO TO CARD ID 69212\rPUT CD FLD \"NFUFEM\" INTO NFUFEM\rPUT CD FLD \"NFUMALE\" INTO NFUMALE\rPUT CD FLD \"EXTEMALE\" INTO EXTEMALE\rPUT CD FLD \"EXTEFEM\" INTO EXTEFEM\rGO TO CARD ID 227564\rPUSH CARD\rhide message box\rSET LOCKSCREEN TO FALSE\rSET LOCKMESSAGES TO FALSE\rCREATE MENU \"Procedure\"\rput \"Colonoscopy,EGD\"¬\rinto  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"\rend resume\rON SUSPENDSTACK\rIF THERE IS A MENU \"PROCEDURE\" THEN DELETE MENU \"Procedure\"\rRESET MENUBAR\rEND SUSPENDSTACK\r\r\r\r\rON EGD\rGLOBAL UPPER\rIF FLD \"NAME\" IS EMPTY\rTHEN\rANSWER \"YOU HAVE NOT PUT A PATIENT'S NAME\"\rEXIT EGD\rEND IF\rIF FLD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU HAVE NOT WRITTEN A NEW NOTE\"\rEXIT EGD\rEND IF\rIF FLD\"IMPRESSION\" IS EMPTY AND FLD \"DISPOSITION\" IS EMPTY\rTHEN\rANSWER \"YOU NEED AN IMP OR A DISP\"\rEXIT EGD\rEND IF\rPUT \"WE HAVE DISCUSSED WITH PT. THE PROCEDURE, THE NEED FOR AN EGD AND ITS COMPLICATIONS\"¬\rINTO UPPER\rput nextBlankLine(\"TEXT\") into NXTLINE\rIF FLD \"DISPOSITION\" IS EMPTY\rTHEN\rput UPPER into line NXTLINE of field \"TEXT\"\rEND IF\rIF FIELD \"DISPOSITION\" IS NOT EMPTY\rTHEN\rSELECT AFTER LAST CHAR OF LINE NXTLINE-3 OF FIELD \"TEXT\"\rTYPE RETURN\rput nextBlankLine(\"TEXT\") into NXTLINE\rput UPPER INTO line NXTLINE-3 of field \"TEXT\"\rEND IF\rEND EGD\r\r\rON LOWER\rGLOBAL COLO\rIF FLD \"NAME\" IS EMPTY\rTHEN\rANSWER \"YOU HAVE NOT PUT A PATIENT'S NAME\"\rEXIT LOWER\rEND IF\rIF FLD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU HAVE NOT WRITTEN A NEW NOTE\"\rEXIT LOWER\rEND IF\rIF FLD\"IMPRESSION\" IS EMPTY AND FLD \"DISPOSITION\" IS EMPTY\rTHEN\rANSWER \"YOU NEED AN IMP OR A DISP\"\rEXIT LOWER\rEND IF\rPUT \"WE HAVE DISCUSSED WITH PT. THE PROCEDURE, THE NEED FOR AN COLONOSCOPY AND ITS COMPLICATIONS\"¬\rINTO COLO\rput nextBlankLine(\"TEXT\") into NXTLINE\rIF FLD \"DISPOSITION\" IS EMPTY\rTHEN\rput COLO into line NXTLINE of field \"TEXT\"\rEND IF\rIF FIELD \"DISPOSITION\" IS NOT EMPTY\rTHEN\rSELECT AFTER LAST CHAR OF LINE NXTLINE-3 OF FIELD \"TEXT\"\rTYPE RETURN\rput nextBlankLine(\"TEXT\") into NXTLINE\rput COLO INTO line NXTLINE-3 of field \"TEXT\"\rEND IF\rEND LOWER\r\r\r\r\r\rFUNCTION DATE FLD\r--RETURNS THE LINE WHERE THE LAST DATE IS\r--NEED TO WORK ON GIVES DATES BUT OTHER SLASHES TOO\rREPEAT WITH Z = NUMBER OF LINES OF FIELD FLD DOWN TO 0\rIF \"/\" IS IN LINE Z OF FIELD FLD\rTHEN\rEXIT REPEAT\rEND IF\rEND REPEAT\rRETURN Z\rEND DATE\r\r\r\r\rON CLOSESTACK\rIF THERE IS A MENU \"PROCEDURE\" THEN DELETE MENU \"Procedure\"\rRESET MENUBAR\rGET THE FREESIZE OF THIS STACK\rPUT IT/1024 INTO SIZE\rIF SIZE > 25 THEN\rPUT \"COMPACTING STACK: FREESIZE GREATER THAN 25K\"\rSEND \"DOMENU COMPACT STACK\" TO HYPERCARD\rpass closestack\rend if\rEND CLOSESTACK\rfunction NEXTEMPTYLINE CDFLD\r--returns the next blank line in CD FLD\rif CD field CDFLD is empty then\rreturn 1\rend if\rrepeat with N=number of lines of CD field CDFLD down to 1\rif line N of CD field CDFLD is not empty then exit repeat\rend repeat\rreturn N+1\rend NEXTEMPTYLINE\r\r\rfunction nextBlankLine FLD\r--returns the next blank line in FLD\rif field FLD is empty then\rreturn 1\rend if\rrepeat with N=number of lines of field FLD down to 1\rif line N of field FLD is not empty then exit repeat\rend repeat\rreturn N+1\rend nextBlankLIne\r-- ScriptEdit™ Prefs:Monaco,9,27,24,472,600,2369,2369,50\r"
+ },
+ "layers": [
+  {
+   "id": "bkgnd-2721",
+   "name": "PATIENT INFO",
+   "image": "assets/bkgnd-2721.png",
+   "objects": [
+    {
+     "id": "bkgnd-2721/button-21",
+     "kind": "button",
+     "name": "Next",
+     "number": 1,
+     "rect": [
+      477,
+      278,
+      502,
+      303
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Next",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "ON MOUSEUP\rVISUAL WIPE left\rgo to next card of this bg\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,29,29,50\r"
+     },
+     "extra": {
+      "part_id": 21,
+      "flags_a": 0,
+      "flags_b": 8196,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1013,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-22",
+     "kind": "button",
+     "name": "Prev",
+     "number": 2,
+     "rect": [
+      450,
+      278,
+      477,
+      303
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Prev",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rVISUAL WIPE right\rgo to prev card of this background\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,30,30,50\r"
+     },
+     "extra": {
+      "part_id": 22,
+      "flags_a": 0,
+      "flags_b": 8196,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1014,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-34",
+     "kind": "button",
+     "name": "RETURN",
+     "number": 3,
+     "rect": [
+      451,
+      302,
+      477,
+      327
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "RETURN",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect dissolve to black\rgo to first card of bg \"Title\"\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,78,78,50\r"
+     },
+     "extra": {
+      "part_id": 34,
+      "flags_a": 0,
+      "flags_b": 8196,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 30557,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-35",
+     "kind": "field",
+     "name": "Name",
+     "number": 4,
+     "rect": [
+      4,
+      2,
+      203,
+      23
+     ],
+     "visible": true,
+     "style": {
+      "shape": "shadow",
+      "font": "New York",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "--on closeField\r--put last word of me into field \"Sort\"\r--setScheduleApptIcon\r--setTransferArrow\r--send mouseUp to bg btn \"Schedule Appt\"\r--end closeField\r"
+     },
+     "extra": {
+      "part_id": 35,
+      "flags_a": 2,
+      "flags_b": 4,
+      "style_number": 4,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 2,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-36",
+     "kind": "field",
+     "name": "DOB",
+     "number": 5,
+     "rect": [
+      200,
+      4,
+      258,
+      20
+     ],
+     "visible": true,
+     "style": {
+      "shape": "shadow",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "\rON MOUSEWITHIN\rIF FLD \"DOB\"IS NOT EMPTY THEN EXIT MOUSEWITHIN\rELSE\rPUT \"PUT DOB\" INTO FLD \"DOB\"\rWAIT  UNTIL THE MOUSECLICK\rPUT EMPTY INTO FLD \"DOB\"\rANSWER\"CLICK ON NAME AND PRESS TAB TO ENTER DOB\"\rEND IF\rEND MOUSEWITHIN\rON CLOSEFIELD\rIF FLD \"DOB\" IS NOT A DATE\rTHEN\rANSWER \"YOU HANE NOT ENTERED A VALID DATE FOR DOB\"\rPUT EMPTY INTO ME\rSELECT TEXT OF ME\rELSE\rPASS CLOSEFIELD\rEND IF\rEND CLOSEFIELD\r--on mouseEnter\rrepeat 3 times\rset the hilite of the target to true\rwait 10 ticks\rset the hilite of the target to false\rwait 10 ticks\rend repeat\rend mouseEnter\r\r"
+     },
+     "extra": {
+      "part_id": 36,
+      "flags_a": 2,
+      "flags_b": 4,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-51",
+     "kind": "field",
+     "name": "MEDICATION",
+     "number": 6,
+     "rect": [
+      5,
+      40,
+      124,
+      118
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on closeField\rput me into PROBS\rrepeat with N=1 to the number of lines of PROBS\rget line N of PROBS\rrepeat forever\rif char 1 of it ≠ \" \" then exit repeat\rdelete char 1 of it\rend repeat\rrepeat forever\rif last char of it ≠ \" \" then exit repeat\rdelete last char of it\rend repeat\rput it into line N of PROBS\rend repeat\rrepeat with N=the number of lines of PROBS down to 1\rget line N of PROBS\rif it is empty then\rdelete line N of PROBS\rend if\rend repeat\rput PROBS into me\rend closeField\r"
+     },
+     "extra": {
+      "part_id": 51,
+      "flags_a": 0,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-64",
+     "kind": "button",
+     "name": "New Patient",
+     "number": 7,
+     "rect": [
+      314,
+      18,
+      405,
+      37
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Patient",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rget field \"Name\"  --do not allow new patient if first not complete\rif it is not empty then\rsend \"doMenu New card\" to HyperCard\rend if\rselect after text of field \"Name\"\rend mouseUp\r\r-- ScriptEdit™ Prefs:Geneva,9,27,24,334,508,191,191,50\r"
+     },
+     "extra": {
+      "part_id": 64,
+      "flags_a": 0,
+      "flags_b": 40963,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-65",
+     "kind": "button",
+     "name": "Sort",
+     "number": 8,
+     "rect": [
+      470,
+      230,
+      507,
+      277
+     ],
+     "visible": false,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Sort",
+     "icon": "assets/icon-20186.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rput \"Sorting patients...\"\rsort by LAST WORD OF field \"NAME\"\rput \"Compacting patients...\"\rsend \"doMenu Compact stack\" to HyperCard\rhide msg\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 65,
+      "flags_a": 128,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 20186,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-66",
+     "kind": "button",
+     "name": "Find",
+     "number": 9,
+     "rect": [
+      445,
+      72,
+      475,
+      119
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Find",
+     "icon": "assets/icon-8538.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rask \"Find what?\"\rif it is not empty then\rput \"Find\" && quote & it & quote into msg\rhide msg\rtype return\rend if\rIF THE RESULT IS NOT EMPTY THEN ANSWER¬\r\"PATIENT NOT FOUND\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 66,
+      "flags_a": 0,
+      "flags_b": 40963,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 8538,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-74",
+     "kind": "button",
+     "name": "Show Notes",
+     "number": 10,
+     "rect": [
+      258,
+      99,
+      323,
+      118
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Geneva",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Show Notes",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "4/1/89\r\ron mouseUp\rget the visible of field \"notes\"\rif it is true then\rset visible of field \"notes\" to false\rset name of me to \"Show Notes\"\relse\rset visible of field \"notes\" to true\rset name of me to \"Hide Notes\"\r\rend if\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 74,
+      "flags_a": 0,
+      "flags_b": 40963,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-80",
+     "kind": "button",
+     "name": "Print",
+     "number": 11,
+     "rect": [
+      476,
+      70,
+      511,
+      119
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Print",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rPRINTENGOOD\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 80,
+      "flags_a": 0,
+      "flags_b": 40963,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1004,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-99",
+     "kind": "button",
+     "name": "MEDICATION LIST",
+     "number": 12,
+     "rect": [
+      4,
+      26,
+      117,
+      41
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 10,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "MEDICATION LIST",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "\r\ron mouseDown\rglobal HOProblemList\rget PopMenu (the clickLoc,HOProblemList)\rif it > 0 then\rput nextBlankLine(\"MEDICATION\") into NXTLINE\rput piece(HOProblemList,\";\",it) INTO MEDICINE\rIF MEDICINE IS IN FLD \"MEDICATION\" THEN EXIT MOUSEDOWN\rIF MEDICINE IS NOT IN FLD \"MEDICATION\" THEN PUT MEDICINE¬\rinto line NXTLINE of field \"MEDICATION\"\rEND IF\rend mouseDown\r\r\r"
+     },
+     "extra": {
+      "part_id": 99,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-106",
+     "kind": "field",
+     "name": "PROBLEMS",
+     "number": 13,
+     "rect": [
+      123,
+      41,
+      244,
+      118
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on closeField\rput me into PROBS\rrepeat with N=1 to the number of lines of PROBS\rget line N of PROBS\rrepeat forever\rif char 1 of it ≠ \" \" then exit repeat\rdelete char 1 of it\rend repeat\rrepeat forever\rif last char of it ≠ \" \" then exit repeat\rdelete last char of it\rend repeat\rput it into line N of PROBS\rend repeat\rrepeat with N=the number of lines of PROBS down to 1\rget line N of PROBS\rif it is empty then\rdelete line N of PROBS\rend if\rend repeat\rput PROBS into me\rend closeField\r"
+     },
+     "extra": {
+      "part_id": 106,
+      "flags_a": 0,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-107",
+     "kind": "button",
+     "name": "PROBLEM LIST",
+     "number": 14,
+     "rect": [
+      118,
+      26,
+      208,
+      41
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 10,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "PROBLEM LIST",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "\r\ron mouseDown\rglobal HOProblemList1\rget PopMenu (the clickLoc,HOProblemList1)\rif it > 0 then\rput nextBlankLine(\"Problems\") into NXTLINE\rput piece(HOProblemList1,\";\",it) INTO PROBLEM\rIF PROBLEM IS IN FLD \"PROBLEMS\" THEN EXIT MOUSEDOWN\rIF PROBLEM IS NOT IN FLD \"PROBLEMS\" THEN PUT PROBLEM¬\rinto line NXTLINE of field \"ProBLems\"\rEND IF\rend mouseDown\r"
+     },
+     "extra": {
+      "part_id": 107,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-120",
+     "kind": "button",
+     "name": "Home",
+     "number": 15,
+     "rect": [
+      477,
+      303,
+      501,
+      326
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-2",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Home",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect iris close to inverse\rgo Home\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 120,
+      "flags_a": 0,
+      "flags_b": 8194,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 13744,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-125",
+     "kind": "button",
+     "name": "N F/U MALE",
+     "number": 16,
+     "rect": [
+      452,
+      120,
+      512,
+      143
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Geneva",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N F/U MALE",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FIELD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"\rEXIT MOUSEUP\rEND IF\rIF FLD\"DISPOSITION\" IS NOT EMPTY OR FLD \"IMPRESSION\" IS NOT EMPTY\rTHEN\rANSWER \"YOU SURE YOU NOW WANT TO ADD A PE\"¬\rWITH \"FORGET IT\" OR \"I WANT IT\"\rIF IT IS \"I WANT IT\"\rTHEN\rREPEAT WITH N= NEXTBLANKLINE (\"TEXT\") DOWN TO DATELINE (\"TEXT\")+1\rDELETE LINE N OF FLD \"TEXT\"\rEND REPEAT\rNFUMALE\rPUT FLD \"IMPRESSION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT FLD \"DISPOSITION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT \"TRUJILLO\"INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rEXIT MOUSEUP\rEND IF\rIF IT IS \"FORGET IT\"\rTHEN\rEXIT MOUSEUP\rEND IF\rEND IF\r\rIF FLD \"IMPRESSION\" IS EMPTY THEN NFUMALE\rEND MOUSEUP\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,845,845,50\r"
+     },
+     "extra": {
+      "part_id": 125,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-126",
+     "kind": "button",
+     "name": "N F/U FEM",
+     "number": 17,
+     "rect": [
+      452,
+      143,
+      512,
+      161
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Geneva",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N F/U FEM",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FIELD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"\rEXIT MOUSEUP\rEND IF\rIF FLD\"DISPOSITION\" IS NOT EMPTY OR FLD \"IMPRESSION\" IS NOT EMPTY\rTHEN\rANSWER \"YOU SURE YOU NOW WANT TO ADD A PE\"¬\rWITH \"FORGET IT\" OR \"I WANT IT\"\rIF IT IS \"I WANT IT\"\rTHEN\rREPEAT WITH N= NEXTBLANKLINE (\"TEXT\") DOWN TO DATELINE (\"TEXT\")+1\rDELETE LINE N OF FLD \"TEXT\"\rEND REPEAT\rNFUFEM\rPUT FLD \"IMPRESSION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT FLD \"DISPOSITION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT \"TRUJILLO\"INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rEXIT MOUSEUP\rEND IF\rIF IT IS \"FORGET IT\"\rTHEN\rEXIT MOUSEUP\rEND IF\rEND IF\rIF FLD \"IMPRESSION\" IS EMPTY THEN NFUFEM\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 126,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-127",
+     "kind": "button",
+     "name": "N EXT MALE",
+     "number": 18,
+     "rect": [
+      452,
+      161,
+      512,
+      176
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Geneva",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N EXT MALE",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FIELD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"\rEXIT MOUSEUP\rEND IF\rIF FLD\"DISPOSITION\" IS NOT EMPTY OR FLD \"IMPRESSION\" IS NOT EMPTY\rTHEN\rANSWER \"YOU SURE YOU NOW WANT TO ADD A PE\"¬\rWITH \"FORGET IT\" OR \"I WANT IT\"\rIF IT IS \"I WANT IT\"\rTHEN\rREPEAT WITH N= NEXTBLANKLINE (\"TEXT\") DOWN TO DATELINE (\"TEXT\")+1\rDELETE LINE N OF FLD \"TEXT\"\rEND REPEAT\rEXTEMALE\rPUT FLD \"IMPRESSION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT FLD \"DISPOSITION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT \"TRUJILLO\"INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rEXIT MOUSEUP\rEND IF\rIF IT IS \"FORGET IT\"\rTHEN\rEXIT MOUSEUP\rEND IF\rEND IF\rIF FLD \"IMPRESSION\" IS EMPTY THEN EXTEMALE\rEND MOUSEUP\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,844,844,50\r"
+     },
+     "extra": {
+      "part_id": 127,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-139",
+     "kind": "button",
+     "name": "show cc",
+     "number": 19,
+     "rect": [
+      453,
+      206,
+      509,
+      229
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Geneva",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "show cc",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FLD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU HAVE NOT ENTERED A CHIEF COMPLAINT\"\r\r-- EXIT MOUSEUP\rEND IF\rget the visible of field \"CC\"\rif it is true then\rset visible of field \"CC\" to false\rset name of me to \"show cc\"\relse\rset visible of field \"cc\" to true\rset name of me to \"hide cc\"\rend if\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 139,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-140",
+     "kind": "button",
+     "name": "pelvic",
+     "number": 20,
+     "rect": [
+      325,
+      38,
+      378,
+      63
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Geneva",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "pelvic",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\r\rget the visible of field \"VAGINA\"\rif it is true then\rset visible of field \"VAGINA\" to false\rset name of me to \"pelvic\"\rPUT EMPTY INTO FLD \"VAGINA\"\relse\rset visible of field \"VAGINA\" to true\rset name of me to \"Hide p\"\rIF FIELD \"VAGINA\" IS EMPTY\rTHEN\rSELECT BEFORE TEXT OF FLD \"VAGINA\"\rTYPE \"PELVIC:\"\rTYPE RETURN\rTYPE \"VAGINA AND CERVIX ARE NORMAL. PAP SMEAR DONE. BIMANUAL NO ADNEXAL MASSES. UTERUS NORMAL SIZE\"\rEND IF\rEND IF\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 140,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-142",
+     "kind": "field",
+     "name": "Text",
+     "number": 21,
+     "rect": [
+      5,
+      118,
+      450,
+      341
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Helvetica",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 142,
+      "flags_a": 16,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 21,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-151",
+     "kind": "button",
+     "name": "SHOW ABN",
+     "number": 22,
+     "rect": [
+      326,
+      69,
+      378,
+      94
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Geneva",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "SHOW ABN",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rget the visible of  field \"abnormal\"\rif it is true then\rset visible oF  field \"abnormal\" to false\rset name of me to \"SHOW ABN\"\relse\rset visible of  field \"abnormal\" to true\rASK \"PUT ABNORMAL FINDINGS\"\rPUT \"ABNORMAL FINDINGS:\"&& IT INTO  FLD \"abnormal\"\rif it is empty then put empty into fld \"abnormal\"\rset name of me to \"HIDE ABN\"\rend if\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 151,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-128",
+     "kind": "button",
+     "name": "N EXT FEM",
+     "number": 23,
+     "rect": [
+      452,
+      176,
+      512,
+      192
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Geneva",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N EXT FEM",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FIELD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"\rEXIT MOUSEUP\rEND IF\rIF FLD\"DISPOSITION\" IS NOT EMPTY OR FLD \"IMPRESSION\" IS NOT EMPTY\rTHEN\rANSWER \"YOU SURE YOU NOW WANT TO ADD A PE\"¬\rWITH \"FORGET IT\" OR \"I WANT IT\"\rIF IT IS \"I WANT IT\"\rTHEN\rREPEAT WITH N= NEXTBLANKLINE (\"TEXT\") DOWN TO DATELINE (\"TEXT\")+1\rDELETE LINE N OF FLD \"TEXT\"\rEND REPEAT\rEXTEFEM\rPUT FLD \"IMPRESSION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT FLD \"DISPOSITION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rPUT \"TRUJILLO\"INTO LINE NEXTBLANKLINE(\"TEXT\")¬\rOF FLD \"TEXT\"\rEXIT MOUSEUP\rEND IF\rIF IT IS \"FORGET IT\"\rTHEN\rEXIT MOUSEUP\rEND IF\rEND IF\r\rIF FLD \"IMPRESSION\" IS EMPTY THEN EXTEFEM\rEND MOUSEUP\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,845,845,50\r"
+     },
+     "extra": {
+      "part_id": 128,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-131",
+     "kind": "field",
+     "name": "TYPE",
+     "number": 24,
+     "rect": [
+      5,
+      119,
+      512,
+      342
+     ],
+     "visible": false,
+     "style": {
+      "shape": "style-1",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 131,
+      "flags_a": 128,
+      "flags_b": 1,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-133",
+     "kind": "button",
+     "name": "CC",
+     "number": 25,
+     "rect": [
+      262,
+      30,
+      316,
+      51
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "CC",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FIELD \"CC\" IS NOT EMPTY\rTHEN\rANSWER \"YOU ALREADY HAVE A COMPLAINT\"\rEXIT MOUSEUP\rEND IF\rPUT ROUND (NEXTBLANKLINE(\"TEXT\")) INTO HLINE\rPUT THE TEXTHEIGHT OF FLD \"TEXT\"INTO HSIZE\rSET SCROLL OF FLD \"TEXT\" TO  HLINE*HSIZE\rASK \"WHAT ARE THE COMPLAINTS\"\rPUT \"CC\"&\":\"& SPACE & IT INTO FIELD \"CC\"\rIF IT IS EMPTY\rTHEN\rPUT EMPTY INTO FLD \"CC\"\rEXIT MOUSEUP\rEND IF\rput nextBlankLine(\"TEXT\") into NXTLINE\rput THE DATE into line NXTLINE+1 of field \"TEXT\"\r\rIF DATELINE(\"TEXT\")=NEXTBLANKLINE (\"TEXT\")-1\rTHEN\rIF FLD \"CC\" IS NOT EMPTY\rTHEN\rEXIT MOUSEUP\rEND IF\rELSE\rIF FLD \"CC\" IS EMPTY\rTHEN\rANSWER\"YOU HAVE NOT WRITTEN A COMPLAINT\"\rDELETE LINE (NEXTBLANKLINE (\"TEXT\")-1) OF FIELD \"TEXT\"\rEXIT MOUSEUP\rEND IF\rIF DATELINE(\"TEXT\")≠NEXTBLANKLINE (\"TEXT\")-1\rTHEN\rANSWER \"YOU ALREADY HAVE A NOTE FOR TODAY\"\rDELETE LINE (NEXTBLANKLINE (\"TEXT\")-1) OF FIELD \"TEXT\"\rPUT EMPTY INTO FLD \"CC\"\rEXIT MOUSEUP\rEND IF\rEND IF\rput nextBlankLine(\"TEXT\") into NXTLINE\rrepeat with N=1 TO THE NUMBER OF LINES OF FLD \"CC\"\rput LINE N OF FIELD \"CC\" into line NXTLINE of field \"TEXT\"\rIF FLD \"CC\" IS EMPTY THEN EXIT REPEAT\rEND REPEAT\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 133,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-134",
+     "kind": "button",
+     "name": "DISP",
+     "number": 26,
+     "rect": [
+      269,
+      75,
+      311,
+      97
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "DISP",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FIELD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"\rEXIT MOUSEUP\rEND IF\rIF FIELD \"DISPOSITION\" IS NOT EMPTY\rTHEN\rANSWER \"YOU ALREADY HAVE A DISPOSITION\"\rEXIT MOUSEUP\rEND IF\r--IF FIELD \"IMPRESSION\" IS EMPTY\r--THEN\r--ANSWER \"YOU HAVE NOT PUT AN IMPRESSION\"\r--EXIT MOUSEUP\r--END IF\rASK \"WHAT IS YOUR DISPOSITION\"\rPUT \"DISP\"&\":\"& SPACE & IT INTO FIELD \"DISPOSITION\"\rIF IT IS EMPTY THEN PUT EMPTY INTO FLD \"DISPOSITION\"\rrepeat with N=1 TO THE NUMBER OF LINES OF FLD \"TEXT\"\rIF \"TRUJILLO\" IS IN LINE N OF FIELD \"TEXT\"\rTHEN\rDELETE LINE N OF FIELD \"TEXT\"\rEND IF\rIF FLD \"DISPOSITION\" IS EMPTY THEN EXIT REPEAT\rEND REPEAT\rput nextBlankLine(\"TEXT\") into NXTLINE\rrepeat with N=1 TO THE NUMBER OF LINES OF FLD \"DISPOSITION\"\rput LINE N OF FIELD \"DISPOSITION\" into line NXTLINE of field \"TEXT\"\rIF FLD \"DISPOSITION\" IS EMPTY THEN EXIT REPEAT\rEND REPEAT\rput nextBlankLine(\"TEXT\") into NXTLINE\rIF \"TRUJILLO\" IS NOT IN LINE NXTLINE-1 OF FLD \"TEXT\" AND FLD \"DISPOSITION\" ¬\rIS NOT EMPTY\rTHEN\rput \"TRUJILLO\" INTO line NXTLINE of field \"TEXT\"\rEND IF\rend mouseUp\r\r-- ScriptEdit™ Prefs:Geneva,9,27,24,334,508,1111,1111,50\r"
+     },
+     "extra": {
+      "part_id": 134,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-138",
+     "kind": "button",
+     "name": "IMP",
+     "number": 27,
+     "rect": [
+      262,
+      53,
+      318,
+      74
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "IMP",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rIF FIELD \"CC\" IS EMPTY\rTHEN\rANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"\rEXIT MOUSEUP\rEND IF\rIF FIELD \"IMPRESSION\" IS NOT EMPTY\rTHEN\rANSWER \"YOU ALREADY HAVE AN IMPRESSION\"\rEXIT MOUSEUP\rEND IF\rASK \"WHAT IS YOUR IMPRESSION\"\rPUT \"IMP\"&\":\"& SPACE & IT INTO FIELD \"IMPRESSION\"\rIF IT IS EMPTY\rTHEN\rPUT EMPTY INTO FLD \"IMPRESSION\"\rEXIT MOUSEUP\rEND IF\rput nextBlankLine(\"TEXT\") into NXTLINE\rIF FLD \"DISPOSITION\" IS EMPTY\rTHEN\rrepeat with N=1 TO THE NUMBER OF LINES OF FLD \"IMPRESSION\"\rput LINE N OF FIELD \"IMPRESSION\" into¬\rline NXTLINE of field \"TEXT\"\rIF FLD \"IMPRESSION\" IS EMPTY THEN EXIT REPEAT\rEND REPEAT\rEND IF\rIF FIELD \"DISPOSITION\" IS NOT EMPTY\rTHEN\rrepeat with N=1 TO THE NUMBER OF LINES OF FLD \"IMPRESSION\"\rSELECT AFTER CHAR 19 OF LINE NXTLINE-3 OF FIELD \"TEXT\"\rTYPE RETURN\rput nextBlankLine(\"TEXT\") into NXTLINE\rput LINE N OF FIELD \"IMPRESSION\" INTO line NXTLINE-3 of field \"TEXT\"\rIF FLD \"IMPRESSION\" IS EMPTY THEN EXIT REPEAT\rEND REPEAT\rEND IF\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 138,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-155",
+     "kind": "button",
+     "name": "RETURN",
+     "number": 28,
+     "rect": [
+      382,
+      40,
+      432,
+      69
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Geneva",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "RETURN",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rSHOW FLD \"DATE RETURN\"\rASK \"WHEN TO RETURN\"\rIF IT IS EMPTY\rTHEN\rEXIT MOUSEUP\rELSE\rPUT \"RETURN:\"&& IT INTO FLD \"DATE RETURN\"\r\rEND IF\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 155,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-135",
+     "kind": "field",
+     "name": "DISPOSITION",
+     "number": 29,
+     "rect": [
+      288,
+      167,
+      511,
+      288
+     ],
+     "visible": false,
+     "style": {
+      "shape": "style-1",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 135,
+      "flags_a": 128,
+      "flags_b": 1,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-160",
+     "kind": "button",
+     "name": "FLAG",
+     "number": 30,
+     "rect": [
+      322,
+      96,
+      346,
+      118
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "FLAG",
+     "icon": "assets/icon-30385.png",
+     "script": null,
+     "extra": {
+      "part_id": 160,
+      "flags_a": 0,
+      "flags_b": 1,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 30385,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-161",
+     "kind": "button",
+     "name": "SHOW REF",
+     "number": 31,
+     "rect": [
+      349,
+      98,
+      414,
+      118
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "SHOW REF",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\r\rget the visible of  field \"REFERING\"\rif it is true then\rset visible oF  field \"REFERING\" to false\rset name of me to \"SHOW REF\"\relse\rset visible of  field \"REFERING\" to true\rset the name of me to \"hide ref\"\rend if\rif fld \"refering\" is empty then\rASK \"PUT REFERING DOCTOR\"\rif it is empty\rthen\r-- SET THE NAME OF ME TO \"SHOW REF\"\rexit mouseup\relse\rPUT \"Ref:\"&& IT INTO  FLD \"REFERING\"\rend if\rset visible of  field \"REFERING\" to true\rSET THE NAME OF ME TO \"HIDE REF\"\relse\rexit mouseup\rend if\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,424,424,50\r"
+     },
+     "extra": {
+      "part_id": 161,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-163",
+     "kind": "button",
+     "name": "Show allergy",
+     "number": 32,
+     "rect": [
+      378,
+      71,
+      445,
+      93
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 9,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Show allergy",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "\ron mouseUp\rget the visible of field \"allergy\"\rif it is true then\rset visible of field \"allergy\" to false\rset name of me to \"Show allergy\"\relse\rset visible of field \"allergy\" to true\rset name of me to \"Hide allergy\"\r\rend if\rend mouseUp\r\r"
+     },
+     "extra": {
+      "part_id": 163,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-132",
+     "kind": "field",
+     "name": "CC",
+     "number": 33,
+     "rect": [
+      242,
+      19,
+      512,
+      119
+     ],
+     "visible": false,
+     "style": {
+      "shape": "shadow",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 132,
+      "flags_a": 130,
+      "flags_b": 4,
+      "style_number": 4,
+      "text_style": 256,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-137",
+     "kind": "field",
+     "name": "IMPRESSION",
+     "number": 34,
+     "rect": [
+      231,
+      254,
+      431,
+      339
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 137,
+      "flags_a": 128,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-141",
+     "kind": "field",
+     "name": "VAGINA",
+     "number": 35,
+     "rect": [
+      319,
+      260,
+      506,
+      321
+     ],
+     "visible": false,
+     "style": {
+      "shape": "style-1",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 141,
+      "flags_a": 128,
+      "flags_b": 1,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-147",
+     "kind": "field",
+     "name": "Sex",
+     "number": 36,
+     "rect": [
+      443,
+      8,
+      496,
+      22
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 10,
+      "align": "right",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseDown\rget char 1 of me\rput empty into CHOICE\rif it=\"M\" then put 1 into CHOICE\rif it=\"F\" then put 2 into CHOICE\rif it=\"U\" then put 3 into CHOICE\rget popUp(CHOICE,\"Male,Female,Unknown\")\rif item 1 of it is not empty then\rput item 1 of it into me\rend if\rend mouseDown"
+     },
+     "extra": {
+      "part_id": 147,
+      "flags_a": 1,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/button-153",
+     "kind": "button",
+     "name": "New Button",
+     "number": 37,
+     "rect": [
+      412,
+      4,
+      444,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "New Button",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseDOWN\rSEND MOUSEDOWN TO FLD \"SEX\"\rend mouseDOWN"
+     },
+     "extra": {
+      "part_id": 153,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-154",
+     "kind": "field",
+     "name": "DATE RETURN",
+     "number": 38,
+     "rect": [
+      279,
+      324,
+      397,
+      340
+     ],
+     "visible": false,
+     "style": {
+      "shape": "style-1",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 154,
+      "flags_a": 135,
+      "flags_b": 1,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-44",
+     "kind": "field",
+     "name": "notes",
+     "number": 39,
+     "rect": [
+      255,
+      181,
+      454,
+      250
+     ],
+     "visible": false,
+     "style": {
+      "shape": "shadow",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "ON OPENFIELD\r\rEND OPENFIELD"
+     },
+     "extra": {
+      "part_id": 44,
+      "flags_a": 128,
+      "flags_b": 4,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-152",
+     "kind": "field",
+     "name": "ABNORMAL",
+     "number": 40,
+     "rect": [
+      315,
+      119,
+      512,
+      180
+     ],
+     "visible": false,
+     "style": {
+      "shape": "rectangle",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 152,
+      "flags_a": 128,
+      "flags_b": 2,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-156",
+     "kind": "field",
+     "name": "NFUMALE",
+     "number": 41,
+     "rect": [
+      6,
+      293,
+      129,
+      337
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 156,
+      "flags_a": 132,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-157",
+     "kind": "field",
+     "name": "NFUFEM",
+     "number": 42,
+     "rect": [
+      127,
+      293,
+      250,
+      337
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 157,
+      "flags_a": 132,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-158",
+     "kind": "field",
+     "name": "EXTEMALE",
+     "number": 43,
+     "rect": [
+      249,
+      292,
+      372,
+      336
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 158,
+      "flags_a": 132,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-159",
+     "kind": "field",
+     "name": "EXTEFEM",
+     "number": 44,
+     "rect": [
+      371,
+      292,
+      494,
+      336
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 159,
+      "flags_a": 132,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-162",
+     "kind": "field",
+     "name": "REFERING",
+     "number": 45,
+     "rect": [
+      260,
+      1,
+      441,
+      15
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Times",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 162,
+      "flags_a": 132,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 13,
+      "font_id": 20,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-164",
+     "kind": "field",
+     "name": "allergy",
+     "number": 46,
+     "rect": [
+      6,
+      118,
+      196,
+      286
+     ],
+     "visible": false,
+     "style": {
+      "shape": "rectangle",
+      "font": "Times",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 164,
+      "flags_a": 132,
+      "flags_b": 2,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 20,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2721/field-165",
+     "kind": "field",
+     "name": "BOO",
+     "number": 47,
+     "rect": [
+      7,
+      219,
+      125,
+      285
+     ],
+     "visible": false,
+     "style": {
+      "shape": "rectangle",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 165,
+      "flags_a": 132,
+      "flags_b": 2,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "script": {
+    "language": "hypertalk",
+    "text": "ON NFUMALE\rGLOBAL NFUMALE\rput nextBlankLine(\"TEXT\") into NXTLINE\rPUT FLD \"NFUMALE\" INTO LINE NXTLINE OF FIELD \"TEXT\"\rEND NFUMALE\r\rON EXTEMALE\rGLOBAL EXTEMALE\rput nextBlankLine(\"TEXT\") into NXTLINE\rPUT FLD \"EXTEMALE\" INTO LINE NXTLINE OF FIELD \"TEXT\"\rEND EXTEMALE\rON NFUFEM\rGLOBAL NFUFEM\rput nextBlankLine(\"TEXT\") into NXTLINE\rPUT FLD \"NFUFEM\" INTO LINE NXTLINE OF FIELD \"TEXT\"\rEND NFUFEM\r\rON EXTEFEM\rGLOBAL EXTEFEM\rput nextBlankLine(\"TEXT\") into NXTLINE\rPUT FLD \"EXTEFEM\" INTO LINE NXTLINE OF FIELD \"TEXT\"\rEND EXTEFEM\r\r\rON OPENCARD\rIF THERE IS NO MENU \"PROCEDURE\" THEN CREATE MENU \"Procedure\"\rput \"Colonoscopy,EGD\"¬\rinto  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"\rENABLE MENU \"Procedure\"\rGLOBAL NFUMALE, EXTEMALE, NFUFEM,EXTEFEM\rPUT NFUFEM INTO FLD \"NFUFEM\"\rPUT NFUMALE INTO FLD \"NFUMALE\"\rPUT EXTEMALE INTO FLD \"EXTEMALE\"\rPUT EXTEFEM INTO FLD \"EXTEFEM\"\rPUT ROUND(NEXTBLANKLINE(\"TEXT\")*.9) INTO HLINE\rPUT THE TEXTHEIGHT OF FLD \"TEXT\"INTO HSIZE\rSET SCROLL OF FLD \"TEXT\" TO HLINE*HSIZE\rIF FLD \"NOTES\" IS NOT EMPTY THEN SET THE VISIBLE OF BG BUTTON \"FLAG\" TO TRUE\rELSE\rSET THE VISIBLE OF BG BUTTON \"FLAG\" TO FALSE\rEND IF\rIF FLD \"REFERING\" IS NOT EMPTY\rTHEN\rSET THE VISIBLE OF FLD \"REFERING\" TO TRUE\rIF THERE IS A BG BUTTON \"SHOW REF\"\rTHEN\rSET THE NAME OF BG BTN \"SHOW REF\" TO \"HIDE REF\"\rEND IF\rEND IF\rPASS OPENCARD\rEND OPENCARD\r\rFUNCTION DATELINE FLD\r--RETURNS THE LINE WHERE TODAY'S DATE IS\rREPEAT WITH N=1 TO NUMBER OF LINES OF FIELD FLD\rIF THE DATE IS IN LINE N OF FIELD FLD\rTHEN\rRETURN N\rEND IF\rEND REPEAT\rEND DATELINE\r\rFUNCTION IMPRESSION FLD\r--RETURNS THE LINE WHERE THE IMP STARTS-1\rREPEAT WITH N=NUMBER OF LINES OF FIELD FLD DOWN TO 1\rIF \"IMP:\" IS IN LINE N OF FIELD FLD\rTHEN\rRETURN N-1\rEND IF\rEND REPEAT\rEND IMPRESSION\r\rFUNCTION DISPOSITION FLD\r--RETURNS THE LINE WHERE THE DISP STARTS-1\rREPEAT WITH N=NUMBER OF LINES OF FIELD FLD DOWN TO 1\rIF \"DISP:\" IS IN LINE N OF FIELD FLD\rTHEN\rRETURN N-1\rEND IF\rEND REPEAT\rEND DISPOSITION\r\r\r\rON CLOSECARD\rset lockMessages to true\rIF THERE IS A BG BTN \"HIDE REF\"\rTHEN\rSET THE NAME OF BG BTN \"HIDE REF\" TO \"SHOW REF\"\rSET THE VISIBLE OF FLD \"REFERING\" TO FALSE\rEND IF\rGET FLD \"SEX\"\rIF IT IS EMPTY THEN ANSWER \"YOU HAVE NOT SPECIFIED A SEX\"\rGET FIELD \"NAME\"\rIF IT IS EMPTY THEN\rANSWER \"NAME IS NOT COMPLETE, DELETE THIS CARD?\" WITH \"YES\" OR \"NO\rIF IT IS \"YES\" THEN SEND \"DOMENU DELETE CARD\" TO HYPERCARD\rIF IT IS \"NO\" THEN EXIT CLOSECARD\rEND IF\rset lockMessages to FALSE\rEND CLOSECARD\r\rfunction NEXTEMPTYLINE CDFLD\r--returns the next blank line in CD FLD\rif CD field CDFLD is empty then\rreturn 1\rend if\rrepeat with N=number of lines of CD field CDFLD down to 1\rif line N of CD field CDFLD is not empty then exit repeat\rend repeat\rreturn N+1\rend NEXTEMPTYLINE\r\r\rfunction nextBlankLine FLD\r--returns the next blank line in FLD\rif field FLD is empty then\rreturn 1\rend if\rrepeat with N=number of lines of field FLD down to 1\rif line N of field FLD is not empty then exit repeat\rend repeat\rreturn N+1\rend nextBlankLIne\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,590,590,50\r"
+   }
+  },
+  {
+   "id": "bkgnd-206076",
+   "name": "LOGO",
+   "image": "assets/bkgnd-206076.png",
+   "objects": [
+    {
+     "id": "bkgnd-206076/field-1",
+     "kind": "field",
+     "name": "",
+     "number": 1,
+     "rect": [
+      2,
+      24,
+      512,
+      114
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Times",
+      "size": 18,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 1,
+      "flags_a": 20,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 24,
+      "font_id": 20,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "script": null
+  },
+  {
+   "id": "bkgnd-201455",
+   "name": "Title",
+   "image": "assets/bkgnd-201455.png",
+   "objects": [
+    {
+     "id": "bkgnd-201455/button-1",
+     "kind": "button",
+     "name": "Home",
+     "number": 1,
+     "rect": [
+      57,
+      267,
+      90,
+      292
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Home",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rglobal HOPROBLEMLIST,HOPROBLEMLIST1,HOEXAM\rput empty into HOProblemList--cause re-initialization on re-entry\rput empty into HOProblemList1--cause re-initialization on re-entry\rput empty into HOEXAM--cause re-initialization on re-entry\rvisual effect iris close\rsend \"go home\" to HyperCard\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,256,256,50\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 21700,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-201455/button-2",
+     "kind": "button",
+     "name": "Sort All",
+     "number": 2,
+     "rect": [
+      57,
+      72,
+      99,
+      109
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Sort All",
+     "icon": "assets/icon-20186.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rlock screen\rgo to first card of bg \"Patient Info\"\rsend mouseUp to bg btn \"Sort\"\rgo to card \"Title\"\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,27,27,50\r"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 20186,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-201455/button-3",
+     "kind": "button",
+     "name": "Find",
+     "number": 3,
+     "rect": [
+      423,
+      72,
+      455,
+      102
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Find",
+     "icon": "assets/icon-8538.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rask \"Find what?\"\rif it is not empty then\rput \"Find\" && quote & it & quote into msg\rhide msg\rtype return\rend if\rIF THE RESULT IS NOT EMPTY THEN ANSWER¬\r\"PATIENT NOT FOUND\"\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 8538,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-201455/button-4",
+     "kind": "button",
+     "name": "Options",
+     "number": 4,
+     "rect": [
+      415,
+      244,
+      456,
+      291
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Options",
+     "icon": "assets/icon-6096.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect venetian blinds to grey\rgo to CD \"PROBLEM LIST1\" of bg \"Maintenance\"\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,77,77,50\r"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 40960,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 6096,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-201455/button-5",
+     "kind": "button",
+     "name": "",
+     "number": 5,
+     "rect": [
+      237,
+      71,
+      284,
+      114
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-16376.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rshow card fld \"About1\"\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,36,36,50\r"
+     },
+     "extra": {
+      "part_id": 5,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 16376,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-201455/button-6",
+     "kind": "button",
+     "name": "PATIENT INFORMATION",
+     "number": 6,
+     "rect": [
+      168,
+      113,
+      345,
+      164
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "PATIENT INFORMATION",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rpush card\rvisual effect dissolve to black\rgo to first card of bg \"patient info\"\rSEND MOUSEUP TO BG BUTTON \"NEW PATIENT\"\r\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,25,25,50\r"
+     },
+     "extra": {
+      "part_id": 6,
+      "flags_a": 0,
+      "flags_b": 40960,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "bkgnd-201455/field-7",
+     "kind": "field",
+     "name": "Number Pts",
+     "number": 7,
+     "rect": [
+      233,
+      172,
+      273,
+      187
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 7,
+      "flags_a": 1,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-201455/button-8",
+     "kind": "button",
+     "name": "PATIENT LIST",
+     "number": 8,
+     "rect": [
+      210,
+      244,
+      310,
+      289
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "PATIENT LIST",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rGO TO CD \"PATIENT LIST\"\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 8,
+      "flags_a": 0,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 9253,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "script": null
+  },
+  {
+   "id": "bkgnd-259661",
+   "name": "MAINTENANCE",
+   "image": "assets/bkgnd-259661.png",
+   "objects": [
+    {
+     "id": "bkgnd-259661/button-1",
+     "kind": "button",
+     "name": "Return",
+     "number": 1,
+     "rect": [
+      434,
+      290,
+      461,
+      318
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Return",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect venetian blinds to grey\rgo TO card \"Title\"\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 8196,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 30557,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-259661/field-2",
+     "kind": "field",
+     "name": "PROBLEMS",
+     "number": 2,
+     "rect": [
+      36,
+      0,
+      426,
+      52
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 256,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-259661/button-3",
+     "kind": "button",
+     "name": "Next",
+     "number": 3,
+     "rect": [
+      467,
+      290,
+      494,
+      318
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Next",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rvisual effect wipe left\rgo to next card of this bg\rend mouseUp\r"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 8196,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1013,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-259661/field-4",
+     "kind": "field",
+     "name": "Menu Holder",
+     "number": 4,
+     "rect": [
+      4,
+      289,
+      349,
+      340
+     ],
+     "visible": false,
+     "style": {
+      "shape": "rectangle",
+      "font": "Geneva",
+      "size": 9,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "ON CLOSEFIELD\rput sortLines(field \"MENU HOLDER\") into field \"MENU HOLDER\"\rEND CLOSEFIELD"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 128,
+      "flags_b": 2,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 12,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "script": null
+  }
+ ],
+ "screens": [
+  {
+   "id": "card-227564",
+   "name": "Title",
+   "number": 1,
+   "layers": [
+    "bkgnd-201455"
+   ],
+   "image": "assets/card-227564.png",
+   "objects": [
+    {
+     "id": "card-227564/button-23",
+     "kind": "button",
+     "name": "On",
+     "number": 1,
+     "rect": [
+      471,
+      250,
+      498,
+      264
+     ],
+     "visible": false,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 10,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "On",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 23,
+      "flags_a": 128,
+      "flags_b": 32768,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-227564/field-10",
+     "kind": "field",
+     "name": "About1",
+     "number": 2,
+     "rect": [
+      94,
+      124,
+      438,
+      314
+     ],
+     "visible": false,
+     "style": {
+      "shape": "shadow",
+      "font": "Geneva",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "PATIENTS ™  Version 1.5\rTHIS IS A PROGRAM WHICH ALLOWS YOU TO KEEP A SEQUENTIAL RECORD OF PATIENT VISITS. IT KEEPS A RECORD OF MEDICATIONS AND PROBLEMS. IT PRODUCES A REPORT OF THE CURRENT VISIT BY PROMPTING  THE CHIEF COMPLAINT, DISPOSITION AND IMPRESSION. IT PROVIDES A STANDARIZED BUT VARIED PHYSICAL EXAM. IT PRINTS A REPORT OF THE CURRENT VISIT. IT STORES THE CHIEF COMPLAINT, THE IMPRESSION AND THE DISPOSITION. \rIT ALLOWS TO RECORD AND STORE ABNORMAL FINDINGS AND A PELVIC EXAM.\rPROGRAM BY NELSON TRUJILLO, MD, FACP \r",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rhide me\rend mouseUp\r\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,21,21,50\r"
+     },
+     "extra": {
+      "part_id": 10,
+      "flags_a": 129,
+      "flags_b": 8196,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Geneva",
+        "font_id": 3,
+        "size": 10,
+        "style": 256,
+        "style_id": 3
+       },
+       {
+        "start": 11,
+        "font": "Geneva",
+        "font_id": 3,
+        "size": 10,
+        "style": 0,
+        "style_id": 1
+       },
+       {
+        "start": 23,
+        "font": "Geneva",
+        "font_id": 3,
+        "size": 10,
+        "style": 256,
+        "style_id": 3
+       },
+       {
+        "start": 24,
+        "font": "Geneva",
+        "font_id": 3,
+        "size": 10,
+        "style": 0,
+        "style_id": 1
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-227564/field-33",
+     "kind": "field",
+     "name": "NAME",
+     "number": 3,
+     "rect": [
+      17,
+      0,
+      496,
+      23
+     ],
+     "visible": true,
+     "style": {
+      "shape": "shadow",
+      "font": "Helvetica",
+      "size": 18,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "METROPOLITAN GASTROENTEROLOGY GROUP",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 33,
+      "flags_a": 5,
+      "flags_b": 4,
+      "style_number": 4,
+      "text_style": 256,
+      "line_height": 24,
+      "font_id": 21,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-227564/button-35",
+     "kind": "button",
+     "name": "install",
+     "number": 4,
+     "rect": [
+      358,
+      203,
+      458,
+      225
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "install",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rpush card\rset lockMessages to true\rGetButton\rGoStack\rTheLevel\rGoCard\rinstall\rGoBack\rCleanUp\rend mouseUp\r\ron CleanUp\rglobal SaveLevel\rset the Userlevel to SaveLevel\rend CleanUp\r\ron GoBack\ranswer \"Stay here or go back?\" with \"Back\" or \"Stay\"\rif it is \"Back\" then pop card\rend GoBack\r\ron Install\rset lockScreen to true\rtype \"V\" with commandKey\rset lockScreen to false\ranswer \"Drag this button to it's new postion.\"\rwait until the mouse is down\rrepeat while the mouse is down\rset the loc of last button to the mouseLoc\rend repeat\rchoose browse tool\rend Install\r\ron GetButton\rset lockScreen to true\rchoose button tool\rclick at loc of button \"PATIENTS ™  Version 1.5\"\rtype \"C\" with commandKey\rchoose browse tool\rset lockScreen to false\rend GetButton\r\ron GoCard\rgo to first card\rrepeat\ranswer \"Install on this card?\" with \"Yes\" or \"No\"\rif it is \"No\"\rthen\rgo to next Card\relse\rexit GoCard\rend if\rend repeat\rend GoCard\r\ron GoStack\rgo to stack \"home\"\rend GoStack\r\ron TheLevel\rglobal SaveLevel\rput the userLevel into SaveLevel\rset the userLevel to 4\rif the userlevel < 4\rthen\ranswer \"This stack is protected to userlevel\" && the userLevel\ranswer \"Please raise the level to 5\"\rset userlevel to SaveLevel\rExit to HyperCard\rend if\rend TheLevel\r"
+     },
+     "extra": {
+      "part_id": 35,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-227564/button-36",
+     "kind": "button",
+     "name": "PATIENTS ™  Version 1.5",
+     "number": 5,
+     "rect": [
+      380,
+      124,
+      444,
+      189
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "PATIENTS ™  Version 1.5",
+     "icon": "assets/icon-16376.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rset cursor to watch\r-- stack will open in new window if there's enough memory\rgo to stack \"PATIENTS ™  Version 1.5\" in a new window\rif the result is \"Cancel\" then exit mouseUp\relse if the result <> empty then go to stack \"PATIENTS ™  Version 1.5\"\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 36,
+      "flags_a": 0,
+      "flags_b": 3,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 16376,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-201455/field-7": "1"
+   },
+   "script": {
+    "language": "hypertalk",
+    "text": "on openCard\rget the number of cards of bg \"Patient Info\"\rput it into  fld \"Number Pts\"\rpass openCard\rend openCard\r\rON CLOSECARD\rIF THERE IS NO MENU \"PROCEDURE\" THEN   CREATE MENU \"Procedure\"\rput \"Colonoscopy,EGD\"¬\rinto  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"\rEND CLOSECARD\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,73,73,50\r"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-260168",
+   "name": "Problem List",
+   "number": 2,
+   "layers": [
+    "bkgnd-259661"
+   ],
+   "image": null,
+   "objects": [
+    {
+     "id": "card-260168/field-2",
+     "kind": "field",
+     "name": "MEDICATION LIST",
+     "number": 1,
+     "rect": [
+      37,
+      57,
+      300,
+      300
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "AXID\rBENTYL\rCITRUCEL\rDIAZYDE\rHYDROCHLORTHIAZID\rINDERAL\rKUTRASE\rLEVSIN\rLIMBRITOL \rPEPCID\rPROBANTHINE\rPROPULSID\rXANAX\rZANTAC\r",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on closeField\rglobal HOProblemList\rput sortLines(CD field \"MEDICATION LIST\") into CD field \"MEDICATION LIST\"\r\rput empty into HOProblemList\rrepeat with N=1 to the number of lines of me\rget line N of me\rif N>1 then put \";\" after HOProblemList\rif it is empty then put \"(-\" after HOProblemList\relse\rput it after HOProblemList\rend if\rend repeAT\rput HOProblemList into fld \"Menu Holder\"\rend closeField"
+     },
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-260168/button-3",
+     "kind": "button",
+     "name": "MEDICATION LIST",
+     "number": 2,
+     "rect": [
+      320,
+      62,
+      433,
+      77
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "MEDICATION LIST",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "--6/24/89\r\ron mouseDown\rglobal HOProblemList\rget PopMenu (the clickLoc,HOProblemList)\rif it > 0 then\rput nextBlankLine(\"MEDICATION\") into NXTLINE\rput piece(HOProblemList,\";\",it) into line NXTLINE of field \"MEDICATION\"\rend if\rend mouseDown\r"
+     },
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-259661/field-2": "MEDICATION LIST: TYPE THE MEDICINE'S NAME IN THE  AREA BELOW FOLLOWED BY RETURN. SEE THE RESULT HOLDING MOUSE DOWN ON MEDICATION LIST.",
+    "bkgnd-259661/field-4": "AXID;BENTYL;CITRUCEL;DIAZYDE;HYDROCHLORTHIAZID;INDERAL;KUTRASE;LEVSIN;LIMBRITOL ;PEPCID;PROBANTHINE;PROPULSID;XANAX;ZANTAC"
+   },
+   "script": {
+    "language": "hypertalk",
+    "text": "on openCard\rDISABLE MENU \"Procedure\"\rend openCard\ron closeCard\rENABLE MENU \"Procedure\"\rend closeCard\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,107,107,50\r"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-69212",
+   "name": "EXAM CHANGE",
+   "number": 3,
+   "layers": [
+    "bkgnd-259661"
+   ],
+   "image": null,
+   "objects": [
+    {
+     "id": "card-69212/field-1",
+     "kind": "field",
+     "name": "NFUMALE",
+     "number": 1,
+     "rect": [
+      8,
+      75,
+      208,
+      160
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Times",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "BP WAS NORMAL P NORMAL\rCONJUNCTIVA PINK\rNECK WAS SUPPLE\rLUNGS CLEAR TO P & A\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rEXT SHOWED NO EDEMA",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "-- on closefield\r-- put changecase (cd fld \"nfumale\",2) into cd fld \"nfumale\"\r-- put changecase (cd fld \"nfumale\",3) into cd fld \"nfumale\"\r-- end closefield\r\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 4,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 20,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/field-3",
+     "kind": "field",
+     "name": "EXTEMALE",
+     "number": 2,
+     "rect": [
+      226,
+      76,
+      426,
+      161
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Times",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "BP WAS NORMAL P NORMAL\rFUNDOSCOPIC BENIGN CONJUNCTIVA PINK \rPHARYNX NORMAL\rNECK WAS SUPPLE\rNO CAROTID BRUITS\rTHYROID WAS NORMAL\rLUNGS CLEAR TO P & A\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rTESTICLES AND PROSTATE NORMAL\rEXT SHOWED NO EDEMA\rGOOD PERIPHERAL PULSES\rDTR'S NORMAL NO BABINSKI",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 4,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 20,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Times",
+        "font_id": 20,
+        "size": 10,
+        "style": 0,
+        "style_id": 6
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/field-4",
+     "kind": "field",
+     "name": "NFUFEM",
+     "number": 3,
+     "rect": [
+      8,
+      175,
+      208,
+      260
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Times",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "BP WAS NORMAL P NORMAL\rCONJUNCTIVA PINK\rNECK WAS SUPPLE\rBREAST NORMAL TO PALPATION\rLUNGS CLEAR TO P & A\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rEXT SHOWED NO EDEMA",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 4,
+      "flags_a": 4,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 20,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Times",
+        "font_id": 20,
+        "size": 10,
+        "style": 0,
+        "style_id": 6
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/field-5",
+     "kind": "field",
+     "name": "EXTEFEM",
+     "number": 4,
+     "rect": [
+      227,
+      176,
+      427,
+      261
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Times",
+      "size": 10,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "BP WAS NORMAL P NORMAL\rFUNDOSCOPIC BENIGN CONJUNCTIVA PINK\rPHARYNX NORMAL\rNECK WAS SUPPLE\rNO CAROTID BRUITS\rTHYROID WAS NORMAL\rLUNGS CLEAR TO P & A\rBREAST NORMAL TO PALPATION\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rEXT SHOWED NO EDEMA\rGOOD PERIPHERAL PULSES\rDTR'S NORMAL NO BABINSKI",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 5,
+      "flags_a": 4,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 13,
+      "font_id": 20,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Times",
+        "font_id": 20,
+        "size": 10,
+        "style": 0,
+        "style_id": 6
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/field-6",
+     "kind": "field",
+     "name": "",
+     "number": 5,
+     "rect": [
+      239,
+      57,
+      410,
+      72
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N EXT MALE",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 6,
+      "flags_a": 4,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/field-7",
+     "kind": "field",
+     "name": "",
+     "number": 6,
+     "rect": [
+      30,
+      57,
+      198,
+      73
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N F/U MALE",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 7,
+      "flags_a": 4,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/field-8",
+     "kind": "field",
+     "name": "",
+     "number": 7,
+     "rect": [
+      24,
+      160,
+      195,
+      175
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N F/U FEMALE",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 8,
+      "flags_a": 4,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/field-9",
+     "kind": "field",
+     "name": "",
+     "number": 8,
+     "rect": [
+      238,
+      161,
+      409,
+      176
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "N EXT FEM",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 9,
+      "flags_a": 4,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-69212/button-10",
+     "kind": "button",
+     "name": "B (PRESS TO SET CHANGES)",
+     "number": 9,
+     "rect": [
+      155,
+      276,
+      332,
+      301
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "B (PRESS TO SET CHANGES)",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rANSWER \"ARE YOU SURE YOU WANT TO CHANGE\" WITH \"YES\" OR \"NO\"\rIF IT IS \"NO\" THEN EXIT MOUSEUP\rELSE\rLOCK SCREEN\rPUSH CARD\rSET CURSOR TO BUSY\rGLOBAL NFUMALE,NFUFEM,EXTEMALE,EXTEFEM\rPUT CD FLD \"NFUFEM\" INTO NFUFEM\rPUT CD FLD \"NFUMALE\" INTO NFUMALE\rPUT CD FLD \"EXTEMALE\" INTO EXTEMALE\rPUT CD FLD \"EXTEFEM\" INTO EXTEFEM\rGO TO BACKGROUND \"PATIENT INFO\"\rPUT NFUFEM INTO FLD \"NFUFEM\"\rPUT NFUMALE INTO FLD \"NFUMALE\"\rPUT EXTEMALE INTO FLD \"EXTEMALE\"\rPUT EXTEFEM INTO FLD \"EXTEFEM\"\rEND IF\rPOP CARD\rUNLOCK SCREEN\rPUT\" WE ARE ALL DONE, DUDE\"\rBEEP\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 10,
+      "flags_a": 0,
+      "flags_b": 40963,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-259661/field-2": "TO CHANGE TEXT FOR BUTTONS FOR PRESET EXAMS. TYPE INTO BOXES BELOW.  SEPARATE LINES BY RETURN. WHEN DONE PRESS B TO SET."
+   },
+   "script": {
+    "language": "hypertalk",
+    "text": "ON OPENCARD\rDISABLE MENU \"Procedure\"\rPASS OPENCARD\rEND OPENCARD\r\ron closeCard\rENABLE MENU \"Procedure\"\rend closeCard\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,221,221,50\r"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-71469",
+   "name": "NAME CHANGE",
+   "number": 4,
+   "layers": [
+    "bkgnd-259661"
+   ],
+   "image": null,
+   "objects": [
+    {
+     "id": "card-71469/button-1",
+     "kind": "button",
+     "name": "CHANGE NAME",
+     "number": 1,
+     "rect": [
+      179,
+      59,
+      279,
+      81
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "CHANGE NAME",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rANSWER \"ARE YOU SURE YOU WANT TO CHANGE\" WITH \"YES\" OR \"NO\"\rIF IT IS \"NO\" THEN EXIT MOUSEUP\rglobal NAME,NEWNAME,LOCAL,CDID\rask \"WHAT IS THE NAME IN THE REPORT\"\rIF IT IS EMPTY THEN EXIT MOUSEUP\rPUT IT INTO NAME\rask \"WHAT IS THE NEW NAME\"\rIF IT IS EMPTY THEN EXIT MOUSEUP\rPUT IT INTO NEWNAME\rif NAME=NEWNAME then EXIT MOUSEUP\rPUSH CARD\rLOCK SCREEN\rSET CURSOR TO BUSY\rGET THE ID OF THIS CARD\rPUT IT INTO CDID\r\rGO TO CD \"CARD REPORT\" OF BACKGROUND \"PATIENT INFO\"\rget THE SCRIPT OF BKGND BUTTON \"PRINT\"\rPUT IT INTO FLD \"BOO\"\rIF NAME IS NOT IN FLD \"BOO\" THEN\rANSWER \"THERE IS NO SUCH DOCTOR'S NAME\"\rPOP CARD\rEXIT MOUSEUP\rEND IF\rIF THE NUMBER OF CHARS IN NAME < 5\rTHEN\rANSWER \"ARE YOU SURE THIS IS THE RIGHT NAME\" WITH \"YES\" OR \"NO\"\rIF IT IS \"NO\" THEN\rPOP CARD\rEXIT MOUSEUP\rEND IF\rend if\r\rGO TO CD \"CARD REPORT\" OF BACKGROUND \"PATIENT INFO\"\rget THE SCRIPT OF BKGND BUTTON \"PRINT\"\rPUT IT INTO FLD \"BOO\"\rrepeat with Z=1 TO NextBlankLine (\"BOO\")\rif NAME IS IN LINE Z OF FLD \"BOO\" then\rFIND WHOLE NAME\rGET THE FOUNDCHUNK\rPUT IT INTO LOCAL\rDO \"PUT NEWNAME INTO\" && LOCAL\rEND IF\rend repeat\rset SCRIPT OF BKGND BUTTON \"PRINT\" TO FLD \"BOO\"\r\rGO TO CD \"CARD REPORT\" OF BACKGROUND \"PATIENT INFO\"\rget THE SCRIPT OF BKGND BUTTON \"DISP\"\rPUT IT INTO FLD \"BOO\"\rSELECT BEFORE TEXT OF FLD \"BOO\"\rrepeat with Z=1 TO NextBlankLine (\"BOO\")\rif NAME IS IN LINE Z OF FLD \"BOO\" then\rFIND WHOLE NAME\rGET THE FOUNDCHUNK\rPUT IT INTO LOCAL\rDO \"PUT NEWNAME INTO\" && LOCAL\rend if\rend repeat\rset SCRIPT OF BKGND BUTTON \"DISP\" TO FLD \"BOO\"\r\rGO TO CD \"CARD REPORT\" OF BACKGROUND \"PATIENT INFO\"\rget THE SCRIPT OF BKGND BUTTON \"N F/U MALE\"\rPUT IT INTO FLD \"BOO\"\rSELECT BEFORE TEXT OF FLD \"BOO\"\rrepeat with Z=1 TO NextBlankLine (\"BOO\")\rif NAME IS IN LINE Z OF FLD \"BOO\" then\rFIND WHOLE NAME\rGET THE FOUNDCHUNK\rPUT IT INTO LOCAL\rDO \"PUT NEWNAME INTO\" && LOCAL\rend if\rend repeat\rset SCRIPT OF BKGND BUTTON \"N F/U MALE\" TO FLD \"BOO\"\r\rGO TO CD \"CARD REPORT\" OF BACKGROUND \"PATIENT INFO\"\rget THE SCRIPT OF BKGND BUTTON \"N F/U FEM\"\rPUT IT INTO FLD \"BOO\"\rSELECT BEFORE TEXT OF FLD \"BOO\"\rrepeat with Z=1 TO NextBlankLine (\"BOO\")\rif NAME IS IN LINE Z OF FLD \"BOO\" then\rFIND WHOLE NAME\rGET THE FOUNDCHUNK\rPUT IT INTO LOCAL\rDO \"PUT NEWNAME INTO\" && LOCAL\rend if\rend repeat\rset SCRIPT OF BKGND BUTTON \"N F/U FEM\" TO FLD \"BOO\"\r\rGO TO CD \"CARD REPORT\" OF BACKGROUND \"PATIENT INFO\"\rget THE SCRIPT OF BKGND BUTTON \"N EXT MALE\"\rPUT IT INTO FLD \"BOO\"\rSELECT BEFORE TEXT OF FLD \"BOO\"\rrepeat with Z=1 TO NextBlankLine (\"BOO\")\rif NAME IS IN LINE Z OF FLD \"BOO\" then\rFIND WHOLE NAME\rGET THE FOUNDCHUNK\rPUT IT INTO LOCAL\rDO \"PUT NEWNAME INTO\" && LOCAL\rend if\rend repeat\rset SCRIPT OF BKGND BUTTON \"N EXT MALE\" TO FLD \"BOO\"\r\rGO TO CD \"CARD REPORT\" OF BACKGROUND \"PATIENT INFO\"\rget THE SCRIPT OF BKGND BUTTON \"N EXT FEM\"\rPUT IT INTO FLD \"BOO\"\rSELECT BEFORE TEXT OF FLD \"BOO\"\rrepeat with Z=1 TO NextBlankLine (\"BOO\")\rif NAME IS IN LINE Z OF FLD \"BOO\" then\rFIND WHOLE NAME\rGET THE FOUNDCHUNK\rPUT IT INTO LOCAL\rDO \"PUT NEWNAME INTO\" && LOCAL\rend if\rend repeat\rset SCRIPT OF BKGND BUTTON \"N EXT FEM\" TO FLD \"BOO\"\rPOP CARD\rUNLOCK SCREEN\rPUT \"WE ARE ALL DONE, DUDE\"\rBEEP\rEND MOUSEUP\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,584,584,50\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-71469/field-2",
+     "kind": "field",
+     "name": "BOO",
+     "number": 2,
+     "rect": [
+      156,
+      120,
+      356,
+      205
+     ],
+     "visible": false,
+     "style": {
+      "shape": "rectangle",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 132,
+      "flags_b": 2,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-71469/field-3",
+     "kind": "field",
+     "name": "",
+     "number": 3,
+     "rect": [
+      464,
+      275,
+      493,
+      304
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 5,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-71469/button-4",
+     "kind": "button",
+     "name": "CHANGE NAME OF COMPANY",
+     "number": 4,
+     "rect": [
+      76,
+      148,
+      274,
+      175
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "CHANGE NAME OF COMPANY",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rask \"WRITE NEW FOR COMPANY\"\rIF IT IS EMPTY THEN EXIT MOUSEUP\rPUT IT INTO NAME\rGO TO CD \"TITLE\"\rPUT EMPTY INTO CD FLD \"NAME\"\rPUT NAME INTO CD FLD \"NAME\"\rend mouseUp\r\r-- ScriptEdit™ Prefs:Geneva,9,47,24,334,508,174,174,50\r"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-259661/field-2": "TO CHANGE THE NAME OF MD IN THE REPORTS. PRESS THE NAME CHANGE BUTTON. BE SURE THE SPELLING OF NAME IS CORRECT."
+   },
+   "script": {
+    "language": "hypertalk",
+    "text": "on openCard\rDISABLE MENU \"Procedure\"\rend openCard\ron closeCard\rENABLE MENU \"Procedure\"\rend closeCard\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,107,107,50\r"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-50843",
+   "name": "PATIENT LIST",
+   "number": 5,
+   "layers": [
+    "bkgnd-259661"
+   ],
+   "image": "assets/card-50843.png",
+   "objects": [
+    {
+     "id": "card-50843/button-1",
+     "kind": "button",
+     "name": "UPDATE",
+     "number": 1,
+     "rect": [
+      304,
+      278,
+      404,
+      300
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "UPDATE",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rGLOBAL NAMEVAR, IDEAR, DATEVAR\rPUT EMPTY INTO DATEVAR\rPUT EMPTY INTO NAMEVAR\rSET CURSOR TO BUSY\rSET LOCKSCREEN TO TRUE\rSET LOCKMESSAGES TO TRUE\rGET THE ID OF THIS CARD\rPUT IT INTO IDEAR\rGO TO BG \"PATIENT INFO\"\rSORT BY LAST WORD OF FLD \"NAME\"\rREPEAT WITH N= 1 TO THE NUMBER OF CDS\rGO NEXT CARD\rGET SHORT NAME OF BKGND\rIF IT IS \"TITLE\" THEN NEXT REPEAT\rIF IT IS \"MAINTENANCE\" THEN NEXT REPEAT\rIF IT IS \"HELP\" THEN NEXT REPEAT\rIF IT IS \"LOGO\" THEN NEXT REPEAT\rPUT LAST WORD OF FLD \"NAME\"&\",\"&FIRST WORD OF¬\rFLD \"NAME\"&RETURN AFTER NAMEVAR\r--&&\"-\"&&DATEVAR\rEND REPEAT\rGO TO IDEAR\rPUT NAMEVAR INTO CD FLD \"PATIENTS\"\rSET LOCKSCREEN TO FALSE\rSET LOCKMESSAGES TO FALSE\rPUT THE TIME INTO CD FLD \"TIME\"\rPUT THE DATE INTO CD FLD \"DATE1\"\rend mouseUp\r\r"
+     },
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-50843/field-2",
+     "kind": "field",
+     "name": "TIME",
+     "number": 2,
+     "rect": [
+      336,
+      192,
+      476,
+      214
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "9:01 PM",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-50843/field-3",
+     "kind": "field",
+     "name": "DATE1",
+     "number": 3,
+     "rect": [
+      335,
+      166,
+      476,
+      188
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "4/21/96",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-50843/field-4",
+     "kind": "field",
+     "name": "PATIENTS",
+     "number": 4,
+     "rect": [
+      31,
+      35,
+      262,
+      341
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "AAASON,EVADA\r",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "ON MOUSEUP\rput mouseToLine() into LINENUM\rselect line LINENUM of target\rput FIRST ITEM OF line LINENUM of CD field \"PATIENTS\" into IT\rput \"Find\" && quote & it & quote into msg\rhide msg\rtype return\rtype return\rtype return\rEND MOUSEUP"
+     },
+     "extra": {
+      "part_id": 4,
+      "flags_a": 17,
+      "flags_b": 7,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-50843/field-5",
+     "kind": "field",
+     "name": "",
+     "number": 5,
+     "rect": [
+      427,
+      216,
+      494,
+      258
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 5,
+      "flags_a": 5,
+      "flags_b": 1,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-50843/button-6",
+     "kind": "button",
+     "name": "Find",
+     "number": 6,
+     "rect": [
+      330,
+      70,
+      362,
+      100
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Find",
+     "icon": "assets/icon-8538.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rSELECT BEFORE TEXT OF CD FLD \"PATIENTS\"\rask \"Find what?\"\rif it is not empty then\rput \"Find\" && quote & it & quote into msg\rhide msg\rtype return\rend if\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,37,37,50\r"
+     },
+     "extra": {
+      "part_id": 6,
+      "flags_a": 0,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 8538,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-259661/field-2": "\rLIST OF PATIENTS IN THIS FILE"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4434",
+   "name": "PROBLEM LIST1",
+   "number": 6,
+   "layers": [
+    "bkgnd-259661"
+   ],
+   "image": null,
+   "objects": [
+    {
+     "id": "card-4434/field-7",
+     "kind": "field",
+     "name": "Problem List",
+     "number": 1,
+     "rect": [
+      37,
+      57,
+      271,
+      295
+     ],
+     "visible": true,
+     "style": {
+      "shape": "scrolling",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "ARRYTHMIA\rARTHRITIS\rASHD\rCOLONIC POLYP\rCROHN'S DISEASE\rDIABETES MELLITUS\rDIVERTICULOSIS\rESOPHAGEAL SPASM\rGASTRITIS\rH. PYLORI\rHIATAL HERNIA\rHIGH CHOLESTEROL\rHYPERTENSION\rPEPTIC ULCER\rSPASTIC COLITIS\rULCERATIVE COLITIS",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on closeField\rglobal HOProblemList1\r\rput sortLines(CD field \"PROBLEM LIST\") into CD field \"PROBLEM LIST\"\rput empty into HOProblemList1\rrepeat with N=1 to the number of lines of me\rget line N of me\rif N>1 then put \";\" after HOProblemList1\rif it is empty then put \"(-\" after HOProblemList1\relse\rput it after HOProblemList1\rend if\rend repeat\rput HOProblemList1 into fld \"Menu Holder\"\rend closeField\r"
+     },
+     "extra": {
+      "part_id": 7,
+      "flags_a": 0,
+      "flags_b": 8199,
+      "style_number": 7,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-4434/button-8",
+     "kind": "button",
+     "name": "Problem list",
+     "number": 2,
+     "rect": [
+      348,
+      84,
+      437,
+      98
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-4",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "Problem list",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "--6/24/89\r\ron mouseDown\rglobal HOProblemList1\rget PopMenu (the clickLoc,HOProblemList1)\rif it > 0 then\rput nextBlankLine(\"Problems\") into NXTLINE\rput piece(HOProblemList1,\";\",it) into line NXTLINE¬\rof field \"ProBLems\"\rend if\rend mouseDown\r"
+     },
+     "extra": {
+      "part_id": 8,
+      "flags_a": 0,
+      "flags_b": 40964,
+      "style_number": 4,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    },
+    {
+     "id": "card-4434/button-10",
+     "kind": "button",
+     "name": "RESET",
+     "number": 3,
+     "rect": [
+      299,
+      228,
+      399,
+      250
+     ],
+     "visible": true,
+     "style": {
+      "shape": "roundrect",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": true,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "RESET",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rGO TO BG ID 2721\rSHOW BG BTN \"NEW PATIENT\"\rHIDE FLD \"TYPE\"\rHIDE FLD \"CC\"\rIF THE VISIBLE OF FIELD \"ABNORMAL\" IS TRUE THEN SEND MOUSEUP¬\rTO BG BTN \"HIDE ABN\"\rSHOW BG BTN \"NEW PATIENT\"\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 10,
+      "flags_a": 0,
+      "flags_b": 32771,
+      "style_number": 3,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": -6
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-259661/field-2": "PROBLEM LIST: TYPE THE DIAGNOSIS IN THE  AREA BELOW FOLLOWED BY RETURN. SEE THE RESULT HOLDING MOUSE DOWN ON PROBLEM LIST.\rARRYTHMIA",
+    "bkgnd-259661/field-4": "ARRYTHMIA;ARTHRITIS;ASHD;COLONIC POLYP;CROHN'S DISEASE;DIABETES MELLITUS;DIVERTICULOSIS;ESOPHAGEAL SPASM;GASTRITIS;H. PYLORI;HIATAL HERNIA;HIGH CHOLESTEROL;HYPERTENSION;PEPTIC ULCER;SPASTIC COLITIS;ULCERATIVE COLITIS"
+   },
+   "script": {
+    "language": "hypertalk",
+    "text": "on openCard\rDISABLE MENU \"Procedure\"\rend openCard\ron closeCard\rENABLE MENU \"Procedure\"\rend closeCard\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,107,107,50\r"
+   },
+   "grid": null
+  },
+  {
+   "id": "card-205707",
+   "name": "METRO",
+   "number": 7,
+   "layers": [
+    "bkgnd-206076"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-206076/field-1": "Metropolitan Gastroenterology Group\r2021 K Street, NW #T-110\rWashington, DC, 20006  202-2963449\r\rNelson P. Trujillo, M.D., F.A.C.G."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-41341",
+   "name": "CARD REPORT",
+   "number": 8,
+   "layers": [
+    "bkgnd-2721"
+   ],
+   "image": "assets/card-41341.png",
+   "objects": [
+    {
+     "id": "card-41341/field-1",
+     "kind": "field",
+     "name": "BOO",
+     "number": 1,
+     "rect": [
+      7,
+      231,
+      121,
+      282
+     ],
+     "visible": false,
+     "style": {
+      "shape": "rectangle",
+      "font": "Geneva",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "on mouseUp\r  HIDE BG BUTTON \"NEW PATIENT\"\r  PRINTPATIENT\r  SHOW BG BUTTON \"NEW PATIENT\"\rend mouseUp\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,63,63,50\r",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 1,
+      "flags_a": 132,
+      "flags_b": 2,
+      "style_number": 2,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 3,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {
+    "bkgnd-2721/field-35": "EVADA AAASON",
+    "bkgnd-2721/field-147": "Female",
+    "bkgnd-2721/field-36": "1/26/95",
+    "bkgnd-2721/field-51": "DIAZYDE\rDIGOXIN .125\rNIZORAL FOR TOE NAIL\rONE ASA/DAY",
+    "bkgnd-2721/field-106": "HYPERTENSION\rARTHRITIS\rGASTRIC ULCER",
+    "bkgnd-2721/field-142": "1/2/91\rCC: SHORTNESS OF BREATH HAS RTETURNED, SHE HAD STOPPED TAKING THE DIGOXIN. ALSO INTERMITTENT IMBALANCE AND INTERMITTENT PAIN LEFT HIP POSTERIORLY NO TRAUMA\rIMP: MILD CHF\rDISP: START DIGOXIN, 1 BABY ASA PER DAY SEE 2 WEEKS\r1/15/91\rCC: SSOB MAY BE A LITTLE IMPROVED\rIMP: IMPROVED SEE 3 MOS\r\r3/5/91\rCC: DOING WELL. TOE IS IMPROVING. NO COMPLAINTS\rDISP: CONT SMA ER. SEE 3 MOS\r\r8/6/91\rCC: NO BASIC COMPALINTS. OCASS DIFFUSE PINS AND NEEDLES SENSATIONS. TOE IMPROVING,\rDISP: SOME COUGH WILL GET CHEST X RAY\r\r6/2/92\rCC: WEIGHT IS TABLE COMPLAINING OF SOB ON EXERTION\rDISP: WILL GET CCHEST XRAY TOLD I HAVE NOTHING TO ACCOUNT FOR SOB\r\r5/3/95\rCC: COUGH RHINORRHEA WITH PRODUCTION OF YELLOW SPUTUM\rDISP: BIAXIN 250 BID, ACTIFEC WITH C\r\r8/24/95\rCC: COMPLAINS OF DYSPHAGIA LAST 3-4 WEEKS, SEVERE PAIN RT THUMB OTHRWISE DOING WELL\rABNORMAL FINDINGS: TENDERNESS EXTENSOR TENDON RT THUMB\rIMP: TENDONITIS\rDISP: WE HAVE INJECTED THE TENDON WITH XYLOCAINE AND DEPOMEDROL, INSTRUCTED IN EXERCISES\r\r10/17/95\rCC: SYMPTOMATICALLY IMPROVED FROM HER STOMACH, IS COMPLAINING OF AN IRREGULAR HEART BEAT\rDISP: EKG IS NORMAL, REASSURED, WILL BE SCOPED FOR GASTRIC ULCER HEALING\r\r11/21/95\rCC: FEELING WELL, ULCER HEALED, WANT TO PLACE HUSBAND IN NH\rDISP: REFERRED SOC SVC, CONTINUE MEDS SEE 3 MONTHS\rTRUJILLO",
+    "bkgnd-2721/field-44": "HUSBAND NOT GETING OUT BED SUGGESTED WE SEND VISITING NURSES SHE WILL CHECK\r",
+    "bkgnd-2721/field-157": "BP WAS NORMAL P NORMAL\rCONJUNCTIVA PINK\rNECK WAS SUPPLE\rBREAST NORMAL TO PALPATION\rLUNGS CLEAR TO P & A\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rEXT SHOWED NO EDEMA",
+    "bkgnd-2721/field-156": "BP WAS NORMAL P NORMAL\rCONJUNCTIVA PINK\rNECK WAS SUPPLE\rLUNGS CLEAR TO P & A\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rEXT SHOWED NO EDEMA",
+    "bkgnd-2721/field-158": "BP WAS NORMAL P NORMAL\rFUNDOSCOPIC BENIGN CONJUNCTIVA PINK \rPHARYNX NORMAL\rNECK WAS SUPPLE\rNO CAROTID BRUITS\rTHYROID WAS NORMAL\rLUNGS CLEAR TO P & A\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rTESTICLES AND PROSTATE NORMAL\rEXT SHOWED NO EDEMA\rGOOD PERIPHERAL PULSES\rDTR'S NORMAL NO BABINSKI",
+    "bkgnd-2721/field-159": "BP WAS NORMAL P NORMAL\rFUNDOSCOPIC BENIGN CONJUNCTIVA PINK\rPHARYNX NORMAL\rNECK WAS SUPPLE\rNO CAROTID BRUITS\rTHYROID WAS NORMAL\rLUNGS CLEAR TO P & A\rBREAST NORMAL TO PALPATION\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rEXT SHOWED NO EDEMA\rGOOD PERIPHERAL PULSES\rDTR'S NORMAL NO BABINSKI",
+    "bkgnd-2721/field-152": "ABNORMAL FINDINGS: TENDERNESS EXTENSOR TENDON RT THUMB",
+    "bkgnd-2721/field-131": "11/21/95\rBP WAS NORMAL P NORMAL\rCONJUNCTIVA PINK\rNECK WAS SUPPLE\rBREAST NORMAL TO PALPATION\rLUNGS CLEAR TO P & A\rHEART RSR NO SIGN. MURMUR\rABDOMEN SOFT. THERE WAS NO ORGANOMEGALY, NO ABN. MASSES, BS WERE NORMAL\rEXT SHOWED NO EDEMA\rDISP: REFERRED SOC SVC, CONTINUE MEDS SEE 3 MONTHS\rNELSON\rNELSON TRUJILLONELSON TRUJILLONELSON NELSON",
+    "bkgnd-2721/field-165": "on mouseUp\r  IF FIELD \"CC\" IS EMPTY\r  THEN\r    ANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"\r    EXIT MOUSEUP\r  END IF\r  IF FLD\"DISPOSITION\" IS NOT EMPTY OR FLD \"IMPRESSION\" IS NOT EMPTY\r  THEN\r    ANSWER \"YOU SURE YOU NOW WANT TO ADD A PE\"¬\r    WITH \"FORGET IT\" OR \"I WANT IT\"\r    IF IT IS \"I WANT IT\"\r    THEN\r      REPEAT WITH N= NEXTBLANKLINE (\"TEXT\") DOWN TO DATELINE (\"TEXT\")+1\r        DELETE LINE N OF FLD \"TEXT\"\r      END REPEAT\r      EXTEFEM\r      PUT FLD \"IMPRESSION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\r      OF FLD \"TEXT\"\r      PUT FLD \"DISPOSITION\" INTO LINE NEXTBLANKLINE(\"TEXT\")¬\r      OF FLD \"TEXT\"\r      PUT \"TRUJILLO\"INTO LINE NEXTBLANKLINE(\"TEXT\")¬\r      OF FLD \"TEXT\"\r      EXIT MOUSEUP\r    END IF\r    IF IT IS \"FORGET IT\"\r    THEN\r      EXIT MOUSEUP\r    END IF\r  END IF\r  \r  IF FLD \"IMPRESSION\" IS EMPTY THEN EXTEFEM\rEND MOUSEUP\r\r-- ScriptEdit™ Prefs:Monaco,9,47,24,472,600,845,845,50\r"
+   },
+   "script": null,
+   "grid": null
+  }
+ ],
+ "assets": [
+  {
+   "id": "bkgnd-2721",
+   "kind": "image",
+   "file": "assets/bkgnd-2721.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "bkgnd-206076",
+   "kind": "image",
+   "file": "assets/bkgnd-206076.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "bkgnd-201455",
+   "kind": "image",
+   "file": "assets/bkgnd-201455.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "bkgnd-259661",
+   "kind": "image",
+   "file": "assets/bkgnd-259661.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-227564",
+   "kind": "image",
+   "file": "assets/card-227564.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-50843",
+   "kind": "image",
+   "file": "assets/card-50843.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "card-41341",
+   "kind": "image",
+   "file": "assets/card-41341.png",
+   "width": 512,
+   "height": 342
+  },
+  {
+   "id": "icon-6096",
+   "kind": "image",
+   "file": "assets/icon-6096.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-8538",
+   "kind": "image",
+   "file": "assets/icon-8538.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-16376",
+   "kind": "image",
+   "file": "assets/icon-16376.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-20186",
+   "kind": "image",
+   "file": "assets/icon-20186.png",
+   "width": 32,
+   "height": 32
+  },
+  {
+   "id": "icon-30385",
+   "kind": "image",
+   "file": "assets/icon-30385.png",
+   "width": 32,
+   "height": 32
+  }
+ ],
+ "notes": [
+  "PRNT block id 3498 at 0xE520 (352 bytes): print settings, not decoded, skipped",
+  "PRST block id 54938 at 0xE680 (160 bytes): print settings, not decoded, skipped",
+  "PRFT block id 127956 at 0xE720 (448 bytes): print settings, not decoded, skipped",
+  "icon 1013 (bkgnd-2721/button-21): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 1014 (bkgnd-2721/button-22): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 30557 (bkgnd-2721/button-34): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 1004 (bkgnd-2721/button-80): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 13744 (bkgnd-2721/button-120): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 21700 (bkgnd-201455/button-1): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 9253 (bkgnd-201455/button-8): not in stack resource fork (only CURS with that id) (HyperCard application icon), not exported",
+  "icon 30557 (bkgnd-259661/button-1): not in stack resource fork (HyperCard application icon), not exported",
+  "icon 1013 (bkgnd-259661/button-3): not in stack resource fork (HyperCard application icon), not exported",
+  "resource fork: XCMD code resources present, cannot run: PrintField, PRINTENGOOD, PRINTPATIENT",
+  "resource fork: XFCN code resources present, cannot run: PopUpMenu, PopUp, MultiFinder, PopMenu, MouseToLine, Piece, ChangeCase, FileModDate, FileName, sortLines, SFGetFile",
+  "resource fork types: CURS(4), DITL(3), DLOG(3), ICON(6), PICT(2), STR#(1), TEXT(1), XCMD(3), XFCN(11)",
+  "button flags B bits 0x2000 set (meaning unknown): 26 part(s), e.g. bkgnd-2721/button-21, bkgnd-2721/button-22, bkgnd-2721/button-34",
+  "field flags A bits 0x02 set (meaning unknown): 3 part(s), e.g. bkgnd-2721/field-35, bkgnd-2721/field-36, bkgnd-2721/field-132",
+  "field flags A bits 0x04 set (meaning unknown): 20 part(s), e.g. bkgnd-2721/field-156, bkgnd-2721/field-157, bkgnd-2721/field-158",
+  "field flags A bits 0x06 set (meaning unknown): 1 part(s), e.g. bkgnd-2721/field-154",
+  "field flags A bits 0x10 set (meaning unknown): 2 part(s), e.g. bkgnd-2721/field-142, card-50843/field-4",
+  "field flags A bits 0x14 set (meaning unknown): 1 part(s), e.g. bkgnd-206076/field-1",
+  "field flags B bits 0x2000 set (meaning unknown): 3 part(s), e.g. card-227564/field-10, card-260168/field-2, card-4434/field-7",
+  "unknown button style number 1: 1 part(s), e.g. bkgnd-2721/button-160",
+  "unknown button style number 2: 1 part(s), e.g. bkgnd-2721/button-120",
+  "unknown button style number 4: 14 part(s), e.g. bkgnd-2721/button-21, bkgnd-2721/button-22, bkgnd-2721/button-34",
+  "unknown field style number 1: 5 part(s), e.g. bkgnd-2721/field-131, bkgnd-2721/field-135, bkgnd-2721/field-141"
+ ]
+}

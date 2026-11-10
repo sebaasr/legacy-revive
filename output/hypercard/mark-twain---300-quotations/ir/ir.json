@@ -1,0 +1,6370 @@
+{
+ "ir_version": 1,
+ "program": "hypercard",
+ "source": {
+  "file": "Mark Twain.stak",
+  "bytes": 115808
+ },
+ "name": "Mark Twain",
+ "size": {
+  "width": 224,
+  "height": 288
+ },
+ "units": "px",
+ "start_screen": "card-109762",
+ "script": {
+  "language": "hypertalk",
+  "text": "--  Empty global variable, lock quotation field, and show intro field.\r\ron closeStack\rglobal lastfound\rput empty into lastfound\rset the locktext of background field \"quotation\" to true\rshow background field \"intro\"\rpass closeStack\rend closeStack\r\r--------------------------------------------------------------------------------------\r\r--  If you want to run the stack, click anywhere except the corner buttons.\r\ron mouseUp\rif the visible of background field \"intro\" is true then\ranimate\rlock screen\rgo to any card in background quotations\rhide background field \"intro\"\runlock screen with dissolve very fast\relse\ranimate\rvisual effect dissolve very fast\rgo to any card in background quotations\rend if\rend mouseUp\r\r--------------------------------------------------------------------------------------\r\r--  Wiggle mustache and eyebrows...\r\ron animate\rlock screen\rgo to card 1 of background \"animation\"\runlock screen\rrepeat 2\rgo next\rwait 1\rgo back\rwait 1\rend repeat\rpush card\rwait 10\rgo to last card\rwait 4\rpop card\rend animate\r\r--------------------------------------------------------------------------------------\r\r--  Move through the cards, forward or backward, one by one.\r\ron arrowKey\rget param(1)\rif it is \"left\" then\rvisual wipe right fast\rgo to previous card in this background\relse if it is \"right\" then\rvisual wipe left fast\rgo to next card in this background\relse exit arrowKey\rend arrowKey\r\r--------------------------------------------------------------------------------\r\r--  Deals with clicking on words in a quotation.\r\ron hypertext\rif word 2 of the clickline > the number of lines in background field quotation then send mouseUp to this card\relse if the clicktext is empty then send mouseUp to this card\relse\rselect the clickchunk\rlock screen\rget the selection\rgo next\rfind whole it\runlock screen with dissolve very fast\rend if\rend hypertext\r\r--------------------------------------------------------------------------------\r\r--  This handler will add the author's name to the bottom of the quotation and copy\r--  the quotation and author's name onto the Clipboard, then put the\r--  original quotation, minus author's name back in the field.\r\ron copyQuote\rif the visible of background field \"intro\" is true then\rlock screen\rhide background field \"intro\"\runlock screen with dissolve very fast\rend if\rput background field \"quotation\" into temp\rselect text in background field \"quotation\"\rlock screen\rselect empty\rput return & return & \"Mark Twain\" after last line of background field \"quotation\"\rselect text in background field quotation\rdoMenu \"copy text\"\rput temp into background field \"quotation\"\runlock screen\rend copyQuote\r\r--------------------------------------------------------------------------------------\r\r--  findit is a handler for finding text. It also allows the hitting\r--  of the return or enter keys to continue finds by putting what you're\r--  looking for in the message box.\r\ron findit\rglobal lastfound\rask \"Find what?\" & return & \"(hit return to find more instances)\" with lastfound\rif it is empty then exit findit\relse put it into lastfound\rif the visible of background field \"intro\" is true then\rlock screen\rhide background field \"intro\"\runlock screen with dissolve very fast\rend if\rfind it\rif the result is \"not found\" then answer \"Sorry,\" && lastfound && \"not found.\"\relse\rput the loc of message into temp\rset the loc of message to -10000, -10000\rput \"Find\" && quote & lastfound & quote\rhide message\rset the loc of message to temp\rend if\rend findit\r\r--------------------------------------------------------------------------------------\r\r--  This about handler will put up three dialogs that show the author's name, address,\r--  phone number, version number, and other information about this stack.\r--  Please do not change this handler in any way.\r\ron about\ranswer \"Mark Twain\" & return & ¬\r\"Version 3.0 \" && the number of cards && \"quotations\" & return & ¬\r\"© 1995  Anne & Richard Wanderman\" & return & ¬\r\"______________________________________\" & return & ¬\r\"Mark Twain is shareware. Fee: $5.\" & return & ¬\r\"Please register this software if you keep it.\" & return & ¬\r\"Please distribute this software.\" & return & return & ¬\r\"Thank you.\" with \"OK\" or \"More\"\r\rif it is \"More\" then\ranswer \"For a catalog of other inexpensive, useful, educational, and fun stacks, contact:\" & return & ¬\r\"______________________________________\" & return & ¬\r\"Poor Richard's Publishing\" & return & ¬\r\"P.O. Box 1075\" & return & ¬\r\"Litchfield, CT  06759\" & return & ¬\r\"203/567-4307\" & return & ¬\r\"rwanderman@aol.com\" & return & ¬\r\"http://www.tiac.net/users/poorrich/\" with \"OK\" or \"More\"\r\rif it is \"More\" then\ranswer \"Help\" & return & ¬\r\"_____________________________________\" & return & return & ¬\r\"• Upper left: About this stack.\" & return & ¬\r\"• Upper right: Lock/unlock quotation.\" & return & ¬\r\"• Lower left: Find quotation.\" & return & ¬\r\"• Lower right: Copy quotation.\" & return & ¬\r\"• Click picture for random quotation.\" & return & ¬\r\"• Click words (field locked) - hypertext.\"\rend if\rend if\rend about"
+ },
+ "layers": [
+  {
+   "id": "bkgnd-2750",
+   "name": "quotations",
+   "image": "assets/bkgnd-2750.png",
+   "objects": [
+    {
+     "id": "bkgnd-2750/field-5",
+     "kind": "field",
+     "name": "quotation",
+     "number": 1,
+     "rect": [
+      0,
+      182,
+      224,
+      288
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "\"Rise early.  It is the early bird that catches the worm.\"   Don't be fooled by this absurd saw; I once knew a man who tried it.  He got up at sunrise and a horse bit him.",
+     "icon": null,
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rhyperText\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 5,
+      "flags_a": 5,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2750/field-22",
+     "kind": "field",
+     "name": "intro",
+     "number": 2,
+     "rect": [
+      0,
+      183,
+      224,
+      288
+     ],
+     "visible": true,
+     "style": {
+      "shape": "style-1",
+      "font": "Palatino",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "Click anywhere for a new quotation.\r\rClick the button in the upper left of this card for author information and instructions on what the other three buttons do.",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 22,
+      "flags_a": 13,
+      "flags_b": 8193,
+      "style_number": 1,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [
+       {
+        "start": 0,
+        "font": "Palatino",
+        "font_id": 16,
+        "size": 12,
+        "style": 0,
+        "style_id": 2
+       },
+       {
+        "start": 160,
+        "font": "Palatino",
+        "font_id": 16,
+        "size": 12,
+        "style": 0,
+        "style_id": 1
+       }
+      ],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2750/button-27",
+     "kind": "button",
+     "name": "",
+     "number": 3,
+     "rect": [
+      0,
+      0,
+      27,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rabout\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 27,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2750/button-28",
+     "kind": "button",
+     "name": "",
+     "number": 4,
+     "rect": [
+      197,
+      0,
+      224,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rif the visible of background field \"intro\" is true then\rlock screen\rhide background field \"intro\"\runlock screen with dissolve very fast\rend if\rset the locktext of background field 1 to not the locktext of background field 1\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 28,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2750/button-29",
+     "kind": "button",
+     "name": "",
+     "number": 5,
+     "rect": [
+      0,
+      156,
+      27,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rfindit\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 29,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-2750/button-30",
+     "kind": "button",
+     "name": "",
+     "number": 6,
+     "rect": [
+      197,
+      156,
+      224,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": {
+      "language": "hypertalk",
+      "text": "on mouseUp\rcopyquote\rend mouseUp"
+     },
+     "extra": {
+      "part_id": 30,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "script": null
+  },
+  {
+   "id": "bkgnd-5462",
+   "name": "animation",
+   "image": "assets/bkgnd-5462.png",
+   "objects": [
+    {
+     "id": "bkgnd-5462/field-1",
+     "kind": "field",
+     "name": "quotation",
+     "number": 1,
+     "rect": [
+      0,
+      182,
+      224,
+      288
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "Thinking...",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 1,
+      "flags_a": 13,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "bkgnd-5462/field-11",
+     "kind": "field",
+     "name": "intro",
+     "number": 2,
+     "rect": [
+      0,
+      182,
+      224,
+      288
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Palatino",
+      "size": 12,
+      "align": "left",
+      "show_name": false,
+      "highlight": false,
+      "locked": true
+     },
+     "text": "",
+     "icon": null,
+     "script": null,
+     "extra": {
+      "part_id": 11,
+      "flags_a": 13,
+      "flags_b": 8192,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 16,
+      "icon_id": 0,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "script": null
+  }
+ ],
+ "screens": [
+  {
+   "id": "card-109762",
+   "name": "",
+   "number": 1,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Where prejudice exists it always discolors our thoughts."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-109488",
+   "name": "",
+   "number": 2,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "What a lie it is to call this a free country, where none but the unworthy and undeserving may swear."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-109179",
+   "name": "",
+   "number": 3,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We can't reach old age by another man's road. My habits protect my life but they would assassinate you."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-108653",
+   "name": "",
+   "number": 4,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We all like to see people sea-sick when we are not ourselves."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-108323",
+   "name": "",
+   "number": 5,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Truth is mighty and will prevail. There is nothing that matter with this, except that it ain't so."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-108080",
+   "name": "",
+   "number": 6,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are only two forces that can carry light to all corners of the globe—only two—the sun in the heavens and the Associated Press down here."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-107987",
+   "name": "",
+   "number": 7,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The idea that no gentleman ever swears is all wrong. He can swear and still be a gentleman if he does it in a nice and benevolent and affectionate way."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-107597",
+   "name": "",
+   "number": 8,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The gentle reader will never, never know what a consummate ass he can become until he goes abroad."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-107349",
+   "name": "",
+   "number": 9,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The best and most telling speech is not the actual impromptu one but the counterfeit of it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-107200",
+   "name": "",
+   "number": 10,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The altar-cloth of one aeon is the doormat of the next."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-106954",
+   "name": "",
+   "number": 11,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Taking the pledge will not make bad liquor good, but it will improve it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-106299",
+   "name": "",
+   "number": 12,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Some men worship rank, some worship heroes, some worship God, and over these ideas they dispute—but they all worship money."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-106033",
+   "name": "",
+   "number": 13,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Repartee is something we think of twenty-four hours too late."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-105769",
+   "name": "",
+   "number": 14,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Principles have no real force except when one is well fed."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-105486",
+   "name": "",
+   "number": 15,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Principles aren't of much account, anyway, except at election time."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-105316",
+   "name": "",
+   "number": 16,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Pessimist: the optimist who didn't arrive."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-105205",
+   "name": "",
+   "number": 17,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Names are not always what they seem. The common Welsh name Bzjxxlwcp is pronounced Jackson."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-104792",
+   "name": "",
+   "number": 18,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "My own luck has been curious all my literary life; I never could tell a lie that anyone would doubt, not a truth that anybody would believe."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-104578",
+   "name": "",
+   "number": 19,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Learning began with talk and is therefore older than books. Our opinions do not really blossom into fruition until we have expressed them to someone else."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-103965",
+   "name": "",
+   "number": 20,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It were not best that we should all think alike."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-103799",
+   "name": "",
+   "number": 21,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It isn't so astonishing the number of things that I can remember, as the number of things that I can remember that aren't so."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-103576",
+   "name": "",
+   "number": 22,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is strange the way the ignorant and inexperienced so often and undeservedly succeed when the informed and experienced fail."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-103291",
+   "name": "",
+   "number": 23,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is not best that we use our morals weekdays; it gets them out of repair for Sundays."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-102912",
+   "name": "",
+   "number": 24,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is because they do not think at all; they only think they think."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-102856",
+   "name": "",
+   "number": 25,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In certain trying circumstances, urgent circumstances, desperate circumstances, profanity furnishes a relief denied even to prayer."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-102491",
+   "name": "",
+   "number": 26,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If you should rear a duck in the heart of the Sahara, no doubt it would swim if you brought it to the Nile."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-102224",
+   "name": "",
+   "number": 27,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If all men were rich, all men would be poor."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-101788",
+   "name": "",
+   "number": 28,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I thoroughly believe that any man who's got anything worthwhile to say will be heard if he only says it often enough."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-101395",
+   "name": "",
+   "number": 29,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have seen slower people than I am—and more deliberate... and even quieter, and more listless, and lazier people than I am. But they were dead."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-101236",
+   "name": "",
+   "number": 30,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I don't mind what the opposition say of me so long as they don't tell the truth about me."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-101024",
+   "name": "",
+   "number": 31,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I am not one of those who in expressing opinions confine themselves to facts."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-100668",
+   "name": "",
+   "number": 32,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "He was a preacher, too. . . and never charged nothing for his preaching, and it was worth it, too."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-100407",
+   "name": "",
+   "number": 33,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "He has been a doctor a year now, and has had two patients—no, three, I think; yes, it was three. I attended their funerals."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-100230",
+   "name": "",
+   "number": 34,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "God was left out of the Constitution but was furnished a front seat on the coins of the country."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-100046",
+   "name": "",
+   "number": 35,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "An honest man in politics shines more than he would elsewhere."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-99361",
+   "name": "",
+   "number": 36,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A street in Constantinople is a picture which one ought to see once—not oftener."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-99208",
+   "name": "",
+   "number": 37,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A sin takes on new and real terrors when there seems a chance that it is going to be found out."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-98834",
+   "name": "",
+   "number": 38,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A round man cannot be expected to fit into a square hole right away. He must have time to modify his shape."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-98645",
+   "name": "",
+   "number": 39,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "You shouldn't try to teach a pig to sing. You waste your time and it annoys the pig."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-98378",
+   "name": "",
+   "number": 40,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "You may have noticed that the less I know about a subject the more confidence I have, and the more new light I throw on it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-98262",
+   "name": "",
+   "number": 41,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "You cannot depend on your eyes when your imagination is out of focus."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-98009",
+   "name": "",
+   "number": 42,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "You can't reason with the heart; it has its own laws, and thumps about things which the intellect scorns."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-97694",
+   "name": "",
+   "number": 43,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "You can't pray a lie."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-97110",
+   "name": "",
+   "number": 44,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Yes, even I am dishonest. Not in many ways, but in some. Forty-one I think it is."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-96979",
+   "name": "",
+   "number": 45,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Wrinkles should merely indicate where smiles have been."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-96615",
+   "name": "",
+   "number": 46,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Work consists of whatever a body is obliged to do. . . Play consists of whatever a body is not obliged to do."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-96278",
+   "name": "",
+   "number": 47,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Words are only painted fire; a look is the fire itself."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-96105",
+   "name": "",
+   "number": 48,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Women cannot receive even the most palpably judicious suggestion without arguing it, that is, married women."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-95929",
+   "name": "",
+   "number": 49,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Wit is the sudden marriage of ideas which, before their union, were not perceived to have any relation."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-95630",
+   "name": "",
+   "number": 50,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Why shouldn't truth be stranger than fiction?  Fiction, after all, has to stick to possibilities."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-95433",
+   "name": "",
+   "number": 51,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Why is it that we rejoice at a birth and grieve at a funeral?  It is because we are not the person involved."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-94946",
+   "name": "",
+   "number": 52,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Whiskey is carried into committee rooms in demijohns and carried out in demagogues."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-94690",
+   "name": "",
+   "number": 53,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Where every man in a state has a vote, brutal laws are impossible."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-94337",
+   "name": "",
+   "number": 54,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Whenever you find that you are on the side of the majority, it is time to reform (or pause and reflect)."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-94152",
+   "name": "",
+   "number": 55,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When you fish for love, bait with your heart, not with your brain."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-93945",
+   "name": "",
+   "number": 56,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When red headed people are above a certain social grade their hair is auburn."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-93514",
+   "name": "",
+   "number": 57,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When it comes down to pure ornamental cursing, the native American is gifted above the sons of men."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-93364",
+   "name": "",
+   "number": 58,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When in doubt tell the truth."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-92934",
+   "name": "",
+   "number": 59,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When I was younger, I could remember anything, whether it had happened or not."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-92509",
+   "name": "",
+   "number": 60,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When I was a boy of fourteen, my father was so ignorant I could hardly stand to have the old man around. But when I got to be twenty-one I was astonished at how much the old man had learned in seven years."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-92164",
+   "name": "",
+   "number": 61,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When I reflect upon the number of disagreeable people who I know have gone to a better world, I am moved to lead a different life."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-92122",
+   "name": "",
+   "number": 62,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When angry, count four; when very angry, swear."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-91696",
+   "name": "",
+   "number": 63,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When a teacher calls a boy by his entire name it means trouble."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-91454",
+   "name": "",
+   "number": 64,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When a person cannot deceive himself the chances are against his being able to deceive other people."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-91284",
+   "name": "",
+   "number": 65,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "When a man's dog turns against him it is time for a wife to pack her trunk and go home to mama."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-90972",
+   "name": "",
+   "number": 66,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Whatever a man's age, he can reduce it several years by putting a bright-colored flower in his button-hole."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-90691",
+   "name": "",
+   "number": 67,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "What's the use you learning to do right, when it's troublesome to do right and ain't no trouble to do wrong, and the wages is just the same?"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-90146",
+   "name": "",
+   "number": 68,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "What work I have done I have done because it has been play. If it had been work I shouldn't have done it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-89894",
+   "name": "",
+   "number": 69,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "What is the difference between a taxidermist and a tax collector?  Answer: A taxidermist takes only your skin."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-89812",
+   "name": "",
+   "number": 70,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "What a man misses mostly in heaven is company."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-89459",
+   "name": "",
+   "number": 71,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "What a good thing Adam had—when he said a good thing, he knew nobody had said it before."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-89126",
+   "name": "",
+   "number": 72,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Well enough for old folks to rise early, because they have done so many mean things all their lives they can't sleep anyhow."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-88875",
+   "name": "",
+   "number": 73,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We ought never to do wrong when people are looking."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-88771",
+   "name": "",
+   "number": 74,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We must put up with clothes as they are—they have their reason for existing. They are on us to expose us—to advertise what we wear them to conceal."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-88414",
+   "name": "",
+   "number": 75,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We have nine children now—half boys and half girls."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-87864",
+   "name": "",
+   "number": 76,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We get our morals from books. I didn't get mine from books, but I know that morals do come from books—theoretically, at least."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-87553",
+   "name": "",
+   "number": 77,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We do not deal much in facts when we are contemplating ourselves."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-87363",
+   "name": "",
+   "number": 78,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We are discreet sheep; we wait to see how the drove is going, and then go with the drove."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-87242",
+   "name": "",
+   "number": 79,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We are all beggars, each in his own way."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-86917",
+   "name": "",
+   "number": 80,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "We all do no end of feeling, and we mistake it for thinking."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-86755",
+   "name": "",
+   "number": 81,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Water taken in moderation cannot hurt anybody."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-86475",
+   "name": "",
+   "number": 82,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Wagner's music is better than it sounds."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-86169",
+   "name": "",
+   "number": 83,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Virtue has never been as respectable as money."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-85655",
+   "name": "",
+   "number": 84,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Under certain circumstances, profanity provides a relief denied even to prayer."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-85490",
+   "name": "",
+   "number": 85,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Truth is the most valuable thing we have. Let us economize it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-85076",
+   "name": "",
+   "number": 86,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Truth is stranger than fiction, but it is because fiction is obliged to stick to possibilities; truth isn't."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-84879",
+   "name": "",
+   "number": 87,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Troubles are only mental; it is the mind that manufactures them, and the mind can forget them, banish them, abolish them."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-84517",
+   "name": "",
+   "number": 88,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Too much of anything is bad, but too much of good whiskey is barely enough."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-84255",
+   "name": "",
+   "number": 89,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Tomorrow night I appear for the first time before a Boston audience—4000 critics."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-83987",
+   "name": "",
+   "number": 90,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "To promise not to do a thing is the surest way in the world to make a body want to go and do that very thing."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-83731",
+   "name": "",
+   "number": 91,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "To cease smoking is the easiest thing I ever did. I ought to know because I've done it a thousand times."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-83440",
+   "name": "",
+   "number": 92,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "To believe yourself brave is to be brave; it is the only essential thing."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-82951",
+   "name": "",
+   "number": 93,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "To be good is noble, but to teach others how to be good is nobler—and less trouble."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-82776",
+   "name": "",
+   "number": 94,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Thunder is good, thunder is impressive; but it is lightening that does the work."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-82434",
+   "name": "",
+   "number": 95,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Thousands of geniuses live and die undiscovered—either by themselves or by others."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-82193",
+   "name": "",
+   "number": 96,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "They spell it Vinci and pronounce it Vinchy; foreigners always spell better than they pronounce."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-81926",
+   "name": "",
+   "number": 97,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There's one way to find out if a man is honest:  ask him; if he says yes, you know he is crooked."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-81752",
+   "name": "",
+   "number": 98,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There's always a hole in theories somewhere if you look close enough."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-81566",
+   "name": "",
+   "number": 99,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There's a good spot tucked away somewhere in everybody. You'll be a long time finding it, sometimes."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-81008",
+   "name": "",
+   "number": 100,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There isn’t anything you can’t stand if you are only born and bred to it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-80696",
+   "name": "",
+   "number": 101,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is probably no pleasure equal to the pleasure of climbing a dangerous Alp; but it is a pleasure which is confined strictly to people who can find pleasure in it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-80470",
+   "name": "",
+   "number": 102,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is only one good sex. The female one."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-80351",
+   "name": "",
+   "number": 103,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is nothing so annoying as to have two people go right on talking when you're interrupting."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-79963",
+   "name": "",
+   "number": 104,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is nothing like instances to grow hair on a bald-headed argument."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-79643",
+   "name": "",
+   "number": 105,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is nothing in the world like a persuasive speech to fuddle the mental apparatus."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-79443",
+   "name": "",
+   "number": 106,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is no sadder sight than a young pessimist, except an old optimist."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-79151",
+   "name": "",
+   "number": 107,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is no humor in heaven."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-78771",
+   "name": "",
+   "number": 108,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is a lot to say in her favor, but the other is more interesting."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-78408",
+   "name": "",
+   "number": 109,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There is a great deal of human nature in people."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-78286",
+   "name": "",
+   "number": 110,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There has been only one Christian. They caught and crucified him—early."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-78054",
+   "name": "",
+   "number": 111,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There comes a time in every rightly constructed boy's life when he has a raging desire to go somewhere and dig for hidden treasure."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-77665",
+   "name": "",
+   "number": 112,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are two times in a man's life when he should not speculate: when he can't afford it, and when he can."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-77474",
+   "name": "",
+   "number": 113,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are three kinds of lies: lies, damned lies, and statistics."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-77112",
+   "name": "",
+   "number": 114,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are those who would misteach us that to stick in a rut is consistency—and a virtue; and that to climb out of the rut is inconsistency—and a vice."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-77046",
+   "name": "",
+   "number": 115,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are several good protections against temptation, but the surest is cowardice."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-76349",
+   "name": "",
+   "number": 116,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are people who think that honesty is always the best policy. This is a superstition: there are times when the appearance of it is worth six of it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-76216",
+   "name": "",
+   "number": 117,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are no people who are quite so vulgar as the over-refined."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-75776",
+   "name": "",
+   "number": 118,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are no grades of vanity, there are only grades of ability in concealing it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-75668",
+   "name": "",
+   "number": 119,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There are many humorous things in the world: among them the white man's notion that he is less savage than the other savages."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-75378",
+   "name": "",
+   "number": 120,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "There ain't no way to find out why a snorer can't hear himself snore."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-75236",
+   "name": "",
+   "number": 121,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The work that is really a man's own work is play and not work at all."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-74957",
+   "name": "",
+   "number": 122,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The very ink with which all history is written is merely fluid prejudice."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-74678",
+   "name": "",
+   "number": 123,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The true charm of pedestrianism does not lie in the walking, or the scenery, but in the talking."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-74132",
+   "name": "",
+   "number": 124,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The surest way to convey misinformation is to tell the strict truth."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-73874",
+   "name": "",
+   "number": 125,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The right word may be effective, but no word was ever as effective as a rightly timed pause."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-73560",
+   "name": "",
+   "number": 126,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The reports of my death are greatly exaggerated."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-73307",
+   "name": "",
+   "number": 127,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The radical of one century is the conservative of the next. The radical invents the views. When he has worn them out the conservative adopts them."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-72980",
+   "name": "",
+   "number": 128,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The public is the only critic whose opinion is worth anything at all."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-72725",
+   "name": "",
+   "number": 129,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The partitions of the houses were so thin we could hear the women occupants of adjoining rooms changing their minds."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-72556",
+   "name": "",
+   "number": 130,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The only way to keep your health is to eat what you don't want, drink what you don't like, and do what you'd rather not."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-72242",
+   "name": "",
+   "number": 131,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The older we grow the greater becomes our wonder at how much ignorance one can contain without bursting one's clothes."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-71845",
+   "name": "",
+   "number": 132,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The more things are forbidden, the more popular they become."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-71567",
+   "name": "",
+   "number": 133,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The man with a new idea is a crank until the idea succeeds."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-71375",
+   "name": "",
+   "number": 134,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The man who is a pessimist before 48 knows too much; if he is an optimist after it, he knows too little."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-71048",
+   "name": "",
+   "number": 135,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The man who doesn't read good books has no advantage over the man who can't read them."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-70667",
+   "name": "",
+   "number": 136,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The less a man knows the bigger the noise he makes and the higher the salary he commands."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-70542",
+   "name": "",
+   "number": 137,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The lack of money is the root of all evil."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-70328",
+   "name": "",
+   "number": 138,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The institution of Royalty in any form is an insult to the human race."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-70015",
+   "name": "",
+   "number": 139,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The humorous story is American, the comic story is English, the witty story is French. The humorous story depends for its effect upon the manner of the telling; the comic story and the witty story upon the matter."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-69538",
+   "name": "",
+   "number": 140,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The human race is a race of cowards; and I am not only marching in that procession but carrying a banner."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-69350",
+   "name": "",
+   "number": 141,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The house was as empty as a beer closet in a premises where painters have been at work."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-69026",
+   "name": "",
+   "number": 142,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The holy passion of friendship is of so sweet and steady and loyal and enduring a nature that it will last through a lifetime if not asked to lend money."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-68839",
+   "name": "",
+   "number": 143,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The heart is the real Fountain of Youth."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-68557",
+   "name": "",
+   "number": 144,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The first half of my life I went to school, the second half of my life I got an education."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-68121",
+   "name": "",
+   "number": 145,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The first half of life consists of the capacity to enjoy without the chance; the last half consists of the chance without the capacity."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-67851",
+   "name": "",
+   "number": 146,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The elastic heart of youth cannot be compressed into one constrained shape long at a time."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-67601",
+   "name": "",
+   "number": 147,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The difference between the right word and the almost right word is the difference between lightning and the lightning bug."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-67270",
+   "name": "",
+   "number": 148,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The country is the real thing, the substantial thing, the eternal thing, it is the thing to watch over and care for and be loyal to; institutions are extraneous. . . ."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-66816",
+   "name": "",
+   "number": 149,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "The best way to cheer yourself is to try to cheer somebody else up."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-66676",
+   "name": "",
+   "number": 150,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "That's the difference between governments and individuals. Governments don't care, individuals do."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-66454",
+   "name": "",
+   "number": 151,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Temperate temperance is best; intemperate temperance injures the cause of temperance."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-66288",
+   "name": "",
+   "number": 152,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Switzerland is simply a large, humpy, solid rock, with a thin skin of grass stretched over it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-65939",
+   "name": "",
+   "number": 153,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Such is the human race. Often it does seem a pity that Noah . . . didn't miss the boat."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-65578",
+   "name": "",
+   "number": 154,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Such a laugh was money in a man's pocket, because it cut down on the doctor's bills like everything."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-65504",
+   "name": "",
+   "number": 155,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Spirit. . . has fifty times the strength and staying-power of brawn and muscle."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-64939",
+   "name": "",
+   "number": 156,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Some civilized women would lose half their charm without dress and some would lose all of it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-64683",
+   "name": "",
+   "number": 157,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Soap and education are not as sudden as a massacre, but they are more deadly in the long run."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-64422",
+   "name": "",
+   "number": 158,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Simplified spelling is all right, but, like chastity, you can carry it too far."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-64059",
+   "name": "",
+   "number": 159,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Shut the door not that it lets in the cold but that it lets out the coziness."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-63816",
+   "name": "",
+   "number": 160,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Seasickness: at first you are so sick you are afraid you will die, and then you are so sick you are afraid you won't die."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-63685",
+   "name": "",
+   "number": 161,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Scientists have odious manners, except when you prop up their theory; then you can borrow money of them."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-63359",
+   "name": "",
+   "number": 162,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Satan hasn't a single salaried helper; the Opposition employs a million."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-63217",
+   "name": "",
+   "number": 163,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Reputation is a hall-mark: it can remove doubt from pure silver, and it can also make the plated article pass for pure."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-62629",
+   "name": "",
+   "number": 164,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Remember the poor, it costs nothing."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-62319",
+   "name": "",
+   "number": 165,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Religion consists in a set of things which the average man thinks he believes and wishes he was certain."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-62120",
+   "name": "",
+   "number": 166,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Reader, suppose you were an idiot. And suppose you were a member of Congress. But I repeat myself."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-61873",
+   "name": "",
+   "number": 167,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Put all your eggs in one basket—and watch that basket!"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-61453",
+   "name": "",
+   "number": 168,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Prosperity is the best protector of principle."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-61330",
+   "name": "",
+   "number": 169,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "People ought to start dead and then they would be honest so much earlier."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-61017",
+   "name": "",
+   "number": 170,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Ours is the \"land of the free\"—nobody denies that—nobody challenges it. (Maybe it is because we won't let other people testify.)"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-60817",
+   "name": "",
+   "number": 171,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Our consciences take no notice of pain inflicted on others until it reaches a point where it gives pain to us."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-60403",
+   "name": "",
+   "number": 172,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Only when a republic's life is in danger should a man uphold his government when it is wrong. There is no other time."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59999",
+   "name": "",
+   "number": 173,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Only presidents, editors, and people with tapeworms have the right to use the editorial \"we\"."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59664",
+   "name": "",
+   "number": 174,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "One of the striking differences between a cat and a lie is that a cat has only nine lives."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59414",
+   "name": "",
+   "number": 175,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "One of the proofs of the immortality of the soul is that myriads have believed it—they also believed the world was flat."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59223",
+   "name": "",
+   "number": 176,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "One of my theories is that the hearts of men are about alike, no matter what their skin color."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-59064",
+   "name": "",
+   "number": 177,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "One mustn’t criticize other people on grounds where he can’t stand perpendicular himself."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-58710",
+   "name": "",
+   "number": 178,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "One is apt to overestimate beauty when it is rare."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-58408",
+   "name": "",
+   "number": 179,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Often, the less there is to justify a traditional custom the harder it is go get rid of it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-58061",
+   "name": "",
+   "number": 180,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Of all animals, man is the only one that is cruel. He is the only one that inflicts pain for the pleasure of doing it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-57644",
+   "name": "",
+   "number": 181,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "October. This is one of the peculiarly dangerous months to speculate in stocks in. The others are July, January, September, April, November, May, March, June, December, August, and February."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-57598",
+   "name": "",
+   "number": 182,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Nothing that grieves us can be called little: by the eternal laws of proportion a child's loss of a doll and a king's loss of a crown are events of the same size."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-57337",
+   "name": "",
+   "number": 183,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Nothing so needs reforming as other people's habits."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-56917",
+   "name": "",
+   "number": 184,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Nothing helps scenery like ham and eggs."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-56812",
+   "name": "",
+   "number": 185,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Noise proves nothing. Often a hen who has merely laid an egg cackles as if she had laid an asteroid."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-56369",
+   "name": "",
+   "number": 186,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "No one is willing to acknowledge a fault in himself when a more agreeable motive can be found for the estrangement of his acquaintances."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-56248",
+   "name": "",
+   "number": 187,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Never waste a lie; you never know when you may need it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-55674",
+   "name": "",
+   "number": 188,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Never tell the truth to people who are not worthy of it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-55466",
+   "name": "",
+   "number": 189,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Never tell a lie—except for practice."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-55040",
+   "name": "",
+   "number": 190,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Never put off until tomorrow what you can do the day after tomorrow."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-54918",
+   "name": "",
+   "number": 191,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Never learn to do anything: if you don't learn, you'll always find someone else to do it for you."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-54701",
+   "name": "",
+   "number": 192,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Necessity is the mother of taking chances."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-54291",
+   "name": "",
+   "number": 193,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "My mother had a great deal of trouble with me, but I think she enjoyed it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-54144",
+   "name": "",
+   "number": 194,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "My memory was never loaded with anything but blank cartridges."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-53923",
+   "name": "",
+   "number": 195,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "My kind of loyalty was loyalty to one's country, not to... its office holders."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-53422",
+   "name": "",
+   "number": 196,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "My books are water; those of the great geniuses are wine—everybody drinks water."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-53095",
+   "name": "",
+   "number": 197,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "My advice to girls: first, don't smoke—to excess; second, don't drink—to excess; third, don't marry—to excess."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-52788",
+   "name": "",
+   "number": 198,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Most writers regard truth as their most valuable possession, and therefore are most economical in its use."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-52704",
+   "name": "",
+   "number": 199,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Modesty died when clothes were born."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-52416",
+   "name": "",
+   "number": 200,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Martyrdom covers a multitude of sins."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-52217",
+   "name": "",
+   "number": 201,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Many when they come to die have spent all the truth that was in them, and enter the next world as paupers. I have saved up enough to make an astonishment there."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-51966",
+   "name": "",
+   "number": 202,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Many a small thing has been made large by the right kind of advertising."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-51643",
+   "name": "",
+   "number": 203,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Man was made at the end of the week's work when God was tired."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-51130",
+   "name": "",
+   "number": 204,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Man is the Reasoning Animal. Such is the claim. I think it is open to dispute."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-50718",
+   "name": "",
+   "number": 205,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Man is the only animal that blushes. Or needs to."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-50451",
+   "name": "",
+   "number": 206,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Life would be infinitely happier if we could only be born at the age of eighty and gradually approach eighteen."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-50289",
+   "name": "",
+   "number": 207,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Let us swear while we may, for in heaven it will not be allowed."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-50046",
+   "name": "",
+   "number": 208,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Let us so live that when we come to die even the undertaker will be sorry."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-49858",
+   "name": "",
+   "number": 209,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Let us not be too particular: it is better to have old second-hand diamonds than none at all."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-49425",
+   "name": "",
+   "number": 210,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Laws are sand, customs are rock. Laws can be evaded and punishment escaped, but an openly transgressed custom brings sure punishment."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-49190",
+   "name": "",
+   "number": 211,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Laughter without a tinge of philosophy is but a sneeze of humor. Genuine humor is replete with wisdom."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-48832",
+   "name": "",
+   "number": 212,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Keep away from people who try to belittle your ambitions. Small people always do that, but the really great make you feel that you, too, can become great."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-48582",
+   "name": "",
+   "number": 213,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Its name is Public Opinion. It is held in reverence. It settles everything. Some think it is the voice of God."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-48154",
+   "name": "",
+   "number": 214,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It's a good idea to obey all the rules when you're young just so you'll have the strength to break them when you're old."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-47995",
+   "name": "",
+   "number": 215,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It usually takes more than three weeks to prepare a good impromptu speech."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-47837",
+   "name": "",
+   "number": 216,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It used to be a good hotel, but that proves nothing—I used to be a good boy."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-47528",
+   "name": "",
+   "number": 217,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It takes me a long time to lose my temper, but once lost I could not find it with a dog."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-47285",
+   "name": "",
+   "number": 218,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is the will of God that we must have critics, and missionaries, and congressmen, and humorists, and we must bear the burden."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-46855",
+   "name": "",
+   "number": 219,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is the difference of opinion that makes horse races."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-46407",
+   "name": "",
+   "number": 220,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is just like man's vanity and impertinence to call an animal dumb because it is dumb to his dull perceptions."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-46307",
+   "name": "",
+   "number": 221,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is human to exaggerate the merits of the dead."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-45986",
+   "name": "",
+   "number": 222,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is easy to find fault, if one has that disposition. There was once a man who, not being able to find any other fault with his coal, complained that there were too many prehistoric toads in it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-45768",
+   "name": "",
+   "number": 223,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is better to support schools than jails."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-45458",
+   "name": "",
+   "number": 224,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is better to keep your mouth shut and appear stupid than to open it and remove all doubt."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-45129",
+   "name": "",
+   "number": 225,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is better to deserve honors and not have them than to have them and not deserve them."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-44926",
+   "name": "",
+   "number": 226,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is better to be a young June-bug than an old bird of paradise."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-44726",
+   "name": "",
+   "number": 227,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is at our mother's knee that we acquire our noblest and truest and highest ideals, but there is seldom any money in them."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-44126",
+   "name": "",
+   "number": 228,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is a wise child that knows its own father, and an unusual one that reservedly approves of him."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-43847",
+   "name": "",
+   "number": 229,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It is a pity that we cannot escape from life when we are young."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-43600",
+   "name": "",
+   "number": 230,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It has always been my rule never to smoke when asleep, and never to refrain when awake."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-43514",
+   "name": "",
+   "number": 231,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It could probably be shown by facts and figures that there is no distinctively native American criminal class except Congress."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-43045",
+   "name": "",
+   "number": 232,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It ain't what you don't know that's so harmful, it's what you know that just ain't so."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-42891",
+   "name": "",
+   "number": 233,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "It ain't those parts of the Bible that I can't understand that bother me, it's the parts that I do understand."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-42646",
+   "name": "",
+   "number": 234,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Is it, perhaps, possible that there are two kinds of civilization—one for home consumption and one for the heathen market?"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-42275",
+   "name": "",
+   "number": 235,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In writing, I shall always confine myself strictly to the truth, except when it is attended with inconvenience."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-41886",
+   "name": "",
+   "number": 236,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In the first place, God made idiots. That was for practice. Then he made school boards."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-41647",
+   "name": "",
+   "number": 237,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In religion and politics, people's beliefs and convictions are in almost every case gotten at second-hand, and without examination."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-41328",
+   "name": "",
+   "number": 238,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In our country we have those three unspeakably precious things:  freedom of speech, freedom of conscience, and the prudence never to practice either."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-40966",
+   "name": "",
+   "number": 239,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In God We Trust. I don't believe it would sound any better if it were true."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-40828",
+   "name": "",
+   "number": 240,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In Boston they ask, How much does he know? In New York, How much is he worth? In Philadelphia, Who were his parents?"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-40644",
+   "name": "",
+   "number": 241,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "In all my travels the thing that has impressed me the most is the universal brotherhood of man—what there is of it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-40437",
+   "name": "",
+   "number": 242,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If you tell the truth you don't have to remember anything."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-40123",
+   "name": "",
+   "number": 243,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If you pick up a starving dog and make him prosperous, he will not bite you. This is the principal difference between a dog and a man."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-39616",
+   "name": "",
+   "number": 244,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If you don't like the weather in New England, just wait a few minutes."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-39169",
+   "name": "",
+   "number": 245,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If you can't get a compliment any other way, pay yourself one."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-39058",
+   "name": "",
+   "number": 246,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If we had less statesmanship, we would get along with fewer battleships."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-38889",
+   "name": "",
+   "number": 247,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If man could be crossed with a cat, it would improve man, but it would deteriorate the cat."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-38624",
+   "name": "",
+   "number": 248,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If I cannot swear in heaven I shall not stay there."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-38300",
+   "name": "",
+   "number": 249,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If Christ were here now there is one thing he would not be—a Christian."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-37952",
+   "name": "",
+   "number": 250,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If all the fools in this world should die, lordy God, how lonely I should be."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-37825",
+   "name": "",
+   "number": 251,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If a person offends you, and you are in doubt as to whether it was intentional or not, do not resort to extreme measures; simply watch your chance and hit him with a brick."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-37271",
+   "name": "",
+   "number": 252,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "If a man doesn't believe as we do, we say he is a crank, and that settles it. I mean, it does nowadays, because now we can't burn him."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-37028",
+   "name": "",
+   "number": 253,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I would rather have my ignorance than another man's knowledge, because I have got so much more of it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-36789",
+   "name": "",
+   "number": 254,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I would rather go to bed with Lillian Russell stark naked than Ulysses S. Grant in full military regalia."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-36372",
+   "name": "",
+   "number": 255,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I wonder how much it would take to buy a soap bubble, if there were only one in the world."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-36278",
+   "name": "",
+   "number": 256,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I was seldom able to see an opportunity until it had ceased to be one."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-36060",
+   "name": "",
+   "number": 257,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I was gratified to be able to answer promptly, and I did. I said that I didn't know."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-35772",
+   "name": "",
+   "number": 258,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I was born modest; not all over, but in spots."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-35356",
+   "name": "",
+   "number": 259,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I saw a cat yesterday with 4 legs—and yet it was only a yellow cat, and rather small, too, for its size. They were not all fore legs—several of them were hind legs; indeed almost a majority of them were."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-34968",
+   "name": "",
+   "number": 260,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I owe a friend a dozen chickens, and I believe it will be cheaper to send eggs instead, and let them develop on the road."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-34761",
+   "name": "",
+   "number": 261,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I never did a thing in all my life, virtuous or otherwise, that I didn't repent of in twenty-four hours."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-34372",
+   "name": "",
+   "number": 262,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I like criticism, but it must be my way."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-34074",
+   "name": "",
+   "number": 263,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I like a good story well told. That is the reason I am sometimes forced to tell them myself."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-34043",
+   "name": "",
+   "number": 264,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I haven't a particle of confidence in a man who has no redeeming petty vices."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-33540",
+   "name": "",
+   "number": 265,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have told him all I know about it. And now he knows nothing about it himself."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-33338",
+   "name": "",
+   "number": 266,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have never let my schooling interfere with my education."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-33214",
+   "name": "",
+   "number": 267,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have made it a rule never to smoke more than one cigar at a time."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-32605",
+   "name": "",
+   "number": 268,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have been complimented many times and they always embarrass me; I always feel that they have not said enough."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-32291",
+   "name": "",
+   "number": 269,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have been cautioned to talk but be careful not to say anything. I do not consider this a difficult task."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-32215",
+   "name": "",
+   "number": 270,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have been an author for 20 years and an ass for 55."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-31922",
+   "name": "",
+   "number": 271,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I have a prodigious quantity of mind; it takes me as much as a week sometimes to make it up."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-31634",
+   "name": "",
+   "number": 272,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I don't like to commit myself about heaven and hell—you see, I have friends in both places."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-31273",
+   "name": "",
+   "number": 273,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I do not like work even when someone else does it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-31189",
+   "name": "",
+   "number": 274,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I did not attend his funeral, but I wrote a nice letter saying I approved it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-30855",
+   "name": "",
+   "number": 275,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I could have become a soldier if I had waited; I knew more about retreating than the man who invented retreating."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-30390",
+   "name": "",
+   "number": 276,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I can live for two months on a good compliment."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-30010",
+   "name": "",
+   "number": 277,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I believe that our Heavenly Father invented Man because he was disappointed in the monkey."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-29852",
+   "name": "",
+   "number": 278,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I am losing enough sleep to supply a worn-out army."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-29658",
+   "name": "",
+   "number": 279,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I am glad the old masters are all dead, and I only wish they had died sooner."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-29338",
+   "name": "",
+   "number": 280,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I am different from Washington; I have a higher, grander standard of principle. Washington could not lie. I can lie, but I won't."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-29106",
+   "name": "",
+   "number": 281,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I am an old man and have known a great many troubles, but most of them never happened."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-28682",
+   "name": "",
+   "number": 282,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "I’m opposed to millionaires, but it would be dangerous to offer me the position."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-28510",
+   "name": "",
+   "number": 283,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "How often we recall, with regret, that Napoleon once shot at a magazine editor and missed him and killed a publisher. But we remember with charity that his intentions were good."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-27918",
+   "name": "",
+   "number": 284,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Honesty: the best of all lost arts."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-27862",
+   "name": "",
+   "number": 285,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Honest poverty is a gem that even a king might be proud to call his own, but I wish to sell out."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-27472",
+   "name": "",
+   "number": 286,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Heroine: girl who is perfectly charming to live with, in a book."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-27195",
+   "name": "",
+   "number": 287,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Heaven goes by favor; if it went by merit, you would stay out and your dog would go in."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-26973",
+   "name": "",
+   "number": 288,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Heaven for climate, hell for society."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-26671",
+   "name": "",
+   "number": 289,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "He goes by the brand, yet imagines he goes by the flavor."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-26476",
+   "name": "",
+   "number": 290,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Have a place for everything and keep the thing somewhere else; this is not advice, it is merely custom."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-26127",
+   "name": "",
+   "number": 291,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Half of the results of a good intentions are evil; half the results of an evil intention are good."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-25814",
+   "name": "",
+   "number": 292,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Hain't we got all the fools in town on our side? And hain't that a big enough majority in any town?"
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-25440",
+   "name": "",
+   "number": 293,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Grief can take care of itself, but to get the full value of joy you must have somebody to divide it with."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-25304",
+   "name": "",
+   "number": 294,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Great enterprises usually promise vastly more than they perform."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-24946",
+   "name": "",
+   "number": 295,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Good friends, good books and a sleepy conscience: this is the ideal life."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-24678",
+   "name": "",
+   "number": 296,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Good breeding consists of concealing how much we think of ourselves and how little we think of the other person."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-24487",
+   "name": "",
+   "number": 297,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Golf is a good walk spoiled."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-24190",
+   "name": "",
+   "number": 298,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Get your facts first, and then you can distort them as much as you please."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-24051",
+   "name": "",
+   "number": 299,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Get a bicycle. You will not regret it. If you live."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-23423",
+   "name": "",
+   "number": 300,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Genius has no youth, but starts with the ripeness of age and old experience."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-23112",
+   "name": "",
+   "number": 301,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Fortune knocks at every man's door once in a life, but in a good many cases the man is in a neighboring saloon and does not hear her."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-22972",
+   "name": "",
+   "number": 302,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "For business reasons, I must preserve the outward signs of sanity."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-22759",
+   "name": "",
+   "number": 303,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Fleas can be taught nearly anything a Congressman can."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-22506",
+   "name": "",
+   "number": 304,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Few things are harder to put up with than a good example."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-22074",
+   "name": "",
+   "number": 305,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Few of us can stand prosperity. Another man's, I mean."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-21991",
+   "name": "",
+   "number": 306,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Familiarity breeds contempt—and children."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-21646",
+   "name": "",
+   "number": 307,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Everything has its limit—iron cannot be educated into gold."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-21194",
+   "name": "",
+   "number": 308,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Everyone is a moon, and has a dark side which he never shows to anybody."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-20855",
+   "name": "",
+   "number": 309,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Everybody's private motto: It's better to be popular than right."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-20595",
+   "name": "",
+   "number": 310,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Everybody talks about the weather, but nobody does anything about it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-20309",
+   "name": "",
+   "number": 311,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Every time I reform in one direction I go overboard in another."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-20138",
+   "name": "",
+   "number": 312,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Even Noah got no salary for the first six months—partly on account of the weather and partly because he was learning navigation."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-19830",
+   "name": "",
+   "number": 313,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Eternal rest sounds comforting in the pulpit; well, you try it once, and see how heavy time will hang on your hands."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-19516",
+   "name": "",
+   "number": 314,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Epitaphs are cheap, and they do a poor chap a world of good after he is dead, especially if he had hard luck while he was alive. I wish they were used more."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-19442",
+   "name": "",
+   "number": 315,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Eloquence is the essential thing in a speech, not information."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-18716",
+   "name": "",
+   "number": 316,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Earn a character first if you can. And if you can't, assume one."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-18552",
+   "name": "",
+   "number": 317,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Don't tell fish stories where the people know you; but particularly, don't tell them where they know the fish."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-18430",
+   "name": "",
+   "number": 318,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Don't go around saying the world owes you a living; the world owes you nothing, it was here first."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17938",
+   "name": "",
+   "number": 319,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Do something every day that you don't want to do; this is the golden rule for acquiring the habit of doing your duty without pain."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17727",
+   "name": "",
+   "number": 320,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Do not undervalue the headache. While it is at its sharpest it seems a bad investment; but when relief begins, the unexpired remainder is worth four dollars a minute."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17449",
+   "name": "",
+   "number": 321,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Do not offer a compliment and ask a favor at the same time. A compliment that is charged for is not valuable."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17231",
+   "name": "",
+   "number": 322,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Custom is petrification; nothing but dynamite can dislodge it for a century."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-17036",
+   "name": "",
+   "number": 323,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Courage is resistance to fear, mastery of fear—not absence of fear."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-16547",
+   "name": "",
+   "number": 324,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Concerning the difference between man and the jackass:  some observers hold that there isn't any. But this wrongs the jackass."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-16191",
+   "name": "",
+   "number": 325,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Cold! If the thermometer had been an inch longer we'd have frozen to death."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15969",
+   "name": "",
+   "number": 326,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Clothes make the man. Naked people have little or no influence in society."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15866",
+   "name": "",
+   "number": 327,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Classic: A book which people praise and don't read."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15387",
+   "name": "",
+   "number": 328,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Civilizations proceed from the heart rather than from the head."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15332",
+   "name": "",
+   "number": 329,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Civilization: A limitless multiplication of unnecessary necessaries."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-15013",
+   "name": "",
+   "number": 330,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Circumstances make man, not man circumstances."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14602",
+   "name": "",
+   "number": 331,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Children have but little charity for one another's defects."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14200",
+   "name": "",
+   "number": 332,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "By trying, we can easily learn to endure adversity. Another man's, I mean."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-14013",
+   "name": "",
+   "number": 333,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Between believing a thing and thinking you know is only a small step and quickly taken."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13682",
+   "name": "",
+   "number": 334,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Beautiful credit! The foundation of modern society."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13380",
+   "name": "",
+   "number": 335,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Be virtuous and you will be eccentric."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-13158",
+   "name": "",
+   "number": 336,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Be good and you will be lonesome."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-12840",
+   "name": "",
+   "number": 337,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Be careless with your dress if you will, but keep a tidy soul."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-12610",
+   "name": "",
+   "number": 338,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Be careful about reading health books. You may die of a misprint."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-12299",
+   "name": "",
+   "number": 339,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "As to the adjective: when it doubt, strike it out."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11848",
+   "name": "",
+   "number": 340,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "An uneasy conscience is a hair in the mouth."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11676",
+   "name": "",
+   "number": 341,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "An Englishman is a person who does things because they have been done before. An American is a person who does things because they haven't been done before."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11342",
+   "name": "",
+   "number": 342,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "An author values compliment even when it comes from a source of doubtful competency."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-11218",
+   "name": "",
+   "number": 343,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Always obey your superiors—if you have any."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10990",
+   "name": "",
+   "number": 344,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Always obey your parents when they are present."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10677",
+   "name": "",
+   "number": 345,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Always do right. This will gratify some people and astonish the rest."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-10480",
+   "name": "",
+   "number": 346,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Always acknowledge a fault frankly. This will throw those in authority off their guard and give you an opportunity to commit more."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9986",
+   "name": "",
+   "number": 347,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "All you need in this life is ignorance and confidence, and then Success is sure."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9629",
+   "name": "",
+   "number": 348,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Against the assault of laughter nothing can stand."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-9216",
+   "name": "",
+   "number": 349,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Adam was the author of sin, and I wish he had taken out an international copyright on it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8877",
+   "name": "",
+   "number": 350,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "Adam and Eve had many advantages, but the principal one was that they escaped teething."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8696",
+   "name": "",
+   "number": 351,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A soiled baby with a neglected nose, cannot be conscientiously regarded as a thing of beauty."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8223",
+   "name": "",
+   "number": 352,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A scientist will never show any kindness for a theory which he did not start himself."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-8074",
+   "name": "",
+   "number": 353,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A railroad is like a lie—you have to keep building it to make it stand."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-7839",
+   "name": "",
+   "number": 354,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A lie can travel half way around the world while the truth is putting on its shoes."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-7566",
+   "name": "",
+   "number": 355,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A human being has a natural desire to have more of a good thing than he needs."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-7398",
+   "name": "",
+   "number": 356,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A historian who would convey the truth has got to lie. Often he must enlarge the truth by diameters, otherwise his reader would not be able to see it."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-7019",
+   "name": "",
+   "number": 357,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A great law of human action—in order to make a man or a boy covet a thing, it is only necessary to make the thing difficult to attain."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-6707",
+   "name": "",
+   "number": 358,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A good and wholesome thing is a little harmless fun in this world; it tones a body up and keeps him human and prevents him from souring."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5225",
+   "name": "",
+   "number": 359,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A crime persevered in a thousand centuries ceased to be a crime, and becomes a virtue. This is the law of custom, and custom supersedes all other forms of law."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4977",
+   "name": "",
+   "number": 360,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A cat is more intelligent than people believe, and can be taught any crime."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4815",
+   "name": "",
+   "number": 361,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A banquet is probably the most fatiguing thing in the world except ditchdigging."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4529",
+   "name": "",
+   "number": 362,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "A baby is an inestimable blessing and bother."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-4057",
+   "name": "",
+   "number": 363,
+   "layers": [
+    "bkgnd-2750"
+   ],
+   "image": null,
+   "objects": [],
+   "layer_text": {
+    "bkgnd-2750/field-5": "\"Rise early. It is the early bird that catches the worm.\" Don't be fooled by this absurd saw; I once knew a man who tried it. He got up at sunrise and a horse bit him."
+   },
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5960",
+   "name": "",
+   "number": 364,
+   "layers": [
+    "bkgnd-5462"
+   ],
+   "image": "assets/card-5960.png",
+   "objects": [
+    {
+     "id": "card-5960/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      0,
+      0,
+      27,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5960/button-2",
+     "kind": "button",
+     "name": "",
+     "number": 2,
+     "rect": [
+      197,
+      0,
+      224,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5960/button-3",
+     "kind": "button",
+     "name": "",
+     "number": 3,
+     "rect": [
+      0,
+      156,
+      27,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5960/button-4",
+     "kind": "button",
+     "name": "",
+     "number": 4,
+     "rect": [
+      197,
+      156,
+      224,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-2890",
+   "name": "",
+   "number": 365,
+   "layers": [
+    "bkgnd-5462"
+   ],
+   "image": "assets/card-2890.png",
+   "objects": [
+    {
+     "id": "card-2890/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      0,
+      0,
+      27,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2890/button-2",
+     "kind": "button",
+     "name": "",
+     "number": 2,
+     "rect": [
+      197,
+      0,
+      224,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2890/button-3",
+     "kind": "button",
+     "name": "",
+     "number": 3,
+     "rect": [
+      0,
+      156,
+      27,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-2890/button-4",
+     "kind": "button",
+     "name": "",
+     "number": 4,
+     "rect": [
+      197,
+      156,
+      224,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  },
+  {
+   "id": "card-5753",
+   "name": "",
+   "number": 366,
+   "layers": [
+    "bkgnd-5462"
+   ],
+   "image": "assets/card-5753.png",
+   "objects": [
+    {
+     "id": "card-5753/button-1",
+     "kind": "button",
+     "name": "",
+     "number": 1,
+     "rect": [
+      0,
+      0,
+      27,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 1,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5753/button-2",
+     "kind": "button",
+     "name": "",
+     "number": 2,
+     "rect": [
+      197,
+      0,
+      224,
+      26
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 2,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5753/button-3",
+     "kind": "button",
+     "name": "",
+     "number": 3,
+     "rect": [
+      0,
+      156,
+      27,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 3,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    },
+    {
+     "id": "card-5753/button-4",
+     "kind": "button",
+     "name": "",
+     "number": 4,
+     "rect": [
+      197,
+      156,
+      224,
+      182
+     ],
+     "visible": true,
+     "style": {
+      "shape": "transparent",
+      "font": "Chicago",
+      "size": 12,
+      "align": "center",
+      "show_name": false,
+      "highlight": false,
+      "locked": false
+     },
+     "text": "",
+     "icon": "assets/icon-1015.png",
+     "script": null,
+     "extra": {
+      "part_id": 4,
+      "flags_a": 0,
+      "flags_b": 0,
+      "style_number": 0,
+      "text_style": 0,
+      "line_height": 16,
+      "font_id": 0,
+      "icon_id": 1015,
+      "enabled": true,
+      "runs": [],
+      "icon_top_offset": 0
+     }
+    }
+   ],
+   "layer_text": {},
+   "script": null,
+   "grid": null
+  }
+ ],
+ "assets": [
+  {
+   "id": "bkgnd-2750",
+   "kind": "image",
+   "file": "assets/bkgnd-2750.png",
+   "width": 224,
+   "height": 288
+  },
+  {
+   "id": "bkgnd-5462",
+   "kind": "image",
+   "file": "assets/bkgnd-5462.png",
+   "width": 224,
+   "height": 288
+  },
+  {
+   "id": "card-5960",
+   "kind": "image",
+   "file": "assets/card-5960.png",
+   "width": 224,
+   "height": 288
+  },
+  {
+   "id": "card-2890",
+   "kind": "image",
+   "file": "assets/card-2890.png",
+   "width": 224,
+   "height": 288
+  },
+  {
+   "id": "card-5753",
+   "kind": "image",
+   "file": "assets/card-5753.png",
+   "width": 224,
+   "height": 288
+  },
+  {
+   "id": "icon-1015",
+   "kind": "image",
+   "file": "assets/icon-1015.png",
+   "width": 32,
+   "height": 32
+  }
+ ],
+ "notes": [
+  "PRNT block id 3632 at 0x1C300 (320 bytes): print settings, not decoded, skipped",
+  "resource fork types: ICON(1)",
+  "field flags A bits 0x04 set (meaning unknown): 1 part(s), e.g. bkgnd-2750/field-5",
+  "field flags A bits 0x0C set (meaning unknown): 3 part(s), e.g. bkgnd-2750/field-22, bkgnd-5462/field-1, bkgnd-5462/field-11",
+  "field flags B bits 0x2000 set (meaning unknown): 4 part(s), e.g. bkgnd-2750/field-5, bkgnd-2750/field-22, bkgnd-5462/field-1",
+  "unknown field style number 1: 1 part(s), e.g. bkgnd-2750/field-22"
+ ]
+}
