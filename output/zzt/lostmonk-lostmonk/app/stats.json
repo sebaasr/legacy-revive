@@ -1,0 +1,15 @@
+{
+  "world": "lostmonk-lostmonk",
+  "name": "LOSTMONK",
+  "boards": 68,
+  "objects": 1362,
+  "scripted_objects": 928,
+  "distinct_programs": 375,
+  "handlers": 1085,
+  "labels": 710,
+  "lines": 4114,
+  "lines_translated": 4114,
+  "lines_stubbed": 0,
+  "stubs_by_command": {},
+  "stub_lines": []
+}

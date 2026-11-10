@@ -1,0 +1,15 @@
+{
+  "world": "pyramid-pyramid",
+  "name": "PYRAMID",
+  "boards": 60,
+  "objects": 870,
+  "scripted_objects": 772,
+  "distinct_programs": 169,
+  "handlers": 333,
+  "labels": 164,
+  "lines": 1170,
+  "lines_translated": 1170,
+  "lines_stubbed": 0,
+  "stubs_by_command": {},
+  "stub_lines": []
+}

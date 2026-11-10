@@ -1,0 +1,19 @@
+{
+  "world": "crimring-crimring",
+  "name": "CRIMDEMO",
+  "boards": 43,
+  "objects": 1922,
+  "scripted_objects": 841,
+  "distinct_programs": 369,
+  "handlers": 925,
+  "labels": 556,
+  "lines": 2969,
+  "lines_translated": 2968,
+  "lines_stubbed": 1,
+  "stubs_by_command": {
+    "if": 1
+  },
+  "stub_lines": [
+    "#if"
+  ]
+}

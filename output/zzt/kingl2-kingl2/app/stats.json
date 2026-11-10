@@ -1,0 +1,20 @@
+{
+  "world": "kingl2-kingl2",
+  "name": "KINGL2",
+  "boards": 10,
+  "objects": 380,
+  "scripted_objects": 380,
+  "distinct_programs": 44,
+  "handlers": 110,
+  "labels": 66,
+  "lines": 344,
+  "lines_translated": 342,
+  "lines_stubbed": 2,
+  "stubs_by_command": {
+    "change": 2
+  },
+  "stub_lines": [
+    "#change sliderns fake wall",
+    "#change sliderew fake wall"
+  ]
+}

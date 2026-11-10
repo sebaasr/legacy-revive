@@ -1,0 +1,28 @@
+/* Shared runtime styles: page frame, dialogs, flash messages. `?shot=1` adds body.shot (no chrome). */
+:root { --bg: #111; --fg: #ddd; --dlg-bg: #0000a8; --dlg-fg: #fcfcfc; --dlg-border: #fcfc54; --accent: #54fcfc; }
+html, body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.4 system-ui, sans-serif; }
+#app { display: flex; flex-direction: column; align-items: center; padding: 16px; gap: 8px; }
+#app header { font-size: 13px; color: #999; text-align: center; max-width: 100%; }
+#wrap { position: relative; --k: 1; }
+#wrap canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; }
+.lr-dialog {
+  position: absolute; left: calc(var(--board-w, 75%) * 0.06); width: calc(var(--board-w, 75%) * 0.88);
+  top: 8%; max-height: 80%; display: flex; flex-direction: column;
+  background: var(--dlg-bg); color: var(--dlg-fg); border: calc(3px * var(--k)) double var(--dlg-border);
+  font: calc(13px * var(--k))/1.25 "Consolas", "Courier New", monospace; box-shadow: 0 0 0 4px #000;
+}
+.lr-dialog-title { text-align: center; color: var(--dlg-border); padding: 4px 8px; border-bottom: 1px solid var(--dlg-border); }
+.lr-dialog-body { overflow-y: auto; padding: 6px 12px; white-space: pre-wrap; }
+.lr-line.lr-center { text-align: center; color: #fff; font-weight: bold; }
+.lr-choice { color: var(--accent); cursor: pointer; padding-left: 1.5em; position: relative; }
+.lr-choice.lr-selected::before { content: "\25BA"; position: absolute; left: 0.2em; color: #fc54fc; }
+.lr-choice:hover { background: rgba(255, 255, 255, 0.1); }
+.lr-dialog-hint { font-size: 0.8em; color: #a8a8a8; text-align: center; padding: 3px; border-top: 1px solid #5454fc; }
+.lr-flash {
+  display: none; position: absolute; left: 0; width: var(--board-w, 75%); bottom: calc(14px * var(--k));
+  text-align: center; font: bold calc(13px * var(--k)) "Consolas", "Courier New", monospace; color: #fcfc54;
+  text-shadow: 0 0 3px #000, 0 0 3px #000; pointer-events: none;
+}
+body.shot { overflow: hidden; background: #000; }
+body.shot #app { display: block; padding: 0; }
+body.shot #app header { display: none; }

@@ -1,0 +1,15 @@
+{
+  "world": "zzttoxic-smiley",
+  "name": "SMILEY",
+  "boards": 30,
+  "objects": 742,
+  "scripted_objects": 742,
+  "distinct_programs": 212,
+  "handlers": 518,
+  "labels": 306,
+  "lines": 2241,
+  "lines_translated": 2241,
+  "lines_stubbed": 0,
+  "stubs_by_command": {},
+  "stub_lines": []
+}

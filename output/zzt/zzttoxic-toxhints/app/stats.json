@@ -1,0 +1,15 @@
+{
+  "world": "zzttoxic-toxhints",
+  "name": "TOXHINTS",
+  "boards": 1,
+  "objects": 57,
+  "scripted_objects": 57,
+  "distinct_programs": 11,
+  "handlers": 95,
+  "labels": 84,
+  "lines": 363,
+  "lines_translated": 363,
+  "lines_stubbed": 0,
+  "stubs_by_command": {},
+  "stub_lines": []
+}

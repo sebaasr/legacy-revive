@@ -1,0 +1,15 @@
+{
+  "world": "zzttoxic-toxic",
+  "name": "TOXIC",
+  "boards": 41,
+  "objects": 2353,
+  "scripted_objects": 1402,
+  "distinct_programs": 447,
+  "handlers": 1105,
+  "labels": 658,
+  "lines": 4017,
+  "lines_translated": 4017,
+  "lines_stubbed": 0,
+  "stubs_by_command": {},
+  "stub_lines": []
+}

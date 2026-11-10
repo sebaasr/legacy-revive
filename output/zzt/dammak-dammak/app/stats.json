@@ -1,0 +1,19 @@
+{
+  "world": "dammak-dammak",
+  "name": "DAMMAK",
+  "boards": 16,
+  "objects": 180,
+  "scripted_objects": 84,
+  "distinct_programs": 44,
+  "handlers": 146,
+  "labels": 102,
+  "lines": 672,
+  "lines_translated": 671,
+  "lines_stubbed": 1,
+  "stubs_by_command": {
+    "if": 1
+  },
+  "stub_lines": [
+    "#if book then check 2"
+  ]
+}
