@@ -1,0 +1,714 @@
+FILE corpus/zzt/zzttoxic/TOXHINTS.ZZT  (14132 bytes)
+== WORLD HEADER (512 bytes)
+  magic            : -1 (ff ff)
+  board count      : 1  (stored 0)
+  world name       : 'TOXHINTS'
+  current board    : 0
+  counter @0x0f    : 100  (probably health)
+  other counters   : 04=0 06=0 13=0 15=0 17=0 19=17271 1b=0
+  bytes 08..0e     : [0, 0, 0, 0, 0, 0, 0]  (7 bytes; probably one per key color)
+  flags (10 slots) : ['', '', '', '', '', '', '', '', '', '']
+  bytes 104..108   : [0, 0, 0, 0, 0]
+
+== BOARD 0  @0x200  size 13618  name 'Title screen'
+  grid: 510 RLE runs (1530 bytes) -> 1500 cells
+  element counts: 0:464, 4:1, 21:405, 22:56, 23:91, 36:57, 47:100, 48:312, 52:14
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(116, 19)  message=''
+  status records: 58 (stored count 57)
+   #0   (43,22) cell type  4 [player] color 1f  cycle 1 p1 142 p2 6 p3 198 step (-7118,1596) follower 9740 leader 5770 under (0,00) ip 22266 code_len 0
+   #1   (13,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #2   (11,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #3   (22,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #4   (23,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #5   (20,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #6   (25,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #7   (13, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #8   (11, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #9   (10, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #10  (10, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #11  (10, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #12  (10, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #13  (10,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #14  (10,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #15  (10,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #16  (10,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #17  (10,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #18  (10,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #19  (10,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #20  (10,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 4
+        | @HA
+   #21  (17, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #22  (25, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #23  (25, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #24  (18, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 4
+        | @HA
+   #25  (17, 9) cell type 36 [object (scripted)] color 09  cycle 3 p1 223 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 6
+        | @BROW
+   #26  (24, 9) cell type 36 [object (scripted)] color 09  cycle 3 p1 223 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip -1 code_len 6
+        | @BROW
+   #27  (43,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 32 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 9144
+        | @HINTS & SOLUTIONS
+        | #END
+        | :TOUCH
+        | $╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗
+        | $╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝
+        |                   
+        | $HINTS  . . . AND  SOLUTIONS, TOO 
+        | 
+        | $╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗
+        | $╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝
+        | 
+        | Toxic Terminator features on-line hints
+        | to keep you on the right path.  Enough
+        | is left out to keep things interesting.
+        | 
+        | This module is separated from the main
+        | game so you will use it less often.  It
+        | has some suggestions on how to proceed.
+        | And for the really stumped, there are
+        | some solutions.
+        | 
+        | $▒▓ ▓▒
+        | $▒▓█▓▒
+        | $▒▓ ▓▒
+        | 
+        | In this adventure, you guide the hero,
+        | Smiley Guy, as he rescues his girl friend
+        | and saves Earth from an evil machine,
+        | called the Toxic Terminator.
+        | 
+        | Before he can find them, Smiley must
+        | find five power crystals and solve other
+        | puzzles.
+        | 
+        | $▒▓ ▓▒
+        | $▒▓█▓▒
+        | $▒▓ ▓▒
+        | 
+        | :MAIN
+        | The game breaks down into three major 
+        | parts.  If you need help, choose the
+        | room you want from the list below:
+        | 
+        | !PART1;Part 1 ▐ Above Ground 
+        | $ ▐                
+        | !PART2;Part 2 ▐ Under Ground 
+        | $ ▐                
+        | !PART3;Part 3 ▐ Above Earth  
+        | #END
+        | :RETURN
+        | #SEND MAIN
+        | :PART1
+        | $▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+        | $ABOVE GROUND  
+        | $▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+        | 
+        | !PLACE;Smiley's Place
+        | 
+        | !INTRO;Introduction
+        | 
+        | !APPLE;Apple Tree Lane
+        | 
+        | !PARK;Sunny Dale Park
+        | 
+        | !HEAD;Bio-mechanical Head
+        | 
+        | !GROUNDS;Lab Grounds
+        | 
+        | !FLAKEY;Flakey's
+        | 
+        | !LAB;Inside the Lab
+        | 
+        | !RETURN;Return to Main Menu
+        | #END
+        | :PART2
+        | $▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+        | $UNDER GROUND  
+        | $▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+        | 
+        | !UNDER;Underground Cavern
+        | 
+        | !TRANS;Transporter Room
+        | 
+        | !TUNNELS;Tunnel Maze
+        | 
+        | !MUTATO;Mr. Mutato Head
+        | 
+        | !LIBRARY;Library
+        | 
+        | !ELEVATOR;Elevator
+        | 
+        | !INSIDE;Inside the Head
+        | 
+        | !CONTROLS;Switch Controls
+        | 
+        | !BRIDGE;Bridge
+        | 
+        | !FOG;The Fog
+        | 
+        | !RETURN;Return to Main Menu
+        | #END
+        | :PART3
+        | $▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+        | $ABOVE EARTH  
+        | $▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+        | 
+        | !LIVING;Living Engine Room
+        | 
+        | !PORT;Observation Port
+        | 
+        | !PASSAGE;Passageways
+        | 
+        | !DECK;Pilot Deck
+        | 
+        | !DEATH;Death Ray
+        | 
+        | !TOXIC;Toxic Terminator/Slime
+        | 
+        | !ESCAPE;Escape and Beyond
+        | 
+        | !RETURN;Return to Main Menu
+        | #END
+        | '     P  A  R  T    1
+        | :PLACE
+        | Read the H.  It gives you all the help
+        | you need.  You will come back here later.
+        | 
+        | !PLACE1;Can't move the dirt.
+        | #SEND PART1
+        | :PLACE1
+        | Look for something to help you.
+        | 
+        | !PLACE2;Still can't get underground.
+        | #SEND PART1
+        | :PLACE2
+        | Find shovel.  Dig dirt.
+        | #SEND PART1
+        | :INTRO
+        | Read the messages.  The H gives you all
+        | the help you need here.
+        | #SEND PART1
+        | :APPLE
+        | Use your ammo.
+        | 
+        | !APPLE1;Still too many.
+        | #SEND PART1
+        | :APPLE1
+        | If you find the right position under
+        | the first trees, the apples will line
+        | up in your sights.
+        | #SEND PART1
+        | :PARK
+        | Check out the people and objects.
+        | 
+        | !PARK1;Flicker.
+        | 
+        | !PARK2;Flowers block path.
+        | #SEND PART1
+        | :PARK1
+        | 
+        | Find the hidden path through the grass.
+        | #SEND PART1
+        | :PARK2
+        | Talk to Bog again.  He can help you.
+        | #SEND PART1
+        | :HEAD
+        | Talk to Bog for explanation.
+        | 
+        | !HEAD1;Force field blocks path.
+        | 
+        | !HEAD2;How stop attack?
+        | #SEND PART1
+        | :HEAD1
+        | It can be turned off from inside the
+        | head.
+        | #SEND PART1
+        | :HEAD2
+        | Part of the solution is in the giant head.
+        | You must find another way inside.  
+        | #SEND PART1
+        | :GROUNDS
+        | Examine the grounds.
+        | 
+        | !GROUNDS1;Door is locked.
+        | #SEND PART1
+        | :GROUNDS1
+        | Talk to Bog.
+        | #SEND PART1
+        | :FLAKEY
+        | Read the built in help.
+        | #SEND PART1
+        | :LAB
+        | Enjoy the shadows.  Get the shovel.
+        | 
+        | Did you find the hidden room?
+        | 
+        | #SEND PART1
+        | '      P  A  R  T    2   
+        | :UNDER
+        | You are under the ground.
+        | 
+        | !UNDER1;Eyes out of reach.
+        | #SEND PART2
+        | #END
+        | :UNDER1
+        | Look for loose rock.  
+        | 
+        | !UNDER2;Found then lost 100 bonus points.
+        | #SEND PART2
+        | :UNDER2
+        | The points are for "persistence."
+        | Keep trying.
+        | #SEND PART2
+        | :TRANS
+        | The H explains the three steps you must
+        | complete to access the transporter.
+        | 
+        | !CRYSTALS;Location of the power crystals.
+        | 
+        | !CODE;How to solve the access code.
+        | 
+        | !SWITCH;Where is the power switch.
+        | #SEND PART2
+        | :CRYSTALS
+        | There are five hidden crystals, each a
+        | different color.
+        | 
+        | !BLUE;Blue crystal
+        | 
+        | !GREEN;Green crystal
+        | 
+        | !RED;Red crystal
+        | 
+        | !GOLD;Gold crystal
+        | 
+        | !SILVER;Silver crystal
+        | #SEND PART2
+        | :BLUE
+        | At the introduction.
+        | #SEND PART2
+        | :GREEN
+        | The flicker in Sunny Dale Park.
+        | 
+        | #SEND PART2
+        | :RED
+        | The right eye in the underground cavern.
+        | #SEND PART2
+        | :GOLD
+        | In the library.
+        | #SEND PART2
+        | :SILVER
+        | In the switch controls room.
+        | #SEND PART2
+        | :CODE
+        | To learn the code you must decipher the
+        | cryptic writing.  Find the book in the
+        | library.
+        | 
+        | !BOOK;Understanding the book.
+        | #SEND PART2
+        | :BOOK
+        | From the book, fill in the letters you
+        | know in the cryptic writing.  You should
+        | be able to guess the missing letters which
+        | spell the words for numbers.
+        | 
+        | !ANSWER;The answer
+        | #SEND PART2
+        | :ANSWER
+        | Select numbers and press the enter button.
+        | The number is . . .
+        | 
+        | Not yet.  Try a guess.  Then come back.
+        | Ask again if you're really stumped.
+        | #ZAP ANSWER
+        | #SEND PART2
+        | :ANSWER
+        | 1459
+        | #END
+        | :SWITCH
+        | One of the switches in the switch
+        | controls room.
+        | #SEND PART2
+        | :TUNNELS
+        | Each tunnel scene has different creatures.
+        | Go in and out to learn where each exit
+        | goes.
+        | 
+        | !TUNNEL1;Flying arrows.
+        | 
+        | !TUNNEL2;Flies and worms.
+        | 
+        | !TUNNEL3;Robo-bats.
+        | 
+        | !TUNNEL4;The path.
+        | #SEND PART2
+        | :TUNNEL1
+        | Go with the flow.  If needed, shoot
+        | the yellow arrows twice.  Shooting the red
+        | will alter their paths.
+        | #SEND PART2
+        | :TUNNEL2
+        | Shoot once to remove a fly or worm.
+        | #SEND PART2
+        | :TUNNEL3
+        | Shoot bats twice to remove.  Better yet,
+        | let them shoot each other.  
+        | #SEND PART2
+        | :TUNNEL4
+        | Going East from the transporter room,
+        | go South, East, and East to exit the
+        | maze.
+        | #SEND PART2
+        | :MUTATO
+        | When dealing with this creature, remember
+        | he is part living and part machine.
+        | 
+        | !MUTATO1;How stop Mr. Mutato Head
+        | 
+        | !MUTATO2;Can't get torch.
+        | #SEND PART2
+        | :MUTATO1
+        | Shooting doesn't work.  Look for another
+        | solution.
+        | 
+        | !MUTATO1A;Another solution.
+        | #SEND PART2
+        | :MUTATO1A 
+        | Turn off the machine switch.
+        | #SEND PART2
+        | :MUTATO2
+        | Access from another area.
+        | #SEND PART2
+        | :LIBRARY
+        | Read the books.
+        | 
+        | !LIBRARY1;Can't find missing photo.
+        | 
+        | !LIBRARY2;Don't understand symbols.
+        | 
+        | !LIBRARY3;Can't read invisible ink.
+        | #SEND PART2
+        | :LIBRARY1
+        | More later.
+        | #SEND PART2
+        | :LIBRARY2
+        | Find where you have seen them before.
+        | #SEND PART2
+        | :LIBRARY3
+        | Get a torch.
+        | 
+        | !LIBRARY3A;Something missing.
+        | #SEND PART2
+        | :LIBRARY3A
+        | Fire it up.
+        | 
+        | !LIBRARY3B;How?
+        | #SEND PART2
+        | :LIBRARY3B
+        | Put torch in flame.
+        | #SEND PART2
+        | :ELEVATOR
+        | Read help first.
+        | 
+        | !ELEVATOR1;The elevator stops working.
+        | #SEND PART2
+        | :ELEVATOR1
+        | After pushing the button, don't touch
+        | anything.
+        | #SEND PART2
+        | :INSIDE
+        | The H has a tip for handling the rays.
+        | 
+        | !INSIDE1;Still getting zapped.
+        | #SEND PART2
+        | :INSIDE1
+        | The pulse has a pause between colors or
+        | two colors then a pause.  Wait for the 
+        | second color.  Move into the ray before
+        | the pause.
+        | #SEND PART2
+        | :CONTROLS
+        | Save game before checking out the 
+        | buttons.  
+        | #SEND PART2
+        | :BRIDGE
+        | Talk to the creature. You may need him.
+        | #SEND PART2
+        | :FOG
+        | You may be able to find your way without
+        | extra help.  If you need help, give 
+        | Bouncer what he wants.
+        | 
+        | !FOG1;Can't find photo.
+        | #SEND PART2
+        | :FOG1 
+        | Find two clues in the fog.
+        | 
+        | !FOG2;Clue 1 
+        | 
+        | !FOG3;Clue 2
+        | #SEND PART2
+        | :FOG2
+        | At the first bugs, go East 2, South 5.
+        | #SEND PART2
+        | :FOG3
+        | At the first bugs, go West 8, South 2,
+        | East 5.
+        | #SEND PART2
+        | '         P  A  R  T    3
+        | :LIVING
+        | Use ammo on gas.  Avoid letting the gas
+        | surround you.
+        | #SEND PART3
+        | :PORT
+        | Get key.  Take in the view.
+        | #SEND PART3
+        | :PASSAGE
+        | The moving teeth do not hurt when you run
+        | into them.
+        | 
+        | !PASSAGE1;How to get past them.
+        | #SEND PART3
+        | :PASSAGE1
+        | Try different methods.
+        | 
+        | Go above and below.  Move to open space.
+        | Bounce through them.
+        | 
+        | !PASSAGE2;Other methods.
+        | #SEND PART3
+        | :PASSAGE2
+        | Push on them.  Shoot them to disrupt the
+        | pattern.
+        | #SEND PART3
+        | :DECK
+        | Find the pattern of passages to get to
+        | the torch and the store.
+        | 
+        | !DECK1;Path to the torch.
+        | 
+        | !DECK2;Path to the store.
+        | #SEND PART3
+        | :DECK1
+        | Go east from red passage (in lower right
+        | hand corner of screen).  Run into wall.
+        | 
+        | Bump open a path to the purple passage
+        | (third from left on bottom row).
+        | 
+        | Enter it to jump to the across the room.
+        | #SEND PART3
+        | :DECK2
+        | Take cyan passage (just south of the 
+        | entrance passage) to next cyan passage.
+        | 
+        | Go north to white passage.
+        | #SEND PART3
+        | :DEATH
+        | Get stocked up on ammo before advancing
+        | past the shield. 
+        | 
+        | !DEATH1;How to get past the ice shield.
+        | 
+        | !DEATH2;How handle the guns.
+        | 
+        | !DEATH3;How to get key.
+        | #SEND PART3
+        | :DEATH1
+        | Find something that works on ice.
+        | 
+        | !DEATH1A;What?
+        | #SEND PART3
+        | :DEATH1A
+        | Use torch to melt the ice.
+        | #SEND PART3
+        | :DEATH2
+        | Shoot a gun twice to put it temporarily
+        | out of commission.
+        | #SEND PART3
+        | :DEATH3
+        | Use ammo to break walls of skull.
+        | #SEND PART3
+        | :TOXIC
+        | Take passage for final showdown inside
+        | the Terminator.
+        | 
+        | !TOXIC1;How to handle the slime.
+        | 
+        | !TOXIC2;Can't pick up key.
+        | #SEND PART3
+        | :TOXIC1
+        | Have plenty of ammo.  Avoid getting
+        | trapped between slime and bolts.
+        | #SEND PART3
+        | :TOXIC2
+        | Get all three red power crystals first.
+        | #SEND PART3
+        | :ESCAPE
+        | !ESCAPE1;Can't beat slime to bonus points.
+        | 
+        | !ESCAPE2;Came home.  Where's Pristine?
+        | 
+        | !ESCAPE3;Can't find the Warped Zone.
+        | #SEND PART3
+        | :ESCAPE1
+        | Try changing game speed to slower.  Change
+        | back to normal afterwards, or else, 
+        | everything slows down.
+        | #SEND PART3
+        | :ESCAPE2
+        | Follow Pristine to your right.
+        | #SEND PART3
+        | :ESCAPE3
+        | After opening the wall in the Pilot Deck,
+        | arrow down at each step along the bottom
+        | of the screen.  One space will drop into
+        | the Warped Zone.
+        | #SEND PART3
+   #28  ( 1, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 47
+        | @star
+        | #CHAR 250
+        | /I/I/I/I
+        | #CHAR 249
+        | /I
+        | #RESTART
+   #29  ( 1, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #30  (12, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #31  (25, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #32  (32, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #33  (41, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #34  (47, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #35  (56, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #36  (58, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #37  (59, 2) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 49
+        | @POINT
+        | /I
+        | #CHAR 249
+        | /I
+        | #CHAR 250
+        | /I/I/I
+        | #RESTART
+   #38  (52, 2) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+   #39  (35, 3) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+   #40  (43, 1) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+   #41  (19, 2) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+   #42  ( 1, 4) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+   #43  ( 4, 5) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+   #44  (51, 4) cell type 36 [object (scripted)] color 0c  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 44
+        | @SPECK
+        | /I
+        | #CHAR 249
+        | /I/I
+        | #CHAR 250
+        | #RESTART
+   #45  (40, 2) cell type 36 [object (scripted)] color 0c  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 20
+        | @SPECK1
+        | #BIND SPECK
+   #46  (32, 4) cell type 36 [object (scripted)] color 0c  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 20
+        | @SPECK1
+        | #BIND SPECK
+   #47  ( 4, 3) cell type 36 [object (scripted)] color 0c  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 20
+        | @SPECK1
+        | #BIND SPECK
+   #48  (44,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 32 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 47
+        | @HINTSRIGHT
+        | #END
+        | :TOUCH
+        | #SEND HINTS:TOUCH
+        | #END
+   #49  (42,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 32 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 46
+        | @HINTSLEFT
+        | #END
+        | :TOUCH
+        | #SEND HINTS:TOUCH
+        | #END
+   #50  ( 4, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #51  ( 3,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #52  (57,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 18
+        | @STAR1
+        | #BIND STAR
+   #53  (58, 8) cell type 36 [object (scripted)] color 0c  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 44
+        | @SPECK
+        | /I
+        | #CHAR 249
+        | /I/I
+        | #CHAR 250
+        | #RESTART
+   #54  (32, 8) cell type 36 [object (scripted)] color 0c  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 44
+        | @SPECK
+        | /I
+        | #CHAR 249
+        | /I/I
+        | #CHAR 250
+        | #RESTART
+   #55  ( 1,11) cell type 36 [object (scripted)] color 0c  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 44
+        | @SPECK
+        | /I
+        | #CHAR 249
+        | /I/I
+        | #CHAR 250
+        | #RESTART
+   #56  (32, 7) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+   #57  (34,12) cell type 36 [object (scripted)] color 0b  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 20
+        | @POINT1
+        | #BIND POINT
+
+END: parsed to 0x3734 of 0x3734  OK

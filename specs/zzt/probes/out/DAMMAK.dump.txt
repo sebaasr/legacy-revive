@@ -1,0 +1,1656 @@
+FILE corpus/zzt/dammak/DAMMAK.ZZT  (50822 bytes)
+== WORLD HEADER (512 bytes)
+  magic            : -1 (ff ff)
+  board count      : 16  (stored 15)
+  world name       : 'DAMMAK'
+  current board    : 1
+  counter @0x0f    : 100  (probably health)
+  other counters   : 04=0 06=0 13=0 15=0 17=0 19=0 1b=0
+  bytes 08..0e     : [0, 0, 0, 0, 0, 0, 0]  (7 bytes; probably one per key color)
+  flags (10 slots) : ['', '', '', '', '', '', '', '', '', '']
+  bytes 104..108   : [0, 0, 0, 0, 0]
+
+== BOARD 0  @0x200  size 3223  name 'Title screen'
+  grid: 544 RLE runs (1632 bytes) -> 1500 cells
+  element counts: 0:238, 4:1, 19:87, 20:257, 21:120, 22:148, 23:199, 31:318, 36:43, 53:89
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 44 (stored count 43)
+   #0   ( 5,21) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,0a) ip 0 code_len 0
+   #1   ( 3,24) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip -1 code_len 0
+   #2   ( 2,25) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip -1 code_len 0
+   #3   ( 1,24) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip -1 code_len 0
+   #4   ( 2,23) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #5   (60,23) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #6   (58,23) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #7   (58,25) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #8   (60,25) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #9   (58, 2) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #10  (59, 3) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #11  (60, 2) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #12  (59, 1) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #13  ( 3, 1) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #14  ( 3, 3) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #15  ( 1, 3) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #16  ( 1, 1) cell type 36 [object (scripted)] color 0d  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #17  ( 2, 2) cell type 36 [object (scripted)] color 0e  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 0
+   #18  (59, 2) cell type 36 [object (scripted)] color 0e  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 0
+   #19  (59,24) cell type 36 [object (scripted)] color 0e  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 0
+   #20  ( 2,24) cell type 36 [object (scripted)] color 0e  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip -1 code_len 0
+   #21  ( 1,23) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #22  ( 3,23) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #23  ( 3,25) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip -1 code_len 0
+   #24  ( 1,25) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip -1 code_len 0
+   #25  (59,25) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #26  (60,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #27  (59,23) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #28  (58,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 0
+   #29  (58, 3) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #30  (60, 3) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #31  (60, 1) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #32  (58, 1) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #33  ( 3, 2) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 0
+   #34  ( 2, 1) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #35  ( 1, 2) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #36  ( 2, 3) cell type 36 [object (scripted)] color 0c  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip -1 code_len 0
+   #37  (23,20) cell type 36 [object (scripted)] color 0c  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #38  (25,20) cell type 36 [object (scripted)] color 09  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #39  (23,19) cell type 36 [object (scripted)] color 0b  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #40  (24,19) cell type 36 [object (scripted)] color 0e  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #41  (26,19) cell type 36 [object (scripted)] color 0d  cycle 3 p1 223 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip -1 code_len 0
+   #42  (17,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 0
+   #43  (16,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 0
+
+== BOARD 1  @0xe99  size 8141  name 'Town'
+  grid: 438 RLE runs (1314 bytes) -> 1500 cells
+  element counts: 0:554, 4:1, 9:3, 10:1, 20:314, 22:350, 23:178, 36:34, 47:6, 49:5, 50:10, 51:7, 52:37
+  exits: north=2 south=0 west=0 east=0  (0 = none)
+  byte0=0 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 36 (stored count 35)
+   #0   (56,24) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (33,23) cell type 36 [object (scripted)] color 0e  cycle 3 p1 8 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 24
+        | @door
+        | #end
+        | :bought
+        | #die
+   #2   (25,23) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 286
+        | @Innkeeper
+        | #end
+        | :touch
+        |      "Hello,would you like a room for the
+        | night for 3 gems?"
+        | !x1;Yes,I'll take it.
+        | #end
+        | :x1
+        | #take gems 3 getout
+        |      "It's the room at the end of the hall
+        | with the blue door."
+        | #send door:bought
+        | #put w blue key
+        | #zap touch
+        | #end
+        | :getout
+        | You haven't got 3 gems!
+        | #end
+   #3   (47, 9) cell type 36 [object (scripted)] color 0d  cycle 3 p1 8 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #4   (10, 7) cell type 36 [object (scripted)] color 0e  cycle 3 p1 8 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #5   (38, 6) cell type 36 [object (scripted)] color 09  cycle 3 p1 8 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #6   (25, 4) cell type 36 [object (scripted)] color 0a  cycle 3 p1 8 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #7   (18,18) cell type 36 [object (scripted)] color 0a  cycle 3 p1 8 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #8   (51,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 28 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #9   (50,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 33 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #10  (49,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 33 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #11  ( 9,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 251 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #12  (10,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 251 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #13  (11,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 251 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #14  (12,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 251 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #15  (12,22) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #16  (12,21) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #17  (12,20) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #18  (46,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #19  (47,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #20  (48,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #21  (52,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 244 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #22  (44,22) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 618
+        | @Weapon maker
+        | #end
+        | :touch
+        |      "Hello.Are you interested in buying
+        | any weapons or arrows for your bow?"
+        | !x1;10 arrows.................1 gem
+        | !x2;Sword.....................3 gems
+        | !x3;Axe.......................4 gems
+        | !x4;Spear.....................2 gems
+        | !x5;Mace......................3 gems
+        | #end
+        | :x1
+        | #take gems 1 notenuff
+        | Here you go.
+        | #give ammo 10
+        | #end
+        | :x2
+        | #take gems 3 notenuff
+        | Here's your sword.
+        | #set sword
+        | #end
+        | :x3
+        | #take gems 4 notenuff
+        | Here's your axe.
+        | #set axe
+        | #end
+        | :x4
+        | #take gems 2 notenuff
+        | Here's your spear.
+        | #set spear
+        | #end
+        | :x5
+        | #take gems 3
+        | Here's your mace.
+        | #set mace
+        | #end
+        | :notenuff
+        | You don't have enough.
+        | #end
+   #23  (33,13) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 467
+        | @Armor maker
+        | #end
+        | :touch
+        |      "Welcome.Are you in need of fine 
+        | metal armor?"
+        | !x1;Chain mail...................7 gems
+        | !x2;Scale mail...................10 gems
+        | !x3;Chest plate..................15 gems
+        | #end
+        | :x1
+        | #take gems 7 notenuff
+        | Here's your chain mail shirt.
+        | #set chain
+        | #end
+        | :x2
+        | #take gems 10 notenuff
+        | Here's your scale mail shirt.
+        | #set scale
+        | #end
+        | :x3
+        | #take gems 15 notenuff
+        | Here's your steel chest plate.
+        | #set plate
+        | #end
+        | :notenuff
+        | You don't have enough gems.
+        | #end
+   #24  ( 4, 9) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 51
+        | @Patron
+        | #end
+        | :touch
+        | Don't bother the patrons!
+        | #end
+   #25  ( 7, 9) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 13
+        | #bind patron
+   #26  ( 7,15) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 13
+        | #bind patron
+   #27  ( 7,13) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 13
+        | #bind patron
+   #28  (36,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 534
+        | @intro
+        |      As you approach the little town of
+        | Delmar,you think back to the border patrol
+        | of Baron Dammak,that confiscated all of 
+        | your possessions except for your bow and
+        | a hidden pouch of 10 gems.The rule of 
+        | Dammak is well known throughout the entire
+        | land as a hideous mockery of justice.You
+        | had dreaded coming into this land,but to 
+        | go around it would take weeks.The town is
+        | doing fairly well,but all the people are
+        | gloomy and scared.Perhaps things in the
+        | barony of Dammak's are worse than rumors
+        | related them!
+        | #give gems 10
+        | #die
+   #29  (37,24) cell type 36 [object (scripted)] color 0b  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 55
+        | @hints
+        | #end
+        | :hint
+        | Why not visit the local tavern?
+        | #end
+   #30  ( 5,22) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 477
+        | @Leather worker
+        | #end
+        | :touch
+        |      "Hello.Would you care to purchase any
+        | fine leatherwork?"
+        | !x1;Boots......................1 gem
+        | !x2;Belt.......................1 gem
+        | !x3;Shirt......................2 gems
+        | #end
+        | :x1
+        | #take gems 1 notenuff
+        | Here you are,one pair of boots.
+        | #set boots
+        | #end
+        | :x2
+        | #take gems 1 notenuff
+        | One fine leather belt,coming up.
+        | #set belt
+        | #end
+        | :x3
+        | #take gems 2 notenuff
+        | Here you go,a shirt of fine leather.
+        | #set shirt
+        | #end
+        | :notenuff
+        | You don't have enough gems.
+        | #end
+   #31  (54,15) cell type 10 [scroll (text record)] color 0f  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 160
+        |             SORRY,CLOSED!
+        | Due to overtaxation,the food and supply 
+        | store has been closed down.Sorry.
+        |                 -Proprieter,
+        |                   Elwin Sneed
+   #32  ( 2,12) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 369
+        | @Barkeep
+        | #end
+        | :touch
+        |      "Here you go.Have a mug of ale on the
+        | house.I'm three weeks delinquent on my 
+        | taxes,so I'll be arrested soon anyway.Not
+        | a chance of me making the 150 gems in the
+        | next couple days,so I'm not worried about
+        | making any money."
+        |      You take the cold mug of ale and sip
+        | on it as you walk away,contemplating the
+        | man's sad situation.
+        | #zap touch
+        | #end
+   #33  (58,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 22 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 169
+        | @Box
+        | #end
+        | :touch
+        | Hmmm..An old firewood box.It is still 
+        | laden with small branches that would make
+        | perfect torches.You take the torches.
+        | #give torches 20
+        | #zap touch
+        | #end
+   #34  (38,18) cell type 36 [object (scripted)] color 0b  cycle 3 p1 216 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip 0 code_len 214
+        | @Broadsword
+        | #end
+        | :touch
+        |      The owner of this fine weapon appears
+        | to have left it behind.No sense in letting
+        | it sit here,when you could use it.You take
+        | the broadsword with you.
+        | #set broadsword
+        | #give score 50
+        | #die
+   #35  ( 3,17) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 2037
+        | @Ewal The Prophet
+        | #end
+        | :touch
+        |      Well! You never expected to come face
+        | to face with Ewal The Prophet!In all the
+        | tales of yore,Ewal plays a major role.He 
+        | counseled Sir Jeremy when he marched 
+        | against the armies of Nadilia.He was said
+        | to have accompanied Lord Thenuul when he
+        | recovered the Sun Stone from the lands of
+        | evil.Ewal's name is known all across the 
+        | land,and here he is,sitting in a bar in 
+        | the derelict town of Delmar!
+        |      "Hello,son.Been waiting for you for
+        | quite some time now.Aye,it's you I've been
+        | waiting for.Surely you don't think that 
+        | you'd have vanquished the ghost of King
+        | Lucius without the gods knowing?Oh yes,and
+        | the gods told me.And I know about your 
+        | future,my boy..I can see that you've done
+        | something that will cause you great pain 
+        | in the coming days..But,had you not done 
+        | it,you would never have reached your goal.
+        | I am here to tell you what you must do to
+        | remedy your predicament."
+        | $What predicament is this??
+        |      "Heh,heh..Boy,you've unleashed the
+        | power of light with an evil bent,and it's
+        | out to kill you.I can't tell you the whole
+        | story,but I CAN tell you that what you 
+        | must find is in Dammak's castle.Yes,that
+        | horrid place.And I can assure you that
+        | you'll risk your life many times before
+        | you get to even the first part of your
+        | journey."
+        | $So what should I do?
+        |      "First things first:go get yourself
+        | a room at the Inn..You'll need a place to
+        | stay..Then you'll want to buy yourself 
+        | some equipment.There's a wall north of the
+        | town that blocks off the main road.Get 
+        | past the gate guard any way you can.From 
+        | there on,you're pretty much on your own."
+        | $On my own? But where should I go??
+        |      "Don't worry,the gods will see to it
+        | that you don't go too far off the path.
+        | One thing I can tell you now is:when you
+        | come to the foothills,be sure that you are
+        | not being followed by the gaze of the 
+        | Watcher in the tower..Good luck,my son!"
+        | #give score 1000
+        | #zap touch
+        | #end
+        | :touch
+        |      "I see you have returned..I can't 
+        | help you any more right now..We shall meet
+        | again,though..I assure you of that!"
+        | #end
+
+== BOARD 2  @0x2e68  size 1735  name 'Road'
+  grid: 97 RLE runs (291 bytes) -> 1500 cells
+  element counts: 0:269, 4:1, 9:1, 20:1096, 31:132, 36:1
+  exits: north=6 south=1 west=7 east=3  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 2 (stored count 1)
+   #0   (29,24) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (31,17) cell type 36 [object (scripted)] color 0e  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 1239
+        | @Gaurd
+        | #if alligned then message
+        | #end
+        | :message
+        |      "Hey,no one is permitted beyond this
+        | point!Go back to the town or I'll have to
+        | use force!"
+        | #end
+        | :touch
+        | #if sword then hit2
+        | #if axe then hit2
+        | #if mace then hit3
+        | #if spear then hit4
+        | #if broadsword then hit5
+        | :hit1
+        | You punch the guard,but he counters with
+        | a slash from his sword!
+        | #take energy 50
+        | #end
+        | :hit2
+        | You slice the guard and he falls to the
+        | ground,dead.On his body you find 10 gems
+        | and a Cyan Key.
+        | #give gems 10
+        | #put south cyan key
+        | #die
+        | :hit3
+        | You club at the gaurd!
+        | #zap hit3
+        | #end
+        | :hit3
+        | You hit the gaurd again,and he falls!You 
+        | find 10 gems and a Cyan Key on his corpse!
+        | #give gems 10
+        | #put s cyan key
+        | #die
+        | :hit4
+        | The spear is too awkward to attack the
+        | gaurd with,and he blocks your attack and
+        | counters with a blow from his sword!
+        | #take energy 50
+        | #end
+        | :hit5
+        | You bring the Broadsword down on his neck
+        | and the gaurd crumples.His severed head
+        | bounces off into a ditch.On his body you
+        | find a Cyan Key and 10 gems.
+        | #give gems 10
+        | #put s cyan key
+        | #die
+        | :shot
+        | :shot
+        | :shot
+        | Your arrow pierces the guard's armor,and 
+        | he responds by hurling a knife at you!
+        | #shoot seek
+        | #zap shot
+        | :shot
+        | The guard falls to the gound dead.You find
+        | a Cyan Key and 10 gems on his body.
+        | #give gems 10
+        | #put s cyan key
+        | #die
+
+== BOARD 3  @0x3531  size 826  name 'Marsh'
+  grid: 127 RLE runs (381 bytes) -> 1500 cells
+  element counts: 0:103, 4:1, 19:359, 20:1012, 31:24, 36:1
+  exits: north=4 south=0 west=2 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 2 (stored count 1)
+   #0   ( 1,10) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,0e) ip 0 code_len 0
+   #1   (39, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 240
+        | @Flooded trail
+        | /i
+        | /i
+        | /i
+        | /i
+        | /i
+        |      The path leading eastward has been
+        | flooded by the seasonal swelling of the
+        | Bhakades river that runs thru the marsh.
+        | Besides an unclear trail running northward
+        | along the riverbank,you cannot continue.
+        | #end
+
+== BOARD 4  @0x386d  size 1369  name 'Marsh 2'
+  grid: 154 RLE runs (462 bytes) -> 1500 cells
+  element counts: 0:17, 4:1, 11:1, 19:508, 20:942, 21:8, 22:22, 36:1
+  exits: north=0 south=3 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 3 (stored count 2)
+   #0   (13,24) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   ( 8,10) cell type 11 [passage (p3=target board)] color 3f  cycle 0 p1 0 p2 0 p3 5 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #2   ( 8, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 669
+        | @Swamp Temple
+        | /i
+        | /i
+        | /i
+        | /i
+        |      You hack your way along the path and
+        | finally see its destination.A vine-covered
+        | ganite structure has been erected in a 
+        | small gap in the dense foliage.You have
+        | never seen a structure like this in all of
+        | your travels,and are certain that it was 
+        | not made by human hands.
+        | /i
+        | /i
+        | /i
+        | /i
+        |      As you draw closer,you notice the 
+        | intricate carvings that adorn the building
+        | and decide that it must be a temple of
+        | some sort.Noxious vapors wafting from the
+        | swampy patches of land remind you that no
+        | human would live here.This thought makes
+        | the hair on your neck stand up and you
+        | contemplate the wisdom of investigating
+        | this temple any further.
+        | #end
+
+== BOARD 5  @0x3dc8  size 2204  name 'Swamp Temple'
+  grid: 521 RLE runs (1563 bytes) -> 1500 cells
+  element counts: 0:83, 4:1, 5:15, 7:15, 11:2, 21:293, 22:521, 23:63, 24:10, 25:42, 26:22, 30:2, 31:423, 36:1, 40:7
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 13 (stored count 12)
+   #0   (57, 3) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,09) ip 0 code_len 0
+   #1   (57, 4) cell type 36 [object (scripted)] color 0c  cycle 3 p1 229 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 73
+        | @Quiver
+        | #end
+        | :touch
+        | You find a quiver of 100 arrows!
+        | #give ammo 100
+        | #die
+   #2   (56,24) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (-1,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #3   (26, 1) cell type 11 [passage (p3=target board)] color 1f  cycle 0 p1 0 p2 0 p3 6 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #4   (14, 6) cell type 40 [pusher?] color 0d  cycle 4 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #5   (38, 6) cell type 40 [pusher?] color 0d  cycle 4 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #6   (27,24) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #7   (57, 2) cell type 11 [passage (p3=target board)] color 3f  cycle 0 p1 0 p2 0 p3 4 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #8   ( 9, 8) cell type 40 [pusher?] color 0d  cycle 4 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #9   (17, 6) cell type 40 [pusher?] color 0d  cycle 4 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #10  (20, 6) cell type 40 [pusher?] color 0d  cycle 4 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #11  (35, 6) cell type 40 [pusher?] color 0d  cycle 4 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #12  (32, 6) cell type 40 [pusher?] color 0d  cycle 4 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+
+== BOARD 6  @0x4666  size 1043  name 'Marsh 3'
+  grid: 159 RLE runs (477 bytes) -> 1500 cells
+  element counts: 0:10, 4:1, 11:1, 19:809, 20:615, 21:21, 22:41, 30:1, 36:1
+  exits: north=0 south=2 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 4 (stored count 3)
+   #0   (38,18) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,09) ip 0 code_len 0
+   #1   (38,14) cell type 11 [passage (p3=target board)] color 1f  cycle 0 p1 0 p2 0 p3 5 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #2   (38,16) cell type 30 [projectile/mover?] color 0b  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #3   (46,15) cell type 36 [object (scripted)] color 0b  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 295
+        | @temple
+        | /i
+        | /i
+        | /i
+        | /i
+        | /i
+        |      Hmm...Two giant statues of strange
+        | lizards,covered with Lapis Lazulai and
+        | Sapphire chips pose on either side of a
+        | tiny turqoise building.Its entrance is
+        | obscured by a mechanical door that only
+        | allows things to pass out of it.Perhaps
+        | the entrance is elsewhere...
+        | #end
+
+== BOARD 7  @0x4a7b  size 1274  name 'Road To Castle'
+  grid: 215 RLE runs (645 bytes) -> 1500 cells
+  element counts: 0:341, 4:1, 11:1, 20:786, 21:9, 22:288, 23:72, 36:2
+  exits: north=0 south=0 west=9 east=2  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 4 (stored count 3)
+   #0   (33,15) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (27, 4) cell type 36 [object (scripted)] color 0c  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 143
+        | @Watch-tower
+        | :loop
+        | #if blinded then death
+        | #char 176
+        | /i
+        | #char 177
+        | /i
+        | #char 178
+        | /i
+        | #char 219
+        | /i
+        | #char 178
+        | /i
+        | #char 177
+        | /i
+        | #send loop
+        | :death
+        | #die
+   #2   (27, 8) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 8 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #3   (15,14) cell type 36 [object (scripted)] color 0d  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 215
+        | @Watcher
+        | #end
+        | :touch
+        | #if blinded then pass
+        | You have been seen by the Watchtower!!
+        | Hordes of enemy soldiers and ferocious
+        | beasts FLOCK out of the foothills!You are
+        | overwhelmed in a tide of death!
+        | #endgame
+        | :pass
+        | #die
+
+== BOARD 8  @0x4f77  size 3246  name 'Tower'
+  grid: 298 RLE runs (894 bytes) -> 1500 cells
+  element counts: 0:1156, 4:1, 7:10, 8:1, 9:1, 11:1, 12:1, 21:48, 22:95, 23:44, 28:59, 30:2, 31:63, 34:10, 36:7, 42:1
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 23 (stored count 22)
+   #0   (25,22) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (29, 4) cell type 36 [object (scripted)] color 0c  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 144
+        | @watcher
+        | :loop
+        | #char 176
+        | /i
+        | #char 177
+        | /i
+        | #char 178
+        | /i
+        | #char 219
+        | /i
+        | #char 178
+        | /i
+        | #char 177
+        | /i
+        | #send loop
+        | :shot
+        | #give score 100
+        | #set blinded
+        | #die
+   #2   (45,19) cell type 42 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #3   (44,19) cell type 12 [moving thing (stepper)?] color 0f  cycle 2 p1 0 p2 4 p3 0 step (1,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #4   ( 7,20) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #5   ( 8,20) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #6   ( 9,20) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #7   (10,20) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #8   (11,20) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #9   (11,18) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #10  (10,18) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #11  ( 9,18) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #12  ( 8,18) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #13  ( 7,18) cell type 34 [creature?] color 06  cycle 3 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #14  (25,24) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 7 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #15  (25,13) cell type 30 [projectile/mover?] color 0f  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #16  (25,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #17  (25,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #18  (25,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #19  (25, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #20  (25, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #21  (25, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #22  (27, 4) cell type 36 [object (scripted)] color 0c  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 1310
+        | @Warrior
+        | #set full
+        | #end
+        | :touch
+        | Before you stands the guardian of the
+        | watchtower.You can make out his monstrous
+        | physique through the red-painted chain
+        | mail he wears.
+        | !x1;Attack warrior
+        | #end
+        | :x1
+        | The Warrior brings down his sword in an
+        | arcing slash which strikes your shoulder!
+        | #if chain then hurt1
+        | #if scale then hurt2
+        | #if plate then hurt3
+        | The blow DEVASTATES you! You fall to the
+        | floor in a crumpled, bleeding heap!
+        | #endgame
+        | :hurt1
+        | His sword injurs you heavily!
+        | #take health 10
+        | /i
+        | #send attack
+        | :hurt2
+        | His sword does slight damage!
+        | #take health 7
+        | /i
+        | #send attack
+        | :hurt3
+        | You are merely grazed!
+        | #take health 5
+        | /i
+        | #send attack
+        | :attack
+        | #if spear then hit1
+        | #if sword then hit2
+        | #if mace then hit3
+        | #if axe then hit4
+        | #if broadsword then hit5
+        | You club at him with your fist,but his 
+        | armor merely bruises your hand!!
+        | #send x1 
+        | :hit1
+        | You ram your spear into his gut!
+        | #send dam1
+        | :hit2
+        | Your sword slashes him violently!
+        | #send dam1
+        | :hit3
+        | You smash at him with your mace!
+        | #send dam2
+        | :hit4
+        | Your axe cleaves him down the middle!!
+        | #give score 100
+        | #die
+        | :hit5
+        | Your mighty broadsword skewers the knight!
+        | #give score 100
+        | #die
+        | :dam1
+        | #if full then dam1b
+        | #if half then dam1c
+        | #give score 100
+        | #die
+        | :dam2
+        | #if full then dam2b
+        | #give score 100
+        | #die
+        | :dam1b
+        | #clear full
+        | #set half
+        | #send x1
+        | :dam1c
+        | #clear half
+        | #send x1
+        | :dam2b
+        | #clear full
+        | #send x1
+
+== BOARD 9  @0x5c27  size 2130  name 'Foothills'
+  grid: 438 RLE runs (1314 bytes) -> 1500 cells
+  element counts: 0:557, 4:1, 11:1, 12:2, 21:7, 22:640, 23:289, 35:1, 36:1, 42:1
+  exits: north=0 south=0 west=0 east=7  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 7 (stored count 6)
+   #0   (47,13) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,0d) ip 0 code_len 0
+   #1   (18, 7) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 10 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #2   (34,10) cell type 42 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #3   (35,10) cell type 12 [moving thing (stepper)?] color 0f  cycle 2 p1 0 p2 8 p3 0 step (-1,0) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #4   (41,22) cell type 12 [moving thing (stepper)?] color 0f  cycle 2 p1 0 p2 8 p3 0 step (1,0) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #5   (42,22) cell type 35 [creature?] color 0d  cycle 1 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip 0 code_len 0
+   #6   ( 9, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 446
+        | @Castle
+        | /i
+        | /i
+        | /i
+        | The Foothills rise to small peaks on all
+        | sides of you,now.Over the rising landscape
+        | you can make out the towers of the Keep of
+        | Dammak.The ground is sooty black and pools
+        | of molten rock are visible on the edges of
+        | the path.This is obviously quite the place
+        | to build a stronghold.Suddenly you hear 
+        | the shrieks of hideous, sub-human things!
+        | The abominable gaurdians of the keep are 
+        | charging forth from the surrounding hills!
+        | #end
+
+== BOARD 10  @0x647b  size 2890  name 'Castle 1'
+  grid: 650 RLE runs (1950 bytes) -> 1500 cells
+  element counts: 0:206, 4:1, 9:2, 11:2, 19:59, 21:423, 22:151, 23:98, 24:15, 26:65, 31:472, 36:6
+  exits: north=12 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 9 (stored count 8)
+   #0   (30,23) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (30,19) cell type 36 [object (scripted)] color 09  cycle 3 p1 239 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 504
+        | @Arch of Destiny
+        | #end
+        | :touch
+        |      This is the fabled arch of Amuran!
+        | At one time this blue,crystal archway was
+        | the entrance to the golden city of Amuran.
+        | Since the destruction of the city(the city
+        | was devastated by the gods because of its
+        | citizen's excessive pride),the gate has 
+        | passed through many hands.It was said to
+        | be all that remained of the golden city,
+        | and was thus considered very valuable.It
+        | darkens your heart to think that this holy
+        | artifact should be enshrined in such an 
+        | evil place.
+        | #end
+   #2   (29, 8) cell type 36 [object (scripted)] color 09  cycle 3 p1 47 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,f9) ip 0 code_len 0
+   #3   (31, 8) cell type 36 [object (scripted)] color 09  cycle 3 p1 92 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,f9) ip 0 code_len 0
+   #4   (29, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 92 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,f9) ip 0 code_len 0
+   #5   (31, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 47 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,f9) ip 0 code_len 0
+   #6   (30, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 95 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,f9) ip 0 code_len 0
+   #7   (30,25) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 9 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #8   (30, 8) cell type 11 [passage (p3=target board)] color 1f  cycle 0 p1 0 p2 0 p3 11 step (0,0) follower -1 leader -1 under (0,f9) ip 0 code_len 0
+
+== BOARD 11  @0x6fc7  size 2546  name 'Castle 2'
+  grid: 487 RLE runs (1461 bytes) -> 1500 cells
+  element counts: 0:38, 4:1, 11:1, 19:228, 21:99, 22:160, 23:80, 24:534, 31:356, 36:3
+  exits: north=15 south=14 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 5 (stored count 4)
+   #0   (30,22) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (30,15) cell type 36 [object (scripted)] color 09  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,f9) ip 0 code_len 253
+        | @Ferryman
+        | #end
+        | :touch
+        | The robed ferryman holds out his gloved 
+        | palm as if awaiting payment for passage.
+        | #if coin then do
+        | #end
+        | :do
+        | A voice from beyond the grave echoes from
+        | under the ferryman's hood.
+        | $You may now cross,oh seeker.
+        | #change water fake
+        | #die
+   #2   (21,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 246
+        | @Subterranian River
+        | /i
+        | /i
+        | The sound of splashing tide comes to your
+        | ears.You pause and listen closely.Yes!It 
+        | is indeed the sound of the ocean!But,how
+        | is that sound reaching you here?You are
+        | many miles from the sea and deep under-
+        | ground...
+        | #end
+   #3   (30,23) cell type 11 [passage (p3=target board)] color 1f  cycle 0 p1 0 p2 0 p3 10 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #4   (31,16) cell type 36 [object (scripted)] color 0e  cycle 3 p1 225 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 282
+        | @Coin
+        | #end
+        | :touch
+        |      The coin has been placed here so that
+        | users can see the throne room to the north
+        | in this Beta version.In the final version,
+        | you will have to complete the three trials
+        | in the room south of here before the box
+        | will open and you can get the coin.
+        | #set coin
+        | #die
+
+== BOARD 12  @0x79bb  size 7461  name 'Hall of Keys'
+  grid: 719 RLE runs (2157 bytes) -> 1500 cells
+  element counts: 0:153, 4:1, 8:2, 21:278, 22:280, 23:198, 29:6, 31:523, 36:55, 40:4
+  exits: north=0 south=10 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 66 (stored count 65)
+   #0   (30, 1) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,09) ip 0 code_len 0
+   #1   (41,11) cell type 40 [pusher?] color 0f  cycle 4 p1 0 p2 0 p3 0 step (-1,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #2   (41,16) cell type 40 [pusher?] color 0f  cycle 4 p1 0 p2 0 p3 0 step (-1,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #3   (46,16) cell type 40 [pusher?] color 0f  cycle 4 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #4   (46,11) cell type 40 [pusher?] color 0f  cycle 4 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #5   (40,18) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 56
+        | @Trigger
+        | #end
+        | :shot
+        | BOOM!!!
+        | #change pusher boulder
+        | #die
+   #6   (47,18) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 14
+        | #bind trigger
+   #7   (47,13) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #8   (47,14) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #9   (40,14) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #10  (40,13) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #11  (40, 9) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #12  (47, 9) cell type 36 [object (scripted)] color 0c  cycle 3 p1 7 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #13  (42,11) cell type 29 [creature/projectile?] color 0c  cycle 1 p1 4 p2 4 p3 0 step (0,1) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #14  (45,11) cell type 29 [creature/projectile?] color 0c  cycle 1 p1 4 p2 4 p3 0 step (-1,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #15  (45,16) cell type 29 [creature/projectile?] color 0c  cycle 1 p1 4 p2 4 p3 0 step (0,-1) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #16  (42,16) cell type 29 [creature/projectile?] color 0c  cycle 1 p1 4 p2 4 p3 0 step (1,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #17  (43,15) cell type 29 [creature/projectile?] color 0d  cycle 1 p1 4 p2 4 p3 0 step (0,-1) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #18  (44,12) cell type 29 [creature/projectile?] color 0d  cycle 1 p1 4 p2 4 p3 0 step (0,1) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #19  (44,15) cell type 36 [object (scripted)] color 0d  cycle 3 p1 206 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #20  (43,12) cell type 36 [object (scripted)] color 0d  cycle 3 p1 206 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #21  (43,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 95 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 123
+        | @Door1b
+        | #end
+        | :touch
+        | #send door2b:go
+        | :go
+        | #lock
+        | #char 47
+        | /n
+        | #char 179
+        | /w
+        | /i
+        | /i
+        | /i
+        | /i
+        | /i
+        | #char 47
+        | /e
+        | #char 95
+        | /s
+        | #unlock
+        | #end
+   #22  (44,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 95 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 123
+        | @door2b
+        | #end
+        | :touch
+        | #send door1b:go
+        | :go
+        | #lock
+        | #char 92
+        | /n
+        | #char 179
+        | /e
+        | /i
+        | /i
+        | /i
+        | /i
+        | /i
+        | #char 92
+        | /w
+        | #char 95
+        | /s
+        | #unlock
+        | #end
+   #23  (17,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 95 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 123
+        | @door2a
+        | #end
+        | :touch
+        | #send door1a:go
+        | :go
+        | #lock
+        | #char 92
+        | /n
+        | #char 179
+        | /e
+        | /i
+        | /i
+        | /i
+        | /i
+        | /i
+        | #char 92
+        | /w
+        | #char 95
+        | /s
+        | #unlock
+        | #end
+   #24  (16,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 95 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 126
+        | @Door1a
+        | #end
+        | :touch
+        | #send door2a:touch
+        | :go
+        | #lock
+        | #char 47
+        | /n
+        | #char 179
+        | /w
+        | /i
+        | /i
+        | /i
+        | /i
+        | /i
+        | #char 47
+        | /e
+        | #char 95
+        | /s
+        | #unlock
+        | #end
+   #25  (19,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #26  (17,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #27  (15,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #28  (14,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #29  (17,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #30  (19,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #31  (15,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #32  (15,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #33  (14,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #34  (17,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #35  (16,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #36  (18,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #37  (17, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #38  (18, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #39  (14, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #40  (14,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #41  (16, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 62
+        | @trip
+        | #end
+        | :touch
+        | #send spikes:go
+        | #send trip:go
+        | #end
+        | :go
+        | #die
+   #42  (13,18) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #43  (13,17) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #44  (13,16) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #45  (13,15) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #46  (13,14) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #47  (13,13) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #48  (13,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #49  (13,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #50  (13,10) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #51  (13, 9) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #52  (13, 8) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #53  (13, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 180 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 65
+        | @spikes
+        | #end
+        | :go
+        | #send spikes2:go
+        | #char 026
+        | /e
+        | /e
+        | /e
+        | /e
+        | #endgame
+   #54  (20, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #55  (20, 8) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #56  (20, 9) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #57  (20,10) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #58  (20,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #59  (20,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #60  (20,13) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #61  (20,14) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #62  (20,15) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #63  (20,16) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #64  (20,17) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+   #65  (20,18) cell type 36 [object (scripted)] color 09  cycle 3 p1 195 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 49
+        | @spikes2
+        | #end
+        | :go
+        | #char 027
+        | /w
+        | /w
+        | /w
+        | /w
+        | #endgame
+
+== BOARD 13  @0x96e2  size 1016  name 'unfinished'
+  grid: 265 RLE runs (795 bytes) -> 1500 cells
+  element counts: 0:1199, 4:1, 22:77, 23:24, 36:1, 47:198
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 2 (stored count 1)
+   #0   (30,12) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (24, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 16
+        | @Ender
+        | #endgame
+
+== BOARD 14  @0x9adc  size 3429  name 'Dungeon 1'
+  grid: 315 RLE runs (945 bytes) -> 1500 cells
+  element counts: 0:177, 4:1, 10:3, 21:111, 22:97, 23:85, 24:384, 31:637, 36:5
+  exits: north=11 south=13 west=13 east=13  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 9 (stored count 8)
+   #0   (30, 3) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (20, 8) cell type 36 [object (scripted)] color 0c  cycle 3 p1 3 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 59
+        | @Candle
+        | #end
+        | :touch
+        | Let the truth of love be lighted!
+        | #die
+   #2   (30,13) cell type 36 [object (scripted)] color 09  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 65
+        | @Bell
+        | #end
+        | :touch
+        | Sensibility armed with Sense and Liberty!
+        | #die
+   #3   (40, 8) cell type 36 [object (scripted)] color 0a  cycle 3 p1 254 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 58
+        | @Book
+        | #end
+        | :touch
+        | Let the love of truth shine clear!
+        | #die
+   #4   (38, 8) cell type 10 [scroll (text record)] color 0f  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 142
+        | Here lies the Book of Truth.
+        | Tread within these passages cautiously,for
+        | falsehood will seek always to lead you
+        | astray! Find your path wisely!
+   #5   (22, 8) cell type 10 [scroll (text record)] color 0f  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 113
+        | Here lies the Candle of Love.
+        | Let not dark thoughts burden your mind and
+        | you shall pass these tunnels with ease.
+   #6   (30,11) cell type 10 [scroll (text record)] color 0f  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 147
+        | Here lies the Bell of Courage.
+        | Hold thine head aloft and fight with the
+        | strength of twenty men.This passage will
+        | yield its secrets not to cowards!
+   #7   (30, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 908
+        | @Knight of No Color
+        | #end
+        | :touch
+        |      "I am the Knight of No Color.I pose
+        | no threat to you,and you none to me.I am 
+        | here only to warn.There are three Knights
+        | of Color.They were produced when King 
+        | Lucius's spirit was vanquished and his 
+        | tower of Spectral Energy was destroyed.
+        | King Lucius was once the guardian of light
+        | and energy,but the evil power of the three
+        | colored knights corrupted his soul and 
+        | brought about his death.His ghost lived on
+        | for many years,until recently.You are the
+        | one that slew his evil puppet-spirit.Thus
+        | you are blessed and cursed by your doings.
+        | You have unleashed the three Knights of 
+        | Color,and they seek to destroy you.I know
+        | that one of them guards the Watcher in the
+        | tower,and I sense that he has been slain
+        | by your hand.It is good that you have 
+        | beaten The Red Knight,but know that his
+        | brothers will not be so weak!May we meet
+        | again,oh killer of light!"
+        | #give score 1000
+        | #die
+   #8   (30, 8) cell type 36 [object (scripted)] color 0e  cycle 3 p1 10 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 556
+        | @Box
+        | #end
+        | :touch
+        | #if book then check 2
+        | :message
+        | There is a golden box with a transparent 
+        | lid resting on the ground.Inside the box
+        | lies a golden coin the size of your palm.
+        | The box's lid appears to have no hinges or
+        | latch of any sort,and you cannot break it
+        | open no matter how hard you try.
+        | #end
+        | :check2
+        | #if candle then check3
+        | #send message
+        | :check3
+        | #if bell then open
+        | #send message
+        | :open
+        | The golden box's lid peels back of its own
+        | accord,revealing the golden coin!
+        | #char 007
+        | #zap touch
+        | #end
+        | :touch
+        | You pluck the golden coin from the ground
+        | #set coin
+        | #die 
+
+== BOARD 15  @0xa843  size 7745  name 'Throne Room of Baron Dammak'
+  grid: 739 RLE runs (2217 bytes) -> 1500 cells
+  element counts: 0:693, 4:1, 21:52, 22:22, 23:24, 24:220, 30:56, 31:374, 36:18, 44:40
+  exits: north=13 south=11 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(27, 7)  message=''
+  status records: 131 (stored count 130)
+   #0   (30,24) cell type  4 [player] color 1f  cycle 1 p1 18 p2 30 p3 1 step (25088,1105) follower 30720 leader 544 under (0,00) ip 0 code_len 0
+   #1   (30,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 223 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #2   (30,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 223 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #3   (31,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #4   (29,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #5   (33,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 221 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #6   (27,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #7   (31,10) cell type 36 [object (scripted)] color 09  cycle 3 p1 223 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #8   (29,10) cell type 36 [object (scripted)] color 09  cycle 3 p1 223 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #9   (28,10) cell type 36 [object (scripted)] color 09  cycle 3 p1 221 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #10  (32,10) cell type 36 [object (scripted)] color 09  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #11  (32, 9) cell type 36 [object (scripted)] color 09  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #12  (28, 9) cell type 36 [object (scripted)] color 09  cycle 3 p1 220 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #13  (25,25) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #14  (25,23) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #15  (25,22) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #16  (25,21) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #17  (25,20) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #18  (25,19) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #19  (25,18) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #20  (25,17) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #21  (25,16) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #22  (25,15) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #23  (25,14) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #24  (25,13) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #25  (25,12) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #26  (25,11) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #27  (25,10) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #28  (25, 9) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #29  (25, 8) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #30  (25, 7) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #31  (25, 6) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #32  (25, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #33  (29, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #34  (26, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #35  (27, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #36  (28, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (1,0) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #37  (29, 6) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #38  (29, 7) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #39  (29, 8) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #40  (31, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #41  (31, 7) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #42  (31, 8) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #43  (31, 6) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,1) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #44  (32, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (-1,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #45  (35, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (-1,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #46  (33, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (-1,0) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #47  (34, 5) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (-1,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #48  (35, 7) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #49  (35, 8) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #50  (35, 9) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #51  (35,10) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #52  (35,11) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #53  (35,12) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #54  (35,13) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #55  (35,14) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #56  (35,15) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #57  (35,16) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #58  (35,17) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #59  (35,18) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #60  (35,19) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #61  (35,20) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #62  (35,21) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #63  (35,22) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #64  (35,23) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #65  (35,24) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #66  (35,25) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (24,09) ip 0 code_len 0
+   #67  (35, 6) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #68  (25,24) cell type 30 [projectile/mover?] color 09  cycle 2 p1 0 p2 0 p3 0 step (0,-1) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #69  ( 3, 5) cell type 44 [creature?] color 09  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #70  ( 8, 5) cell type 44 [creature?] color 0a  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #71  (13, 5) cell type 44 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #72  (18, 5) cell type 44 [creature?] color 0c  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #73  (23, 5) cell type 44 [creature?] color 0d  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #74  (23,10) cell type 44 [creature?] color 0e  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #75  (23,15) cell type 44 [creature?] color 0f  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #76  (23,20) cell type 44 [creature?] color 09  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #77  (18,20) cell type 44 [creature?] color 0a  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #78  (13,20) cell type 44 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #79  ( 8,20) cell type 44 [creature?] color 0c  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #80  ( 3,20) cell type 44 [creature?] color 0d  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #81  ( 3,15) cell type 44 [creature?] color 0e  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #82  ( 3,10) cell type 44 [creature?] color 0f  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #83  ( 8,10) cell type 44 [creature?] color 09  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #84  (13,10) cell type 44 [creature?] color 0a  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #85  (18,10) cell type 44 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #86  (18,15) cell type 44 [creature?] color 0c  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #87  (13,15) cell type 44 [creature?] color 0d  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #88  ( 7,16) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #89  ( 7,17) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #90  ( 6,16) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #91  ( 7,12) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #92  ( 7,18) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #93  ( 6,17) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #94  ( 5,16) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #95  (10,13) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #96  (11,16) cell type  0 [empty] color 0f  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #97  ( 7,11) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #98  ( 6,12) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #99  ( 6,18) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #100 ( 5,17) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #101 ( 5,13) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #102 (10,18) cell type  0 [empty] color 00  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #103 (11,17) cell type  0 [empty] color 0f  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (44,0d) ip 0 code_len 0
+   #104 ( 8,15) cell type 44 [creature?] color 0e  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #105 (40, 5) cell type 44 [creature?] color 0f  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #106 (45, 5) cell type 44 [creature?] color 09  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #107 (50, 5) cell type 44 [creature?] color 0a  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #108 (55, 5) cell type 44 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #109 (60, 5) cell type 44 [creature?] color 0c  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #110 (60,10) cell type 44 [creature?] color 0d  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #111 (60,15) cell type 44 [creature?] color 0e  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #112 (60,20) cell type 44 [creature?] color 0f  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 0
+   #113 (55,20) cell type 44 [creature?] color 09  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #114 (50,20) cell type 44 [creature?] color 0a  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #115 (45,20) cell type 44 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #116 (40,20) cell type 44 [creature?] color 0c  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #117 (40,15) cell type 44 [creature?] color 0d  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #118 (40,10) cell type 44 [creature?] color 0e  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #119 (45,10) cell type 44 [creature?] color 0f  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #120 (50,10) cell type 44 [creature?] color 09  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #121 (55,10) cell type 44 [creature?] color 0a  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #122 (55,15) cell type 44 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #123 (50,15) cell type 44 [creature?] color 0c  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #124 (45,15) cell type 44 [creature?] color 0d  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #125 (30,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 877
+        | @Baron Dammak
+        | :loop
+        | #change blue teleport green teleport
+        | #change green teleport cyan teleport
+        | #change cyan teleport white teleport
+        | #change white teleport blue teleport
+        | #send loop
+        | :touch
+        |      "So,at last you have come!My servants
+        | have told me of your approach.I admit that
+        | I am suprised you made it this far,but 
+        | know that you will go no further!"
+        | #change red solid empty
+        | #change red normal empty
+        | #change red breakable empty
+        | #send attack
+        | :attack
+        | #try e next 
+        | #shoot s
+        | #try w next2
+        | #throwstar s
+        | #shoot s
+        | #try w next2
+        | #shoot s
+        | #try e next
+        | #throwstar s
+        | #shoot s
+        | #send attack
+        | :shot
+        | :shot
+        | :shot
+        | :shot
+        | #give score 500
+        | THWAK!
+        | #zap shot
+        | #send attack
+        | :shot
+        | AAAAAAGH!
+        | /i
+        | /i
+        |      Your arrow sinks deep into his dragon
+        | hide armor!He has been mortally wounded!
+        | He turns and presses a knob on his throne!
+        | #send escape
+        | :next
+        | /w
+        | #send attack
+        | :next2
+        | /e
+        | #send attack
+        | :escape
+        | #send Baron2:go
+        | #die
+   #126 (30,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 255 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 189
+        | @Baron2
+        | #end
+        | :go
+        | /i
+        | #char 1
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | #put n empty
+        | /n
+        | /n
+        | /n
+        | /n
+        | /i
+        | #die
+   #127 (28,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #128 (29,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 222 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #129 (31,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 221 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #130 (32,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 221 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+
+END: parsed to 0xc686 of 0xc686  OK

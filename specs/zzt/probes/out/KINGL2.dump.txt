@@ -1,0 +1,1901 @@
+FILE corpus/zzt/kingl2/KINGL2.ZZT  (53211 bytes)
+== WORLD HEADER (512 bytes)
+  magic            : -1 (ff ff)
+  board count      : 10  (stored 9)
+  world name       : 'KINGL2'
+  current board    : 1
+  counter @0x0f    : 100  (probably health)
+  other counters   : 04=0 06=0 13=0 15=0 17=0 19=0 1b=0
+  bytes 08..0e     : [0, 0, 0, 0, 0, 0, 0]  (7 bytes; probably one per key color)
+  flags (10 slots) : ['', '', '', '', '', '', '', '', '', '']
+  bytes 104..108   : [0, 0, 0, 0, 0]
+
+== BOARD 0  @0x200  size 3387  name 'Title Screen'
+  grid: 379 RLE runs (1137 bytes) -> 1500 cells
+  element counts: 0:488, 4:1, 21:41, 22:285, 23:520, 36:42, 52:77, 53:46
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 43 (stored count 42)
+   #0   (59, 2) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   (59,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #2   (58,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #3   (54,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #4   (57, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #5   (51, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #6   (46, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #7   (46, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #8   (49,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #9   (46,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #10  (42,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #11  (51, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #12  (57, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #13  (59, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #14  (58, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #15  (55,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #16  (52,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #17  (50,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #18  (47,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #19  (42,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #20  (29,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #21  (28,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip -1 code_len 17
+        | @Small star
+        | #end
+   #22  (31,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip -1 code_len 17
+        | @Small star
+        | #end
+   #23  (29, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #24  (26,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #25  (11, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #26  (16,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #27  (17,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #28  (10,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #29  (18, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #30  ( 8, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #31  (42, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 250 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 17
+        | @Small star
+        | #end
+   #32  (29,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #33  (12, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #34  ( 2, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #35  (47, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #36  (53, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #37  (54,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #38  (12,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #39  (32,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #40  (45,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #41  (52,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip -1 code_len 15
+        | @Big star
+        | #end
+   #42  (57,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 249 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip -1 code_len 15
+        | @Big star
+        | #end
+
+== BOARD 1  @0xf3d  size 4628  name 'Hell1'
+  grid: 478 RLE runs (1434 bytes) -> 1500 cells
+  element counts: 0:419, 4:1, 5:27, 6:4, 8:4, 9:4, 10:1, 11:1, 13:10, 19:66, 20:154, 21:255, 22:309, 23:181, 27:10, 34:17, 35:11, 36:13, 47:7, 49:6
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=1  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 54 (stored count 53)
+   #0   (30,12) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   ( 2, 2) cell type 11 [passage (p3=target board)] color 3f  cycle 0 p1 0 p2 0 p3 2 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #2   (38, 6) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #3   (50, 9) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #4   (46, 5) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #5   (52,13) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #6   (34,21) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #7   (35,21) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #8   (36,20) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #9   (35,20) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #10  (38,19) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #11  (41,18) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #12  (42,21) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #13  (41,20) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #14  (42,20) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #15  ( 9,17) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 0
+   #16  (10,17) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #17  ( 9,20) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #18  (10,20) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #19  ( 8,19) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #20  ( 8,18) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #21  (11,20) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #22  (11,19) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #23  (54,19) cell type 36 [object (scripted)] color 09  cycle 3 p1 2 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 289
+        | @Statue Of Chulmir
+        | #end
+        | :touch
+        |     This is the statue of Chulmir.It is
+        | said that those that kiss his brow are 
+        | given a reward.
+        | !x1;Kiss Chulmir's brow.
+        | !x2;Leave.
+        | #end
+        | :x1
+        | You are granted 20 gems!
+        | #give gems 20
+        | #zap touch
+        | #end
+        | :x2
+        | #end
+        | :touch 
+        | The statue will grant you no more gems.
+        | #end
+   #24  (16, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 27 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 170
+        | @Arsenal Sign
+        | #end
+        | :touch
+        |     Beware:Beyond this wall lies King 
+        | Lucius's arsenal.Dynamite is stored within
+        | and can explode on contact!No torches
+        | beyond this point!
+        | #end
+   #25  (31,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 26 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 88
+        | @Bear Cave Warning Sign
+        | #end
+        | :touch
+        |      Beware:In these woods lies the bear
+        | cave!
+        | #end
+   #26  (29, 6) cell type 10 [scroll (text record)] color 0f  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 436
+        |                ANCIENT MAP
+        | I have been scouting the bear caves and
+        | have discovered a secret passage on the
+        | southeast wall.I hope to journey thru it 
+        | to the other side of the water.If only
+        | I can make it past the bears!
+        |           ________________
+        |           ] █    ██▒▒▒▒▒▒[
+        |           ]█      █▒▒▒▒▒▒[ 
+        |           ]   █  █▒▒▒▒▒▒▒[ 
+        |           ]   █  ▒▒▒▒▒▒▒ [
+        |           ]▓▓▓▓▓░░░░░░░░░[
+        |           ]▓▓▓▓▓▓▓▓▓▓▓▓▓▓[
+        |           ----------------
+   #27  (28, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 60
+        | @Skeleton
+        | #end
+        | :touch
+        | The Skeleton of a dead explorer!
+        | #end
+   #28  (23, 6) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #29  (25, 5) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #30  (21, 5) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #31  (21, 7) cell type 34 [creature?] color 06  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #32  ( 9,18) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 0
+   #33  (10,18) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 0
+   #34  (10,19) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+   #35  ( 7,13) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #36  ( 8,12) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #37  ( 7,11) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #38  ( 8,10) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #39  ( 9,11) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #40  ( 7, 9) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #41  ( 7, 7) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #42  ( 8, 8) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #43  ( 9, 9) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #44  (10,10) cell type 13 [timed thing (cycle 6)?] color 09  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #45  (11, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 110
+        | @Dynamite
+        | #end
+        | :touch
+        | You set off the dynamite!
+        | #take energy 5
+        | #die
+        | :shot
+        | You set off the dynamite!
+        | #die
+        | #end
+   #46  (12, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+   #47  (12, 6) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+   #48  (13, 7) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+   #49  (13, 6) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+   #50  (13, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+   #51  (15, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+   #52  (14, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+   #53  (14, 6) cell type 36 [object (scripted)] color 0c  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | #bind dynamite
+
+== BOARD 2  @0x2153  size 8795  name 'Hell2'
+  grid: 589 RLE runs (1767 bytes) -> 1500 cells
+  element counts: 0:796, 4:1, 5:3, 6:19, 7:20, 8:3, 9:3, 10:2, 11:3, 13:2, 21:23, 22:454, 23:24, 24:5, 25:10, 26:6, 27:1, 28:3, 29:4, 36:68, 39:6, 52:44
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 86 (stored count 85)
+   #0   ( 3, 2) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   ( 5,23) cell type 10 [scroll (text record)] color 0f  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 174
+        |           DUKE WORTHY'S EMERALDS
+        | This is the private treasury of Duke 
+        | Worthy.All those caught stealing these
+        | emeralds will perish in the dungeons.
+        |   --Duke Worthy
+        |      1283
+   #2   (19, 7) cell type 36 [object (scripted)] color 0b  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 202
+        | @Ghost of Duke Worthy
+        | #end
+        | :touch
+        |     The spectral form of greedy Duke 
+        | Worthy lives on!It speaks to you:
+        | "Hold,thief!Thou shalt not my emeralds 
+        | steal!Perish at my hands!"
+        | #Shoot seek
+        | #shoot seek
+        | #end
+   #3   (15,15) cell type 29 [creature/projectile?] color 0a  cycle 1 p1 4 p2 4 p3 0 step (-1,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #4   (23,15) cell type 29 [creature/projectile?] color 0a  cycle 1 p1 4 p2 4 p3 0 step (1,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #5   (23,16) cell type 29 [creature/projectile?] color 0a  cycle 1 p1 4 p2 4 p3 0 step (1,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #6   (15,16) cell type 29 [creature/projectile?] color 0a  cycle 1 p1 4 p2 4 p3 0 step (-1,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #7   (50,19) cell type 13 [timed thing (cycle 6)?] color 0c  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #8   (50,21) cell type 13 [timed thing (cycle 6)?] color 0c  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #9   (19, 3) cell type 36 [object (scripted)] color 09  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 609
+        | @Duchess Worthy's Ghost
+        | #end
+        | :Touch
+        |      The ghostly form of the once 
+        | beautiful Duchess Worthy appears before
+        | you!She speaks to you:
+        | "In the hall south of the training room,
+        | at the far western end,push south on the 
+        | wall.You will be in Duke Worthy's 
+        | treasure chamber.He wishes to gaurd his
+        | gems eternally,and I cannot continue on to
+        | the spirit world and leave him here,alone.
+        | I beg of thee to take all of his blasted
+        | emeralds so our souls can finally rest in
+        | peace!"
+        | #zap touch
+        | #end
+        | :touch
+        |      "Please,I trust in thee to do what 
+        | must be done!Allow my husband and I to 
+        | rest in peace,I beg of thee!"
+        | #end 
+   #10  (17,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 27 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 68
+        | @Treasury Sign
+        | #end
+        | :touch
+        | This way to Duke Worthy's treasury.
+        | #end
+   #11  (21,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 26 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 60
+        | @Dining Hall Sign
+        | #end
+        | :touch
+        | This way to dining hall.
+        | #end
+   #12  ( 5,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 24 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 64
+        | @Training Room Sign
+        | #end
+        | :touch
+        | This way to training room.
+        | #end
+   #13  (48,20) cell type 36 [object (scripted)] color 0f  cycle 3 p1 18 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 84
+        | @Oven Sign
+        | #end
+        | :touch
+        |      Magically heated ovens.
+        | Beware:Contents explosive!
+        | #end
+   #14  (36,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 26 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 52
+        | @Kitchen Sign
+        | #end
+        | :touch
+        | This way to kitchen.
+        | #end
+   #15  ( 2, 2) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 1 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #16  (25,23) cell type 36 [object (scripted)] color 09  cycle 3 p1 40 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 12
+        | @Chair
+        | #end
+   #17  (32, 4) cell type 36 [object (scripted)] color 09  cycle 3 p1 40 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Chair
+        | #end
+   #18  (32, 3) cell type 36 [object (scripted)] color 09  cycle 3 p1 40 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Chair
+        | #end
+   #19  (35, 3) cell type 36 [object (scripted)] color 09  cycle 3 p1 41 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Chair
+        | #end
+   #20  (35, 4) cell type 36 [object (scripted)] color 09  cycle 3 p1 41 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Chair
+        | #end
+   #21  (33,23) cell type 36 [object (scripted)] color 09  cycle 3 p1 41 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 12
+        | @Chair
+        | #end
+   #22  (46,24) cell type 36 [object (scripted)] color 09  cycle 3 p1 41 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Chair
+        | #end
+   #23  (41, 4) cell type 36 [object (scripted)] color 09  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 10
+        | @Bed
+        | #end
+   #24  (41, 6) cell type 36 [object (scripted)] color 09  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 10
+        | @Bed
+        | #end
+   #25  (41, 2) cell type 36 [object (scripted)] color 09  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 10
+        | @Bed
+        | #end
+   #26  (19, 4) cell type 36 [object (scripted)] color 0a  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 10
+        | @Bed
+        | #end
+   #27  (20, 4) cell type 36 [object (scripted)] color 0a  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 10
+        | @Bed
+        | #end
+   #28  (20, 3) cell type 36 [object (scripted)] color 0a  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 10
+        | @Bed
+        | #end
+   #29  (42, 4) cell type 36 [object (scripted)] color 09  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 10
+        | @Bed
+        | #end
+   #30  (42, 2) cell type 36 [object (scripted)] color 09  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 10
+        | @Bed
+        | #end
+   #31  (42, 6) cell type 36 [object (scripted)] color 09  cycle 3 p1 247 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 10
+        | @Bed
+        | #end
+   #32  (48,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #33  (48,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #34  (48,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #35  (48,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #36  (48, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #37  (48, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #38  (48, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #39  (48, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #40  (48, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #41  (48, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #42  (48, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #43  (48, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #44  (58,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #45  (54,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #46  (54, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 15
+        | @Skeleton
+        | #end
+   #47  (53, 6) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #48  (54, 7) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #49  (55, 7) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #50  (55, 6) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #51  (55, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #52  (54, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #53  (53, 5) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #54  (53, 7) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #55  (53, 9) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #56  (54, 9) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #57  (55, 9) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #58  (55,10) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #59  (55,11) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #60  (54,11) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #61  (53,11) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #62  (53,10) cell type 36 [object (scripted)] color 0c  cycle 3 p1 176 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 61
+        | @Boiling Oil
+        | #end
+        | :touch
+        | Ouch!Boiling Oil!!
+        | #shoot seek
+        | #end
+   #63  (56,24) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 4 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 0
+   #64  (59,24) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 3 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 0
+   #65  (57,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 27 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 36
+        | @Stairway Sign
+        | #end
+        | :touch
+        | Up.
+        | #end
+   #66  (58,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 26 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 38
+        | @Stairway Sign
+        | #end
+        | :touch
+        | Down.
+        | #end
+   #67  ( 6,10) cell type 39 [creature?] color 0b  cycle 2 p1 4 p2 1 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+   #68  ( 2, 9) cell type 39 [creature?] color 0b  cycle 2 p1 4 p2 1 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+   #69  ( 6, 8) cell type 39 [creature?] color 0b  cycle 2 p1 4 p2 1 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+   #70  (57,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 197 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 130
+        | @Release Lever
+        | #end
+        | :touch
+        | #play 2x2x2x2x2x2x2x2x2x2
+        | #change sliderns fake wall
+        | #play 2x2x2x2x2x2
+        | #change sliderew fake wall
+        | #end
+   #71  (58,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #72  (58, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #73  (58, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #74  (58, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #75  (58, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #76  (56, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #77  (54, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #78  (52, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 40
+        | @Skeleton
+        | #go seek
+        | #shoot seek
+        | #restart
+   #79  (32, 6) cell type 10 [scroll (text record)] color 0f  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 133
+        | Beware the jail cell in the dungeon.The 
+        | vengeful dead shall force their hatred 
+        | upon any that they see and they cannot be
+        | defeated!
+   #80  ( 3,11) cell type 36 [object (scripted)] color 0d  cycle 3 p1 127 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 196
+        | @Fake Energizer
+        | #end
+        | :touch
+        |      A voice booms through the chamber:
+        | "Art thou such a coward as to take the 
+        | test only because thou couldst be safe?
+        | Surely thou dost not deserve to live!"
+        | #endgame
+   #81  ( 4, 6) cell type 36 [object (scripted)] color 0b  cycle 3 p1 21 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,05) ip 0 code_len 289
+        | @Oracle
+        | #end
+        | :touch
+        |      A voice booms through the chamber:
+        | "Congratulations,thou hast taken the test
+        | and found it not so difficult as it may
+        | first have appeared.Thou art truly a brave
+        | warrior!"
+        | #give score 1000
+        | #give energy 50
+        | #give ammo 50
+        | #give torches 10
+        | #give gems 20
+        | #zap touch
+        | #end
+   #82  ( 5,11) cell type 36 [object (scripted)] color 0d  cycle 3 p1 127 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 196
+        | @Fake Energizer
+        | #end
+        | :touch
+        |      A voice booms through the chamber:
+        | "Art thou such a coward as to take the 
+        | test only because thou couldst be safe?
+        | Surely thou dost not deserve to live!"
+        | #endgame
+   #83  ( 6, 9) cell type 39 [creature?] color 0b  cycle 2 p1 4 p2 1 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+   #84  ( 2, 8) cell type 39 [creature?] color 0b  cycle 2 p1 4 p2 1 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+   #85  ( 2,10) cell type 39 [creature?] color 0b  cycle 2 p1 4 p2 1 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+
+== BOARD 3  @0x43b0  size 4310  name 'Hell3'
+  grid: 371 RLE runs (1113 bytes) -> 1500 cells
+  element counts: 0:629, 4:1, 5:9, 8:2, 9:2, 11:1, 19:99, 20:172, 21:276, 22:154, 27:51, 31:36, 34:6, 35:18, 36:32, 52:12
+  exits: north=0 south=5 west=0 east=6  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 58 (stored count 57)
+   #0   (56,23) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   (56,24) cell type 11 [passage (p3=target board)] color 3f  cycle 0 p1 0 p2 0 p3 2 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #2   (22, 7) cell type 36 [object (scripted)] color 09  cycle 3 p1 22 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 484
+        | @Strongbox
+        | #end
+        | :touch
+        |      This is the locked strongbox that 
+        | contains the armory's profits.Do you know
+        | the combination?
+        | !x1;6-2-7
+        | !x2;9-4-3
+        | !x3;1-3-5
+        | !x4;5-6-2
+        | #end
+        | :x1
+        | Wrong combination!You trigger a trap on
+        | the chest!
+        | #shoot seek
+        | #end
+        | :x2
+        | Wrong combination!You trigger a trap on
+        | the chest!
+        | #shoot seek
+        | #end
+        | :x3
+        | Click!The chest pops open!10 gems!
+        | #give gems 10
+        | #zap touch
+        | #end
+        | :x4
+        | Wrong combination!You trigger a trap on
+        | the chest!
+        | #shoot seek
+        | #end
+        | :touch
+        | The chest is empty.
+        | #end
+   #3   (20,11) cell type 36 [object (scripted)] color 09  cycle 3 p1 9 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 58
+        | @Helmet
+        | #end
+        | :touch
+        | This is just a rusty old helmet.
+        | #end
+   #4   (20,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 9 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 58
+        | @Helmet
+        | #end
+        | :touch
+        | This is just a rusty old helmet.
+        | #end
+   #5   (20,14) cell type 36 [object (scripted)] color 09  cycle 3 p1 238 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 48
+        | @Shield
+        | #end
+        | :touch
+        | This is an old shield.
+        | #end
+   #6   (20,15) cell type 36 [object (scripted)] color 09  cycle 3 p1 238 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 48
+        | @Shield
+        | #end
+        | :touch
+        | This is an old shield.
+        | #end
+   #7   (20,16) cell type 36 [object (scripted)] color 09  cycle 3 p1 238 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 48
+        | @Shield
+        | #end
+        | :touch
+        | This is an old shield.
+        | #end
+   #8   (20,18) cell type 36 [object (scripted)] color 09  cycle 3 p1 154 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 56
+        | @Armor
+        | #end
+        | :touch
+        | This is a suit of rusted armor.
+        | #end
+   #9   (21,23) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #10  (16,19) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 0
+   #11  (14,16) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #12  (17,13) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #13  (18, 8) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #14  (15, 8) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #15  (13,11) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #16  (13,22) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #17  (29,21) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #18  (32,22) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #19  (36,24) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #20  (40,21) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #21  (37,12) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #22  (39,15) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #23  (39, 8) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #24  (42,19) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #25  (48,18) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #26  (57,18) cell type 35 [creature?] color 0d  cycle 1 p1 8 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #27  (20,19) cell type 36 [object (scripted)] color 09  cycle 3 p1 154 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 56
+        | @Armor
+        | #end
+        | :touch
+        | This is a suit of rusted armor.
+        | #end
+   #28  ( 6,22) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #29  ( 3,19) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #30  ( 5,15) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #31  ( 2, 5) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #32  (14, 3) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #33  ( 6,11) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #34  (27,13) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0a) ip 0 code_len 12
+        | @Plant
+        | #end
+   #35  (27,14) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip 0 code_len 12
+        | @Plant
+        | #end
+   #36  (27,15) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip 0 code_len 12
+        | @Plant
+        | #end
+   #37  (27,16) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0d) ip 0 code_len 12
+        | @Plant
+        | #end
+   #38  (10,22) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #39  ( 6,18) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 12
+        | @Plant
+        | #end
+   #40  ( 5, 7) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #41  (16, 4) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #42  (20, 5) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #43  (21, 5) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #44  ( 9, 2) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 12
+        | @Plant
+        | #end
+   #45  (39, 3) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #46  (40, 3) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #47  (41, 3) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #48  (41, 2) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #49  (42, 3) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #50  (42, 4) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #51  (43, 4) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #52  (50, 5) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #53  (53, 3) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 12
+        | @Plant
+        | #end
+   #54  (57, 5) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #55  (58, 4) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Plant
+        | #end
+   #56  (10,13) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 12
+        | @Plant
+        | #end
+   #57  ( 4,24) cell type 36 [object (scripted)] color 0a  cycle 3 p1 6 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,20) ip 0 code_len 12
+        | @Plant
+        | #end
+
+== BOARD 4  @0x5488  size 3870  name 'Hell4'
+  grid: 470 RLE runs (1410 bytes) -> 1500 cells
+  element counts: 0:886, 4:1, 5:17, 6:6, 7:26, 8:4, 9:4, 11:2, 14:1, 21:171, 22:264, 27:88, 35:2, 36:14, 37:5, 39:1, 41:4, 42:4
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 33 (stored count 32)
+   #0   (55,24) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   (56,24) cell type 11 [passage (p3=target board)] color 2f  cycle 0 p1 0 p2 0 p3 2 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #2   (49,19) cell type 36 [object (scripted)] color 09  cycle 3 p1 41 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Chair
+        | #end
+   #3   (41,19) cell type 36 [object (scripted)] color 09  cycle 3 p1 40 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 12
+        | @Chair
+        | #end
+   #4   (17,21) cell type 39 [creature?] color 09  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #5   (29,21) cell type 36 [object (scripted)] color 09  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 633
+        | @Mechanical Man
+        | #end
+        | :touch
+        |      A mechanical skeleton is standing 
+        | against the wall here.As you approach it,
+        | the eyes light up and it says:
+        | "Do you wish me to negate the security 
+        | system?"
+        | !x1;Yes
+        | !x2;No
+        | #end
+        | :x1
+        | #lock
+        | /w/w/w/w/w/w/w
+        | /n/n
+        | /w/w/w/w/w
+        | /s
+        | #zap touch
+        | #unlock
+        | #end
+        | :x2
+        | /s
+        | #zap touch
+        | #send admission
+        | #end
+        | :touch
+        |      "Would you like me to return to my 
+        | post at the doorway,now?"
+        | !x3;Yes
+        | !x4;No
+        | #end
+        | :x3
+        | #lock
+        | /n/e/e/e/e/e/s/s/e/e/e/e/e/e/e
+        | #restore touch
+        | #unlock
+        | #end
+        | :admission
+        | #zap touch
+        | #end
+        | :touch
+        |      "Do you want me to return to my post
+        | at the doorway,now?"
+        | !x5;Yes
+        | !x6;No
+        | #end
+        | :x5
+        | /n
+        | #restore touch
+        | #end
+        | :x6
+        | #end
+   #6   ( 9,12) cell type 36 [object (scripted)] color 0d  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 105
+        | @Security Android
+        | #lock
+        | /e/e/e/e
+        | #shoot w
+        | #shoot e
+        | #shoot s
+        | /w/w/w/w
+        | #shoot e
+        | #shoot w
+        | #shoot s
+        | #restart
+   #7   (10,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #8   ( 8,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #9   ( 9,23) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #10  (11,23) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #11  ( 7,23) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #12  ( 6,24) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #13  ( 6,20) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #14  ( 7,21) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #15  ( 5,21) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #16  ( 9,21) cell type 36 [object (scripted)] color 0c  cycle 3 p1 12 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 47
+        | @Fake Key
+        | #end
+        | :touch
+        | This is a fake key!
+        | #end
+   #17  (46,10) cell type 37 [creature?] color 0e  cycle 3 p1 0 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #18  (56,10) cell type 37 [creature?] color 0e  cycle 3 p1 0 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #19  (44,21) cell type 37 [creature?] color 0e  cycle 3 p1 0 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #20  (40,21) cell type 37 [creature?] color 0e  cycle 3 p1 0 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #21  (11,16) cell type 42 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #22  ( 8,18) cell type 42 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #23  (16,23) cell type 42 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #24  (20,22) cell type 42 [creature?] color 0b  cycle 2 p1 4 p2 4 p3 0 step (0,0) follower -1 leader -1 under (0,0b) ip 0 code_len 0
+   #25  (49,12) cell type 35 [creature?] color 0d  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #26  (51,12) cell type 35 [creature?] color 0d  cycle 1 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #27  (34,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #28  (37,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #29  (39,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #30  (41,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #31  (10, 7) cell type 37 [creature?] color 0c  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #32  (32, 9) cell type 11 [passage (p3=target board)] color 3f  cycle 0 p1 0 p2 0 p3 6 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 0
+
+== BOARD 5  @0x63a8  size 3573  name 'Hell5'
+  grid: 344 RLE runs (1032 bytes) -> 1500 cells
+  element counts: 0:803, 4:1, 7:25, 8:2, 9:2, 11:1, 13:7, 19:22, 20:278, 21:307, 36:1, 37:3, 44:5, 45:43
+  exits: north=3 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 61 (stored count 60)
+   #0   (54,22) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   (55,22) cell type 11 [passage (p3=target board)] color 3f  cycle 0 p1 0 p2 0 p3 7 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #2   (13, 7) cell type 37 [creature?] color 0a  cycle 3 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #3   (24,12) cell type 37 [creature?] color 0a  cycle 3 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #4   (24,18) cell type 37 [creature?] color 0a  cycle 3 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #5   (32,18) cell type 44 [creature?] color 09  cycle 2 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #6   (33,18) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #7   (34,18) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #8   (35,18) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #9   (36,18) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #10  (37,18) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #11  (38,18) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #12  (37,13) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #13  (37,12) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #14  (37,11) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #15  (37,10) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #16  (37, 9) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #17  (37, 8) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #18  (46,16) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #19  (45,16) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #20  (44,16) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #21  (43,16) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #22  (47,16) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #23  (48,16) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #24  (28, 9) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #25  (28,10) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #26  (27,10) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #27  (27,11) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #28  (27,12) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #29  (26,12) cell type 45 [creature?] color 0a  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #30  (26,13) cell type 44 [creature?] color 09  cycle 2 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #31  (37, 7) cell type 44 [creature?] color 09  cycle 2 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #32  (49,16) cell type 44 [creature?] color 09  cycle 2 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #33  (34,16) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #34  (34,15) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #35  (33,15) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #36  (32,15) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #37  (32,14) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #38  (32,13) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #39  (32,12) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #40  (32,11) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #41  (33,11) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #42  (33,10) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #43  (33, 9) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #44  (33, 8) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #45  (33, 7) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #46  (32, 7) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #47  (31, 7) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #48  (30, 7) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #49  (30, 6) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #50  (30, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #51  (31, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #52  (31, 4) cell type 44 [creature?] color 0e  cycle 2 p1 8 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #53  (26, 3) cell type 13 [timed thing (cycle 6)?] color 0d  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #54  (31,10) cell type 13 [timed thing (cycle 6)?] color 0d  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #55  (39,16) cell type 13 [timed thing (cycle 6)?] color 0d  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #56  (55,16) cell type 13 [timed thing (cycle 6)?] color 0d  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #57  (58, 2) cell type 36 [object (scripted)] color 09  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 389
+        | @Destruction Robot
+        | :loop
+        | /w/w/w/w/w/w/w/w/w/w/w/w/w/w/w/w/w/w
+        | #shoot seek
+        | /s/s/s/s/s/s/s/s/s/s
+        | #shoot seek
+        | /e/e/e/e/e/e/e/e/e/e/e/e/e/e/e/e/e/e/e
+        | #shoot seek
+        | /n/n/n/n/n/n/n/n/n
+        | /w
+        | /n
+        | #shoot seek
+        | #send loop
+        | :bombed
+        | In a hideous concert of grinding,sparking
+        | metal,the robotic skeleton falls to the 
+        | ground,functioning no more!
+        | #give score 200
+        | #die
+        | :alligned
+        | #go seek
+        | #shoot seek
+        | #send chase
+   #58  (49,15) cell type 13 [timed thing (cycle 6)?] color 0d  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #59  (28,15) cell type 13 [timed thing (cycle 6)?] color 0d  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #60  (38, 4) cell type 13 [timed thing (cycle 6)?] color 0d  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+
+== BOARD 6  @0x719f  size 5710  name 'Hell9'
+  grid: 342 RLE runs (1026 bytes) -> 1500 cells
+  element counts: 0:81, 4:1, 11:2, 23:1249, 31:70, 36:97
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 100 (stored count 99)
+   #0   (30,10) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   (32, 9) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 9 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #2   (30, 9) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 4 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #3   (39, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 93
+        | @Light
+        | #cycle 1
+        | :loop
+        | /i/i
+        | #char 177
+        | /i/i
+        | #char 176
+        | /i/i
+        | #char 177
+        | /i/i
+        | #char 178
+        | #send loop
+   #4   (41, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #5   (43, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #6   (45, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #7   (47, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #8   (49, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #9   (53, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #10  (55, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #11  (59, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #12  (59, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #13  (57, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #14  (55, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #15  (53, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #16  (51, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #17  (47, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #18  (45, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #19  (43, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #20  (41, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #21  (39, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #22  (47,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #23  (45,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #24  (43,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #25  (51,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #26  (53,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #27  (49,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #28  (49, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #29  (41,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #30  (39,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #31  (39,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #32  (41,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #33  (43,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #34  (45,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #35  (47,20) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #36  (49,21) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #37  (51,22) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #38  (53,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #39  (55,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #40  (57,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #41  (59,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #42  (34,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #43  (35,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #44  (36,21) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #45  (37,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #46  (38,25) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #47  (30,25) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #48  (29,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #49  (29,21) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #50  (28,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #51  (28,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #52  (24,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #53  (22,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #54  (20,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #55  (18,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #56  (16,21) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #57  (14,22) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #58  (12,22) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #59  (10,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #60  ( 8,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #61  ( 6,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #62  ( 4,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #63  ( 2,25) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #64  ( 2,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #65  ( 4,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #66  ( 6,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #67  ( 8,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #68  (10,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #69  (12,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #70  (14,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #71  (16,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #72  (18,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #73  (20,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #74  (22,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #75  (24,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (23,0f) ip 0 code_len 12
+        | #bind light
+   #76  (51, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #77  (57, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #78  (37, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #79  (39, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #80  (41, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #81  (43, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #82  (31, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #83  (29, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #84  (28, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #85  (25, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #86  (23, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #87  (21, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #88  (24, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #89  (22, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #90  (20, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #91  (18, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #92  (16, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #93  (14, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #94  (12, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #95  (10, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #96  ( 8, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #97  ( 6, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #98  ( 4, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #99  ( 2, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+
+== BOARD 7  @0x87ef  size 3166  name 'Hell6'
+  grid: 450 RLE runs (1350 bytes) -> 1500 cells
+  element counts: 0:439, 4:1, 5:9, 6:9, 7:3, 11:2, 13:4, 21:212, 22:269, 23:138, 28:393, 34:6, 36:1, 44:2, 45:12
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=1  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 28 (stored count 27)
+   #0   (54,22) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,00) ip 28752 code_len 0
+   #1   (55,22) cell type 11 [passage (p3=target board)] color 4f  cycle 0 p1 0 p2 0 p3 5 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #2   ( 6,23) cell type 11 [passage (p3=target board)] color 4f  cycle 0 p1 0 p2 0 p3 8 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #3   (17, 4) cell type 13 [timed thing (cycle 6)?] color 0c  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #4   ( 9, 7) cell type 13 [timed thing (cycle 6)?] color 0c  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #5   ( 6,12) cell type 13 [timed thing (cycle 6)?] color 0c  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #6   ( 6,18) cell type 13 [timed thing (cycle 6)?] color 0c  cycle 6 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #7   (54, 6) cell type 36 [object (scripted)] color 0c  cycle 3 p1 8 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 753
+        | @Talking wall
+        | #end
+        | :touch
+        |      There is a face etched into this wall
+        | and as you approach,its features spring to
+        | life!
+        | "I suppose you want to enter the storage 
+        | room?Well,to do so,you must tell me how 
+        | many FAKE red keys there are on the third
+        | floor.Any guesses?
+        | !x1; 1
+        | !x2; 2
+        | !x3; 4
+        | !x4; 5
+        | !x5; 8
+        | !x6; 10
+        | !x7; 13
+        | #end
+        | :x1
+        | You are incorrect.
+        | #zap touch
+        | #end
+        | :x2
+        | You are incorrect.
+        | #zap touch
+        | #end
+        | :x3
+        | You are incorrect.
+        | #zap touch
+        | #end
+        | :x4
+        | You are incorrect.
+        | #zap touch
+        | #end
+        | :x5
+        | You are incorrect.
+        | #zap touch
+        | #end
+        | :x6
+        | That's right!You may enter!
+        | #die
+        | :x7
+        | You are incorrect.
+        | #zap touch
+        | #end
+        | :touch
+        |      "I'm afraid I can't allow you to 
+        | guess again.If you didn't know before,I'm
+        | not supposed to let you go count the keys
+        | and THEN guess again.Sorry."
+        | #end
+   #8   (27, 5) cell type 44 [creature?] color 0e  cycle 2 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #9   (26, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #10  (25, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #11  (24, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #12  (23, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #13  (22, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #14  (21, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,03) ip 0 code_len 0
+   #15  (33, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #16  (34, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #17  (35, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #18  (36, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #19  (37, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #20  (38, 5) cell type 45 [creature?] color 0c  cycle 2 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #21  (39, 5) cell type 44 [creature?] color 0e  cycle 2 p1 0 p2 8 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #22  (22,12) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #23  (12,17) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #24  (36,16) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #25  (45,14) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 0
+   #26  (52,13) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #27  (12,21) cell type 34 [creature?] color 06  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+
+== BOARD 8  @0x944f  size 8586  name 'Hell7'
+  grid: 791 RLE runs (2373 bytes) -> 1500 cells
+  element counts: 0:189, 4:1, 7:110, 11:1, 21:273, 22:459, 31:318, 36:8, 41:141
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 151 (stored count 150)
+   #0   ( 6,22) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,0f) ip 28752 code_len 0
+   #1   ( 6,23) cell type 11 [passage (p3=target board)] color 6f  cycle 0 p1 0 p2 0 p3 7 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #2   (48,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 30 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 22
+        | @Field Generator
+        | #end
+   #3   (49,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 17 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 22
+        | @Field Generator
+        | #end
+   #4   (48,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 31 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 22
+        | @Field Generator
+        | #end
+   #5   (48,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 219 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 303
+        | @Agumat
+        | #end
+        | :touch
+        |      The three pyramidal generators have
+        | projected a field of light around Agumat.
+        | Try as you might,you cannot penetrate the
+        | white field.
+        | #end
+        | :shutdown
+        | #char 216
+        | #change solid invisible
+        | #zap touch
+        | #end
+        | :touch
+        | #set agumat
+        | You know have the holy sword,Agumat!
+        | #give score 10000
+        | #die 
+   #6   (35,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 242 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0c) ip 0 code_len 335
+        | @switch
+        | #end
+        | :touch
+        |      This is the rainbow generator switch.
+        | It appears that it controls the flow of
+        | light from the rainbow walls.Currently,it
+        | is on.
+        | !x1;Shut rainbow generators off
+        | #end
+        | :x1
+        | You flip the switch.
+        | #char 243
+        | #zap touch
+        | #if switch1 then shutoff
+        | #set switch1
+        | #end
+        | :shutoff
+        | #send agumat:shutdown
+        | #zap touch
+        | #char 243
+        | #end
+   #7   ( 8,12) cell type 36 [object (scripted)] color 09  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 26
+        | @Barrier
+        | #end
+        | :touch
+        | #die
+   #8   ( 8,14) cell type 36 [object (scripted)] color 09  cycle 3 p1 240 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 26
+        | @Barrier
+        | #end
+        | :touch
+        | #die
+   #9   ( 8,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #10  ( 8, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #11  ( 8, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #12  ( 8, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #13  ( 8, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #14  ( 9, 2) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #15  (10, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #16  (10, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #17  (10, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #18  (10, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #19  (10,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #20  (12,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #21  (12, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #22  (12, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #23  (12, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #24  (12, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #25  (13, 2) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #26  (14, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #27  (14, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #28  (14, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #29  (14, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #30  (14,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #31  (16,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,09) ip 0 code_len 0
+   #32  (16, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #33  (16, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #34  (16, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #35  (16, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #36  (17, 2) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #37  (18, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #38  (18, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #39  (18, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #40  (18, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #41  (18,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #42  (20,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #43  (20, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #44  (20, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #45  (20, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #46  (20, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #47  (21, 2) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #48  (22, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #49  (22, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #50  (22, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #51  (22, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #52  (22,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #53  (24,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #54  (24, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #55  (24, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #56  (24, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #57  (24, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #58  (25, 2) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #59  (26, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #60  (26, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #61  (26, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #62  (26, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #63  (26,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #64  (28,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #65  (28, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #66  (28, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #67  (28, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #68  (28, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #69  (29, 2) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #70  (30, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #71  (30, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #72  (30, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #73  (30, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #74  (30,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #75  (32,11) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #76  (32, 9) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #77  (32, 7) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #78  (32, 5) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #79  (32, 3) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #80  ( 8,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #81  ( 8,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #82  ( 8,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #83  ( 8,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #84  ( 8,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #85  ( 9,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #86  (10,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #87  (10,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #88  (10,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #89  (10,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #90  (10,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #91  (12,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #92  (12,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #93  (12,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #94  (12,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #95  (12,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #96  (13,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #97  (14,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #98  (14,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #99  (14,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #100 (14,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #101 (14,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #102 (16,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #103 (16,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #104 (16,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #105 (16,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #106 (16,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #107 (17,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #108 (18,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #109 (18,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #110 (18,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #111 (18,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #112 (18,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #113 (20,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #114 (22,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #115 (24,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #116 (26,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #117 (28,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #118 (28,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #119 (26,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #120 (24,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #121 (22,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #122 (20,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #123 (20,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #124 (22,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #125 (24,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #126 (26,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #127 (28,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #128 (30,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #129 (32,19) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #130 (32,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #131 (30,17) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #132 (30,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #133 (32,15) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #134 (32,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #135 (30,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #136 (28,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #137 (26,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #138 (24,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #139 (22,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #140 (20,21) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #141 (20,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #142 (21,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #143 (22,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #144 (24,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #145 (25,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #146 (26,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #147 (28,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #148 (29,24) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #149 (30,23) cell type 41 [creature?] color 0c  cycle 2 p1 4 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 0
+   #150 (35, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 242 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 335
+        | @switch
+        | #end
+        | :touch
+        |      This is the rainbow generator switch.
+        | It appears that it controls the flow of
+        | light from the rainbow walls.Currently,it
+        | is on.
+        | !x1;Shut rainbow generators off
+        | #end
+        | :x1
+        | You flip the switch.
+        | #char 243
+        | #zap touch
+        | #if switch1 then shutoff
+        | #set switch1
+        | #end
+        | :shutoff
+        | #send agumat:shutdown
+        | #zap touch
+        | #char 243
+        | #end
+
+== BOARD 9  @0xb5db  size 6654  name 'Hell10'
+  grid: 349 RLE runs (1047 bytes) -> 1500 cells
+  element counts: 0:79, 4:1, 11:1, 23:1245, 31:70, 36:104
+  exits: north=0 south=0 west=0 east=0  (0 = none)
+  byte0=255 (max shots?)  dark=0  byte6=0  time?=0  enter_xy?=(0, 0)  message=''
+  status records: 106 (stored count 105)
+   #0   (31, 9) cell type  4 [player] color 1f  cycle 1 p1 83 p2 2 p3 18 step (144,22016) follower 315 leader -30208 under (0,0e) ip 28752 code_len 0
+   #1   (32, 9) cell type 11 [passage (p3=target board)] color 7f  cycle 0 p1 0 p2 0 p3 6 step (0,0) follower -1 leader -1 under (0,00) ip 0 code_len 0
+   #2   (31,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 1 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 251
+        | @King
+        | :loop
+        | #go rndns
+        | #go cw rndns
+        | #throwstar seek
+        | #send loop
+        | :agumat
+        |      You raise Agumat above you.The 
+        | king's ghost cringes.You bring the 
+        | blade down upon it and with a flash 
+        | of blinding light,King Lucius is no
+        | more.
+        | #send ender:endtime
+        | #die    
+   #3   (27, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 355
+        | @ender
+        | #end
+        | :endtime
+        | $CONGRATULATIONS!
+        |      You have finished The Castle of King
+        | Lucius module for the ZZT game!I hope you
+        | have enjoyed playing my module,and would
+        | like to inform you that the Scourge of 
+        | Sorania SuperZZT module is expected to be
+        | finished and available,sometime early in
+        | 1992.Be sure to look for it!Hail!
+        | $-Eli (Avatar) Tremblay-
+        | #endgame
+   #4   (36, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 0 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0e) ip 0 code_len 71
+        | @Tester
+        | #if agumat then deadtime
+        | #end
+        | :deadtime
+        | #send king:agumat
+        | #end
+   #5   (39, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 93
+        | @Light
+        | #cycle 1
+        | :loop
+        | /i/i
+        | #char 177
+        | /i/i
+        | #char 176
+        | /i/i
+        | #char 177
+        | /i/i
+        | #char 178
+        | #send loop
+   #6   (39, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #7   (39,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #8   (41, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #9   (41,12) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #10  (43,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #11  (45,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #12  (47,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #13  (49,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #14  (51,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #15  (53,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #16  (55,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #17  (57,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #18  (59,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #19  (59,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #20  (57,11) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #21  (55,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #22  (53,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #23  (51,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #24  (49,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #25  (47, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #26  (45, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #27  (43, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #28  (43, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #29  (41, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #30  (45, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #31  (47, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #32  (49, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #33  (51, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #34  (53, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #35  (55, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #36  (57, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #37  (37, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #38  (36, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #39  (34, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #40  (30, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #41  (30, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #42  (29, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #43  (26, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #44  (24, 3) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #45  (22, 2) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #46  (20, 1) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #47  (20, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #48  (24, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #49  (22, 7) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #50  (18, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #51  (16, 6) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #52  (14, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #53  (12, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #54  (10, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #55  ( 8, 5) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #56  ( 6, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #57  ( 4, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #58  ( 2, 4) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #59  ( 2, 8) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #60  ( 4, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #61  ( 6, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #62  ( 8, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #63  (10, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #64  (12, 9) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #65  (14,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #66  (16,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #67  (18,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #68  (20,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #69  (22,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #70  (24,10) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #71  (24,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #72  (22,13) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #73  (20,14) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #74  (18,15) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #75  (16,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #76  (14,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #77  (12,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #78  (10,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #79  ( 8,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #80  ( 6,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #81  ( 4,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #82  ( 2,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #83  ( 2,25) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #84  ( 4,25) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #85  ( 6,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #86  ( 8,24) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #87  (10,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #88  (12,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #89  (14,22) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #90  (16,21) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #91  (18,20) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #92  (20,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #93  (22,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #94  (24,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #95  (29,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #96  (29,17) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #97  (28,21) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #98  (27,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #99  (26,25) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #100 (45,25) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #101 (44,23) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #102 (43,21) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #103 (42,19) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #104 (40,18) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+   #105 (39,16) cell type 36 [object (scripted)] color 0f  cycle 3 p1 178 p2 0 p3 0 step (0,0) follower -1 leader -1 under (0,0f) ip 0 code_len 12
+        | #bind light
+
+END: parsed to 0xcfdb of 0xcfdb  OK
