@@ -58,3 +58,32 @@ Transcript: `C:\Users\sebas\.claude\projects\C--Users-sebas\99d8c60f-4936-4635-9
      its own files).
 
 9. "Ok, keep going, let me know when it's done."
+   - Result (2026-11-10 → 11-11): full pipeline built and run on HyperCard (10 stacks) and ZZT (8 worlds):
+     5 agent roles in `.claude/agents/`, 14 agent runs (Analyst ×3, Documenter ×2, Clean-room Builder ×2,
+     Modernizer ×4, Verifier ×2 + one resumed after a usage limit). Final: 113/113 scenarios, hold-out 36/38,
+     99.9% of script lines translated. See README.md and eval/SUMMARY.md.
+
+## Agent task prompts (orchestration log)
+
+The orchestrator (main Claude Code session) wrote one task message per agent run; the role definitions are in
+`.claude/agents/*.md`. In order:
+
+| # | agent | target | task summary |
+|---|---|---|---|
+| A1 | Analyst | HyperCard | Part 1: container, stack header, cards/backgrounds, parts, field text, locate bitmaps; `dump_stack.py` |
+| A2 | Analyst | ZZT | World header, boards, RLE grid, properties, entity records + scripts, element table; `dump_world.py`, `render_board.py` |
+| A3 | Analyst | HyperCard | Part 2: bitmap decompression checked against emulator screenshots; resource fork icons |
+| D1 | Documenter | ZZT | SPEC.md with palette tables, grid algorithm, ZZT-OOP section, IR mapping |
+| C1 | Clean-room Builder | ZZT | Reader from SPEC.md only, tests, GAPS.md |
+| M1 | Modernizer | ZZT | Shared runtime (designed for both targets), cell renderer, ZZT-OOP translator, engine, 8 apps |
+| D2 | Documenter | HyperCard | SPEC.md with full bitmap codec, worked hex examples, HyperTalk usage counts from all 288 scripts |
+| C2 | Clean-room Builder | HyperCard | Reader from SPEC.md only, tests, picture check, GAPS.md |
+| M2 | Modernizer | HyperCard | Pixel renderer, HyperTalk tokenizer/parser/translator, 10 apps (resumed once after a usage limit) |
+| V1 | Verifier | both | Visual + behavioral harness, 101 scenarios from the original scripts, DEFECTS.md |
+| M3 | Modernizer | HyperCard | Iteration 2: fix V1 defects (library shim, chunk padding, locals, doMenu, XCMDs, snd decoding) |
+| M4 | Modernizer | ZZT | Iteration 2: element behaviours (creatures, bombs, transporters, dark boards…), one window per message |
+| V2 | Verifier | both | Final: fresh re-run, retire 3 bug-encoding scenarios, 38 hold-out scenarios, SUMMARY.md |
+
+Key orchestration decisions: run ZZT and HyperCard stages in parallel where they don't share files; the shared
+runtime was built by the first Modernizer with an explicit contract for the second target; the final Verifier wrote
+hold-out scenarios the Modernizer never saw, so the last score is not tuned to the fixes.
