@@ -10,13 +10,13 @@ function script0(owner) {
   // on openstack
   H.on(owner, "openstack", async function openstack($) {
     // start using stack "genie des jeux"
-    H.unsupported("start using", "start using stack \"genie des jeux\"");
+    H.startUsing("genie des jeux");
   });
   // end openstack
   // on closestack
   H.on(owner, "closestack", async function closestack($) {
     // stop using stack "genie des jeux"
-    H.unsupported("stop using", "stop using stack \"genie des jeux\"");
+    H.stopUsing("genie des jeux");
   });
   // end closestack
 }

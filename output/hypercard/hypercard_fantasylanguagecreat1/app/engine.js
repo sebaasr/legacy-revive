@@ -119,10 +119,11 @@
     for (let k = 0; k < specs.length; k++) {
       let r = rangeOf(sub, specs[k]);
       if (r.missing) {
-        const d = r.type === 'line' ? '\n' : r.type === 'item' ? ',' : r.type === 'word' ? ' ' : '';
+        // HyperCard pads only lines and items; a missing word or char is appended with no delimiter
+        // (`put "x" into word 3 of "ab"` gives "abx"); stacks rely on it to build words letter by letter.
+        const d = r.type === 'line' ? '\n' : ',';
         let pad = '';
         if (r.type === 'line' || r.type === 'item') pad = d.repeat(sub === '' ? r.missing - 1 : r.missing);
-        else if (r.type === 'word' && sub !== '' && !/\s$/.test(sub)) pad = ' ';
         const insertAt = off + sub.length;
         s = s.slice(0, insertAt) + pad + s.slice(insertAt);
         sub = sub + pad;
@@ -203,8 +204,46 @@
       this.started = performance.now();
       this.fast = this.shot;             // shot mode: no waiting, no dialogs, no effects
       this.current = null;
+      this.paint = new Map();            // card id -> paint operations drawn by scripts (line/rectangle/text tools)
+      this.clearedPictures = new Set();  // cards whose picture was cleared (doMenu "Clear Picture")
+      this.menus = [];                   // menus made by scripts: {name, items: [{text, msg}], enabled}
+      this.files = new Map();            // open files (open file / read / write / close file)
+      this.printJob = null;              // texts collected between open printing and close printing
+      this.using = [];                   // library stacks in use (`start using`), as owner ids '@library:<name>'
       this.H = this._api();
       if (installScripts) installScripts(this.H);
+      this._installShims();
+    }
+
+    /** Compatibility shims (modern/hypercard/shims/*.js) for library stacks missing from the corpus: their
+     *  functions/handlers are registered on an owner '@library:<name>' that `start using` puts on the path. */
+    _installShims() {
+      const shims = (typeof window !== 'undefined' && window.HC_SHIMS) || {};
+      for (const [name, shim] of Object.entries(shims)) {
+        const owner = '@library:' + name.toLowerCase();
+        for (const [fname, f] of Object.entries(shim.functions || {})) {
+          this.rt.on(owner, 'function:' + fname, async ($, ...args) => f(...args));
+        }
+        for (const [hname, f] of Object.entries(shim.handlers || {})) {
+          this.rt.on(owner, hname, async ($, ...args) => { await f(this, $, ...args); });
+        }
+      }
+    }
+    static libName(name) {
+      return str(name).trim().replace(/^stack\s+/i, '').replace(/^"(.*)"$/, '$1').toLowerCase();
+    }
+    startUsing(name) {
+      const n = HyperCardEngine.libName(name);
+      if (!((typeof window !== 'undefined' && window.HC_SHIMS) || {})[n]) {
+        this.rt.unsupported('start using', `stack "${n}" is not available (no shim in modern/hypercard/shims/)`);
+        return;
+      }
+      const id = '@library:' + n;
+      if (!this.using.includes(id)) this.using.push(id);
+    }
+    stopUsing(name) {
+      const n = HyperCardEngine.libName(name);
+      this.using = this.using.filter(x => x !== '@library:' + n);
     }
 
     _norm(t) { return String(t == null ? '' : t).replace(/\r\n?/g, '\n'); }
@@ -599,6 +638,7 @@
         ids.push(id);
       }
       ids.push(STACK);
+      ids.push(...this.using);           // libraries (`start using`) come after the stack
       return ids;
     }
 
@@ -696,8 +736,9 @@
       if (this.recent.length > 100) this.recent.shift();
       const prevBg = prev ? this.bgOf(prev) : null;
       const nextBg = this.bgOf(card);
-      if (prev && prev !== card) {
-        await this.dispatch('closeCard', prev.id);
+      if (prev && prev !== card && !opts.deleted) {
+        this.closing = prev;
+        try { await this.dispatch('closeCard', prev.id); } finally { if (this.closing === prev) this.closing = null; }
         if (prevBg !== nextBg) await this.dispatch('closeBackground', prev.id);
       }
       if (this.renderer) this.renderer.commitFields();
@@ -705,10 +746,229 @@
       this.rt.current = card;
       this.cardChanged = true;
       await this.render(true);
+      if (opts.created) await this.dispatch('newCard', card.id);
       if (prev !== card) {
         if (prevBg !== nextBg) await this.dispatch('openBackground', card.id);
         await this.dispatch('openCard', card.id);
       }
+    }
+
+    /** doMenu "New Card": an empty card of the current background, inserted after this one (HyperCard
+     *  copies no card parts; background fields start empty). Sends newCard before openCard. */
+    async newCard() {
+      const cur = this.current;
+      const bg = this.bgOf(cur);
+      let max = 0;
+      for (const c of this.cards) max = Math.max(max, Number(String(c.id).split('-')[1]) || 0);
+      const id = 'card-' + (max + 1);
+      const card = { id, name: '', number: 0, layers: bg ? [bg] : [], image: null, script: null, objects: [], layer_text: {} };
+      this.cards.splice(this.cardIndex.get(cur.id) + 1, 0, card);
+      this._reindex();
+      this.cardNames.set(id, '');
+      this.partsOf.set(id, []);
+      if (this.rt.screens) this.rt.screens.set(id, card);
+      // background fields start empty, except sharedText ones (part flags byte A, bit 0x08)
+      for (const o of bg ? this.partsByKind(bg, 'field') : []) if (!((o.extra && o.extra.flags_a) & 0x08)) this.bgText.set(id + '|' + o.id, '');
+      await this.changeCard(card, { created: true });
+      return card;
+    }
+
+    /** doMenu "Delete Card": sends deleteCard, removes the card and shows the next one. When a card deletes
+     *  itself from its own closeCard (Patients' incomplete-patient check), the pending card change continues. */
+    async deleteCard() {
+      const cur = this.closing || this.current;
+      if (this.cards.length <= 1) { this.result = "Can't delete the last card."; return; }
+      await this.dispatch('deleteCard', cur.id);
+      const i = this.cardIndex.get(cur.id);
+      this.cards.splice(i, 1);
+      this._reindex();
+      this.recent = this.recent.filter(x => x !== cur.id);
+      this.pushed = this.pushed.filter(x => x !== cur.id);
+      if (this.rt.screens) this.rt.screens.delete(cur.id);
+      if (this.closing === cur) { this.closing = null; return; }
+      const next = this.cards[Math.min(i, this.cards.length - 1)];
+      await this.changeCard(next, { noRecent: true, deleted: true });
+    }
+    // ---- painting by scripts (choose line/rectangle/text/eraser tool, drag, click at + type) ----------
+    /** Record one paint operation on the current card's picture and draw it now. Patterns: 12 = black,
+     *  1 = white, any other number = 50% gray (a checkerboard); HyperCard's 40 patterns are not modelled. */
+    paintOp(op) {
+      const id = this.current.id;
+      if (!this.paint.has(id)) this.paint.set(id, []);
+      this.paint.get(id).push(op);
+      if (this.renderer && this.renderer.cctx) this.drawPaintOp(this.renderer.cctx, op);
+    }
+    clearPicture() {
+      const id = this.current.id;
+      this.paint.delete(id);
+      this.clearedPictures.add(id);
+      this.cardChanged = true;
+      this.changed();
+    }
+    /** Replays the paint operations of a card after the renderer drew its picture (app.js). */
+    drawPaint(cardId) {
+      const ops = this.paint.get(cardId);
+      if (!ops || !this.renderer || !this.renderer.cctx) return;
+      for (const op of ops) this.drawPaintOp(this.renderer.cctx, op);
+    }
+    drawPaintOp(c, op) {
+      c.save();
+      c.imageSmoothingEnabled = false;
+      const fill = pat => {
+        if (pat === 12 || !pat) return '#000';
+        if (pat === 1) return '#fff';
+        const t = document.createElement('canvas'); t.width = t.height = 2;
+        const tc = t.getContext('2d'); tc.fillStyle = '#000'; tc.fillRect(0, 0, 1, 1); tc.fillRect(1, 1, 1, 1);
+        return c.createPattern(t, 'repeat');
+      };
+      if (op.t === 'line') {
+        // QuickDraw lines: a pen of size n x n dragged from point to point
+        const n = op.size, steps = Math.max(Math.abs(op.x2 - op.x1), Math.abs(op.y2 - op.y1), 1);
+        c.fillStyle = '#000';
+        for (let i = 0; i <= steps; i++) {
+          c.fillRect(Math.round(op.x1 + (op.x2 - op.x1) * i / steps), Math.round(op.y1 + (op.y2 - op.y1) * i / steps), n, n);
+        }
+      } else if (op.t === 'rect') {
+        const l = Math.min(op.x1, op.x2), t = Math.min(op.y1, op.y2), w = Math.abs(op.x2 - op.x1), h = Math.abs(op.y2 - op.y1);
+        if (op.filled) { c.fillStyle = fill(op.pattern); c.fillRect(l, t, w, h); }
+        c.fillStyle = '#000';
+        const n = op.size;
+        c.fillRect(l, t, w, n); c.fillRect(l, t + h - n, w, n); c.fillRect(l, t, n, h); c.fillRect(l + w - n, t, n, h);
+      } else if (op.t === 'erase') {
+        // the eraser is a 16 x 16 square dragged along the path
+        const steps = Math.max(Math.abs(op.x2 - op.x1), Math.abs(op.y2 - op.y1), 1);
+        c.fillStyle = '#fff';
+        for (let i = 0; i <= steps; i += 4) {
+          c.fillRect(Math.round(op.x1 + (op.x2 - op.x1) * i / steps) - 8, Math.round(op.y1 + (op.y2 - op.y1) * i / steps) - 8, 16, 16);
+        }
+      } else if (op.t === 'text') {
+        const fam = HyperCardEngine.cssFont(op.font);
+        const bold = /bold/.test(op.style) || /^chicago/i.test(op.font) ? 'bold ' : '';
+        const ital = /italic/.test(op.style) ? 'italic ' : '';
+        c.font = `${ital}${bold}${op.size}px ${fam}`;
+        c.fillStyle = '#000';
+        c.textBaseline = 'alphabetic';
+        c.textAlign = op.align === 'center' ? 'center' : op.align === 'right' ? 'right' : 'left';
+        c.fillText(op.text, op.x, op.y);
+      }
+      c.restore();
+    }
+    static cssFont(name) {
+      const n = String(name || 'geneva').toLowerCase();
+      if (n.startsWith('chicago')) return '"Chicago", "Segoe UI", Tahoma, Arial, sans-serif';
+      if (n.startsWith('geneva')) return 'Geneva, Tahoma, Verdana, sans-serif';
+      if (n.startsWith('helvetica')) return 'Helvetica, Arial, sans-serif';
+      if (n.startsWith('times')) return '"Times New Roman", Times, serif';
+      if (n.startsWith('courier')) return '"Courier New", Courier, monospace';
+      if (n.startsWith('monaco')) return 'Monaco, "Lucida Console", Consolas, monospace';
+      return `"${name}", Geneva, Verdana, sans-serif`;
+    }
+
+    // ---- menus created by scripts ---------------------------------------------------------------
+    findMenu(name) {
+      const n = str(name).trim().toLowerCase();
+      return this.menus.find(m => m.name.toLowerCase() === n) || null;
+    }
+    /** Script-made menus as a menu bar above the card window (not drawn in ?shot=1 screenshots). A menu item
+     *  with a menuMsg sends that message to the current card; one without sends doMenu <item>. */
+    drawMenubar() {
+      if (typeof document === 'undefined' || this.shot || !this.dialogHost) return;
+      let bar = this._menubar;
+      if (!bar) {
+        bar = this._menubar = document.createElement('div');
+        bar.className = 'hc-menubar';
+        bar.setAttribute('role', 'menubar');
+        this.dialogHost.parentElement.insertBefore(bar, this.dialogHost);
+      }
+      bar.textContent = '';
+      bar.style.display = this.menus.length ? '' : 'none';
+      for (const m of this.menus) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'hc-menu-title';
+        b.textContent = m.name;
+        b.disabled = !m.enabled;
+        b.addEventListener('click', async () => {
+          if (this.rt.dialogOpen) return;
+          const cardBox = this.renderer.root.getBoundingClientRect(), bb = b.getBoundingClientRect();
+          const n = await this.popupMenu(Math.round(bb.left - cardBox.left), 0, m.items.map(i => i.text));
+          const it = n ? m.items[n - 1] : null;
+          if (!it) return;
+          if (it.msg) this.post(it.msg, this.current.id);
+          else this.post('doMenu', this.current.id, [it.text]);
+        });
+        bar.appendChild(b);
+      }
+    }
+
+    // ---- virtual disk (localStorage, per stack) and downloads --------------------------------------
+    _diskKey(name) { return 'hypercard-file:' + this.ir.name + ':' + str(name).toLowerCase(); }
+    diskRead(name) { try { return localStorage.getItem(this._diskKey(name)) || ''; } catch (e) { return ''; } }
+    diskWrite(name, text) { try { localStorage.setItem(this._diskKey(name), text); } catch (e) { /* storage unavailable */ } }
+    download(name, text) {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text.replace(/\n/g, '\r\n')], { type: 'text/plain' }));
+      a.download = (str(name).split(':').pop() || 'export') + (/\.\w+$/.test(name) ? '' : '.txt');
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+    printNow(texts) {
+      if (this.fast || typeof window === 'undefined') return;
+      const w = window.open('', '_blank');
+      if (!w) return;
+      const pre = w.document.createElement('pre');
+      pre.style.font = '12px Geneva, Verdana, sans-serif';
+      pre.textContent = texts.join('\n\n');
+      w.document.title = this.ir.name;
+      w.document.body.appendChild(pre);
+      w.print();
+    }
+
+    _reindex() {
+      this.cardIndex = new Map(this.cards.map((c, i) => [c.id, i]));
+      this.cards.forEach((c, i) => { c.number = i + 1; });
+    }
+
+    /** A small pop-up menu (used by the reconstructed PopMenu/popUp XCMDs). Resolves to the 1-based item
+     *  number, or 0 when dismissed. Items "(-" or "-" are dividers, "(" starts a disabled item.
+     *  In shot mode it returns 0 at once. */
+    popupMenu(x, y, items, checked = 0) {
+      if (this.fast || typeof document === 'undefined') return Promise.resolve(0);
+      return new Promise(resolve => {
+        const host = this.renderer && this.renderer.root ? this.renderer.root : document.body;
+        const menu = document.createElement('div');
+        menu.className = 'hc-popup';
+        menu.setAttribute('role', 'menu');
+        let done = null;
+        items.forEach((t, i) => {
+          const it = document.createElement('div');
+          const label = String(t).trim();
+          const sep = /^\(?-$/.test(label);
+          it.className = sep ? 'hc-popup-sep' : 'hc-popup-item';
+          if (!sep) {
+            it.setAttribute('role', 'menuitem');
+            it.textContent = (i + 1 === checked ? '\u2713 ' : '') + label.replace(/^\(/, '');
+            if (label.startsWith('(')) it.classList.add('hc-disabled');
+            else it.addEventListener('pointerup', e => { e.stopPropagation(); done(i + 1); });
+          }
+          menu.appendChild(it);
+        });
+        menu.style.left = Math.max(0, Math.min(x, this.ir.size.width - 60)) + 'px';
+        menu.style.top = Math.max(0, Math.min(y, this.ir.size.height - 20)) + 'px';
+        const onKey = e => { if (e.key === 'Escape' || e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); done(0); } };
+        const onDown = e => { if (!menu.contains(e.target)) done(0); };
+        done = n => {
+          menu.remove();
+          removeEventListener('keydown', onKey, true);
+          removeEventListener('pointerdown', onDown, true);
+          this.rt.dialogOpen = false;
+          resolve(n);
+        };
+        host.appendChild(menu);
+        this.rt.dialogOpen = true;
+        addEventListener('keydown', onKey, true);
+        setTimeout(() => addEventListener('pointerdown', onDown, true), 0);
+      });
     }
 
     async goBack() {
@@ -741,6 +1001,87 @@
       this.updateMsgBox();
     }
 
+    /** Classic Mac font scaling. The System had Chicago only in 12 points; asked for Chicago 24, the Font
+     *  Manager doubled the 12-point bitmap. Fields in Chicago at an exact multiple of 12 are therefore drawn
+     *  here as 12-point text, thresholded to 1 bit and scaled up with whole pixels (on a canvas over the
+     *  field; the DOM text stays for selection and editing and shows while the field has the focus).
+     *  Called after every renderer refresh (app.js). Other sizes keep the browser's font. */
+    scaleBitmapFonts() {
+      const R = this.renderer;
+      if (!R || !R.els || typeof document === 'undefined' || this.rt.params.get('aa') === '1') return;
+      for (const rec of R.els.values()) {
+        const v = rec.v;
+        if (!v || v.kind !== 'field' || !rec.text) continue;
+        const k = HyperCardEngine.bitmapScale(v);
+        const runsOk = !(v.runs && v.runs.length > 1);
+        if (!k || !runsOk) { if (rec.bmp) { rec.bmp.remove(); rec.bmp = null; rec.el.classList.remove('hc-bitmap-field'); } continue; }
+        const [l, t, r, b] = v.rect;
+        const key = [v.text, l, t, r, b, v.align, v.lineHeight, v.shape, (v.style || []).join()].join('\u0001');
+        if (rec.bmp && rec.bmpKey === key) continue;
+        rec.bmpKey = key;
+        if (!rec.bmp) {
+          rec.bmp = document.createElement('canvas');
+          rec.bmp.className = 'hc-bitmap';
+          rec.el.appendChild(rec.bmp);
+          rec.el.classList.add('hc-bitmap-field');
+        }
+        this._drawScaledText(rec, v, k);
+      }
+    }
+    static bitmapScale(v) {
+      if (!/^chicago/i.test(String(v.font || ''))) return 0;
+      const size = Number(v.size) || 12;
+      return size > 12 && size % 12 === 0 ? size / 12 : 0;
+    }
+    _drawScaledText(rec, v, k) {
+      const [l, t, r, b] = v.rect;
+      const cs = getComputedStyle(rec.el);
+      const bl = parseFloat(cs.borderLeftWidth) || 0, bt = parseFloat(cs.borderTopWidth) || 0;
+      const br = parseFloat(cs.borderRightWidth) || 0, bb = parseFloat(cs.borderBottomWidth) || 0;
+      const W = Math.max(1, r - l - bl - br), Hh = Math.max(1, b - t - bt - bb);
+      const cv = rec.bmp;
+      cv.width = W; cv.height = Hh;
+      Object.assign(cv.style, { position: 'absolute', left: '0px', top: '0px', width: W + 'px', height: Hh + 'px', pointerEvents: 'none' });
+      const w1 = Math.ceil(W / k), h1 = Math.ceil(Hh / k);
+      const small = document.createElement('canvas');
+      small.width = w1; small.height = h1;
+      const sc = small.getContext('2d');
+      sc.font = `${cs.fontWeight} 12px ${cs.fontFamily}`;
+      // fitted on Wordle's reference title (ink F1 0.934 -> 0.941): the substitute font is a little narrower
+      // than Chicago, so glyphs get 0.5 px extra advance and the line starts 1 px further left (12-pt units)
+      const SPACING = 0.5, DX = -1;
+      sc.letterSpacing = SPACING + 'px';
+      sc.fillStyle = '#000';
+      sc.textBaseline = 'alphabetic';
+      // layout in 12-point units: same insets as the DOM text (4 px left, 3 px right), word wrap at the width
+      const padL = 4 / k, padR = 3 / k, avail = w1 - padL - padR;
+      const lines = [];
+      for (const para of String(v.text).split('\n')) {
+        let cur = '';
+        for (const word of para.split(/(?<= )/)) {
+          if (cur && sc.measureText(cur + word).width > avail) { lines.push(cur); cur = word; } else cur += word;
+        }
+        lines.push(cur);
+      }
+      const lh = (v.lineHeight || 16) / k;
+      const asc = (window.PixelRenderer && PixelRenderer.macAscent ? PixelRenderer.macAscent(v.font, 12, lh) : 12);
+      lines.forEach((ln, i) => {
+        const tw = sc.measureText(ln.replace(/ +$/, '')).width;
+        let x = padL;
+        if (v.align === 'center') x = padL + (avail - tw) / 2;
+        else if (v.align === 'right') x = padL + avail - tw;
+        sc.fillText(ln, Math.round(x) + DX, Math.round(i * lh + asc) - (v.scroll || 0) / k);
+      });
+      // 1-bit threshold at 12 points, then whole-pixel enlargement
+      const img = sc.getImageData(0, 0, w1, h1), d = img.data;
+      for (let i = 0; i < d.length; i += 4) { const on = d[i + 3] >= 110; d[i] = d[i + 1] = d[i + 2] = 0; d[i + 3] = on ? 255 : 0; }
+      sc.putImageData(img, 0, 0);
+      const c = cv.getContext('2d');
+      c.clearRect(0, 0, W, Hh);
+      c.imageSmoothingEnabled = false;
+      c.drawImage(small, 0, 0, w1 * k, h1 * k);
+    }
+
     /** View properties of one object on the current card (used by render-pixels.js). */
     partView(o) {
       const st = this.state.get(o.id);
@@ -757,6 +1098,7 @@
       };
     }
     pictureVisible(cardId, layer) {
+      if (layer === cardId && this.clearedPictures.has(cardId)) return false;
       const k = cardId + '|' + layer;
       return this.pictures.has(k) ? this.pictures.get(k) : true;
     }
@@ -765,6 +1107,7 @@
     // User interface events (from render-pixels.js and app.js)
     // =========================================================================================
     onPartEvent(type, id, ev) {
+      if (type === 'mouseDown' || type === 'mouseUp') this.foundBox = null;
       if (type === 'fieldInput') { this.setFieldTextQuiet(id, ev.text); return; }
       if (type === 'fieldChanged') { this.post('closeField', id); return; }
       const st = this.state.get(id);
@@ -785,6 +1128,12 @@
       this.post(type, this.current.id);
     }
     focusedField() { return this.renderer ? this.renderer.focusedFieldId() : null; }
+    /** The focused field when text can be typed into it (a selected line of a locked list field does not count). */
+    editingField() {
+      const id = this.focusedField();
+      // after `find`, HyperCard boxes the found text but keeps typing in the message box
+      return id && !this.state.get(id).lockText && id !== this.foundBox ? id : null;
+    }
 
     /** Keyboard: returns true when the key was taken over by a script (the page should not handle it). */
     onKey(e) {
@@ -835,7 +1184,9 @@
         case 'back': return this.goBack();
         case 'home': return this.H.goHome();
         case 'compact stack': return;
-        case 'clear picture': return;
+        case 'new card': await this.newCard(); return;
+        case 'delete card': await this.deleteCard(); return;
+        case 'clear picture': this.clearPicture(); return;
         case 'select all': this.renderer.selectAll(); return;
         case 'copy text': {
           const s = String(window.getSelection ? window.getSelection() : '');
@@ -846,6 +1197,10 @@
         case 'quit hypercard':
           if (!this.fast) this.rt.flash('Quit HyperCard: close this browser tab to quit.', 3000, this.flashHost);
           return;
+      }
+      for (const m of this.menus) {
+        const mi = m.items.find(i => i.text.toLowerCase() === it);
+        if (mi) { if (mi.msg) await this.dispatch(mi.msg, this.current.id); return; }
       }
       this.rt.unsupported('doMenu', `doMenu "${item}"`);
     }
@@ -1104,7 +1459,21 @@
             const known = ['arrowkey', 'domenu', 'keydown', 'tabkey', 'returninfield', 'enterinfield'];
             if (known.includes(name.toLowerCase())) { await E.defaultAction(name, $.me, args); return; }
           }
+          // reconstructed XCMDs/XFCNs (modern/hypercard/shims/xcmds.js): HyperCard tries externals last
+          const X = window.HC_XCMDS || {};
+          const xk = Object.keys(X).find(k => k.toLowerCase() === String(name).toLowerCase());
+          if (xk) {
+            const v = await X[xk](E, $, ...args);
+            if (kind === 'message' && v !== undefined && v !== '') E.result = v;
+            return v;
+          }
           rt.unsupported(kind === 'function' ? 'function' : 'handler', `${name}: not defined in this stack (XCMD/XFCN or another stack)`);
+          // say it on screen once per name, so a missing external does not fail silently
+          E._missing = E._missing || new Set();
+          if (!E.fast && !E._missing.has(name.toLowerCase())) {
+            E._missing.add(name.toLowerCase());
+            rt.flash(`"${name}" is not available (an XCMD or another stack's handler)`, 2500, E.flashHost);
+          }
           return '';
         },
         async send($, message, target) {
@@ -1129,8 +1498,115 @@
             if (!r.handled) await E.defaultAction(m[1], $.me, args);
             return;
           }
+          const f = /^find\s+(?:(whole|string|words?|chars?|normal)\s+)?("[^"]*"|\S+)$/i.exec(s);
+          if (f) {
+            const mode = (f[1] || 'normal').toLowerCase().replace(/^words?$/, 'word').replace(/^chars?$/, 'chars');
+            await H.find($, f[2].replace(/^"(.*)"$/, '$1'), mode);
+            return;
+          }
+          const g = /^go\s+(?:to\s+)?(.+)$/i.exec(s);
+          if (g) {
+            const w = g[1].trim().toLowerCase().replace(/\s+card$/, '');
+            if (['next', 'prev', 'previous', 'first', 'last'].includes(w)) { await E.goCard({ rel: w === 'previous' ? 'prev' : w }); return; }
+          }
           rt.unsupported('do', s);
         },
+        startUsing(name) { E.startUsing(name); },
+        stopUsing(name) { E.stopUsing(name); },
+        // menus (create menu, put ... into menu ... with menuMsgs, enable/disable/delete menu, reset menubar) --
+        hasMenu(name) { return !!E.findMenu(name) || HyperCardEngine.STD_MENUS.includes(str(name).trim().toLowerCase()); },
+        createMenu(name) {
+          if (E.findMenu(name)) return;
+          E.menus.push({ name: str(name).trim(), items: [], enabled: true });
+          E.drawMenubar();
+        },
+        deleteMenu(name) { E.menus = E.menus.filter(m => m !== E.findMenu(name)); E.drawMenubar(); },
+        enableMenu(name, on) { const m = E.findMenu(name); if (m) { m.enabled = on; E.drawMenubar(); } },
+        resetMenubar() { E.menus = []; E.drawMenubar(); },
+        putIntoMenu(name, list, mode, msgs) {
+          const m = E.findMenu(name);
+          if (!m) throw new HTError(`No such menu "${str(name)}"`);
+          // menu items are separated by returns or commas, like the menuMsgs that go with them
+          const split = v => str(v).split(/[\n,]/).map(x => x.trim()).filter(x => x !== '');
+          const ms = msgs == null ? [] : split(msgs);
+          const items = split(list).map((t, i) => ({ text: t, msg: ms[i] || '', enabled: true }));
+          if (mode === 'after') m.items.push(...items);
+          else if (mode === 'before') m.items.unshift(...items);
+          else m.items = items;
+          E.drawMenubar();
+        },
+        // sort cards by an expression evaluated on every card ----------------------------------------
+        async sortCards($, key, order, kind, bgDesc) {
+          const bg = bgDesc ? E.findBg(bgDesc) : null;
+          const pool = E.cards.filter(c => !bg || E.bgOf(c) === bg);
+          const here = E.current;
+          const keyed = [];
+          try {
+            for (const c of pool) {
+              E.current = c; E.rt.current = c;
+              // a card without the part the key names sorts as empty (Patients sorts the whole stack by
+              // field "NAME", which its Title and list cards do not have)
+              let v = '';
+              try { v = await key(); } catch (e) { if (!(e instanceof HTError)) throw e; }
+              keyed.push([c, v]);
+            }
+          } finally { E.current = here; E.rt.current = here; }
+          const k = kind === 'numeric' ? (x => num(x)) : kind === 'datetime' ? (x => Date.parse(str(x)) || 0) : (x => str(x).toLowerCase());
+          keyed.sort((a, b) => { const p = k(a[1]), q = k(b[1]); return p < q ? -1 : p > q ? 1 : 0; });   // stable, as HyperCard
+          if (order === 'descending') keyed.reverse();
+          const slots = E.cards.map((c, i) => (pool.includes(c) ? i : -1)).filter(i => i >= 0);
+          slots.forEach((slot, j) => { E.cards[slot] = keyed[j][0]; });
+          E._reindex();
+          E.changed();
+        },
+        // files: a virtual disk in localStorage; closing a file that was written also downloads it ------
+        openFile(name) {
+          const n = str(name);
+          E.files.set(n.toLowerCase(), { name: n, text: E.diskRead(n), pos: 0, written: false });
+          E.result = '';
+        },
+        readFile(name, count, until) {
+          const f = E.files.get(str(name).toLowerCase());
+          if (!f) { E.result = 'File not open.'; return ''; }
+          let end;
+          if (count != null) end = f.pos + Math.max(0, Math.trunc(num(count)));
+          else if (until != null) {
+            const ch = str(until) === '' ? '\u0004' : str(until);
+            const i = f.text.indexOf(ch, f.pos);
+            end = i < 0 ? f.text.length : i + ch.length;
+          } else end = f.text.length;
+          const out = f.text.slice(f.pos, end);
+          f.pos = Math.min(end, f.text.length);
+          E.result = '';
+          return out;
+        },
+        writeFile(name, v) {
+          const f = E.files.get(str(name).toLowerCase());
+          if (!f) { E.result = 'File not open.'; return; }
+          const s = str(v);
+          if (!f.written) { f.text = f.text.slice(0, f.pos); f.written = true; }   // writing replaces from here on
+          f.text = f.text.slice(0, f.pos) + s + f.text.slice(f.pos + s.length);
+          f.pos += s.length;
+        },
+        async closeFile(name) {
+          const k = str(name).toLowerCase(), f = E.files.get(k);
+          if (!f) return;
+          E.files.delete(k);
+          if (!f.written) return;
+          E.diskWrite(f.name, f.text);
+          if (!E.fast) E.download(f.name, f.text);
+        },
+        // printing: collected between open printing / close printing, then the browser's print dialog ---
+        openPrinting() { E.printJob = []; },
+        async printText(text) {
+          if (E.printJob) { E.printJob.push(str(text)); return; }
+          E.printNow([str(text)]);
+        },
+        async printCard() {
+          if (E.fast) return;
+          window.print();
+        },
+        async closePrinting() { const job = E.printJob; E.printJob = null; if (job && job.length) E.printNow(job); },
         // navigation ----------------------------------------------------------------------------
         async go($, desc) {
           if (desc && desc.stack !== undefined) {
@@ -1183,13 +1659,31 @@
             E.sound = { playing: n, until: performance.now() + secs * 1000 };
             return;
           }
-          // named `snd ` resources are not decoded (SPEC 6): play a short placeholder blip
-          rt.unsupported('play', `sound "${n}" is not available (snd resources are not decoded)`);
+          // the stack's own sampled `snd ` resources, decoded to WAV at build time (modern/hypercard/sounds.py)
+          const S = window.HC_SOUNDS || {};
+          const url = S[n.toLowerCase()];
+          if (url) {
+            if (E.audioEl) { try { E.audioEl.pause(); } catch (e) { /* ignore */ } }
+            const a = new Audio(url);
+            E.audioEl = a;
+            E.sound = { playing: n, until: performance.now() + 60000 };
+            a.addEventListener('loadedmetadata', () => { if (E.audioEl === a) E.sound.until = performance.now() + a.duration * 1000; });
+            a.addEventListener('ended', () => { if (E.audioEl === a) E.sound = { playing: null, until: 0 }; });
+            a.addEventListener('error', () => { if (E.audioEl === a) E.sound = { playing: null, until: 0 }; });
+            const p = a.play();
+            if (p && p.catch) p.catch(() => { if (E.audioEl === a) E.sound = { playing: null, until: 0 }; });
+            return;
+          }
+          // sounds that are not in this stack's resource fork (HyperCard's own, or other files): placeholder blip
+          rt.unsupported('play', `sound "${n}" is not in this stack (not available)`);
           const ac = E.audio();
           if (ac) E.tone(660, ac.currentTime + 0.01, 0.12, 'square', 0.04);
           E.sound = { playing: n, until: performance.now() + 150 };
         },
-        playStop() { E.sound = { playing: null, until: 0 }; },
+        playStop() {
+          if (E.audioEl) { try { E.audioEl.pause(); } catch (e) { /* ignore */ } E.audioEl = null; }
+          E.sound = { playing: null, until: 0 };
+        },
         async wait(ticks) {
           if (E.fast) return;
           await rt.wait(num(ticks));
@@ -1227,7 +1721,27 @@
           speechSynthesis.speak(u);
           E.sound = { playing: 'speech', until: performance.now() + str(text).length * 70 };
         },
-        choose(tool) { E.tool = str(tool).toLowerCase() || 'browse'; if (E.tool !== 'browse') rt.unsupported('choose tool', `choose ${E.tool} tool (painting is not supported)`); },
+        choose(tool) {
+          E.tool = str(tool).toLowerCase().replace(/\s*tool$/, '') || 'browse';
+          E.paintPoint = null;
+          if (!HyperCardEngine.PAINT_TOOLS.includes(E.tool)) rt.unsupported('choose tool', `choose ${E.tool} tool (only line, rectangle, text, eraser and select are drawn)`);
+        },
+        resetPaint() {
+          Object.assign(E.gprops, { lineSize: 1, pattern: 12, filled: false, textFont: 'Geneva', textSize: 12, textHeight: 16, textAlign: 'left', textStyle: 'plain' });
+          E.tool = 'browse'; E.paintPoint = null;
+        },
+        /** drag from a to b: with a paint tool, paints on the current card's picture (see paintOp). */
+        async drag($, a, b) {
+          const p = v => str(v).split(',').map(x => Math.round(num(x)));
+          const [x1, y1] = p(a), [x2, y2] = p(b);
+          const g = E.gprops;
+          const lineSize = Math.max(1, num(g.lineSize) || 1);
+          if (E.tool === 'line') E.paintOp({ t: 'line', x1, y1, x2, y2, size: lineSize });
+          else if (E.tool === 'rectangle' || E.tool === 'rect') E.paintOp({ t: 'rect', x1, y1, x2, y2, size: lineSize, filled: bool(g.filled), pattern: num(g.pattern) });
+          else if (E.tool === 'eraser') E.paintOp({ t: 'erase', x1, y1, x2, y2 });
+          else if (E.tool === 'select') return;
+          else rt.unsupported('drag', `drag with the ${E.tool || 'browse'} tool`);
+        },
         async doMenu($, item) {
           const r = await E.dispatch('doMenu', E.current.id, [str(item)]);
           if (!r.handled) await E.menuCommand(str(item));
@@ -1236,6 +1750,7 @@
         async clickAt($, x, y, keys = []) {
           if (y === null || y === undefined) [x, y] = str(x).split(',');
           x = Math.round(num(x)); y = Math.round(num(y));
+          if (E.tool === 'text') { E.paintPoint = { x, y }; return; }      // paint text insertion point
           const id = E.renderer.hitTest(x, y);
           E.mouse.clickX = x; E.mouse.clickY = y;
           if (id) {
@@ -1251,7 +1766,23 @@
             await E.dispatch('mouseUp', E.current.id);
           }
         },
-        async type($, text) { E.typeText(str(text)); },
+        async type($, text) {
+          const t = str(text);
+          // typing Return with no text field active runs the message box, as in HyperCard
+          // (Patients: put "Find" && quote & it & quote into msg; type return)
+          if (E.tool === 'text' && E.paintPoint) {
+            // paint text: drawn into the card picture at the text tool's insertion point (y = baseline)
+            const g = E.gprops;
+            for (const [i, ln] of t.split(/\r\n|[\r\n]/).entries()) {
+              if (i) E.paintPoint = { x: E.paintPoint.x0 != null ? E.paintPoint.x0 : E.paintPoint.x, y: E.paintPoint.y + (num(g.textHeight) || 16) };
+              if (ln) E.paintOp({ t: 'text', x: E.paintPoint.x, y: E.paintPoint.y, text: ln, font: str(g.textFont), size: num(g.textSize) || 12,
+                style: str(g.textStyle).toLowerCase(), align: str(g.textAlign).toLowerCase() });
+            }
+            return;
+          }
+          if (/^[\r\n]$/.test(t) && !E.editingField() && E.msgText.trim()) { await H.doScript($, E.msgText); return; }
+          E.typeText(t);
+        },
         select(h, specs, where = 'on') {
           if (!h) { if (window.getSelection) window.getSelection().removeAllRanges(); return; }
           if (h.t !== 'part') return;
@@ -1296,13 +1827,15 @@
           for (let k = 0; k <= n; k++) {
             const card = E.cards[(startIdx + k) % n];
             const ids = [...(E.partsOf.get(E.bgOf(card)) || []), ...(E.partsOf.get(card.id) || [])]
-              .filter(o => o.kind === 'field' && (!fieldH || o.id === fieldH.id));
+              // part flags byte A, bit 0x10 = dontSearch (Patients' PATIENT LIST field is excluded from find)
+              .filter(o => o.kind === 'field' && (!fieldH || o.id === fieldH.id) && !((o.extra && o.extra.flags_a) & 0x10));
             for (const o of ids) {
               const text = E.fieldText(o.id, card.id);
               const at = test(text);
               if (at < 0) continue;
               if (k === 0 && E.lastFind && E.lastFind.card === card.id && E.lastFind.field === o.id && E.lastFind.q === q) continue;
               E.lastFind = { card: card.id, field: o.id, q };
+              E.foundBox = o.id;
               if (card !== E.current) await E.changeCard(card);
               const len = mode === 'whole' || mode === 'string' ? q.length : words[0].length;
               E.found = { chunk: `char ${at + 1} to ${at + len} of ${E.nameOf({ t: 'part', id: o.id })}`, text: text.substr(at, len),
@@ -1335,7 +1868,8 @@
         annuity: (r, n) => (1 - (1 + num(r)) ** -num(n)) / num(r),
         compound: (r, n) => (1 + num(r)) ** num(n),
         length: x => str(x).length,
-        offset: (needle, hay) => str(hay).toLowerCase().indexOf(str(needle).toLowerCase()) + 1,
+        // offset of an empty string is 0 in HyperCard (Game Genie encode loops past the end of its position table)
+        offset: (needle, hay) => (str(needle) === '' ? 0 : str(hay).toLowerCase().indexOf(str(needle).toLowerCase()) + 1),
         numToChar: n => String.fromCharCode(num(n)),
         charToNum: c => (str(c).length ? str(c).charCodeAt(0) : 0),
         value: x => {
@@ -1386,7 +1920,7 @@
         target: $ => E.nameOf(E.handleFor($.target)),
         screenRect: () => '0,0,512,342', systemVersion: () => '7.5.5', tool: () => `${E.tool || 'browse'} tool`,
         diskSpace: () => 100000000, heapSpace: () => 4000000, stackSpace: () => 100000,
-        menus: () => 'Apple\nFile\nEdit\nGo', windows: () => 'card window\nmessage box',
+        menus: () => ['Apple', 'File', 'Edit', 'Go', ...E.menus.map(m => m.name)].join('\n'), windows: () => 'card window\nmessage box',
         language: () => 'English', numberFormat: () => '0.######',
         unknown: name => { rt.unsupported('function', `the ${name}`); return ''; },
       };
@@ -1395,6 +1929,8 @@
   }
 
   HyperCardEngine.HTError = HTError;
+  HyperCardEngine.PAINT_TOOLS = ['browse', 'line', 'rectangle', 'rect', 'text', 'eraser', 'select'];
+  HyperCardEngine.STD_MENUS = ['apple', 'file', 'edit', 'go', 'tools', 'objects', 'font', 'style', 'home'];
   HyperCardEngine.helpers = { str, num, bool, isNum, chunkGet, chunkPut, chunkDelete, pieces };
   window.HyperCardEngine = HyperCardEngine;
 })();

@@ -181,8 +181,8 @@
       "checks": [
         {
           "what": "screenCount",
-          "pass": false,
-          "actual": 8,
+          "pass": true,
+          "actual": 9,
           "expected": 9
         },
         {
@@ -193,8 +193,8 @@
         },
         {
           "what": "field \"Name\"",
-          "pass": false,
-          "actual": "EVADA AAASON",
+          "pass": true,
+          "actual": "",
           "expected": {
             "name": "Name",
             "empty": true
@@ -207,7 +207,7 @@
         }
       ],
       "errors": [],
-      "pass": false
+      "pass": true
     }
   ],
   "smoke": {
@@ -246,7 +246,7 @@
       },
       {
         "button": "bkgnd-201455/button-6",
-        "to": "card-41341",
+        "to": "card-260169",
         "error": null,
         "errors": []
       },
@@ -272,10 +272,9 @@
     "errors": [],
     "pass": true,
     "runtimeStubs": [
-      "if: IF THERE IS NOT A MENU \"PROCEDURE\"",
       "go to stack: go to stack \"PATIENTS ™  Version 1.5\" (other stacks are not available)"
     ]
   },
-  "pass": 7,
+  "pass": 8,
   "total": 8
 }

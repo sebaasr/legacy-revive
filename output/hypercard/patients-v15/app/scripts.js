@@ -92,11 +92,11 @@ function script0(owner) {
     H.setGlobal("lockMessages", false);
     // IF THERE IS NOT A MENU "PROCEDURE"
     // THEN
-    if (H.unsupported("if", "IF THERE IS NOT A MENU \"PROCEDURE\"")) {
+    if (!H.hasMenu("PROCEDURE")) {
       // CREATE MENU "Procedure"
-      H.unsupported("create menu", "CREATE MENU \"Procedure\"");
+      H.createMenu("Procedure");
       // put "Colonoscopy,EGD"¬ into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"
-      H.unsupported("menu", "put \"Colonoscopy,EGD\" into  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"");
+      H.putIntoMenu("PROCEDURE", "Colonoscopy,EGD", "into", "LOWER,EGD");
     // END IF
     }
   });
@@ -143,19 +143,19 @@ function script0(owner) {
     // SET LOCKMESSAGES TO FALSE
     H.setGlobal("lockMessages", false);
     // CREATE MENU "Procedure"
-    H.unsupported("create menu", "CREATE MENU \"Procedure\"");
+    H.createMenu("Procedure");
     // put "Colonoscopy,EGD"¬ into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"
-    H.unsupported("menu", "put \"Colonoscopy,EGD\" into  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"");
+    H.putIntoMenu("PROCEDURE", "Colonoscopy,EGD", "into", "LOWER,EGD");
   });
   // end resume
   // ON SUSPENDSTACK
   H.on(owner, "SUSPENDSTACK", async function SUSPENDSTACK($) {
     // IF THERE IS A MENU "PROCEDURE" THEN DELETE MENU "Procedure"
-    if (H.unsupported("if", "IF THERE IS A MENU \"PROCEDURE\" THEN DELETE MENU \"Procedure\"")) {
-      H.unsupported("delete", "IF THERE IS A MENU \"PROCEDURE\" THEN DELETE MENU \"Procedure\"");
+    if (H.hasMenu("PROCEDURE")) {
+      H.deleteMenu("Procedure");
     }
     // RESET MENUBAR
-    H.unsupported("reset menubar", "RESET MENUBAR");
+    H.resetMenubar();
   });
   // END SUSPENDSTACK
   // ON EGD
@@ -297,11 +297,11 @@ function script0(owner) {
   H.on(owner, "CLOSESTACK", async function CLOSESTACK($) {
     let it = "", SIZE = "";
     // IF THERE IS A MENU "PROCEDURE" THEN DELETE MENU "Procedure"
-    if (H.unsupported("if", "IF THERE IS A MENU \"PROCEDURE\" THEN DELETE MENU \"Procedure\"")) {
-      H.unsupported("delete", "IF THERE IS A MENU \"PROCEDURE\" THEN DELETE MENU \"Procedure\"");
+    if (H.hasMenu("PROCEDURE")) {
+      H.deleteMenu("Procedure");
     }
     // RESET MENUBAR
-    H.unsupported("reset menubar", "RESET MENUBAR");
+    H.resetMenubar();
     // GET THE FREESIZE OF THIS STACK
     it = H.prop(H.stack(), "freeSize");
     // PUT IT/1024 INTO SIZE
@@ -414,13 +414,13 @@ function script1(owner) {
   H.on(owner, "OPENCARD", async function OPENCARD($) {
     let HLINE = "", HSIZE = "";
     // IF THERE IS NO MENU "PROCEDURE" THEN CREATE MENU "Procedure"
-    if (H.unsupported("if", "IF THERE IS NO MENU \"PROCEDURE\" THEN CREATE MENU \"Procedure\"")) {
-      H.unsupported("create menu", "IF THERE IS NO MENU \"PROCEDURE\" THEN CREATE MENU \"Procedure\"");
+    if (!H.hasMenu("PROCEDURE")) {
+      H.createMenu("Procedure");
     }
     // put "Colonoscopy,EGD"¬ into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"
-    H.unsupported("menu", "put \"Colonoscopy,EGD\" into  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"");
+    H.putIntoMenu("PROCEDURE", "Colonoscopy,EGD", "into", "LOWER,EGD");
     // ENABLE MENU "Procedure"
-    H.unsupported("enable menu", "ENABLE MENU \"Procedure\"");
+    H.enableMenu("Procedure", true);
     // GLOBAL NFUMALE, EXTEMALE, NFUFEM,EXTEFEM
     /* shared: H.g.nfumale, H.g.extemale, H.g.nfufem, H.g.extefem */
     // PUT NFUFEM INTO FLD "NFUFEM"
@@ -769,7 +769,7 @@ function script9(owner) {
     // put "Sorting patients..."
     H.putInto(H.msgBox(), "Sorting patients...", "into");
     // sort by LAST WORD OF field "NAME"
-    H.unsupported("sort cards", "sort by LAST WORD OF field \"NAME\"");
+    await H.sortCards($, async () => H.chunk(H.value(H.part($, null, "field", "NAME")), [["word", "last"]]), "ascending", "text", null);
     // put "Compacting patients..."
     H.putInto(H.msgBox(), "Compacting patients...", "into");
     // send "doMenu Compact stack" to HyperCard
@@ -1801,11 +1801,11 @@ function script42(owner) {
   // ON CLOSECARD
   H.on(owner, "CLOSECARD", async function CLOSECARD($) {
     // IF THERE IS NO MENU "PROCEDURE" THEN   CREATE MENU "Procedure"
-    if (H.unsupported("if", "IF THERE IS NO MENU \"PROCEDURE\" THEN   CREATE MENU \"Procedure\"")) {
-      H.unsupported("create menu", "IF THERE IS NO MENU \"PROCEDURE\" THEN   CREATE MENU \"Procedure\"");
+    if (!H.hasMenu("PROCEDURE")) {
+      H.createMenu("Procedure");
     }
     // put "Colonoscopy,EGD"¬ into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"
-    H.unsupported("menu", "put \"Colonoscopy,EGD\" into  MENU \"PROCEDURE\" WITH MENUMSGS \"LOWER,EGD\"");
+    H.putIntoMenu("PROCEDURE", "Colonoscopy,EGD", "into", "LOWER,EGD");
   });
   // END CLOSECARD
 }
@@ -1984,13 +1984,13 @@ function script46(owner) {
   // on openCard
   H.on(owner, "openCard", async function openCard($) {
     // DISABLE MENU "Procedure"
-    H.unsupported("disable menu", "DISABLE MENU \"Procedure\"");
+    H.enableMenu("Procedure", false);
   });
   // end openCard
   // on closeCard
   H.on(owner, "closeCard", async function closeCard($) {
     // ENABLE MENU "Procedure"
-    H.unsupported("enable menu", "ENABLE MENU \"Procedure\"");
+    H.enableMenu("Procedure", true);
   });
   // end closeCard
 }
@@ -2058,7 +2058,7 @@ function script49(owner) {
   // ON OPENCARD
   H.on(owner, "OPENCARD", async function OPENCARD($) {
     // DISABLE MENU "Procedure"
-    H.unsupported("disable menu", "DISABLE MENU \"Procedure\"");
+    H.enableMenu("Procedure", false);
     // PASS OPENCARD
     return H.PASS;
   });
@@ -2066,7 +2066,7 @@ function script49(owner) {
   // on closeCard
   H.on(owner, "closeCard", async function closeCard($) {
     // ENABLE MENU "Procedure"
-    H.unsupported("enable menu", "ENABLE MENU \"Procedure\"");
+    H.enableMenu("Procedure", true);
   });
   // end closeCard
 }
@@ -2421,7 +2421,7 @@ function script54(owner) {
     // GO TO BG "PATIENT INFO"
     await H.go($, {rel: "first", bg: {key: "PATIENT INFO"}});
     // SORT BY LAST WORD OF FLD "NAME"
-    H.unsupported("sort cards", "SORT BY LAST WORD OF FLD \"NAME\"");
+    await H.sortCards($, async () => H.chunk(H.value(H.part($, null, "field", "NAME")), [["word", "last"]]), "ascending", "text", null);
     // REPEAT WITH N= 1 TO THE NUMBER OF CDS
     for (N of H.range(1, H.countCards())) {
       await H.tick();
@@ -2469,7 +2469,7 @@ function script54(owner) {
 function script55(owner) {
   // ON MOUSEUP
   H.on(owner, "MOUSEUP", async function MOUSEUP($) {
-    let LINENUM = "";
+    let LINENUM = "", it = "";
     // put mouseToLine() into LINENUM
     LINENUM = await H.call($, "mouseToLine", [], 'function');
     // select line LINENUM of target

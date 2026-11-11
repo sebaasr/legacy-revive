@@ -47,8 +47,8 @@
       "checks": [
         {
           "what": "field \"Word\"",
-          "pass": false,
-          "actual": "x o l",
+          "pass": true,
+          "actual": "khom",
           "expected": {
             "name": "Word",
             "matches": "^[a-zéû]+$"
@@ -79,7 +79,7 @@
         }
       ],
       "errors": [],
-      "pass": false
+      "pass": true
     },
     {
       "name": "Glossary / Lexicon tabs",
@@ -218,8 +218,8 @@
         },
         {
           "what": "field \"Batch\"",
-          "pass": false,
-          "actual": "m i n\nr a sch\nt a l",
+          "pass": true,
+          "actual": "daaldanko\nsaen\nthaldi",
           "expected": {
             "name": "Batch",
             "matches": "^[a-zéû]+\\n[a-zéû]+\\n[a-zéû]+$"
@@ -232,7 +232,7 @@
         }
       ],
       "errors": [],
-      "pass": false
+      "pass": true
     },
     {
       "name": "Arrow keys stay on the card",
@@ -305,6 +305,6 @@
     "pass": true,
     "runtimeStubs": []
   },
-  "pass": 5,
+  "pass": 7,
   "total": 7
 }

@@ -17,13 +17,24 @@ after running the start-up handlers without waiting or showing dialogs (used by 
 | scripts (owners with a script) / distinct texts | 63 / 60 |
 | handlers translated (`on` + `function`, distinct scripts) | 94 |
 | statement lines inside handlers | 919 |
-| lines translated | 885 (96.3%) |
-| lines stubbed (`H.unsupported`) | 34 |
+| lines translated | 906 (98.6%) |
+| lines stubbed (`H.unsupported`) | 13 |
 | lines outside handlers (banners, credits; ignored as HyperCard does) | 8 |
 
-Handlers called but defined nowhere in this stack (XCMDs/XFCNs or handlers of another stack): `PRINTENGOOD`, `PopMenu`, `mouseToLine`, `piece`, `popUp`, `sortLines`.
+Handlers called but defined nowhere in this stack (XCMDs/XFCNs or handlers of another stack): none.
 They are translated as normal calls; at run time `H.call` finds no handler and reports
 `[unsupported] handler ...` in the console (counted in `rt.stubReport()`).
+
+### Reconstructed XCMDs/XFCNs (NOT recovered: behaviour inferred from the calling scripts)
+
+External code resources are not in the IR. `shims/xcmds.js` re-implements these in JavaScript from how the scripts use them; each entry documents the call sites it is based on. They run only when no HyperTalk handler of that name exists (HyperCard tries externals last).
+
+- `PRINTENGOOD`: PRINTENGOOD: prints the patient card (the button is called "Print"). Uses the browser's print dialog.
+- `PopMenu`: PopMenu(point, list): pop-up menu at `point` with the ";"-separated items of `list` ("(-" is a divider, as in Mac menu strings); returns the chosen item number, 0 when dismissed. Patients: buttons "MEDICATION LIST" / "PROBLEM LIST" (mouseDown): `if it > 0 then ... piece(list,";",it)`.
+- `mouseToLine`: mouseToLine(): number of the line under the last click in the target field. Patients: card "PATIENT LIST", locked field "PATIENTS": `put mouseToLine() into LINENUM; select line LINENUM of target`.
+- `piece`: piece(list, delimiter, n): the n-th piece of a delimited list. Patients: `put piece(HOProblemList,";",it) into MEDICINE` after `get PopMenu(the clickLoc,HOProblemList)`, where HOProblemList is built as lines joined with ";" (closeField of "MEDICATION LIST").
+- `popUp`: popUp(checkedItem, list): pop-up menu with the ","-separated items of `list`, item `checkedItem` checked, at the target; returns the chosen item's text (empty when dismissed). Patients: field "SEX" (mouseDown): `get popUp(CHOICE,"Male,Female,Unknown"); put item 1 of it into me`.
+- `sortLines`: sortLines(text): the lines sorted alphabetically (case-insensitive), empty lines dropped. Patients: `put sortLines(CD field "MEDICATION LIST") into CD field "MEDICATION LIST"` keeps its pick lists sorted.
 
 ### Files
 - `scripts.js`: every script, one JS function per distinct script text, each HyperTalk handler an
@@ -73,38 +84,9 @@ taken as auto-hilite and the low nibble of its high byte as the button family (r
 |---|---|
 | `do (built string)` | 6 |
 | `set script` | 6 |
-| `create menu` | 4 |
-| `menu` | 4 |
-| `enable menu` | 3 |
-| `delete` | 2 |
-| `reset menubar` | 2 |
-| `sort cards` | 2 |
-| `disable menu` | 2 |
-| `if` | 1 |
-| `PRINTENGOOD` | 1 |
 | `choose button tool` | 1 |
 
-- `if: THEN`
-- `create menu: CREATE MENU "Procedure"`
-- `menu: put "Colonoscopy,EGD" into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"`
-- `create menu: CREATE MENU "Procedure"`
-- `menu: put "Colonoscopy,EGD" into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"`
-- `delete: IF THERE IS A MENU "PROCEDURE" THEN DELETE MENU "Procedure"`
-- `reset menubar: RESET MENUBAR`
-- `delete: IF THERE IS A MENU "PROCEDURE" THEN DELETE MENU "Procedure"`
-- `reset menubar: RESET MENUBAR`
-- `create menu: IF THERE IS NO MENU "PROCEDURE" THEN CREATE MENU "Procedure"`
-- `menu: put "Colonoscopy,EGD" into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"`
-- `enable menu: ENABLE MENU "Procedure"`
-- `sort cards: sort by LAST WORD OF field "NAME"`
-- `PRINTENGOOD: PRINTENGOOD`
-- `create menu: IF THERE IS NO MENU "PROCEDURE" THEN   CREATE MENU "Procedure"`
-- `menu: put "Colonoscopy,EGD" into  MENU "PROCEDURE" WITH MENUMSGS "LOWER,EGD"`
 - `choose button tool: choose button tool`
-- `disable menu: DISABLE MENU "Procedure"`
-- `enable menu: ENABLE MENU "Procedure"`
-- `disable menu: DISABLE MENU "Procedure"`
-- `enable menu: ENABLE MENU "Procedure"`
 - `do (built string): DO "PUT NEWNAME INTO" && LOCAL`
 - `set script: set SCRIPT OF BKGND BUTTON "PRINT" TO FLD "BOO"`
 - `do (built string): DO "PUT NEWNAME INTO" && LOCAL`
@@ -117,19 +99,32 @@ taken as auto-hilite and the low nibble of its high byte as the button family (r
 - `set script: set SCRIPT OF BKGND BUTTON "N EXT MALE" TO FLD "BOO"`
 - `do (built string): DO "PUT NEWNAME INTO" && LOCAL`
 - `set script: set SCRIPT OF BKGND BUTTON "N EXT FEM" TO FLD "BOO"`
-- `sort cards: SORT BY LAST WORD OF FLD "NAME"`
 
 Each stub calls `H.unsupported(cmd, line)`: logged once in the console and counted in `rt.stubReport()`.
-Run-time stubs (not visible in the counts above): `play "<name>"` of a `snd ` resource (not decoded;
-a short blip is played and `the sound` is "done" after it), `go home` / other stacks, and properties
-the engine does not know.
+Run-time stubs (not visible in the counts above): `play "<name>"` of a sound that is not in this stack's
+resource fork (a short blip is played and `the sound` is "done" after it), `go home` / other stacks,
+`start using` a stack that has no shim, and properties the engine does not know.
+
+## Sounds
+- (no `snd ` resources in this stack)
+Sampled `snd ` resources of the stack are decoded at build time (`modern/hypercard/sounds.py`) into WAV
+files (`sounds/`, and as data URLs in `data.js`); `play "<name>"` plays them with an `Audio` element and
+`the sound` is the name until it ends.
 
 ## Known limitations
-- Painting commands (`choose <paint> tool`, `drag`, `reset paint`, `doMenu "Clear Picture"`) do not draw.
-- Menus (`create menu`, `put ... into menu`), files (`open/read/write file`), printing, `start using` and
-  external code resources (XCMD/XFCN) are not available in a browser.
+- Painting: the line, rectangle, text and eraser tools draw on the card picture (`drag`, `click at` +
+  `type`, `doMenu "Clear Picture"`); brush, spray, bucket, oval and polygon tools do not. Patterns are
+  black (12), white (1) or a 50% gray for every other number.
+- Menus made by scripts (`create menu`, `put ... into menu ... with menuMsgs`, `enable/disable/delete menu`,
+  `reset menubar`) appear in a bar above the card window; single menu items cannot be enabled/disabled.
+- Files are a virtual disk in the browser's localStorage (per stack); closing a file the script wrote
+  also downloads it. Printing (`open printing`, `print field`, `close printing`) opens the browser's
+  print dialog. External code resources (XCMD/XFCN) cannot run: see the shims section above.
+- `set script` and `do` of a string built at run time cannot be translated (no HyperTalk interpreter in
+  the page).
 - Classic Mac bitmap fonts are replaced by system fonts (Chicago -> bold sans-serif, Geneva -> Verdana,
-  ...), thresholded to 1-bit; line breaks inside fields can differ from the original.
+  ...), thresholded to 1-bit; line breaks inside fields can differ from the original. Chicago at 24 or 36
+  points is drawn as the 12-point text scaled 2x / 3x with whole pixels, as the Mac's Font Manager did.
 - Visual effects are CSS approximations (dissolve = fade, wipe/scroll/iris/stretch = clip animations).
 - `the environment` is "development", `the version` is "2.41".
 

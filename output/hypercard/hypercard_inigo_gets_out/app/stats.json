@@ -15,11 +15,14 @@
   "stubs_by_command": {},
   "stub_lines": [],
   "undefined_handlers": [],
+  "library_shims": [],
+  "reconstructed_xcmds": [],
   "unavailable_icons": [
     "card-2927/button-3 (icon 19678)"
   ],
   "card_size": [
     512,
     342
-  ]
+  ],
+  "sounds": []
 }

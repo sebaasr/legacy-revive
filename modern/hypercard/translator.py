@@ -211,8 +211,11 @@ unlock play wait beep add subtract multiply divide delete choose select type cli
 push pop open close read write print reset create enable disable start stop speak flash next edit
 palette picture convert mark unmark import export arrowKey""".lower().split())
 
+# tools the engine can paint with (engine.js PAINT_TOOLS); other tools stay stubs
+PAINT_TOOLS = {"browse", "line", "rectangle", "rect", "text", "eraser", "select"}
 KNOWN_MENU_ITEMS = {"quit hypercard", "copy text", "select all", "clear picture", "compact stack", "next",
-                    "prev", "previous", "first", "last", "back", "home", "help", "find...", "message"}
+                    "prev", "previous", "first", "last", "back", "home", "help", "find...", "message",
+                    "new card", "delete card"}
 
 
 class Unsupported(Exception):
@@ -463,6 +466,9 @@ class ExprParser:
             if ts.take("no"):
                 neg = True
             ts.take("a", "an")
+            if ts.take("menu"):
+                js = f"H.hasMenu({self.factor(ts).js})"
+                return E(("!" + js) if neg else js, "bool")
             ref = self.objref(ts)
             if ref is None:
                 raise Unsupported("there is", "unknown object")
@@ -557,6 +563,7 @@ class ExprParser:
             return E(self.ctx.gname(tk.val))
         if w in self.ctx.locals_low:
             ts.next()
+            self.ctx.note_use(tk.val, "r")
             return E(self.ctx.lname(tk.val))
         if w in CONSTANTS and CONSTANTS[w] is not None:
             ts.next()
@@ -569,6 +576,7 @@ class ExprParser:
             raise Unsupported("expression", f"unexpected word {tk.val!r}")
         # unquoted literal: a word that is not a variable stands for itself
         ts.next()
+        self.ctx.note_use(tk.val, "r")
         return E(js_str(tk.val), "str")
 
     def call_function(self, name, args):
@@ -726,6 +734,7 @@ class ExprParser:
             ts.next()
             if tk.low in self.ctx.globals_low:
                 return self.ctx.gname(tk.val)
+            self.ctx.note_use(tk.val, "r")
             if tk.low in self.ctx.locals_low:
                 return self.ctx.lname(tk.val)
             return js_str(tk.val)
@@ -899,6 +908,7 @@ class HandlerTranslator:
         self.collect = True
         self.owner_var = owner_var
         self._externals = set()
+        self.first_use = {}                       # lower -> ("r"|"w", original spelling)
 
     # ---- names ---------------------------------------------------------------------------------
     @staticmethod
@@ -916,8 +926,15 @@ class HandlerTranslator:
     def gname(self, name):
         return f"H.g.{self.safe(name.lower())}"
 
+    def note_use(self, name, how):
+        """Record whether a name is first read ("r") or first written ("w") in the handler's text.
+        HyperTalk reads a variable that was never assigned as its own name (the literal fallback), so a
+        local whose first use is a read starts with its name instead of empty."""
+        self.first_use.setdefault(name.lower(), (how, name))
+
     def declare_local(self, name):
         low = name.lower()
+        self.note_use(name, "w")
         if low in self.globals_low:
             return
         if low not in self.locals_low:
@@ -1230,6 +1247,7 @@ class HandlerTranslator:
         tk = ts.peek()
         if w == "it":
             ts.next()
+            self.declare_local("it")     # `put ... into it` declares it like `get` does
             return ("var", "it"), chunks
         if w == "the" and ts.w(1) == "selection" or w == "selection":
             ts.take("the")
@@ -1244,6 +1262,7 @@ class HandlerTranslator:
             ts.next()
             if w in self.globals_low:
                 return ("var", self.gname(tk.val)), chunks
+            self.note_use(tk.val, "w")
             if create:
                 self.declare_local(tk.val)
             if w not in self.locals_low:
@@ -1312,6 +1331,16 @@ class HandlerTranslator:
         mode = ts.next().low
         if mode not in ("into", "after", "before"):
             raise Unsupported("put", f"unknown preposition {mode}")
+        if ts.at("menu"):
+            ts.next()
+            name = self.ex.factor(ts).js
+            msgs = "null"
+            if ts.take("with"):
+                if not ts.take("menumsgs", "menumessages", "menumsg", "menumessage"):
+                    raise Unsupported("put into menu", "expected menuMsgs")
+                msgs = self.ex.expr(ts).js
+            self.emit(ind, f"H.putIntoMenu({name}, {v.js}, {js_str(mode)}, {msgs});")
+            return
         c, chunks = self.container(ts)
         self.emit(ind, self.write_container(c, chunks, v.js, mode))
 
@@ -1341,6 +1370,9 @@ class HandlerTranslator:
     def c_divide(self, ts, ind): self.arith(ts, ind, "divide", "by")
 
     def c_delete(self, ts, ind):
+        if ts.take("menu"):
+            self.emit(ind, f"H.deleteMenu({self.ex.expr(ts).js});")
+            return
         if not (ts.w() in CHUNK_WORDS or ts.w() in ORDINALS or ts.w() == "the"):
             raise Unsupported("delete", "only chunks can be deleted")
         c, chunks = self.container(ts, create=False)
@@ -1573,16 +1605,22 @@ class HandlerTranslator:
     def c_hide(self, ts, ind): self.show_hide(ts, ind, "hide")
 
     def c_enable(self, ts, ind):
-        if ts.at("menu", "menuitem"):
-            raise Unsupported("enable menu", "menus are not supported")
+        if ts.take("menu"):
+            self.emit(ind, f"H.enableMenu({self.ex.expr(ts).js}, true);")
+            return
+        if ts.at("menuitem"):
+            raise Unsupported("enable menuItem", "menu items cannot be enabled one by one")
         ref = self.ex.objref(ts)
         if ref is None:
             raise Unsupported("enable", "unknown object")
         self.emit(ind, f"H.setProp({ref}, \"enabled\", true);")
 
     def c_disable(self, ts, ind):
-        if ts.at("menu", "menuitem"):
-            raise Unsupported("disable menu", "menus are not supported")
+        if ts.take("menu"):
+            self.emit(ind, f"H.enableMenu({self.ex.expr(ts).js}, false);")
+            return
+        if ts.at("menuitem"):
+            raise Unsupported("disable menuItem", "menu items cannot be disabled one by one")
         ref = self.ex.objref(ts)
         if ref is None:
             raise Unsupported("disable", "unknown object")
@@ -1684,7 +1722,7 @@ class HandlerTranslator:
         tool = tk.val if tk.kind in ("word", "str") else ""
         ts.take("tool")
         t = tool.lower().replace(" tool", "")
-        if t != "browse":
+        if t not in PAINT_TOOLS:
             self.line_stub = "choose " + t + " tool"
         self.emit(ind, f"H.choose({js_str(t)});")
 
@@ -1758,8 +1796,9 @@ class HandlerTranslator:
         self.emit(ind, f"await H.find($, {e.js}, {js_str(mode)}, {ref});")
 
     def c_sort(self, ts, ind):
-        if ts.at("by") or ts.at("cards") or ts.at("this", "stack", "background", "bkgnd", "bg"):
-            raise Unsupported("sort cards", "sorting cards is not supported")
+        if ts.at("by") or ts.at("cards", "card", "this", "stack", "background", "bkgnd", "bg", "ascending",
+                                "descending", "text", "numeric", "international", "datetime", "dateTime"):
+            return self.sort_cards(ts, ind)
         typ = "line"
         if ts.at("lines", "items") and ts.w(1) == "of":
             typ = CHUNK_WORDS[ts.next().low]
@@ -1779,35 +1818,142 @@ class HandlerTranslator:
         cur = self.read_container(c, None)
         self.emit(ind, self.write_container(c, None, f"H.sort({cur}, {js_str(typ)}, {js_str(order)}, {js_str(kind)})"))
 
-    # things the browser cannot do (files, printing, painting, menus, external stacks)
+    def sort_cards(self, ts, ind):
+        """sort [cards [of] [this stack | this background | bkgnd X]] [ascending|descending] [kind] by expr:
+        the key expression is evaluated on every card (as HyperCard does) inside an arrow function."""
+        bg = "null"
+        ts.take("the")
+        ts.take("cards", "card")
+        ts.take("of", "in")
+        if ts.take("this"):
+            if ts.take("background", "bkgnd", "bg"):
+                bg = '{rel: "this"}'
+            else:
+                ts.take("stack")
+        elif ts.take("stack"):
+            pass
+        elif ts.at("background", "bkgnd", "bg"):
+            ts.next()
+            bg = f"{{key: {self.ex.factor(ts).js}}}"
+        order, kind = "ascending", "text"
+        while not ts.at_end() and not ts.at("by"):
+            w = ts.next().low
+            if w in ("ascending", "descending"):
+                order = w
+            elif w in ("numeric", "text", "international", "datetime"):
+                kind = w
+            else:
+                raise Unsupported("sort cards", f"unexpected {w}")
+        if not ts.take("by"):
+            raise Unsupported("sort cards", "expected by")
+        key = self.ex.expr(ts).js
+        self.emit(ind, f"await H.sortCards($, async () => {key}, {js_str(order)}, {js_str(kind)}, {bg});")
+
+    # files: a virtual file system (localStorage) with a download when a written file is closed
+    def c_open(self, ts, ind):
+        if ts.take("file"):
+            self.emit(ind, f"H.openFile({self.ex.expr(ts).js});")
+            return
+        if ts.take("printing"):
+            ts.take("with")
+            self.line_stub = None
+            self.emit(ind, "H.openPrinting();")
+            return
+        raise Unsupported("open " + (ts.w() or ""), "applications are not available")
+
+    def c_close(self, ts, ind):
+        if ts.at("card") and ts.w(1) == "window":
+            raise Unsupported("close card window", "")
+        if ts.take("file"):
+            self.emit(ind, f"await H.closeFile({self.ex.expr(ts).js});")
+            return
+        if ts.take("printing"):
+            self.emit(ind, "await H.closePrinting();")
+            return
+        raise Unsupported("close " + (ts.w() or ""), "")
+
+    def c_read(self, ts, ind):
+        if not ts.take("from") or not ts.take("file"):
+            raise Unsupported("read", "expected read from file")
+        f = self.ex.expr(ts).js
+        count, until = "null", "null"
+        if ts.take("for"):
+            count = self.ex.expr(ts).js
+        elif ts.take("until"):
+            until = self.ex.expr(ts).js
+        self.declare_local("it")
+        self.emit(ind, f"it = H.readFile({f}, {count}, {until});")
+
+    def c_write(self, ts, ind):
+        v = self.ex.expr(ts).js
+        if not ts.take("to") or not ts.take("file"):
+            raise Unsupported("write", "expected write ... to file")
+        self.emit(ind, f"H.writeFile({self.ex.expr(ts).js}, {v});")
+
+    def c_print(self, ts, ind):
+        if ts.at("card", "cd") and (ts.w(1) is None or ts.w(1) in ("else",)):
+            ts.next()
+            self.emit(ind, "await H.printCard();")
+            return
+        ref = self.ex.objref(ts)
+        if ref is None:
+            raise Unsupported("print", "only fields and the card can be printed")
+        self.emit(ind, f"await H.printText(H.value({ref}));")
+
+    # things the browser cannot do (painting, external stacks)
     def _stub(self, name):
         def f(ts, ind):
             raise Unsupported(name, "not available in a browser")
         return f
 
-    def c_open(self, ts, ind):
-        raise Unsupported("open " + (ts.w() or ""), "files/printing/applications are not available")
+    def c_drag(self, ts, ind):
+        """drag from <point> to <point> [with keys]: a point is one expression ("x,y") or two (x, y)."""
+        if not ts.take("from"):
+            raise Unsupported("drag", "expected drag from")
 
-    def c_close(self, ts, ind):
-        if ts.at("card") and ts.w(1) == "window":
-            raise Unsupported("close card window", "")
-        raise Unsupported("close " + (ts.w() or ""), "files/printing are not available")
-
-    def c_read(self, ts, ind): raise Unsupported("read", "files are not available")
-    def c_write(self, ts, ind): raise Unsupported("write", "files are not available")
-    def c_print(self, ts, ind): raise Unsupported("print", "printing is not available")
-    def c_drag(self, ts, ind): raise Unsupported("drag", "painting is not supported")
+        def point():
+            a = self.ex.expr(ts).js
+            if ts.take_op(","):
+                return f"H.cat({a}, \",\", {self.ex.expr(ts).js})"
+            return a
+        p1 = point()
+        if not ts.take("to"):
+            raise Unsupported("drag", "expected to")
+        p2 = point()
+        if ts.take("with"):
+            ts.rest_raw()
+            ts.i = len(ts.t)
+        self.emit(ind, f"await H.drag($, {p1}, {p2});")
 
     def c_reset(self, ts, ind):
         if ts.take("paint"):
-            self.line_stub = "reset paint"
-            self.emit(ind, "H.choose(\"browse\");  // reset paint: painting is not supported")
+            self.emit(ind, "H.resetPaint();")
+            return
+        if ts.take("menubar"):
+            self.emit(ind, "H.resetMenubar();")
             return
         raise Unsupported("reset " + (ts.w() or ""), "")
 
-    def c_create(self, ts, ind): raise Unsupported("create " + (ts.w() or ""), "")
-    def c_start(self, ts, ind): raise Unsupported("start using", "other stacks are not available")
-    def c_stop(self, ts, ind): raise Unsupported("stop using", "other stacks are not available")
+    def c_create(self, ts, ind):
+        if ts.take("menu"):
+            self.emit(ind, f"H.createMenu({self.ex.expr(ts).js});")
+            return
+        raise Unsupported("create " + (ts.w() or ""), "")
+    def c_start(self, ts, ind):
+        # `start using stack "lib"`: the engine puts a compatibility shim for that library on the message
+        # path when one exists in modern/hypercard/shims/ (otherwise it reports the stack as unavailable)
+        if not ts.take("using"):
+            raise Unsupported("start " + (ts.w() or ""), "")
+        ts.take("stack")
+        e = self.ex.expr(ts)
+        self.emit(ind, f"H.startUsing({e.js});")
+
+    def c_stop(self, ts, ind):
+        if not ts.take("using"):
+            raise Unsupported("stop " + (ts.w() or ""), "")
+        ts.take("stack")
+        e = self.ex.expr(ts)
+        self.emit(ind, f"H.stopUsing({e.js});")
     def c_edit(self, ts, ind): raise Unsupported("edit", "")
     def c_palette(self, ts, ind): raise Unsupported("palette", "")
     def c_picture(self, ts, ind): raise Unsupported("picture", "")
@@ -1848,9 +1994,21 @@ def translate_script(text: str, owner_js: str, user_handlers: set, user_function
         fname = HandlerTranslator.safe(h.name)
         out.append("  " * ind + f"// {h.header.orig.strip()}")
         out.append("  " * ind + f"H.{reg}({owner_js}, {js_str(h.name)}, async function {fname}({params}) {{")
-        decl = [v for k, v in ht.locals_low.items() if k not in {p.lower() for p in h.params}]
+        plow = {p.lower() for p in h.params}
+        decl, lit = [], []
+        for k, v in ht.locals_low.items():
+            if k in plow:
+                continue
+            how, orig = ht.first_use.get(k, ("w", k))
+            if how == "r" and k != "it":
+                decl.append(f"{v} = {js_str(orig)}")
+                lit.append(orig)
+            else:
+                decl.append(f"{v} = \"\"")
         if decl:
-            out.append("  " * (ind + 1) + "let " + ", ".join(f"{v} = \"\"" for v in decl) + ";")
+            out.append("  " * (ind + 1) + "let " + ", ".join(decl) + ";")
+        if lit:
+            out.append("  " * (ind + 1) + f"// read before any put: HyperTalk uses the name itself ({', '.join(lit)})")
         out.extend(body)
         out.append("  " * ind + "});")
         if h.footer:

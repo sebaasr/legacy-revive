@@ -290,10 +290,7 @@
         "button": "card-2990/button-87",
         "to": "card-11352",
         "error": null,
-        "errors": [
-          "console.error: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper",
-          "script error: mouseUp: No such background field \"\""
-        ]
+        "errors": []
       },
       {
         "button": "card-2990/button-126",
@@ -302,11 +299,8 @@
         "errors": []
       }
     ],
-    "errors": [
-      "console.error: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper",
-      "script error: mouseUp: No such background field \"\""
-    ],
-    "pass": false,
+    "errors": [],
+    "pass": true,
     "runtimeStubs": []
   },
   "pass": 7,

@@ -19,9 +19,12 @@
     "close card window: if the number of lines in the stacks > 1 then close card window"
   ],
   "undefined_handlers": [],
+  "library_shims": [],
+  "reconstructed_xcmds": [],
   "unavailable_icons": [],
   "card_size": [
     480,
     296
-  ]
+  ],
+  "sounds": []
 }

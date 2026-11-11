@@ -87,11 +87,11 @@ function script1(owner) {
     // put it into fileName
     fileName = it;
     // open file fileName
-    H.unsupported("open file", "open file fileName");
+    H.openFile(fileName);
     // write card field Lexicon to file fileName
-    H.unsupported("write", "write card field Lexicon to file fileName");
+    H.writeFile(fileName, H.value(H.part($, "card", "field", "Lexicon")));
     // close file fileName
-    H.unsupported("close file", "close file fileName");
+    await H.closeFile(fileName);
   });
   // end exportLex
 }
@@ -106,19 +106,19 @@ function script2(owner) {
     // if it is "Lexicon" then
     if (H.eq(it, "Lexicon")) {
       // open printing
-      H.unsupported("open printing", "open printing");
+      H.openPrinting();
       // print cd fld Lexicon
-      H.unsupported("print", "print cd fld Lexicon");
+      await H.printText(H.value(H.part($, "card", "field", "Lexicon")));
       // close printing
-      H.unsupported("close printing", "close printing");
+      await H.closePrinting();
     // else if it is "Glossary" then
     } else if (H.eq(it, "Glossary")) {
       // open printing
-      H.unsupported("open printing", "open printing");
+      H.openPrinting();
       // print cd fld Lexicon
-      H.unsupported("print", "print cd fld Lexicon");
+      await H.printText(H.value(H.part($, "card", "field", "Lexicon")));
       // close printing
-      H.unsupported("close printing", "close printing");
+      await H.closePrinting();
     // else if it is "Cancel" then
     } else if (H.eq(it, "Cancel")) {
       // exit mouseUp

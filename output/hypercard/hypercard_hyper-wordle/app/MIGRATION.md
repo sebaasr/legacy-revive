@@ -17,8 +17,8 @@ after running the start-up handlers without waiting or showing dialogs (used by 
 | scripts (owners with a script) / distinct texts | 71 / 58 |
 | handlers translated (`on` + `function`, distinct scripts) | 128 |
 | statement lines inside handlers | 675 |
-| lines translated | 648 (96.0%) |
-| lines stubbed (`H.unsupported`) | 27 |
+| lines translated | 672 (99.6%) |
+| lines stubbed (`H.unsupported`) | 3 |
 | lines outside handlers (banners, credits; ignored as HyperCard does) | 13 |
 
 Handlers called but defined nowhere in this stack (XCMDs/XFCNs or handlers of another stack): `doDragBtn`, `showInfo`, `updateTotals`.
@@ -63,59 +63,39 @@ taken as auto-hilite and the low nibble of its high byte as the button family (r
 
 | command | lines |
 |---|---|
-| `choose text tool` | 6 |
-| `choose line tool` | 5 |
-| `drag` | 3 |
-| `reset paint` | 3 |
-| `choose select tool` | 2 |
-| `open file` | 1 |
-| `read` | 1 |
-| `close file` | 1 |
-| `choose eraser tool` | 1 |
 | `updateTotals` | 1 |
 | `doDragBtn` | 1 |
 | `showInfo` | 1 |
-| `choose rectangle tool` | 1 |
 
-- `open file: open file filePath`
-- `read: read from file filePath for 16384`
-- `close file: close file filePath`
-- `choose line tool: choose line tool`
-- `drag: drag from startPoint to endPoint`
-- `choose eraser tool: choose eraser tool`
-- `drag: drag from startPoint to endPoint`
-- `choose select tool: choose "Select Tool"`
 - `updateTotals: updateTotals`
 - `doDragBtn: doDragBtn name of me,0,62,width of card window,height of card window`
 - `showInfo: showInfo false`
-- `reset paint: reset paint`
-- `reset paint: reset paint`
-- `reset paint: reset paint`
-- `choose text tool: choose text tool`
-- `choose line tool: choose line tool`
-- `choose text tool: choose text tool`
-- `choose line tool: choose line tool`
-- `choose text tool: choose text tool`
-- `choose rectangle tool: choose rectangle tool`
-- `drag: drag from barLeft,chartBottom to (barLeft + rowLength),chartBottom - colHeight`
-- `choose text tool: choose text tool`
-- `choose line tool: choose line tool`
-- `choose text tool: choose text tool`
-- `choose line tool: choose line tool`
-- `choose text tool: choose text tool`
-- `choose select tool: choose "Select Tool"`
 
 Each stub calls `H.unsupported(cmd, line)`: logged once in the console and counted in `rt.stubReport()`.
-Run-time stubs (not visible in the counts above): `play "<name>"` of a `snd ` resource (not decoded;
-a short blip is played and `the sound` is "done" after it), `go home` / other stacks, and properties
-the engine does not know.
+Run-time stubs (not visible in the counts above): `play "<name>"` of a sound that is not in this stack's
+resource fork (a short blip is played and `the sound` is "done" after it), `go home` / other stacks,
+`start using` a stack that has no shim, and properties the engine does not know.
+
+## Sounds
+- (no `snd ` resources in this stack)
+Sampled `snd ` resources of the stack are decoded at build time (`modern/hypercard/sounds.py`) into WAV
+files (`sounds/`, and as data URLs in `data.js`); `play "<name>"` plays them with an `Audio` element and
+`the sound` is the name until it ends.
 
 ## Known limitations
-- Painting commands (`choose <paint> tool`, `drag`, `reset paint`, `doMenu "Clear Picture"`) do not draw.
-- Menus (`create menu`, `put ... into menu`), files (`open/read/write file`), printing, `start using` and
-  external code resources (XCMD/XFCN) are not available in a browser.
+- Painting: the line, rectangle, text and eraser tools draw on the card picture (`drag`, `click at` +
+  `type`, `doMenu "Clear Picture"`); brush, spray, bucket, oval and polygon tools do not. Patterns are
+  black (12), white (1) or a 50% gray for every other number.
+- Menus made by scripts (`create menu`, `put ... into menu ... with menuMsgs`, `enable/disable/delete menu`,
+  `reset menubar`) appear in a bar above the card window; single menu items cannot be enabled/disabled.
+- Files are a virtual disk in the browser's localStorage (per stack); closing a file the script wrote
+  also downloads it. Printing (`open printing`, `print field`, `close printing`) opens the browser's
+  print dialog. External code resources (XCMD/XFCN) cannot run: see the shims section above.
+- `set script` and `do` of a string built at run time cannot be translated (no HyperTalk interpreter in
+  the page).
 - Classic Mac bitmap fonts are replaced by system fonts (Chicago -> bold sans-serif, Geneva -> Verdana,
-  ...), thresholded to 1-bit; line breaks inside fields can differ from the original.
+  ...), thresholded to 1-bit; line breaks inside fields can differ from the original. Chicago at 24 or 36
+  points is drawn as the 12-point text scaled 2x / 3x with whole pixels, as the Mac's Font Manager did.
 - Visual effects are CSS approximations (dissolve = fade, wipe/scroll/iris/stretch = clip animations).
 - `the environment` is "development", `the version` is "2.41".
 

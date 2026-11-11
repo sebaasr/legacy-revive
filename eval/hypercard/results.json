@@ -8,13 +8,13 @@
   "totals": {
     "samples": 10,
     "with_reference": 10,
-    "visual_mean_ink_f1": 0.9851,
-    "behavioral_pass": 52,
+    "visual_mean_ink_f1": 0.9857,
+    "behavioral_pass": 58,
     "behavioral_total": 58,
-    "smoke_pass": 9,
+    "smoke_pass": 10,
     "lines": 2513,
-    "lines_translated": 2440,
-    "lines_stubbed": 73,
+    "lines_translated": 2496,
+    "lines_stubbed": 17,
     "handlers": 388
   },
   "spec_accuracy": {
@@ -71,7 +71,7 @@
         "errors": [],
         "buttons_clicked": 4,
         "runtime_stubs_hit": [
-          "play: sound \"DkCasMus\" is not available (snd resources are not decoded)"
+          "play: sound \"DkCasMus\" is not in this stack (not available)"
         ]
       },
       "errors": [],
@@ -158,50 +158,30 @@
         "side_by_side": "eval/hypercard/game-genie-encoder-decoder/side.png"
       },
       "behavioral": {
-        "pass": 3,
+        "pass": 6,
         "total": 6,
-        "failed": [
-          "Decode 6-letter code SXIOPO",
-          "Decode the saved 8-letter code ZKELOLUP",
-          "Encode address 4569 value 173 -> SXIOPO"
-        ]
+        "failed": []
       },
       "smoke": {
         "pass": true,
         "errors": [],
         "buttons_clicked": 6,
-        "runtime_stubs_hit": [
-          "start using: start using stack \"genie des jeux\"",
-          "function: bin: not defined in this stack (XCMD/XFCN or another stack)",
-          "function: bin2dec: not defined in this stack (XCMD/XFCN or another stack)"
-        ]
+        "runtime_stubs_hit": []
       },
       "errors": [],
       "stubs": {
-        "lines_stubbed": 2,
-        "by_command": {
-          "start using": 1,
-          "stop using": 1
-        },
-        "undefined_handlers": [
-          "bin",
-          "bin2dec"
-        ]
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
       },
       "maintainability": {
         "handlers": 11,
         "lines": 147,
-        "lines_translated": 145,
-        "lines_stubbed": 2,
-        "translated_pct": 98.6,
-        "stubs_by_command": {
-          "start using": 1,
-          "stop using": 1
-        },
-        "undefined_handlers": [
-          "bin",
-          "bin2dec"
-        ],
+        "lines_translated": 147,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
         "unavailable_icons": 0,
         "generated_functions": 11,
         "largest_function": {
@@ -225,12 +205,9 @@
         "side_by_side": "eval/hypercard/hypercard_fantasylanguagecreat1/side.png"
       },
       "behavioral": {
-        "pass": 5,
+        "pass": 7,
         "total": 7,
-        "failed": [
-          "New makes a word",
-          "Batch generates the asked number of words"
-        ]
+        "failed": []
       },
       "smoke": {
         "pass": true,
@@ -240,31 +217,17 @@
       },
       "errors": [],
       "stubs": {
-        "lines_stubbed": 9,
-        "by_command": {
-          "open printing": 2,
-          "print": 2,
-          "close printing": 2,
-          "open file": 1,
-          "write": 1,
-          "close file": 1
-        },
+        "lines_stubbed": 0,
+        "by_command": {},
         "undefined_handlers": []
       },
       "maintainability": {
         "handlers": 34,
         "lines": 431,
-        "lines_translated": 422,
-        "lines_stubbed": 9,
-        "translated_pct": 97.9,
-        "stubs_by_command": {
-          "open printing": 2,
-          "print": 2,
-          "close printing": 2,
-          "open file": 1,
-          "write": 1,
-          "close file": 1
-        },
+        "lines_translated": 431,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
         "undefined_handlers": [],
         "unavailable_icons": 0,
         "generated_functions": 34,
@@ -280,11 +243,11 @@
     },
     "hypercard_hyper-wordle": {
       "visual": {
-        "ink_f1": 0.934,
-        "precision": 0.9634,
-        "recall": 0.9063,
-        "pixel_agreement": 0.982,
-        "color_match": 0.982,
+        "ink_f1": 0.9407,
+        "precision": 0.9691,
+        "recall": 0.9139,
+        "pixel_agreement": 0.9832,
+        "color_match": 0.9832,
         "render_options": null,
         "side_by_side": "eval/hypercard/hypercard_hyper-wordle/side.png"
       },
@@ -294,34 +257,18 @@
         "failed": []
       },
       "smoke": {
-        "pass": false,
-        "errors": [
-          "console.error: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper",
-          "script error: mouseUp: No such background field \"\""
-        ],
+        "pass": true,
+        "errors": [],
         "buttons_clicked": 4,
         "runtime_stubs_hit": []
       },
-      "errors": [
-        "console.error: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper",
-        "script error: mouseUp: No such background field \"\""
-      ],
+      "errors": [],
       "stubs": {
-        "lines_stubbed": 27,
+        "lines_stubbed": 3,
         "by_command": {
-          "choose text tool": 6,
-          "choose line tool": 5,
-          "drag": 3,
-          "reset paint": 3,
-          "choose select tool": 2,
-          "open file": 1,
-          "read": 1,
-          "close file": 1,
-          "choose eraser tool": 1,
           "updateTotals": 1,
           "doDragBtn": 1,
-          "showInfo": 1,
-          "choose rectangle tool": 1
+          "showInfo": 1
         },
         "undefined_handlers": [
           "doDragBtn",
@@ -332,23 +279,13 @@
       "maintainability": {
         "handlers": 128,
         "lines": 675,
-        "lines_translated": 648,
-        "lines_stubbed": 27,
-        "translated_pct": 96.0,
+        "lines_translated": 672,
+        "lines_stubbed": 3,
+        "translated_pct": 99.6,
         "stubs_by_command": {
-          "choose text tool": 6,
-          "choose line tool": 5,
-          "drag": 3,
-          "reset paint": 3,
-          "choose select tool": 2,
-          "open file": 1,
-          "read": 1,
-          "close file": 1,
-          "choose eraser tool": 1,
           "updateTotals": 1,
           "doDragBtn": 1,
-          "showInfo": 1,
-          "choose rectangle tool": 1
+          "showInfo": 1
         },
         "undefined_handlers": [
           "doDragBtn",
@@ -362,8 +299,8 @@
           "lines": 127,
           "at": "scripts.js:596"
         },
-        "scripts_js_lines": 2294,
-        "comment_lines": 994,
+        "scripts_js_lines": 2295,
+        "comment_lines": 995,
         "original_kept_as_comments": true
       }
     },
@@ -576,75 +513,40 @@
         "side_by_side": "eval/hypercard/patients-v15/side.png"
       },
       "behavioral": {
-        "pass": 7,
+        "pass": 8,
         "total": 8,
-        "failed": [
-          "PATIENT INFORMATION makes a new patient card"
-        ]
+        "failed": []
       },
       "smoke": {
         "pass": true,
         "errors": [],
         "buttons_clicked": 9,
         "runtime_stubs_hit": [
-          "if: IF THERE IS NOT A MENU \"PROCEDURE\"",
           "go to stack: go to stack \"PATIENTS ™  Version 1.5\" (other stacks are not available)"
         ]
       },
       "errors": [],
       "stubs": {
-        "lines_stubbed": 34,
+        "lines_stubbed": 13,
         "by_command": {
           "do (built string)": 6,
           "set script": 6,
-          "create menu": 4,
-          "menu": 4,
-          "enable menu": 3,
-          "delete": 2,
-          "reset menubar": 2,
-          "sort cards": 2,
-          "disable menu": 2,
-          "if": 1,
-          "PRINTENGOOD": 1,
           "choose button tool": 1
         },
-        "undefined_handlers": [
-          "PRINTENGOOD",
-          "PopMenu",
-          "mouseToLine",
-          "piece",
-          "popUp",
-          "sortLines"
-        ]
+        "undefined_handlers": []
       },
       "maintainability": {
         "handlers": 94,
         "lines": 919,
-        "lines_translated": 885,
-        "lines_stubbed": 34,
-        "translated_pct": 96.3,
+        "lines_translated": 906,
+        "lines_stubbed": 13,
+        "translated_pct": 98.6,
         "stubs_by_command": {
           "do (built string)": 6,
           "set script": 6,
-          "create menu": 4,
-          "menu": 4,
-          "enable menu": 3,
-          "delete": 2,
-          "reset menubar": 2,
-          "sort cards": 2,
-          "disable menu": 2,
-          "if": 1,
-          "PRINTENGOOD": 1,
           "choose button tool": 1
         },
-        "undefined_handlers": [
-          "PRINTENGOOD",
-          "PopMenu",
-          "mouseToLine",
-          "piece",
-          "popUp",
-          "sortLines"
-        ],
+        "undefined_handlers": [],
         "unavailable_icons": 9,
         "generated_functions": 94,
         "largest_function": {

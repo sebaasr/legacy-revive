@@ -9,58 +9,26 @@
   "distinct_scripts": 58,
   "handlers": 128,
   "lines": 675,
-  "lines_translated": 648,
-  "lines_stubbed": 27,
+  "lines_translated": 672,
+  "lines_stubbed": 3,
   "lines_outside_handlers": 13,
   "stubs_by_command": {
-    "choose text tool": 6,
-    "choose line tool": 5,
-    "drag": 3,
-    "reset paint": 3,
-    "choose select tool": 2,
-    "open file": 1,
-    "read": 1,
-    "close file": 1,
-    "choose eraser tool": 1,
     "updateTotals": 1,
     "doDragBtn": 1,
-    "showInfo": 1,
-    "choose rectangle tool": 1
+    "showInfo": 1
   },
   "stub_lines": [
-    "open file: open file filePath",
-    "read: read from file filePath for 16384",
-    "close file: close file filePath",
-    "choose line tool: choose line tool",
-    "drag: drag from startPoint to endPoint",
-    "choose eraser tool: choose eraser tool",
-    "drag: drag from startPoint to endPoint",
-    "choose select tool: choose \"Select Tool\"",
     "updateTotals: updateTotals",
     "doDragBtn: doDragBtn name of me,0,62,width of card window,height of card window",
-    "showInfo: showInfo false",
-    "reset paint: reset paint",
-    "reset paint: reset paint",
-    "reset paint: reset paint",
-    "choose text tool: choose text tool",
-    "choose line tool: choose line tool",
-    "choose text tool: choose text tool",
-    "choose line tool: choose line tool",
-    "choose text tool: choose text tool",
-    "choose rectangle tool: choose rectangle tool",
-    "drag: drag from barLeft,chartBottom to (barLeft + rowLength),chartBottom - colHeight",
-    "choose text tool: choose text tool",
-    "choose line tool: choose line tool",
-    "choose text tool: choose text tool",
-    "choose line tool: choose line tool",
-    "choose text tool: choose text tool",
-    "choose select tool: choose \"Select Tool\""
+    "showInfo: showInfo false"
   ],
   "undefined_handlers": [
     "doDragBtn",
     "showInfo",
     "updateTotals"
   ],
+  "library_shims": [],
+  "reconstructed_xcmds": [],
   "unavailable_icons": [
     "bkgnd-11532/button-51 (icon 15467)",
     "card-2990/button-86 (icon 32462)",
@@ -70,5 +38,6 @@
   "card_size": [
     512,
     342
-  ]
+  ],
+  "sounds": []
 }

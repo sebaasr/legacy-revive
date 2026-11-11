@@ -7,8 +7,8 @@
       "checks": [
         {
           "what": "field \"addr\"",
-          "pass": false,
-          "actual": "",
+          "pass": true,
+          "actual": "4569",
           "expected": {
             "name": "addr",
             "equals": "4569"
@@ -16,8 +16,8 @@
         },
         {
           "what": "field \"dat\"",
-          "pass": false,
-          "actual": "",
+          "pass": true,
+          "actual": "173",
           "expected": {
             "name": "dat",
             "equals": "173"
@@ -39,7 +39,7 @@
         }
       ],
       "errors": [],
-      "pass": false
+      "pass": true
     },
     {
       "name": "Decode the saved 8-letter code ZKELOLUP",
@@ -47,8 +47,8 @@
       "checks": [
         {
           "what": "field \"addr\"",
-          "pass": false,
-          "actual": "",
+          "pass": true,
+          "actual": "15233",
           "expected": {
             "name": "addr",
             "equals": "15233"
@@ -56,8 +56,8 @@
         },
         {
           "what": "field \"dat\"",
-          "pass": false,
-          "actual": "",
+          "pass": true,
+          "actual": "66",
           "expected": {
             "name": "dat",
             "equals": "66"
@@ -65,8 +65,8 @@
         },
         {
           "what": "field \"com\"",
-          "pass": false,
-          "actual": "",
+          "pass": true,
+          "actual": "147",
           "expected": {
             "name": "com",
             "equals": "147"
@@ -79,7 +79,7 @@
         }
       ],
       "errors": [],
-      "pass": false
+      "pass": true
     },
     {
       "name": "Encode address 4569 value 173 -> SXIOPO",
@@ -87,8 +87,8 @@
       "checks": [
         {
           "what": "field \"tcoda\"",
-          "pass": false,
-          "actual": "AAAAAA",
+          "pass": true,
+          "actual": "SXIOPO",
           "expected": {
             "name": "tcoda",
             "equals": "SXIOPO"
@@ -101,7 +101,7 @@
         }
       ],
       "errors": [],
-      "pass": false
+      "pass": true
     },
     {
       "name": "Wrong character in code is rejected",
@@ -211,12 +211,8 @@
     ],
     "errors": [],
     "pass": true,
-    "runtimeStubs": [
-      "start using: start using stack \"genie des jeux\"",
-      "function: bin: not defined in this stack (XCMD/XFCN or another stack)",
-      "function: bin2dec: not defined in this stack (XCMD/XFCN or another stack)"
-    ]
+    "runtimeStubs": []
   },
-  "pass": 3,
+  "pass": 6,
   "total": 6
 }

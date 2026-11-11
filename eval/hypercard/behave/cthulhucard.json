@@ -184,7 +184,7 @@
     "errors": [],
     "pass": true,
     "runtimeStubs": [
-      "play: sound \"DkCasMus\" is not available (snd resources are not decoded)"
+      "play: sound \"DkCasMus\" is not in this stack (not available)"
     ]
   },
   "pass": 6,

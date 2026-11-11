@@ -32,3 +32,21 @@ body.shot .hc-desk { position: relative; width: 512px; height: 342px; overflow: 
 body.shot .hc-window { position: absolute; box-shadow: none; }
 body.shot .hc-window.no-title { border: 0; }
 body.shot .hc-under, body.shot .lr-msgbox { display: none; }
+/* pop-up menu of the reconstructed PopMenu/popUp XCMDs (shims/xcmds.js) */
+.hc-popup { position: absolute; z-index: 20; min-width: 80px; max-height: 300px; overflow-y: auto; background: #fff; color: #000;
+  border: 1px solid #000; box-shadow: 1px 1px 0 #000; font: bold 12px "Chicago", "Segoe UI", Tahoma, Arial, sans-serif; padding: 2px 0; }
+.hc-popup-item { padding: 1px 14px; white-space: nowrap; cursor: default; }
+.hc-popup-item:hover { background: #000; color: #fff; }
+.hc-popup-item.hc-disabled { color: #888; }
+.hc-popup-item.hc-disabled:hover { background: #fff; color: #888; }
+.hc-popup-sep { border-top: 1px dotted #000; margin: 3px 0; }
+/* Chicago 24 drawn as 12-point bitmap scaled 2x (engine.scaleBitmapFonts): canvas over the field, DOM text hidden
+   unless the field is being edited */
+.hc-bitmap-field > .lr-text { color: transparent; }
+.hc-bitmap-field:focus > .lr-text { color: #000; }
+.hc-bitmap-field:focus > .hc-bitmap { display: none; }
+/* menus created by scripts (create menu / put ... into menu ... with menuMsgs), shown above the card window */
+.hc-menubar { display: flex; gap: 2px; background: #fff; border: 1px solid #000; border-bottom-width: 2px; padding: 0 6px; margin-bottom: 4px; }
+.hc-menu-title { background: #fff; color: #000; border: 0; padding: 1px 8px; font: bold 12px "Chicago", "Segoe UI", Tahoma, Arial, sans-serif; cursor: default; }
+.hc-menu-title:hover:not(:disabled) { background: #000; color: #fff; }
+.hc-menu-title:disabled { color: #888; }

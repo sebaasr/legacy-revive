@@ -42,7 +42,7 @@ function script0(owner) {
     // put stackPath & ":" & fileName into filePath
     filePath = H.cat(stackPath, ":", fileName);
     // open file filePath
-    H.unsupported("open file", "open file filePath");
+    H.openFile(filePath);
     // if the result is empty then
     if (H.eq(H.f.result(), "")) {
       // repeat
@@ -51,7 +51,7 @@ function script0(owner) {
         // set the cursor to busy
         H.setGlobal("cursor", "busy");
         // read from file filePath for 16384 -- maximum read is 16K
-        H.unsupported("read", "read from file filePath for 16384");
+        it = H.readFile(filePath, 16384, null);
         // if it is empty then exit repeat
         if (H.eq(it, "")) {
           break;
@@ -62,7 +62,7 @@ function script0(owner) {
       // end repeat
       }
       // close file filePath
-      H.unsupported("close file", "close file filePath");
+      await H.closeFile(filePath);
     // else
     } else {
       // answer "Error opening file " & filePath & ". The error is: " & the result
@@ -99,7 +99,7 @@ function script0(owner) {
     // set lineSize to 2
     H.setGlobal("lineSize", 2);
     // drag from startPoint to endPoint
-    H.unsupported("drag", "drag from startPoint to endPoint");
+    await H.drag($, startPoint, endPoint);
     // choose browse tool
     H.choose("browse");
   });
@@ -109,7 +109,7 @@ function script0(owner) {
     // choose eraser tool
     H.choose("eraser");
     // drag from startPoint to endPoint
-    H.unsupported("drag", "drag from startPoint to endPoint");
+    await H.drag($, startPoint, endPoint);
     // choose browse tool
     H.choose("browse");
   });
@@ -1600,7 +1600,7 @@ function script44(owner) {
   // on closeCard
   H.on(owner, "closeCard", async function closeCard($) {
     // reset paint
-    H.choose("browse");  // reset paint: painting is not supported
+    H.resetPaint();
     // checkUserCancel
     await H.call($, "checkUserCancel", []);
     // clearScreen
@@ -1630,7 +1630,8 @@ function script44(owner) {
   // end doStats
   // on drawChart
   H.on(owner, "drawChart", async function drawChart($) {
-    let labels = "", data = "", units = "", title = "", chartRect = "", legendRect = "";
+    let labels = "", data = "data", units = "", title = "", chartRect = "", legendRect = "";
+    // read before any put: HyperTalk uses the name itself (data)
     // if bg field data is not empty then
     if (!H.eq(H.value(H.part($, "bg", "field", data)), "")) {
       // checkUserCancel
@@ -1652,7 +1653,7 @@ function script44(owner) {
       // put true into bg fld "Drew Data"
       H.putInto(H.part($, "bg", "field", "Drew Data"), true, "into");
       // reset paint
-      H.choose("browse");  // reset paint: painting is not supported
+      H.resetPaint();
     // end if
     }
   });
@@ -1661,7 +1662,7 @@ function script44(owner) {
   H.on(owner, "graph", async function graph($, chartRect, data, labels, units, title) {
     let maxValue = "", frameWidth = "", maxLabel = "", colWidth = "";
     // reset paint
-    H.choose("browse");  // reset paint: painting is not supported
+    H.resetPaint();
     // checkUserCancel
     await H.call($, "checkUserCancel", []);
     // clearScreen
@@ -1771,7 +1772,7 @@ function script44(owner) {
       // put round(line lineNum of data * colWidth) into rowLength
       rowLength = H.f.round(H.num(H.chunk(data, [["line", lineNum]])) * H.num(colWidth));
       // drag from barLeft,chartBottom to (barLeft + rowLength),chartBottom - colHeight
-      H.unsupported("drag", "drag from barLeft,chartBottom to (barLeft + rowLength),chartBottom - colHeight");
+      await H.drag($, H.cat(barLeft, ",", chartBottom), H.cat((H.num(barLeft) + H.num(rowLength)), ",", H.num(chartBottom) - H.num(colHeight)));
       // choose text tool -- type the value
       H.choose("text");
       // click at (barLeft + rowLength + (length of line lineNum of data * 10)),barBottom

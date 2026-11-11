@@ -17,13 +17,17 @@ after running the start-up handlers without waiting or showing dialogs (used by 
 | scripts (owners with a script) / distinct texts | 12 / 10 |
 | handlers translated (`on` + `function`, distinct scripts) | 11 |
 | statement lines inside handlers | 147 |
-| lines translated | 145 (98.6%) |
-| lines stubbed (`H.unsupported`) | 2 |
+| lines translated | 147 (100.0%) |
+| lines stubbed (`H.unsupported`) | 0 |
 | lines outside handlers (banners, credits; ignored as HyperCard does) | 0 |
 
-Handlers called but defined nowhere in this stack (XCMDs/XFCNs or handlers of another stack): `bin`, `bin2dec`.
+Handlers called but defined nowhere in this stack (XCMDs/XFCNs or handlers of another stack): none.
 They are translated as normal calls; at run time `H.call` finds no handler and reports
 `[unsupported] handler ...` in the console (counted in `rt.stubReport()`).
+
+### Compatibility shims for missing library stacks (NOT recovered: written by hand)
+
+- `start using stack "genie des jeux"`: that stack is not in the corpus. `shims/` re-implements the functions the scripts call from it (see the comment at the top of the shim file for what each does and how it was checked). The engine puts it on the message path after the stack.
 
 ### Files
 - `scripts.js`: every script, one JS function per distinct script text, each HyperTalk handler an
@@ -57,23 +61,35 @@ taken as auto-hilite and the low nibble of its high byte as the button family (r
 
 | command | lines |
 |---|---|
-| `start using` | 1 |
-| `stop using` | 1 |
+| (none) | 0 |
 
-- `start using: start using stack "genie des jeux"`
-- `stop using: stop using stack "genie des jeux"`
+- (none)
 
 Each stub calls `H.unsupported(cmd, line)`: logged once in the console and counted in `rt.stubReport()`.
-Run-time stubs (not visible in the counts above): `play "<name>"` of a `snd ` resource (not decoded;
-a short blip is played and `the sound` is "done" after it), `go home` / other stacks, and properties
-the engine does not know.
+Run-time stubs (not visible in the counts above): `play "<name>"` of a sound that is not in this stack's
+resource fork (a short blip is played and `the sound` is "done" after it), `go home` / other stacks,
+`start using` a stack that has no shim, and properties the engine does not know.
+
+## Sounds
+- (no `snd ` resources in this stack)
+Sampled `snd ` resources of the stack are decoded at build time (`modern/hypercard/sounds.py`) into WAV
+files (`sounds/`, and as data URLs in `data.js`); `play "<name>"` plays them with an `Audio` element and
+`the sound` is the name until it ends.
 
 ## Known limitations
-- Painting commands (`choose <paint> tool`, `drag`, `reset paint`, `doMenu "Clear Picture"`) do not draw.
-- Menus (`create menu`, `put ... into menu`), files (`open/read/write file`), printing, `start using` and
-  external code resources (XCMD/XFCN) are not available in a browser.
+- Painting: the line, rectangle, text and eraser tools draw on the card picture (`drag`, `click at` +
+  `type`, `doMenu "Clear Picture"`); brush, spray, bucket, oval and polygon tools do not. Patterns are
+  black (12), white (1) or a 50% gray for every other number.
+- Menus made by scripts (`create menu`, `put ... into menu ... with menuMsgs`, `enable/disable/delete menu`,
+  `reset menubar`) appear in a bar above the card window; single menu items cannot be enabled/disabled.
+- Files are a virtual disk in the browser's localStorage (per stack); closing a file the script wrote
+  also downloads it. Printing (`open printing`, `print field`, `close printing`) opens the browser's
+  print dialog. External code resources (XCMD/XFCN) cannot run: see the shims section above.
+- `set script` and `do` of a string built at run time cannot be translated (no HyperTalk interpreter in
+  the page).
 - Classic Mac bitmap fonts are replaced by system fonts (Chicago -> bold sans-serif, Geneva -> Verdana,
-  ...), thresholded to 1-bit; line breaks inside fields can differ from the original.
+  ...), thresholded to 1-bit; line breaks inside fields can differ from the original. Chicago at 24 or 36
+  points is drawn as the 12-point text scaled 2x / 3x with whole pixels, as the Mac's Font Manager did.
 - Visual effects are CSS approximations (dissolve = fade, wipe/scroll/iris/stretch = clip animations).
 - `the environment` is "development", `the version` is "2.41".
 

@@ -46,6 +46,12 @@
     msgHost: under,
   });
   engine.renderer = renderer;
+  // after every redraw, draw Chicago 24/36 fields as the Mac did: the 12-point bitmap scaled up (engine.js)
+  const baseRefresh = renderer.refresh.bind(renderer);
+  renderer.refresh = () => { baseRefresh(); engine.scaleBitmapFonts(); };
+  // paint drawn by scripts (line/rectangle/text tools) lives with the card: replay it after each card redraw
+  const basePaint = renderer.paint.bind(renderer);
+  renderer.paint = screen => { basePaint(screen); engine.drawPaint(screen.id); };
   engine.dialogHost = win;
   engine.flashHost = win;
   window.rt = rt; window.engine = engine;    // handy from the browser console

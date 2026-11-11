@@ -38,6 +38,7 @@ ctx.window = ctx;
 ctx.LegacyRuntime = { DOCUMENT: '@document', PASS };
 vm.createContext(ctx);
 vm.runInContext(readFileSync(path.join(HERE, 'engine.js'), 'utf-8'), ctx);
+for (const f of ['genie_des_jeux.js', 'xcmds.js']) vm.runInContext(readFileSync(path.join(HERE, 'shims', f), 'utf-8'), ctx);
 
 function makeStack(scripts) {
   const field = (id, name, text = '') => ({ id: `card-1/field-${id}`, kind: 'field', name, number: id, rect: [0, 0, 100, 20],
@@ -112,7 +113,8 @@ function t3
 end t3` });
   assert.equal(await call(E, '@document', 't1', [], 'function'), '00010010');
   assert.equal(await call(E, '@document', 't2', [], 'function'), 'line|bc |e|6');
-  assert.equal(await call(E, '@document', 't3', [], 'function'), '**1***** xy');
+  // HyperCard pads missing lines/items with delimiters but appends a missing word with no space
+  assert.equal(await call(E, '@document', 't3', [], 'function'), '**1*****xy');
 });
 
 await test('put into/after/before fields and lines (FLC noBatch, Wordle setWinRow)', async () => {
@@ -250,13 +252,130 @@ await test('answer/ask in shot mode, stubs are counted', async () => {
 on t
   answer "Leave?" with "No" or "Yes"
   put it into r
-  open file "x"
+  edit script of me
   ask "Name?" with "Anne"
   return r & "/" & it
 end t` });
   assert.equal(await call(E, '@document', 't'), 'Yes/Anne');
   assert.equal(tr['@document'].stubbed, 1);
-  assert.ok(stubs.some(s => s.startsWith('open file')));
+  assert.ok(stubs.some(s => s.startsWith('edit')));
+});
+
+await test('word put past the end builds a word (FLC makeWord: x o l -> xol)', async () => {
+  const { E } = makeStack({ '@document': `
+function mk
+  put empty into w
+  put "x" into word 1 of w
+  put "o" into word 2 of w
+  put "l" into word 3 of w
+  put "a" into char 5 of w
+  return w
+end mk` });
+  assert.equal(await call(E, '@document', 'mk', [], 'function'), 'xola');
+});
+
+await test('unassigned locals read as their own name (Wordle drawChart: bg field data)', async () => {
+  const { E } = makeStack({ '@document': `
+function chart
+  if bg field data is not empty then put stripIt(bg fld "Data") into data
+  return data
+end chart
+function stripIt s
+  return "got " & s
+end stripIt
+function later
+  put n after acc
+  put 5 into n
+  return acc & "/" & n
+end later` });
+  assert.equal(await call(E, '@document', 'chart', [], 'function'), 'got x');
+  assert.equal(await call(E, '@document', 'later', [], 'function'), 'n/5');
+});
+
+await test('library shim via start using (Game Genie bin2dec/bin)', async () => {
+  const { E, stubs } = makeStack({ '@document': `
+on openStack
+  start using stack "genie des jeux"
+end openStack
+function t
+  return bin2dec("0001000111011001") & "," & bin(173) & "," & bin2dec(bin(15233))
+end t` });
+  await E.dispatch('openStack', 'card-1');
+  assert.equal(await call(E, '@document', 't', [], 'function'), '4569,0000000010101101,15233');
+  assert.deepEqual([...stubs], []);
+});
+
+await test('doMenu New card / Delete card; reconstructed XCMDs piece and sortLines', async () => {
+  const { E, H } = makeStack({ '@document': `
+on mk
+  send "doMenu New card" to HyperCard
+end mk
+on rm
+  doMenu "Delete card"
+end rm
+on newCard
+  global made
+  put the number of this card into made
+end newCard
+function x
+  return piece("a;b;c", ";", 2) & "|" & sortLines("pear" & return & "Apple" & return & return & "fig")
+end x` });
+  await call(E, '@document', 'mk');
+  assert.equal(E.cards.length, 4);
+  assert.equal(E.current.id, 'card-4');
+  assert.equal(E.cardIndex.get('card-4'), 1);         // inserted after card 1
+  assert.equal(H.g.made, 2);
+  assert.equal(E.fieldText('bkgnd-9/field-1', 'card-4'), '');   // background fields start empty
+  await call(E, '@document', 'rm');
+  assert.equal(E.cards.length, 3);
+  assert.equal(E.current.id, 'card-2');
+  assert.equal(await call(E, '@document', 'x', [], 'function'), 'b|Apple\nfig\npear');
+});
+
+await test('menus, sort cards by an expression, virtual files (Patients Procedure menu and Sort, FLC export)', async () => {
+  const { E, H, stubs } = makeStack({ '@document': `
+on mk
+  if there is not a menu "Procedure" then create menu "Procedure"
+  put "Colonoscopy,EGD" into menu "PROCEDURE" with menuMsgs "LOWER,EGD"
+  disable menu "Procedure"
+end mk
+on rm
+  if there is a menu "PROCEDURE" then delete menu "Procedure"
+end rm
+on egd
+  global done
+  put "egd" into done
+end egd
+on srt
+  sort cards descending by the short name of this card
+end srt
+function files
+  open file "lex.txt"
+  write "a" & return & "b" to file "lex.txt"
+  close file "lex.txt"
+  open file "lex.txt"
+  read from file "lex.txt" for 1
+  put it into x
+  read from file "lex.txt" until return
+  close file "lex.txt"
+  return x & "|" & it
+end files` });
+  await call(E, '@document', 'mk');
+  assert.equal(H.hasMenu('procedure'), true);
+  assert.equal(E.menus[0].items.map(i => i.text + ':' + i.msg).join(' '), 'Colonoscopy:LOWER EGD:EGD');
+  assert.equal(E.menus[0].enabled, false);
+  await E.menuCommand('EGD');
+  assert.equal(H.g.done, 'egd');
+  await call(E, '@document', 'rm');
+  assert.equal(H.hasMenu('procedure'), false);
+  await call(E, '@document', 'srt');
+  assert.deepEqual(E.cards.map(c => c.name), ['stats', 'main', 'about']);
+  assert.equal(E.current.id, 'card-1');
+  const store = new Map();
+  E.diskRead = n => store.get(n) || ''; E.diskWrite = (n, t) => store.set(n, t); E.download = () => {};
+  assert.equal(await call(E, '@document', 'files', [], 'function'), 'a|\n');
+  assert.equal(store.get('lex.txt'), 'a\nb');
+  assert.deepEqual([...stubs], []);
 });
 
 console.log(`\n${passed} test groups passed`);

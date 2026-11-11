@@ -9,24 +9,20 @@
   "distinct_scripts": 10,
   "handlers": 11,
   "lines": 147,
-  "lines_translated": 145,
-  "lines_stubbed": 2,
+  "lines_translated": 147,
+  "lines_stubbed": 0,
   "lines_outside_handlers": 0,
-  "stubs_by_command": {
-    "start using": 1,
-    "stop using": 1
-  },
-  "stub_lines": [
-    "start using: start using stack \"genie des jeux\"",
-    "stop using: stop using stack \"genie des jeux\""
+  "stubs_by_command": {},
+  "stub_lines": [],
+  "undefined_handlers": [],
+  "library_shims": [
+    "genie des jeux"
   ],
-  "undefined_handlers": [
-    "bin",
-    "bin2dec"
-  ],
+  "reconstructed_xcmds": [],
   "unavailable_icons": [],
   "card_size": [
     512,
     342
-  ]
+  ],
+  "sounds": []
 }

@@ -15,6 +15,8 @@
   "stubs_by_command": {},
   "stub_lines": [],
   "undefined_handlers": [],
+  "library_shims": [],
+  "reconstructed_xcmds": [],
   "unavailable_icons": [
     "bkgnd-2648/button-9 (icon 3071)",
     "card-69896/button-4 (icon 3358)",
@@ -23,5 +25,6 @@
   "card_size": [
     512,
     342
-  ]
+  ],
+  "sounds": []
 }
