@@ -87,3 +87,5 @@ The orchestrator (main Claude Code session) wrote one task message per agent run
 Key orchestration decisions: run ZZT and HyperCard stages in parallel where they don't share files; the shared
 runtime was built by the first Modernizer with an explicit contract for the second target; the final Verifier wrote
 hold-out scenarios the Modernizer never saw, so the last score is not tuned to the fixes.
+   - Deliverables finished 2026-11-11: README.md, gallery index.html, eval/SUMMARY.md, and the class slides
+     (13 slides with speaker notes: https://claude.ai/artifact/V2E7nzRvr3kaFE5HHg4PBd, sources in presentation/deck).
