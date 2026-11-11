@@ -1,0 +1,253 @@
+{
+  "sample": "pyramid-pyramid",
+  "scenarios": [
+    {
+      "name": "P starts on the entrance",
+      "source": "header current board = 1",
+      "checks": [
+        {
+          "what": "state",
+          "pass": true,
+          "actual": "play",
+          "expected": "play"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-1",
+          "expected": "board-1"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Chief without the idol",
+      "source": "@Native chief :touch #if idol then win; ... You not bring great idol",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Native chief\nUga! Uga!  \n \n  You not bring great idol of Hussafuss! \nGo back, search more! (The chief points at\nthe pyramid)\nEnter or Esc to close",
+          "expected": {
+            "contains": "You not bring great idol"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Chief with the idol flag",
+      "source": ":touch #if idol then win -> :win ... You bring great idol at last",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Native chief\nUga! Uga!\n \n  Ahhhh. You bring great idol at last! \nYou get great reward for bravery. You\nallowed to survive. HA HA HA!\nEnter or Esc to close",
+          "expected": {
+            "contains": "You bring great idol at last"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Scroll is read and removed",
+      "source": "scroll (27,9): $The Lost Pyramid ...",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Scroll\nThe Lost Pyramid\n \n  Welcome to the Lost Pyramid of ZZT.\nYou are a tourist. That's it. Nobody\nspecial. While on your tourist hike, you\nmistakingly drop your compass, and soon \nafter get lost! You get captured by the\nlocal natives, who demand that you find\nthe great idol of Hussafuss inside the \nlost pyramid in order to live.\n  I've spent many hours at this game, so\ndon't expect to be a piece of cake.\n                                   -Author\n \nPS: You can contact me on PRODIGY at ID#\nCKPW94E. Thanks!\n#play QEEIFEQC-BIB+CQEEFHG\n#play IBGQFFFFGB+C-BGHB\n#play QB+CICDEDQC-BGBEDHC\n#play Q-B+EGBICBQGIEGQFEEHE\nEnter or Esc to close",
+          "expected": {
+            "contains": "Welcome to the Lost Pyramid"
+          }
+        },
+        {
+          "what": "entity board-1-stat-3 alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Passage leads to board 2",
+      "source": "passage (28,5) -> board-2",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-2",
+          "expected": "board-2"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "South edge leads to board 30",
+      "source": "board-1 exit south = board-30",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-30",
+          "expected": "board-30"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Tigers shoot at the player (added in iteration 2)",
+      "source": "12 tigers (element 42, p2 firing rate 4): shoot when the player is within 2 rows/columns",
+      "checks": [
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Centipedes move and the segments follow their head (added in iteration 2)",
+      "source": "8 heads (44) + 68 segments (45), follower/leader rebuilt by adjacency",
+      "checks": [
+        {
+          "what": "a head moved",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "linked segments touch their leader",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Conveyor carries a gem around (added in iteration 2)",
+      "source": "43 conveyors (elements 16/17)",
+      "checks": [
+        {
+          "what": "the gem left its cell",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Board time limit counts down (added in iteration 2)",
+      "source": "board 28 time_limit = 100 (SPEC 2.5 prop 68)",
+      "checks": [
+        {
+          "what": "time between 90 and 99",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Touching a bomb lights it; it counts down and explodes (added in iteration 2)",
+      "source": "bomb board-6-stat-10 (element 13, p1 = 0); engine design: p1 = 9 countdown, explosion radius",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "You have disturbed the mummies!\n---\nBomb activated!",
+          "expected": {
+            "contains": "Bomb activated"
+          }
+        },
+        {
+          "what": "entity board-6-stat-10 alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "state": "play",
+    "boardsSeen": [
+      "board-1"
+    ],
+    "end": "board-1",
+    "error": null,
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 11,
+  "total": 11
+}

@@ -1,0 +1,289 @@
+{
+  "sample": "dammak-dammak",
+  "scenarios": [
+    {
+      "name": "Intro text then 10 gems",
+      "source": "@intro: text; #give gems 10; #die",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "intro\n     As you approach the little town of\nDelmar,you think back to the border patrol\nof Baron Dammak,that confiscated all of \nyour possessions except for your bow and\na hidden pouch of 10 gems.The rule of \nDammak is well known throughout the entire\nland as a hideous mockery of justice.You\nhad dreaded coming into this land,but to \ngo around it would take weeks.The town is\ndoing fairly well,but all the people are\ngloomy and scared.Perhaps things in the\nbarony of Dammak's are worse than rumors\nrelated them!\nEnter or Esc to close",
+          "expected": {
+            "contains": "As you approach the little town"
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 10,
+          "expected": {
+            "name": "gems",
+            "equals": 10
+          }
+        },
+        {
+          "what": "entity intro alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Innkeeper: buy a room (take 3 gems, send door:bought, put blue key)",
+      "source": "@Innkeeper :touch !x1 -> :x1 #take gems 3 getout; #send door:bought; #put w blue key",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Innkeeper\n     \"Hello,would you like a room for the\nnight for 3 gems?\"\nYes,I'll take it.\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "would you like a room"
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 7,
+          "expected": {
+            "name": "gems",
+            "equals": 7
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "     As you approach the little town of\nDelmar,you think back to the border patrol\nof Baron Dammak,that confiscated all of \nyour possessions except for your bow and\na hidden pouch of 10 gems.The rule of \nDammak is well known throughout the entire\nland as a hideous mockery of justice.You\nhad dreaded ",
+          "expected": {
+            "contains": "room at the end of the hall"
+          }
+        },
+        {
+          "what": "entity door alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "blue key west of the innkeeper",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Innkeeper without gems sends you away",
+      "source": ":x1 #take gems 3 getout -> :getout You haven't got 3 gems!",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "     As you approach the little town of\nDelmar,you think back to the border patrol\nof Baron Dammak,that confiscated all of \nyour possessions except for your bow and\na hidden pouch of 10 gems.The rule of \nDammak is well known throughout the entire\nland as a hideous mockery of justice.You\nhad dreaded ",
+          "expected": {
+            "contains": "You haven't got 3 gems!"
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 1,
+          "expected": {
+            "name": "gems",
+            "equals": 1
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Firewood box gives 20 torches once",
+      "source": "@Box :touch ... #give torches 20; #zap touch",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Box\nHmmm..An old firewood box.It is still \nladen with small branches that would make\nperfect torches.You take the torches.\nEnter or Esc to close",
+          "expected": {
+            "contains": "old firewood box"
+          }
+        },
+        {
+          "what": "counter torches",
+          "pass": true,
+          "actual": 20,
+          "expected": {
+            "name": "torches",
+            "equals": 20
+          }
+        },
+        {
+          "what": "counter torches",
+          "pass": true,
+          "actual": 20,
+          "expected": {
+            "name": "torches",
+            "equals": 20
+          }
+        },
+        {
+          "what": "nothing shown",
+          "pass": true,
+          "actual": "",
+          "expected": "(nothing)"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Broadsword: flag, 50 points, disappears",
+      "source": "@Broadsword :touch #set broadsword; #give score 50; #die",
+      "checks": [
+        {
+          "what": "counter score",
+          "pass": true,
+          "actual": 50,
+          "expected": {
+            "name": "score",
+            "equals": 50
+          }
+        },
+        {
+          "what": "flag broadsword",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "entity Broadsword alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "North edge leads to board 2",
+      "source": "board-1 exit north = board-2",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-2",
+          "expected": "board-2"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Golden box: #if book then check 2 reaches :check2 (book, candle, bell open it) (added in iteration 2)",
+      "source": "@Box :touch #if book then check 2 / :check2 #if candle then check3 / :check3 #if bell then open / :open text, #char 007, #zap touch",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Box\nThe golden box's lid peels back of its own\naccord,revealing the golden coin!\nEnter or Esc to close",
+          "expected": {
+            "contains": "peels back"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Dark board: message on entry, T lights a torch (added in iteration 2)",
+      "source": "board 14 dark flag (SPEC 2.5 prop 1); engine design: torches light an 8x5 ellipse",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "Room is dark - you need to light a torch!",
+          "expected": {
+            "contains": "Room is dark"
+          }
+        },
+        {
+          "what": "counter torches",
+          "pass": true,
+          "actual": 1,
+          "expected": {
+            "name": "torches",
+            "equals": 1
+          }
+        },
+        {
+          "what": "torch burning",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "state": "play",
+    "boardsSeen": [
+      "board-1"
+    ],
+    "end": "board-1",
+    "error": null,
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 8,
+  "total": 8
+}

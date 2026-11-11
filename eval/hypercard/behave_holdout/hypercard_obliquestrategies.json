@@ -1,0 +1,77 @@
+{
+  "sample": "hypercard_obliquestrategies",
+  "scenarios": [
+    {
+      "name": "HO From card 2: Next goes to 4, Prev goes to the last card",
+      "source": "bkgnd button-7: if card 130 or 2 then go card 4; button-8: if card 4 or 2 then go last card; button-9 go card 2",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 4,
+          "expected": 4
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 130,
+          "expected": 130
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Plain previous card from a middle card, then the home button",
+      "source": "button-8 else go previous card; button-9 go card 2",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 6,
+          "expected": 6
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 5,
+          "expected": 5
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

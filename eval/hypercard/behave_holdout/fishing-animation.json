@@ -1,0 +1,34 @@
+{
+  "sample": "fishing-animation",
+  "scenarios": [
+    {
+      "name": "HO Click Me Again visits 3, 4, 5 in order and wraps to card 1 before 'edn'",
+      "source": "card-3598/button-1: go 3; go 4; go 5 (card #6); repeat 20 go next -> card #26 wraps to #1 'as'; go to card \"edn\"",
+      "checks": [
+        {
+          "what": "3 -> 4 -> 5 in order",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "card just before edn is card 1 'as' (go next wraps)",
+          "pass": true,
+          "actual": "card-2923",
+          "expected": "card-2923"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 1,
+  "total": 1
+}

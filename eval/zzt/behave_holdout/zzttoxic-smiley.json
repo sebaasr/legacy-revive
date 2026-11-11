@@ -1,0 +1,95 @@
+{
+  "sample": "zzttoxic-smiley",
+  "scenarios": [
+    {
+      "name": "HO A WOODS object turns into a gem (#become gem)",
+      "source": "board-2-stat-15 @WOODS :TOUCH #PLAY ++ICG; #BECOME GEM. The object sits inside forest; one neighbouring forest tile is cleared first (the player clears forest by walking through it)",
+      "checks": [
+        {
+          "what": "a forest neighbour was cleared",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "the cell is now a gem (element 7)",
+          "pass": true,
+          "actual": 7,
+          "expected": 7
+        },
+        {
+          "what": "entity board-2-stat-15 alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO BONUS: first touch reveals, second touch pays 10 gems, 10 health, 100 points",
+      "source": "@BONUS :TOUCH #CHAR 04; #ZAP TOUCH / :TOUCH Bonus gem worth 10 gems; #GIVE GEMS 10; #GIVE HEALTH 10; #GIVE SCORE 100; #DIE",
+      "checks": [
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 0,
+          "expected": {
+            "name": "gems",
+            "delta": 0
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 10,
+          "expected": {
+            "name": "gems",
+            "delta": 10
+          }
+        },
+        {
+          "what": "counter health",
+          "pass": true,
+          "actual": 110,
+          "expected": {
+            "name": "health",
+            "delta": 10
+          }
+        },
+        {
+          "what": "counter score",
+          "pass": true,
+          "actual": 100,
+          "expected": {
+            "name": "score",
+            "delta": 100
+          }
+        },
+        {
+          "what": "entity BONUS alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

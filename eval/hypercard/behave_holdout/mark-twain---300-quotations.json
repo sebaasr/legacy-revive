@@ -1,0 +1,114 @@
+{
+  "sample": "mark-twain---300-quotations",
+  "scenarios": [
+    {
+      "name": "HO Left arrow on card 1 wraps to the last card of the quotations background (363, not 366)",
+      "source": "stack arrowKey: go to previous card in this background",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-4057",
+          "expected": "card-4057"
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 363,
+          "expected": 363
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Clicking a word in the quotation finds it on another card (hypertext)",
+      "source": "field quotation mouseUp -> hypertext: select the clickchunk; go next; find whole it ('prejudice' is only on cards 1 and 122). The intro field covers the quotation, so the Lock button is clicked twice first (hides intro, lockText back to true)",
+      "checks": [
+        {
+          "what": "visible of \"intro\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-74957",
+          "expected": "card-74957"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO A second Find offers the last search (global lastfound)",
+      "source": "findit: ask \"Find what?\" ... with lastfound; put it into lastfound",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Find what?\n(hit return to find more instances)\nCancel\nOK",
+          "expected": {
+            "contains": "Find what?"
+          }
+        },
+        {
+          "what": "ask default = Associated Press",
+          "pass": true,
+          "actual": "Associated Press",
+          "expected": "Associated Press"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Copy quote hides the intro and leaves the quotation unchanged",
+      "source": "copyQuote: hide intro; put quotation into temp; put return & return & \"Mark Twain\" after ...; doMenu copy text; put temp into quotation",
+      "checks": [
+        {
+          "what": "visible of \"intro\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "field \"quotation\"",
+          "pass": true,
+          "actual": "Where prejudice exists it always discolors our thoughts.",
+          "expected": {
+            "name": "quotation",
+            "equals": "Where prejudice exists it always discolors our thoughts."
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 4,
+  "total": 4
+}

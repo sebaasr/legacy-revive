@@ -1,0 +1,135 @@
+{
+  "sample": "hypercard_inigo_gets_out",
+  "scenarios": [
+    {
+      "name": "Start: first choice",
+      "source": "card-2927/button-2 go to card id 3695",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-3695",
+          "expected": "card-3695"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Other choice and card click returns",
+      "source": "card-2927/button-3 go to card id 11284; card-11284 mouseUp go to card id 2927",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-11284",
+          "expected": "card-11284"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-2927",
+          "expected": "card-2927"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Multi-step animation ends on card 6426",
+      "source": "card-3502/button-1: go 4132, 4926, play, flash 6, go 5419, 5756, 6426",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-6426",
+          "expected": "card-6426"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Escape branch with wait ends on card 17277",
+      "source": "card-8940/button-1: go 16689; visual effect; go 3985; wait 1 seconds; go 17277",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-17277",
+          "expected": "card-17277"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Path 3695 -> 9939 -> 10666",
+      "source": "card-3695/button-2 go 9939; card-9939/button-1 play boing; go 10666",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-9939",
+          "expected": "card-9939"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-10666",
+          "expected": "card-10666"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-2927",
+    "buttons": 2,
+    "clicks": [
+      {
+        "button": "card-2927/button-2",
+        "to": "card-3695",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2927/button-3",
+        "to": "card-11284",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 5,
+  "total": 5
+}

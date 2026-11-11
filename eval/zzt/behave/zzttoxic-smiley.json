@@ -135,6 +135,7 @@
     "pass": true,
     "runtimeStubs": []
   },
+  "retired": [],
   "pass": 5,
   "total": 5
 }

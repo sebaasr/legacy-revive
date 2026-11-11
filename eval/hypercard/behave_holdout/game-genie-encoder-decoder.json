@@ -1,0 +1,52 @@
+{
+  "sample": "game-genie-encoder-decoder",
+  "scenarios": [
+    {
+      "name": "HO Encode with a compare value gives an 8-letter code (to num 8)",
+      "source": "encode: co not empty -> send mouseup to cd btn \"to num 8\"; 4569/173/7 -> SXSOPPYE (decode 8 of it gives back 4569/173/7)",
+      "checks": [
+        {
+          "what": "field \"tcoda\"",
+          "pass": true,
+          "actual": "SXSOPPYE",
+          "expected": {
+            "name": "tcoda",
+            "equals": "SXSOPPYE"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Compare value out of range is rejected",
+      "source": "encode: if (co<0 or co>259) and co<> empty then answer \"The compare value must be >0 and  <255\"",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "The compare value must be >0 and  <255\nOK",
+          "expected": {
+            "contains": "The compare value must be"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

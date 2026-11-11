@@ -1,0 +1,255 @@
+{
+  "sample": "hypercard_what_is_hypercard_2",
+  "scenarios": [
+    {
+      "name": "Start card: version check passes, Previous disabled, Welcome hilited",
+      "source": "openStack checkHCVersion; openCard set enabled/hilite",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Welcome",
+          "expected": "Welcome"
+        },
+        {
+          "what": "dialog open",
+          "pass": true,
+          "actual": null,
+          "expected": false
+        },
+        {
+          "what": "enabled of \"Previous\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "enabled of \"Next\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "hilite of \"Welcome\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Topic button goes to its card and hilites",
+      "source": "bkgnd-2619/button-15 goTopic: go card (the short name of the target)",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Stacks",
+          "expected": "Stacks"
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 4,
+          "expected": 4
+        },
+        {
+          "what": "hilite of \"Stacks\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "enabled of \"Previous\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Next / Previous buttons",
+      "source": "bkgnd-2619/button-22 goNext; button-21 goPrev",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 3,
+          "expected": 3
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Arrow keys click Next / Previous",
+      "source": "bkgnd arrowKey: click at the loc of bkgnd btn \"Next\"",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 3,
+          "expected": 3
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Last card disables Next",
+      "source": "openCard: set the enabled of bkgnd btn \"Next\" to NOT (it = the number of cards)",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 10,
+          "expected": 10
+        },
+        {
+          "what": "enabled of \"Next\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-2992",
+    "buttons": 12,
+    "clicks": [
+      {
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-21",
+        "to": "card-2992",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2619/button-22",
+        "to": "card-4222",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 5,
+  "total": 5
+}

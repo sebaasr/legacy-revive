@@ -1,0 +1,218 @@
+{
+  "sample": "game-genie-encoder-decoder",
+  "scenarios": [
+    {
+      "name": "Decode 6-letter code SXIOPO",
+      "source": "card-2996/button-14 decode -> send mouseup to cd btn \"decode 6\"",
+      "checks": [
+        {
+          "what": "field \"addr\"",
+          "pass": true,
+          "actual": "4569",
+          "expected": {
+            "name": "addr",
+            "equals": "4569"
+          }
+        },
+        {
+          "what": "field \"dat\"",
+          "pass": true,
+          "actual": "173",
+          "expected": {
+            "name": "dat",
+            "equals": "173"
+          }
+        },
+        {
+          "what": "field \"com\"",
+          "pass": true,
+          "actual": "",
+          "expected": {
+            "name": "com",
+            "empty": true
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Decode the saved 8-letter code ZKELOLUP",
+      "source": "decode -> \"decode 8\"",
+      "checks": [
+        {
+          "what": "field \"addr\"",
+          "pass": true,
+          "actual": "15233",
+          "expected": {
+            "name": "addr",
+            "equals": "15233"
+          }
+        },
+        {
+          "what": "field \"dat\"",
+          "pass": true,
+          "actual": "66",
+          "expected": {
+            "name": "dat",
+            "equals": "66"
+          }
+        },
+        {
+          "what": "field \"com\"",
+          "pass": true,
+          "actual": "147",
+          "expected": {
+            "name": "com",
+            "equals": "147"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Encode address 4569 value 173 -> SXIOPO",
+      "source": "card-2996/button-15 encode -> \"to num 6\"",
+      "checks": [
+        {
+          "what": "field \"tcoda\"",
+          "pass": true,
+          "actual": "SXIOPO",
+          "expected": {
+            "name": "tcoda",
+            "equals": "SXIOPO"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Wrong character in code is rejected",
+      "source": "decode: answer \"Wrong character(s) in Code field\"",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Wrong character(s) in Code field\nOK",
+          "expected": {
+            "contains": "Wrong character(s) in Code field"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Out-of-range address is rejected",
+      "source": "encode: if adr<0 or adr>65535 then answer ...",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "The address must be >0 and  <65535\nOK",
+          "expected": {
+            "contains": "The address must be"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Clicking a letter appends it to the code",
+      "source": "bkgnd-2577/field-2 mouseup: put char (cr+1) div 2 of \"AEPO...\" after cd fld tcoda",
+      "checks": [
+        {
+          "what": "field \"tcoda\"",
+          "pass": true,
+          "actual": "ZKELOLUPE",
+          "expected": {
+            "name": "tcoda",
+            "equals": "ZKELOLUPE"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-2996",
+    "buttons": 6,
+    "clicks": [
+      {
+        "button": "card-2996/button-1",
+        "to": "card-2996",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2996/button-8",
+        "to": "card-2996",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2996/button-9",
+        "to": "card-2996",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2996/button-10",
+        "to": "card-2996",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2996/button-14",
+        "to": "card-2996",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2996/button-15",
+        "to": "card-2996",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 6,
+  "total": 6
+}

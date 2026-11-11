@@ -1,42 +1,52 @@
-# HyperCard defects (Verifier, iteration 1)
+# HyperCard defects (Verifier, iteration 2, final)
 
-Measured on 2026-11-10 with `eval/visual.py`, `eval/behave.mjs` (scenarios in `eval/hypercard/scenarios.json`,
-raw results in `eval/hypercard/behave/`) and `eval/summarize.py`. Ordered by impact on what a user can do.
-**Fix in** says where the change belongs: `translator` = `modern/hypercard/translator.py`,
-`engine` = `modern/hypercard/engine.js`, `runtime` = `modern/runtime/`. *Inherent* = the data is not in the stack.
+Measured on 2026-11-11, everything re-run fresh, one headless Chrome at a time: `python eval/visual.py hypercard`,
+`node eval/behave.mjs hypercard <stack>` per stack (main set, `eval/hypercard/behave/`), `node eval/behave.mjs
+hypercard <stack> --holdout` (hold-out set `eval/hypercard/scenarios_holdout.json`, results in
+`eval/hypercard/behave_holdout/`), `python recovered/hypercard/test_reader.py`, `check_pictures.py`, `python eval/summarize.py`.
+The iteration-1 version of this file and its raw results are kept in `eval/hypercard/iter1/`.
 
-Headline: visual ink_f1 mean **0.985** (10/10 with reference), behavioral **52/58** scenarios, smoke **9/10**,
-2440/2513 HyperTalk lines translated (73 stubbed).
+Headline: visual ink_f1 mean **0.9857** (iter 1: 0.9851), behavioral **58/58** (iter 1: 52/58), hold-out
+**21/22**, smoke **10/10** (iter 1: 9/10), 2496/2513 lines translated, 17 stubbed (iter 1: 2440 / 73).
+Reader tests 10/10, start-card pictures 99.95-100.00% (unchanged).
+
+## New defects (found in iteration 2)
 
 | # | sample / screen | expected (from the original script) | actual | likely cause | fix in |
 |---|---|---|---|---|---|
-| 1 | game-genie-encoder-decoder, card 1, `decode`/`encode` | `SXIOPO` decodes to addr 4569, value 173; saved code `ZKELOLUP` decodes to 15233/66/147 (the values stored in the stack); encode 4569/173 gives `SXIOPO` (hand simulation: `eval/hypercard/gamegenie_sim.py`) | addr/dat/com stay empty; encode writes `AAAAAA` (3 of 6 scenarios fail, silently: only an `[unsupported]` warning) | `bin2dec` and `bin` live in the library stack `"genie des jeux"` (`start using`), which is not in the corpus | translator/engine: ship a small library shim for well-known missing functions: `bin2dec(s)` = binary string to decimal, `bin(n)` = 16-char binary string (16 bits reproduce all stored values). **Fixable** (the app is useless without it) |
-| 2 | hypercard_fantasylanguagecreat1, Trade card, `New` / `Batch` | `put x into word N of fld` past the end appends with no delimiter, so a word is built as `xol` (HyperCard pads only lines and items) | Word field gets `x o l`; every Batch line has spaces (`m i n`, `r a sch`) | `chunkPut` pads a space for a missing `word` chunk (`engine.js` ~line 125: `else if (r.type === 'word' ...) pad = ' '`) | engine: no padding for `word` (and `char`) chunks. **Fixable** |
-| 3 | hypercard_hyper-wordle, Stats card (`openCard` -> `drawChart`) | `if bg field data is not empty`: `data` is unassigned at that point, so HyperTalk uses the literal name and finds bg field "data"; then `doStats` fills "win percent" | Script error `No such background field ""`; `openCard` aborts, so `doStats` never runs (smoke test fails on the Stats button) | translator declares `data` as a JS local initialised to `""` (`scripts.js:1635`, `H.part($, "bg", "field", data)`) | translator: a local that is read before any assignment must evaluate to its own name (initialise `let data = "data"`, or use an `H.lit(name)` fallback). **Fixable**; likely hits other stacks that use unquoted names |
-| 4 | patients-v15, Title -> `PATIENT INFORMATION` (and bg `New Patient`) | `send "doMenu New card" to HyperCard` creates an empty patient card after the current one (9 cards, empty Name) | Still 8 cards, still on EVADA AAASON's card; `doMenu "New card"` hits `rt.unsupported` | `menuCommand` has no `new card` / `delete card` (Patients' closeCard also uses `DOMENU DELETE CARD`) | engine: implement `new card` (same background, empty card-layer text, insert after current, go to it) and `delete card`. **Fixable** |
-| 5 | patients-v15, patient card, `MEDICATION LIST` / `PROBLEM LIST` (mouseDown) | pop-up menu of medicines/problems; choice is appended to the field | nothing happens (`PopMenu`, `piece`, `sortLines`, `mouseToLine` undefined, reported as `[unsupported] handler`) | XCMDs/XFCNs that were in the stack's resource fork or another stack | engine/translator: shims. `piece(list, delim, n)` and `sortLines(text)` are trivial; `PopMenu(loc, items)` can be a DOM pop-up returning the item number; `mouseToLine()` = line under the click. **Fixable** |
-| 6 | patients-v15, every card, `Procedure` menu | `create menu "Procedure"`, `put ... into menu ... with menuMsgs "LOWER,EGD"` adds a menu whose items run `LOWER`/`EGD` | 34 stubbed lines; `if there is not a menu "PROCEDURE"` is stubbed as a whole `if` | menus not modelled | engine: a minimal menu bar above the card (create/delete/enable/disable menu, menuMsgs) and `there is a menu`. **Fixable**, medium effort |
-| 7 | hypercard_hyper-wordle, game card title (field "title", Chicago 24) | reference shows Chicago 12 scaled 2x (the Mac font manager scaled the bitmap when no 24-pt size was installed) | browser substitute font: wider "Hyper", different "WORDLE"; lowest visual score (ink_f1 0.934, recall 0.906) | the renderer has only the 12-pt Chicago bitmap | runtime (`render-pixels.js`): when a bitmap font size is missing, integer-scale the nearest smaller size, as the Mac did. **Fixable** |
-| 8 | patients-v15, Title card header (field "NAME", Helvetica 18 bold) | text aligned with the reference | text shifted horizontally (red/blue doubling in `eval/hypercard/patients-v15/side.png`) | metric mismatch of the Helvetica substitute | runtime: metric-compatible font (Arial/Liberation Sans metrics) or bitmap Helvetica. **Fixable**, low impact |
-| 9 | fishing-animation, last step (`play "MJW"`) | plays the stack's own `snd` resource MJW | 150 ms placeholder blip | `snd ` resources are not decoded (SPEC 6) | reader/translator + engine: decode format 1/2 sampled `snd ` to a WAV data URL. **Fixable** for sounds present in the stack; all 33 Cthulhu sounds are **inherent** (not in the stack) |
-| 10 | hypercard_hyper-wordle, Stats card graph | `graph` draws the bar chart with paint tools (`choose line tool`, `drag`, `type`) | nothing drawn (14 paint stubs) | paint tools not modelled | engine: paint layer on a canvas for line/rectangle/text tools. **Fixable**, medium effort; only after #3 |
-| 11 | cthulhucard (18), patients-v15 (9), hypercard_hyper-wordle (4), hypercard_obliquestrategies (3), hypercard_inigo_gets_out (1) | button icons drawn | icon area blank (buttons still work); visible as the missing icons in every side.png | icons are HyperCard application resources, not in the stack | **Inherent**. Optional: outline placeholder so users can see the button |
-| 12 | hypercard_fantasylanguagecreat1, `Sort/Export`, `Print` | export lexicon to a file; print | `open file`/`write`/`print` stubbed (9 lines) | no file system | engine: `write ... to file` -> download a .txt; `print` -> `window.print()` of the field. **Fixable**, low priority |
-| 13 | patients-v15, `install` button | copies a button into the Home stack (`go to stack "home"`, `choose button tool`, `type "C" with commandKey`) | stubs | other stacks and tools are not available | **Inherent** (no Home stack); nothing to fix beyond the existing stub message |
+| N1 | patients-v15, PATIENT LIST card, `UPDATE` (hold-out scenario fails) | `GET THE ID OF THIS CARD` -> `card id 50843`; after looping over the patient cards, `GO TO IDEAR` returns to the PATIENT LIST card and fills `PATIENTS` with `AAASON,EVADA`, `TIME` and `DATE1` | stays on the patient card (card-41341); then `PUT NAMEVAR INTO CD FLD "PATIENTS"` raises `No such card field "PATIENTS"` and TIME/DATE1 are never written | `getProp` for a card/bg returns the bare number for `id` (`engine.js`, `if (prop === 'id') return Number(...)`); `go to 50843` is then read as card **number** 50843, which does not exist, and `go` fails silently | engine: `the id of card/bkgnd` must return `card id N` / `bkgnd id N` (`the short id` stays the bare number); optionally set `the result` to `No such card.` when `go` finds nothing. **Fixable**, small |
+| N2 | patients-v15, several handlers | `do <built string>` (6 lines) and `set the script of ...` (6 lines) run generated HyperTalk at runtime | stubbed (13 lines in total with `choose button tool`) | no runtime HyperTalk interpreter: the translator works ahead of time | engine: a small interpreter for one-line `do` strings (most are `go`/`put` commands); `set script` is **inherent** unless an interpreter is added. Low impact |
+| N3 | hypercard_hyper-wordle, Stats card graph buttons | `updateTotals`, `doDragBtn`, `showInfo` | undefined handlers (3 stubs) | the scripts themselves say `-- Requires handler: updateTotals`: they come from a graphing library stack that is not in the corpus | **Inherent** |
+
+## Iteration-1 defects: status
+
+| # | iteration-1 defect | status | evidence (run on 2026-11-11) |
+|---|---|---|---|
+| 1 | Game Genie `bin2dec`/`bin` missing | **Fixed** | shim `modern/hypercard/shims/genie_des_jeux.js`; all 6 main scenarios pass (decode 6/8, encode 6) and both hold-outs pass (encode with compare -> `to num 8` gives `SXSOPPYE`; compare 300 rejected) |
+| 2 | `put into word N` pads a space (FLC words `x o l`) | **Fixed** | "New makes a word" and "Batch generates..." pass (`^[a-z...]+$`, no spaces) |
+| 3 | unassigned local evaluates to `""` (Wordle Stats error) | **Fixed** | smoke 10/10 with 0 script errors; Stats button no longer errors |
+| 4 | `doMenu "New card"` / `"Delete card"` | **Fixed** | "PATIENT INFORMATION makes a new patient card" passes (9 cards, empty Name) |
+| 5 | Patients XCMDs `PopMenu`/`piece`/`sortLines`/`mouseToLine` | **Fixed (translation)** | shims in `modern/hypercard/shims/xcmds.js`; no undefined handlers left in Patients. The pop-up itself is not exercised by a scenario |
+| 6 | Patients `create menu` / menuMsgs | **Fixed (translation)** | no menu stubs left (34 -> 13 stubbed lines, the rest is N2); menu behaviour not exercised by a scenario |
+| 7 | Wordle Chicago 24 should be Chicago 12 scaled 2x | **Partly fixed** | ink_f1 0.9340 -> 0.9407 (recall 0.906 -> 0.914); still the lowest visual score |
+| 8 | Patients Helvetica 18 header offset | **Open** | ink_f1 unchanged at 0.9842 |
+| 9 | `snd` resources not decoded | **Fixed for sounds in the stack (not verified by ear)** | `output/hypercard/*/app/sounds/` now exists; Cthulhu's sounds remain **inherent** (smoke reports `sound "DkCasMus" is not in this stack`) |
+| 10 | Wordle graph paint tools | **Fixed (translation)** | no paint stubs left; drawing not checked visually |
+| 11 | missing HyperCard application icons | **Inherent** | unchanged |
+| 12 | FLC export / print | **Fixed (translation)** | FLC 431/0 lines stubbed (was 9 stubs) |
+| 13 | Patients `install` (Home stack) | **Inherent** | still stubbed (`choose button tool`, `go to stack`) |
+
+## Scenario sets
+- Main set `eval/hypercard/scenarios.json`: unchanged in iteration 2 (58 scenarios, none retired).
+- Hold-out set `eval/hypercard/scenarios_holdout.json` (22 scenarios, at least 1 per stack, written by the
+  Verifier from the original scripts and not shown to the Modernizer). Covers branches the main set skips:
+  Cthulhu `1st Card` with the `soundoff` global, Fishing card order including the `go next` wrap to card 1,
+  Game Genie `to num 8` and the compare-range check, FLC `yesBatch` / `sortLex descending` / Pronunciation tab,
+  Wordle wrong-place/absent tile styles and the six-guess loss (`weLost`, answer, `newGame`, losses on the stats
+  card), Inigo's longest branch, Oblique's card-2 special cases and plain `go previous`, What is HyperCard's
+  disabled Previous on arrow keys and the stack's own "Home" card, Mark Twain's `previous card in this
+  background` wrap (363, not 366), `hypertext` click-a-word find, `lastfound` default and `copyQuote`,
+  Patients `UPDATE`, `show cc` (commented-out `EXIT MOUSEUP`) and `RETURN`. Only N1 fails.
 
 ## What passed (do not regress)
-- Navigation everywhere (go card/id/name/next/prev/first/last, `go to any card in background`, `push`/`pop`,
-  arrowKey handlers, `click at the loc of`), visual-effect sequences with `wait` (Fishing ends on "edn" then "as";
-  Inigo's multi-go handlers), answer/ask dialogs with button results (Oblique, FLC, Mark Twain x3 chained dialogs),
-  `find` with `the result` (Mark Twain), `the clickChunk` on locked fields (Game Genie letters, Cthulhu list),
-  hilite/enabled/visible properties (What is HyperCard), the whole Wordle game logic (typing, delete, scoring, win,
-  stats on another card), random card ranges (Oblique), openStack chains (Patients, Oblique).
-- No JavaScript errors in any scenario; only #3 raises a HyperTalk error.
-
-## Maintainability notes
-- Every generated handler keeps each original HyperTalk line as a `//` comment above its translation
-  (checked: comment lines >= statement lines in all 10 `scripts.js`).
-- Largest generated functions: Patients `mouseUp` of "CHANGE NAME" (240 lines, `scripts.js:2134`), FLC `IniCon`
-  (139), Wordle `handleEnterKey` (127). They mirror the original handlers; no generated helper is oversized.
-- Silent failure mode: a call to an undefined handler/function (#1, #5) only logs `console.warn` and returns empty.
-  A developer will not notice; consider `rt.flash` once per missing function in non-shot mode.
+Everything listed in iteration 1, plus the fixes above. No JavaScript errors in any main scenario or smoke run.

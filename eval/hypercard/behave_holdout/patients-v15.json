@@ -1,0 +1,119 @@
+{
+  "sample": "patients-v15",
+  "scenarios": [
+    {
+      "name": "HO PATIENT LIST -> UPDATE rebuilds the list from the patient cards and stamps time/date",
+      "source": "card-50843/button-1 UPDATE: go to bg PATIENT INFO; repeat over cards skipping TITLE/MAINTENANCE/HELP/LOGO: put last word & \",\" & first word of fld NAME after NAMEVAR; put the time/date",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-50843",
+          "expected": "card-50843"
+        },
+        {
+          "what": "screen",
+          "pass": false,
+          "actual": "card-41341",
+          "expected": "card-50843"
+        },
+        {
+          "what": "field \"PATIENTS\"",
+          "pass": false,
+          "actual": null,
+          "expected": {
+            "name": "PATIENTS",
+            "matches": "^AAASON,EVADA\\n?$"
+          }
+        },
+        {
+          "what": "field \"TIME\"",
+          "pass": false,
+          "actual": null,
+          "expected": {
+            "name": "TIME",
+            "notEmpty": true
+          }
+        },
+        {
+          "what": "field \"DATE1\"",
+          "pass": false,
+          "actual": null,
+          "expected": {
+            "name": "DATE1",
+            "notEmpty": true
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": false,
+          "actual": [
+            "console.error: [HyperTalk] mouseUp: HTError: No such card field \"PATIENTS\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/patients-v15/app/engine.js:349:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/patients-v15/app/engine.js:1355:52)\n    at mouseUp (file:///C:/Users/sebas/legacy-revive/output/hypercard/patients-v15/app/scripts.js:2455:17",
+            "script error: mouseUp: No such card field \"PATIENTS\""
+          ]
+        }
+      ],
+      "errors": [
+        "console.error: [HyperTalk] mouseUp: HTError: No such card field \"PATIENTS\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/patients-v15/app/engine.js:349:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/patients-v15/app/engine.js:1355:52)\n    at mouseUp (file:///C:/Users/sebas/legacy-revive/output/hypercard/patients-v15/app/scripts.js:2455:17",
+        "script error: mouseUp: No such card field \"PATIENTS\""
+      ],
+      "pass": false
+    },
+    {
+      "name": "HO show cc without a chief complaint warns, then still shows the field and renames itself",
+      "source": "bkgnd-2721/button-139: IF FLD CC IS EMPTY ANSWER ... (-- EXIT MOUSEUP commented out); set visible of field cc to true; set name of me to \"hide cc\"",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "YOU HAVE NOT ENTERED A CHIEF COMPLAINT\nOK",
+          "expected": {
+            "contains": "YOU HAVE NOT ENTERED A CHIEF COMPLAINT"
+          }
+        },
+        {
+          "what": "visible of \"CC\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "button renamed hide cc",
+          "pass": true,
+          "actual": "hide cc",
+          "expected": "hide cc"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO RETURN on a patient card goes to the first card of bg Title",
+      "source": "bkgnd-2721/button-34: go to first card of bg \"Title\"",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-227564",
+          "expected": "card-227564"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 3
+}

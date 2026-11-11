@@ -1,0 +1,59 @@
+{
+  "sample": "cthulhucard",
+  "scenarios": [
+    {
+      "name": "HO 1st Card button on a creature card goes to card 1 (soundoff global empty, no sound)",
+      "source": "bkgnd-4587/button-6: global soundoff; if soundoff = \"on\" then ...; go first",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Cthulhu",
+          "expected": "Cthulhu"
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-3185",
+          "expected": "card-3185"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Go Back on the list card goes to the previous card",
+      "source": "card-6935/button-55: go prev",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

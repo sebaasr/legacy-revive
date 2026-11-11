@@ -5,9 +5,10 @@
 // ORIGINAL scripts. Also runs a smoke test per app (click every visible start-screen button / press P
 // and walk around) and records console errors.
 //
-//   node eval/behave.mjs <target> [sample ...] [--no-smoke] [--only=<scenario name substring>]
-//     reads  eval/<target>/scenarios.json
-//     writes eval/<target>/behave/<sample>.json  (one file per sample, merged into results.json later)
+//   node eval/behave.mjs <target> [sample ...] [--no-smoke] [--only=<scenario name substring>] [--holdout]
+//     reads  eval/<target>/scenarios.json   (--holdout: scenarios_holdout.json, no smoke test)
+//     writes eval/<target>/behave/<sample>.json  (--holdout: behave_holdout/<sample>.json)
+//   Scenarios with "retired": true are skipped and listed under "retired" in the output.
 //
 // scenarios.json: { "<sample>": { "notes": "...", "scenarios": [ { "name", "source", "open"?, "steps": [...] } ] } }
 //   open:  query string added to index.html (e.g. "card=8" or "board=2")
@@ -471,10 +472,13 @@ async function main() {
   const target = args.shift();
   const noSmoke = args.includes('--no-smoke');
   const only = (args.find(a => a.startsWith('--only=')) || '').slice(7);
-  const all = JSON.parse(fs.readFileSync(path.join(ROOT, 'eval', target, 'scenarios.json'), 'utf8'));
+  const holdout = args.includes('--holdout');   // hold-out set: scenarios_holdout.json -> behave_holdout/
+  const scenFile = holdout ? 'scenarios_holdout.json' : 'scenarios.json';
+  const outDir = path.join(ROOT, 'eval', target, holdout ? 'behave_holdout' : 'behave');
+  const all = JSON.parse(fs.readFileSync(path.join(ROOT, 'eval', target, scenFile), 'utf8'));
   const samples = args.filter(a => !a.startsWith('--'));
   const list = samples.length ? samples : Object.keys(all).filter(k => !k.startsWith('_'));
-  fs.mkdirSync(path.join(ROOT, 'eval', target, 'behave'), { recursive: true });
+  fs.mkdirSync(outDir, { recursive: true });
   for (const sample of list) {
     const spec = all[sample] || { scenarios: [] };
     const browser = await chromium.launch({ executablePath: CHROME, args: ['--mute-audio', '--disable-gpu', '--autoplay-policy=no-user-gesture-required'] });
@@ -482,14 +486,16 @@ async function main() {
     await ctx.addInitScript(INIT);
     const page = await ctx.newPage();
     const r = new Runner(page, target, sample);
-    const out = { sample, scenarios: [], smoke: null };
-    for (const sc of spec.scenarios.filter(s => !only || s.name.includes(only))) {
+    const retired = spec.scenarios.filter(s => s.retired);
+    const out = { sample, scenarios: [], smoke: null, retired: retired.map(s => ({ name: s.name, reason: s.retired_reason || '' })) };
+    if (retired.length) console.log(`${sample} | skipping ${retired.length} retired scenario(s)`);
+    for (const sc of spec.scenarios.filter(s => !s.retired && (!only || s.name.includes(only)))) {
       const res = await r.scenario(sc);
       out.scenarios.push(res);
       console.log(`${sample} | ${res.pass ? 'PASS' : 'FAIL'} | ${sc.name}`);
       if (!res.pass) for (const c of res.checks.filter(c => !c.pass)) console.log(`     x ${c.what}: got ${JSON.stringify(c.actual).slice(0, 250)} want ${JSON.stringify(c.expected)}`);
     }
-    if (!noSmoke) {
+    if (!noSmoke && !holdout) {
       out.smoke = target === 'hypercard' ? await r.smokeHyperCard() : await r.smokeZzt();
       console.log(`${sample} | smoke ${out.smoke.pass ? 'PASS' : 'FAIL'} | errors: ${out.smoke.errors.length}`);
       for (const e of out.smoke.errors.slice(0, 6)) console.log('     ' + e.slice(0, 250));
@@ -497,7 +503,7 @@ async function main() {
     await browser.close();
     out.pass = out.scenarios.filter(s => s.pass).length;
     out.total = out.scenarios.length;
-    const file = path.join(ROOT, 'eval', target, 'behave', sample + '.json');
+    const file = path.join(outDir, sample + '.json');
     if (only && fs.existsSync(file)) {   // partial rerun: merge
       const prev = JSON.parse(fs.readFileSync(file, 'utf8'));
       const names = new Set(out.scenarios.map(s => s.name));

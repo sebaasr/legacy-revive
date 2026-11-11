@@ -2,7 +2,8 @@
 
 Inputs (all produced by earlier verifier runs, nothing is re-run here):
   eval/<target>/visual.json            eval/visual.py
-  eval/<target>/behave/<sample>.json   node eval/behave.mjs <target>
+  eval/<target>/behave/<sample>.json   node eval/behave.mjs <target>   (retired scenarios are skipped there and only counted)
+  eval/<target>/behave_holdout/<sample>.json   node eval/behave.mjs <target> --holdout   (Verifier hold-out set, reported separately)
   eval/spec_checks.json                spec accuracy results (reader tests, picture check, GAPS counts)
   output/<target>/<sample>/app/stats.json + scripts.js   maintainability
 
@@ -83,13 +84,17 @@ def main():
                     visual['without_menubar'] = {k: v['without_menubar'][k] for k in ('ink_f1', 'precision', 'recall', 'color_match')}
                 visual['side_by_side'] = f'eval/{target}/{s}/side.png'
             m = maintainability(target, s)
-            scen = b['scenarios'] if b else []
+            scen = [x for x in (b['scenarios'] if b else []) if not x.get('retired')]
+            hf = ROOT / 'eval' / target / 'behave_holdout' / f'{s}.json'
+            ho = json.loads(hf.read_text(encoding='utf-8'))['scenarios'] if hf.exists() else []
             per[s] = {
                 'visual': visual,
                 'behavioral': {
                     'pass': sum(1 for x in scen if x['pass']), 'total': len(scen),
                     'failed': [x['name'] for x in scen if not x['pass']],
                 },
+                'retired_scenarios': [r['name'] for r in (b or {}).get('retired', [])],
+                'holdout': {'pass': sum(1 for x in ho if x['pass']), 'total': len(ho), 'failed': [x['name'] for x in ho if not x['pass']]},
                 'smoke': None if not b or not b.get('smoke') else {
                     'pass': b['smoke']['pass'], 'errors': b['smoke']['errors'][:5],
                     **({'buttons_clicked': b['smoke']['buttons']} if target == 'hypercard' else {'boards_seen': b['smoke']['boardsSeen']}),
@@ -118,6 +123,8 @@ def main():
                 'visual_mean_' + head: round(sum(v[head] for v in withv) / len(withv), 4),
                 'visual_mean_ink_f1': round(sum(v['ink_f1'] for v in withv) / len(withv), 4),
                 'behavioral_pass': pass_b, 'behavioral_total': tot_b,
+                'retired_scenarios': sum(len(p['retired_scenarios']) for p in per.values()),
+                'holdout_pass': sum(p['holdout']['pass'] for p in per.values()), 'holdout_total': sum(p['holdout']['total'] for p in per.values()),
                 'smoke_pass': sum(1 for p in per.values() if p['smoke'] and p['smoke']['pass']),
                 'lines': sum(p['maintainability']['lines'] for p in per.values()),
                 'lines_translated': sum(p['maintainability']['lines_translated'] for p in per.values()),
@@ -129,14 +136,14 @@ def main():
         }
         (ROOT / 'eval' / target / 'results.json').write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding='utf-8')
         print(f'## {target}')
-        print(f"| sample | visual {head} | ink_f1 | behavioral | smoke | errors | lines tr./stub | handlers | largest fn |")
+        print(f"| sample | visual {head} | ink_f1 | behavioral | hold-out | retired | smoke | errors | lines tr./stub | handlers | largest fn |")
         for s, p in per.items():
             v = p['visual']
             vh = f"{v[head]:.4f}" if v else 'n/a'
             vi = f"{v['ink_f1']:.4f}" if v else 'n/a'
             m = p['maintainability']
             sm = 'pass' if p['smoke'] and p['smoke']['pass'] else 'FAIL'
-            print(f"| {s} | {vh} | {vi} | {p['behavioral']['pass']}/{p['behavioral']['total']} | {sm} | {len(p['errors'])} | "
+            print(f"| {s} | {vh} | {vi} | {p['behavioral']['pass']}/{p['behavioral']['total']} | {p['holdout']['pass']}/{p['holdout']['total']} | {len(p['retired_scenarios'])} | {sm} | {len(p['errors'])} | "
                   f"{m['lines_translated']}/{m['lines_stubbed']} | {m['handlers']} | {m['largest_function']['lines']} ({m['largest_function']['name']}) |")
         print(json.dumps(out['totals']))
 

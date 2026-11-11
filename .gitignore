@@ -3,3 +3,4 @@ __pycache__/
 *.log
 *.aux
 node_modules/
+eval/__pycache__/

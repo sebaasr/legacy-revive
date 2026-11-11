@@ -1,0 +1,102 @@
+{
+  "sample": "lostmonk-lostmonk",
+  "scenarios": [
+    {
+      "name": "HO Sack: the whole item chain (ammo 50, torches 5, health 20, banana, rope, score 60)",
+      "source": "@Sack :A ... #give score 10; #give ammo 50 / #give score 10; #give torches 5 / #give score 20; #give health 20 / #set banana; #give score 10 / #set rope; #give score 10; #zap touch",
+      "checks": [
+        {
+          "what": "counter ammo",
+          "pass": true,
+          "actual": 50,
+          "expected": {
+            "name": "ammo",
+            "delta": 50
+          }
+        },
+        {
+          "what": "counter torches",
+          "pass": true,
+          "actual": 5,
+          "expected": {
+            "name": "torches",
+            "delta": 5
+          }
+        },
+        {
+          "what": "counter health",
+          "pass": true,
+          "actual": 120,
+          "expected": {
+            "name": "health",
+            "delta": 20
+          }
+        },
+        {
+          "what": "counter score",
+          "pass": true,
+          "actual": 60,
+          "expected": {
+            "name": "score",
+            "delta": 60
+          }
+        },
+        {
+          "what": "flag banana",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Controls: Eject -> No",
+      "source": "@Controls !C;_Eject_ -> :C Are you sure ... !Y;Yes !N;No -> :N You decide not to eject.; #restart",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Controls\nAre you sure you want to eject your\nwonderful boat?\n \nYes\nNo\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "eject your"
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "The story follows:\n\n  You, Joe MacCarthy, must find Adam\n& Daisy, the two monkeys. Professor Dave\nwanted to give them a strengh shot, but\nthey got scared and ran away. You will\ntravel to many islands and venture deep\ninto a dark cave.\n\nThe game supports:\n\n■ Ega Ansi Graphics\n■ Music\n■ An ending to a",
+          "expected": {
+            "contains": "You decide not to eject"
+          }
+        },
+        {
+          "what": "counter score",
+          "pass": true,
+          "actual": 0,
+          "expected": {
+            "name": "score",
+            "delta": 0
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

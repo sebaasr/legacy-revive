@@ -187,6 +187,7 @@
       "play: sound \"DkCasMus\" is not in this stack (not available)"
     ]
   },
+  "retired": [],
   "pass": 6,
   "total": 6
 }

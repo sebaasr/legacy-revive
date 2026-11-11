@@ -303,6 +303,7 @@
     "pass": true,
     "runtimeStubs": []
   },
+  "retired": [],
   "pass": 7,
   "total": 7
 }

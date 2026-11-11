@@ -1,0 +1,117 @@
+{
+  "sample": "hypercard_fantasylanguagecreat1",
+  "scenarios": [
+    {
+      "name": "HO Save Word with a batch, Yes: the batch is copied into the Lexicon (yesBatch)",
+      "source": "bkgnd-3624/button-15: cd fld Batch not empty -> answer save batch? Yes -> yesBatch: put cd fld Batch into line LIN of Lexicon; hide cd fld Batch",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Do you want to save your batch words?\nYes\nNo",
+          "expected": {
+            "contains": "save your batch words"
+          }
+        },
+        {
+          "what": "field \"Lexicon\"",
+          "pass": true,
+          "actual": "atmaeca\nsacahkun\nsylpalr\nta\ntencesve\nzinpoichconcs",
+          "expected": {
+            "name": "Lexicon",
+            "matches": "^atmaeca\\nsacahkun\\nsylpalr\\nta\\ntencesve\\nzinpoichconcs\\n?$"
+          }
+        },
+        {
+          "what": "visible of \"Batch\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "hilite of \"Lexicon\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Sort/Export -> Sort -> Descending sorts the Lexicon",
+      "source": "Sort/Export: answer ... with Both/Export/Sort -> sortLex: answer Descending/Ascending -> sort lines of cd fld Lexicon descending",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Do you wish to Sort your Lexicon, Export it, or Both?\nBoth\nExport\nSort",
+          "expected": {
+            "contains": "Sort your Lexicon"
+          }
+        },
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Do you want to sort the words ascending or descending?\nDescending\nAscending",
+          "expected": {
+            "contains": "ascending or descending"
+          }
+        },
+        {
+          "what": "first line zinpoichconcs, last line atmaeca",
+          "pass": true,
+          "actual": "zinpoichconcs|atmaeca",
+          "expected": "zinpoichconcs|atmaeca"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Pronunciation tab shows only the Pronounce field",
+      "source": "card-2221/button-25: hilite Pronunciation, show Pronounce, hide Lexicon/Glossary/Batch",
+      "checks": [
+        {
+          "what": "visible of \"Pronounce\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "hilite of \"Pronunciation\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "visible of \"Lexicon\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 3,
+  "total": 3
+}

@@ -1,0 +1,60 @@
+{
+  "sample": "pyramid-pyramid",
+  "scenarios": [
+    {
+      "name": "HO Burning torch object singes the player (#take health 1)",
+      "source": "board-2 @torch :touch #play 0; #take health 1; You are singed by a burning torch.; #restart",
+      "checks": [
+        {
+          "what": "counter health",
+          "pass": true,
+          "actual": 99,
+          "expected": {
+            "name": "health",
+            "delta": -1
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "You are singed by a burning torch.",
+          "expected": {
+            "contains": "singed by a burning torch"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO #bind copy of the coffin shows the coffin text",
+      "source": "board-2-stat-3: #bind Coffin -> :touch $The coffin reads: \"Resting place of the unknown king\"",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "The coffin reads:\n\n    \"Resting place of the unknown king\"   \n",
+          "expected": {
+            "contains": "Resting place of the unknown king"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

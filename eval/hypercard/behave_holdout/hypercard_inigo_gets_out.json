@@ -1,0 +1,76 @@
+{
+  "sample": "hypercard_inigo_gets_out",
+  "scenarios": [
+    {
+      "name": "HO Long path 3695 -> 3502 -> 3156 -> 7525 -> 8138 -> 8581 -> 9001 -> 9494, card click back to the start",
+      "source": "card-3695/button-1, card-3502/button-2, card-3156/button-1 (go 7525; play), card-7525/button-2 (play only), card-7525/button-1, card-8138/button-1, card-8581/button-1, card-9001/button-1 (play; go 9494), card-9494 mouseUp go to card id 2927",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-3502",
+          "expected": "card-3502"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-3156",
+          "expected": "card-3156"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-7525",
+          "expected": "card-7525"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-7525",
+          "expected": "card-7525"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-8138",
+          "expected": "card-8138"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-8581",
+          "expected": "card-8581"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-9001",
+          "expected": "card-9001"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-9494",
+          "expected": "card-9494"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-2927",
+          "expected": "card-2927"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 1,
+  "total": 1
+}

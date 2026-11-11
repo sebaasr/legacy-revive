@@ -11,6 +11,9 @@
     "visual_mean_ink_f1": 0.9857,
     "behavioral_pass": 58,
     "behavioral_total": 58,
+    "retired_scenarios": 0,
+    "holdout_pass": 21,
+    "holdout_total": 22,
     "smoke_pass": 10,
     "lines": 2513,
     "lines_translated": 2496,
@@ -66,6 +69,12 @@
         "total": 6,
         "failed": []
       },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 2,
+        "total": 2,
+        "failed": []
+      },
       "smoke": {
         "pass": true,
         "errors": [],
@@ -115,6 +124,12 @@
         "total": 3,
         "failed": []
       },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 1,
+        "total": 1,
+        "failed": []
+      },
       "smoke": {
         "pass": true,
         "errors": [],
@@ -160,6 +175,12 @@
       "behavioral": {
         "pass": 6,
         "total": 6,
+        "failed": []
+      },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 2,
+        "total": 2,
         "failed": []
       },
       "smoke": {
@@ -209,6 +230,12 @@
         "total": 7,
         "failed": []
       },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 3,
+        "total": 3,
+        "failed": []
+      },
       "smoke": {
         "pass": true,
         "errors": [],
@@ -254,6 +281,12 @@
       "behavioral": {
         "pass": 7,
         "total": 7,
+        "failed": []
+      },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 2,
+        "total": 2,
         "failed": []
       },
       "smoke": {
@@ -319,6 +352,12 @@
         "total": 5,
         "failed": []
       },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 1,
+        "total": 1,
+        "failed": []
+      },
       "smoke": {
         "pass": true,
         "errors": [],
@@ -372,6 +411,12 @@
         "total": 5,
         "failed": []
       },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 2,
+        "total": 2,
+        "failed": []
+      },
       "smoke": {
         "pass": true,
         "errors": [],
@@ -417,6 +462,12 @@
       "behavioral": {
         "pass": 5,
         "total": 5,
+        "failed": []
+      },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 2,
+        "total": 2,
         "failed": []
       },
       "smoke": {
@@ -470,6 +521,12 @@
         "total": 6,
         "failed": []
       },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 4,
+        "total": 4,
+        "failed": []
+      },
       "smoke": {
         "pass": true,
         "errors": [],
@@ -516,6 +573,14 @@
         "pass": 8,
         "total": 8,
         "failed": []
+      },
+      "retired_scenarios": [],
+      "holdout": {
+        "pass": 2,
+        "total": 3,
+        "failed": [
+          "HO PATIENT LIST -> UPDATE rebuilds the list from the patient cards and stamps time/date"
+        ]
       },
       "smoke": {
         "pass": true,

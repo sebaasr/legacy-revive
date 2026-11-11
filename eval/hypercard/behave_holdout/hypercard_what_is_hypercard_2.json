@@ -1,0 +1,83 @@
+{
+  "sample": "hypercard_what_is_hypercard_2",
+  "scenarios": [
+    {
+      "name": "HO Up/Left arrow on the first card does nothing (Previous is disabled)",
+      "source": "arrowKey: click at the loc of bkgnd btn \"Previous\"; openCard set enabled of Previous to NOT (number = 1)",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "what": "dialog open",
+          "pass": true,
+          "actual": null,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Home topic goes to the stack's own 'Home' card (not HyperCard Home), Next goes to More Stacks",
+      "source": "bkgnd-2619/button-18 goTopic: go card (the short name of the target) = card \"Home\" (#7)",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Home",
+          "expected": "Home"
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 7,
+          "expected": 7
+        },
+        {
+          "what": "hilite of \"Home\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "More Stacks",
+          "expected": "More Stacks"
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 8,
+          "expected": 8
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

@@ -1,43 +1,64 @@
-# ZZT defects (Verifier, iteration 1)
+# ZZT defects (Verifier, iteration 2, final)
 
-Measured on 2026-11-10 with `eval/visual.py`, `eval/behave.mjs` (scenarios in `eval/zzt/scenarios.json`, raw
-results in `eval/zzt/behave/`) and `eval/summarize.py`. Ordered by impact. **Fix in**: `translator` =
-`modern/zzt/translator.py`, `engine` = `modern/zzt/engine.js`, `runtime` = `modern/runtime/`.
+Measured on 2026-11-11, everything re-run fresh, one headless Chrome at a time: `python eval/visual.py zzt`,
+`node eval/behave.mjs zzt <world>` per world (main set, `eval/zzt/behave/`), `node eval/behave.mjs zzt <world>
+--holdout` (hold-out set `eval/zzt/scenarios_holdout.json`, results in `eval/zzt/behave_holdout/`),
+`python recovered/zzt/test_reader.py`, `python eval/summarize.py`. Iteration-1 files are kept in `eval/zzt/iter1/`.
 
-Headline: title-board visual color_match mean **0.9999** (ink_f1 1.000) on 6/8 worlds with a reference. These are an
-**upper bound**: the CP437 glyph shapes were harvested from the same reference screenshots, and only title boards
-have references. Behavioral **42/43** scenarios, smoke **8/8** (no console errors), 15,886/15,890 ZZT-OOP lines
-translated (4 stubbed).
+Headline: title-board color_match mean **0.9999** (6/8 with reference, upper bound as before), behavioral
+**55/55** active scenarios (3 retired; iter 1: 42/43), hold-out **15/16**, smoke **8/8**, 15,889/15,890 lines
+translated (1 stubbed, iter 1: 4). Reader tests 8/8.
 
-Note on method: `touch`/`takeItem`/`edge` steps place the player on a free neighbouring cell and then press the
-arrow key into the target, so the object's handler runs through the real input path, but path-finding across the
-board is not tested.
+## Scenario review (iteration 2)
+- **Retired (3):** Toxhints "Part 1 opens its submenu", "A topic shows its hint text", "Return to Main Menu".
+  Checked against the IR (`output/zzt/zzttoxic-toxhints/ir/ir.json`, `screens[0].objects[27]`): the `:TOUCH`
+  text runs straight into `:MAIN` with no `#END` between them, and a `:label` does not end a ZZT message, so the
+  intro and the Part 1/2/3 menu form ONE window (main scenario 1 asserts this). The retired scenarios dismissed
+  that window before choosing `Part 1`, i.e. they encoded the iteration-1 bug. The Modernizer's claim holds.
+  They stay in `scenarios.json` with `"retired": true` and a `retired_reason`; `behave.mjs` skips them and lists
+  them under `retired`, `summarize.py` counts them.
+- **The 15 scenarios added in iteration 2** (3 Toxhints replacements, 2 Dammak, 4 KINGL2, 5 Pyramid, 1 Toxic):
+  all test real behaviour and none passes trivially (each asserts a state change that the iteration-1 engine did
+  not produce). Weak spots, not failures:
+  - Pyramid "Tigers shoot at the player": passes on `health < 100` too, so a tiger that walks into the player
+    satisfies it without shooting. Tighten to "a non-player bullet exists".
+  - KINGL2 "A lion that reaches the player costs 10 health": checks `health < 100` and fewer lions, not the 10.
+  - Pyramid "Conveyor carries a gem around": only checks that the gem left its cell, not that it moved to the
+    next cell around the conveyor.
+  - KINGL2 Energizer, Pyramid Conveyor and the lion scenario edit the board in `setup` (place an item, set p1);
+    acceptable, but they test the element behaviour, not those boards as authored.
+  - Element behaviours (creatures, bombs, conveyors...) are reconstructions of ZZT's documented design (engine
+    header); the scenarios check plausibility (movement, damage, countdown), not exact timing.
+
+## New defects (found in iteration 2)
 
 | # | sample / board | expected (from the original program) | actual | likely cause | fix in |
 |---|---|---|---|---|---|
-| 1 | all worlds, gameplay boards (not covered by scenarios; quantified from the IR) | creatures move and attack, bombs explode, transporters/conveyors/duplicators/pushers act, dark boards need torches, time limits count down | declared simplifications in `engine.js` header: these do nothing. Affected boards: pyramid 35/60 (87 lions, 95 tigers, 162 transporters, 288 conveyor cells, 20 bombs), kingl2 7/10 (145 lions, 23 bombs), dammak 6/16, toxic 5/41, lostmonk 5/68, smiley 4/30; 23 dark boards across the corpus | not implemented yet | engine: built-in element behaviours (start with creatures' movement + damage, transporters, bombs, dark boards with torch radius). **Fixable**, largest remaining gap for playability |
-| 2 | zzttoxic-toxhints, board 0, `HINTS & SOLUTIONS` :TOUCH | one scrollable window: intro text, then the `:MAIN` menu (`Part 1/2/3` choices). In ZZT a `:label` line inside a text block does not end the message | two windows: intro text alone; the menu appears only after the first is closed (scenario 1 fails; scenarios 2-4 pass once the first window is dismissed) | translator splits at label boundaries and `z.say` flushes per segment (`scripts.js:84` and `:97`) | translator/engine: when a segment falls through into the next label, carry the pending text/choices and flush only at a command that ends the message (`#end`, movement, `/i`, etc.). **Fixable** |
-| 3 | dammak-dammak, board 14, `@Box` `:touch` | `#if book then check 2` jumps to `:check` when flag `book` is set (ZZT takes the first word after `then` as the command; the trailing `2` is ignored) | whole line stubbed: touching the box with the book does nothing | parser rejects the extra word | translator: parse `#if <cond> then <command>` with the first word(s) as the command, ignore trailing junk like ZZT. **Fixable** |
-| 4 | kingl2-kingl2, `#change sliderns fake wall`, `#change sliderew fake wall` | change sliders into fake walls (element word `fake`; `wall` is extra) | stubbed (2 lines) | element parser expects exactly two kinds | translator: accept the first valid element word and ignore the rest. **Fixable** |
-| 5 | crimring-crimring, board with `:talk` object | bare `#if` (malformed in the original) | stubbed, rest of the handler runs | original program error | **Inherent** (ZZT would also fail); keep the stub |
-| 6 | all worlds, boards other than the title | visual check | not measured: only title boards have reference screenshots | no references | **Inherent** to the corpus; add emulator screenshots of a few play boards to `corpus/zzt/<world>/` to measure line-wall shapes (spec gap #1: T-junctions and end stubs) and object glyphs |
+| N1 | zzttoxic-toxhints, board 0, Part 1 -> Smiley's Place -> "Can't move the dirt." (hold-out fails) | `:PLACE1` text "Look for something to help you." + `!PLACE2` choice, then `#SEND PART1` (a jump to the object's own label, no `#END`): ZZT keeps executing, so the Part 1 menu (ABOVE GROUND, Smiley's Place ... Apple Tree Lane ...) joins the SAME window | window holds only "Look for something to help you." and "Still can't get underground." | same class as iteration-1 defect 2: `_run` flushes the message whenever a segment returns (`r !== undefined`), including `GOTO` from `#send self`/`#label` jumps; iteration 2 only fixed plain fall-through | engine (`_run`): do not flush on `GOTO` to the object's own label; flush only when the object stops for the tick (`#end`, `/i`, movement, `#die`, op limit). Affects Toxhints throughout (75 `#SEND PARTn` lines, most after hint text). **Fixable**. Confidence: high for the label rule (already accepted), medium for jumps, so check one emulator screenshot if available |
+
+Harness notes (not app defects): two objects named `BARREL` on Toxic board 1 made `entityAlive` by name read
+the wrong one, and `approach` treats forest as a wall, so the hold-out scenarios use ids and clear one forest
+tile explicitly.
+
+## Iteration-1 defects: status
+
+| # | iteration-1 defect | status | evidence (run on 2026-11-11) |
+|---|---|---|---|
+| 1 | no creatures/bombs/transporters/conveyors/duplicators/dark boards/time limits | **Largely fixed** | new main scenarios pass: lions move and hurt (KINGL2 board 8), tigers shoot, centipedes follow their head, conveyor moves a gem, board time limit counts down, bomb lights/explodes (Pyramid 19/18/12/28/6), transporter (Toxic 16), dark board message + torch (Dammak 14), energizer. Duplicators, pushers, blink walls and spinning guns are implemented per the engine header but **not tested** by any scenario |
+| 2 | `:label` splits one message into two windows (Toxhints) | **Fixed** for fall-through | main Toxhints scenario 1 and the 3 replacements pass; the same problem remains for `#SEND <own label>` jumps (N1) |
+| 3 | `#if book then check 2` stubbed (Dammak golden box) | **Fixed** | "Golden box ... reaches :check2" passes |
+| 4 | `#change sliderns fake wall` stubbed (KINGL2) | **Fixed** | "Release Lever" passes (no sliders left) |
+| 5 | Crimring malformed bare `#if` | **Inherent** | still the 1 stubbed line |
+| 6 | no references for play boards | **Inherent** | unchanged |
+
+## Hold-out set
+`eval/zzt/scenarios_holdout.json`, 16 scenarios, 2 per world, from the original programs: Crimring Toilet
+(`#zap touch` exposing a second `:touch`) and bed `#if bedtime`, Dammak weapon maker `#take`/`#set` and a
+`#bind patron` copy, KINGL2 Oracle (five `#give`s then `#zap`) and a `#bind dynamite` copy, Lost Monkeys sack
+item chain (ammo/torches/health/flags/score over several `/i` waits) and Eject -> No, Pyramid torch object
+`#take health 1` and a `#bind Coffin` copy, Smiley `#become gem` and the two-stage BONUS, Toxhints Part 3 menu
+and the `#SEND PART1` continuation (N1), Toxic barrel `:SHOT` via a real Shift+arrow shot and a `#bind BARREL`
+copy. 15/16 pass.
 
 ## What passed (do not regress)
-- Start from the saved current board (crimring 39, lostmonk 9), passages, board-edge exits (dammak north,
-  pyramid south, toxic east, smiley north), `?board=N`.
-- Object text: multi-line windows, single-line flashes, `$` centered lines, `!label;choice` menus that jump
-  (dammak shops, kingl2 statue, lostmonk sack/controls, toxhints sub-menus and `#SEND MAIN`).
-- `#give`/`#take` with fail label (innkeeper with 10 and with 1 gem), `#set` + `#if flag` (pyramid idol,
-  dammak broadsword, toxic shovel), `#zap touch` then the second `:touch` (kingl2 statue), `#die`, `#put w blue
-  key`, `#char`, `#send other:label`, `#send all:label` chains with idle timing (crimring credits: design ->
-  goaway -> appear -> door:die), `#send` chains between objects (toxic FIZZ1 -> AMMO1 -> FIZZ1:DO),
-  `#bind` copies, scrolls (read once then removed), item pickups (ammo +5, torch +1, gem +1 gem/+1 health/+10
-  score, keys).
-
-## Maintainability notes
-- Every statement group keeps the original ZZT-OOP as `//` comments (comment lines >= source lines in all 8
-  `scripts.js`). Identical programs are shared (e.g. pyramid: 772 scripted objects -> 169 programs).
-- Largest generated function: lostmonk `Clock` `on_start` (964 lines, `scripts.js:14603`), a faithful unrolled
-  countdown (`/i/i/i`, `#play a1`, `1:59`, `1:58` ... one block per second in the original). Others stay under 190 lines.
-- Only 4 stubbed lines in 15,890; but the unsupported *elements* (#1) are invisible in `stats.json`. Add a
-  per-world count of cells whose element the engine does not simulate to `stats.json`/`MIGRATION.md`.
+Everything listed in iteration 1, plus the fixed items above. No console errors in any scenario or smoke run.

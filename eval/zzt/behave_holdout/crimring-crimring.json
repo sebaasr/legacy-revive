@@ -1,0 +1,59 @@
+{
+  "sample": "crimring-crimring",
+  "scenarios": [
+    {
+      "name": "HO Toilet: #zap touch exposes the second :touch label",
+      "source": "board-2 @Toilet :touch #lock; #zap touch; $The Toilet ... /i/i/i; #play; <<FLUSH>>; #unlock / :touch You don't have to go, stupid!",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Toilet\nThe Toilet\n \nYou relieve yourself from last night's\ncoffee...\nEnter or Esc to close",
+          "expected": {
+            "contains": "relieve yourself"
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "You don't have to go, stupid!",
+          "expected": {
+            "contains": "You don't have to go"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Bed without the bedtime flag",
+      "source": "board-2 @bed :touch #if bedtime then sleep; This is NOT the time to take a snooze!",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "This is NOT the time to take a snooze!",
+          "expected": {
+            "contains": "NOT the time to take a snooze"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

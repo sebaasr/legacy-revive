@@ -207,6 +207,7 @@
     "pass": true,
     "runtimeStubs": []
   },
+  "retired": [],
   "pass": 6,
   "total": 6
 }

@@ -23,60 +23,6 @@
       "pass": true
     },
     {
-      "name": "Part 1 opens its submenu",
-      "source": "!PART1 -> :PART1 !PLACE;Smiley's Place ...",
-      "checks": [
-        {
-          "what": "step failed",
-          "pass": false,
-          "actual": "no choice Part 1 in [Smiley's Place | Introduction | Apple Tree Lane | Sunny Dale Park | Bio-mechanical Head | Lab Grounds | Flakey's | Inside the Lab | Return to Main Menu]"
-        },
-        {
-          "what": "no JS/script errors",
-          "pass": true,
-          "actual": []
-        }
-      ],
-      "errors": [],
-      "pass": false
-    },
-    {
-      "name": "A topic shows its hint text",
-      "source": ":PART1 !PLACE -> :PLACE ...",
-      "checks": [
-        {
-          "what": "step failed",
-          "pass": false,
-          "actual": "no choice Part 1 in [Smiley's Place | Introduction | Apple Tree Lane | Sunny Dale Park | Bio-mechanical Head | Lab Grounds | Flakey's | Inside the Lab | Return to Main Menu]"
-        },
-        {
-          "what": "no JS/script errors",
-          "pass": true,
-          "actual": []
-        }
-      ],
-      "errors": [],
-      "pass": false
-    },
-    {
-      "name": "Return to Main Menu",
-      "source": "!RETURN -> :RETURN #SEND MAIN",
-      "checks": [
-        {
-          "what": "step failed",
-          "pass": false,
-          "actual": "no choice Part 1 in [Smiley's Place | Introduction | Apple Tree Lane | Sunny Dale Park | Bio-mechanical Head | Lab Grounds | Flakey's | Inside the Lab | Return to Main Menu]"
-        },
-        {
-          "what": "no JS/script errors",
-          "pass": true,
-          "actual": []
-        }
-      ],
-      "errors": [],
-      "pass": false
-    },
-    {
       "name": "Choosing Part 1 in the merged first window opens its submenu (added in iteration 2)",
       "source": ":TOUCH text falls through into :MAIN; one window holds intro + !PART1/!PART2/!PART3 (replaces the dismiss step of scenarios 2-4, which assumed two windows)",
       "checks": [
@@ -159,6 +105,20 @@
     "pass": true,
     "runtimeStubs": []
   },
+  "retired": [
+    {
+      "name": "Part 1 opens its submenu",
+      "reason": "Retired in iteration 2 by the Verifier. The 'dismiss' step after touching assumed the :TOUCH intro and the :MAIN menu are two windows. In the IR program (screens[0].objects[27]) the :TOUCH text runs into :MAIN with no #END in between; a :label is not a command that ends a message, so ZZT shows intro + menu in one window (scenario 1 asserts this). Dismissing that window closes the menu without a choice, so these steps encoded the iteration-1 bug. Replaced by the three '(added in iteration 2)' scenarios."
+    },
+    {
+      "name": "A topic shows its hint text",
+      "reason": "Retired in iteration 2 by the Verifier. The 'dismiss' step after touching assumed the :TOUCH intro and the :MAIN menu are two windows. In the IR program (screens[0].objects[27]) the :TOUCH text runs into :MAIN with no #END in between; a :label is not a command that ends a message, so ZZT shows intro + menu in one window (scenario 1 asserts this). Dismissing that window closes the menu without a choice, so these steps encoded the iteration-1 bug. Replaced by the three '(added in iteration 2)' scenarios."
+    },
+    {
+      "name": "Return to Main Menu",
+      "reason": "Retired in iteration 2 by the Verifier. The 'dismiss' step after touching assumed the :TOUCH intro and the :MAIN menu are two windows. In the IR program (screens[0].objects[27]) the :TOUCH text runs into :MAIN with no #END in between; a :label is not a command that ends a message, so ZZT shows intro + menu in one window (scenario 1 asserts this). Dismissing that window closes the menu without a choice, so these steps encoded the iteration-1 bug. Replaced by the three '(added in iteration 2)' scenarios."
+    }
+  ],
   "pass": 4,
-  "total": 7
+  "total": 4
 }

@@ -1,0 +1,59 @@
+{
+  "sample": "zzttoxic-toxhints",
+  "scenarios": [
+    {
+      "name": "HO Part 3 opens its submenu",
+      "source": "!PART3 -> :PART3 $ABOVE EARTH !LIVING;Living Engine Room ...",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "HINTS & SOLUTIONS\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\nABOVE EARTH  \n▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n \nLiving Engine Room\n \nObservation Port\n \nPassageways\n \nPilot Deck\n \nDeath Ray\n \nToxic Terminator/Slime\n \nEscape and Beyond\n \nReturn to Main Menu\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "Living Engine Room"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO A follow-up hint and #SEND PART1 show in ONE window (text continues into the Part 1 menu)",
+      "source": ":PLACE !PLACE1 -> :PLACE1 Look for something to help you. / !PLACE2 ... / #SEND PART1 (jump to own label, no #END: the menu text joins the same message)",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "HINTS & SOLUTIONS\nLook for something to help you.\n \nStill can't get underground.\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "Look for something to help you"
+          }
+        },
+        {
+          "what": "dialog",
+          "pass": false,
+          "actual": "HINTS & SOLUTIONS\nLook for something to help you.\n \nStill can't get underground.\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "Apple Tree Lane"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": false
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 1,
+  "total": 2
+}

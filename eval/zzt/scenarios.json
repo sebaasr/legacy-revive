@@ -3,187 +3,1791 @@
   "crimring-crimring": {
     "notes": "Demo world starting on the Credits board (39): a timed #send all:<label> chain spells the credits and finally #send door:die opens the way to the passage.",
     "scenarios": [
-      { "name": "P starts on the Credits board", "source": "header current board = 39",
-        "steps": [ {"start": true}, {"expect": {"state": "play", "screen": "board-39"}} ] },
-      { "name": "#send all:design makes the letters appear", "source": "object #78: /i x13; #send all:design; objects :design #char 68 ('D') etc.",
-        "steps": [ {"start": true}, {"waitFor": {"js": "game.board.entities.some(o => o.x === 26 && o.y === 7 && o.ch === 68)", "timeout": 20000}},
-                   {"expect": {"js": {"label": "object at (27,8) shows 'D'", "code": "game.board.entities.find(o => o.x === 26 && o.y === 7).ch", "equals": 68}}} ] },
-      { "name": "#send all:goaway removes the bound objects", "source": "#78: #send all:goaway; @goaway :goaway #die (and #bind goaway copies)",
-        "steps": [ {"start": true}, {"waitFor": {"js": "!game.board.entities.some(o => o.name === 'goaway' && !o.dead)", "timeout": 30000}},
-                   {"expect": {"js": {"label": "no live goaway-bound objects", "code": "game.board.entities.filter(o => !o.dead && o.x === 18 && o.y < 24).length", "equals": 0}}} ] },
-      { "name": "Chain ends with #send door:die, then the passage leads to board 2", "source": "#78: ... #send door:die; passage (31,25) -> board-2",
-        "steps": [ {"start": true}, {"waitFor": {"js": "!game.board.entities.some(o => o.name === 'door' && !o.dead)", "timeout": 45000}},
-                   {"touch": "board-39-stat-113"}, {"expect": {"screen": "board-2"}} ] }
+      {
+        "name": "P starts on the Credits board",
+        "source": "header current board = 39",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "expect": {
+              "state": "play",
+              "screen": "board-39"
+            }
+          }
+        ]
+      },
+      {
+        "name": "#send all:design makes the letters appear",
+        "source": "object #78: /i x13; #send all:design; objects :design #char 68 ('D') etc.",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "game.board.entities.some(o => o.x === 26 && o.y === 7 && o.ch === 68)",
+              "timeout": 20000
+            }
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "object at (27,8) shows 'D'",
+                "code": "game.board.entities.find(o => o.x === 26 && o.y === 7).ch",
+                "equals": 68
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "#send all:goaway removes the bound objects",
+        "source": "#78: #send all:goaway; @goaway :goaway #die (and #bind goaway copies)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "!game.board.entities.some(o => o.name === 'goaway' && !o.dead)",
+              "timeout": 30000
+            }
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "no live goaway-bound objects",
+                "code": "game.board.entities.filter(o => !o.dead && o.x === 18 && o.y < 24).length",
+                "equals": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Chain ends with #send door:die, then the passage leads to board 2",
+        "source": "#78: ... #send door:die; passage (31,25) -> board-2",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "!game.board.entities.some(o => o.name === 'door' && !o.dead)",
+              "timeout": 45000
+            }
+          },
+          {
+            "touch": "board-39-stat-113"
+          },
+          {
+            "expect": {
+              "screen": "board-2"
+            }
+          }
+        ]
+      }
     ]
   },
   "dammak-dammak": {
     "notes": "Town board: shops with !choices, #take with a fail label, #send to another object, #put, #zap, #give.",
     "scenarios": [
-      { "name": "Intro text then 10 gems", "source": "@intro: text; #give gems 10; #die",
-        "steps": [ {"start": true}, {"waitFor": {"js": "rt.dialogOpen", "timeout": 5000}}, {"expect": {"dialog": {"contains": "As you approach the little town"}}},
-                   {"dismiss": true}, {"wait": 600}, {"expect": {"counter": {"name": "gems", "equals": 10}, "entityAlive": {"name": "intro", "value": false}}} ] },
-      { "name": "Innkeeper: buy a room (take 3 gems, send door:bought, put blue key)", "source": "@Innkeeper :touch !x1 -> :x1 #take gems 3 getout; #send door:bought; #put w blue key",
-        "steps": [ {"start": true}, {"waitFor": {"js": "rt.dialogOpen", "timeout": 5000}}, {"dismiss": true}, {"wait": 600},
-                   {"touch": "Innkeeper", "from": "east"}, {"expect": {"dialog": {"contains": "would you like a room"}}}, {"answer": "Yes,I'll take it."}, {"wait": 800},
-                   {"expect": {"counter": {"name": "gems", "equals": 7}, "shown": {"contains": "room at the end of the hall"}}},
-                   {"dismiss": true}, {"wait": 600},
-                   {"expect": {"entityAlive": {"name": "door", "value": false}, "js": {"label": "blue key west of the innkeeper", "code": "game.board.el[22*60+23] === 8 && (game.board.fg[22*60+23] & 7) === 1"}}} ] },
-      { "name": "Innkeeper without gems sends you away", "source": ":x1 #take gems 3 getout -> :getout You haven't got 3 gems!",
-        "steps": [ {"start": true}, {"waitFor": {"js": "rt.dialogOpen", "timeout": 5000}}, {"dismiss": true}, {"wait": 600}, {"setup": "rt.set('gems', 1)"},
-                   {"touch": "Innkeeper"}, {"answer": "Yes,I'll take it."}, {"wait": 800},
-                   {"expect": {"shown": {"contains": "You haven't got 3 gems!"}, "counter": {"name": "gems", "equals": 1}}} ] },
-      { "name": "Firewood box gives 20 torches once", "source": "@Box :touch ... #give torches 20; #zap touch",
-        "steps": [ {"start": true}, {"waitFor": {"js": "rt.dialogOpen", "timeout": 5000}}, {"dismiss": true}, {"wait": 600},
-                   {"touch": "Box"}, {"expect": {"dialog": {"contains": "old firewood box"}}}, {"dismiss": true}, {"wait": 500},
-                   {"expect": {"counter": {"name": "torches", "equals": 20}}}, {"mark": true}, {"touch": "Box"}, {"wait": 500},
-                   {"expect": {"counter": {"name": "torches", "equals": 20}, "shown": false}} ] },
-      { "name": "Broadsword: flag, 50 points, disappears", "source": "@Broadsword :touch #set broadsword; #give score 50; #die",
-        "steps": [ {"start": true}, {"waitFor": {"js": "rt.dialogOpen", "timeout": 5000}}, {"dismiss": true}, {"wait": 600},
-                   {"touch": "Broadsword"}, {"dismiss": true}, {"wait": 600},
-                   {"expect": {"counter": {"name": "score", "equals": 50}, "flag": {"name": "broadsword", "value": true}, "entityAlive": {"name": "Broadsword", "value": false}}} ] },
-      { "name": "North edge leads to board 2", "source": "board-1 exit north = board-2",
-        "steps": [ {"start": true}, {"waitFor": {"js": "rt.dialogOpen", "timeout": 5000}}, {"dismiss": true}, {"wait": 600},
-                   {"edge": "north"}, {"expect": {"screen": "board-2"}} ] },
-      {"name": "Golden box: #if book then check 2 reaches :check2 (book, candle, bell open it) (added in iteration 2)", "open": "board=14", "source": "@Box :touch #if book then check 2 / :check2 #if candle then check3 / :check3 #if bell then open / :open text, #char 007, #zap touch", "steps": [{"start": true}, {"setup": "rt.setFlag('book'); rt.setFlag('candle'); rt.setFlag('bell');"}, {"touch": "Box"}, {"expect": {"dialog": {"contains": "peels back"}}}]},
-      {"name": "Dark board: message on entry, T lights a torch (added in iteration 2)", "open": "board=14", "source": "board 14 dark flag (SPEC 2.5 prop 1); engine design: torches light an 8x5 ellipse", "steps": [{"start": true}, {"expect": {"shown": {"contains": "Room is dark"}}}, {"setup": "rt.set('torches', 2);"}, {"key": "t"}, {"expect": {"counter": {"name": "torches", "equals": 1}, "js": {"label": "torch burning", "code": "game.torch > 0"}}}]}
+      {
+        "name": "Intro text then 10 gems",
+        "source": "@intro: text; #give gems 10; #die",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 5000
+            }
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "As you approach the little town"
+              }
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "gems",
+                "equals": 10
+              },
+              "entityAlive": {
+                "name": "intro",
+                "value": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Innkeeper: buy a room (take 3 gems, send door:bought, put blue key)",
+        "source": "@Innkeeper :touch !x1 -> :x1 #take gems 3 getout; #send door:bought; #put w blue key",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 5000
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "touch": "Innkeeper",
+            "from": "east"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "would you like a room"
+              }
+            }
+          },
+          {
+            "answer": "Yes,I'll take it."
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "gems",
+                "equals": 7
+              },
+              "shown": {
+                "contains": "room at the end of the hall"
+              }
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "door",
+                "value": false
+              },
+              "js": {
+                "label": "blue key west of the innkeeper",
+                "code": "game.board.el[22*60+23] === 8 && (game.board.fg[22*60+23] & 7) === 1"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Innkeeper without gems sends you away",
+        "source": ":x1 #take gems 3 getout -> :getout You haven't got 3 gems!",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 5000
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "setup": "rt.set('gems', 1)"
+          },
+          {
+            "touch": "Innkeeper"
+          },
+          {
+            "answer": "Yes,I'll take it."
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "You haven't got 3 gems!"
+              },
+              "counter": {
+                "name": "gems",
+                "equals": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Firewood box gives 20 torches once",
+        "source": "@Box :touch ... #give torches 20; #zap touch",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 5000
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "touch": "Box"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "old firewood box"
+              }
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 500
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "torches",
+                "equals": 20
+              }
+            }
+          },
+          {
+            "mark": true
+          },
+          {
+            "touch": "Box"
+          },
+          {
+            "wait": 500
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "torches",
+                "equals": 20
+              },
+              "shown": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "Broadsword: flag, 50 points, disappears",
+        "source": "@Broadsword :touch #set broadsword; #give score 50; #die",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 5000
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "touch": "Broadsword"
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "score",
+                "equals": 50
+              },
+              "flag": {
+                "name": "broadsword",
+                "value": true
+              },
+              "entityAlive": {
+                "name": "Broadsword",
+                "value": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "North edge leads to board 2",
+        "source": "board-1 exit north = board-2",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 5000
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "edge": "north"
+          },
+          {
+            "expect": {
+              "screen": "board-2"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Golden box: #if book then check 2 reaches :check2 (book, candle, bell open it) (added in iteration 2)",
+        "open": "board=14",
+        "source": "@Box :touch #if book then check 2 / :check2 #if candle then check3 / :check3 #if bell then open / :open text, #char 007, #zap touch",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "rt.setFlag('book'); rt.setFlag('candle'); rt.setFlag('bell');"
+          },
+          {
+            "touch": "Box"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "peels back"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dark board: message on entry, T lights a torch (added in iteration 2)",
+        "open": "board=14",
+        "source": "board 14 dark flag (SPEC 2.5 prop 1); engine design: torches light an 8x5 ellipse",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "Room is dark"
+              }
+            }
+          },
+          {
+            "setup": "rt.set('torches', 2);"
+          },
+          {
+            "key": "t"
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "torches",
+                "equals": 1
+              },
+              "js": {
+                "label": "torch burning",
+                "code": "game.torch > 0"
+              }
+            }
+          }
+        ]
+      }
     ]
   },
   "kingl2-kingl2": {
     "notes": "First board: signs, a statue with a !choice reward, dynamite with #take energy, items and a passage.",
     "scenarios": [
-      { "name": "Statue: kiss the brow for 20 gems, then no more", "source": "@Statue :touch !x1 -> :x1 #give gems 20; #zap touch -> second :touch",
-        "steps": [ {"start": true}, {"touch": "Statue Of Chulmir"}, {"expect": {"dialog": {"contains": "statue of Chulmir"}}},
-                   {"answer": "Kiss Chulmir's brow."}, {"wait": 800}, {"expect": {"counter": {"name": "gems", "equals": 20}}},
-                   {"dismiss": true}, {"mark": true}, {"touch": "Statue Of Chulmir"}, {"wait": 800},
-                   {"expect": {"shown": {"contains": "no more gems"}, "counter": {"name": "gems", "equals": 20}}} ] },
-      { "name": "Arsenal sign text", "source": "@Arsenal Sign :touch",
-        "steps": [ {"start": true}, {"touch": "Arsenal Sign"}, {"expect": {"dialog": {"contains": "Beyond this wall lies King"}}} ] },
-      { "name": "Dynamite explodes and disappears", "source": "@Dynamite :touch You set off the dynamite!; #take energy 5; #die",
-        "steps": [ {"start": true}, {"touch": "Dynamite"}, {"wait": 800},
-                   {"expect": {"shown": {"contains": "You set off the dynamite!"}, "entityAlive": {"name": "Dynamite", "value": false}}} ] },
-      { "name": "Picking up ammo adds 5", "source": "built-in ammo element (5)",
-        "steps": [ {"start": true}, {"snapshot": true}, {"takeItem": 5}, {"expect": {"counter": {"name": "ammo", "delta": 5}}} ] },
-      { "name": "Picking up a torch adds 1", "source": "built-in torch element (6)",
-        "steps": [ {"start": true}, {"snapshot": true}, {"takeItem": 6}, {"expect": {"counter": {"name": "torches", "delta": 1}}} ] },
-      { "name": "Passage leads to board 2", "source": "passage (2,2) -> board-2",
-        "steps": [ {"start": true}, {"touch": "board-1-stat-1"}, {"expect": {"screen": "board-2"}} ] },
-      {"name": "Release Lever: #change sliderns/sliderew fake wall (added in iteration 2)", "open": "board=2", "source": "@Release Lever :touch #change sliderns fake wall; #change sliderew fake wall", "steps": [{"start": true}, {"expect": {"js": {"label": "sliders on the board", "code": "[...game.board.el].some(e => e === 25 || e === 26)"}}}, {"touch": "Release Lever"}, {"wait": 1500}, {"expect": {"js": {"label": "no sliders left", "code": "![...game.board.el].some(e => e === 25 || e === 26)"}}}]},
-      {"name": "Lions move once the player presses a key (added in iteration 2)", "open": "board=8", "source": "141 lions (element 41, p1 intelligence); engine design: random or seeking steps", "steps": [{"start": true}, {"setup": "window.__pos = game.board.entities.filter(o => o.el === 41).map(o => o.x + ',' + o.y);"}, {"key": "Space"}, {"wait": 3000}, {"expect": {"js": {"label": ">= 20 lions moved", "code": "game.board.entities.filter(o => o.el === 41 && !o.dead && !window.__pos.includes(o.x + ',' + o.y)).length >= 20"}}}]},
-      {"name": "A lion that reaches the player costs 10 health and dies (added in iteration 2)", "open": "board=8", "source": "engine design: creature attack = -10 health, the creature is destroyed", "steps": [{"start": true}, {"setup": "game.board.entities.find(o => o.el === 41 && __H.approach(o.x, o.y)); game.board.entities.forEach(o => { if (o.el === 41) o.p1 = 10; }); window.__lions = game.board.entities.filter(o => o.el === 41 && !o.dead).length;"}, {"key": "Space"}, {"waitFor": {"js": "rt.get('health') < 100", "timeout": 8000}}, {"expect": {"js": {"label": "fewer lions", "code": "game.board.entities.filter(o => o.el === 41 && !o.dead).length < window.__lions"}}}]},
-      {"name": "Energizer makes the player invincible (added in iteration 2)", "open": "board=4", "source": "element 14 (the board's one is walled in by items, so one is placed next to the player); engine design: 75 ticks, all:energize", "steps": [{"start": true}, {"setup": "const g = game, b = g.board; for (let i = 61; i < 1500; i++) { const x = i % 60, y = (i / 60) | 0; if (x > 0 && b.el[i] === 0 && g._free(b, x, y) && g._free(b, x - 1, y)) { b.el[i] = 14; b.fg[i] = 5; b.ch[i] = -1; g.player.x = x - 1; g.player.y = y; g.keys.clear(); g.queued = []; return; } }"}, {"key": "ArrowRight"}, {"expect": {"shown": {"contains": "Energizer"}, "js": {"label": "energized", "code": "game.energy > 0"}}}]}
+      {
+        "name": "Statue: kiss the brow for 20 gems, then no more",
+        "source": "@Statue :touch !x1 -> :x1 #give gems 20; #zap touch -> second :touch",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "Statue Of Chulmir"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "statue of Chulmir"
+              }
+            }
+          },
+          {
+            "answer": "Kiss Chulmir's brow."
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "gems",
+                "equals": 20
+              }
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "mark": true
+          },
+          {
+            "touch": "Statue Of Chulmir"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "no more gems"
+              },
+              "counter": {
+                "name": "gems",
+                "equals": 20
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Arsenal sign text",
+        "source": "@Arsenal Sign :touch",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "Arsenal Sign"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Beyond this wall lies King"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dynamite explodes and disappears",
+        "source": "@Dynamite :touch You set off the dynamite!; #take energy 5; #die",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "Dynamite"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "You set off the dynamite!"
+              },
+              "entityAlive": {
+                "name": "Dynamite",
+                "value": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Picking up ammo adds 5",
+        "source": "built-in ammo element (5)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "snapshot": true
+          },
+          {
+            "takeItem": 5
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "ammo",
+                "delta": 5
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Picking up a torch adds 1",
+        "source": "built-in torch element (6)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "snapshot": true
+          },
+          {
+            "takeItem": 6
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "torches",
+                "delta": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Passage leads to board 2",
+        "source": "passage (2,2) -> board-2",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "board-1-stat-1"
+          },
+          {
+            "expect": {
+              "screen": "board-2"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Release Lever: #change sliderns/sliderew fake wall (added in iteration 2)",
+        "open": "board=2",
+        "source": "@Release Lever :touch #change sliderns fake wall; #change sliderew fake wall",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "sliders on the board",
+                "code": "[...game.board.el].some(e => e === 25 || e === 26)"
+              }
+            }
+          },
+          {
+            "touch": "Release Lever"
+          },
+          {
+            "wait": 1500
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "no sliders left",
+                "code": "![...game.board.el].some(e => e === 25 || e === 26)"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Lions move once the player presses a key (added in iteration 2)",
+        "open": "board=8",
+        "source": "141 lions (element 41, p1 intelligence); engine design: random or seeking steps",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "window.__pos = game.board.entities.filter(o => o.el === 41).map(o => o.x + ',' + o.y);"
+          },
+          {
+            "key": "Space"
+          },
+          {
+            "wait": 3000
+          },
+          {
+            "expect": {
+              "js": {
+                "label": ">= 20 lions moved",
+                "code": "game.board.entities.filter(o => o.el === 41 && !o.dead && !window.__pos.includes(o.x + ',' + o.y)).length >= 20"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "A lion that reaches the player costs 10 health and dies (added in iteration 2)",
+        "open": "board=8",
+        "source": "engine design: creature attack = -10 health, the creature is destroyed",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "game.board.entities.find(o => o.el === 41 && __H.approach(o.x, o.y)); game.board.entities.forEach(o => { if (o.el === 41) o.p1 = 10; }); window.__lions = game.board.entities.filter(o => o.el === 41 && !o.dead).length;"
+          },
+          {
+            "key": "Space"
+          },
+          {
+            "waitFor": {
+              "js": "rt.get('health') < 100",
+              "timeout": 8000
+            }
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "fewer lions",
+                "code": "game.board.entities.filter(o => o.el === 41 && !o.dead).length < window.__lions"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Energizer makes the player invincible (added in iteration 2)",
+        "open": "board=4",
+        "source": "element 14 (the board's one is walled in by items, so one is placed next to the player); engine design: 75 ticks, all:energize",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "const g = game, b = g.board; for (let i = 61; i < 1500; i++) { const x = i % 60, y = (i / 60) | 0; if (x > 0 && b.el[i] === 0 && g._free(b, x, y) && g._free(b, x - 1, y)) { b.el[i] = 14; b.fg[i] = 5; b.ch[i] = -1; g.player.x = x - 1; g.player.y = y; g.keys.clear(); g.queued = []; return; } }"
+          },
+          {
+            "key": "ArrowRight"
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "Energizer"
+              },
+              "js": {
+                "label": "energized",
+                "code": "game.energy > 0"
+              }
+            }
+          }
+        ]
+      }
     ]
   },
   "lostmonk-lostmonk": {
     "notes": "Starts on the intro credits board (9) -> passage -> 28 -> passage -> 1 (the boat). Boat board tested with ?board=1.",
     "scenarios": [
-      { "name": "Credits passage chain reaches the boat", "source": "board-9 passage -> board-28; board-28 passage -> board-1",
-        "steps": [ {"start": true}, {"expect": {"screen": "board-9"}}, {"touch": "board-9-stat-25"}, {"expect": {"screen": "board-28"}},
-                   {"touch": "board-28-stat-2"}, {"expect": {"screen": "board-1"}} ] },
-      { "name": "Boat intro story", "source": "@The Lost Monkeys: /i; The story follows: ...",
+      {
+        "name": "Credits passage chain reaches the boat",
+        "source": "board-9 passage -> board-28; board-28 passage -> board-1",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "expect": {
+              "screen": "board-9"
+            }
+          },
+          {
+            "touch": "board-9-stat-25"
+          },
+          {
+            "expect": {
+              "screen": "board-28"
+            }
+          },
+          {
+            "touch": "board-28-stat-2"
+          },
+          {
+            "expect": {
+              "screen": "board-1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Boat intro story",
+        "source": "@The Lost Monkeys: /i; The story follows: ...",
         "open": "board=1",
-        "steps": [ {"waitFor": {"js": "rt.dialogOpen", "timeout": 6000}}, {"expect": {"dialog": {"contains": "The story follows"}}} ] },
-      { "name": "Motor description", "source": "@Motor :touch It's the motor to your boat ...",
+        "steps": [
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 6000
+            }
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "The story follows"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Motor description",
+        "source": "@Motor :touch It's the motor to your boat ...",
         "open": "board=1",
-        "steps": [ {"waitFor": {"js": "rt.dialogOpen", "timeout": 6000}}, {"dismiss": true, "times": 3}, {"wait": 500},
-                   {"touch": "Motor"}, {"expect": {"dialog": {"contains": "motor to your boat"}}} ] },
-      { "name": "Sack: open it", "source": "@Sack :Touch !A;Open the sack -> :A You untie the sack ...",
+        "steps": [
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 6000
+            }
+          },
+          {
+            "dismiss": true,
+            "times": 3
+          },
+          {
+            "wait": 500
+          },
+          {
+            "touch": "Motor"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "motor to your boat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sack: open it",
+        "source": "@Sack :Touch !A;Open the sack -> :A You untie the sack ...",
         "open": "board=1",
-        "steps": [ {"waitFor": {"js": "rt.dialogOpen", "timeout": 6000}}, {"dismiss": true, "times": 3}, {"wait": 500},
-                   {"touch": "Sack"}, {"expect": {"dialog": {"contains": "Open the sack"}}}, {"answer": "Open the sack"}, {"wait": 800},
-                   {"expect": {"shown": {"contains": "You untie the sack"}}} ] },
-      { "name": "Controls: Open Hatch sends hatch:open, the hatch goes away", "source": "@Controls !A -> :A #send hatch:open; @Hatch :open ... #die",
+        "steps": [
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 6000
+            }
+          },
+          {
+            "dismiss": true,
+            "times": 3
+          },
+          {
+            "wait": 500
+          },
+          {
+            "touch": "Sack"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Open the sack"
+              }
+            }
+          },
+          {
+            "answer": "Open the sack"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "You untie the sack"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Controls: Open Hatch sends hatch:open, the hatch goes away",
+        "source": "@Controls !A -> :A #send hatch:open; @Hatch :open ... #die",
         "open": "board=1",
-        "steps": [ {"waitFor": {"js": "rt.dialogOpen", "timeout": 6000}}, {"dismiss": true, "times": 3}, {"wait": 500},
-                   {"touch": "Controls"}, {"answer": "_Open_Hatch_"},
-                   {"waitFor": {"js": "!game.board.entities.some(o => o.name === 'hatch' && !o.dead)", "timeout": 15000}},
-                   {"expect": {"entityAlive": {"name": "Hatch", "value": false}}} ] }
+        "steps": [
+          {
+            "waitFor": {
+              "js": "rt.dialogOpen",
+              "timeout": 6000
+            }
+          },
+          {
+            "dismiss": true,
+            "times": 3
+          },
+          {
+            "wait": 500
+          },
+          {
+            "touch": "Controls"
+          },
+          {
+            "answer": "_Open_Hatch_"
+          },
+          {
+            "waitFor": {
+              "js": "!game.board.entities.some(o => o.name === 'hatch' && !o.dead)",
+              "timeout": 15000
+            }
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "Hatch",
+                "value": false
+              }
+            }
+          }
+        ]
+      }
     ]
   },
   "pyramid-pyramid": {
     "notes": "Entrance board: chief with #if flag, a scroll, a passage and a south exit.",
     "scenarios": [
-      { "name": "P starts on the entrance", "source": "header current board = 1",
-        "steps": [ {"start": true}, {"expect": {"state": "play", "screen": "board-1"}} ] },
-      { "name": "Chief without the idol", "source": "@Native chief :touch #if idol then win; ... You not bring great idol",
-        "steps": [ {"start": true}, {"touch": "Native chief"}, {"expect": {"dialog": {"contains": "You not bring great idol"}}} ] },
-      { "name": "Chief with the idol flag", "source": ":touch #if idol then win -> :win ... You bring great idol at last",
-        "steps": [ {"start": true}, {"setup": "rt.setFlag('idol')"}, {"touch": "Native chief"}, {"expect": {"dialog": {"contains": "You bring great idol at last"}}} ] },
-      { "name": "Scroll is read and removed", "source": "scroll (27,9): $The Lost Pyramid ...",
-        "steps": [ {"start": true}, {"touch": "board-1-stat-3"}, {"expect": {"dialog": {"contains": "Welcome to the Lost Pyramid"}}}, {"dismiss": true}, {"wait": 300},
-                   {"expect": {"entityAlive": {"name": "board-1-stat-3", "value": false}}} ] },
-      { "name": "Passage leads to board 2", "source": "passage (28,5) -> board-2",
-        "steps": [ {"start": true}, {"touch": "board-1-stat-2"}, {"expect": {"screen": "board-2"}} ] },
-      { "name": "South edge leads to board 30", "source": "board-1 exit south = board-30",
-        "steps": [ {"start": true}, {"edge": "south"}, {"expect": {"screen": "board-30"}} ] },
-      {"name": "Tigers shoot at the player (added in iteration 2)", "open": "board=19", "source": "12 tigers (element 42, p2 firing rate 4): shoot when the player is within 2 rows/columns", "steps": [{"start": true}, {"setup": "game.board.entities.find(o => o.el === 42 && __H.approach(o.x, o.y));"}, {"key": "Space"}, {"waitFor": {"js": "game.board.entities.some(o => o.bullet && o.owner !== 'player') || rt.get('health') < 100", "timeout": 10000}}]},
-      {"name": "Centipedes move and the segments follow their head (added in iteration 2)", "open": "board=18", "source": "8 heads (44) + 68 segments (45), follower/leader rebuilt by adjacency", "steps": [{"start": true}, {"setup": "window.__heads = game.board.entities.filter(o => o.el === 44).map(o => o.x + ',' + o.y);"}, {"key": "Space"}, {"wait": 3000}, {"expect": {"js": {"label": "a head moved", "code": "game.board.entities.some(o => o.el === 44 && !o.dead && !window.__heads.includes(o.x + ',' + o.y))"}}}, {"expect": {"js": {"label": "linked segments touch their leader", "code": "(s => s.length > 10 && s.every(o => Math.abs(o.x - o.leaderE.x) + Math.abs(o.y - o.leaderE.y) === 1))(game.board.entities.filter(o => !o.dead && o.el === 45 && o.leaderE))"}}}]},
-      {"name": "Conveyor carries a gem around (added in iteration 2)", "open": "board=12", "source": "43 conveyors (elements 16/17)", "steps": [{"start": true}, {"setup": "const g = game, b = g.board, R = [[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]]; for (const c of b.entities.filter(o => o.el === 16)) for (let k = 0; k < 8; k++) { const [x, y] = [c.x + R[k][0], c.y + R[k][1]], [x2, y2] = [c.x + R[(k + 1) % 8][0], c.y + R[(k + 1) % 8][1]]; if (g._free(b, x, y) && g._free(b, x2, y2)) { const i = y * 60 + x; b.el[i] = 7; b.fg[i] = 14; b.ch[i] = -1; window.__gem = i; return; } }"}, {"key": "Space"}, {"wait": 2500}, {"expect": {"js": {"label": "the gem left its cell", "code": "window.__gem != null && game.board.el[window.__gem] !== 7"}}}]},
-      {"name": "Board time limit counts down (added in iteration 2)", "open": "board=28", "source": "board 28 time_limit = 100 (SPEC 2.5 prop 68)", "steps": [{"start": true}, {"wait": 3500}, {"expect": {"js": {"label": "time between 90 and 99", "code": "rt.get('time') < 100 && rt.get('time') >= 90"}}}]},
-      {"name": "Touching a bomb lights it; it counts down and explodes (added in iteration 2)", "open": "board=6", "source": "bomb board-6-stat-10 (element 13, p1 = 0); engine design: p1 = 9 countdown, explosion radius", "steps": [{"start": true}, {"touch": "board-6-stat-10"}, {"expect": {"shown": {"contains": "Bomb activated"}}}, {"waitFor": {"js": "!game.board.entities.some(o => o.id === 'board-6-stat-10' && !o.dead)", "timeout": 10000}}, {"expect": {"entityAlive": {"name": "board-6-stat-10", "value": false}}}]}
+      {
+        "name": "P starts on the entrance",
+        "source": "header current board = 1",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "expect": {
+              "state": "play",
+              "screen": "board-1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Chief without the idol",
+        "source": "@Native chief :touch #if idol then win; ... You not bring great idol",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "Native chief"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "You not bring great idol"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Chief with the idol flag",
+        "source": ":touch #if idol then win -> :win ... You bring great idol at last",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "rt.setFlag('idol')"
+          },
+          {
+            "touch": "Native chief"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "You bring great idol at last"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Scroll is read and removed",
+        "source": "scroll (27,9): $The Lost Pyramid ...",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "board-1-stat-3"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Welcome to the Lost Pyramid"
+              }
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 300
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "board-1-stat-3",
+                "value": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Passage leads to board 2",
+        "source": "passage (28,5) -> board-2",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "board-1-stat-2"
+          },
+          {
+            "expect": {
+              "screen": "board-2"
+            }
+          }
+        ]
+      },
+      {
+        "name": "South edge leads to board 30",
+        "source": "board-1 exit south = board-30",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "edge": "south"
+          },
+          {
+            "expect": {
+              "screen": "board-30"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Tigers shoot at the player (added in iteration 2)",
+        "open": "board=19",
+        "source": "12 tigers (element 42, p2 firing rate 4): shoot when the player is within 2 rows/columns",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "game.board.entities.find(o => o.el === 42 && __H.approach(o.x, o.y));"
+          },
+          {
+            "key": "Space"
+          },
+          {
+            "waitFor": {
+              "js": "game.board.entities.some(o => o.bullet && o.owner !== 'player') || rt.get('health') < 100",
+              "timeout": 10000
+            }
+          }
+        ]
+      },
+      {
+        "name": "Centipedes move and the segments follow their head (added in iteration 2)",
+        "open": "board=18",
+        "source": "8 heads (44) + 68 segments (45), follower/leader rebuilt by adjacency",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "window.__heads = game.board.entities.filter(o => o.el === 44).map(o => o.x + ',' + o.y);"
+          },
+          {
+            "key": "Space"
+          },
+          {
+            "wait": 3000
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "a head moved",
+                "code": "game.board.entities.some(o => o.el === 44 && !o.dead && !window.__heads.includes(o.x + ',' + o.y))"
+              }
+            }
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "linked segments touch their leader",
+                "code": "(s => s.length > 10 && s.every(o => Math.abs(o.x - o.leaderE.x) + Math.abs(o.y - o.leaderE.y) === 1))(game.board.entities.filter(o => !o.dead && o.el === 45 && o.leaderE))"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Conveyor carries a gem around (added in iteration 2)",
+        "open": "board=12",
+        "source": "43 conveyors (elements 16/17)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "const g = game, b = g.board, R = [[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]]; for (const c of b.entities.filter(o => o.el === 16)) for (let k = 0; k < 8; k++) { const [x, y] = [c.x + R[k][0], c.y + R[k][1]], [x2, y2] = [c.x + R[(k + 1) % 8][0], c.y + R[(k + 1) % 8][1]]; if (g._free(b, x, y) && g._free(b, x2, y2)) { const i = y * 60 + x; b.el[i] = 7; b.fg[i] = 14; b.ch[i] = -1; window.__gem = i; return; } }"
+          },
+          {
+            "key": "Space"
+          },
+          {
+            "wait": 2500
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "the gem left its cell",
+                "code": "window.__gem != null && game.board.el[window.__gem] !== 7"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Board time limit counts down (added in iteration 2)",
+        "open": "board=28",
+        "source": "board 28 time_limit = 100 (SPEC 2.5 prop 68)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "wait": 3500
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "time between 90 and 99",
+                "code": "rt.get('time') < 100 && rt.get('time') >= 90"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Touching a bomb lights it; it counts down and explodes (added in iteration 2)",
+        "open": "board=6",
+        "source": "bomb board-6-stat-10 (element 13, p1 = 0); engine design: p1 = 9 countdown, explosion radius",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "board-6-stat-10"
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "Bomb activated"
+              }
+            }
+          },
+          {
+            "waitFor": {
+              "js": "!game.board.entities.some(o => o.id === 'board-6-stat-10' && !o.dead)",
+              "timeout": 10000
+            }
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "board-6-stat-10",
+                "value": false
+              }
+            }
+          }
+        ]
+      }
     ]
   },
   "zzttoxic-smiley": {
     "notes": "Introduction board of the Smiley episode: hints object, one of each pickup, a door and a north exit.",
     "scenarios": [
-      { "name": "Hints object explains itself", "source": "@HINTS-INTRODUCTION :TOUCH Hi, I am your friendly on line hints",
-        "steps": [ {"start": true}, {"touch": "HINTS-INTRODUCTION"}, {"expect": {"dialog": {"contains": "friendly on line hints"}}} ] },
-      { "name": "Ammo pickup adds 5 (Bog Woods)", "source": "ammo element (5); the items on board 1 are a walled-in legend, so board 2 is used",
+      {
+        "name": "Hints object explains itself",
+        "source": "@HINTS-INTRODUCTION :TOUCH Hi, I am your friendly on line hints",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS-INTRODUCTION"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "friendly on line hints"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Ammo pickup adds 5 (Bog Woods)",
+        "source": "ammo element (5); the items on board 1 are a walled-in legend, so board 2 is used",
         "open": "board=2",
-        "steps": [ {"wait": 500}, {"dismiss": true, "times": 3}, {"snapshot": true}, {"takeItem": 5}, {"expect": {"counter": {"name": "ammo", "delta": 5}}} ] },
-      { "name": "Gem pickup adds gem, health and score (Bog Woods)", "source": "gem element (7)",
+        "steps": [
+          {
+            "wait": 500
+          },
+          {
+            "dismiss": true,
+            "times": 3
+          },
+          {
+            "snapshot": true
+          },
+          {
+            "takeItem": 5
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "ammo",
+                "delta": 5
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Gem pickup adds gem, health and score (Bog Woods)",
+        "source": "gem element (7)",
         "open": "board=2",
-        "steps": [ {"wait": 500}, {"dismiss": true, "times": 3}, {"snapshot": true}, {"takeItem": 7},
-                   {"expect": {"counter": {"name": "gems", "delta": 1}}}, {"expect": {"counter": {"name": "health", "delta": 1}}}, {"expect": {"counter": {"name": "score", "delta": 10}}} ] },
-      { "name": "Key pickup (Laboratory Grounds)", "source": "key element (8)",
+        "steps": [
+          {
+            "wait": 500
+          },
+          {
+            "dismiss": true,
+            "times": 3
+          },
+          {
+            "snapshot": true
+          },
+          {
+            "takeItem": 7
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "gems",
+                "delta": 1
+              }
+            }
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "health",
+                "delta": 1
+              }
+            }
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "score",
+                "delta": 10
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Key pickup (Laboratory Grounds)",
+        "source": "key element (8)",
         "open": "board=3",
-        "steps": [ {"wait": 500}, {"dismiss": true, "times": 3}, {"takeItem": 8}, {"expect": {"js": {"label": "a key counter is set", "code": "[1,2,3,4,5,6,7].some(k => rt.get('key' + k) === 1)"}}} ] },
-      { "name": "North edge leads to board 2", "source": "board-1 exit north = board-2",
-        "steps": [ {"start": true}, {"edge": "north"}, {"expect": {"screen": "board-2"}} ] }
+        "steps": [
+          {
+            "wait": 500
+          },
+          {
+            "dismiss": true,
+            "times": 3
+          },
+          {
+            "takeItem": 8
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "a key counter is set",
+                "code": "[1,2,3,4,5,6,7].some(k => rt.get('key' + k) === 1)"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "North edge leads to board 2",
+        "source": "board-1 exit north = board-2",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "edge": "north"
+          },
+          {
+            "expect": {
+              "screen": "board-2"
+            }
+          }
+        ]
+      }
     ]
   },
   "zzttoxic-toxhints": {
     "notes": "Single-board hints browser: one object whose !choices jump between menu labels. 4 scenarios cover all its logic.",
     "scenarios": [
-      { "name": "Touching the hints object shows intro and main menu in one window", "source": "@HINTS & SOLUTIONS :TOUCH (text) :MAIN !PART1 !PART2 !PART3 #END (a label does not end a message in ZZT)",
-        "steps": [ {"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"expect": {"dialog": {"contains": "Above Ground"}}} ] },
-      { "name": "Part 1 opens its submenu", "source": "!PART1 -> :PART1 !PLACE;Smiley's Place ...",
-        "steps": [ {"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"dismiss": true}, {"wait": 500}, {"answer": "Part 1"}, {"wait": 800}, {"expect": {"dialog": {"contains": "Smiley's Place"}}} ] },
-      { "name": "A topic shows its hint text", "source": ":PART1 !PLACE -> :PLACE ...",
-        "steps": [ {"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"dismiss": true}, {"wait": 500}, {"answer": "Part 1"}, {"wait": 800}, {"answer": "Smiley's Place"}, {"wait": 800},
-                   {"expect": {"dialog": true}}, {"expect": {"js": {"label": "a new text (not the Part 1 menu) is shown", "code": "!document.querySelector('.lr-dialog').innerText.includes('Apple Tree Lane')"}}} ] },
-      { "name": "Return to Main Menu", "source": "!RETURN -> :RETURN #SEND MAIN",
-        "steps": [ {"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"dismiss": true}, {"wait": 500}, {"answer": "Part 1"}, {"wait": 800}, {"answer": "Return to Main Menu"}, {"wait": 800},
-                   {"expect": {"dialog": {"contains": "Under Ground"}}} ] },
-      {"name": "Choosing Part 1 in the merged first window opens its submenu (added in iteration 2)", "source": ":TOUCH text falls through into :MAIN; one window holds intro + !PART1/!PART2/!PART3 (replaces the dismiss step of scenarios 2-4, which assumed two windows)", "steps": [{"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"expect": {"dialog": {"contains": "Toxic Terminator features"}}}, {"answer": "Part 1"}, {"wait": 800}, {"expect": {"dialog": {"contains": "Smiley's Place"}}}]},
-      {"name": "A topic shows its hint text, from the merged first window (added in iteration 2)", "source": ":PART1 !PLACE -> :PLACE text", "steps": [{"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"answer": "Part 1"}, {"wait": 800}, {"answer": "Smiley's Place"}, {"wait": 800}, {"expect": {"dialog": {"contains": "Read the H"}}}]},
-      {"name": "Return to Main Menu, from the merged first window (added in iteration 2)", "source": "!RETURN -> :RETURN #SEND MAIN", "steps": [{"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"answer": "Part 1"}, {"wait": 800}, {"answer": "Return to Main Menu"}, {"wait": 800}, {"expect": {"dialog": {"contains": "Under Ground"}}}]}
+      {
+        "name": "Touching the hints object shows intro and main menu in one window",
+        "source": "@HINTS & SOLUTIONS :TOUCH (text) :MAIN !PART1 !PART2 !PART3 #END (a label does not end a message in ZZT)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS & SOLUTIONS"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Above Ground"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Part 1 opens its submenu",
+        "source": "!PART1 -> :PART1 !PLACE;Smiley's Place ...",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS & SOLUTIONS"
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 500
+          },
+          {
+            "answer": "Part 1"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Smiley's Place"
+              }
+            }
+          }
+        ],
+        "retired": true,
+        "retired_reason": "Retired in iteration 2 by the Verifier. The 'dismiss' step after touching assumed the :TOUCH intro and the :MAIN menu are two windows. In the IR program (screens[0].objects[27]) the :TOUCH text runs into :MAIN with no #END in between; a :label is not a command that ends a message, so ZZT shows intro + menu in one window (scenario 1 asserts this). Dismissing that window closes the menu without a choice, so these steps encoded the iteration-1 bug. Replaced by the three '(added in iteration 2)' scenarios."
+      },
+      {
+        "name": "A topic shows its hint text",
+        "source": ":PART1 !PLACE -> :PLACE ...",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS & SOLUTIONS"
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 500
+          },
+          {
+            "answer": "Part 1"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "answer": "Smiley's Place"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "dialog": true
+            }
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "a new text (not the Part 1 menu) is shown",
+                "code": "!document.querySelector('.lr-dialog').innerText.includes('Apple Tree Lane')"
+              }
+            }
+          }
+        ],
+        "retired": true,
+        "retired_reason": "Retired in iteration 2 by the Verifier. The 'dismiss' step after touching assumed the :TOUCH intro and the :MAIN menu are two windows. In the IR program (screens[0].objects[27]) the :TOUCH text runs into :MAIN with no #END in between; a :label is not a command that ends a message, so ZZT shows intro + menu in one window (scenario 1 asserts this). Dismissing that window closes the menu without a choice, so these steps encoded the iteration-1 bug. Replaced by the three '(added in iteration 2)' scenarios."
+      },
+      {
+        "name": "Return to Main Menu",
+        "source": "!RETURN -> :RETURN #SEND MAIN",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS & SOLUTIONS"
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 500
+          },
+          {
+            "answer": "Part 1"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "answer": "Return to Main Menu"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Under Ground"
+              }
+            }
+          }
+        ],
+        "retired": true,
+        "retired_reason": "Retired in iteration 2 by the Verifier. The 'dismiss' step after touching assumed the :TOUCH intro and the :MAIN menu are two windows. In the IR program (screens[0].objects[27]) the :TOUCH text runs into :MAIN with no #END in between; a :label is not a command that ends a message, so ZZT shows intro + menu in one window (scenario 1 asserts this). Dismissing that window closes the menu without a choice, so these steps encoded the iteration-1 bug. Replaced by the three '(added in iteration 2)' scenarios."
+      },
+      {
+        "name": "Choosing Part 1 in the merged first window opens its submenu (added in iteration 2)",
+        "source": ":TOUCH text falls through into :MAIN; one window holds intro + !PART1/!PART2/!PART3 (replaces the dismiss step of scenarios 2-4, which assumed two windows)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS & SOLUTIONS"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Toxic Terminator features"
+              }
+            }
+          },
+          {
+            "answer": "Part 1"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Smiley's Place"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "A topic shows its hint text, from the merged first window (added in iteration 2)",
+        "source": ":PART1 !PLACE -> :PLACE text",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS & SOLUTIONS"
+          },
+          {
+            "answer": "Part 1"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "answer": "Smiley's Place"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Read the H"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Return to Main Menu, from the merged first window (added in iteration 2)",
+        "source": "!RETURN -> :RETURN #SEND MAIN",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "HINTS & SOLUTIONS"
+          },
+          {
+            "answer": "Part 1"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "answer": "Return to Main Menu"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Under Ground"
+              }
+            }
+          }
+        ]
+      }
     ]
   },
   "zzttoxic-toxic": {
     "notes": "Smiley's Place: text objects, #send chains between drink and fizz objects, passages and an east exit.",
     "scenarios": [
-      { "name": "Barrel text", "source": "@BARREL :TOUCH Smiley finds barrels of liquid toxic waste",
-        "steps": [ {"start": true}, {"touch": "BARREL"}, {"expect": {"dialog": {"contains": "barrels of liquid toxic"}}} ] },
-      { "name": "Sugar water: ammo +20, health +5, fizz and can disappear", "source": "@AMMO :TOUCH #SEND FIZZ:DIE x2; #GIVE AMMO 20; #GIVE HEALTH 5; #DIE",
-        "steps": [ {"start": true}, {"snapshot": true}, {"touch": "AMMO"}, {"wait": 800},
-                   {"expect": {"counter": {"name": "ammo", "delta": 20}}}, {"expect": {"counter": {"name": "health", "delta": 5}}},
-                   {"expect": {"shown": {"contains": "Sugar water"}, "entityAlive": {"name": "FIZZ", "value": false}}}, {"expect": {"entityAlive": {"name": "AMMO", "value": false}}} ] },
-      { "name": "Touching the fizz forwards to the can (#send chain)", "source": "@FIZZ1 :TOUCH #SEND AMMO1:TOUCH -> @AMMO1 ... #SEND FIZZ1:DO -> :DO #DIE",
-        "steps": [ {"start": true}, {"snapshot": true}, {"touch": "FIZZ1"}, {"wait": 1200},
-                   {"expect": {"counter": {"name": "ammo", "delta": 20}, "shown": {"contains": "Diet cola"}}},
-                   {"expect": {"entityAlive": {"name": "AMMO1", "value": false}}}, {"expect": {"entityAlive": {"name": "FIZZ1", "value": false}}} ] },
-      { "name": "Note from Bog", "source": "@NOTE FROM BOG :TOUCH What a sunny day ...",
-        "steps": [ {"start": true}, {"touch": "NOTE FROM BOG"}, {"expect": {"dialog": {"contains": "What a sunny day"}}} ] },
-      { "name": "Fumes without the shovel", "source": "@FUMES RISING FROM DIRT :TOUCH #IF SHOVEL THEN DIG; ... dirt is too solid to move by hand",
-        "steps": [ {"start": true}, {"touch": "FUMES RISING FROM DIRT", "from": "south"}, {"expect": {"dialog": {"contains": "too solid to move by hand"}}} ] },
-      { "name": "Dig with the shovel, then the passage leads to board 9", "source": ":DIG ... #DIE; passage (43,17) -> board-9",
-        "steps": [ {"start": true}, {"setup": "rt.setFlag('shovel')"}, {"touch": "FUMES RISING FROM DIRT", "from": "south"},
-                   {"expect": {"dialog": {"contains": "Using the shovel"}}}, {"dismiss": true}, {"wait": 600},
-                   {"expect": {"entityAlive": {"name": "FUMES RISING FROM DIRT", "value": false}}},
-                   {"touch": "board-1-stat-3"}, {"expect": {"screen": "board-9"}} ] },
-      { "name": "East edge leads to board 3", "source": "board-1 exit east = board-3",
-        "steps": [ {"start": true}, {"edge": "east"}, {"expect": {"screen": "board-3"}} ] },
-      {"name": "Transporter moves the player through (added in iteration 2)", "open": "board=16", "source": "transporter board-16-stat-6 at (38,4), step (0,1)", "steps": [{"start": true}, {"place": [37, 2]}, {"key": "ArrowDown"}, {"expect": {"js": {"label": "player past the transporter", "code": "[game.player.x, game.player.y]", "equals": [37, 4]}}}]}
+      {
+        "name": "Barrel text",
+        "source": "@BARREL :TOUCH Smiley finds barrels of liquid toxic waste",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "BARREL"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "barrels of liquid toxic"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sugar water: ammo +20, health +5, fizz and can disappear",
+        "source": "@AMMO :TOUCH #SEND FIZZ:DIE x2; #GIVE AMMO 20; #GIVE HEALTH 5; #DIE",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "snapshot": true
+          },
+          {
+            "touch": "AMMO"
+          },
+          {
+            "wait": 800
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "ammo",
+                "delta": 20
+              }
+            }
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "health",
+                "delta": 5
+              }
+            }
+          },
+          {
+            "expect": {
+              "shown": {
+                "contains": "Sugar water"
+              },
+              "entityAlive": {
+                "name": "FIZZ",
+                "value": false
+              }
+            }
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "AMMO",
+                "value": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Touching the fizz forwards to the can (#send chain)",
+        "source": "@FIZZ1 :TOUCH #SEND AMMO1:TOUCH -> @AMMO1 ... #SEND FIZZ1:DO -> :DO #DIE",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "snapshot": true
+          },
+          {
+            "touch": "FIZZ1"
+          },
+          {
+            "wait": 1200
+          },
+          {
+            "expect": {
+              "counter": {
+                "name": "ammo",
+                "delta": 20
+              },
+              "shown": {
+                "contains": "Diet cola"
+              }
+            }
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "AMMO1",
+                "value": false
+              }
+            }
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "FIZZ1",
+                "value": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Note from Bog",
+        "source": "@NOTE FROM BOG :TOUCH What a sunny day ...",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "NOTE FROM BOG"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "What a sunny day"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fumes without the shovel",
+        "source": "@FUMES RISING FROM DIRT :TOUCH #IF SHOVEL THEN DIG; ... dirt is too solid to move by hand",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "touch": "FUMES RISING FROM DIRT",
+            "from": "south"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "too solid to move by hand"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dig with the shovel, then the passage leads to board 9",
+        "source": ":DIG ... #DIE; passage (43,17) -> board-9",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "setup": "rt.setFlag('shovel')"
+          },
+          {
+            "touch": "FUMES RISING FROM DIRT",
+            "from": "south"
+          },
+          {
+            "expect": {
+              "dialog": {
+                "contains": "Using the shovel"
+              }
+            }
+          },
+          {
+            "dismiss": true
+          },
+          {
+            "wait": 600
+          },
+          {
+            "expect": {
+              "entityAlive": {
+                "name": "FUMES RISING FROM DIRT",
+                "value": false
+              }
+            }
+          },
+          {
+            "touch": "board-1-stat-3"
+          },
+          {
+            "expect": {
+              "screen": "board-9"
+            }
+          }
+        ]
+      },
+      {
+        "name": "East edge leads to board 3",
+        "source": "board-1 exit east = board-3",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "edge": "east"
+          },
+          {
+            "expect": {
+              "screen": "board-3"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Transporter moves the player through (added in iteration 2)",
+        "open": "board=16",
+        "source": "transporter board-16-stat-6 at (38,4), step (0,1)",
+        "steps": [
+          {
+            "start": true
+          },
+          {
+            "place": [
+              37,
+              2
+            ]
+          },
+          {
+            "key": "ArrowDown"
+          },
+          {
+            "expect": {
+              "js": {
+                "label": "player past the transporter",
+                "code": "[game.player.x, game.player.y]",
+                "equals": [
+                  37,
+                  4
+                ]
+              }
+            }
+          }
+        ]
+      }
     ]
   }
 }

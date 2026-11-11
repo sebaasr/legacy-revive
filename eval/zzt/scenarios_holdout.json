@@ -1,0 +1,799 @@
+{
+ "_about": "HOLD-OUT scenarios written by the Verifier in iteration 2, never shown to the Modernizer. Derived by hand from the ORIGINAL ZZT-OOP in output/zzt/<world>/ir/ir.json, targeting objects and commands the main scenarios.json does not exercise (#bind copies, #zap with duplicate labels, #become, :shot, multi-step #give chains, menus reached through #send-to-self). Run: node eval/behave.mjs zzt <world> --holdout (writes eval/zzt/behave_holdout/).",
+ "crimring-crimring": {
+  "scenarios": [
+   {
+    "name": "HO Toilet: #zap touch exposes the second :touch label",
+    "source": "board-2 @Toilet :touch #lock; #zap touch; $The Toilet ... /i/i/i; #play; <<FLUSH>>; #unlock / :touch You don't have to go, stupid!",
+    "open": "board=2",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "waitFor": {
+       "js": "rt.dialogOpen",
+       "timeout": 6000
+      }
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "wait": 500
+     },
+     {
+      "touch": "Toilet"
+     },
+     {
+      "waitFor": {
+       "js": "rt.dialogOpen",
+       "timeout": 4000
+      }
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "relieve yourself"
+       }
+      }
+     },
+     {
+      "dismiss": true
+     },
+     {
+      "waitFor": {
+       "js": "window.__shown.some(s => s.text.includes('FLUSH'))",
+       "timeout": 10000
+      }
+     },
+     {
+      "wait": 800
+     },
+     {
+      "mark": true
+     },
+     {
+      "touch": "Toilet"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "expect": {
+       "shown": {
+        "contains": "You don't have to go"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO Bed without the bedtime flag",
+    "source": "board-2 @bed :touch #if bedtime then sleep; This is NOT the time to take a snooze!",
+    "open": "board=2",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "waitFor": {
+       "js": "rt.dialogOpen",
+       "timeout": 6000
+      }
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "wait": 500
+     },
+     {
+      "mark": true
+     },
+     {
+      "touch": "bed"
+     },
+     {
+      "wait": 600
+     },
+     {
+      "expect": {
+       "shown": {
+        "contains": "NOT the time to take a snooze"
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "dammak-dammak": {
+  "scenarios": [
+   {
+    "name": "HO Weapon maker: buy the sword (take 3 gems, set flag)",
+    "source": "@Weapon maker :touch !x2;Sword -> :x2 #take gems 3 notenuff; Here's your sword.; #set sword",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "waitFor": {
+       "js": "rt.dialogOpen",
+       "timeout": 5000
+      }
+     },
+     {
+      "dismiss": true
+     },
+     {
+      "wait": 600
+     },
+     {
+      "touch": "Weapon maker"
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "buying"
+       }
+      }
+     },
+     {
+      "answer": "Sword"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "gems",
+        "equals": 7
+       },
+       "flag": {
+        "name": "sword",
+        "value": true
+       },
+       "shown": {
+        "contains": "Here's your sword."
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO A #bind copy of the Patron answers with the Patron's script",
+    "source": "board-1-stat-25: #bind patron -> @Patron :touch Don't bother the patrons!",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "waitFor": {
+       "js": "rt.dialogOpen",
+       "timeout": 5000
+      }
+     },
+     {
+      "dismiss": true
+     },
+     {
+      "wait": 600
+     },
+     {
+      "mark": true
+     },
+     {
+      "touch": "board-1-stat-25"
+     },
+     {
+      "wait": 600
+     },
+     {
+      "expect": {
+       "shown": {
+        "contains": "Don't bother the patrons!"
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "kingl2-kingl2": {
+  "scenarios": [
+   {
+    "name": "HO Oracle gives five rewards once (#give x5, #zap touch)",
+    "source": "board-2 @Oracle :touch ... #give score 1000; #give energy 50; #give ammo 50; #give torches 10; #give gems 20; #zap touch",
+    "open": "board=2",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "wait": 500
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "snapshot": true
+     },
+     {
+      "touch": "Oracle"
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "Congratulations"
+       }
+      }
+     },
+     {
+      "dismiss": true
+     },
+     {
+      "wait": 600
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "score",
+        "delta": 1000
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "ammo",
+        "delta": 50
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "torches",
+        "delta": 10
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "gems",
+        "delta": 20
+       }
+      }
+     },
+     {
+      "mark": true
+     },
+     {
+      "touch": "Oracle"
+     },
+     {
+      "wait": 600
+     },
+     {
+      "expect": {
+       "shown": false
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO The #bind copy of the dynamite explodes too",
+    "source": "board-1-stat-46: #bind dynamite -> :touch You set off the dynamite!; #take energy 5; #die. stat-46 is walled in; its only open side is the original dynamite (stat-45), so that one is set off first",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "touch": "Dynamite"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "mark": true
+     },
+     {
+      "touch": "board-1-stat-46",
+      "from": "west"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "expect": {
+       "shown": {
+        "contains": "You set off the dynamite!"
+       },
+       "entityAlive": {
+        "name": "board-1-stat-46",
+        "value": false
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lostmonk-lostmonk": {
+  "scenarios": [
+   {
+    "name": "HO Sack: the whole item chain (ammo 50, torches 5, health 20, banana, rope, score 60)",
+    "source": "@Sack :A ... #give score 10; #give ammo 50 / #give score 10; #give torches 5 / #give score 20; #give health 20 / #set banana; #give score 10 / #set rope; #give score 10; #zap touch",
+    "open": "board=1",
+    "steps": [
+     {
+      "waitFor": {
+       "js": "rt.dialogOpen",
+       "timeout": 6000
+      }
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "wait": 500
+     },
+     {
+      "snapshot": true
+     },
+     {
+      "touch": "Sack"
+     },
+     {
+      "answer": "Open the sack"
+     },
+     {
+      "wait": 1000
+     },
+     {
+      "dismiss": true,
+      "times": 2
+     },
+     {
+      "waitFor": {
+       "js": "rt.hasFlag('rope')",
+       "timeout": 20000
+      }
+     },
+     {
+      "wait": 300
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "ammo",
+        "delta": 50
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "torches",
+        "delta": 5
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "health",
+        "delta": 20
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "score",
+        "delta": 60
+       },
+       "flag": {
+        "name": "banana",
+        "value": true
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO Controls: Eject -> No",
+    "source": "@Controls !C;_Eject_ -> :C Are you sure ... !Y;Yes !N;No -> :N You decide not to eject.; #restart",
+    "open": "board=1",
+    "steps": [
+     {
+      "waitFor": {
+       "js": "rt.dialogOpen",
+       "timeout": 6000
+      }
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "wait": 500
+     },
+     {
+      "snapshot": true
+     },
+     {
+      "touch": "Controls"
+     },
+     {
+      "answer": "_Eject_"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "eject your"
+       }
+      }
+     },
+     {
+      "answer": "No"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "expect": {
+       "shown": {
+        "contains": "You decide not to eject"
+       },
+       "counter": {
+        "name": "score",
+        "delta": 0
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "pyramid-pyramid": {
+  "scenarios": [
+   {
+    "name": "HO Burning torch object singes the player (#take health 1)",
+    "source": "board-2 @torch :touch #play 0; #take health 1; You are singed by a burning torch.; #restart",
+    "open": "board=2",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "wait": 400
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "snapshot": true
+     },
+     {
+      "mark": true
+     },
+     {
+      "touch": "torch"
+     },
+     {
+      "wait": 700
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "health",
+        "delta": -1
+       },
+       "shown": {
+        "contains": "singed by a burning torch"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO #bind copy of the coffin shows the coffin text",
+    "source": "board-2-stat-3: #bind Coffin -> :touch $The coffin reads: \"Resting place of the unknown king\"",
+    "open": "board=2",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "wait": 400
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "touch": "board-2-stat-3"
+     },
+     {
+      "wait": 500
+     },
+     {
+      "expect": {
+       "shown": {
+        "contains": "Resting place of the unknown king"
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "zzttoxic-smiley": {
+  "scenarios": [
+   {
+    "name": "HO A WOODS object turns into a gem (#become gem)",
+    "source": "board-2-stat-15 @WOODS :TOUCH #PLAY ++ICG; #BECOME GEM. The object sits inside forest; one neighbouring forest tile is cleared first (the player clears forest by walking through it)",
+    "open": "board=2",
+    "steps": [
+     {
+      "wait": 500
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "setup": "const g = game, b = g.board, o = __H.entity('board-2-stat-15'); window.__c = o.y * 60 + o.x; for (const [dx, dy] of [[-1,0],[1,0],[0,-1],[0,1]]) { const i = (o.y + dy) * 60 + o.x + dx; if (b.el[i] === 20 && !b.at.has(i)) { b.el[i] = 0; b.ch[i] = 32; window.__cleared = i; return; } }"
+     },
+     {
+      "expect": {
+       "js": {
+        "label": "a forest neighbour was cleared",
+        "code": "window.__cleared != null"
+       }
+      }
+     },
+     {
+      "touch": "board-2-stat-15"
+     },
+     {
+      "wait": 700
+     },
+     {
+      "expect": {
+       "js": {
+        "label": "the cell is now a gem (element 7)",
+        "code": "game.board.el[window.__c]",
+        "equals": 7
+       }
+      }
+     },
+     {
+      "expect": {
+       "entityAlive": {
+        "name": "board-2-stat-15",
+        "value": false
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO BONUS: first touch reveals, second touch pays 10 gems, 10 health, 100 points",
+    "source": "@BONUS :TOUCH #CHAR 04; #ZAP TOUCH / :TOUCH Bonus gem worth 10 gems; #GIVE GEMS 10; #GIVE HEALTH 10; #GIVE SCORE 100; #DIE",
+    "open": "board=2",
+    "steps": [
+     {
+      "wait": 500
+     },
+     {
+      "dismiss": true,
+      "times": 3
+     },
+     {
+      "snapshot": true
+     },
+     {
+      "touch": "BONUS"
+     },
+     {
+      "wait": 500
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "gems",
+        "delta": 0
+       }
+      }
+     },
+     {
+      "touch": "BONUS"
+     },
+     {
+      "wait": 700
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "gems",
+        "delta": 10
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "health",
+        "delta": 10
+       }
+      }
+     },
+     {
+      "expect": {
+       "counter": {
+        "name": "score",
+        "delta": 100
+       }
+      }
+     },
+     {
+      "expect": {
+       "entityAlive": {
+        "name": "BONUS",
+        "value": false
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "zzttoxic-toxhints": {
+  "scenarios": [
+   {
+    "name": "HO Part 3 opens its submenu",
+    "source": "!PART3 -> :PART3 $ABOVE EARTH !LIVING;Living Engine Room ...",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "touch": "HINTS & SOLUTIONS"
+     },
+     {
+      "answer": "Part 3"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "Living Engine Room"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO A follow-up hint and #SEND PART1 show in ONE window (text continues into the Part 1 menu)",
+    "source": ":PLACE !PLACE1 -> :PLACE1 Look for something to help you. / !PLACE2 ... / #SEND PART1 (jump to own label, no #END: the menu text joins the same message)",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "touch": "HINTS & SOLUTIONS"
+     },
+     {
+      "answer": "Part 1"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "answer": "Smiley's Place"
+     },
+     {
+      "wait": 800
+     },
+     {
+      "answer": "Can't move the dirt."
+     },
+     {
+      "wait": 800
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "Look for something to help you"
+       }
+      }
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "Apple Tree Lane"
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "zzttoxic-toxic": {
+  "scenarios": [
+   {
+    "name": "HO Shooting the barrel runs its :SHOT label (#DIE)",
+    "source": "@BARREL board-1-stat-15 :SHOT #DIE (a second BARREL object, stat-16, shares the program, so the id is used)",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "setup": "rt.set('ammo', 5); const o = __H.entity('board-1-stat-15'); window.__k = __H.approach(o.x, o.y, 'west');"
+     },
+     {
+      "expect": {
+       "js": {
+        "label": "player west of the barrel",
+        "code": "window.__k",
+        "equals": "ArrowRight"
+       }
+      }
+     },
+     {
+      "key": "Shift+ArrowRight"
+     },
+     {
+      "wait": 900
+     },
+     {
+      "expect": {
+       "entityAlive": {
+        "name": "board-1-stat-15",
+        "value": false
+       },
+       "counter": {
+        "name": "ammo",
+        "equals": 4
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "HO BARREL1 (#bind BARREL) shows the barrel text",
+    "source": "@BARREL1 #BIND BARREL -> :TOUCH Smiley finds barrels of liquid toxic waste",
+    "steps": [
+     {
+      "start": true
+     },
+     {
+      "touch": "BARREL1"
+     },
+     {
+      "expect": {
+       "dialog": {
+        "contains": "barrels of liquid toxic"
+       }
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

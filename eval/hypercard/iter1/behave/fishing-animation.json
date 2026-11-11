@@ -1,0 +1,79 @@
+{
+  "sample": "fishing-animation",
+  "scenarios": [
+    {
+      "name": "Click Me to Begin speaks then goes to card \"2\"",
+      "source": "card-2923/button-1: speak ...; wait 300; go to card \"2\"",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "2",
+          "expected": "2"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Click Me Again animates through the cards to \"edn\"",
+      "source": "card-3598/button-1: go 3, 4, 5, repeat 20 go next, go to card \"edn\"",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "edn",
+          "expected": "edn"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Animation ends back on card \"as\"",
+      "source": "card-3598/button-1: ... wait 300 ticks; go to card \"as\"",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "as",
+          "expected": "as"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-2923",
+    "buttons": 1,
+    "clicks": [
+      {
+        "button": "card-2923/button-1",
+        "to": "card-3598",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 3,
+  "total": 3
+}

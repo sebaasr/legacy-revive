@@ -1,0 +1,111 @@
+{
+  "cthulhucard": {
+    "ink_f1": 0.9841,
+    "precision": 0.9986,
+    "recall": 0.97,
+    "pixel_agreement": 0.9905,
+    "color_match": 0.9905,
+    "ref_ink": 35815,
+    "app_ink": 34866,
+    "render_options": null
+  },
+  "fishing-animation": {
+    "ink_f1": 0.9936,
+    "precision": 0.9951,
+    "recall": 0.992,
+    "pixel_agreement": 0.9971,
+    "color_match": 0.9971,
+    "ref_ink": 14063,
+    "app_ink": 14086,
+    "render_options": null
+  },
+  "game-genie-encoder-decoder": {
+    "ink_f1": 0.9963,
+    "precision": 0.9987,
+    "recall": 0.994,
+    "pixel_agreement": 0.9809,
+    "color_match": 0.9809,
+    "ref_ink": 122843,
+    "app_ink": 121627,
+    "render_options": null
+  },
+  "hypercard_fantasylanguagecreat1": {
+    "ink_f1": 0.9979,
+    "precision": 0.9964,
+    "recall": 0.9995,
+    "pixel_agreement": 0.9887,
+    "color_match": 0.9887,
+    "ref_ink": 90157,
+    "app_ink": 90094,
+    "render_options": "offset=48,51"
+  },
+  "hypercard_hyper-wordle": {
+    "ink_f1": 0.9407,
+    "precision": 0.9691,
+    "recall": 0.9139,
+    "pixel_agreement": 0.9832,
+    "color_match": 0.9832,
+    "ref_ink": 10869,
+    "app_ink": 10422,
+    "render_options": null
+  },
+  "hypercard_inigo_gets_out": {
+    "ink_f1": 0.9996,
+    "precision": 0.9992,
+    "recall": 1.0,
+    "pixel_agreement": 0.999,
+    "color_match": 0.999,
+    "ref_ink": 38187,
+    "app_ink": 38136,
+    "render_options": null
+  },
+  "hypercard_obliquestrategies": {
+    "ink_f1": 0.9756,
+    "precision": 0.9527,
+    "recall": 0.9996,
+    "pixel_agreement": 0.9456,
+    "color_match": 0.9456,
+    "ref_ink": 161204,
+    "app_ink": 170552,
+    "render_options": null,
+    "without_menubar": {
+      "ink_f1": 0.9996,
+      "precision": 0.9997,
+      "recall": 0.9996,
+      "pixel_agreement": 0.9983,
+      "color_match": 0.9983,
+      "ref_ink": 160210,
+      "app_ink": 160312
+    }
+  },
+  "hypercard_what_is_hypercard_2": {
+    "ink_f1": 0.9955,
+    "precision": 0.9952,
+    "recall": 0.9957,
+    "pixel_agreement": 0.9921,
+    "color_match": 0.9921,
+    "ref_ink": 39894,
+    "app_ink": 39553,
+    "render_options": "offset=16,40"
+  },
+  "mark-twain---300-quotations": {
+    "ink_f1": 0.9899,
+    "precision": 0.9865,
+    "recall": 0.9934,
+    "pixel_agreement": 0.9653,
+    "color_match": 0.9653,
+    "ref_ink": 72087,
+    "app_ink": 72556,
+    "render_options": "offset=144,40"
+  },
+  "patients-v15": {
+    "ink_f1": 0.9842,
+    "precision": 0.9852,
+    "recall": 0.9832,
+    "pixel_agreement": 0.9716,
+    "color_match": 0.9716,
+    "ref_ink": 56088,
+    "app_ink": 55696,
+    "render_options": null
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "sample": "hypercard_hyper-wordle",
+  "scenarios": [
+    {
+      "name": "Typing letters fills the first row",
+      "source": "card-2990 keyDown -> addLetter -> displayLetter, nextCol",
+      "checks": [
+        {
+          "what": "field \"letter 11\"",
+          "pass": true,
+          "actual": "C",
+          "expected": {
+            "name": "letter 11",
+            "equals": "C"
+          }
+        },
+        {
+          "what": "field \"letter 13\"",
+          "pass": true,
+          "actual": "A",
+          "expected": {
+            "name": "letter 13",
+            "equals": "A"
+          }
+        },
+        {
+          "what": "field \"letter 15\"",
+          "pass": true,
+          "actual": "E",
+          "expected": {
+            "name": "letter 15",
+            "equals": "E"
+          }
+        },
+        {
+          "what": "field \"word\"",
+          "pass": true,
+          "actual": "CRANE",
+          "expected": {
+            "name": "word",
+            "equals": "CRANE"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Clicking a keyboard key types it",
+      "source": "card-2990/field-58 mouseDown: send \"keyDown Q\"",
+      "checks": [
+        {
+          "what": "field \"letter 11\"",
+          "pass": true,
+          "actual": "Q",
+          "expected": {
+            "name": "letter 11",
+            "equals": "Q"
+          }
+        },
+        {
+          "what": "field \"word\"",
+          "pass": true,
+          "actual": "Q",
+          "expected": {
+            "name": "word",
+            "equals": "Q"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Delete removes the last letter",
+      "source": "keyDown chr 8 -> deleteLetter",
+      "checks": [
+        {
+          "what": "field \"word\"",
+          "pass": true,
+          "actual": "A",
+          "expected": {
+            "name": "word",
+            "equals": "A"
+          }
+        },
+        {
+          "what": "field \"letter 12\"",
+          "pass": true,
+          "actual": "",
+          "expected": {
+            "name": "letter 12",
+            "empty": true
+          }
+        },
+        {
+          "what": "field \"col\"",
+          "pass": true,
+          "actual": "2",
+          "expected": {
+            "name": "col",
+            "equals": "2"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Accepted wrong guess scores tiles and moves to row 2",
+      "source": "handleEnterKey: acceptableWord -> textStyle per letter, setKeyboardLetter, nextRow",
+      "checks": [
+        {
+          "what": "field \"row\"",
+          "pass": true,
+          "actual": "2",
+          "expected": {
+            "name": "row",
+            "equals": "2"
+          }
+        },
+        {
+          "what": "field \"col\"",
+          "pass": true,
+          "actual": "1",
+          "expected": {
+            "name": "col",
+            "equals": "1"
+          }
+        },
+        {
+          "what": "visible of \"letter N\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "visible of \"letter E\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "tile 11 bold (C in place)",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Unknown word is cleared",
+      "source": "handleEnterKey: not acceptable -> clear tiles, setCol 1, setWord \"\"",
+      "checks": [
+        {
+          "what": "field \"letter 11\"",
+          "pass": true,
+          "actual": "",
+          "expected": {
+            "name": "letter 11",
+            "empty": true
+          }
+        },
+        {
+          "what": "field \"col\"",
+          "pass": true,
+          "actual": "1",
+          "expected": {
+            "name": "col",
+            "equals": "1"
+          }
+        },
+        {
+          "what": "field \"word\"",
+          "pass": true,
+          "actual": "",
+          "expected": {
+            "name": "word",
+            "empty": true
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Guessing CIGAR wins and updates stats",
+      "source": "handleEnterKey: theWord = theMatch -> weWon (setWins, setPlays, setStreak)",
+      "checks": [
+        {
+          "what": "field \"we won\"",
+          "pass": true,
+          "actual": "true",
+          "expected": {
+            "name": "we won",
+            "equals": "true"
+          }
+        },
+        {
+          "what": "wins on stats card = 1",
+          "pass": true,
+          "actual": "1",
+          "expected": "1"
+        },
+        {
+          "what": "plays on stats card = 1",
+          "pass": true,
+          "actual": "1",
+          "expected": "1"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Help card Test Me! shows the explanation",
+      "source": "card-2990/button-86 go card \"help\"; card-2231/button-26 show card field \"help text 1\"",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "help",
+          "expected": "help"
+        },
+        {
+          "what": "visible of \"help text 1\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-2990",
+    "buttons": 4,
+    "clicks": [
+      {
+        "button": "card-2990/button-40",
+        "to": "card-2990",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2990/button-86",
+        "to": "card-2231",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2990/button-87",
+        "to": "card-11352",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-2990/button-126",
+        "to": "card-7057",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 7,
+  "total": 7
+}

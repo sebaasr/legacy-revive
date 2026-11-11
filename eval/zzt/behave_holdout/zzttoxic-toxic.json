@@ -1,0 +1,64 @@
+{
+  "sample": "zzttoxic-toxic",
+  "scenarios": [
+    {
+      "name": "HO Shooting the barrel runs its :SHOT label (#DIE)",
+      "source": "@BARREL board-1-stat-15 :SHOT #DIE (a second BARREL object, stat-16, shares the program, so the id is used)",
+      "checks": [
+        {
+          "what": "player west of the barrel",
+          "pass": true,
+          "actual": "ArrowRight",
+          "expected": "ArrowRight"
+        },
+        {
+          "what": "entity board-1-stat-15 alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "counter ammo",
+          "pass": true,
+          "actual": 4,
+          "expected": {
+            "name": "ammo",
+            "equals": 4
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO BARREL1 (#bind BARREL) shows the barrel text",
+      "source": "@BARREL1 #BIND BARREL -> :TOUCH Smiley finds barrels of liquid toxic waste",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "BARREL1\nSmiley finds barrels of liquid toxic\nwaste.  \n \n\"Right in my own yard!\" he exclaims.\n\"What's going on here?\"\nEnter or Esc to close",
+          "expected": {
+            "contains": "barrels of liquid toxic"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

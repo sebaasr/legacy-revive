@@ -1,0 +1,251 @@
+{
+  "sample": "zzttoxic-toxic",
+  "scenarios": [
+    {
+      "name": "Barrel text",
+      "source": "@BARREL :TOUCH Smiley finds barrels of liquid toxic waste",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "BARREL\nSmiley finds barrels of liquid toxic\nwaste.  \n \n\"Right in my own yard!\" he exclaims.\n\"What's going on here?\"\nEnter or Esc to close",
+          "expected": {
+            "contains": "barrels of liquid toxic"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Sugar water: ammo +20, health +5, fizz and can disappear",
+      "source": "@AMMO :TOUCH #SEND FIZZ:DIE x2; #GIVE AMMO 20; #GIVE HEALTH 5; #DIE",
+      "checks": [
+        {
+          "what": "counter ammo",
+          "pass": true,
+          "actual": 20,
+          "expected": {
+            "name": "ammo",
+            "delta": 20
+          }
+        },
+        {
+          "what": "counter health",
+          "pass": true,
+          "actual": 105,
+          "expected": {
+            "name": "health",
+            "delta": 5
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "\"Yum.  Sugar water.\"",
+          "expected": {
+            "contains": "Sugar water"
+          }
+        },
+        {
+          "what": "entity FIZZ alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "entity AMMO alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Touching the fizz forwards to the can (#send chain)",
+      "source": "@FIZZ1 :TOUCH #SEND AMMO1:TOUCH -> @AMMO1 ... #SEND FIZZ1:DO -> :DO #DIE",
+      "checks": [
+        {
+          "what": "counter ammo",
+          "pass": true,
+          "actual": 20,
+          "expected": {
+            "name": "ammo",
+            "delta": 20
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "\"Yuk.  Diet cola.\"",
+          "expected": {
+            "contains": "Diet cola"
+          }
+        },
+        {
+          "what": "entity AMMO1 alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "entity FIZZ1 alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Note from Bog",
+      "source": "@NOTE FROM BOG :TOUCH What a sunny day ...",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "NOTE FROM BOG\nWhat a sunny day.  Smiley Guy decides\nto take a walk to Apple Tree Lane.\n \n(Arrow down to read more.)\n \nHe finds a note from his friend Bog, which\nreads, \"Smiley,\n \nThe mad scientist Dr. Z has broken loose.\nWe thought we had him locked up and safe,\nbut now we can not find him.  He's \nspreading toxic waste.  Strange things\nare happening to the vegetation and \nwildlife around here.\n \nCome quick!\n \n        Your friend,\n                  - Bog\"\n \n(Press enter or escape to exit.)\nEnter or Esc to close",
+          "expected": {
+            "contains": "What a sunny day"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Fumes without the shovel",
+      "source": "@FUMES RISING FROM DIRT :TOUCH #IF SHOVEL THEN DIG; ... dirt is too solid to move by hand",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "FUMES RISING FROM DIRT\nSmiley finds a pile of foul smelling\ndirt heavy with toxic waste.\n \n\"Where did this come from?\" he wonders.\n \nThe tree is hollow and appears to open\ninto a large area under the ground.\n \nSmiley thinks he could see more, but the\ndirt is too solid to move by hand.\nEnter or Esc to close",
+          "expected": {
+            "contains": "too solid to move by hand"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Dig with the shovel, then the passage leads to board 9",
+      "source": ":DIG ... #DIE; passage (43,17) -> board-9",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "FUMES RISING FROM DIRT\nSmiley stands over the toxic laden dirt.\nHe holds his breath.\n \nUsing the shovel, he moves the dirt aside\nand finds an opening in the hollow of the\ntree leading under the ground.\nEnter or Esc to close",
+          "expected": {
+            "contains": "Using the shovel"
+          }
+        },
+        {
+          "what": "entity FUMES RISING FROM DIRT alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-9",
+          "expected": "board-9"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "East edge leads to board 3",
+      "source": "board-1 exit east = board-3",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-3",
+          "expected": "board-3"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Transporter moves the player through (added in iteration 2)",
+      "source": "transporter board-16-stat-6 at (38,4), step (0,1)",
+      "checks": [
+        {
+          "what": "player past the transporter",
+          "pass": true,
+          "actual": [
+            37,
+            4
+          ],
+          "expected": [
+            37,
+            4
+          ]
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "state": "play",
+    "boardsSeen": [
+      "board-1"
+    ],
+    "end": "board-1",
+    "error": null,
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 8,
+  "total": 8
+}

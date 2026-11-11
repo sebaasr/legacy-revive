@@ -1,0 +1,89 @@
+{
+  "_about": "HOLD-OUT scenarios written by the Verifier in iteration 2, never shown to the Modernizer. Derived by hand from the ORIGINAL HyperTalk in output/hypercard/<stack>/ir/ir.json, deliberately targeting handlers and branches the main scenarios.json does not exercise. Run: node eval/behave.mjs hypercard <sample> --holdout (writes eval/hypercard/behave_holdout/). Game Genie expected codes: eval/hypercard/gamegenie_sim.py logic extended with 'to num 8'.",
+  "cthulhucard": {"scenarios": [
+    {"name": "HO 1st Card button on a creature card goes to card 1 (soundoff global empty, no sound)", "source": "bkgnd-4587/button-6: global soundoff; if soundoff = \"on\" then ...; go first", "open": "card=6",
+     "steps": [{"expect": {"screenName": "Cthulhu"}}, {"click": "1st Card", "layer": "bg"}, {"expect": {"screenNumber": 1, "screen": "card-3185"}}]},
+    {"name": "HO Go Back on the list card goes to the previous card", "source": "card-6935/button-55: go prev", "open": "card=2",
+     "steps": [{"click": "Go Back"}, {"expect": {"screenNumber": 1}}]}
+  ]},
+  "fishing-animation": {"scenarios": [
+    {"name": "HO Click Me Again visits 3, 4, 5 in order and wraps to card 1 before 'edn'", "source": "card-3598/button-1: go 3; go 4; go 5 (card #6); repeat 20 go next -> card #26 wraps to #1 'as'; go to card \"edn\"", "open": "card=2",
+     "steps": [{"setup": "window.__seq = []; setInterval(() => { const id = engine.current.id; if (window.__seq[window.__seq.length - 1] !== id) window.__seq.push(id); }, 4);"},
+               {"click": "Click Me Again", "timeout": 500},
+               {"waitFor": {"js": "engine.current.id === 'card-6619'", "timeout": 60000}},
+               {"expect": {"js": {"label": "3 -> 4 -> 5 in order", "code": "(s => s.indexOf('card-4596') > 0 && s.indexOf('card-4596') < s.indexOf('card-4925') && s.indexOf('card-4925') < s.indexOf('card-5382'))(window.__seq)"}}},
+               {"expect": {"js": {"label": "card just before edn is card 1 'as' (go next wraps)", "code": "window.__seq[window.__seq.indexOf('card-6619') - 1]", "equals": "card-2923"}}}]}
+  ]},
+  "game-genie-encoder-decoder": {"scenarios": [
+    {"name": "HO Encode with a compare value gives an 8-letter code (to num 8)", "source": "encode: co not empty -> send mouseup to cd btn \"to num 8\"; 4569/173/7 -> SXSOPPYE (decode 8 of it gives back 4569/173/7)",
+     "steps": [{"typeInto": {"field": "addr", "text": "4569"}}, {"typeInto": {"field": "dat", "text": "173"}}, {"typeInto": {"field": "com", "text": "7"}}, {"click": "encode"}, {"expect": {"field": {"name": "tcoda", "equals": "SXSOPPYE"}}}]},
+    {"name": "HO Compare value out of range is rejected", "source": "encode: if (co<0 or co>259) and co<> empty then answer \"The compare value must be >0 and  <255\"",
+     "steps": [{"typeInto": {"field": "addr", "text": "100"}}, {"typeInto": {"field": "dat", "text": "5"}}, {"typeInto": {"field": "com", "text": "300"}}, {"click": "encode"}, {"expect": {"dialog": {"contains": "The compare value must be"}}}]}
+  ]},
+  "hypercard_fantasylanguagecreat1": {"scenarios": [
+    {"name": "HO Save Word with a batch, Yes: the batch is copied into the Lexicon (yesBatch)", "source": "bkgnd-3624/button-15: cd fld Batch not empty -> answer save batch? Yes -> yesBatch: put cd fld Batch into line LIN of Lexicon; hide cd fld Batch", "open": "card=2",
+     "steps": [{"click": "Save Word"}, {"expect": {"dialog": {"contains": "save your batch words"}}}, {"answer": "Yes"},
+               {"expect": {"field": {"name": "Lexicon", "matches": "^atmaeca\\nsacahkun\\nsylpalr\\nta\\ntencesve\\nzinpoichconcs\\n?$"}}},
+               {"expect": {"visible": {"name": "Batch", "kind": "field", "value": false}, "hilite": {"name": "Lexicon", "kind": "button", "value": true}}}]},
+    {"name": "HO Sort/Export -> Sort -> Descending sorts the Lexicon", "source": "Sort/Export: answer ... with Both/Export/Sort -> sortLex: answer Descending/Ascending -> sort lines of cd fld Lexicon descending", "open": "card=2",
+     "steps": [{"click": "Save Word"}, {"answer": "Yes"}, {"click": "Sort/Export"}, {"expect": {"dialog": {"contains": "Sort your Lexicon"}}}, {"answer": "Sort"}, {"expect": {"dialog": {"contains": "ascending or descending"}}}, {"answer": "Descending"},
+               {"expect": {"js": {"label": "first line zinpoichconcs, last line atmaeca", "code": "(t => t[0] + '|' + t[t.length - 1])(engine.fieldText(__H.part('Lexicon','field'), engine.current.id).split('\\n').filter(Boolean))", "equals": "zinpoichconcs|atmaeca"}}}]},
+    {"name": "HO Pronunciation tab shows only the Pronounce field", "source": "card-2221/button-25: hilite Pronunciation, show Pronounce, hide Lexicon/Glossary/Batch", "open": "card=2",
+     "steps": [{"click": "Pronunciation"}, {"expect": {"visible": {"name": "Pronounce", "kind": "field", "value": true}, "hilite": {"name": "Pronunciation", "value": true}}}, {"expect": {"visible": {"name": "Lexicon", "kind": "field", "value": false}}}]}
+  ]},
+  "hypercard_hyper-wordle": {"scenarios": [
+    {"name": "HO Wrong-place letter gets outline+shadow, absent letter outline and its key hidden", "source": "handleEnterKey: REBUT vs CIGAR: R in word wrong place -> textStyle outline,shadow + key bold; E not in word -> outline, hide key",
+     "steps": [{"type": "rebut"}, {"key": "Enter"},
+               {"expect": {"js": {"label": "tile 11 (R) = outline+shadow, not bold", "code": "(s => s.includes('outline') && s.includes('shadow') && !s.includes('bold'))(HyperCardEngine.styleNames(engine.state.get(__H.part('letter 11','field')).textStyle))"}}},
+               {"expect": {"js": {"label": "tile 12 (E) = outline only", "code": "(s => s.includes('outline') && !s.includes('shadow') && !s.includes('bold'))(HyperCardEngine.styleNames(engine.state.get(__H.part('letter 12','field')).textStyle))"}}},
+               {"expect": {"visible": {"name": "letter B", "value": false}}}, {"expect": {"visible": {"name": "letter R", "value": true}}}, {"expect": {"field": {"name": "row", "equals": "2"}}}]},
+    {"name": "HO Six wrong guesses lose: answer with the word, OK starts game 2", "source": "handleEnterKey: theRow = 6 -> weLost(theMatch): setLosses+1; answer \"Sorry, the word is \" & quote & theWord & quote ... with OK -> newGame",
+     "steps": [{"type": "rebut"}, {"key": "Enter"}, {"type": "sissy"}, {"key": "Enter"}, {"type": "humph"}, {"key": "Enter"}, {"type": "awake"}, {"key": "Enter"}, {"type": "blush"}, {"key": "Enter"}, {"type": "focal"}, {"key": "Enter"},
+               {"expect": {"dialog": {"contains": "Sorry, the word is \"CIGAR\""}}}, {"answer": "OK"},
+               {"expect": {"field": {"name": "game number", "equals": "2"}}}, {"expect": {"field": {"name": "row", "equals": "1"}}}, {"expect": {"field": {"name": "letter 61", "empty": true}}},
+               {"expect": {"js": {"label": "losses on stats card = 1", "code": "engine.fieldText('card-11352/field-71','card-11352')", "equals": "1"}}}]}
+  ]},
+  "hypercard_inigo_gets_out": {"scenarios": [
+    {"name": "HO Long path 3695 -> 3502 -> 3156 -> 7525 -> 8138 -> 8581 -> 9001 -> 9494, card click back to the start", "source": "card-3695/button-1, card-3502/button-2, card-3156/button-1 (go 7525; play), card-7525/button-2 (play only), card-7525/button-1, card-8138/button-1, card-8581/button-1, card-9001/button-1 (play; go 9494), card-9494 mouseUp go to card id 2927", "open": "card=3",
+     "steps": [{"click": "card-3695/button-1"}, {"expect": {"screen": "card-3502"}}, {"click": "card-3502/button-2"}, {"expect": {"screen": "card-3156"}}, {"click": "card-3156/button-1"}, {"expect": {"screen": "card-7525"}},
+               {"click": "card-7525/button-2"}, {"expect": {"screen": "card-7525"}},
+               {"click": "card-7525/button-1"}, {"expect": {"screen": "card-8138"}}, {"click": "card-8138/button-1"}, {"expect": {"screen": "card-8581"}}, {"click": "card-8581/button-1"}, {"expect": {"screen": "card-9001"}},
+               {"click": "card-9001/button-1"}, {"expect": {"screen": "card-9494"}}, {"clickAt": [256, 300]}, {"expect": {"screen": "card-2927"}}]}
+  ]},
+  "hypercard_obliquestrategies": {"scenarios": [
+    {"name": "HO From card 2: Next goes to 4, Prev goes to the last card", "source": "bkgnd button-7: if card 130 or 2 then go card 4; button-8: if card 4 or 2 then go last card; button-9 go card 2",
+     "steps": [{"expect": {"screenNumber": 2}}, {"click": "bkgnd-2648/button-7"}, {"expect": {"screenNumber": 4}}, {"click": "bkgnd-2648/button-9"}, {"expect": {"screenNumber": 2}}, {"click": "bkgnd-2648/button-8"}, {"expect": {"screenNumber": 130}}]},
+    {"name": "HO Plain previous card from a middle card, then the home button", "source": "button-8 else go previous card; button-9 go card 2",
+     "steps": [{"click": "bkgnd-2648/button-7"}, {"click": "bkgnd-2648/button-7"}, {"click": "bkgnd-2648/button-7"}, {"expect": {"screenNumber": 6}}, {"click": "bkgnd-2648/button-8"}, {"expect": {"screenNumber": 5}}, {"click": "bkgnd-2648/button-9"}, {"expect": {"screenNumber": 2}}]}
+  ]},
+  "hypercard_what_is_hypercard_2": {"scenarios": [
+    {"name": "HO Up/Left arrow on the first card does nothing (Previous is disabled)", "source": "arrowKey: click at the loc of bkgnd btn \"Previous\"; openCard set enabled of Previous to NOT (number = 1)",
+     "steps": [{"key": "ArrowUp"}, {"expect": {"screenNumber": 1}}, {"key": "ArrowLeft"}, {"expect": {"screenNumber": 1, "dialog": false}}]},
+    {"name": "HO Home topic goes to the stack's own 'Home' card (not HyperCard Home), Next goes to More Stacks", "source": "bkgnd-2619/button-18 goTopic: go card (the short name of the target) = card \"Home\" (#7)",
+     "steps": [{"click": "Home"}, {"expect": {"screenName": "Home", "screenNumber": 7}}, {"expect": {"hilite": {"name": "Home", "value": true}}}, {"click": "Next"}, {"expect": {"screenName": "More Stacks", "screenNumber": 8}}]}
+  ]},
+  "mark-twain---300-quotations": {"scenarios": [
+    {"name": "HO Left arrow on card 1 wraps to the last card of the quotations background (363, not 366)", "source": "stack arrowKey: go to previous card in this background",
+     "steps": [{"key": "ArrowLeft"}, {"expect": {"screen": "card-4057", "screenNumber": 363}}]},
+    {"name": "HO Clicking a word in the quotation finds it on another card (hypertext)", "source": "field quotation mouseUp -> hypertext: select the clickchunk; go next; find whole it ('prejudice' is only on cards 1 and 122). The intro field covers the quotation, so the Lock button is clicked twice first (hides intro, lockText back to true)",
+     "steps": [{"click": "bkgnd-2750/button-28"}, {"click": "bkgnd-2750/button-28"}, {"expect": {"visible": {"name": "intro", "value": false}}},
+               {"clickChar": {"field": "quotation", "char": 9}, "timeout": 20000}, {"expect": {"screen": "card-74957"}}]},
+    {"name": "HO A second Find offers the last search (global lastfound)", "source": "findit: ask \"Find what?\" ... with lastfound; put it into lastfound",
+     "steps": [{"click": "bkgnd-2750/button-29"}, {"answer": "Associated Press"}, {"click": "bkgnd-2750/button-29"}, {"expect": {"dialog": {"contains": "Find what?"}}},
+               {"expect": {"js": {"label": "ask default = Associated Press", "code": "document.querySelector('.lr-dialog input').value", "equals": "Associated Press"}}}]},
+    {"name": "HO Copy quote hides the intro and leaves the quotation unchanged", "source": "copyQuote: hide intro; put quotation into temp; put return & return & \"Mark Twain\" after ...; doMenu copy text; put temp into quotation",
+     "steps": [{"click": "bkgnd-2750/button-30"}, {"expect": {"visible": {"name": "intro", "value": false}}}, {"expect": {"field": {"name": "quotation", "equals": "Where prejudice exists it always discolors our thoughts."}}}]}
+  ]},
+  "patients-v15": {"scenarios": [
+    {"name": "HO PATIENT LIST -> UPDATE rebuilds the list from the patient cards and stamps time/date", "source": "card-50843/button-1 UPDATE: go to bg PATIENT INFO; repeat over cards skipping TITLE/MAINTENANCE/HELP/LOGO: put last word & \",\" & first word of fld NAME after NAMEVAR; put the time/date",
+     "steps": [{"click": "PATIENT LIST"}, {"expect": {"screen": "card-50843"}},
+               {"setup": "engine.setFieldText('card-50843/field-4', 'card-50843', ''); engine.setFieldText('card-50843/field-2', 'card-50843', ''); engine.setFieldText('card-50843/field-3', 'card-50843', '');"},
+               {"click": "UPDATE"}, {"expect": {"screen": "card-50843"}}, {"expect": {"field": {"name": "PATIENTS", "matches": "^AAASON,EVADA\\n?$"}}},
+               {"expect": {"field": {"name": "TIME", "notEmpty": true}}}, {"expect": {"field": {"name": "DATE1", "notEmpty": true}}}]},
+    {"name": "HO show cc without a chief complaint warns, then still shows the field and renames itself", "source": "bkgnd-2721/button-139: IF FLD CC IS EMPTY ANSWER ... (-- EXIT MOUSEUP commented out); set visible of field cc to true; set name of me to \"hide cc\"",
+     "steps": [{"setup": "return engine.goCard({id: 41341})"}, {"click": "show cc"}, {"expect": {"dialog": {"contains": "YOU HAVE NOT ENTERED A CHIEF COMPLAINT"}}}, {"dismiss": true},
+               {"expect": {"visible": {"name": "CC", "value": true}}}, {"expect": {"js": {"label": "button renamed hide cc", "code": "engine.state.get('bkgnd-2721/button-139').name", "equals": "hide cc"}}}]},
+    {"name": "HO RETURN on a patient card goes to the first card of bg Title", "source": "bkgnd-2721/button-34: go to first card of bg \"Title\"",
+     "steps": [{"setup": "return engine.goCard({id: 41341})"}, {"click": "bkgnd-2721/button-34"}, {"expect": {"screen": "card-227564"}}]}
+  ]}
+}

@@ -1,0 +1,422 @@
+{
+  "target": "zzt",
+  "headline_visual_metric": "color_match",
+  "notes": [
+    "ZZT: ink_f1 is weak on dark colour images; color_match is the headline. Glyph shapes were harvested from these same reference screenshots, so the ZZT visual scores are an upper bound."
+  ],
+  "totals": {
+    "samples": 8,
+    "with_reference": 6,
+    "visual_mean_color_match": 0.9999,
+    "visual_mean_ink_f1": 1.0,
+    "behavioral_pass": 55,
+    "behavioral_total": 58,
+    "smoke_pass": 8,
+    "lines": 15890,
+    "lines_translated": 15889,
+    "lines_stubbed": 1,
+    "handlers": 4317
+  },
+  "spec_accuracy": {
+    "reader_tests": {
+      "command": "python recovered/zzt/test_reader.py",
+      "passed": 8,
+      "total": 8,
+      "detail": "8/8 files parse to their exact end; 269 boards, 10,297 records, 5,227 programs match the spec totals"
+    },
+    "spec_gaps": {
+      "file": "specs/zzt/GAPS.md",
+      "count": 14,
+      "spec_wrong": 1,
+      "ambiguous_or_silent": 13,
+      "wrong": "#1: line-wall neighbour sets (spec lists 7, corpus has 15: T-junctions and end stubs missing)"
+    }
+  },
+  "samples": {
+    "crimring-crimring": {
+      "visual": {
+        "ink_f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "pixel_agreement": 1.0,
+        "color_match": 1.0,
+        "render_options": null,
+        "side_by_side": "eval/zzt/crimring-crimring/side.png"
+      },
+      "behavioral": {
+        "pass": 4,
+        "total": 4,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-39"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 1,
+        "by_command": {
+          "if": 1
+        },
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 925,
+        "lines": 2969,
+        "lines_translated": 2968,
+        "lines_stubbed": 1,
+        "translated_pct": 100.0,
+        "stubs_by_command": {
+          "if": 1
+        },
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 925,
+        "largest_function": {
+          "name": "start",
+          "lines": 111,
+          "at": "scripts.js:16"
+        },
+        "scripts_js_lines": 12575,
+        "comment_lines": 4311,
+        "original_kept_as_comments": true
+      }
+    },
+    "dammak-dammak": {
+      "visual": {
+        "ink_f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "pixel_agreement": 1.0,
+        "color_match": 1.0,
+        "render_options": null,
+        "side_by_side": "eval/zzt/dammak-dammak/side.png"
+      },
+      "behavioral": {
+        "pass": 8,
+        "total": 8,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-1"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 146,
+        "lines": 672,
+        "lines_translated": 672,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 146,
+        "largest_function": {
+          "name": "on_touch",
+          "lines": 57,
+          "at": "scripts.js:510"
+        },
+        "scripts_js_lines": 2106,
+        "comment_lines": 864,
+        "original_kept_as_comments": true
+      }
+    },
+    "kingl2-kingl2": {
+      "visual": {
+        "ink_f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "pixel_agreement": 0.9996,
+        "color_match": 0.9993,
+        "render_options": null,
+        "side_by_side": "eval/zzt/kingl2-kingl2/side.png"
+      },
+      "behavioral": {
+        "pass": 10,
+        "total": 10,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-1"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 110,
+        "lines": 344,
+        "lines_translated": 344,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 110,
+        "largest_function": {
+          "name": "on_loop",
+          "lines": 77,
+          "at": "scripts.js:977"
+        },
+        "scripts_js_lines": 1468,
+        "comment_lines": 500,
+        "original_kept_as_comments": true
+      }
+    },
+    "lostmonk-lostmonk": {
+      "visual": {
+        "ink_f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "pixel_agreement": 1.0,
+        "color_match": 0.9998,
+        "render_options": null,
+        "side_by_side": "eval/zzt/lostmonk-lostmonk/side.png"
+      },
+      "behavioral": {
+        "pass": 5,
+        "total": 5,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-9"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 1085,
+        "lines": 4114,
+        "lines_translated": 4114,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 1085,
+        "largest_function": {
+          "name": "on_start",
+          "lines": 964,
+          "at": "scripts.js:14603"
+        },
+        "scripts_js_lines": 16163,
+        "comment_lines": 5640,
+        "original_kept_as_comments": true
+      }
+    },
+    "pyramid-pyramid": {
+      "visual": {
+        "ink_f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "pixel_agreement": 1.0,
+        "color_match": 1.0,
+        "render_options": null,
+        "side_by_side": "eval/zzt/pyramid-pyramid/side.png"
+      },
+      "behavioral": {
+        "pass": 11,
+        "total": 11,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-1"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 333,
+        "lines": 1170,
+        "lines_translated": 1170,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 333,
+        "largest_function": {
+          "name": "on_loop",
+          "lines": 185,
+          "at": "scripts.js:4398"
+        },
+        "scripts_js_lines": 5181,
+        "comment_lines": 1623,
+        "original_kept_as_comments": true
+      }
+    },
+    "zzttoxic-smiley": {
+      "visual": null,
+      "behavioral": {
+        "pass": 5,
+        "total": 5,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-1",
+          "board-2"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 518,
+        "lines": 2241,
+        "lines_translated": 2241,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 518,
+        "largest_function": {
+          "name": "on_exchange",
+          "lines": 66,
+          "at": "scripts.js:4173"
+        },
+        "scripts_js_lines": 8219,
+        "comment_lines": 3056,
+        "original_kept_as_comments": true
+      }
+    },
+    "zzttoxic-toxhints": {
+      "visual": null,
+      "behavioral": {
+        "pass": 4,
+        "total": 7,
+        "failed": [
+          "Part 1 opens its submenu",
+          "A topic shows its hint text",
+          "Return to Main Menu"
+        ]
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-0"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 95,
+        "lines": 363,
+        "lines_translated": 363,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 95,
+        "largest_function": {
+          "name": "on_touch",
+          "lines": 39,
+          "at": "scripts.js:47"
+        },
+        "scripts_js_lines": 1063,
+        "comment_lines": 571,
+        "original_kept_as_comments": true
+      }
+    },
+    "zzttoxic-toxic": {
+      "visual": {
+        "ink_f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "pixel_agreement": 1.0,
+        "color_match": 1.0,
+        "render_options": null,
+        "side_by_side": "eval/zzt/zzttoxic-toxic/side.png"
+      },
+      "behavioral": {
+        "pass": 8,
+        "total": 8,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "boards_seen": [
+          "board-1"
+        ],
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 1105,
+        "lines": 4017,
+        "lines_translated": 4017,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 1105,
+        "largest_function": {
+          "name": "on_doit",
+          "lines": 157,
+          "at": "scripts.js:15577"
+        },
+        "scripts_js_lines": 16914,
+        "comment_lines": 5763,
+        "original_kept_as_comments": true
+      }
+    }
+  }
+}

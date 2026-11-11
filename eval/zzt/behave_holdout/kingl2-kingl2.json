@@ -1,0 +1,99 @@
+{
+  "sample": "kingl2-kingl2",
+  "scenarios": [
+    {
+      "name": "HO Oracle gives five rewards once (#give x5, #zap touch)",
+      "source": "board-2 @Oracle :touch ... #give score 1000; #give energy 50; #give ammo 50; #give torches 10; #give gems 20; #zap touch",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Oracle\n     A voice booms through the chamber:\n\"Congratulations,thou hast taken the test\nand found it not so difficult as it may\nfirst have appeared.Thou art truly a brave\nwarrior!\"\nEnter or Esc to close",
+          "expected": {
+            "contains": "Congratulations"
+          }
+        },
+        {
+          "what": "counter score",
+          "pass": true,
+          "actual": 1000,
+          "expected": {
+            "name": "score",
+            "delta": 1000
+          }
+        },
+        {
+          "what": "counter ammo",
+          "pass": true,
+          "actual": 50,
+          "expected": {
+            "name": "ammo",
+            "delta": 50
+          }
+        },
+        {
+          "what": "counter torches",
+          "pass": true,
+          "actual": 10,
+          "expected": {
+            "name": "torches",
+            "delta": 10
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 20,
+          "expected": {
+            "name": "gems",
+            "delta": 20
+          }
+        },
+        {
+          "what": "nothing shown",
+          "pass": true,
+          "actual": "",
+          "expected": "(nothing)"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO The #bind copy of the dynamite explodes too",
+      "source": "board-1-stat-46: #bind dynamite -> :touch You set off the dynamite!; #take energy 5; #die. stat-46 is walled in; its only open side is the original dynamite (stat-45), so that one is set off first",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "You set off the dynamite!",
+          "expected": {
+            "contains": "You set off the dynamite!"
+          }
+        },
+        {
+          "what": "entity board-1-stat-46 alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

@@ -1,0 +1,109 @@
+{
+  "sample": "hypercard_hyper-wordle",
+  "scenarios": [
+    {
+      "name": "HO Wrong-place letter gets outline+shadow, absent letter outline and its key hidden",
+      "source": "handleEnterKey: REBUT vs CIGAR: R in word wrong place -> textStyle outline,shadow + key bold; E not in word -> outline, hide key",
+      "checks": [
+        {
+          "what": "tile 11 (R) = outline+shadow, not bold",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "tile 12 (E) = outline only",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "visible of \"letter B\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "visible of \"letter R\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "field \"row\"",
+          "pass": true,
+          "actual": "2",
+          "expected": {
+            "name": "row",
+            "equals": "2"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO Six wrong guesses lose: answer with the word, OK starts game 2",
+      "source": "handleEnterKey: theRow = 6 -> weLost(theMatch): setLosses+1; answer \"Sorry, the word is \" & quote & theWord & quote ... with OK -> newGame",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Sorry, the word is \"CIGAR\". Play again?\nOK\nCancel",
+          "expected": {
+            "contains": "Sorry, the word is \"CIGAR\""
+          }
+        },
+        {
+          "what": "field \"game number\"",
+          "pass": true,
+          "actual": "2",
+          "expected": {
+            "name": "game number",
+            "equals": "2"
+          }
+        },
+        {
+          "what": "field \"row\"",
+          "pass": true,
+          "actual": "1",
+          "expected": {
+            "name": "row",
+            "equals": "1"
+          }
+        },
+        {
+          "what": "field \"letter 61\"",
+          "pass": true,
+          "actual": "",
+          "expected": {
+            "name": "letter 61",
+            "empty": true
+          }
+        },
+        {
+          "what": "losses on stats card = 1",
+          "pass": true,
+          "actual": "1",
+          "expected": "1"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

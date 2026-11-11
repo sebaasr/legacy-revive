@@ -1,0 +1,100 @@
+{
+  "sample": "crimring-crimring",
+  "scenarios": [
+    {
+      "name": "P starts on the Credits board",
+      "source": "header current board = 39",
+      "checks": [
+        {
+          "what": "state",
+          "pass": true,
+          "actual": "play",
+          "expected": "play"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-39",
+          "expected": "board-39"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "#send all:design makes the letters appear",
+      "source": "object #78: /i x13; #send all:design; objects :design #char 68 ('D') etc.",
+      "checks": [
+        {
+          "what": "object at (27,8) shows 'D'",
+          "pass": true,
+          "actual": 68,
+          "expected": 68
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "#send all:goaway removes the bound objects",
+      "source": "#78: #send all:goaway; @goaway :goaway #die (and #bind goaway copies)",
+      "checks": [
+        {
+          "what": "no live goaway-bound objects",
+          "pass": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Chain ends with #send door:die, then the passage leads to board 2",
+      "source": "#78: ... #send door:die; passage (31,25) -> board-2",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-2",
+          "expected": "board-2"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "state": "play",
+    "boardsSeen": [
+      "board-39"
+    ],
+    "end": "board-39",
+    "error": null,
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 4,
+  "total": 4
+}

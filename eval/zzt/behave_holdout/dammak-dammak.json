@@ -1,0 +1,74 @@
+{
+  "sample": "dammak-dammak",
+  "scenarios": [
+    {
+      "name": "HO Weapon maker: buy the sword (take 3 gems, set flag)",
+      "source": "@Weapon maker :touch !x2;Sword -> :x2 #take gems 3 notenuff; Here's your sword.; #set sword",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Weapon maker\n     \"Hello.Are you interested in buying\nany weapons or arrows for your bow?\"\n10 arrows.................1 gem\nSword.....................3 gems\nAxe.......................4 gems\nSpear.....................2 gems\nMace......................3 gems\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "buying"
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 7,
+          "expected": {
+            "name": "gems",
+            "equals": 7
+          }
+        },
+        {
+          "what": "flag sword",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "     As you approach the little town of\nDelmar,you think back to the border patrol\nof Baron Dammak,that confiscated all of \nyour possessions except for your bow and\na hidden pouch of 10 gems.The rule of \nDammak is well known throughout the entire\nland as a hideous mockery of justice.You\nhad dreaded ",
+          "expected": {
+            "contains": "Here's your sword."
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "HO A #bind copy of the Patron answers with the Patron's script",
+      "source": "board-1-stat-25: #bind patron -> @Patron :touch Don't bother the patrons!",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "Don't bother the patrons!",
+          "expected": {
+            "contains": "Don't bother the patrons!"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": null,
+  "retired": [],
+  "pass": 2,
+  "total": 2
+}

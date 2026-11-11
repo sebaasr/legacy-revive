@@ -48,7 +48,7 @@
         {
           "what": "field \"Word\"",
           "pass": true,
-          "actual": "khom",
+          "actual": "daardian",
           "expected": {
             "name": "Word",
             "matches": "^[a-zéû]+$"
@@ -57,7 +57,7 @@
         {
           "what": "field \"NumS\"",
           "pass": true,
-          "actual": "1",
+          "actual": "3",
           "expected": {
             "name": "NumS",
             "matches": "^[1-6]$"
@@ -66,7 +66,7 @@
         {
           "what": "field \"Sylab\"",
           "pass": true,
-          "actual": "CVC",
+          "actual": "CVVCCVC",
           "expected": {
             "name": "Sylab",
             "matches": "^(CVC|CV|VC|V)+$"
@@ -219,7 +219,7 @@
         {
           "what": "field \"Batch\"",
           "pass": true,
-          "actual": "daaldanko\nsaen\nthaldi",
+          "actual": "jernycouv\noer\ntay",
           "expected": {
             "name": "Batch",
             "matches": "^[a-zéû]+\\n[a-zéû]+\\n[a-zéû]+$"
@@ -305,6 +305,7 @@
     "pass": true,
     "runtimeStubs": []
   },
+  "retired": [],
   "pass": 7,
   "total": 7
 }
