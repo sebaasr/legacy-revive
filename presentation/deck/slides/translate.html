@@ -1,0 +1,15 @@
+<section id="translate" data-transition="fade" style="background:#F3EFE6;color:#15181E;font-family:Inter, Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Old scripts become readable JavaScript</h2>
+<div style="display:flex;gap:32px">
+<div style="width:560px;display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#9A5F0E">HYPERTALK, 1990s</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.6;background:#FBF9F4;border:1px solid #DCD6C8;border-radius:12px;padding:32px">on mouseUp<br>  put word 2 of the clickChunk into cr<br>  put char (cr+1) div 2 of "AEPOZXLUGKISTVYN" after cd fld tcoda<br>end mouseUp</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#9A5F0E">GENERATED JAVASCRIPT</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.6;background:#15181E;color:#E6E1D6;border-radius:12px;padding:32px"><span style="color:#8F96A3">// on mouseup</span><br>H.on(owner, "mouseup", async function mouseup($) {<br>  <span style="color:#8F96A3">// put word 2 of the clickchunk into cr</span><br>  cr = H.chunk(H.f.clickChunk(), [["word", 2]]);<br>  <span style="color:#8F96A3">// put char (cr+1) div 2 of "AEP…" after cd fld tcoda</span><br>  H.putInto(H.part($, "card", "field", "tcoda"),<br>    H.chunk("AEP…", [["char", H.div(H.num(cr) + 1, 2)]]), "after");<br>});</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4;color:#4A4F57">One function per original handler, the original line kept as a comment above each translation. <b style="color:#15181E">18,385 of 18,403 lines</b> translated (99.9%); the rest are counted, visible stubs.</p>
+<aside>The Modernizer doesn’t just redraw screens: it translates the programs. HyperTalk and ZZT-OOP each get a real parser that outputs JavaScript. I asked for readable output: every original handler becomes one function, and every original line stays as a comment above its translation, so a developer can see exactly what each line came from. Out of more than eighteen thousand lines, only eighteen couldn’t be translated, and those are visible stubs, not silent omissions.</aside>
+</section>

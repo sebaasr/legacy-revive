@@ -1,0 +1,13 @@
+<section id="verify" data-transition="fade" style="background:#15181E;color:#F3EFE6;font-family:Inter, Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">The Verifier closed the loop</h2>
+<table style="font-size:28px;color:#F3EFE6">
+<tr><th style="width:52%">Check (all 18 apps)</th><th style="width:24%">Iteration 1</th><th style="width:24%">Iteration 2</th></tr>
+<tr><td>Behavior scenarios from the original scripts</td><td>94 / 101</td><td><b>113 / 113</b></td></tr>
+<tr style="background:#2A2416"><td><b>Hold-out scenarios, never shown to the Modernizer</b></td><td>–</td><td><b style="color:#E9A23B">36 / 38</b></td></tr>
+<tr><td>Apps with no errors when every button is clicked</td><td>17 / 18</td><td><b>18 / 18</b></td></tr>
+<tr><td>Script lines translated</td><td>99.6%</td><td><b>99.9%</b></td></tr>
+<tr><td>Visual match, HyperCard / ZZT start screens</td><td>0.985 / 0.9999</td><td>0.986 / 0.9999</td></tr>
+</table>
+<p style="font-size:32px;line-height:1.4;color:#B9BEC7;width:1600px">The hold-out score is the honest one: 100% on the main set partly reflects tests written next to the fixes. The 2 hold-out failures are real, open bugs.</p>
+<aside>The Verifier tested every app two ways: visually, against the original screenshots, and behaviorally, with scenarios derived from the original scripts. For example, clicking this button must go to the next card. The first round found real bugs, the Modernizer fixed them, and behavior went from 94 to 113 out of 113. But I don’t want to oversell that 100 percent: some of those tests were written alongside the fixes. So the final Verifier wrote 38 new hold-out tests the Modernizer never saw. 36 pass, and the two failures are genuine bugs that are still open.</aside>
+</section>

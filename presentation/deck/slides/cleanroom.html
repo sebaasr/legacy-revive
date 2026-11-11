@@ -1,0 +1,12 @@
+<section id="cleanroom" data-transition="fade" style="background:#F3EFE6;color:#15181E;font-family:Inter, Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">A clean room keeps the agents honest</h2>
+<table style="font-size:28px;color:#15181E">
+<tr><th style="width:24%">Agent</th><th style="width:38%">May read</th><th style="width:38%">May not read</th></tr>
+<tr><td>Analyst</td><td>The sample files’ bytes</td><td>The web, documentation, its own memory of the format</td></tr>
+<tr><td>Documenter</td><td>The Analyst’s notes and probes</td><td>Anything the notes don’t support</td></tr>
+<tr style="background:#F6E7C9"><td><b>Clean-room Builder</b></td><td><b>SPEC.md only</b></td><td>The notes, the probes, any other code</td></tr>
+<tr><td>Modernizer</td><td>The recovered data and the spec</td><td>(free to use engine knowledge, and says so)</td></tr>
+</table>
+<p style="font-size:32px;line-height:1.4;color:#4A4F57;width:1500px">If a reader written from the spec alone works, the spec is complete. Every place it breaks is logged as a <b style="color:#15181E">gap</b>: a measurable result, not a guess.</p>
+<aside>The agents follow clean-room rules, the same method used to legally reimplement software. The Analyst can only look at bytes: no web, no documentation, not even what the model might remember about the format. Every claim needs an offset and evidence. The important one is the Builder: it only sees the spec. If its reader works on every file, the spec really captured the format. Every time the spec was silent or wrong, the Builder logged a gap, and those gaps are one of my results.</aside>
+</section>

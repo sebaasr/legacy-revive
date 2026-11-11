@@ -1,0 +1,35 @@
+<section id="idea" data-section="Five agents, a clean room and a shared intermediate format" data-transition="fade" style="background:#15181E;color:#F3EFE6;font-family:Inter, Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Five agents, one pipeline</h2>
+<div style="display:flex;align-items:center;gap:16px">
+<div style="width:256px;display:flex;flex-direction:column;gap:12px;background:#1F242D;border:1px solid #3A414D;border-radius:16px;padding:28px">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:32px;font-weight:600">Analyst</h3>
+<p style="font-size:24px;line-height:1.35;color:#B9BEC7">Reverse engineers raw bytes</p>
+</div>
+<x-connector style="width:64px;color:#E9A23B" head="end"></x-connector>
+<div style="width:256px;display:flex;flex-direction:column;gap:12px;background:#1F242D;border:1px solid #3A414D;border-radius:16px;padding:28px">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:32px;font-weight:600">Documenter</h3>
+<p style="font-size:24px;line-height:1.35;color:#B9BEC7">Writes one precise spec</p>
+</div>
+<x-connector style="width:64px;color:#E9A23B" head="end"></x-connector>
+<div style="width:256px;display:flex;flex-direction:column;gap:12px;background:#1F242D;border:1px solid #3A414D;border-radius:16px;padding:28px">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:32px;font-weight:600">Clean-room Builder</h3>
+<p style="font-size:24px;line-height:1.35;color:#B9BEC7">Reader from the spec alone</p>
+</div>
+<x-connector style="width:64px;color:#E9A23B" head="end"></x-connector>
+<div style="width:256px;display:flex;flex-direction:column;gap:12px;background:#2A2416;border:2px solid #E9A23B;border-radius:16px;padding:28px">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:32px;font-weight:600">Modernizer</h3>
+<p style="font-size:24px;line-height:1.35;color:#E6DCC8">Web app + script translator</p>
+</div>
+<x-connector style="width:64px;color:#E9A23B" head="end"></x-connector>
+<div style="width:256px;display:flex;flex-direction:column;gap:12px;background:#1F242D;border:1px solid #3A414D;border-radius:16px;padding:28px">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:32px;font-weight:600">Verifier</h3>
+<p style="font-size:24px;line-height:1.35;color:#B9BEC7">Scores it against the original</p>
+</div>
+</div>
+<p style="font-size:32px;color:#E9A23B;text-align:right">↺ defects go back to the Modernizer for another iteration</p>
+<div style="display:flex;gap:32px;align-items:center;background:#1F242D;border-radius:16px;padding:32px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:32px;color:#E9A23B;white-space:nowrap">Legacy IR</p>
+<p style="font-size:32px;line-height:1.35;color:#F3EFE6">One shared JSON format between recovery and modernization. Every reader emits it; one web runtime renders it. A new program needs a reader and a translator, not a new app.</p>
+</div>
+<aside>The project is five agents, each one a Claude Code subagent with its own role file. The Analyst reverse engineers the files from raw bytes. The Documenter turns its notes into one specification. The Clean-room Builder writes a reader using only that spec. The Modernizer turns the result into a web app and translates the old scripting language into JavaScript. The Verifier compares the new app with the original and sends defects back. The key design piece is the Legacy IR, a shared JSON format in the middle. It’s what makes the system general instead of a one-off HyperCard converter.</aside>
+</section>

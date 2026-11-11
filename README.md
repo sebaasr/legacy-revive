@@ -91,6 +91,7 @@ preservation, and no original code is copied into the output.
 | `output/<t>/<sample>/` | `ir/` (recovered) and `app/` (modernized, with `MIGRATION.md`) |
 | `eval/` | render/compare tools, behavioral harness, scenarios, results, `SUMMARY.md`, `DEFECTS.md` |
 | `proposal/` | the one-page proposal (LaTeX) |
+| `presentation/` | the class presentation (slide sources with speaker notes) |
 | `PROMPTS.md` | every prompt of the project, in English, key turns marked |
 
 ## Reproduce
