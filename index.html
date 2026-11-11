@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legacy Revive</title>
+<style>
+:root { --bg:#fff; --fg:#111; --muted:#666; --line:#ddd; --accent:#0a58ca; }
+@media (prefers-color-scheme: dark) { :root { --bg:#111; --fg:#eee; --muted:#aaa; --line:#333; --accent:#7ab0ff; } }
+body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, sans-serif; }
+main { max-width:1200px; margin:0 auto; padding:24px 16px 64px; }
+h1 { margin:0 0 4px; } h2 { margin-top:40px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+h3 { margin:0 0 8px; font-size:16px; }
+.muted { color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap:16px; }
+article { border:1px solid var(--line); border-radius:8px; padding:12px; }
+.pair { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+figure { margin:0; } img { width:100%; image-rendering:pixelated; border:1px solid var(--line); display:block; }
+figcaption { font-size:12px; color:var(--muted); }
+dl { display:flex; gap:20px; margin:10px 0 4px; } dt { font-size:12px; color:var(--muted); } dd { margin:0; font-weight:600; }
+a { color:var(--accent); }
+</style></head>
+<body><main>
+<h1>Legacy Revive</h1>
+<p class="muted">A multi-agent pipeline that reverse engineers abandoned software from its files alone, writes a specification,
+rebuilds a reader from that specification in a clean room, and turns each program into a maintainable web app.
+Each card shows the original (screenshot from an emulator) next to the modernized version rendered in a browser.</p>
+<section><h2>HyperCard</h2><p class="muted">Apple, 1987–2004 · card stacks scripted in HyperTalk. 10 programs recovered and modernized; HyperTalk translated to JavaScript.</p><div class="grid"><article>
+  <h3>CthulhuCard</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/cthulhucard/reference.png" alt="Original CthulhuCard"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/cthulhucard/app.png" alt="Modernized CthulhuCard"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.984</dd></div><div><dt>Scenarios</dt><dd>6/6</dd></div>
+      <div><dt>Script lines translated</dt><dd>89/89</dd></div></dl>
+  <p class="links"><a href="output/hypercard/cthulhucard/app/index.html">Open modernized app</a> · <a href="output/hypercard/cthulhucard/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/cthulhucard">Source archive</a></p>
+</article>
+<article>
+  <h3>Fishing Animation</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/fishing-animation/reference.png" alt="Original Fishing Animation"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/fishing-animation/app.png" alt="Modernized Fishing Animation"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.994</dd></div><div><dt>Scenarios</dt><dd>3/3</dd></div>
+      <div><dt>Script lines translated</dt><dd>26/26</dd></div></dl>
+  <p class="links"><a href="output/hypercard/fishing-animation/app/index.html">Open modernized app</a> · <a href="output/hypercard/fishing-animation/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/fishing-animation">Source archive</a></p>
+</article>
+<article>
+  <h3>Game Genie Encoder-Decoder</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/game-genie-encoder-decoder/reference.png" alt="Original Game Genie Encoder-Decoder"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/game-genie-encoder-decoder/app.png" alt="Modernized Game Genie Encoder-Decoder"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.996</dd></div><div><dt>Scenarios</dt><dd>6/6</dd></div>
+      <div><dt>Script lines translated</dt><dd>147/147</dd></div></dl>
+  <p class="links"><a href="output/hypercard/game-genie-encoder-decoder/app/index.html">Open modernized app</a> · <a href="output/hypercard/game-genie-encoder-decoder/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/game-genie-encoder-decoder">Source archive</a></p>
+</article>
+<article>
+  <h3>Fantasy Language Creator 1.1</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/hypercard_fantasylanguagecreat1/reference.png" alt="Original Fantasy Language Creator 1.1"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/hypercard_fantasylanguagecreat1/app.png" alt="Modernized Fantasy Language Creator 1.1"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.998</dd></div><div><dt>Scenarios</dt><dd>7/7</dd></div>
+      <div><dt>Script lines translated</dt><dd>431/431</dd></div></dl>
+  <p class="links"><a href="output/hypercard/hypercard_fantasylanguagecreat1/app/index.html">Open modernized app</a> · <a href="output/hypercard/hypercard_fantasylanguagecreat1/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/hypercard_fantasylanguagecreat1">Source archive</a></p>
+</article>
+<article>
+  <h3>Hyper-Wordle</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/hypercard_hyper-wordle/reference.png" alt="Original Hyper-Wordle"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/hypercard_hyper-wordle/app.png" alt="Modernized Hyper-Wordle"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.941</dd></div><div><dt>Scenarios</dt><dd>7/7</dd></div>
+      <div><dt>Script lines translated</dt><dd>672/675</dd></div></dl>
+  <p class="links"><a href="output/hypercard/hypercard_hyper-wordle/app/index.html">Open modernized app</a> · <a href="output/hypercard/hypercard_hyper-wordle/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/hypercard_hyper-wordle">Source archive</a></p>
+</article>
+<article>
+  <h3>Inigo Gets Out</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/hypercard_inigo_gets_out/reference.png" alt="Original Inigo Gets Out"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/hypercard_inigo_gets_out/app.png" alt="Modernized Inigo Gets Out"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>1.000</dd></div><div><dt>Scenarios</dt><dd>5/5</dd></div>
+      <div><dt>Script lines translated</dt><dd>43/43</dd></div></dl>
+  <p class="links"><a href="output/hypercard/hypercard_inigo_gets_out/app/index.html">Open modernized app</a> · <a href="output/hypercard/hypercard_inigo_gets_out/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/hypercard_inigo_gets_out">Source archive</a></p>
+</article>
+<article>
+  <h3>ObliqueStrategies</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/hypercard_obliquestrategies/reference.png" alt="Original ObliqueStrategies"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/hypercard_obliquestrategies/app.png" alt="Modernized ObliqueStrategies"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.976</dd></div><div><dt>Scenarios</dt><dd>5/5</dd></div>
+      <div><dt>Script lines translated</dt><dd>29/29</dd></div></dl>
+  <p class="links"><a href="output/hypercard/hypercard_obliquestrategies/app/index.html">Open modernized app</a> · <a href="output/hypercard/hypercard_obliquestrategies/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/hypercard_obliquestrategies">Source archive</a></p>
+</article>
+<article>
+  <h3>What is HyperCard? v2.3</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/hypercard_what_is_hypercard_2/reference.png" alt="Original What is HyperCard? v2.3"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/hypercard_what_is_hypercard_2/app.png" alt="Modernized What is HyperCard? v2.3"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.996</dd></div><div><dt>Scenarios</dt><dd>5/5</dd></div>
+      <div><dt>Script lines translated</dt><dd>56/57</dd></div></dl>
+  <p class="links"><a href="output/hypercard/hypercard_what_is_hypercard_2/app/index.html">Open modernized app</a> · <a href="output/hypercard/hypercard_what_is_hypercard_2/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/hypercard_what_is_hypercard_2">Source archive</a></p>
+</article>
+<article>
+  <h3>Mark Twain - 300 quotations</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/mark-twain---300-quotations/reference.png" alt="Original Mark Twain - 300 quotations"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/mark-twain---300-quotations/app.png" alt="Modernized Mark Twain - 300 quotations"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.990</dd></div><div><dt>Scenarios</dt><dd>6/6</dd></div>
+      <div><dt>Script lines translated</dt><dd>97/97</dd></div></dl>
+  <p class="links"><a href="output/hypercard/mark-twain---300-quotations/app/index.html">Open modernized app</a> · <a href="output/hypercard/mark-twain---300-quotations/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/mark-twain---300-quotations">Source archive</a></p>
+</article>
+<article>
+  <h3>Patients v1.5</h3>
+  <div class="pair"><figure><img src="corpus/hypercard/patients-v15/reference.png" alt="Original Patients v1.5"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/hypercard/patients-v15/app.png" alt="Modernized Patients v1.5"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.984</dd></div><div><dt>Scenarios</dt><dd>8/8</dd></div>
+      <div><dt>Script lines translated</dt><dd>906/919</dd></div></dl>
+  <p class="links"><a href="output/hypercard/patients-v15/app/index.html">Open modernized app</a> · <a href="output/hypercard/patients-v15/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://archive.org/details/patients-v15">Source archive</a></p>
+</article></div></section><section><h2>ZZT</h2><p class="muted">Epic MegaGames, 1991 · MS-DOS text-mode worlds scripted in ZZT-OOP. 8 programs recovered and modernized; ZZT-OOP translated to JavaScript.</p><div class="grid"><article>
+  <h3>Crime Ring</h3>
+  <div class="pair"><figure><img src="corpus/zzt/crimring/reference.png" alt="Original Crime Ring"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/zzt/crimring-crimring/app.png" alt="Modernized Crime Ring"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>1.000</dd></div><div><dt>Scenarios</dt><dd>4/4</dd></div>
+      <div><dt>Script lines translated</dt><dd>2968/2969</dd></div></dl>
+  <p class="links"><a href="output/zzt/crimring-crimring/app/index.html">Open modernized app</a> · <a href="output/zzt/crimring-crimring/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/crimring/">Source archive</a></p>
+</article>
+<article>
+  <h3>Realm of Dammak</h3>
+  <div class="pair"><figure><img src="corpus/zzt/dammak/reference.png" alt="Original Realm of Dammak"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/zzt/dammak-dammak/app.png" alt="Modernized Realm of Dammak"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>1.000</dd></div><div><dt>Scenarios</dt><dd>8/8</dd></div>
+      <div><dt>Script lines translated</dt><dd>672/672</dd></div></dl>
+  <p class="links"><a href="output/zzt/dammak-dammak/app/index.html">Open modernized app</a> · <a href="output/zzt/dammak-dammak/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/dammak/">Source archive</a></p>
+</article>
+<article>
+  <h3>Castle of King Lucius</h3>
+  <div class="pair"><figure><img src="corpus/zzt/kingl2/reference.png" alt="Original Castle of King Lucius"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/zzt/kingl2-kingl2/app.png" alt="Modernized Castle of King Lucius"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>0.999</dd></div><div><dt>Scenarios</dt><dd>10/10</dd></div>
+      <div><dt>Script lines translated</dt><dd>344/344</dd></div></dl>
+  <p class="links"><a href="output/zzt/kingl2-kingl2/app/index.html">Open modernized app</a> · <a href="output/zzt/kingl2-kingl2/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/kingl2/">Source archive</a></p>
+</article>
+<article>
+  <h3>The Lost Monkeys</h3>
+  <div class="pair"><figure><img src="corpus/zzt/lostmonk/reference.png" alt="Original The Lost Monkeys"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/zzt/lostmonk-lostmonk/app.png" alt="Modernized The Lost Monkeys"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>1.000</dd></div><div><dt>Scenarios</dt><dd>5/5</dd></div>
+      <div><dt>Script lines translated</dt><dd>4114/4114</dd></div></dl>
+  <p class="links"><a href="output/zzt/lostmonk-lostmonk/app/index.html">Open modernized app</a> · <a href="output/zzt/lostmonk-lostmonk/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/lostmonk/">Source archive</a></p>
+</article>
+<article>
+  <h3>The Lost Pyramid</h3>
+  <div class="pair"><figure><img src="corpus/zzt/pyramid/reference.png" alt="Original The Lost Pyramid"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/zzt/pyramid-pyramid/app.png" alt="Modernized The Lost Pyramid"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>1.000</dd></div><div><dt>Scenarios</dt><dd>11/11</dd></div>
+      <div><dt>Script lines translated</dt><dd>1170/1170</dd></div></dl>
+  <p class="links"><a href="output/zzt/pyramid-pyramid/app/index.html">Open modernized app</a> · <a href="output/zzt/pyramid-pyramid/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/pyramid/">Source archive</a></p>
+</article>
+<article>
+  <h3>Smiley Guy &amp; Toxic Terminator</h3>
+  <div class="pair"><figure><img src="corpus/zzt/zzttoxic/reference.png" alt="Original Smiley Guy &amp; Toxic Terminator"><figcaption>Original (emulator)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>n/a</dd></div><div><dt>Scenarios</dt><dd>5/5</dd></div>
+      <div><dt>Script lines translated</dt><dd>2241/2241</dd></div></dl>
+  <p class="links"><a href="output/zzt/zzttoxic-smiley/app/index.html">Open modernized app</a> · <a href="output/zzt/zzttoxic-smiley/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/zzttoxic/">Source archive</a></p>
+</article>
+<article>
+  <h3>Smiley Guy &amp; Toxic Terminator</h3>
+  <div class="pair"><figure><img src="corpus/zzt/zzttoxic/reference.png" alt="Original Smiley Guy &amp; Toxic Terminator"><figcaption>Original (emulator)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>n/a</dd></div><div><dt>Scenarios</dt><dd>4/7</dd></div>
+      <div><dt>Script lines translated</dt><dd>363/363</dd></div></dl>
+  <p class="links"><a href="output/zzt/zzttoxic-toxhints/app/index.html">Open modernized app</a> · <a href="output/zzt/zzttoxic-toxhints/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/zzttoxic/">Source archive</a></p>
+</article>
+<article>
+  <h3>Smiley Guy &amp; Toxic Terminator</h3>
+  <div class="pair"><figure><img src="corpus/zzt/zzttoxic/reference.png" alt="Original Smiley Guy &amp; Toxic Terminator"><figcaption>Original (emulator)</figcaption></figure><figure><img src="eval/zzt/zzttoxic-toxic/app.png" alt="Modernized Smiley Guy &amp; Toxic Terminator"><figcaption>Modernized (browser)</figcaption></figure></div>
+  <dl><div><dt>Visual</dt><dd>1.000</dd></div><div><dt>Scenarios</dt><dd>8/8</dd></div>
+      <div><dt>Script lines translated</dt><dd>4017/4017</dd></div></dl>
+  <p class="links"><a href="output/zzt/zzttoxic-toxic/app/index.html">Open modernized app</a> · <a href="output/zzt/zzttoxic-toxic/app/MIGRATION.md">MIGRATION.md</a> · <a href="https://museumofzzt.com/file/view/zzttoxic/">Source archive</a></p>
+</article></div></section>
+</main></body></html>
