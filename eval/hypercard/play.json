@@ -1,0 +1,2015 @@
+[
+  {
+    "stack": "cthulhucard",
+    "start": "card-3185",
+    "cardsReached": [
+      "card-3185",
+      "card-6935",
+      "card-2523",
+      "card-4180"
+    ],
+    "clicks": 11,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [
+      "play: sound \"DkCasMus\" is not available (snd resources are not decoded)"
+    ],
+    "detail": [
+      {
+        "on": "card-3185",
+        "button": "card-3185/button-5",
+        "to": "card-3185",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-3185",
+        "button": "card-3185/button-7",
+        "to": "card-6935",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-3185",
+        "button": "card-3185/button-8",
+        "to": "card-2523",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-3185",
+        "button": "card-3185/button-13",
+        "to": "card-4180",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6935",
+        "button": "card-6935/button-55",
+        "to": "card-3185",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2523",
+        "button": "card-2523/button-1",
+        "to": "card-3185",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2523",
+        "button": "card-2523/button-4",
+        "to": "card-19562",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4180",
+        "button": "card-4180/button-1",
+        "to": "card-4180",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4180",
+        "button": "card-4180/button-2",
+        "to": "card-3185",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4180",
+        "button": "card-4180/button-3",
+        "to": "card-4180",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4180",
+        "button": "card-4180/button-7",
+        "to": "card-19562",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "fishing-animation",
+    "start": "card-2923",
+    "cardsReached": [
+      "card-2923"
+    ],
+    "clicks": 1,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [],
+    "detail": [
+      {
+        "on": "card-2923",
+        "button": "card-2923/button-1",
+        "to": "card-2923",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "game-genie-encoder-decoder",
+    "start": "card-2996",
+    "cardsReached": [
+      "card-2996"
+    ],
+    "clicks": 6,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [
+      "start using: start using stack \"genie des jeux\"",
+      "function: bin: not defined in this stack (XCMD/XFCN or another stack)",
+      "function: bin2dec: not defined in this stack (XCMD/XFCN or another stack)"
+    ],
+    "detail": [
+      {
+        "on": "card-2996",
+        "button": "card-2996/button-1",
+        "to": "card-2996",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2996",
+        "button": "card-2996/button-8",
+        "to": "card-2996",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2996",
+        "button": "card-2996/button-9",
+        "to": "card-2996",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2996",
+        "button": "card-2996/button-10",
+        "to": "card-2996",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2996",
+        "button": "card-2996/button-14",
+        "to": "card-2996",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2996",
+        "button": "card-2996/button-15",
+        "to": "card-2996",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "hypercard_fantasylanguagecreat1",
+    "start": "card-4138",
+    "cardsReached": [
+      "card-4138",
+      "card-2221",
+      "card-4423"
+    ],
+    "clicks": 23,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [],
+    "detail": [
+      {
+        "on": "card-4138",
+        "button": "bkgnd-3624/button-13",
+        "to": "card-4138",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4138",
+        "button": "bkgnd-3624/button-14",
+        "to": "card-4138",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4138",
+        "button": "bkgnd-3624/button-15",
+        "to": "card-4138",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4138",
+        "button": "card-4138/button-13",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4138",
+        "button": "card-4138/button-14",
+        "to": "card-4423",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4138",
+        "button": "card-4138/button-15",
+        "to": "card-4138",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4138",
+        "button": "card-4138/button-16",
+        "to": "card-4138",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "bkgnd-3624/button-13",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "bkgnd-3624/button-14",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "bkgnd-3624/button-15",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-9",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-10",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-16",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-21",
+        "to": "card-4138",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-23",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-24",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-25",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2221",
+        "button": "card-2221/button-26",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4423",
+        "button": "bkgnd-3624/button-13",
+        "to": "card-4423",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4423",
+        "button": "bkgnd-3624/button-14",
+        "to": "card-4423",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4423",
+        "button": "bkgnd-3624/button-15",
+        "to": "card-4423",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4423",
+        "button": "card-4423/button-4",
+        "to": "card-4138",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4423",
+        "button": "card-4423/button-5",
+        "to": "card-2221",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "hypercard_hyper-wordle",
+    "start": "card-2990",
+    "cardsReached": [
+      "card-2990",
+      "card-2231",
+      "card-11352",
+      "card-7057"
+    ],
+    "clicks": 12,
+    "jsErrors": [
+      "console: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1635:25)\n    at HyperCardEngine.dispatch (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:625:25)\n    at Object.call (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1098:29)\n    at openCard (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1595:13)\n    at HyperCardEngine.dispatch (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:625:25)\n    at HyperCardEngine.changeCard (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:710:20)\n    at async HyperCardEngine.goCard (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:688:7)\n    at async mouseUp (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1477:5)",
+      "console: [HyperTalk] startup: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1635:25)\n    at HyperCardEngine.dispatch (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:625:25)\n    at Object.call (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1098:29)\n    at openCard (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1595:13)\n    at HyperCardEngine.dispatch (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:625:25)\n    at boot (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:909:20)\n    at async run (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:913:15)\n    at async HyperCardEngine.start (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:924:7)"
+    ],
+    "scriptErrors": [
+      "mouseUp: No such background field \"\"",
+      "startup: No such background field \"\""
+    ],
+    "runtimeStubs": [],
+    "detail": [
+      {
+        "on": "card-2990",
+        "button": "card-2990/button-40",
+        "to": "card-2990",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2990",
+        "button": "card-2990/button-86",
+        "to": "card-2231",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2990",
+        "button": "card-2990/button-87",
+        "to": "card-11352",
+        "newErrors": [
+          "console: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1635:25)\n    at HyperCardEngine.dispatch (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:625:25)\n    at Object.call (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1098:29)\n    at openCard (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1595:13)\n    at HyperCardEngine.dispatch (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:625:25)\n    at HyperCardEngine.changeCard (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:710:20)\n    at async HyperCardEngine.goCard (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:688:7)\n    at async mouseUp (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/scripts.js:1477:5)"
+        ],
+        "scriptErrors": [
+          "mouseUp: No such background field \"\""
+        ]
+      },
+      {
+        "on": "card-2990",
+        "button": "card-2990/button-126",
+        "to": "card-7057",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2231",
+        "button": "card-2231/button-24",
+        "to": "card-2460",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2231",
+        "button": "card-2231/button-25",
+        "to": "card-2990",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2231",
+        "button": "card-2231/button-26",
+        "to": "card-2231",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2231",
+        "button": "card-2231/button-27",
+        "to": "card-2231",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2231",
+        "button": "card-2231/button-28",
+        "to": "card-2231",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-11352",
+        "button": "bkgnd-11532/button-46",
+        "to": "card-11352",
+        "newErrors": [],
+        "scriptErrors": [
+          "startup: No such background field \"\""
+        ]
+      },
+      {
+        "on": "card-11352",
+        "button": "card-11352/button-70",
+        "to": "card-11352",
+        "newErrors": [],
+        "scriptErrors": [
+          "startup: No such background field \"\""
+        ]
+      },
+      {
+        "on": "card-7057",
+        "button": "card-7057/button-4",
+        "to": "card-7057",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "hypercard_inigo_gets_out",
+    "start": "card-2927",
+    "cardsReached": [
+      "card-2927",
+      "card-3695",
+      "card-11284"
+    ],
+    "clicks": 5,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [],
+    "detail": [
+      {
+        "on": "card-2927",
+        "button": "card-2927/button-2",
+        "to": "card-3695",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2927",
+        "button": "card-2927/button-3",
+        "to": "card-11284",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-3695",
+        "button": "card-3695/button-1",
+        "to": "card-3502",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-3695",
+        "button": "card-3695/button-2",
+        "to": "card-9939",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-3695",
+        "button": "card-3695/button-3",
+        "to": "card-8940",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "hypercard_obliquestrategies",
+    "start": "card-69896",
+    "cardsReached": [
+      "card-69896",
+      "card-37030",
+      "card-4200",
+      "card-14031",
+      "card-69605"
+    ],
+    "clicks": 30,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [],
+    "detail": [
+      {
+        "on": "card-69896",
+        "button": "bkgnd-2648/button-5",
+        "to": "card-37030",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69896",
+        "button": "bkgnd-2648/button-7",
+        "to": "card-4200",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69896",
+        "button": "bkgnd-2648/button-8",
+        "to": "card-14031",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69896",
+        "button": "bkgnd-2648/button-9",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69896",
+        "button": "card-69896/button-4",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69896",
+        "button": "card-69896/button-3",
+        "to": "card-69605",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-37030",
+        "button": "bkgnd-2648/button-5",
+        "to": "card-39482",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-37030",
+        "button": "bkgnd-2648/button-7",
+        "to": "card-4200",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-37030",
+        "button": "bkgnd-2648/button-8",
+        "to": "card-14031",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-37030",
+        "button": "bkgnd-2648/button-9",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-37030",
+        "button": "card-69896/button-4",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-37030",
+        "button": "card-69896/button-3",
+        "to": "card-69605",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4200",
+        "button": "bkgnd-2648/button-5",
+        "to": "card-33944",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4200",
+        "button": "bkgnd-2648/button-7",
+        "to": "card-4200",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4200",
+        "button": "bkgnd-2648/button-8",
+        "to": "card-14031",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4200",
+        "button": "bkgnd-2648/button-9",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4200",
+        "button": "card-69896/button-4",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4200",
+        "button": "card-69896/button-3",
+        "to": "card-69605",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-14031",
+        "button": "bkgnd-2648/button-5",
+        "to": "card-68864",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-14031",
+        "button": "bkgnd-2648/button-7",
+        "to": "card-4200",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-14031",
+        "button": "bkgnd-2648/button-8",
+        "to": "card-14031",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-14031",
+        "button": "bkgnd-2648/button-9",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-14031",
+        "button": "card-69896/button-4",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-14031",
+        "button": "card-69896/button-3",
+        "to": "card-69605",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69605",
+        "button": "bkgnd-2648/button-5",
+        "to": "card-20622",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69605",
+        "button": "bkgnd-2648/button-7",
+        "to": "card-4200",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69605",
+        "button": "bkgnd-2648/button-8",
+        "to": "card-14031",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69605",
+        "button": "bkgnd-2648/button-9",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69605",
+        "button": "card-69896/button-4",
+        "to": "card-69896",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-69605",
+        "button": "card-69896/button-3",
+        "to": "card-69605",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "hypercard_what_is_hypercard_2",
+    "start": "card-2992",
+    "cardsReached": [
+      "card-2992",
+      "card-4222",
+      "card-4745",
+      "card-6449",
+      "card-4950",
+      "card-5244",
+      "card-5608",
+      "card-5738",
+      "card-7374",
+      "card-6220"
+    ],
+    "clicks": 134,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [],
+    "detail": [
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-2992",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4222",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4745",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6449",
+        "button": "card-6449/button-2",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4950",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5244",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-2",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-4",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-5",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-6",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-7",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-8",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-9",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-10",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-11",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-12",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-13",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-14",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5608",
+        "button": "card-5608/button-15",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-5738",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-7374",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-1",
+        "to": "card-2992",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-4",
+        "to": "card-4222",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-13",
+        "to": "card-4745",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-14",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-15",
+        "to": "card-4950",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-16",
+        "to": "card-5244",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-17",
+        "to": "card-5608",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-18",
+        "to": "card-5738",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-19",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-20",
+        "to": "card-6220",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-21",
+        "to": "card-7374",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-6220",
+        "button": "bkgnd-2619/button-22",
+        "to": "card-6449",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "mark-twain---300-quotations",
+    "start": "card-109762",
+    "cardsReached": [
+      "card-109762"
+    ],
+    "clicks": 4,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [],
+    "detail": [
+      {
+        "on": "card-109762",
+        "button": "bkgnd-2750/button-27",
+        "to": "card-109762",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-109762",
+        "button": "bkgnd-2750/button-28",
+        "to": "card-109762",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-109762",
+        "button": "bkgnd-2750/button-29",
+        "to": "card-109762",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-109762",
+        "button": "bkgnd-2750/button-30",
+        "to": "card-109762",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  },
+  {
+    "stack": "patients-v15",
+    "start": "card-227564",
+    "cardsReached": [
+      "card-227564",
+      "card-4434",
+      "card-41341",
+      "card-50843"
+    ],
+    "clicks": 36,
+    "jsErrors": [],
+    "scriptErrors": [],
+    "runtimeStubs": [
+      "if: IF THERE IS NOT A MENU \"PROCEDURE\"",
+      "go to stack: go to stack \"PATIENTS ™  Version 1.5\" (other stacks are not available)"
+    ],
+    "detail": [
+      {
+        "on": "card-227564",
+        "button": "bkgnd-201455/button-1",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "bkgnd-201455/button-2",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "bkgnd-201455/button-3",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "bkgnd-201455/button-4",
+        "to": "card-4434",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "bkgnd-201455/button-5",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "bkgnd-201455/button-6",
+        "to": "card-41341",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "bkgnd-201455/button-8",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "card-227564/button-35",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-227564",
+        "button": "card-227564/button-36",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "bkgnd-201455/button-1",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "bkgnd-201455/button-2",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "bkgnd-201455/button-3",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "bkgnd-201455/button-4",
+        "to": "card-4434",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "bkgnd-201455/button-5",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "bkgnd-201455/button-6",
+        "to": "card-41341",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "bkgnd-201455/button-8",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "card-227564/button-35",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-4434",
+        "button": "card-227564/button-36",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "bkgnd-201455/button-1",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "bkgnd-201455/button-2",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "bkgnd-201455/button-3",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "bkgnd-201455/button-4",
+        "to": "card-4434",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "bkgnd-201455/button-5",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "bkgnd-201455/button-6",
+        "to": "card-41341",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "bkgnd-201455/button-8",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "card-227564/button-35",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-41341",
+        "button": "card-227564/button-36",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "bkgnd-201455/button-1",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "bkgnd-201455/button-2",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "bkgnd-201455/button-3",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "bkgnd-201455/button-4",
+        "to": "card-4434",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "bkgnd-201455/button-5",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "bkgnd-201455/button-6",
+        "to": "card-41341",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "bkgnd-201455/button-8",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "card-227564/button-35",
+        "to": "card-50843",
+        "newErrors": [],
+        "scriptErrors": []
+      },
+      {
+        "on": "card-50843",
+        "button": "card-227564/button-36",
+        "to": "card-227564",
+        "newErrors": [],
+        "scriptErrors": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "stack": "cthulhucard",
+  "name": "CthulhuCard",
+  "cards": 32,
+  "backgrounds": 3,
+  "buttons": 45,
+  "fields": 5,
+  "scripts": 48,
+  "distinct_scripts": 43,
+  "handlers": 43,
+  "lines": 89,
+  "lines_translated": 89,
+  "lines_stubbed": 0,
+  "lines_outside_handlers": 9,
+  "stubs_by_command": {},
+  "stub_lines": [],
+  "undefined_handlers": [],
+  "unavailable_icons": [
+    "bkgnd-4587/button-5 (icon 1014)",
+    "bkgnd-4587/button-6 (icon 30557)",
+    "bkgnd-4587/button-7 (icon 21700)",
+    "bkgnd-4587/button-8 (icon 1013)",
+    "card-3185/button-5 (icon 21700)",
+    "card-3185/button-7 (icon 32670)",
+    "card-3185/button-8 (icon 1009)",
+    "card-3185/button-13 (icon 23078)",
+    "card-6935/button-55 (icon 1012)",
+    "card-6731/button-2 (icon 1013)",
+    "card-2523/button-1 (icon 1012)",
+    "card-2523/button-4 (icon 32462)",
+    "card-19562/button-1 (icon 1012)",
+    "card-19562/button-2 (icon 21700)",
+    "card-4180/button-1 (icon 21700)",
+    "card-4180/button-2 (icon 1012)",
+    "card-4180/button-3 (icon 1015)",
+    "card-4180/button-7 (icon 32462)"
+  ],
+  "card_size": [
+    512,
+    342
+  ]
+}

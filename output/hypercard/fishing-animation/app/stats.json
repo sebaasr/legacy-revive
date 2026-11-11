@@ -1,0 +1,23 @@
+{
+  "stack": "fishing-animation",
+  "name": "Fishing",
+  "cards": 25,
+  "backgrounds": 1,
+  "buttons": 2,
+  "fields": 0,
+  "scripts": 2,
+  "distinct_scripts": 2,
+  "handlers": 2,
+  "lines": 26,
+  "lines_translated": 26,
+  "lines_stubbed": 0,
+  "lines_outside_handlers": 0,
+  "stubs_by_command": {},
+  "stub_lines": [],
+  "undefined_handlers": [],
+  "unavailable_icons": [],
+  "card_size": [
+    512,
+    342
+  ]
+}

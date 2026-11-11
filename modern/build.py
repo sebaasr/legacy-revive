@@ -2,6 +2,8 @@
 
     python modern/build.py zzt <world>        e.g. zzt kingl2-kingl2
     python modern/build.py zzt all
+    python modern/build.py hypercard <stack>  e.g. hypercard hypercard_obliquestrategies
+    python modern/build.py hypercard all      (see modern/hypercard/build_stack.py)
 
 Output: output/<target>/<sample>/app/
     index.html        open by double-clicking (no server, no build step)
@@ -216,9 +218,20 @@ Each stub calls `z.rt.unsupported(cmd, line)`, which logs once to the console an
 
 
 def main(argv):
-    if len(argv) < 3 or argv[1] != "zzt":
+    if len(argv) < 3 or argv[1] not in ("zzt", "hypercard"):
         print(__doc__)
         return 2
+    if argv[1] == "hypercard":
+        sys.path.insert(0, str(ROOT / "modern" / "hypercard"))
+        sys.modules.pop("translator", None)          # the ZZT translator has the same module name
+        from build_stack import build_hypercard      # noqa: E402
+        stacks = sorted(p.name for p in (ROOT / "output/hypercard").iterdir() if (p / "ir/ir.json").exists()) \
+            if argv[2] == "all" else [argv[2]]
+        for s in stacks:
+            st = build_hypercard(s, ROOT, RUNTIME_FILES)
+            print(f"{s}: cards {st['cards']}, handlers {st['handlers']}, lines {st['lines_translated']}/{st['lines']} "
+                  f"translated, {st['lines_stubbed']} stubbed")
+        return 0
     worlds = sorted(p.name for p in (ROOT / "output/zzt").iterdir() if (p / "ir/ir.json").exists()) \
         if argv[2] == "all" else [argv[2]]
     for w in worlds:

@@ -1,0 +1,23 @@
+{
+  "stack": "mark-twain---300-quotations",
+  "name": "Mark Twain",
+  "cards": 366,
+  "backgrounds": 2,
+  "buttons": 16,
+  "fields": 4,
+  "scripts": 6,
+  "distinct_scripts": 6,
+  "handlers": 13,
+  "lines": 97,
+  "lines_translated": 97,
+  "lines_stubbed": 0,
+  "lines_outside_handlers": 0,
+  "stubs_by_command": {},
+  "stub_lines": [],
+  "undefined_handlers": [],
+  "unavailable_icons": [],
+  "card_size": [
+    224,
+    288
+  ]
+}

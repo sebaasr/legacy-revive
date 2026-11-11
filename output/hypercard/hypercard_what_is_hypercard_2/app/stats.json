@@ -1,0 +1,27 @@
+{
+  "stack": "hypercard_what_is_hypercard_2",
+  "name": "What is HyperCard_",
+  "cards": 10,
+  "backgrounds": 1,
+  "buttons": 26,
+  "fields": 4,
+  "scripts": 28,
+  "distinct_scripts": 19,
+  "handlers": 30,
+  "lines": 57,
+  "lines_translated": 56,
+  "lines_stubbed": 1,
+  "lines_outside_handlers": 16,
+  "stubs_by_command": {
+    "close card window": 1
+  },
+  "stub_lines": [
+    "close card window: if the number of lines in the stacks > 1 then close card window"
+  ],
+  "undefined_handlers": [],
+  "unavailable_icons": [],
+  "card_size": [
+    480,
+    296
+  ]
+}

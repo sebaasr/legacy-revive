@@ -1,0 +1,32 @@
+{
+  "stack": "game-genie-encoder-decoder",
+  "name": "Game Genie Encoder_Decoder",
+  "cards": 2,
+  "backgrounds": 1,
+  "buttons": 6,
+  "fields": 6,
+  "scripts": 12,
+  "distinct_scripts": 10,
+  "handlers": 11,
+  "lines": 147,
+  "lines_translated": 145,
+  "lines_stubbed": 2,
+  "lines_outside_handlers": 0,
+  "stubs_by_command": {
+    "start using": 1,
+    "stop using": 1
+  },
+  "stub_lines": [
+    "start using: start using stack \"genie des jeux\"",
+    "stop using: stop using stack \"genie des jeux\""
+  ],
+  "undefined_handlers": [
+    "bin",
+    "bin2dec"
+  ],
+  "unavailable_icons": [],
+  "card_size": [
+    512,
+    342
+  ]
+}

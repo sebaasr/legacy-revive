@@ -1,0 +1,27 @@
+{
+  "stack": "hypercard_obliquestrategies",
+  "name": "Oblique Strategies",
+  "cards": 130,
+  "backgrounds": 1,
+  "buttons": 6,
+  "fields": 0,
+  "scripts": 7,
+  "distinct_scripts": 7,
+  "handlers": 7,
+  "lines": 29,
+  "lines_translated": 29,
+  "lines_stubbed": 0,
+  "lines_outside_handlers": 0,
+  "stubs_by_command": {},
+  "stub_lines": [],
+  "undefined_handlers": [],
+  "unavailable_icons": [
+    "bkgnd-2648/button-9 (icon 3071)",
+    "card-69896/button-4 (icon 3358)",
+    "card-69896/button-3 (icon 26635)"
+  ],
+  "card_size": [
+    512,
+    342
+  ]
+}

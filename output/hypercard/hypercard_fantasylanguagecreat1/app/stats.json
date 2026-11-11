@@ -1,0 +1,40 @@
+{
+  "stack": "hypercard_fantasylanguagecreat1",
+  "name": "FLC 1.1",
+  "cards": 3,
+  "backgrounds": 1,
+  "buttons": 17,
+  "fields": 11,
+  "scripts": 18,
+  "distinct_scripts": 18,
+  "handlers": 34,
+  "lines": 431,
+  "lines_translated": 422,
+  "lines_stubbed": 9,
+  "lines_outside_handlers": 0,
+  "stubs_by_command": {
+    "open printing": 2,
+    "print": 2,
+    "close printing": 2,
+    "open file": 1,
+    "write": 1,
+    "close file": 1
+  },
+  "stub_lines": [
+    "open file: open file fileName",
+    "write: write card field Lexicon to file fileName",
+    "close file: close file fileName",
+    "open printing: open printing",
+    "print: print cd fld Lexicon",
+    "close printing: close printing",
+    "open printing: open printing",
+    "print: print cd fld Lexicon",
+    "close printing: close printing"
+  ],
+  "undefined_handlers": [],
+  "unavailable_icons": [],
+  "card_size": [
+    416,
+    240
+  ]
+}

@@ -56,3 +56,5 @@ Transcript: `C:\Users\sebas\.claude\projects\C--Users-sebas\99d8c60f-4936-4635-9
      taken from the Internet Archive; agents run as Claude Code subagents (no API key); the agent picks
      the second program → ZZT (1991), community worlds only (Epic's license forbids reverse engineering
      its own files).
+
+9. "Ok, keep going, let me know when it's done."

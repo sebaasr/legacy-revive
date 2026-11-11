@@ -2,3 +2,4 @@ corpus/**/disk.img
 __pycache__/
 *.log
 *.aux
+node_modules/

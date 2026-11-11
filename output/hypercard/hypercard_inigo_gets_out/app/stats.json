@@ -1,0 +1,25 @@
+{
+  "stack": "hypercard_inigo_gets_out",
+  "name": "Inigo Gets Out",
+  "cards": 31,
+  "backgrounds": 1,
+  "buttons": 31,
+  "fields": 0,
+  "scripts": 33,
+  "distinct_scripts": 26,
+  "handlers": 26,
+  "lines": 43,
+  "lines_translated": 43,
+  "lines_stubbed": 0,
+  "lines_outside_handlers": 0,
+  "stubs_by_command": {},
+  "stub_lines": [],
+  "undefined_handlers": [],
+  "unavailable_icons": [
+    "card-2927/button-3 (icon 19678)"
+  ],
+  "card_size": [
+    512,
+    342
+  ]
+}

@@ -168,14 +168,29 @@
         this.dialogOpen = true;
         const host = opts.host || this.root;
         const box = document.createElement('div');
-        box.className = 'lr-dialog';
+        box.className = 'lr-dialog' + (opts.className ? ' ' + opts.className : '');
+        const buttons = opts.layout === 'buttons';   // choices as a row of push buttons (Mac alert style)
         if (opts.title) { const t = document.createElement('div'); t.className = 'lr-dialog-title'; t.textContent = opts.title; box.appendChild(t); }
         const body = document.createElement('div');
         body.className = 'lr-dialog-body';
         box.appendChild(body);
         const items = [];
         const all = lines.map(l => (typeof l === 'string' ? { text: l } : l))
-          .concat(choices.map(c => ({ text: c.text, choice: c.id })));
+          .concat(buttons ? [] : choices.map(c => ({ text: c.text, choice: c.id })));
+        let row0 = null;
+        if (buttons) {
+          row0 = document.createElement('div');
+          row0.className = 'lr-buttons';
+          choices.forEach((c, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'lr-button' + (i === (opts.defaultChoice != null ? opts.defaultChoice : choices.length - 1) ? ' lr-default' : '');
+            b.textContent = c.text;
+            b.addEventListener('click', () => finish(c.id));
+            items.push({ el: b, id: c.id });
+            row0.appendChild(b);
+          });
+        }
         for (const l of all) {
           const row = document.createElement('div');
           row.className = 'lr-line' + (l.align === 'center' ? ' lr-center' : '') + (l.choice != null ? ' lr-choice' : '');
@@ -187,15 +202,18 @@
           }
           body.appendChild(row);
         }
+        if (row0) box.appendChild(row0);
         const hint = document.createElement('div');
         hint.className = 'lr-dialog-hint';
-        hint.textContent = items.length ? '↑↓ choose, Enter select, Esc close' : 'Enter or Esc to close';
+        hint.textContent = buttons ? 'Enter: default button, Esc: cancel' : items.length ? '↑↓ choose, Enter select, Esc close' : 'Enter or Esc to close';
         box.appendChild(hint);
-        let sel = 0;
+        let sel = buttons ? (opts.defaultChoice != null ? opts.defaultChoice : Math.max(0, items.length - 1)) : 0;
         const mark = () => items.forEach((it, i) => it.el.classList.toggle('lr-selected', i === sel));
         mark();
         const key = e => {
-          if (e.key === 'ArrowDown' && items.length) { sel = (sel + 1) % items.length; mark(); items[sel].el.scrollIntoView({ block: 'nearest' }); }
+          if (buttons && (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'Tab') && items.length) {
+            sel = (sel + (e.key === 'ArrowLeft' ? items.length - 1 : 1)) % items.length; mark();
+          } else if (e.key === 'ArrowDown' && items.length) { sel = (sel + 1) % items.length; mark(); items[sel].el.scrollIntoView({ block: 'nearest' }); }
           else if (e.key === 'ArrowUp' && items.length) { sel = (sel + items.length - 1) % items.length; mark(); items[sel].el.scrollIntoView({ block: 'nearest' }); }
           else if (e.key === 'Enter' || e.key === ' ') finish(items.length ? items[sel].id : null);
           else if (e.key === 'Escape') finish(null);
@@ -210,6 +228,47 @@
         };
         window.addEventListener('keydown', key, true);
         host.appendChild(box);
+      });
+    }
+
+    /** Modal text prompt. Resolves with the typed text, or null when cancelled. */
+    askText(prompt, dflt = '', opts = {}) {
+      return new Promise(resolve => {
+        this.dialogOpen = true;
+        const host = opts.host || this.root;
+        const box = document.createElement('div');
+        box.className = 'lr-dialog lr-ask' + (opts.className ? ' ' + opts.className : '');
+        const body = document.createElement('div');
+        body.className = 'lr-dialog-body';
+        body.textContent = prompt;
+        const input = document.createElement('input');
+        input.type = opts.password ? 'password' : 'text';
+        input.className = 'lr-input';
+        input.value = dflt;
+        const row = document.createElement('div');
+        row.className = 'lr-buttons';
+        const mk = (text, val, def) => {
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'lr-button' + (def ? ' lr-default' : ''); b.textContent = text;
+          b.addEventListener('click', () => finish(val === null ? null : input.value));
+          return b;
+        };
+        row.append(mk('Cancel', null, false), mk('OK', 1, true));
+        box.append(body, input, row);
+        const key = e => {
+          if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); finish(input.value); }
+          else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); finish(null); }
+        };
+        const finish = v => {
+          window.removeEventListener('keydown', key, true);
+          box.remove();
+          this.dialogOpen = false;
+          resolve(v);
+        };
+        window.addEventListener('keydown', key, true);
+        host.appendChild(box);
+        input.focus();
+        input.select();
       });
     }
 
