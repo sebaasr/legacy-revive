@@ -1,0 +1,176 @@
+{
+  "sample": "kingl2-kingl2",
+  "scenarios": [
+    {
+      "name": "Statue: kiss the brow for 20 gems, then no more",
+      "source": "@Statue :touch !x1 -> :x1 #give gems 20; #zap touch -> second :touch",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Statue Of Chulmir\n    This is the statue of Chulmir.It is\nsaid that those that kiss his brow are \ngiven a reward.\nKiss Chulmir's brow.\nLeave.\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "statue of Chulmir"
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 20,
+          "expected": {
+            "name": "gems",
+            "equals": 20
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "The statue will grant you no more gems.",
+          "expected": {
+            "contains": "no more gems"
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 20,
+          "expected": {
+            "name": "gems",
+            "equals": 20
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Arsenal sign text",
+      "source": "@Arsenal Sign :touch",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Arsenal Sign\n    Beware:Beyond this wall lies King \nLucius's arsenal.Dynamite is stored within\nand can explode on contact!No torches\nbeyond this point!\nEnter or Esc to close",
+          "expected": {
+            "contains": "Beyond this wall lies King"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Dynamite explodes and disappears",
+      "source": "@Dynamite :touch You set off the dynamite!; #take energy 5; #die",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "You set off the dynamite!",
+          "expected": {
+            "contains": "You set off the dynamite!"
+          }
+        },
+        {
+          "what": "entity Dynamite alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Picking up ammo adds 5",
+      "source": "built-in ammo element (5)",
+      "checks": [
+        {
+          "what": "counter ammo",
+          "pass": true,
+          "actual": 5,
+          "expected": {
+            "name": "ammo",
+            "delta": 5
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Picking up a torch adds 1",
+      "source": "built-in torch element (6)",
+      "checks": [
+        {
+          "what": "counter torches",
+          "pass": true,
+          "actual": 1,
+          "expected": {
+            "name": "torches",
+            "delta": 1
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Passage leads to board 2",
+      "source": "passage (2,2) -> board-2",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-2",
+          "expected": "board-2"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "state": "play",
+    "boardsSeen": [
+      "board-1"
+    ],
+    "end": "board-1",
+    "error": null,
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 6,
+  "total": 6
+}

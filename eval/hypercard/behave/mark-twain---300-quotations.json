@@ -1,0 +1,212 @@
+{
+  "sample": "mark-twain---300-quotations",
+  "scenarios": [
+    {
+      "name": "About shows three dialogs",
+      "source": "bkgnd-2750/button-27 -> stack handler about",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Mark Twain\nVersion 3.0  366 quotations\n© 1995  Anne & Richard Wanderman\n______________________________________\nMark Twain is shareware. Fee: $5.\nPlease register this software if you keep it.\nPlease distribute this software.\n \nThank you.\nOK\nMore",
+          "expected": {
+            "contains": "366 quotations"
+          }
+        },
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "For a catalog of other inexpensive, useful, educational, and fun stacks, contact:\n______________________________________\nPoor Richard's Publishing\nP.O. Box 1075\nLitchfield, CT  06759\n203/567-4307\nrwanderman@aol.com\nhttp://www.tiac.net/users/poorrich/\nOK\nMore",
+          "expected": {
+            "contains": "Poor Richard's Publishing"
+          }
+        },
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Help\n_____________________________________\n \n• Upper left: About this stack.\n• Upper right: Lock/unlock quotation.\n• Lower left: Find quotation.\n• Lower right: Copy quotation.\n• Click picture for random quotation.\n• Click words (field locked) - hypertext.\nOK",
+          "expected": {
+            "contains": "Click words (field locked) - hypertext"
+          }
+        },
+        {
+          "what": "dialog open",
+          "pass": true,
+          "actual": null,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Click on the picture: random quotation, intro hidden",
+      "source": "stack mouseUp: animate; go to any card in background quotations; hide bg field intro",
+      "checks": [
+        {
+          "what": "background",
+          "pass": true,
+          "actual": "bkgnd-2750",
+          "expected": "bkgnd-2750"
+        },
+        {
+          "what": "visible of \"intro\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Lock button toggles the quotation lockText",
+      "source": "bkgnd-2750/button-28: set the locktext of background field 1 to not ...",
+      "checks": [
+        {
+          "what": "visible of \"intro\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "lockText of quotation = false",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "lockText of quotation = true",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Arrow keys move through the quotations",
+      "source": "stack arrowKey: go to next/previous card in this background",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Find a missing word says not found",
+      "source": "bkgnd-2750/button-29 findit: ask; find it; if the result is \"not found\" then answer",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Find what?\n(hit return to find more instances)\nCancel\nOK",
+          "expected": {
+            "contains": "Find what?"
+          }
+        },
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Sorry, zzqqxx not found.\nOK",
+          "expected": {
+            "contains": "Sorry, zzqqxx not found."
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Find goes to the card with the text",
+      "source": "findit: find it",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-108080",
+          "expected": "card-108080"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-109762",
+    "buttons": 4,
+    "clicks": [
+      {
+        "button": "bkgnd-2750/button-27",
+        "to": "card-109762",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2750/button-28",
+        "to": "card-109762",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2750/button-29",
+        "to": "card-109762",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2750/button-30",
+        "to": "card-109762",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 6,
+  "total": 6
+}

@@ -1,0 +1,192 @@
+{
+  "sample": "cthulhucard",
+  "scenarios": [
+    {
+      "name": "Alpha Search goes to the list card",
+      "source": "card-3185/button-7: go to card \"list card\"",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-6935",
+          "expected": "card-6935"
+        },
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "list card",
+          "expected": "list card"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Credits -> About -> Go Back!",
+      "source": "card-3185/button-8 go to card id 2523; card-2523/button-4 go to card id 19562; card-19562/button-1 go to card id 2523",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-2523",
+          "expected": "card-2523"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-19562",
+          "expected": "card-19562"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-2523",
+          "expected": "card-2523"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Questions? and back to the title",
+      "source": "card-3185/button-13 go to card id 4180; card-4180/button-2 go to card id 3185",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-4180",
+          "expected": "card-4180"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-3185",
+          "expected": "card-3185"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Background Next/Prev on a creature card",
+      "source": "bkgnd-4587/button-8 go next; button-5 go prev",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Azathoth",
+          "expected": "Azathoth"
+        },
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Byakhee",
+          "expected": "Byakhee"
+        },
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Azathoth",
+          "expected": "Azathoth"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Clicking a name in the list goes to that card",
+      "source": "card-6935/field-53 mousedown: click at ... with shiftKey; put selection into holder; go to cd holder",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Byakhee",
+          "expected": "Byakhee"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Creature sound button does not break the card",
+      "source": "card-5098/button-1: play \"byakhee\"; wait until the sound is \"done\"",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Byakhee",
+          "expected": "Byakhee"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-3185",
+    "buttons": 4,
+    "clicks": [
+      {
+        "button": "card-3185/button-5",
+        "to": "card-3185",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-3185/button-7",
+        "to": "card-6935",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-3185/button-8",
+        "to": "card-2523",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-3185/button-13",
+        "to": "card-4180",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": [
+      "play: sound \"DkCasMus\" is not available (snd resources are not decoded)"
+    ]
+  },
+  "pass": 6,
+  "total": 6
+}

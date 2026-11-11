@@ -1,0 +1,140 @@
+{
+  "sample": "zzttoxic-smiley",
+  "scenarios": [
+    {
+      "name": "Hints object explains itself",
+      "source": "@HINTS-INTRODUCTION :TOUCH Hi, I am your friendly on line hints",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "HINTS-INTRODUCTION\nHi, I am your friendly on line hints.\nIf you are stumped, I am around to keep  \nyou going.\n \nTouching me will give you specific clues\nabout the room or screen you are playing.\n \n      (Arrow down for more info)\n \nPressing the H key is different.  It will\ngive you general information about how\nto play the game.\n \nI may give you brief information at the\ntop of the message.  If you want more\nyou can move to another note.  Use the\narrow keys to move the text until the\nmarked text aligns with the side\nindicators.  Press enter.\nPress enter at this line.\n \nOr, go to the line below this one.\nWhat to do next.  Press enter here.\n \nEnter (or escape) on another line \nexits hints.\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "friendly on line hints"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Ammo pickup adds 5 (Bog Woods)",
+      "source": "ammo element (5); the items on board 1 are a walled-in legend, so board 2 is used",
+      "checks": [
+        {
+          "what": "counter ammo",
+          "pass": true,
+          "actual": 5,
+          "expected": {
+            "name": "ammo",
+            "delta": 5
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Gem pickup adds gem, health and score (Bog Woods)",
+      "source": "gem element (7)",
+      "checks": [
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 1,
+          "expected": {
+            "name": "gems",
+            "delta": 1
+          }
+        },
+        {
+          "what": "counter health",
+          "pass": true,
+          "actual": 101,
+          "expected": {
+            "name": "health",
+            "delta": 1
+          }
+        },
+        {
+          "what": "counter score",
+          "pass": true,
+          "actual": 10,
+          "expected": {
+            "name": "score",
+            "delta": 10
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Key pickup (Laboratory Grounds)",
+      "source": "key element (8)",
+      "checks": [
+        {
+          "what": "a key counter is set",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "North edge leads to board 2",
+      "source": "board-1 exit north = board-2",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-2",
+          "expected": "board-2"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "state": "play",
+    "boardsSeen": [
+      "board-1",
+      "board-2"
+    ],
+    "end": "board-2",
+    "error": null,
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 5,
+  "total": 5
+}

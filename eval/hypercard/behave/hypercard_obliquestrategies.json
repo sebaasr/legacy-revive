@@ -1,0 +1,191 @@
+{
+  "sample": "hypercard_obliquestrategies",
+  "scenarios": [
+    {
+      "name": "openStack lands on card 2",
+      "source": "stack openStack: wait 1 second; go card 2",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Card 2 button opens card 3, Next goes to 4",
+      "source": "card-69896/button-3 go to card 3; bkgnd button-7 go next card",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 3,
+          "expected": 3
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 4,
+          "expected": 4
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Prev from card 4 wraps to the last card; Next from 130 goes to 4",
+      "source": "bkgnd button-8: if card 4 or 2 then go last card; button-7: if card 130 then go card 4",
+      "checks": [
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 4,
+          "expected": 4
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 130,
+          "expected": 130
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 4,
+          "expected": 4
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Random card is between 4 and 130",
+      "source": "bkgnd button-5: put the random of 127 into v; add 3; go to card v",
+      "checks": [
+        {
+          "what": "card number in 4..130",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "card number in 4..130",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Leave? No stays on card 2",
+      "source": "card-69896/button-4: answer \"Leave Oblique Strategies?\" with \"No\" or \"Yes\"",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Leave Oblique Strategies?\nNo\nYes",
+          "expected": {
+            "contains": "Leave Oblique Strategies?"
+          }
+        },
+        {
+          "what": "screenNumber",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "what": "dialog open",
+          "pass": true,
+          "actual": null,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-69896",
+    "buttons": 6,
+    "clicks": [
+      {
+        "button": "bkgnd-2648/button-5",
+        "to": "card-29230",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2648/button-7",
+        "to": "card-4200",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2648/button-8",
+        "to": "card-14031",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-2648/button-9",
+        "to": "card-69896",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-69896/button-4",
+        "to": "card-69896",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-69896/button-3",
+        "to": "card-69605",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 5,
+  "total": 5
+}

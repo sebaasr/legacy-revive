@@ -518,7 +518,7 @@
     "start": "card-69896",
     "cardsReached": [
       "card-69896",
-      "card-37030",
+      "card-56969",
       "card-4200",
       "card-14031",
       "card-69605"
@@ -531,7 +531,7 @@
       {
         "on": "card-69896",
         "button": "bkgnd-2648/button-5",
-        "to": "card-37030",
+        "to": "card-56969",
         "newErrors": [],
         "scriptErrors": []
       },
@@ -571,42 +571,42 @@
         "scriptErrors": []
       },
       {
-        "on": "card-37030",
+        "on": "card-56969",
         "button": "bkgnd-2648/button-5",
-        "to": "card-39482",
+        "to": "card-11264",
         "newErrors": [],
         "scriptErrors": []
       },
       {
-        "on": "card-37030",
+        "on": "card-56969",
         "button": "bkgnd-2648/button-7",
         "to": "card-4200",
         "newErrors": [],
         "scriptErrors": []
       },
       {
-        "on": "card-37030",
+        "on": "card-56969",
         "button": "bkgnd-2648/button-8",
         "to": "card-14031",
         "newErrors": [],
         "scriptErrors": []
       },
       {
-        "on": "card-37030",
+        "on": "card-56969",
         "button": "bkgnd-2648/button-9",
         "to": "card-69896",
         "newErrors": [],
         "scriptErrors": []
       },
       {
-        "on": "card-37030",
+        "on": "card-56969",
         "button": "card-69896/button-4",
         "to": "card-69896",
         "newErrors": [],
         "scriptErrors": []
       },
       {
-        "on": "card-37030",
+        "on": "card-56969",
         "button": "card-69896/button-3",
         "to": "card-69605",
         "newErrors": [],
@@ -615,7 +615,7 @@
       {
         "on": "card-4200",
         "button": "bkgnd-2648/button-5",
-        "to": "card-33944",
+        "to": "card-21094",
         "newErrors": [],
         "scriptErrors": []
       },
@@ -657,7 +657,7 @@
       {
         "on": "card-14031",
         "button": "bkgnd-2648/button-5",
-        "to": "card-68864",
+        "to": "card-44674",
         "newErrors": [],
         "scriptErrors": []
       },
@@ -699,7 +699,7 @@
       {
         "on": "card-69605",
         "button": "bkgnd-2648/button-5",
-        "to": "card-20622",
+        "to": "card-16998",
         "newErrors": [],
         "scriptErrors": []
       },

@@ -1,0 +1,310 @@
+{
+  "sample": "hypercard_fantasylanguagecreat1",
+  "scenarios": [
+    {
+      "name": "Begin opens Trade and openCard resets fields",
+      "source": "card-4138/button-13 go cd \"Trade\"; card-2221 openCard",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Trade",
+          "expected": "Trade"
+        },
+        {
+          "what": "field \"Word\"",
+          "pass": true,
+          "actual": "",
+          "expected": {
+            "name": "Word",
+            "empty": true
+          }
+        },
+        {
+          "what": "visible of \"Lexicon\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "visible of \"Glossary\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "New makes a word",
+      "source": "card-2221/button-9 do makeWord (basicSyl, IniCon, Vowel, FinCon)",
+      "checks": [
+        {
+          "what": "field \"Word\"",
+          "pass": false,
+          "actual": "x o l",
+          "expected": {
+            "name": "Word",
+            "matches": "^[a-zéû]+$"
+          }
+        },
+        {
+          "what": "field \"NumS\"",
+          "pass": true,
+          "actual": "1",
+          "expected": {
+            "name": "NumS",
+            "matches": "^[1-6]$"
+          }
+        },
+        {
+          "what": "field \"Sylab\"",
+          "pass": true,
+          "actual": "CVC",
+          "expected": {
+            "name": "Sylab",
+            "matches": "^(CVC|CV|VC|V)+$"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": false
+    },
+    {
+      "name": "Glossary / Lexicon tabs",
+      "source": "card-2221/button-24 and button-23: set hilite, show/hide fields",
+      "checks": [
+        {
+          "what": "visible of \"Glossary\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "hilite of \"Glossary\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "visible of \"Lexicon\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "visible of \"Lexicon\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "hilite of \"Glossary\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Home asks for confirmation; No stays",
+      "source": "card-4138/button-15: answer \"Are you sure you want to go home\" with \"Yes\" or \"No\"",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Are you sure you want to go home\nYes\nNo",
+          "expected": {
+            "contains": "Are you sure you want to go home"
+          }
+        },
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Main",
+          "expected": "Main"
+        },
+        {
+          "what": "dialog open",
+          "pass": true,
+          "actual": null,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Save Word puts the word into the Lexicon",
+      "source": "bkgnd-3624/button-15 Save Word -> answer save batch? No -> noBatch -> answer delete? No",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Do you want to save your batch words?\nYes\nNo",
+          "expected": {
+            "contains": "save your batch words"
+          }
+        },
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Should I delete the current batch list?\nNo\nYes",
+          "expected": {
+            "contains": "delete the current batch list"
+          }
+        },
+        {
+          "what": "line 1 of Lexicon = Word",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Batch generates the asked number of words",
+      "source": "card-2221/button-16: ask how many -> genWords (repeat for BTC makeWord; sort lines)",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "How many words do you wish to generate?\nCancel\nOK",
+          "expected": {
+            "contains": "How many words"
+          }
+        },
+        {
+          "what": "visible of \"Batch\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "hilite of \"Batch List\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "field \"Batch\"",
+          "pass": false,
+          "actual": "m i n\nr a sch\nt a l",
+          "expected": {
+            "name": "Batch",
+            "matches": "^[a-zéû]+\\n[a-zéû]+\\n[a-zéû]+$"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": false
+    },
+    {
+      "name": "Arrow keys stay on the card",
+      "source": "stack arrowKey: go this card",
+      "checks": [
+        {
+          "what": "screenName",
+          "pass": true,
+          "actual": "Main",
+          "expected": "Main"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "start": "card-4138",
+    "buttons": 7,
+    "clicks": [
+      {
+        "button": "bkgnd-3624/button-13",
+        "to": "card-4138",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-3624/button-14",
+        "to": "card-4138",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-3624/button-15",
+        "to": "card-4138",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-4138/button-13",
+        "to": "card-2221",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-4138/button-14",
+        "to": "card-4423",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-4138/button-15",
+        "to": "card-4138",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-4138/button-16",
+        "to": "card-4138",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 5,
+  "total": 7
+}

@@ -1,0 +1,661 @@
+{
+  "target": "hypercard",
+  "headline_visual_metric": "ink_f1",
+  "notes": [
+    "Oblique Strategies reference includes the menu bar (top 20 px); see visual.without_menubar.",
+    "Small cards rendered on a 512x342 desktop at the measured window offsets (render_options)."
+  ],
+  "totals": {
+    "samples": 10,
+    "with_reference": 10,
+    "visual_mean_ink_f1": 0.9851,
+    "behavioral_pass": 52,
+    "behavioral_total": 58,
+    "smoke_pass": 9,
+    "lines": 2513,
+    "lines_translated": 2440,
+    "lines_stubbed": 73,
+    "handlers": 388
+  },
+  "spec_accuracy": {
+    "reader_tests": {
+      "command": "python recovered/hypercard/test_reader.py",
+      "passed": 10,
+      "total": 10,
+      "detail": "0 sample(s) failed; all structural invariants hold (cards, bkgds, parts, bitmaps, streams)"
+    },
+    "picture_check": {
+      "command": "python recovered/hypercard/check_pictures.py",
+      "note": "pics% = start-card bkgd+card picture vs reference, excluding parts and the menu bar; all% includes parts (not drawn by the reader).",
+      "pics_pct": {
+        "cthulhucard": 99.999,
+        "fishing-animation": 99.999,
+        "game-genie-encoder-decoder": 100.0,
+        "hypercard_fantasylanguagecreat1": 100.0,
+        "hypercard_hyper-wordle": 99.997,
+        "hypercard_inigo_gets_out": 99.951,
+        "hypercard_obliquestrategies": 99.998,
+        "hypercard_what_is_hypercard_2": 100.0,
+        "mark-twain---300-quotations": 100.0,
+        "patients-v15": 99.999
+      },
+      "worst_bad_pixels": {
+        "hypercard_inigo_gets_out": 71
+      }
+    },
+    "spec_gaps": {
+      "file": "specs/hypercard/GAPS.md",
+      "count": 17,
+      "spec_wrong": 0,
+      "ambiguous_or_silent": 17
+    }
+  },
+  "samples": {
+    "cthulhucard": {
+      "visual": {
+        "ink_f1": 0.9841,
+        "precision": 0.9986,
+        "recall": 0.97,
+        "pixel_agreement": 0.9905,
+        "color_match": 0.9905,
+        "render_options": null,
+        "side_by_side": "eval/hypercard/cthulhucard/side.png"
+      },
+      "behavioral": {
+        "pass": 6,
+        "total": 6,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 4,
+        "runtime_stubs_hit": [
+          "play: sound \"DkCasMus\" is not available (snd resources are not decoded)"
+        ]
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 43,
+        "lines": 89,
+        "lines_translated": 89,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 18,
+        "generated_functions": 43,
+        "largest_function": {
+          "name": "mousedown",
+          "lines": 21,
+          "at": "scripts.js:131"
+        },
+        "scripts_js_lines": 583,
+        "comment_lines": 223,
+        "original_kept_as_comments": true
+      }
+    },
+    "fishing-animation": {
+      "visual": {
+        "ink_f1": 0.9936,
+        "precision": 0.9951,
+        "recall": 0.992,
+        "pixel_agreement": 0.9971,
+        "color_match": 0.9971,
+        "render_options": null,
+        "side_by_side": "eval/hypercard/fishing-animation/side.png"
+      },
+      "behavioral": {
+        "pass": 3,
+        "total": 3,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 1,
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 2,
+        "lines": 26,
+        "lines_translated": 26,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 2,
+        "largest_function": {
+          "name": "mouseUp",
+          "lines": 47,
+          "at": "scripts.js:27"
+        },
+        "scripts_js_lines": 81,
+        "comment_lines": 37,
+        "original_kept_as_comments": true
+      }
+    },
+    "game-genie-encoder-decoder": {
+      "visual": {
+        "ink_f1": 0.9963,
+        "precision": 0.9987,
+        "recall": 0.994,
+        "pixel_agreement": 0.9809,
+        "color_match": 0.9809,
+        "render_options": null,
+        "side_by_side": "eval/hypercard/game-genie-encoder-decoder/side.png"
+      },
+      "behavioral": {
+        "pass": 3,
+        "total": 6,
+        "failed": [
+          "Decode 6-letter code SXIOPO",
+          "Decode the saved 8-letter code ZKELOLUP",
+          "Encode address 4569 value 173 -> SXIOPO"
+        ]
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 6,
+        "runtime_stubs_hit": [
+          "start using: start using stack \"genie des jeux\"",
+          "function: bin: not defined in this stack (XCMD/XFCN or another stack)",
+          "function: bin2dec: not defined in this stack (XCMD/XFCN or another stack)"
+        ]
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 2,
+        "by_command": {
+          "start using": 1,
+          "stop using": 1
+        },
+        "undefined_handlers": [
+          "bin",
+          "bin2dec"
+        ]
+      },
+      "maintainability": {
+        "handlers": 11,
+        "lines": 147,
+        "lines_translated": 145,
+        "lines_stubbed": 2,
+        "translated_pct": 98.6,
+        "stubs_by_command": {
+          "start using": 1,
+          "stop using": 1
+        },
+        "undefined_handlers": [
+          "bin",
+          "bin2dec"
+        ],
+        "unavailable_icons": 0,
+        "generated_functions": 11,
+        "largest_function": {
+          "name": "mouseup",
+          "lines": 69,
+          "at": "scripts.js:242"
+        },
+        "scripts_js_lines": 435,
+        "comment_lines": 184,
+        "original_kept_as_comments": true
+      }
+    },
+    "hypercard_fantasylanguagecreat1": {
+      "visual": {
+        "ink_f1": 0.9979,
+        "precision": 0.9964,
+        "recall": 0.9995,
+        "pixel_agreement": 0.9887,
+        "color_match": 0.9887,
+        "render_options": "offset=48,51",
+        "side_by_side": "eval/hypercard/hypercard_fantasylanguagecreat1/side.png"
+      },
+      "behavioral": {
+        "pass": 5,
+        "total": 7,
+        "failed": [
+          "New makes a word",
+          "Batch generates the asked number of words"
+        ]
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 7,
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 9,
+        "by_command": {
+          "open printing": 2,
+          "print": 2,
+          "close printing": 2,
+          "open file": 1,
+          "write": 1,
+          "close file": 1
+        },
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 34,
+        "lines": 431,
+        "lines_translated": 422,
+        "lines_stubbed": 9,
+        "translated_pct": 97.9,
+        "stubs_by_command": {
+          "open printing": 2,
+          "print": 2,
+          "close printing": 2,
+          "open file": 1,
+          "write": 1,
+          "close file": 1
+        },
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 34,
+        "largest_function": {
+          "name": "IniCon",
+          "lines": 139,
+          "at": "scripts.js:540"
+        },
+        "scripts_js_lines": 1161,
+        "comment_lines": 522,
+        "original_kept_as_comments": true
+      }
+    },
+    "hypercard_hyper-wordle": {
+      "visual": {
+        "ink_f1": 0.934,
+        "precision": 0.9634,
+        "recall": 0.9063,
+        "pixel_agreement": 0.982,
+        "color_match": 0.982,
+        "render_options": null,
+        "side_by_side": "eval/hypercard/hypercard_hyper-wordle/side.png"
+      },
+      "behavioral": {
+        "pass": 7,
+        "total": 7,
+        "failed": []
+      },
+      "smoke": {
+        "pass": false,
+        "errors": [
+          "console.error: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper",
+          "script error: mouseUp: No such background field \"\""
+        ],
+        "buttons_clicked": 4,
+        "runtime_stubs_hit": []
+      },
+      "errors": [
+        "console.error: [HyperTalk] mouseUp: HTError: No such background field \"\"\n    at HyperCardEngine.resolvePart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:310:13)\n    at Object.part (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper-wordle/app/engine.js:1000:52)\n    at drawChart (file:///C:/Users/sebas/legacy-revive/output/hypercard/hypercard_hyper",
+        "script error: mouseUp: No such background field \"\""
+      ],
+      "stubs": {
+        "lines_stubbed": 27,
+        "by_command": {
+          "choose text tool": 6,
+          "choose line tool": 5,
+          "drag": 3,
+          "reset paint": 3,
+          "choose select tool": 2,
+          "open file": 1,
+          "read": 1,
+          "close file": 1,
+          "choose eraser tool": 1,
+          "updateTotals": 1,
+          "doDragBtn": 1,
+          "showInfo": 1,
+          "choose rectangle tool": 1
+        },
+        "undefined_handlers": [
+          "doDragBtn",
+          "showInfo",
+          "updateTotals"
+        ]
+      },
+      "maintainability": {
+        "handlers": 128,
+        "lines": 675,
+        "lines_translated": 648,
+        "lines_stubbed": 27,
+        "translated_pct": 96.0,
+        "stubs_by_command": {
+          "choose text tool": 6,
+          "choose line tool": 5,
+          "drag": 3,
+          "reset paint": 3,
+          "choose select tool": 2,
+          "open file": 1,
+          "read": 1,
+          "close file": 1,
+          "choose eraser tool": 1,
+          "updateTotals": 1,
+          "doDragBtn": 1,
+          "showInfo": 1,
+          "choose rectangle tool": 1
+        },
+        "undefined_handlers": [
+          "doDragBtn",
+          "showInfo",
+          "updateTotals"
+        ],
+        "unavailable_icons": 4,
+        "generated_functions": 128,
+        "largest_function": {
+          "name": "handleEnterKey",
+          "lines": 127,
+          "at": "scripts.js:596"
+        },
+        "scripts_js_lines": 2294,
+        "comment_lines": 994,
+        "original_kept_as_comments": true
+      }
+    },
+    "hypercard_inigo_gets_out": {
+      "visual": {
+        "ink_f1": 0.9996,
+        "precision": 0.9992,
+        "recall": 1.0,
+        "pixel_agreement": 0.999,
+        "color_match": 0.999,
+        "render_options": null,
+        "side_by_side": "eval/hypercard/hypercard_inigo_gets_out/side.png"
+      },
+      "behavioral": {
+        "pass": 5,
+        "total": 5,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 2,
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 26,
+        "lines": 43,
+        "lines_translated": 43,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 1,
+        "generated_functions": 26,
+        "largest_function": {
+          "name": "mouseUp",
+          "lines": 16,
+          "at": "scripts.js:71"
+        },
+        "scripts_js_lines": 337,
+        "comment_lines": 126,
+        "original_kept_as_comments": true
+      }
+    },
+    "hypercard_obliquestrategies": {
+      "visual": {
+        "ink_f1": 0.9756,
+        "precision": 0.9527,
+        "recall": 0.9996,
+        "pixel_agreement": 0.9456,
+        "color_match": 0.9456,
+        "render_options": null,
+        "without_menubar": {
+          "ink_f1": 0.9996,
+          "precision": 0.9997,
+          "recall": 0.9996,
+          "color_match": 0.9983
+        },
+        "side_by_side": "eval/hypercard/hypercard_obliquestrategies/side.png"
+      },
+      "behavioral": {
+        "pass": 5,
+        "total": 5,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 6,
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 7,
+        "lines": 29,
+        "lines_translated": 29,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 3,
+        "generated_functions": 7,
+        "largest_function": {
+          "name": "mouseUp",
+          "lines": 14,
+          "at": "scripts.js:46"
+        },
+        "scripts_js_lines": 133,
+        "comment_lines": 55,
+        "original_kept_as_comments": true
+      }
+    },
+    "hypercard_what_is_hypercard_2": {
+      "visual": {
+        "ink_f1": 0.9955,
+        "precision": 0.9952,
+        "recall": 0.9957,
+        "pixel_agreement": 0.9921,
+        "color_match": 0.9921,
+        "render_options": "offset=16,40",
+        "side_by_side": "eval/hypercard/hypercard_what_is_hypercard_2/side.png"
+      },
+      "behavioral": {
+        "pass": 5,
+        "total": 5,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 12,
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 1,
+        "by_command": {
+          "close card window": 1
+        },
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 30,
+        "lines": 57,
+        "lines_translated": 56,
+        "lines_stubbed": 1,
+        "translated_pct": 98.2,
+        "stubs_by_command": {
+          "close card window": 1
+        },
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 30,
+        "largest_function": {
+          "name": "checkHCVersion",
+          "lines": 19,
+          "at": "scripts.js:82"
+        },
+        "scripts_js_lines": 357,
+        "comment_lines": 142,
+        "original_kept_as_comments": true
+      }
+    },
+    "mark-twain---300-quotations": {
+      "visual": {
+        "ink_f1": 0.9899,
+        "precision": 0.9865,
+        "recall": 0.9934,
+        "pixel_agreement": 0.9653,
+        "color_match": 0.9653,
+        "render_options": "offset=144,40",
+        "side_by_side": "eval/hypercard/mark-twain---300-quotations/side.png"
+      },
+      "behavioral": {
+        "pass": 6,
+        "total": 6,
+        "failed": []
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 4,
+        "runtime_stubs_hit": []
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 0,
+        "by_command": {},
+        "undefined_handlers": []
+      },
+      "maintainability": {
+        "handlers": 13,
+        "lines": 97,
+        "lines_translated": 97,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
+        "undefined_handlers": [],
+        "unavailable_icons": 0,
+        "generated_functions": 13,
+        "largest_function": {
+          "name": "findit",
+          "lines": 43,
+          "at": "scripts.js:167"
+        },
+        "scripts_js_lines": 300,
+        "comment_lines": 134,
+        "original_kept_as_comments": true
+      }
+    },
+    "patients-v15": {
+      "visual": {
+        "ink_f1": 0.9842,
+        "precision": 0.9852,
+        "recall": 0.9832,
+        "pixel_agreement": 0.9716,
+        "color_match": 0.9716,
+        "render_options": null,
+        "side_by_side": "eval/hypercard/patients-v15/side.png"
+      },
+      "behavioral": {
+        "pass": 7,
+        "total": 8,
+        "failed": [
+          "PATIENT INFORMATION makes a new patient card"
+        ]
+      },
+      "smoke": {
+        "pass": true,
+        "errors": [],
+        "buttons_clicked": 9,
+        "runtime_stubs_hit": [
+          "if: IF THERE IS NOT A MENU \"PROCEDURE\"",
+          "go to stack: go to stack \"PATIENTS ™  Version 1.5\" (other stacks are not available)"
+        ]
+      },
+      "errors": [],
+      "stubs": {
+        "lines_stubbed": 34,
+        "by_command": {
+          "do (built string)": 6,
+          "set script": 6,
+          "create menu": 4,
+          "menu": 4,
+          "enable menu": 3,
+          "delete": 2,
+          "reset menubar": 2,
+          "sort cards": 2,
+          "disable menu": 2,
+          "if": 1,
+          "PRINTENGOOD": 1,
+          "choose button tool": 1
+        },
+        "undefined_handlers": [
+          "PRINTENGOOD",
+          "PopMenu",
+          "mouseToLine",
+          "piece",
+          "popUp",
+          "sortLines"
+        ]
+      },
+      "maintainability": {
+        "handlers": 94,
+        "lines": 919,
+        "lines_translated": 885,
+        "lines_stubbed": 34,
+        "translated_pct": 96.3,
+        "stubs_by_command": {
+          "do (built string)": 6,
+          "set script": 6,
+          "create menu": 4,
+          "menu": 4,
+          "enable menu": 3,
+          "delete": 2,
+          "reset menubar": 2,
+          "sort cards": 2,
+          "disable menu": 2,
+          "if": 1,
+          "PRINTENGOOD": 1,
+          "choose button tool": 1
+        },
+        "undefined_handlers": [
+          "PRINTENGOOD",
+          "PopMenu",
+          "mouseToLine",
+          "piece",
+          "popUp",
+          "sortLines"
+        ],
+        "unavailable_icons": 9,
+        "generated_functions": 94,
+        "largest_function": {
+          "name": "mouseUp",
+          "lines": 240,
+          "at": "scripts.js:2134"
+        },
+        "scripts_js_lines": 2661,
+        "comment_lines": 1174,
+        "original_kept_as_comments": true
+      }
+    }
+  }
+}

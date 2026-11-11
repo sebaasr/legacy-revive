@@ -1,0 +1,19 @@
+{
+  "hypercard": {
+    "reader_tests": {"command": "python recovered/hypercard/test_reader.py", "passed": 10, "total": 10, "detail": "0 sample(s) failed; all structural invariants hold (cards, bkgds, parts, bitmaps, streams)"},
+    "picture_check": {
+      "command": "python recovered/hypercard/check_pictures.py",
+      "note": "pics% = start-card bkgd+card picture vs reference, excluding parts and the menu bar; all% includes parts (not drawn by the reader).",
+      "pics_pct": {"cthulhucard": 99.999, "fishing-animation": 99.999, "game-genie-encoder-decoder": 100.0, "hypercard_fantasylanguagecreat1": 100.0,
+                   "hypercard_hyper-wordle": 99.997, "hypercard_inigo_gets_out": 99.951, "hypercard_obliquestrategies": 99.998,
+                   "hypercard_what_is_hypercard_2": 100.0, "mark-twain---300-quotations": 100.0, "patients-v15": 99.999},
+      "worst_bad_pixels": {"hypercard_inigo_gets_out": 71}
+    },
+    "spec_gaps": {"file": "specs/hypercard/GAPS.md", "count": 17, "spec_wrong": 0, "ambiguous_or_silent": 17}
+  },
+  "zzt": {
+    "reader_tests": {"command": "python recovered/zzt/test_reader.py", "passed": 8, "total": 8, "detail": "8/8 files parse to their exact end; 269 boards, 10,297 records, 5,227 programs match the spec totals"},
+    "spec_gaps": {"file": "specs/zzt/GAPS.md", "count": 14, "spec_wrong": 1, "ambiguous_or_silent": 13,
+                  "wrong": "#1: line-wall neighbour sets (spec lists 7, corpus has 15: T-junctions and end stubs missing)"}
+  }
+}

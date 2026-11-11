@@ -1,0 +1,139 @@
+{
+  "sample": "lostmonk-lostmonk",
+  "scenarios": [
+    {
+      "name": "Credits passage chain reaches the boat",
+      "source": "board-9 passage -> board-28; board-28 passage -> board-1",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-9",
+          "expected": "board-9"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-28",
+          "expected": "board-28"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "board-1",
+          "expected": "board-1"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Boat intro story",
+      "source": "@The Lost Monkeys: /i; The story follows: ...",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "The Lost Monkeys\nThe story follows:\n \n  You, Joe MacCarthy, must find Adam\n& Daisy, the two monkeys. Professor Dave\nwanted to give them a strengh shot, but\nthey got scared and ran away. You will\ntravel to many islands and venture deep\ninto a dark cave.\n \nThe game supports:\n \n■ Ega Ansi Graphics\n■ Music\n■ An ending to award the player\n■ Action and puzzle screens\n■ A fun adventure game to play\n■ All ages of fun\n \noooooooooooooooooooooooooooooooooooooooooo\nMake $10.00 checks payable to Christopher\nJong and send it with the printed out\nTDR-FORM.DOC to:\n \nDigital Reality\nATTN: ZZT/The Lost Monkeys Reg\n200 Palisades Drive\nDaly City, CA  94015\nEnter or Esc to close",
+          "expected": {
+            "contains": "The story follows"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Motor description",
+      "source": "@Motor :touch It's the motor to your boat ...",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Motor\nIt's the motor to your boat. Your lucky\nenough to have a motor, or you would\nhave to paddle your boat to Monkey's\nPleasure by hand!\nEnter or Esc to close",
+          "expected": {
+            "contains": "motor to your boat"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Sack: open it",
+      "source": "@Sack :Touch !A;Open the sack -> :A You untie the sack ...",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Sack\nYou see your sack of equipment.\n \nOpen the sack\nTake the sack\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "Open the sack"
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "The story follows:\n\n  You, Joe MacCarthy, must find Adam\n& Daisy, the two monkeys. Professor Dave\nwanted to give them a strengh shot, but\nthey got scared and ran away. You will\ntravel to many islands and venture deep\ninto a dark cave.\n\nThe game supports:\n\n■ Ega Ansi Graphics\n■ Music\n■ An ending to a",
+          "expected": {
+            "contains": "You untie the sack"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Controls: Open Hatch sends hatch:open, the hatch goes away",
+      "source": "@Controls !A -> :A #send hatch:open; @Hatch :open ... #die",
+      "checks": [
+        {
+          "what": "entity Hatch alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "smoke": {
+    "state": "play",
+    "boardsSeen": [
+      "board-9"
+    ],
+    "end": "board-9",
+    "error": null,
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": []
+  },
+  "pass": 5,
+  "total": 5
+}

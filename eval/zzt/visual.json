@@ -1,0 +1,68 @@
+{
+  "crimring-crimring": {
+    "ink_f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "pixel_agreement": 1.0,
+    "color_match": 1.0,
+    "ref_ink": 94335,
+    "app_ink": 94335,
+    "render_options": null
+  },
+  "dammak-dammak": {
+    "ink_f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "pixel_agreement": 1.0,
+    "color_match": 1.0,
+    "ref_ink": 124249,
+    "app_ink": 124249,
+    "render_options": null
+  },
+  "kingl2-kingl2": {
+    "ink_f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "pixel_agreement": 0.9996,
+    "color_match": 0.9993,
+    "ref_ink": 115006,
+    "app_ink": 115066,
+    "render_options": null
+  },
+  "lostmonk-lostmonk": {
+    "ink_f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "pixel_agreement": 1.0,
+    "color_match": 0.9998,
+    "ref_ink": 92027,
+    "app_ink": 92027,
+    "render_options": null
+  },
+  "pyramid-pyramid": {
+    "ink_f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "pixel_agreement": 1.0,
+    "color_match": 1.0,
+    "ref_ink": 102519,
+    "app_ink": 102519,
+    "render_options": null
+  },
+  "zzttoxic-smiley": {
+    "reference": null
+  },
+  "zzttoxic-toxhints": {
+    "reference": null
+  },
+  "zzttoxic-toxic": {
+    "ink_f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "pixel_agreement": 1.0,
+    "color_match": 1.0,
+    "ref_ink": 102466,
+    "app_ink": 102466,
+    "render_options": null
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "sample": "patients-v15",
+  "scenarios": [
+    {
+      "name": "openStack returns to Title and counts patients",
+      "source": "stack openStack (visits 260168, 4434, 69212, back to 227564); card openCard: number of cards of bg Patient Info",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-227564",
+          "expected": "card-227564"
+        },
+        {
+          "what": "field \"Number Pts\"",
+          "pass": true,
+          "actual": "1",
+          "expected": {
+            "name": "Number Pts",
+            "equals": "1"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Options -> PROBLEM LIST1 -> Return",
+      "source": "bkgnd-201455/button-4 go to CD \"PROBLEM LIST1\"; bkgnd-259661/button-1 go TO card \"Title\"",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-4434",
+          "expected": "card-4434"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-227564",
+          "expected": "card-227564"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "PATIENT LIST then Next card of this bg",
+      "source": "bkgnd-201455/button-8 GO TO CD \"PATIENT LIST\"; bkgnd-259661/button-3 go to next card of this bg",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-50843",
+          "expected": "card-50843"
+        },
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-4434",
+          "expected": "card-4434"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "About field shows and hides",
+      "source": "bkgnd-201455/button-5 show card fld About1; card-227564/field-10 mouseUp hide me",
+      "checks": [
+        {
+          "what": "visible of \"About1\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "visible of \"About1\"",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Patient card openCard shows the notes flag",
+      "source": "bkgnd-2721 OPENCARD: IF FLD \"NOTES\" IS NOT EMPTY THEN SET THE VISIBLE OF BG BUTTON \"FLAG\" TO TRUE",
+      "checks": [
+        {
+          "what": "screen",
+          "pass": true,
+          "actual": "card-41341",
+          "expected": "card-41341"
+        },
+        {
+          "what": "visible of \"FLAG\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Show Notes toggles the notes field",
+      "source": "bkgnd-2721/button-74: set visible of field notes; set name of me",
+      "checks": [
+        {
+          "what": "visible of \"notes\"",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "button renamed Hide Notes",
+          "pass": true,
+          "actual": "Hide Notes",
+          "expected": "Hide Notes"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "N F/U MALE without a chief complaint warns",
+      "source": "bkgnd-2721/button-125: IF FIELD \"CC\" IS EMPTY THEN ANSWER \"YOU NEED A CHIEF COMPLAINT FIRST\"",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "YOU NEED A CHIEF COMPLAINT FIRST\nOK",
+          "expected": {
+            "contains": "YOU NEED A CHIEF COMPLAINT FIRST"
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "PATIENT INFORMATION makes a new patient card",
+      "source": "bkgnd-201455/button-6: go to first card of bg \"patient info\"; send mouseUp to \"NEW PATIENT\" -> doMenu New card",
+      "checks": [
+        {
+          "what": "screenCount",
+          "pass": false,
+          "actual": 8,
+          "expected": 9
+        },
+        {
+          "what": "background",
+          "pass": true,
+          "actual": "bkgnd-2721",
+          "expected": "bkgnd-2721"
+        },
+        {
+          "what": "field \"Name\"",
+          "pass": false,
+          "actual": "EVADA AAASON",
+          "expected": {
+            "name": "Name",
+            "empty": true
+          }
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": false
+    }
+  ],
+  "smoke": {
+    "start": "card-227564",
+    "buttons": 9,
+    "clicks": [
+      {
+        "button": "bkgnd-201455/button-1",
+        "to": "card-227564",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-201455/button-2",
+        "to": "card-227564",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-201455/button-3",
+        "to": "card-227564",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-201455/button-4",
+        "to": "card-4434",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-201455/button-5",
+        "to": "card-227564",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-201455/button-6",
+        "to": "card-41341",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "bkgnd-201455/button-8",
+        "to": "card-50843",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-227564/button-35",
+        "to": "card-69212",
+        "error": null,
+        "errors": []
+      },
+      {
+        "button": "card-227564/button-36",
+        "to": "card-227564",
+        "error": null,
+        "errors": []
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "runtimeStubs": [
+      "if: IF THERE IS NOT A MENU \"PROCEDURE\"",
+      "go to stack: go to stack \"PATIENTS ™  Version 1.5\" (other stacks are not available)"
+    ]
+  },
+  "pass": 7,
+  "total": 8
+}
