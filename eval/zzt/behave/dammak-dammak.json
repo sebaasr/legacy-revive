@@ -38,6 +38,56 @@
       "pass": true
     },
     {
+      "name": "Innkeeper: buy a room (take 3 gems, send door:bought, put blue key)",
+      "source": "@Innkeeper :touch !x1 -> :x1 #take gems 3 getout; #send door:bought; #put w blue key",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "Innkeeper\n     \"Hello,would you like a room for the\nnight for 3 gems?\"\nYes,I'll take it.\n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "would you like a room"
+          }
+        },
+        {
+          "what": "counter gems",
+          "pass": true,
+          "actual": 7,
+          "expected": {
+            "name": "gems",
+            "equals": 7
+          }
+        },
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "     As you approach the little town of\nDelmar,you think back to the border patrol\nof Baron Dammak,that confiscated all of \nyour possessions except for your bow and\na hidden pouch of 10 gems.The rule of \nDammak is well known throughout the entire\nland as a hideous mockery of justice.You\nhad dreaded ",
+          "expected": {
+            "contains": "room at the end of the hall"
+          }
+        },
+        {
+          "what": "entity door alive",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "what": "blue key west of the innkeeper",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
       "name": "Innkeeper without gems sends you away",
       "source": ":x1 #take gems 3 getout -> :getout You haven't got 3 gems!",
       "checks": [
@@ -166,42 +216,49 @@
       "pass": true
     },
     {
-      "name": "Innkeeper: buy a room (take 3 gems, send door:bought, put blue key)",
-      "source": "@Innkeeper :touch !x1 -> :x1 #take gems 3 getout; #send door:bought; #put w blue key",
+      "name": "Golden box: #if book then check 2 reaches :check2 (book, candle, bell open it) (added in iteration 2)",
+      "source": "@Box :touch #if book then check 2 / :check2 #if candle then check3 / :check3 #if bell then open / :open text, #char 007, #zap touch",
       "checks": [
         {
           "what": "dialog",
           "pass": true,
-          "actual": "Innkeeper\n     \"Hello,would you like a room for the\nnight for 3 gems?\"\nYes,I'll take it.\n↑↓ choose, Enter select, Esc close",
+          "actual": "Box\nThe golden box's lid peels back of its own\naccord,revealing the golden coin!\nEnter or Esc to close",
           "expected": {
-            "contains": "would you like a room"
+            "contains": "peels back"
           }
         },
         {
-          "what": "counter gems",
+          "what": "no JS/script errors",
           "pass": true,
-          "actual": 7,
-          "expected": {
-            "name": "gems",
-            "equals": 7
-          }
-        },
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Dark board: message on entry, T lights a torch (added in iteration 2)",
+      "source": "board 14 dark flag (SPEC 2.5 prop 1); engine design: torches light an 8x5 ellipse",
+      "checks": [
         {
           "what": "text shown",
           "pass": true,
-          "actual": "     As you approach the little town of\nDelmar,you think back to the border patrol\nof Baron Dammak,that confiscated all of \nyour possessions except for your bow and\na hidden pouch of 10 gems.The rule of \nDammak is well known throughout the entire\nland as a hideous mockery of justice.You\nhad dreaded ",
+          "actual": "Room is dark - you need to light a torch!",
           "expected": {
-            "contains": "room at the end of the hall"
+            "contains": "Room is dark"
           }
         },
         {
-          "what": "entity door alive",
+          "what": "counter torches",
           "pass": true,
-          "actual": false,
-          "expected": false
+          "actual": 1,
+          "expected": {
+            "name": "torches",
+            "equals": 1
+          }
         },
         {
-          "what": "blue key west of the innkeeper",
+          "what": "torch burning",
           "pass": true,
           "actual": true,
           "expected": true
@@ -227,6 +284,6 @@
     "pass": true,
     "runtimeStubs": []
   },
-  "pass": 6,
-  "total": 6
+  "pass": 8,
+  "total": 8
 }

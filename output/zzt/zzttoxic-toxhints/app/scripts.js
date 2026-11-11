@@ -81,7 +81,7 @@ P[2] = {
     // $▒▓█▓▒
     // $▒▓ ▓▒
     //
-    await z.say(o, [{"text": "╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗", "align": "center"}, {"text": "╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝", "align": "center"}, "                  ", {"text": "HINTS  . . . AND  SOLUTIONS, TOO ", "align": "center"}, "", {"text": "╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗", "align": "center"}, {"text": "╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝", "align": "center"}, "", "Toxic Terminator features on-line hints", "to keep you on the right path.  Enough", "is left out to keep things interesting.", "", "This module is separated from the main", "game so you will use it less often.  It", "has some suggestions on how to proceed.", "And for the really stumped, there are", "some solutions.", "", {"text": "▒▓ ▓▒", "align": "center"}, {"text": "▒▓█▓▒", "align": "center"}, {"text": "▒▓ ▓▒", "align": "center"}, "", "In this adventure, you guide the hero,", "Smiley Guy, as he rescues his girl friend", "and saves Earth from an evil machine,", "called the Toxic Terminator.", "", "Before he can find them, Smiley must", "find five power crystals and solve other", "puzzles.", "", {"text": "▒▓ ▓▒", "align": "center"}, {"text": "▒▓█▓▒", "align": "center"}, {"text": "▒▓ ▓▒", "align": "center"}]);
+    z.say(o, [{"text": "╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗", "align": "center"}, {"text": "╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝", "align": "center"}, "                  ", {"text": "HINTS  . . . AND  SOLUTIONS, TOO ", "align": "center"}, "", {"text": "╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗", "align": "center"}, {"text": "╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝", "align": "center"}, "", "Toxic Terminator features on-line hints", "to keep you on the right path.  Enough", "is left out to keep things interesting.", "", "This module is separated from the main", "game so you will use it less often.  It", "has some suggestions on how to proceed.", "And for the really stumped, there are", "some solutions.", "", {"text": "▒▓ ▓▒", "align": "center"}, {"text": "▒▓█▓▒", "align": "center"}, {"text": "▒▓ ▓▒", "align": "center"}, "", "In this adventure, you guide the hero,", "Smiley Guy, as he rescues his girl friend", "and saves Earth from an evil machine,", "called the Toxic Terminator.", "", "Before he can find them, Smiley must", "find five power crystals and solve other", "puzzles.", "", {"text": "▒▓ ▓▒", "align": "center"}, {"text": "▒▓█▓▒", "align": "center"}, {"text": "▒▓ ▓▒", "align": "center"}]);
   },
   async function on_main(o, z) {
     // :MAIN
@@ -94,7 +94,7 @@ P[2] = {
     // !PART2;Part 2 ▐ Under Ground 
     // $ ▐                
     // !PART3;Part 3 ▐ Above Earth  
-    if (await z.say(o, ["The game breaks down into three major ", "parts.  If you need help, choose the", "room you want from the list below:", "", {"choice": "part1", "text": "Part 1 ▐ Above Ground "}, {"text": " ▐                ", "align": "center"}, {"choice": "part2", "text": "Part 2 ▐ Under Ground "}, {"text": " ▐                ", "align": "center"}, {"choice": "part3", "text": "Part 3 ▐ Above Earth  "}])) return z.GOTO;
+    z.say(o, ["The game breaks down into three major ", "parts.  If you need help, choose the", "room you want from the list below:", "", {"choice": "part1", "text": "Part 1 ▐ Above Ground "}, {"text": " ▐                ", "align": "center"}, {"choice": "part2", "text": "Part 2 ▐ Under Ground "}, {"text": " ▐                ", "align": "center"}, {"choice": "part3", "text": "Part 3 ▐ Above Earth  "}]);
     // #END
     return z.END;
   },
@@ -126,7 +126,7 @@ P[2] = {
     // !LAB;Inside the Lab
     //
     // !RETURN;Return to Main Menu
-    if (await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "ABOVE GROUND  ", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", {"choice": "place", "text": "Smiley's Place"}, "", {"choice": "intro", "text": "Introduction"}, "", {"choice": "apple", "text": "Apple Tree Lane"}, "", {"choice": "park", "text": "Sunny Dale Park"}, "", {"choice": "head", "text": "Bio-mechanical Head"}, "", {"choice": "grounds", "text": "Lab Grounds"}, "", {"choice": "flakey", "text": "Flakey's"}, "", {"choice": "lab", "text": "Inside the Lab"}, "", {"choice": "return", "text": "Return to Main Menu"}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "ABOVE GROUND  ", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", {"choice": "place", "text": "Smiley's Place"}, "", {"choice": "intro", "text": "Introduction"}, "", {"choice": "apple", "text": "Apple Tree Lane"}, "", {"choice": "park", "text": "Sunny Dale Park"}, "", {"choice": "head", "text": "Bio-mechanical Head"}, "", {"choice": "grounds", "text": "Lab Grounds"}, "", {"choice": "flakey", "text": "Flakey's"}, "", {"choice": "lab", "text": "Inside the Lab"}, "", {"choice": "return", "text": "Return to Main Menu"}]);
     // #END
     return z.END;
   },
@@ -157,7 +157,7 @@ P[2] = {
     // !FOG;The Fog
     //
     // !RETURN;Return to Main Menu
-    if (await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "UNDER GROUND  ", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", {"choice": "under", "text": "Underground Cavern"}, "", {"choice": "trans", "text": "Transporter Room"}, "", {"choice": "tunnels", "text": "Tunnel Maze"}, "", {"choice": "mutato", "text": "Mr. Mutato Head"}, "", {"choice": "library", "text": "Library"}, "", {"choice": "elevator", "text": "Elevator"}, "", {"choice": "inside", "text": "Inside the Head"}, "", {"choice": "controls", "text": "Switch Controls"}, "", {"choice": "bridge", "text": "Bridge"}, "", {"choice": "fog", "text": "The Fog"}, "", {"choice": "return", "text": "Return to Main Menu"}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "UNDER GROUND  ", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", {"choice": "under", "text": "Underground Cavern"}, "", {"choice": "trans", "text": "Transporter Room"}, "", {"choice": "tunnels", "text": "Tunnel Maze"}, "", {"choice": "mutato", "text": "Mr. Mutato Head"}, "", {"choice": "library", "text": "Library"}, "", {"choice": "elevator", "text": "Elevator"}, "", {"choice": "inside", "text": "Inside the Head"}, "", {"choice": "controls", "text": "Switch Controls"}, "", {"choice": "bridge", "text": "Bridge"}, "", {"choice": "fog", "text": "The Fog"}, "", {"choice": "return", "text": "Return to Main Menu"}]);
     // #END
     return z.END;
   },
@@ -182,7 +182,7 @@ P[2] = {
     // !ESCAPE;Escape and Beyond
     //
     // !RETURN;Return to Main Menu
-    if (await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "ABOVE EARTH  ", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", {"choice": "living", "text": "Living Engine Room"}, "", {"choice": "port", "text": "Observation Port"}, "", {"choice": "passage", "text": "Passageways"}, "", {"choice": "deck", "text": "Pilot Deck"}, "", {"choice": "death", "text": "Death Ray"}, "", {"choice": "toxic", "text": "Toxic Terminator/Slime"}, "", {"choice": "escape", "text": "Escape and Beyond"}, "", {"choice": "return", "text": "Return to Main Menu"}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "ABOVE EARTH  ", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", {"choice": "living", "text": "Living Engine Room"}, "", {"choice": "port", "text": "Observation Port"}, "", {"choice": "passage", "text": "Passageways"}, "", {"choice": "deck", "text": "Pilot Deck"}, "", {"choice": "death", "text": "Death Ray"}, "", {"choice": "toxic", "text": "Toxic Terminator/Slime"}, "", {"choice": "escape", "text": "Escape and Beyond"}, "", {"choice": "return", "text": "Return to Main Menu"}]);
     // #END
     return z.END;
     // '     P  A  R  T    1
@@ -193,7 +193,7 @@ P[2] = {
     // you need.  You will come back here later.
     //
     // !PLACE1;Can't move the dirt.
-    if (await z.say(o, ["Read the H.  It gives you all the help", "you need.  You will come back here later.", "", {"choice": "place1", "text": "Can't move the dirt."}])) return z.GOTO;
+    z.say(o, ["Read the H.  It gives you all the help", "you need.  You will come back here later.", "", {"choice": "place1", "text": "Can't move the dirt."}]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -202,14 +202,14 @@ P[2] = {
     // Look for something to help you.
     //
     // !PLACE2;Still can't get underground.
-    if (await z.say(o, ["Look for something to help you.", "", {"choice": "place2", "text": "Still can't get underground."}])) return z.GOTO;
+    z.say(o, ["Look for something to help you.", "", {"choice": "place2", "text": "Still can't get underground."}]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
   async function on_place2(o, z) {
     // :PLACE2
     // Find shovel.  Dig dirt.
-    await z.say(o, ["Find shovel.  Dig dirt."]);
+    z.say(o, ["Find shovel.  Dig dirt."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -217,7 +217,7 @@ P[2] = {
     // :INTRO
     // Read the messages.  The H gives you all
     // the help you need here.
-    await z.say(o, ["Read the messages.  The H gives you all", "the help you need here."]);
+    z.say(o, ["Read the messages.  The H gives you all", "the help you need here."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -226,7 +226,7 @@ P[2] = {
     // Use your ammo.
     //
     // !APPLE1;Still too many.
-    if (await z.say(o, ["Use your ammo.", "", {"choice": "apple1", "text": "Still too many."}])) return z.GOTO;
+    z.say(o, ["Use your ammo.", "", {"choice": "apple1", "text": "Still too many."}]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -235,7 +235,7 @@ P[2] = {
     // If you find the right position under
     // the first trees, the apples will line
     // up in your sights.
-    await z.say(o, ["If you find the right position under", "the first trees, the apples will line", "up in your sights."]);
+    z.say(o, ["If you find the right position under", "the first trees, the apples will line", "up in your sights."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -246,7 +246,7 @@ P[2] = {
     // !PARK1;Flicker.
     //
     // !PARK2;Flowers block path.
-    if (await z.say(o, ["Check out the people and objects.", "", {"choice": "park1", "text": "Flicker."}, "", {"choice": "park2", "text": "Flowers block path."}])) return z.GOTO;
+    z.say(o, ["Check out the people and objects.", "", {"choice": "park1", "text": "Flicker."}, "", {"choice": "park2", "text": "Flowers block path."}]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -254,14 +254,14 @@ P[2] = {
     // :PARK1
     //
     // Find the hidden path through the grass.
-    await z.say(o, ["Find the hidden path through the grass."]);
+    z.say(o, ["Find the hidden path through the grass."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
   async function on_park2(o, z) {
     // :PARK2
     // Talk to Bog again.  He can help you.
-    await z.say(o, ["Talk to Bog again.  He can help you."]);
+    z.say(o, ["Talk to Bog again.  He can help you."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -272,7 +272,7 @@ P[2] = {
     // !HEAD1;Force field blocks path.
     //
     // !HEAD2;How stop attack?
-    if (await z.say(o, ["Talk to Bog for explanation.", "", {"choice": "head1", "text": "Force field blocks path."}, "", {"choice": "head2", "text": "How stop attack?"}])) return z.GOTO;
+    z.say(o, ["Talk to Bog for explanation.", "", {"choice": "head1", "text": "Force field blocks path."}, "", {"choice": "head2", "text": "How stop attack?"}]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -280,7 +280,7 @@ P[2] = {
     // :HEAD1
     // It can be turned off from inside the
     // head.
-    await z.say(o, ["It can be turned off from inside the", "head."]);
+    z.say(o, ["It can be turned off from inside the", "head."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -288,7 +288,7 @@ P[2] = {
     // :HEAD2
     // Part of the solution is in the giant head.
     // You must find another way inside.  
-    await z.say(o, ["Part of the solution is in the giant head.", "You must find another way inside.  "]);
+    z.say(o, ["Part of the solution is in the giant head.", "You must find another way inside.  "]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -297,21 +297,21 @@ P[2] = {
     // Examine the grounds.
     //
     // !GROUNDS1;Door is locked.
-    if (await z.say(o, ["Examine the grounds.", "", {"choice": "grounds1", "text": "Door is locked."}])) return z.GOTO;
+    z.say(o, ["Examine the grounds.", "", {"choice": "grounds1", "text": "Door is locked."}]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
   async function on_grounds1(o, z) {
     // :GROUNDS1
     // Talk to Bog.
-    await z.say(o, ["Talk to Bog."]);
+    z.say(o, ["Talk to Bog."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
   async function on_flakey(o, z) {
     // :FLAKEY
     // Read the built in help.
-    await z.say(o, ["Read the built in help."]);
+    z.say(o, ["Read the built in help."]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
   },
@@ -321,7 +321,7 @@ P[2] = {
     //
     // Did you find the hidden room?
     //
-    await z.say(o, ["Enjoy the shadows.  Get the shovel.", "", "Did you find the hidden room?"]);
+    z.say(o, ["Enjoy the shadows.  Get the shovel.", "", "Did you find the hidden room?"]);
     // #SEND PART1
     if (await z.send(o, "self", "part1")) return z.GOTO;
     // '      P  A  R  T    2   
@@ -331,7 +331,7 @@ P[2] = {
     // You are under the ground.
     //
     // !UNDER1;Eyes out of reach.
-    if (await z.say(o, ["You are under the ground.", "", {"choice": "under1", "text": "Eyes out of reach."}])) return z.GOTO;
+    z.say(o, ["You are under the ground.", "", {"choice": "under1", "text": "Eyes out of reach."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
     // #END
@@ -342,7 +342,7 @@ P[2] = {
     // Look for loose rock.  
     //
     // !UNDER2;Found then lost 100 bonus points.
-    if (await z.say(o, ["Look for loose rock.  ", "", {"choice": "under2", "text": "Found then lost 100 bonus points."}])) return z.GOTO;
+    z.say(o, ["Look for loose rock.  ", "", {"choice": "under2", "text": "Found then lost 100 bonus points."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -350,7 +350,7 @@ P[2] = {
     // :UNDER2
     // The points are for "persistence."
     // Keep trying.
-    await z.say(o, ["The points are for \"persistence.\"", "Keep trying."]);
+    z.say(o, ["The points are for \"persistence.\"", "Keep trying."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -364,7 +364,7 @@ P[2] = {
     // !CODE;How to solve the access code.
     //
     // !SWITCH;Where is the power switch.
-    if (await z.say(o, ["The H explains the three steps you must", "complete to access the transporter.", "", {"choice": "crystals", "text": "Location of the power crystals."}, "", {"choice": "code", "text": "How to solve the access code."}, "", {"choice": "switch", "text": "Where is the power switch."}])) return z.GOTO;
+    z.say(o, ["The H explains the three steps you must", "complete to access the transporter.", "", {"choice": "crystals", "text": "Location of the power crystals."}, "", {"choice": "code", "text": "How to solve the access code."}, "", {"choice": "switch", "text": "Where is the power switch."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -382,14 +382,14 @@ P[2] = {
     // !GOLD;Gold crystal
     //
     // !SILVER;Silver crystal
-    if (await z.say(o, ["There are five hidden crystals, each a", "different color.", "", {"choice": "blue", "text": "Blue crystal"}, "", {"choice": "green", "text": "Green crystal"}, "", {"choice": "red", "text": "Red crystal"}, "", {"choice": "gold", "text": "Gold crystal"}, "", {"choice": "silver", "text": "Silver crystal"}])) return z.GOTO;
+    z.say(o, ["There are five hidden crystals, each a", "different color.", "", {"choice": "blue", "text": "Blue crystal"}, "", {"choice": "green", "text": "Green crystal"}, "", {"choice": "red", "text": "Red crystal"}, "", {"choice": "gold", "text": "Gold crystal"}, "", {"choice": "silver", "text": "Silver crystal"}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_blue(o, z) {
     // :BLUE
     // At the introduction.
-    await z.say(o, ["At the introduction."]);
+    z.say(o, ["At the introduction."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -397,28 +397,28 @@ P[2] = {
     // :GREEN
     // The flicker in Sunny Dale Park.
     //
-    await z.say(o, ["The flicker in Sunny Dale Park."]);
+    z.say(o, ["The flicker in Sunny Dale Park."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_red(o, z) {
     // :RED
     // The right eye in the underground cavern.
-    await z.say(o, ["The right eye in the underground cavern."]);
+    z.say(o, ["The right eye in the underground cavern."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_gold(o, z) {
     // :GOLD
     // In the library.
-    await z.say(o, ["In the library."]);
+    z.say(o, ["In the library."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_silver(o, z) {
     // :SILVER
     // In the switch controls room.
-    await z.say(o, ["In the switch controls room."]);
+    z.say(o, ["In the switch controls room."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -429,7 +429,7 @@ P[2] = {
     // library.
     //
     // !BOOK;Understanding the book.
-    if (await z.say(o, ["To learn the code you must decipher the", "cryptic writing.  Find the book in the", "library.", "", {"choice": "book", "text": "Understanding the book."}])) return z.GOTO;
+    z.say(o, ["To learn the code you must decipher the", "cryptic writing.  Find the book in the", "library.", "", {"choice": "book", "text": "Understanding the book."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -441,7 +441,7 @@ P[2] = {
     // spell the words for numbers.
     //
     // !ANSWER;The answer
-    if (await z.say(o, ["From the book, fill in the letters you", "know in the cryptic writing.  You should", "be able to guess the missing letters which", "spell the words for numbers.", "", {"choice": "answer", "text": "The answer"}])) return z.GOTO;
+    z.say(o, ["From the book, fill in the letters you", "know in the cryptic writing.  You should", "be able to guess the missing letters which", "spell the words for numbers.", "", {"choice": "answer", "text": "The answer"}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -452,7 +452,7 @@ P[2] = {
     //
     // Not yet.  Try a guess.  Then come back.
     // Ask again if you're really stumped.
-    await z.say(o, ["Select numbers and press the enter button.", "The number is . . .", "", "Not yet.  Try a guess.  Then come back.", "Ask again if you're really stumped."]);
+    z.say(o, ["Select numbers and press the enter button.", "The number is . . .", "", "Not yet.  Try a guess.  Then come back.", "Ask again if you're really stumped."]);
     // #ZAP ANSWER
     z.zap(o, "ANSWER");
     // #SEND PART2
@@ -461,7 +461,7 @@ P[2] = {
   async function on_answer_2(o, z) {
     // :ANSWER
     // 1459
-    await z.say(o, ["1459"]);
+    z.say(o, ["1459"]);
     // #END
     return z.END;
   },
@@ -469,7 +469,7 @@ P[2] = {
     // :SWITCH
     // One of the switches in the switch
     // controls room.
-    await z.say(o, ["One of the switches in the switch", "controls room."]);
+    z.say(o, ["One of the switches in the switch", "controls room."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -486,7 +486,7 @@ P[2] = {
     // !TUNNEL3;Robo-bats.
     //
     // !TUNNEL4;The path.
-    if (await z.say(o, ["Each tunnel scene has different creatures.", "Go in and out to learn where each exit", "goes.", "", {"choice": "tunnel1", "text": "Flying arrows."}, "", {"choice": "tunnel2", "text": "Flies and worms."}, "", {"choice": "tunnel3", "text": "Robo-bats."}, "", {"choice": "tunnel4", "text": "The path."}])) return z.GOTO;
+    z.say(o, ["Each tunnel scene has different creatures.", "Go in and out to learn where each exit", "goes.", "", {"choice": "tunnel1", "text": "Flying arrows."}, "", {"choice": "tunnel2", "text": "Flies and worms."}, "", {"choice": "tunnel3", "text": "Robo-bats."}, "", {"choice": "tunnel4", "text": "The path."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -495,14 +495,14 @@ P[2] = {
     // Go with the flow.  If needed, shoot
     // the yellow arrows twice.  Shooting the red
     // will alter their paths.
-    await z.say(o, ["Go with the flow.  If needed, shoot", "the yellow arrows twice.  Shooting the red", "will alter their paths."]);
+    z.say(o, ["Go with the flow.  If needed, shoot", "the yellow arrows twice.  Shooting the red", "will alter their paths."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_tunnel2(o, z) {
     // :TUNNEL2
     // Shoot once to remove a fly or worm.
-    await z.say(o, ["Shoot once to remove a fly or worm."]);
+    z.say(o, ["Shoot once to remove a fly or worm."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -510,7 +510,7 @@ P[2] = {
     // :TUNNEL3
     // Shoot bats twice to remove.  Better yet,
     // let them shoot each other.  
-    await z.say(o, ["Shoot bats twice to remove.  Better yet,", "let them shoot each other.  "]);
+    z.say(o, ["Shoot bats twice to remove.  Better yet,", "let them shoot each other.  "]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -519,7 +519,7 @@ P[2] = {
     // Going East from the transporter room,
     // go South, East, and East to exit the
     // maze.
-    await z.say(o, ["Going East from the transporter room,", "go South, East, and East to exit the", "maze."]);
+    z.say(o, ["Going East from the transporter room,", "go South, East, and East to exit the", "maze."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -531,7 +531,7 @@ P[2] = {
     // !MUTATO1;How stop Mr. Mutato Head
     //
     // !MUTATO2;Can't get torch.
-    if (await z.say(o, ["When dealing with this creature, remember", "he is part living and part machine.", "", {"choice": "mutato1", "text": "How stop Mr. Mutato Head"}, "", {"choice": "mutato2", "text": "Can't get torch."}])) return z.GOTO;
+    z.say(o, ["When dealing with this creature, remember", "he is part living and part machine.", "", {"choice": "mutato1", "text": "How stop Mr. Mutato Head"}, "", {"choice": "mutato2", "text": "Can't get torch."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -541,21 +541,21 @@ P[2] = {
     // solution.
     //
     // !MUTATO1A;Another solution.
-    if (await z.say(o, ["Shooting doesn't work.  Look for another", "solution.", "", {"choice": "mutato1a", "text": "Another solution."}])) return z.GOTO;
+    z.say(o, ["Shooting doesn't work.  Look for another", "solution.", "", {"choice": "mutato1a", "text": "Another solution."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_mutato1a(o, z) {
     // :MUTATO1A 
     // Turn off the machine switch.
-    await z.say(o, ["Turn off the machine switch."]);
+    z.say(o, ["Turn off the machine switch."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_mutato2(o, z) {
     // :MUTATO2
     // Access from another area.
-    await z.say(o, ["Access from another area."]);
+    z.say(o, ["Access from another area."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -568,21 +568,21 @@ P[2] = {
     // !LIBRARY2;Don't understand symbols.
     //
     // !LIBRARY3;Can't read invisible ink.
-    if (await z.say(o, ["Read the books.", "", {"choice": "library1", "text": "Can't find missing photo."}, "", {"choice": "library2", "text": "Don't understand symbols."}, "", {"choice": "library3", "text": "Can't read invisible ink."}])) return z.GOTO;
+    z.say(o, ["Read the books.", "", {"choice": "library1", "text": "Can't find missing photo."}, "", {"choice": "library2", "text": "Don't understand symbols."}, "", {"choice": "library3", "text": "Can't read invisible ink."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_library1(o, z) {
     // :LIBRARY1
     // More later.
-    await z.say(o, ["More later."]);
+    z.say(o, ["More later."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_library2(o, z) {
     // :LIBRARY2
     // Find where you have seen them before.
-    await z.say(o, ["Find where you have seen them before."]);
+    z.say(o, ["Find where you have seen them before."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -591,7 +591,7 @@ P[2] = {
     // Get a torch.
     //
     // !LIBRARY3A;Something missing.
-    if (await z.say(o, ["Get a torch.", "", {"choice": "library3a", "text": "Something missing."}])) return z.GOTO;
+    z.say(o, ["Get a torch.", "", {"choice": "library3a", "text": "Something missing."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -600,14 +600,14 @@ P[2] = {
     // Fire it up.
     //
     // !LIBRARY3B;How?
-    if (await z.say(o, ["Fire it up.", "", {"choice": "library3b", "text": "How?"}])) return z.GOTO;
+    z.say(o, ["Fire it up.", "", {"choice": "library3b", "text": "How?"}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_library3b(o, z) {
     // :LIBRARY3B
     // Put torch in flame.
-    await z.say(o, ["Put torch in flame."]);
+    z.say(o, ["Put torch in flame."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -616,7 +616,7 @@ P[2] = {
     // Read help first.
     //
     // !ELEVATOR1;The elevator stops working.
-    if (await z.say(o, ["Read help first.", "", {"choice": "elevator1", "text": "The elevator stops working."}])) return z.GOTO;
+    z.say(o, ["Read help first.", "", {"choice": "elevator1", "text": "The elevator stops working."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -624,7 +624,7 @@ P[2] = {
     // :ELEVATOR1
     // After pushing the button, don't touch
     // anything.
-    await z.say(o, ["After pushing the button, don't touch", "anything."]);
+    z.say(o, ["After pushing the button, don't touch", "anything."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -633,7 +633,7 @@ P[2] = {
     // The H has a tip for handling the rays.
     //
     // !INSIDE1;Still getting zapped.
-    if (await z.say(o, ["The H has a tip for handling the rays.", "", {"choice": "inside1", "text": "Still getting zapped."}])) return z.GOTO;
+    z.say(o, ["The H has a tip for handling the rays.", "", {"choice": "inside1", "text": "Still getting zapped."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -643,7 +643,7 @@ P[2] = {
     // two colors then a pause.  Wait for the 
     // second color.  Move into the ray before
     // the pause.
-    await z.say(o, ["The pulse has a pause between colors or", "two colors then a pause.  Wait for the ", "second color.  Move into the ray before", "the pause."]);
+    z.say(o, ["The pulse has a pause between colors or", "two colors then a pause.  Wait for the ", "second color.  Move into the ray before", "the pause."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -651,14 +651,14 @@ P[2] = {
     // :CONTROLS
     // Save game before checking out the 
     // buttons.  
-    await z.say(o, ["Save game before checking out the ", "buttons.  "]);
+    z.say(o, ["Save game before checking out the ", "buttons.  "]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_bridge(o, z) {
     // :BRIDGE
     // Talk to the creature. You may need him.
-    await z.say(o, ["Talk to the creature. You may need him."]);
+    z.say(o, ["Talk to the creature. You may need him."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -669,7 +669,7 @@ P[2] = {
     // Bouncer what he wants.
     //
     // !FOG1;Can't find photo.
-    if (await z.say(o, ["You may be able to find your way without", "extra help.  If you need help, give ", "Bouncer what he wants.", "", {"choice": "fog1", "text": "Can't find photo."}])) return z.GOTO;
+    z.say(o, ["You may be able to find your way without", "extra help.  If you need help, give ", "Bouncer what he wants.", "", {"choice": "fog1", "text": "Can't find photo."}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -680,14 +680,14 @@ P[2] = {
     // !FOG2;Clue 1 
     //
     // !FOG3;Clue 2
-    if (await z.say(o, ["Find two clues in the fog.", "", {"choice": "fog2", "text": "Clue 1 "}, "", {"choice": "fog3", "text": "Clue 2"}])) return z.GOTO;
+    z.say(o, ["Find two clues in the fog.", "", {"choice": "fog2", "text": "Clue 1 "}, "", {"choice": "fog3", "text": "Clue 2"}]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
   async function on_fog2(o, z) {
     // :FOG2
     // At the first bugs, go East 2, South 5.
-    await z.say(o, ["At the first bugs, go East 2, South 5."]);
+    z.say(o, ["At the first bugs, go East 2, South 5."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
   },
@@ -695,7 +695,7 @@ P[2] = {
     // :FOG3
     // At the first bugs, go West 8, South 2,
     // East 5.
-    await z.say(o, ["At the first bugs, go West 8, South 2,", "East 5."]);
+    z.say(o, ["At the first bugs, go West 8, South 2,", "East 5."]);
     // #SEND PART2
     if (await z.send(o, "self", "part2")) return z.GOTO;
     // '         P  A  R  T    3
@@ -704,14 +704,14 @@ P[2] = {
     // :LIVING
     // Use ammo on gas.  Avoid letting the gas
     // surround you.
-    await z.say(o, ["Use ammo on gas.  Avoid letting the gas", "surround you."]);
+    z.say(o, ["Use ammo on gas.  Avoid letting the gas", "surround you."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
   async function on_port(o, z) {
     // :PORT
     // Get key.  Take in the view.
-    await z.say(o, ["Get key.  Take in the view."]);
+    z.say(o, ["Get key.  Take in the view."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -721,7 +721,7 @@ P[2] = {
     // into them.
     //
     // !PASSAGE1;How to get past them.
-    if (await z.say(o, ["The moving teeth do not hurt when you run", "into them.", "", {"choice": "passage1", "text": "How to get past them."}])) return z.GOTO;
+    z.say(o, ["The moving teeth do not hurt when you run", "into them.", "", {"choice": "passage1", "text": "How to get past them."}]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -733,7 +733,7 @@ P[2] = {
     // Bounce through them.
     //
     // !PASSAGE2;Other methods.
-    if (await z.say(o, ["Try different methods.", "", "Go above and below.  Move to open space.", "Bounce through them.", "", {"choice": "passage2", "text": "Other methods."}])) return z.GOTO;
+    z.say(o, ["Try different methods.", "", "Go above and below.  Move to open space.", "Bounce through them.", "", {"choice": "passage2", "text": "Other methods."}]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -741,7 +741,7 @@ P[2] = {
     // :PASSAGE2
     // Push on them.  Shoot them to disrupt the
     // pattern.
-    await z.say(o, ["Push on them.  Shoot them to disrupt the", "pattern."]);
+    z.say(o, ["Push on them.  Shoot them to disrupt the", "pattern."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -753,7 +753,7 @@ P[2] = {
     // !DECK1;Path to the torch.
     //
     // !DECK2;Path to the store.
-    if (await z.say(o, ["Find the pattern of passages to get to", "the torch and the store.", "", {"choice": "deck1", "text": "Path to the torch."}, "", {"choice": "deck2", "text": "Path to the store."}])) return z.GOTO;
+    z.say(o, ["Find the pattern of passages to get to", "the torch and the store.", "", {"choice": "deck1", "text": "Path to the torch."}, "", {"choice": "deck2", "text": "Path to the store."}]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -766,7 +766,7 @@ P[2] = {
     // (third from left on bottom row).
     //
     // Enter it to jump to the across the room.
-    await z.say(o, ["Go east from red passage (in lower right", "hand corner of screen).  Run into wall.", "", "Bump open a path to the purple passage", "(third from left on bottom row).", "", "Enter it to jump to the across the room."]);
+    z.say(o, ["Go east from red passage (in lower right", "hand corner of screen).  Run into wall.", "", "Bump open a path to the purple passage", "(third from left on bottom row).", "", "Enter it to jump to the across the room."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -776,7 +776,7 @@ P[2] = {
     // entrance passage) to next cyan passage.
     //
     // Go north to white passage.
-    await z.say(o, ["Take cyan passage (just south of the ", "entrance passage) to next cyan passage.", "", "Go north to white passage."]);
+    z.say(o, ["Take cyan passage (just south of the ", "entrance passage) to next cyan passage.", "", "Go north to white passage."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -790,7 +790,7 @@ P[2] = {
     // !DEATH2;How handle the guns.
     //
     // !DEATH3;How to get key.
-    if (await z.say(o, ["Get stocked up on ammo before advancing", "past the shield. ", "", {"choice": "death1", "text": "How to get past the ice shield."}, "", {"choice": "death2", "text": "How handle the guns."}, "", {"choice": "death3", "text": "How to get key."}])) return z.GOTO;
+    z.say(o, ["Get stocked up on ammo before advancing", "past the shield. ", "", {"choice": "death1", "text": "How to get past the ice shield."}, "", {"choice": "death2", "text": "How handle the guns."}, "", {"choice": "death3", "text": "How to get key."}]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -799,14 +799,14 @@ P[2] = {
     // Find something that works on ice.
     //
     // !DEATH1A;What?
-    if (await z.say(o, ["Find something that works on ice.", "", {"choice": "death1a", "text": "What?"}])) return z.GOTO;
+    z.say(o, ["Find something that works on ice.", "", {"choice": "death1a", "text": "What?"}]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
   async function on_death1a(o, z) {
     // :DEATH1A
     // Use torch to melt the ice.
-    await z.say(o, ["Use torch to melt the ice."]);
+    z.say(o, ["Use torch to melt the ice."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -814,14 +814,14 @@ P[2] = {
     // :DEATH2
     // Shoot a gun twice to put it temporarily
     // out of commission.
-    await z.say(o, ["Shoot a gun twice to put it temporarily", "out of commission."]);
+    z.say(o, ["Shoot a gun twice to put it temporarily", "out of commission."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
   async function on_death3(o, z) {
     // :DEATH3
     // Use ammo to break walls of skull.
-    await z.say(o, ["Use ammo to break walls of skull."]);
+    z.say(o, ["Use ammo to break walls of skull."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -833,7 +833,7 @@ P[2] = {
     // !TOXIC1;How to handle the slime.
     //
     // !TOXIC2;Can't pick up key.
-    if (await z.say(o, ["Take passage for final showdown inside", "the Terminator.", "", {"choice": "toxic1", "text": "How to handle the slime."}, "", {"choice": "toxic2", "text": "Can't pick up key."}])) return z.GOTO;
+    z.say(o, ["Take passage for final showdown inside", "the Terminator.", "", {"choice": "toxic1", "text": "How to handle the slime."}, "", {"choice": "toxic2", "text": "Can't pick up key."}]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -841,14 +841,14 @@ P[2] = {
     // :TOXIC1
     // Have plenty of ammo.  Avoid getting
     // trapped between slime and bolts.
-    await z.say(o, ["Have plenty of ammo.  Avoid getting", "trapped between slime and bolts."]);
+    z.say(o, ["Have plenty of ammo.  Avoid getting", "trapped between slime and bolts."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
   async function on_toxic2(o, z) {
     // :TOXIC2
     // Get all three red power crystals first.
-    await z.say(o, ["Get all three red power crystals first."]);
+    z.say(o, ["Get all three red power crystals first."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -859,7 +859,7 @@ P[2] = {
     // !ESCAPE2;Came home.  Where's Pristine?
     //
     // !ESCAPE3;Can't find the Warped Zone.
-    if (await z.say(o, [{"choice": "escape1", "text": "Can't beat slime to bonus points."}, "", {"choice": "escape2", "text": "Came home.  Where's Pristine?"}, "", {"choice": "escape3", "text": "Can't find the Warped Zone."}])) return z.GOTO;
+    z.say(o, [{"choice": "escape1", "text": "Can't beat slime to bonus points."}, "", {"choice": "escape2", "text": "Came home.  Where's Pristine?"}, "", {"choice": "escape3", "text": "Can't find the Warped Zone."}]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -868,14 +868,14 @@ P[2] = {
     // Try changing game speed to slower.  Change
     // back to normal afterwards, or else, 
     // everything slows down.
-    await z.say(o, ["Try changing game speed to slower.  Change", "back to normal afterwards, or else, ", "everything slows down."]);
+    z.say(o, ["Try changing game speed to slower.  Change", "back to normal afterwards, or else, ", "everything slows down."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
   async function on_escape2(o, z) {
     // :ESCAPE2
     // Follow Pristine to your right.
-    await z.say(o, ["Follow Pristine to your right."]);
+    z.say(o, ["Follow Pristine to your right."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },
@@ -885,7 +885,7 @@ P[2] = {
     // arrow down at each step along the bottom
     // of the screen.  One space will drop into
     // the Warped Zone.
-    await z.say(o, ["After opening the wall in the Pilot Deck,", "arrow down at each step along the bottom", "of the screen.  One space will drop into", "the Warped Zone."]);
+    z.say(o, ["After opening the wall in the Pilot Deck,", "arrow down at each step along the bottom", "of the screen.  One space will drop into", "the Warped Zone."]);
     // #SEND PART3
     if (await z.send(o, "self", "part3")) return z.GOTO;
   },

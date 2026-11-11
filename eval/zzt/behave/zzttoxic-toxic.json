@@ -208,6 +208,31 @@
       ],
       "errors": [],
       "pass": true
+    },
+    {
+      "name": "Transporter moves the player through (added in iteration 2)",
+      "source": "transporter board-16-stat-6 at (38,4), step (0,1)",
+      "checks": [
+        {
+          "what": "player past the transporter",
+          "pass": true,
+          "actual": [
+            37,
+            4
+          ],
+          "expected": [
+            37,
+            4
+          ]
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
     }
   ],
   "smoke": {
@@ -221,6 +246,6 @@
     "pass": true,
     "runtimeStubs": []
   },
-  "pass": 7,
-  "total": 7
+  "pass": 8,
+  "total": 8
 }

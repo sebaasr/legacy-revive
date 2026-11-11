@@ -98,7 +98,7 @@ P[3] = {
     //   You not bring great idol of Hussafuss! 
     // Go back, search more! (The chief points at
     // the pyramid)
-    await z.say(o, [{"text": "Uga! Uga!  ", "align": "center"}, "", "  You not bring great idol of Hussafuss! ", "Go back, search more! (The chief points at", "the pyramid)"]);
+    z.say(o, [{"text": "Uga! Uga!  ", "align": "center"}, "", "  You not bring great idol of Hussafuss! ", "Go back, search more! (The chief points at", "the pyramid)"]);
     // #END
     return z.END;
   },
@@ -109,7 +109,7 @@ P[3] = {
     //   Ahhhh. You bring great idol at last! 
     // You get great reward for bravery. You
     // allowed to survive. HA HA HA!
-    await z.say(o, [{"text": "Uga! Uga!", "align": "center"}, "", "  Ahhhh. You bring great idol at last! ", "You get great reward for bravery. You", "allowed to survive. HA HA HA!"]);
+    z.say(o, [{"text": "Uga! Uga!", "align": "center"}, "", "  Ahhhh. You bring great idol at last! ", "You get great reward for bravery. You", "allowed to survive. HA HA HA!"]);
     // #cycle 1
     o.cycle = 1;
     // /s/s/s/s/s/s/s
@@ -143,7 +143,7 @@ P[4] = {
     // $The coffin reads:
     //
     //     "Resting place of the unknown king"   
-    await z.say(o, [{"text": "The coffin reads:", "align": "center"}, "", "    \"Resting place of the unknown king\"   "]);
+    z.say(o, [{"text": "The coffin reads:", "align": "center"}, "", "    \"Resting place of the unknown king\"   "]);
     // #end
     return z.END;
   },
@@ -199,7 +199,7 @@ P[6] = {
     // #take health 1
     z.take("health", 1);
     // You are singed by a burning torch.
-    await z.say(o, ["You are singed by a burning torch."]);
+    z.say(o, ["You are singed by a burning torch."]);
     // #restart
     return z.RESTART;
   },
@@ -235,7 +235,7 @@ P[8] = {
   async function on_touch(o, z) {
     // :touch
     // It's the statue of a golden serpent.
-    await z.say(o, ["It's the statue of a golden serpent."]);
+    z.say(o, ["It's the statue of a golden serpent."]);
     // #end
     return z.END;
   },
@@ -271,7 +271,7 @@ P[10] = {
   async function on_touch(o, z) {
     // :touch
     // It's a pile of broken clay pottery.
-    await z.say(o, ["It's a pile of broken clay pottery."]);
+    z.say(o, ["It's a pile of broken clay pottery."]);
     // #end
     return z.END;
   },
@@ -310,7 +310,7 @@ P[12] = {
     // #play [I--] C
     z.play("[I--] C");
     // It's the remains of a luckless adventurer.
-    await z.say(o, ["It's the remains of a luckless adventurer."]);
+    z.say(o, ["It's the remains of a luckless adventurer."]);
     // #end
     return z.END;
   },
@@ -337,7 +337,7 @@ P[13] = {
     //
     // It looks like one of the paths has been
     // subject to a cave-in.
-    await z.say(o, ["The sign reads:", "", {"text": "Choose a path, brave ranger.", "align": "center"}, {"text": "Two of them are grave danger.", "align": "center"}, "", "It looks like one of the paths has been", "subject to a cave-in."]);
+    z.say(o, ["The sign reads:", "", {"text": "Choose a path, brave ranger.", "align": "center"}, {"text": "Two of them are grave danger.", "align": "center"}, "", "It looks like one of the paths has been", "subject to a cave-in."]);
     // #end
     return z.END;
   },
@@ -373,7 +373,7 @@ P[14] = {
     // #play [H++] B
     z.play("[H++] B");
     // Bonus: 1000 points
-    await z.say(o, ["Bonus: 1000 points"]);
+    z.say(o, ["Bonus: 1000 points"]);
     // #die
     return z.die(o);
   },
@@ -412,7 +412,7 @@ P[16] = {
     // #play 4444444444444444444
     z.play("4444444444444444444");
     // The wall crumbles!
-    await z.say(o, ["The wall crumbles!"]);
+    z.say(o, ["The wall crumbles!"]);
     // #die
     return z.die(o);
   },
@@ -468,7 +468,7 @@ P[19] = {
   async function on_touch(o, z) {
     // :touch
     // Piles of decaying bones lie in one corner.
-    await z.say(o, ["Piles of decaying bones lie in one corner."]);
+    z.say(o, ["Piles of decaying bones lie in one corner."]);
     // #end
     return z.END;
   },
@@ -505,7 +505,7 @@ P[21] = {
     // The ancient runes read:
     //
     // $Don't stand in the light...
-    await z.say(o, ["The ancient runes read:", "", {"text": "Don't stand in the light...", "align": "center"}]);
+    z.say(o, ["The ancient runes read:", "", {"text": "Don't stand in the light...", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -532,7 +532,7 @@ P[22] = {
     // #play 0x1x2x4x5x6x7x8x9
     z.play("0x1x2x4x5x6x7x8x9");
     // Ammunition increase: 1000
-    await z.say(o, ["Ammunition increase: 1000"]);
+    z.say(o, ["Ammunition increase: 1000"]);
     // #die
     return z.die(o);
   },
@@ -645,7 +645,7 @@ P[26] = {
   segments: [
   async function start(o, z) {
     // You have disturbed the mummies!
-    await z.say(o, ["You have disturbed the mummies!"]);
+    z.say(o, ["You have disturbed the mummies!"]);
     // #bind mummy
     return z.bind(o, "mummy");
   },
@@ -712,7 +712,7 @@ P[29] = {
     // The ancient runes read:
     //
     // $Stand on the mirror image of EGYPT...   
-    await z.say(o, ["The ancient runes read:", "", {"text": "Stand on the mirror image of EGYPT...   ", "align": "center"}]);
+    z.say(o, ["The ancient runes read:", "", {"text": "Stand on the mirror image of EGYPT...   ", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -739,7 +739,7 @@ P[30] = {
     // #play 6x6
     z.play("6x6");
     // The wall moved.
-    await z.say(o, ["The wall moved."]);
+    z.say(o, ["The wall moved."]);
     // /s
     await z.step(o, "s");
   },
@@ -761,7 +761,7 @@ P[31] = {
   async function on_touch(o, z) {
     // :touch
     // Two golden serpents guard the entrence.
-    await z.say(o, ["Two golden serpents guard the entrence."]);
+    z.say(o, ["Two golden serpents guard the entrence."]);
     // #end
     return z.END;
   },
@@ -787,7 +787,7 @@ P[32] = {
     // golden lions are nearby to your left and
     // right as well as in the far end of the 
     // room.
-    await z.say(o, ["There is an eerie feeling in the air as", "you step in. A strange light shines", "through the holes in the wall. Statues of", "golden lions are nearby to your left and", "right as well as in the far end of the ", "room."]);
+    z.say(o, ["There is an eerie feeling in the air as", "you step in. A strange light shines", "through the holes in the wall. Statues of", "golden lions are nearby to your left and", "right as well as in the far end of the ", "room."]);
     // #end 
     return z.END;
   },
@@ -979,7 +979,7 @@ P[41] = {
     // :touch
     // Sorry, but you pigheadedly picked the 
     // WRONG tile.
-    await z.say(o, ["Sorry, but you pigheadedly picked the ", "WRONG tile."]);
+    z.say(o, ["Sorry, but you pigheadedly picked the ", "WRONG tile."]);
     // #endgame
     z.endgame(o);
   },
@@ -1003,7 +1003,7 @@ P[42] = {
     //
     // !pull;Pull the lever.
     // !leave;Leave the lever alone.
-    if (await z.say(o, ["This is a lever.", "", {"choice": "pull", "text": "Pull the lever."}, {"choice": "leave", "text": "Leave the lever alone."}])) return z.GOTO;
+    z.say(o, ["This is a lever.", "", {"choice": "pull", "text": "Pull the lever."}, {"choice": "leave", "text": "Leave the lever alone."}]);
     // #end
     return z.END;
   },
@@ -1056,7 +1056,7 @@ P[43] = {
   async function on_touch(o, z) {
     // :touch
     // It's the casket of the ZZT King!
-    await z.say(o, ["It's the casket of the ZZT King!"]);
+    z.say(o, ["It's the casket of the ZZT King!"]);
     // #play 6x6x6x6x6x6
     z.play("6x6x6x6x6x6");
     // #end
@@ -1094,7 +1094,7 @@ P[45] = {
   async function on_touch(o, z) {
     // :touch
     // It's a statue of a golden serpent.
-    await z.say(o, ["It's a statue of a golden serpent."]);
+    z.say(o, ["It's a statue of a golden serpent."]);
     // #end
     return z.END;
   },
@@ -1136,7 +1136,7 @@ P[46] = {
     // #take health 1
     z.take("health", 1);
     // You are singed by a lighted torch.
-    await z.say(o, ["You are singed by a lighted torch."]);
+    z.say(o, ["You are singed by a lighted torch."]);
     // #restart
     return z.RESTART;
   },
@@ -1197,7 +1197,7 @@ P[49] = {
   segments: [
   async function start(o, z) {
     // One moment please...
-    await z.say(o, ["One moment please..."]);
+    z.say(o, ["One moment please..."]);
     // #end
     return z.END;
   },
@@ -1206,7 +1206,7 @@ P[49] = {
     // #send door:open
     if (await z.send(o, "door", "open")) return z.GOTO;
     // You can go now.
-    await z.say(o, ["You can go now."]);
+    z.say(o, ["You can go now."]);
     // #die
     return z.die(o);
   },
@@ -1257,7 +1257,7 @@ P[50] = {
     //
     // (with that, the elder steps inside his
     // hut.)
-    await z.say(o, [{"text": "The elder speaks:", "align": "center"}, "", "  \"Greetings fellow ranger. We are what's", "left of the lost pyramid exploration party", "that started nearly 50 years ago. We have", "stopped here because we are too week to", "journey onward, or face the perils block-", "ing the way out. We even had to leave", "some of our dearest friends behind because", "of our weakness, as you may have noticed", "the piles of bones. We have set up a small", "underground village here, and have adapted", "to this way of life. You seem to be of ", "young blood, and have a chance of obtain-", "ing the lost idol of Hussafuss. Here, ", "enter my humble dwelling place, and take", "whatever supplies you will need to com-", "plete your quest.\" ", "", "(with that, the elder steps inside his", "hut.)"]);
+    z.say(o, [{"text": "The elder speaks:", "align": "center"}, "", "  \"Greetings fellow ranger. We are what's", "left of the lost pyramid exploration party", "that started nearly 50 years ago. We have", "stopped here because we are too week to", "journey onward, or face the perils block-", "ing the way out. We even had to leave", "some of our dearest friends behind because", "of our weakness, as you may have noticed", "the piles of bones. We have set up a small", "underground village here, and have adapted", "to this way of life. You seem to be of ", "young blood, and have a chance of obtain-", "ing the lost idol of Hussafuss. Here, ", "enter my humble dwelling place, and take", "whatever supplies you will need to com-", "plete your quest.\" ", "", "(with that, the elder steps inside his", "hut.)"]);
     // #die
     return z.die(o);
   },
@@ -1311,7 +1311,7 @@ P[52] = {
     // feeling your strong body that you are not
     // one of the villagers. Here, take 10 health
     // as a token of my kindness."
-    await z.say(o, [{"text": "The old man speaks:", "align": "center"}, "", "  \"I am blind and cannot see. I know by ", "feeling your strong body that you are not", "one of the villagers. Here, take 10 health", "as a token of my kindness.\""]);
+    z.say(o, [{"text": "The old man speaks:", "align": "center"}, "", "  \"I am blind and cannot see. I know by ", "feeling your strong body that you are not", "one of the villagers. Here, take 10 health", "as a token of my kindness.\""]);
     // #give health 10
     z.give("health", 10);
     // #zap touch
@@ -1322,7 +1322,7 @@ P[52] = {
   async function on_touch_2(o, z) {
     // :touch
     // I've given you all I have!
-    await z.say(o, ["I've given you all I have!"]);
+    z.say(o, ["I've given you all I have!"]);
     // #end
     return z.END;
   },
@@ -1344,7 +1344,7 @@ P[53] = {
   async function on_touch(o, z) {
     // :touch
     // A rather uncomfortable-looking grass bed.
-    await z.say(o, ["A rather uncomfortable-looking grass bed."]);
+    z.say(o, ["A rather uncomfortable-looking grass bed."]);
     // #end
     return z.END;
   },
@@ -1379,7 +1379,7 @@ P[55] = {
   async function on_touch(o, z) {
     // :touch
     // A plastic-bag-stuffed-with-grass pillow.
-    await z.say(o, ["A plastic-bag-stuffed-with-grass pillow."]);
+    z.say(o, ["A plastic-bag-stuffed-with-grass pillow."]);
     // #end
     return z.END;
   },
@@ -1401,7 +1401,7 @@ P[56] = {
   async function on_touch(o, z) {
     // :touch
     // A makeshift fireplace smolders a log.
-    await z.say(o, ["A makeshift fireplace smolders a log."]);
+    z.say(o, ["A makeshift fireplace smolders a log."]);
     // #end
     return z.END;
   },
@@ -1437,7 +1437,7 @@ P[58] = {
   async function on_touch(o, z) {
     // :touch
     // A crude table carved from solid rock.
-    await z.say(o, ["A crude table carved from solid rock."]);
+    z.say(o, ["A crude table carved from solid rock."]);
     // #end
     return z.END;
   },
@@ -1472,7 +1472,7 @@ P[60] = {
   async function on_touch(o, z) {
     // :touch
     // A grass bean-bag.
-    await z.say(o, ["A grass bean-bag."]);
+    z.say(o, ["A grass bean-bag."]);
     // #end
     return z.END;
   },
@@ -1494,7 +1494,7 @@ P[61] = {
   async function on_touch(o, z) {
     // :touch
     // A crude metal stove.
-    await z.say(o, ["A crude metal stove."]);
+    z.say(o, ["A crude metal stove."]);
     // #end
     return z.END;
   },
@@ -1515,7 +1515,7 @@ P[62] = {
   async function on_touch(o, z) {
     // :touch
     // It's the hot surface for the stove.
-    await z.say(o, ["It's the hot surface for the stove."]);
+    z.say(o, ["It's the hot surface for the stove."]);
     // #end
     return z.END;
   },
@@ -1560,7 +1560,7 @@ P[64] = {
     // !advice;Give you advice.
     //
     // "What will it be?"
-    if (await z.say(o, [{"text": "The elder speaks:", "align": "center"}, "", "  \"We are starting to run low on firewood.", "If you would be kind enough to spare a", "single torch, I can do one of the follow-", "ing:", "", {"choice": "life", "text": "Give you 100 health."}, {"choice": "advice", "text": "Give you advice."}, "", "\"What will it be?\""])) return z.GOTO;
+    z.say(o, [{"text": "The elder speaks:", "align": "center"}, "", "  \"We are starting to run low on firewood.", "If you would be kind enough to spare a", "single torch, I can do one of the follow-", "ing:", "", {"choice": "life", "text": "Give you 100 health."}, {"choice": "advice", "text": "Give you advice."}, "", "\"What will it be?\""]);
     // #end
     return z.END;
   },
@@ -1583,7 +1583,7 @@ P[64] = {
     // #play [T] C
     z.play("[T] C");
     // Journey on, brave adventurer!
-    await z.say(o, ["Journey on, brave adventurer!"]);
+    z.say(o, ["Journey on, brave adventurer!"]);
     // #end
     return z.END;
   },
@@ -1613,21 +1613,21 @@ P[64] = {
     // that this is of some use to you. Take it
     // for what it's worth, you know how rumors
     // are."
-    await z.say(o, [{"text": "The elder clears his throat and speaks:", "align": "center"}, "", "  \"Did you happen to see those `ancient", "runes' along the way? Those were written", "by me. Rumor has it that the ZZT king", "stashed the idol of Hussafuss in a very", "obvious place, but out of the way. I hope", "that this is of some use to you. Take it", "for what it's worth, you know how rumors", "are.\""]);
+    z.say(o, [{"text": "The elder clears his throat and speaks:", "align": "center"}, "", "  \"Did you happen to see those `ancient", "runes' along the way? Those were written", "by me. Rumor has it that the ZZT king", "stashed the idol of Hussafuss in a very", "obvious place, but out of the way. I hope", "that this is of some use to you. Take it", "for what it's worth, you know how rumors", "are.\""]);
     // #end
     return z.END;
   },
   async function on_touch_2(o, z) {
     // :touch
     // Continue your quest!
-    await z.say(o, ["Continue your quest!"]);
+    z.say(o, ["Continue your quest!"]);
     // #end
     return z.END;
   },
   async function on_poor(o, z) {
     // :poor
     // You don't have a torch!
-    await z.say(o, ["You don't have a torch!"]);
+    z.say(o, ["You don't have a torch!"]);
     // #end
     return z.END;
   },
@@ -1649,7 +1649,7 @@ P[65] = {
   async function on_touch(o, z) {
     // :touch
     // The wall emits a faint crack.
-    await z.say(o, ["The wall emits a faint crack."]);
+    z.say(o, ["The wall emits a faint crack."]);
     // #play 0x0
     z.play("0x0");
     // #zap touch
@@ -1660,7 +1660,7 @@ P[65] = {
   async function on_touch_2(o, z) {
     // :touch
     // The wall emits a noticeable C R A C K.
-    await z.say(o, ["The wall emits a noticeable C R A C K."]);
+    z.say(o, ["The wall emits a noticeable C R A C K."]);
     // #play 1x1
     z.play("1x1");
     // #zap touch
@@ -1671,7 +1671,7 @@ P[65] = {
   async function on_touch_3(o, z) {
     // :touch
     // The wall emits a loud CRAAAAAAAAACK!
-    await z.say(o, ["The wall emits a loud CRAAAAAAAAACK!"]);
+    z.say(o, ["The wall emits a loud CRAAAAAAAAACK!"]);
     // #play 6x6
     z.play("6x6");
     // #zap touch
@@ -1682,7 +1682,7 @@ P[65] = {
   async function on_touch_4(o, z) {
     // :touch 
     // The wall crumbles and releases a slime!
-    await z.say(o, ["The wall crumbles and releases a slime!"]);
+    z.say(o, ["The wall crumbles and releases a slime!"]);
     // #play 0x1x2x4x5x6x7x8x9
     z.play("0x1x2x4x5x6x7x8x9");
     // #put seek red slime 
@@ -1695,7 +1695,7 @@ P[65] = {
   async function on_touch_5(o, z) {
     // :touch
     // Rubble of a stone wall blocks your path.
-    await z.say(o, ["Rubble of a stone wall blocks your path."]);
+    z.say(o, ["Rubble of a stone wall blocks your path."]);
     // #end
     return z.END;
   },
@@ -1774,7 +1774,7 @@ P[68] = {
     // $   PRODIGY: HXVN08B  
     //
     // Write for your copy today!
-    await z.say(o, ["Soon/now available from the ZZT Club:", "", {"text": "The Ruby of Resurrection", "align": "center"}, "", {"text": "by", "align": "center"}, "", {"text": "Carlos Da Silva", "align": "center"}, {"text": "   626 Bergen St.    ", "align": "center"}, {"text": "   Harrison, NJ 07029", "align": "center"}, {"text": "   PRODIGY: HXVN08B  ", "align": "center"}, "", "Write for your copy today!"]);
+    z.say(o, ["Soon/now available from the ZZT Club:", "", {"text": "The Ruby of Resurrection", "align": "center"}, "", {"text": "by", "align": "center"}, "", {"text": "Carlos Da Silva", "align": "center"}, {"text": "   626 Bergen St.    ", "align": "center"}, {"text": "   Harrison, NJ 07029", "align": "center"}, {"text": "   PRODIGY: HXVN08B  ", "align": "center"}, "", "Write for your copy today!"]);
   },
   ],
 };
@@ -1804,7 +1804,7 @@ P[69] = {
     // !wron;Gotcha
     // !wron;Habacas Ojeca Misto Mentano
     // !wron;Swami Pastrami
-    if (await z.say(o, ["This is thy chance to cheat:", "", "What spell is normally chanted on April ", "Fools Day?", "", {"choice": "fool", "text": "Owha Tafo Oliam"}, {"choice": "wron", "text": "Abrakazakathakazam"}, {"choice": "wron", "text": "Open Sesame"}, {"choice": "wron", "text": "Hokas Pokas Daddy-okas"}, {"choice": "wron", "text": "Gotcha"}, {"choice": "wron", "text": "Habacas Ojeca Misto Mentano"}, {"choice": "wron", "text": "Swami Pastrami"}])) return z.GOTO;
+    z.say(o, ["This is thy chance to cheat:", "", "What spell is normally chanted on April ", "Fools Day?", "", {"choice": "fool", "text": "Owha Tafo Oliam"}, {"choice": "wron", "text": "Abrakazakathakazam"}, {"choice": "wron", "text": "Open Sesame"}, {"choice": "wron", "text": "Hokas Pokas Daddy-okas"}, {"choice": "wron", "text": "Gotcha"}, {"choice": "wron", "text": "Habacas Ojeca Misto Mentano"}, {"choice": "wron", "text": "Swami Pastrami"}]);
     // #end
     return z.END;
   },
@@ -1813,7 +1813,7 @@ P[69] = {
     // Sorry, that was incorrect! Well, look at  
     // it this way, you're not supposed to be 
     // cheating anyway!
-    await z.say(o, ["Sorry, that was incorrect! Well, look at  ", "it this way, you're not supposed to be ", "cheating anyway!"]);
+    z.say(o, ["Sorry, that was incorrect! Well, look at  ", "it this way, you're not supposed to be ", "cheating anyway!"]);
     // #lock
     o.locked = true;
     // #end
@@ -1834,7 +1834,7 @@ P[69] = {
     // !wron;French Pastries
     // !wron;Peanuts
     // !wron;Fruit
-    if (await z.say(o, ["Correctamundo! Er, That is correct. Now", "try this:", "", "\"Famous\" Amos made his fortune by", "selling:", "", {"choice": "wron", "text": "Bread"}, {"choice": "wron", "text": "Cake "}, {"choice": "wron", "text": "Coffee"}, {"choice": "cook", "text": "Cookies"}, {"choice": "wron", "text": "French Pastries"}, {"choice": "wron", "text": "Peanuts"}, {"choice": "wron", "text": "Fruit"}])) return z.GOTO;
+    z.say(o, ["Correctamundo! Er, That is correct. Now", "try this:", "", "\"Famous\" Amos made his fortune by", "selling:", "", {"choice": "wron", "text": "Bread"}, {"choice": "wron", "text": "Cake "}, {"choice": "wron", "text": "Coffee"}, {"choice": "cook", "text": "Cookies"}, {"choice": "wron", "text": "French Pastries"}, {"choice": "wron", "text": "Peanuts"}, {"choice": "wron", "text": "Fruit"}]);
     // #end
     return z.END;
   },
@@ -1851,7 +1851,7 @@ P[69] = {
     // !wron;Green Acres
     // !wron;Honeymooners
     // !wron;Wing Commander
-    if (await z.say(o, ["That is correct! Now try this:", "", "Where would you find Felix Unger and Oscar", "Madison?", "", {"choice": "wron", "text": "Stand By Me"}, {"choice": "wron", "text": "The Young and the Restless"}, {"choice": "oddc", "text": "The Odd Couple"}, {"choice": "wron", "text": "Green Acres"}, {"choice": "wron", "text": "Honeymooners"}, {"choice": "wron", "text": "Wing Commander"}])) return z.GOTO;
+    z.say(o, ["That is correct! Now try this:", "", "Where would you find Felix Unger and Oscar", "Madison?", "", {"choice": "wron", "text": "Stand By Me"}, {"choice": "wron", "text": "The Young and the Restless"}, {"choice": "oddc", "text": "The Odd Couple"}, {"choice": "wron", "text": "Green Acres"}, {"choice": "wron", "text": "Honeymooners"}, {"choice": "wron", "text": "Wing Commander"}]);
     // #end
     return z.END;
   },
@@ -1866,7 +1866,7 @@ P[69] = {
     // !wron;It would roll off to the left.
     // !wron;It would balance on the top.
     // !none;None of the above
-    if (await z.say(o, ["Boy, you must be a Genius! Now, this:", "", "If a rooster is sitting on top of a barn", "roof and lays an egg, where would it go?", "", {"choice": "wron", "text": "It would roll off to the right."}, {"choice": "wron", "text": "It would roll off to the left."}, {"choice": "wron", "text": "It would balance on the top."}, {"choice": "none", "text": "None of the above"}])) return z.GOTO;
+    z.say(o, ["Boy, you must be a Genius! Now, this:", "", "If a rooster is sitting on top of a barn", "roof and lays an egg, where would it go?", "", {"choice": "wron", "text": "It would roll off to the right."}, {"choice": "wron", "text": "It would roll off to the left."}, {"choice": "wron", "text": "It would balance on the top."}, {"choice": "none", "text": "None of the above"}]);
     // #end
     return z.END;
   },
@@ -1882,7 +1882,7 @@ P[69] = {
     // !wron;Alaska
     // !wron;New York
     // !non2;None of the above
-    if (await z.say(o, ["Correct! Now, just one more question:", "", "If a plane was flying from New York to ", "Alaska and the plane crashed in Canada,", "where would they bury the survivors?", "", {"choice": "wron", "text": "Canada"}, {"choice": "wron", "text": "Alaska"}, {"choice": "wron", "text": "New York"}, {"choice": "non2", "text": "None of the above"}])) return z.GOTO;
+    z.say(o, ["Correct! Now, just one more question:", "", "If a plane was flying from New York to ", "Alaska and the plane crashed in Canada,", "where would they bury the survivors?", "", {"choice": "wron", "text": "Canada"}, {"choice": "wron", "text": "Alaska"}, {"choice": "wron", "text": "New York"}, {"choice": "non2", "text": "None of the above"}]);
     // #end
     return z.END;
   },
@@ -1890,7 +1890,7 @@ P[69] = {
     // :non2
     // That is absolutely correct! Now, for your
     // reward, you get a cyan key!
-    await z.say(o, ["That is absolutely correct! Now, for your", "reward, you get a cyan key!"]);
+    z.say(o, ["That is absolutely correct! Now, for your", "reward, you get a cyan key!"]);
     // #become cyan key
     return z.become(o, "cyan", "key");
   },
@@ -2055,7 +2055,7 @@ P[75] = {
     //   "Ha ha ha! Yet another victim of my trap
     // which has the ultimate bait: GREED! Come,
     // enter my hideout."
-    await z.say(o, [{"text": "The bandit speaks:", "align": "center"}, "", "  \"Ha ha ha! Yet another victim of my trap", "which has the ultimate bait: GREED! Come,", "enter my hideout.\""]);
+    z.say(o, [{"text": "The bandit speaks:", "align": "center"}, "", "  \"Ha ha ha! Yet another victim of my trap", "which has the ultimate bait: GREED! Come,", "enter my hideout.\""]);
     // /w/w/w/w/w/w/w/w/w/w/w/w/w/w/w/w/w
     await z.step(o, "w");
     await z.step(o, "w");
@@ -2125,7 +2125,7 @@ P[77] = {
     // little locked up. <sly grin> Well, sleep
     // tight, 'cause you'll be there quite some
     // time. HA HA HA!"
-    await z.say(o, [{"text": "The bandit speaks:", "align": "center"}, "", "  \"My my, it seems you got yourself a", "little locked up. <sly grin> Well, sleep", "tight, 'cause you'll be there quite some", "time. HA HA HA!\""]);
+    z.say(o, [{"text": "The bandit speaks:", "align": "center"}, "", "  \"My my, it seems you got yourself a", "little locked up. <sly grin> Well, sleep", "tight, 'cause you'll be there quite some", "time. HA HA HA!\""]);
     // /w/w/w/w
     await z.step(o, "w");
     await z.step(o, "w");
@@ -2166,7 +2166,7 @@ P[77] = {
     await z.idle(o);
     await z.idle(o);
     // The bandit fell asleep.
-    await z.say(o, ["The bandit fell asleep."]);
+    z.say(o, ["The bandit fell asleep."]);
     // /i/i/i/i/i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -2179,7 +2179,7 @@ P[77] = {
     await z.idle(o);
     await z.idle(o);
     // Well? Aren't you going to try to escape?
-    await z.say(o, ["Well? Aren't you going to try to escape?"]);
+    z.say(o, ["Well? Aren't you going to try to escape?"]);
     // /i/i/i/i/i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -2192,7 +2192,7 @@ P[77] = {
     await z.idle(o);
     await z.idle(o);
     // Then don't just stand there, get moving!
-    await z.say(o, ["Then don't just stand there, get moving!"]);
+    z.say(o, ["Then don't just stand there, get moving!"]);
     // #end
     return z.END;
   },
@@ -2214,7 +2214,7 @@ P[78] = {
   async function on_touch(o, z) {
     // :touch
     // An empty neck chain.
-    await z.say(o, ["An empty neck chain."]);
+    z.say(o, ["An empty neck chain."]);
     // #end
     return z.END;
   },
@@ -2252,7 +2252,7 @@ P[80] = {
     // A skeleton is chained to the wall. Could 
     // he be an unsuccessful escaper from the 
     // bandit's hideout?
-    await z.say(o, ["A skeleton is chained to the wall. Could ", "he be an unsuccessful escaper from the ", "bandit's hideout?"]);
+    z.say(o, ["A skeleton is chained to the wall. Could ", "he be an unsuccessful escaper from the ", "bandit's hideout?"]);
     // #end
     return z.END;
   },
@@ -2274,7 +2274,7 @@ P[81] = {
   async function on_touch(o, z) {
     // :touch
     // Bones.
-    await z.say(o, ["Bones."]);
+    z.say(o, ["Bones."]);
     // #end
     return z.END;
   },
@@ -2372,7 +2372,7 @@ P[86] = {
   segments: [
   async function start(o, z) {
     // It's the great Idol of Hussafuss!
-    await z.say(o, ["It's the great Idol of Hussafuss!"]);
+    z.say(o, ["It's the great Idol of Hussafuss!"]);
     // #PLAY SEGEGEGEGEG!EG!EG!EG!
     z.play("SEGEGEGEGEG!EG!EG!EG!");
     // #PLAY SFA#FA#FA#FA#FA#FAFAFA
@@ -2395,7 +2395,7 @@ P[86] = {
     // #set idol
     z.rt.setFlag("idol");
     // You now have the idol of Hussafuss.
-    await z.say(o, ["You now have the idol of Hussafuss."]);
+    z.say(o, ["You now have the idol of Hussafuss."]);
     // #play 012456789012456789012456789012456789
     z.play("012456789012456789012456789012456789");
     // #die
@@ -2437,7 +2437,7 @@ P[87] = {
   async function on_touch(o, z) {
     // :touch
     // Watch out for those swirling blades!
-    await z.say(o, ["Watch out for those swirling blades!"]);
+    z.say(o, ["Watch out for those swirling blades!"]);
     // #restart
     return z.RESTART;
   },
@@ -2615,7 +2615,7 @@ P[95] = {
     // #play T--BB#AAA#GGG#FFF#EEE#DDD#CC#
     z.play("T--BB#AAA#GGG#FFF#EEE#DDD#CC#");
     // The pyramid explodes!
-    await z.say(o, ["The pyramid explodes!"]);
+    z.say(o, ["The pyramid explodes!"]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -2703,7 +2703,7 @@ P[95] = {
     // $Mike Luther
     // $Chris Jong
     // $Aran Meuser
-    await z.say(o, ["The stealing of the idol must have trig-", "gered the pyramid's self destruct mech-", "anism.", "", {"text": "CONGRATULATIONS", "align": "center"}, "", "Congratulations on retrieving the lost ", "idol of Hussafuss! You have won the game!", "", {"text": "Ruby of Resurrection", "align": "center"}, "", "Get your copy today:", "", "Carlos da Silva", "626 Bergen Street", "Harrison, NJ 07029", "", "PRODIGY (CKPW94E)", "Misty Mountain BBS (CARLOS DASILVA)", "", {"text": "NOTE", "align": "center"}, "", "Start over and take another route.", "", {"text": "The Lost Pyramid team", "align": "center"}, "", {"text": "Game Design", "align": "center"}, {"text": "James Holub", "align": "center"}, "", {"text": "Beta Testing", "align": "center"}, {"text": "Jay Shapiro", "align": "center"}, {"text": "Carlos da Silva", "align": "center"}, {"text": "and other .\\\\isty .\\\\ountain BBS users", "align": "center"}, "", {"text": "ZZT Club staff", "align": "center"}, "", {"text": "President", "align": "center"}, {"text": "Carlos da Silva", "align": "center"}, "", {"text": "Vice President", "align": "center"}, {"text": "James Holub", "align": "center"}, "", {"text": "Head Beta Tester", "align": "center"}, {"text": "Jay Shapiro", "align": "center"}, "", {"text": "Game designers and beta testers", "align": "center"}, {"text": "Jay Shapiro", "align": "center"}, {"text": "Ryan Thompson", "align": "center"}, {"text": "Jesse Chang", "align": "center"}, {"text": "Jerry Hsu", "align": "center"}, {"text": "Alan Zeman", "align": "center"}, {"text": "Mike Luther", "align": "center"}, {"text": "Chris Jong", "align": "center"}, {"text": "Aran Meuser", "align": "center"}]);
+    z.say(o, ["The stealing of the idol must have trig-", "gered the pyramid's self destruct mech-", "anism.", "", {"text": "CONGRATULATIONS", "align": "center"}, "", "Congratulations on retrieving the lost ", "idol of Hussafuss! You have won the game!", "", {"text": "Ruby of Resurrection", "align": "center"}, "", "Get your copy today:", "", "Carlos da Silva", "626 Bergen Street", "Harrison, NJ 07029", "", "PRODIGY (CKPW94E)", "Misty Mountain BBS (CARLOS DASILVA)", "", {"text": "NOTE", "align": "center"}, "", "Start over and take another route.", "", {"text": "The Lost Pyramid team", "align": "center"}, "", {"text": "Game Design", "align": "center"}, {"text": "James Holub", "align": "center"}, "", {"text": "Beta Testing", "align": "center"}, {"text": "Jay Shapiro", "align": "center"}, {"text": "Carlos da Silva", "align": "center"}, {"text": "and other .\\\\isty .\\\\ountain BBS users", "align": "center"}, "", {"text": "ZZT Club staff", "align": "center"}, "", {"text": "President", "align": "center"}, {"text": "Carlos da Silva", "align": "center"}, "", {"text": "Vice President", "align": "center"}, {"text": "James Holub", "align": "center"}, "", {"text": "Head Beta Tester", "align": "center"}, {"text": "Jay Shapiro", "align": "center"}, "", {"text": "Game designers and beta testers", "align": "center"}, {"text": "Jay Shapiro", "align": "center"}, {"text": "Ryan Thompson", "align": "center"}, {"text": "Jesse Chang", "align": "center"}, {"text": "Jerry Hsu", "align": "center"}, {"text": "Alan Zeman", "align": "center"}, {"text": "Mike Luther", "align": "center"}, {"text": "Chris Jong", "align": "center"}, {"text": "Aran Meuser", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #play IB+EEEESD#EIF#ED#F#xF#
@@ -2749,7 +2749,7 @@ P[96] = {
     // :touch
     // This must be an ancient sliding idol
     // puzzle!
-    await z.say(o, ["This must be an ancient sliding idol", "puzzle!"]);
+    z.say(o, ["This must be an ancient sliding idol", "puzzle!"]);
     // #end
     return z.END;
   },
@@ -2851,7 +2851,7 @@ P[99] = {
     //
     // !read;Try to deciper runes.
     // !forg;Forget about it.
-    if (await z.say(o, ["It's the casket of some Egyption king.", "Wow, this thing must be worth a fortune!", "It's made of solid gold! It has some runes", "written on the side.", "", {"choice": "read", "text": "Try to deciper runes."}, {"choice": "forg", "text": "Forget about it."}])) return z.GOTO;
+    z.say(o, ["It's the casket of some Egyption king.", "Wow, this thing must be worth a fortune!", "It's made of solid gold! It has some runes", "written on the side.", "", {"choice": "read", "text": "Try to deciper runes."}, {"choice": "forg", "text": "Forget about it."}]);
     // #end
     return z.END;
   },
@@ -2861,7 +2861,7 @@ P[99] = {
     //
     // $Here lies the remains of king ZurZakey-
     // $mukanoT.
-    await z.say(o, ["It translates into the following:", "", {"text": "Here lies the remains of king ZurZakey-", "align": "center"}, {"text": "mukanoT.", "align": "center"}]);
+    z.say(o, ["It translates into the following:", "", {"text": "Here lies the remains of king ZurZakey-", "align": "center"}, {"text": "mukanoT.", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -2892,7 +2892,7 @@ P[100] = {
     // like the dude doing that ridiculas dance
     // with his arms in the air, and that sorta
     // thing.
-    await z.say(o, ["It's a bunch of those funny little draw-", "ings that the Egyptions made, you know, ", "like the dude doing that ridiculas dance", "with his arms in the air, and that sorta", "thing."]);
+    z.say(o, ["It's a bunch of those funny little draw-", "ings that the Egyptions made, you know, ", "like the dude doing that ridiculas dance", "with his arms in the air, and that sorta", "thing."]);
     // #end
     return z.END;
   },
@@ -2978,7 +2978,7 @@ P[103] = {
     // :touch
     // The crystal ball shimmers with magical
     // powers.
-    await z.say(o, ["The crystal ball shimmers with magical", "powers."]);
+    z.say(o, ["The crystal ball shimmers with magical", "powers."]);
     // #end
     return z.END;
   },
@@ -3008,7 +3008,7 @@ P[104] = {
     // cated with Hussafuss since it's discovery
     // 4000 years ago. It is the key to the
     // Zakian gate...
-    await z.say(o, ["I am the great oracle of this pyrmamid. I", "know many things, including that secret", "passage east of here...", "  The great Well of Souls contains the", "desired Sapphire of Sacredness. It is said", "to be a communication link to the great ", "god Hussafuss, though it hasn't communi-", "cated with Hussafuss since it's discovery", "4000 years ago. It is the key to the", "Zakian gate..."]);
+    z.say(o, ["I am the great oracle of this pyrmamid. I", "know many things, including that secret", "passage east of here...", "  The great Well of Souls contains the", "desired Sapphire of Sacredness. It is said", "to be a communication link to the great ", "god Hussafuss, though it hasn't communi-", "cated with Hussafuss since it's discovery", "4000 years ago. It is the key to the", "Zakian gate..."]);
     // #send all:alt
     if (await z.send(o, "all", "alt")) return z.GOTO;
     // #change bullet ammo
@@ -3023,7 +3023,7 @@ P[104] = {
   async function on_touch_2(o, z) {
     // :touch
     // Go my friend, and good luck in your quest.
-    await z.say(o, ["Go my friend, and good luck in your quest."]);
+    z.say(o, ["Go my friend, and good luck in your quest."]);
     // #end
     return z.END;
   },
@@ -3101,7 +3101,7 @@ P[108] = {
     // :touch
     // The ruins of a recent makeshift village
     // pittifully stand nearby.
-    await z.say(o, ["The ruins of a recent makeshift village", "pittifully stand nearby."]);
+    z.say(o, ["The ruins of a recent makeshift village", "pittifully stand nearby."]);
     // #end
     return z.END;
   },
@@ -3127,7 +3127,7 @@ P[109] = {
     // #play [I--] C
     z.play("[I--] C");
     // It's the remains of a luckless adventurer.
-    await z.say(o, ["It's the remains of a luckless adventurer."]);
+    z.say(o, ["It's the remains of a luckless adventurer."]);
     // #end
     return z.END;
   },
@@ -3164,7 +3164,7 @@ P[111] = {
     // :touch
     // That bed is so uncomfortable-looking that
     // it's not funny.
-    await z.say(o, ["That bed is so uncomfortable-looking that", "it's not funny."]);
+    z.say(o, ["That bed is so uncomfortable-looking that", "it's not funny."]);
     // #end
     return z.END;
   },
@@ -3185,7 +3185,7 @@ P[112] = {
   async function on_touch(o, z) {
     // :touch
     // A rock solid pillow.
-    await z.say(o, ["A rock solid pillow."]);
+    z.say(o, ["A rock solid pillow."]);
     // #end
     return z.END;
   },
@@ -3207,7 +3207,7 @@ P[113] = {
   async function on_touch(o, z) {
     // :touch
     // It's a table, what did you think it was?
-    await z.say(o, ["It's a table, what did you think it was?"]);
+    z.say(o, ["It's a table, what did you think it was?"]);
     // #end
     return z.END;
   },
@@ -3229,7 +3229,7 @@ P[114] = {
   async function on_touch(o, z) {
     // :touch
     // An old, unusable makeshift fireplace.
-    await z.say(o, ["An old, unusable makeshift fireplace."]);
+    z.say(o, ["An old, unusable makeshift fireplace."]);
     // #end
     return z.END;
   },
@@ -3251,7 +3251,7 @@ P[115] = {
   async function on_touch(o, z) {
     // :touch
     // A beat up stove.
-    await z.say(o, ["A beat up stove."]);
+    z.say(o, ["A beat up stove."]);
     // #end
     return z.END;
   },
@@ -3276,7 +3276,7 @@ P[116] = {
     // #play I3CGG
     z.play("I3CGG");
     // You find 20 torches by the fireplace!
-    await z.say(o, ["You find 20 torches by the fireplace!"]);
+    z.say(o, ["You find 20 torches by the fireplace!"]);
     // #give torches 20
     z.give("torches", 20);
     // #die
@@ -3299,7 +3299,7 @@ P[117] = {
   async function on_touch(o, z) {
     // :touch
     // You pitty this poor soul.
-    await z.say(o, ["You pitty this poor soul."]);
+    z.say(o, ["You pitty this poor soul."]);
     // #end
     return z.END;
   },
@@ -3324,7 +3324,7 @@ P[118] = {
     // #play T++D!DE!EFG!GA!AB!B+QC
     z.play("T++D!DE!EFG!GA!AB!B+QC");
     // Ahhh, the Sapphire of Sacredness!
-    await z.say(o, ["Ahhh, the Sapphire of Sacredness!"]);
+    z.say(o, ["Ahhh, the Sapphire of Sacredness!"]);
     // #set sapphire
     z.rt.setFlag("sapphire");
     // #die
@@ -3573,7 +3573,7 @@ P[125] = {
     // :start
     // A giant spear shoots from the wall and
     // stabs you!
-    await z.say(o, ["A giant spear shoots from the wall and", "stabs you!"]);
+    z.say(o, ["A giant spear shoots from the wall and", "stabs you!"]);
     // #throwstar seek
     z.shoot(o, "seek", true);
     // #end
@@ -3728,7 +3728,7 @@ P[130] = {
     // This must be the Zakian gate, like the
     // oracle told you about. A sapphire-shaped
     // hole is it's only feature.
-    await z.say(o, ["This must be the Zakian gate, like the", "oracle told you about. A sapphire-shaped", "hole is it's only feature."]);
+    z.say(o, ["This must be the Zakian gate, like the", "oracle told you about. A sapphire-shaped", "hole is it's only feature."]);
     // #if sapphire then start
     if (z.rt.hasFlag("sapphire")) {
       if (await z.send(o, "self", "start")) return z.GOTO;
@@ -3739,14 +3739,14 @@ P[130] = {
   async function on_start(o, z) {
     // :start
     // !sap;Insert sapphire into hole.
-    if (await z.say(o, [{"choice": "sap", "text": "Insert sapphire into hole."}])) return z.GOTO;
+    z.say(o, [{"choice": "sap", "text": "Insert sapphire into hole."}]);
     // #end
     return z.END;
   },
   async function on_sap(o, z) {
     // :sap
     // The gate vanishes!
-    await z.say(o, ["The gate vanishes!"]);
+    z.say(o, ["The gate vanishes!"]);
     // #play C-C-C++D-D-D++D#-D#-D#++F-F-F
     z.play("C-C-C++D-D-D++D#-D#-D#++F-F-F");
     // #play G-G-G++G#-G#-G#++A#-A#-A#+++C-C-SC
@@ -3881,7 +3881,7 @@ P[133] = {
     // :start
     // A barely noticeable spike stabs you from
     // the wall!
-    await z.say(o, ["A barely noticeable spike stabs you from", "the wall!"]);
+    z.say(o, ["A barely noticeable spike stabs you from", "the wall!"]);
     // #throwstar seek
     z.shoot(o, "seek", true);
     // #end
@@ -4304,7 +4304,7 @@ P[145] = {
     // #give health 100
     z.give("health", 100);
     // Get all the gems!
-    await z.say(o, ["Get all the gems!"]);
+    z.say(o, ["Get all the gems!"]);
     // #play ICFAQ+C-IAH+C
     z.play("ICFAQ+C-IAH+C");
     // #change solid gem
@@ -4353,7 +4353,7 @@ P[146] = {
     // #zap touch
     z.zap(o, "touch");
     // Good work...
-    await z.say(o, ["Good work..."]);
+    z.say(o, ["Good work..."]);
     // #play T++C-BB!AA!GG!FEDD!-C
     z.play("T++C-BB!AA!GG!FEDD!-C");
     // #play TD!DEFG!GA!AB!BQ+C
@@ -4366,7 +4366,7 @@ P[146] = {
   async function on_no(o, z) {
     // :no
     // Not until you get all the gems!
-    await z.say(o, ["Not until you get all the gems!"]);
+    z.say(o, ["Not until you get all the gems!"]);
     // #play I.ESEI.CSGI.EQC
     z.play("I.ESEI.CSGI.EQC");
     // #change gem solid
@@ -4592,14 +4592,14 @@ P[148] = {
   segments: [
   async function start(o, z) {
     // Please wait...
-    await z.say(o, ["Please wait..."]);
+    z.say(o, ["Please wait..."]);
     // #end
     return z.END;
   },
   async function on_shot(o, z) {
     // :shot
     // Go ahead...
-    await z.say(o, ["Go ahead..."]);
+    z.say(o, ["Go ahead..."]);
     // #send blocker:open
     if (await z.send(o, "blocker", "open")) return z.GOTO;
     // #die
@@ -5052,7 +5052,7 @@ P[165] = {
     // #play 0
     z.play("0");
     // You push the button.
-    await z.say(o, ["You push the button."]);
+    z.say(o, ["You push the button."]);
     // #send gate:open
     if (await z.send(o, "gate", "open")) return z.GOTO;
     // #zap touch

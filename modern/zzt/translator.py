@@ -131,9 +131,10 @@ class ProgramTranslator:
         args = rest.split()
         # send shorthand: #target:label or #label
         if word not in COMMANDS or (rest.startswith(":")):
-            target_label = body.strip()
-            if re.fullmatch(r"[A-Za-z0-9_]+(:[A-Za-z0-9_]+)?", target_label):
-                return self.send(target_label, ind)
+            # `#label`, `#target:label`; like ZZT, words after the label are ignored (`then check 2`)
+            m2 = re.match(r"\s*([A-Za-z0-9_]+(:[A-Za-z0-9_]+)?)(\s|$)", body)
+            if m2:
+                return self.send(m2.group(1), ind)
             return None
         if word == "end":
             return [f"{ind}return z.END;"]
@@ -208,18 +209,18 @@ class ProgramTranslator:
         if word == "put":
             d, extra = parse_dir(args)
             color, el, extra = parse_kind(extra)
-            if d is None or el is None or extra:
+            if d is None or el is None:
                 return None
             return [f"{ind}z.put(o, {js(d)}, {js(color)}, {js(el)});"]
         if word == "become":
             color, el, extra = parse_kind(args)
-            if el is None or extra:
+            if el is None:
                 return None
             return [f"{ind}return z.become(o, {js(color)}, {js(el)});"]
         if word == "change":
             c1, e1, extra = parse_kind(args)
             c2, e2, extra = parse_kind(extra)
-            if e1 is None or e2 is None or extra:
+            if e1 is None or e2 is None:   # extra words (`#change sliderns fake wall`) are ignored, as in ZZT
                 return None
             return [f"{ind}z.change({js(c1)}, {js(e1)}, {js(c2)}, {js(e2)});"]
         if word == "if":
@@ -319,11 +320,11 @@ class ProgramTranslator:
                 items.append(l)
         while items and items[-1] == "":
             items.pop()
-        has_choice = any(isinstance(x, dict) and "choice" in x for x in items)
         arr = "[" + ", ".join(js(x) for x in items) + "]"
-        if has_choice:
-            return [f"{ind}if (await z.say(o, {arr})) return z.GOTO;"]
-        return [f"{ind}await z.say(o, {arr});"]
+        # z.say only adds the lines to the object's pending message; the engine opens the window when the
+        # message ends (#end, a move, /i, #die, a jump or the end of the program), so a `:label` in the
+        # middle of a text block does not split it. A chosen `!label` becomes a jump at that point.
+        return [f"{ind}z.say(o, {arr});"]
 
     # ---- segments ---------------------------------------------------------------------------------
     def segment(self, seg):

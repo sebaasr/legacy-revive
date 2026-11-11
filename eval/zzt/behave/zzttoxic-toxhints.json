@@ -7,8 +7,8 @@
       "checks": [
         {
           "what": "dialog",
-          "pass": false,
-          "actual": "HINTS & SOLUTIONS\n╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗\n╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝\n                  \nHINTS  . . . AND  SOLUTIONS, TOO \n \n╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗\n╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝\n \nToxic Terminator features on-line hints\nto keep you on the right path.  Enough\nis left out to keep things interesting.\n \nThis module is separated from the main\ngame so you will use it less often.  It\nhas some suggestions on how to proceed.\nAnd for the really stumped, there are\nsome solutions.\n \n▒▓ ▓▒\n▒▓█▓▒\n▒▓ ▓▒\n \nIn this adventure, you guide the hero,\nSmiley Guy, as he rescues his girl friend\nand saves Earth from an evil machine,\ncalled the Toxic Terminator.\n \nBefore he can find them, Smiley must\nfind five power crystals and solve other\npuzzles.\n \n▒▓ ▓▒\n▒▓█▓▒\n▒▓ ▓▒\nEnter or Esc to close",
+          "pass": true,
+          "actual": "HINTS & SOLUTIONS\n╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗\n╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝\n                  \nHINTS  . . . AND  SOLUTIONS, TOO \n \n╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗\n╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝\n \nToxic Terminator features on-line hints\nto keep you on the right path.  Enough\nis left out to keep things interesting.\n \nThis module is separated from the main\ngame so you will use it less often.  It\nhas some suggestions on how to proceed.\nAnd for the really stumped, there are\nsome solutions.\n \n▒▓ ▓▒\n▒▓█▓▒\n▒▓ ▓▒\n \nIn this adventure, you guide the hero,\nSmiley Guy, as he rescues his girl friend\nand saves Earth from an evil machine,\ncalled the Toxic Terminator.\n \nBefore he can find them, Smiley must\nfind five power crystals and solve other\npuzzles.\n \n▒▓ ▓▒\n▒▓█▓▒\n▒▓ ▓▒\nThe game breaks down into three major \nparts.  If you need help, choose the\nroom you want from the list below:\n \nPart 1 ▐ Above Ground \n ▐                \nPart 2 ▐ Under Ground \n ▐                \nPart 3 ▐ Above Earth  \n↑↓ choose, Enter select, Esc close",
           "expected": {
             "contains": "Above Ground"
           }
@@ -20,12 +20,74 @@
         }
       ],
       "errors": [],
-      "pass": false
+      "pass": true
     },
     {
       "name": "Part 1 opens its submenu",
       "source": "!PART1 -> :PART1 !PLACE;Smiley's Place ...",
       "checks": [
+        {
+          "what": "step failed",
+          "pass": false,
+          "actual": "no choice Part 1 in [Smiley's Place | Introduction | Apple Tree Lane | Sunny Dale Park | Bio-mechanical Head | Lab Grounds | Flakey's | Inside the Lab | Return to Main Menu]"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": false
+    },
+    {
+      "name": "A topic shows its hint text",
+      "source": ":PART1 !PLACE -> :PLACE ...",
+      "checks": [
+        {
+          "what": "step failed",
+          "pass": false,
+          "actual": "no choice Part 1 in [Smiley's Place | Introduction | Apple Tree Lane | Sunny Dale Park | Bio-mechanical Head | Lab Grounds | Flakey's | Inside the Lab | Return to Main Menu]"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": false
+    },
+    {
+      "name": "Return to Main Menu",
+      "source": "!RETURN -> :RETURN #SEND MAIN",
+      "checks": [
+        {
+          "what": "step failed",
+          "pass": false,
+          "actual": "no choice Part 1 in [Smiley's Place | Introduction | Apple Tree Lane | Sunny Dale Park | Bio-mechanical Head | Lab Grounds | Flakey's | Inside the Lab | Return to Main Menu]"
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": false
+    },
+    {
+      "name": "Choosing Part 1 in the merged first window opens its submenu (added in iteration 2)",
+      "source": ":TOUCH text falls through into :MAIN; one window holds intro + !PART1/!PART2/!PART3 (replaces the dismiss step of scenarios 2-4, which assumed two windows)",
+      "checks": [
+        {
+          "what": "dialog",
+          "pass": true,
+          "actual": "HINTS & SOLUTIONS\n╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗\n╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝\n                  \nHINTS  . . . AND  SOLUTIONS, TOO \n \n╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗╗\n╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝\n \nToxic Terminator features on-line hints\nto keep you on the right path.  Enough\nis left out to keep things interesting.\n \nThis module is separated from the main\ngame so you will use it less often.  It\nhas some suggestions on how to proceed.\nAnd for the really stumped, there are\nsome solutions.\n \n▒▓ ▓▒\n▒▓█▓▒\n▒▓ ▓▒\n \nIn this adventure, you guide the hero,\nSmiley Guy, as he rescues his girl friend\nand saves Earth from an evil machine,\ncalled the Toxic Terminator.\n \nBefore he can find them, Smiley must\nfind five power crystals and solve other\npuzzles.\n \n▒▓ ▓▒\n▒▓█▓▒\n▒▓ ▓▒\nThe game breaks down into three major \nparts.  If you need help, choose the\nroom you want from the list below:\n \nPart 1 ▐ Above Ground \n ▐                \nPart 2 ▐ Under Ground \n ▐                \nPart 3 ▐ Above Earth  \n↑↓ choose, Enter select, Esc close",
+          "expected": {
+            "contains": "Toxic Terminator features"
+          }
+        },
         {
           "what": "dialog",
           "pass": true,
@@ -44,20 +106,16 @@
       "pass": true
     },
     {
-      "name": "A topic shows its hint text",
-      "source": ":PART1 !PLACE -> :PLACE ...",
+      "name": "A topic shows its hint text, from the merged first window (added in iteration 2)",
+      "source": ":PART1 !PLACE -> :PLACE text",
       "checks": [
         {
-          "what": "dialog open",
+          "what": "dialog",
           "pass": true,
           "actual": "HINTS & SOLUTIONS\nRead the H.  It gives you all the help\nyou need.  You will come back here later.\n \nCan't move the dirt.\n↑↓ choose, Enter select, Esc close",
-          "expected": true
-        },
-        {
-          "what": "a new text (not the Part 1 menu) is shown",
-          "pass": true,
-          "actual": true,
-          "expected": true
+          "expected": {
+            "contains": "Read the H"
+          }
         },
         {
           "what": "no JS/script errors",
@@ -69,7 +127,7 @@
       "pass": true
     },
     {
-      "name": "Return to Main Menu",
+      "name": "Return to Main Menu, from the merged first window (added in iteration 2)",
       "source": "!RETURN -> :RETURN #SEND MAIN",
       "checks": [
         {
@@ -101,6 +159,6 @@
     "pass": true,
     "runtimeStubs": []
   },
-  "pass": 3,
-  "total": 4
+  "pass": 4,
+  "total": 7
 }

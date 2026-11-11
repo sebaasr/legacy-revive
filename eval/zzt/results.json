@@ -9,12 +9,12 @@
     "with_reference": 6,
     "visual_mean_color_match": 0.9999,
     "visual_mean_ink_f1": 1.0,
-    "behavioral_pass": 42,
-    "behavioral_total": 43,
+    "behavioral_pass": 55,
+    "behavioral_total": 58,
     "smoke_pass": 8,
     "lines": 15890,
-    "lines_translated": 15886,
-    "lines_stubbed": 4,
+    "lines_translated": 15889,
+    "lines_stubbed": 1,
     "handlers": 4317
   },
   "spec_accuracy": {
@@ -97,8 +97,8 @@
         "side_by_side": "eval/zzt/dammak-dammak/side.png"
       },
       "behavioral": {
-        "pass": 6,
-        "total": 6,
+        "pass": 8,
+        "total": 8,
         "failed": []
       },
       "smoke": {
@@ -111,21 +111,17 @@
       },
       "errors": [],
       "stubs": {
-        "lines_stubbed": 1,
-        "by_command": {
-          "if": 1
-        },
+        "lines_stubbed": 0,
+        "by_command": {},
         "undefined_handlers": []
       },
       "maintainability": {
         "handlers": 146,
         "lines": 672,
-        "lines_translated": 671,
-        "lines_stubbed": 1,
-        "translated_pct": 99.9,
-        "stubs_by_command": {
-          "if": 1
-        },
+        "lines_translated": 672,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
         "undefined_handlers": [],
         "unavailable_icons": 0,
         "generated_functions": 146,
@@ -134,7 +130,7 @@
           "lines": 57,
           "at": "scripts.js:510"
         },
-        "scripts_js_lines": 2104,
+        "scripts_js_lines": 2106,
         "comment_lines": 864,
         "original_kept_as_comments": true
       }
@@ -150,8 +146,8 @@
         "side_by_side": "eval/zzt/kingl2-kingl2/side.png"
       },
       "behavioral": {
-        "pass": 6,
-        "total": 6,
+        "pass": 10,
+        "total": 10,
         "failed": []
       },
       "smoke": {
@@ -164,21 +160,17 @@
       },
       "errors": [],
       "stubs": {
-        "lines_stubbed": 2,
-        "by_command": {
-          "change": 2
-        },
+        "lines_stubbed": 0,
+        "by_command": {},
         "undefined_handlers": []
       },
       "maintainability": {
         "handlers": 110,
         "lines": 344,
-        "lines_translated": 342,
-        "lines_stubbed": 2,
-        "translated_pct": 99.4,
-        "stubs_by_command": {
-          "change": 2
-        },
+        "lines_translated": 344,
+        "lines_stubbed": 0,
+        "translated_pct": 100.0,
+        "stubs_by_command": {},
         "undefined_handlers": [],
         "unavailable_icons": 0,
         "generated_functions": 110,
@@ -252,8 +244,8 @@
         "side_by_side": "eval/zzt/pyramid-pyramid/side.png"
       },
       "behavioral": {
-        "pass": 6,
-        "total": 6,
+        "pass": 11,
+        "total": 11,
         "failed": []
       },
       "smoke": {
@@ -335,10 +327,12 @@
     "zzttoxic-toxhints": {
       "visual": null,
       "behavioral": {
-        "pass": 3,
-        "total": 4,
+        "pass": 4,
+        "total": 7,
         "failed": [
-          "Touching the hints object shows intro and main menu in one window"
+          "Part 1 opens its submenu",
+          "A topic shows its hint text",
+          "Return to Main Menu"
         ]
       },
       "smoke": {
@@ -386,8 +380,8 @@
         "side_by_side": "eval/zzt/zzttoxic-toxic/side.png"
       },
       "behavioral": {
-        "pass": 7,
-        "total": 7,
+        "pass": 8,
+        "total": 8,
         "failed": []
       },
       "smoke": {

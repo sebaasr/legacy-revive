@@ -11,5 +11,18 @@
   "lines_translated": 1170,
   "lines_stubbed": 0,
   "stubs_by_command": {},
-  "stub_lines": []
+  "stub_lines": [],
+  "elements": {
+    "cells_by_status": {
+      "reconstructed": 31294,
+      "scripted": 810,
+      "static": 57453,
+      "partial": 443
+    },
+    "partial_or_unsimulated_cells": {
+      "30 transporter": 162,
+      "45 centipede segment": 231,
+      "44 centipede head": 50
+    }
+  }
 }

@@ -434,7 +434,7 @@ P[17] = {
     // :HOUSE
     // Things look dangerous here, too.  The beam
     // is hitting the house.
-    await z.say(o, ["Things look dangerous here, too.  The beam", "is hitting the house."]);
+    z.say(o, ["Things look dangerous here, too.  The beam", "is hitting the house."]);
     // /I
     await z.idle(o);
     // #SET HOUSE
@@ -488,7 +488,7 @@ P[18] = {
     //                   - Bog"
     //
     // $(Press enter or escape to exit.)
-    await z.say(o, ["What a sunny day.  Smiley Guy decides", "to take a walk to Apple Tree Lane.", "", {"text": "(Arrow down to read more.)", "align": "center"}, "", "He finds a note from his friend Bog, which", "reads, \"Smiley,", "", "The mad scientist Dr. Z has broken loose.", "We thought we had him locked up and safe,", "but now we can not find him.  He's ", "spreading toxic waste.  Strange things", "are happening to the vegetation and ", "wildlife around here.", "", "Come quick!", "", "        Your friend,", "                  - Bog\"", "", {"text": "(Press enter or escape to exit.)", "align": "center"}]);
+    z.say(o, ["What a sunny day.  Smiley Guy decides", "to take a walk to Apple Tree Lane.", "", {"text": "(Arrow down to read more.)", "align": "center"}, "", "He finds a note from his friend Bog, which", "reads, \"Smiley,", "", "The mad scientist Dr. Z has broken loose.", "We thought we had him locked up and safe,", "but now we can not find him.  He's ", "spreading toxic waste.  Strange things", "are happening to the vegetation and ", "wildlife around here.", "", "Come quick!", "", "        Your friend,", "                  - Bog\"", "", {"text": "(Press enter or escape to exit.)", "align": "center"}]);
     // #die
     return z.die(o);
     // #end
@@ -529,7 +529,7 @@ P[20] = {
     //
     // "Right in my own yard!" he exclaims.
     // "What's going on here?"
-    await z.say(o, ["Smiley finds barrels of liquid toxic", "waste.  ", " ", "\"Right in my own yard!\" he exclaims.", "\"What's going on here?\""]);
+    z.say(o, ["Smiley finds barrels of liquid toxic", "waste.  ", " ", "\"Right in my own yard!\" he exclaims.", "\"What's going on here?\""]);
     // #END
     return z.END;
   },
@@ -581,7 +581,7 @@ P[21] = {
     //
     // Smiley thinks he could see more, but the
     // dirt is too solid to move by hand.
-    await z.say(o, ["Smiley finds a pile of foul smelling", "dirt heavy with toxic waste.", "", "\"Where did this come from?\" he wonders.", "", "The tree is hollow and appears to open", "into a large area under the ground.", "", "Smiley thinks he could see more, but the", "dirt is too solid to move by hand."]);
+    z.say(o, ["Smiley finds a pile of foul smelling", "dirt heavy with toxic waste.", "", "\"Where did this come from?\" he wonders.", "", "The tree is hollow and appears to open", "into a large area under the ground.", "", "Smiley thinks he could see more, but the", "dirt is too solid to move by hand."]);
     // #RESTART
     return z.RESTART;
   },
@@ -593,7 +593,7 @@ P[21] = {
     // Using the shovel, he moves the dirt aside
     // and finds an opening in the hollow of the
     // tree leading under the ground.
-    await z.say(o, ["Smiley stands over the toxic laden dirt.", "He holds his breath.", "", "Using the shovel, he moves the dirt aside", "and finds an opening in the hollow of the", "tree leading under the ground."]);
+    z.say(o, ["Smiley stands over the toxic laden dirt.", "He holds his breath.", "", "Using the shovel, he moves the dirt aside", "and finds an opening in the hollow of the", "tree leading under the ground."]);
     // #DIE
     return z.die(o);
   },
@@ -617,7 +617,7 @@ P[22] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ:DIE
     if (await z.send(o, "fizz", "die")) return z.GOTO;
     // #SEND FIZZ:DIE
@@ -691,7 +691,7 @@ P[24] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yuk.  Diet cola."
-    await z.say(o, ["\"Yuk.  Diet cola.\""]);
+    z.say(o, ["\"Yuk.  Diet cola.\""]);
     // #SEND FIZZ1:DO
     if (await z.send(o, "fizz1", "do")) return z.GOTO;
     // #SEND FIZZ1:DO
@@ -854,7 +854,7 @@ P[29] = {
     // !DIRT;"Why look at foul smelling dirt."
     //
     // !GATE;"I can't get out the front gate."
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Here is Smiley's front yard, surrounded", "by a white fence.", "", "Here also are some questions's Smiley", "is asking.  If you want answers, align", "the side arrows with the questions and", "press enter.  Otherwise, press escape", "to exit.", "", {"choice": "dirt", "text": "\"Why look at foul smelling dirt.\""}, "", {"choice": "gate", "text": "\"I can't get out the front gate.\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Here is Smiley's front yard, surrounded", "by a white fence.", "", "Here also are some questions's Smiley", "is asking.  If you want answers, align", "the side arrows with the questions and", "press enter.  Otherwise, press escape", "to exit.", "", {"choice": "dirt", "text": "\"Why look at foul smelling dirt.\""}, "", {"choice": "gate", "text": "\"I can't get out the front gate.\""}]);
     // #END
     return z.END;
   },
@@ -862,7 +862,7 @@ P[29] = {
     // :DIRT
     // Leave it there for now.
     // Come back later.
-    await z.say(o, ["Leave it there for now.", "Come back later."]);
+    z.say(o, ["Leave it there for now.", "Come back later."]);
     // #END
     return z.END;
   },
@@ -870,7 +870,7 @@ P[29] = {
     // :GATE
     // The gate will open.  You probably left
     // something in the house.
-    await z.say(o, ["The gate will open.  You probably left", "something in the house."]);
+    z.say(o, ["The gate will open.  You probably left", "something in the house."]);
     // #END
     return z.END;
   },
@@ -926,7 +926,7 @@ P[31] = {
     //
     // But questions remain unanswered.  Finding
     // answers became Bog's job.
-    await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "THE EVIL DR. Z", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Smiley Guy's adventures started with this", "fellow, Dr. Z.", "", "Smiley is an ordinary guy who just wants", "to have a nice day.  Things just seem", "to work out differently.", "", "In \"Smiley Guy:  Smiley Guy versus Dr. Z's", "Living Laboratory,\" another ZZT module,", "Dr. Z used toxic waste to create ", "mutant bio-mechanical creatures. Smiley", "stopped the mad scientist's plans to take", "over the world.  Z's lab was closed.", "", "But questions remain unanswered.  Finding", "answers became Bog's job."]);
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "THE EVIL DR. Z", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Smiley Guy's adventures started with this", "fellow, Dr. Z.", "", "Smiley is an ordinary guy who just wants", "to have a nice day.  Things just seem", "to work out differently.", "", "In \"Smiley Guy:  Smiley Guy versus Dr. Z's", "Living Laboratory,\" another ZZT module,", "Dr. Z used toxic waste to create ", "mutant bio-mechanical creatures. Smiley", "stopped the mad scientist's plans to take", "over the world.  Z's lab was closed.", "", "But questions remain unanswered.  Finding", "answers became Bog's job."]);
     // #end
     return z.END;
   },
@@ -966,7 +966,7 @@ P[32] = {
     //
     // In Toxic Terminator, Smiley must find
     // out the secret purpose.
-    await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "SMILEY'S BUDDY BOG", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Bog is Smiley's friend who first became", "aware of Dr. Z. ", "", "Since their adventure, Bog has dismantled", "the evil lab and turned the area into", "a park and playground.", "", "The lab had a giant bio-mechanical head.", "It appeared to have a purpose, but no ", "one could figure what it was.  Bog moved", "the head out of the lab for further", "inspection.", "", "In Toxic Terminator, Smiley must find", "out the secret purpose."]);
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "SMILEY'S BUDDY BOG", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Bog is Smiley's friend who first became", "aware of Dr. Z. ", "", "Since their adventure, Bog has dismantled", "the evil lab and turned the area into", "a park and playground.", "", "The lab had a giant bio-mechanical head.", "It appeared to have a purpose, but no ", "one could figure what it was.  Bog moved", "the head out of the lab for further", "inspection.", "", "In Toxic Terminator, Smiley must find", "out the secret purpose."]);
     // #END
     return z.END;
   },
@@ -993,7 +993,7 @@ P[33] = {
     //
     // Smiley has a weakness for pretty girls.
     // Pristine makes Smiley weak in his knees.
-    await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "SMILEY'S GIRL FRIEND PRISTINE", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Smiley has a weakness for pretty girls.", "Pristine makes Smiley weak in his knees."]);
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "SMILEY'S GIRL FRIEND PRISTINE", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Smiley has a weakness for pretty girls.", "Pristine makes Smiley weak in his knees."]);
     // #END
     return z.END;
   },
@@ -1068,7 +1068,7 @@ P[35] = {
     // to get "Toxhints."
     //
     // !BRANCH;Press enter at this line.
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "You have built in hints to help you ", "out of a jam.  Just touch the H.  ", "Try not to use it unless you need it.", "Part of the fun is figuring out the ", "puzzles for yourself.", "", "If you are really stumped, read", "\"Toxhints,\" a companion ZZT module.", "It gives tips on what to do plus the", "solutions.", "", "Look for instructions elsewhere on how", "to get \"Toxhints.\"", "", {"choice": "branch", "text": "Press enter at this line."}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "You have built in hints to help you ", "out of a jam.  Just touch the H.  ", "Try not to use it unless you need it.", "Part of the fun is figuring out the ", "puzzles for yourself.", "", "If you are really stumped, read", "\"Toxhints,\" a companion ZZT module.", "It gives tips on what to do plus the", "solutions.", "", "Look for instructions elsewhere on how", "to get \"Toxhints.\"", "", {"choice": "branch", "text": "Press enter at this line."}]);
     // #END
     return z.END;
   },
@@ -1078,7 +1078,7 @@ P[35] = {
     // more.
     //
     // !EVERY;"Am I done here?" Smiley asks.
-    if (await z.say(o, ["First hints are vague.  Later hints tell", "more.", "", {"choice": "every", "text": "\"Am I done here?\" Smiley asks."}])) return z.GOTO;
+    z.say(o, ["First hints are vague.  Later hints tell", "more.", "", {"choice": "every", "text": "\"Am I done here?\" Smiley asks."}]);
     // #end
     return z.END;
   },
@@ -1087,14 +1087,14 @@ P[35] = {
     // You should pick up two things from here.
     //
     // !WHICH;"Which two?" he asks. 
-    if (await z.say(o, ["You should pick up two things from here.", "", {"choice": "which", "text": "\"Which two?\" he asks. "}])) return z.GOTO;
+    z.say(o, ["You should pick up two things from here.", "", {"choice": "which", "text": "\"Which two?\" he asks. "}]);
     // #END
     return z.END;
   },
   async function on_which(o, z) {
     // :WHICH
     // Get the white key and the blue crystal.
-    await z.say(o, ["Get the white key and the blue crystal."]);
+    z.say(o, ["Get the white key and the blue crystal."]);
     // #END
     return z.END;
   },
@@ -1141,7 +1141,7 @@ P[37] = {
     // A key opens a locked door.
     // Take this white key by touching it again.
     // Use it to get out the front gate.
-    await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "OBJECTS", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "You will find a variety of objects.", "Touch them to find out what they are.", "Some you need to complete the adventure.", "", "A key opens a locked door.", "Take this white key by touching it again.", "Use it to get out the front gate."]);
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "OBJECTS", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "You will find a variety of objects.", "Touch them to find out what they are.", "Some you need to complete the adventure.", "", "A key opens a locked door.", "Take this white key by touching it again.", "Use it to get out the front gate."]);
     // #BECOME WHITE KEY
     return z.become(o, "white", "key");
     // #END
@@ -1169,7 +1169,7 @@ P[38] = {
     //
     // Power crystals are recorded in the gems
     // count and are worth 100 points.
-    await z.say(o, ["Smiley finds a radiating crystal which", "seems to hold an inner force.", "", "Power crystals are recorded in the gems", "count and are worth 100 points."]);
+    z.say(o, ["Smiley finds a radiating crystal which", "seems to hold an inner force.", "", "Power crystals are recorded in the gems", "count and are worth 100 points."]);
     // #GIVE GEMS 1
     z.give("gems", 1);
     // #GIVE SCORE 100
@@ -1211,7 +1211,7 @@ P[39] = {
     // harmless objects usually.  In this world,
     // Dr. Z's experiments with toxic waste have
     // created some unexpected results.
-    await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "CREATURES", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Smiley's world is filled with some weird", "creatures.  Most seem to be out to ruin", "his day.  ", "", "There may be an occasional friendly one", "who will be helpful.", "", "This is an apple.  M-m-m, apples are", "harmless objects usually.  In this world,", "Dr. Z's experiments with toxic waste have", "created some unexpected results."]);
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "CREATURES", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Smiley's world is filled with some weird", "creatures.  Most seem to be out to ruin", "his day.  ", "", "There may be an occasional friendly one", "who will be helpful.", "", "This is an apple.  M-m-m, apples are", "harmless objects usually.  In this world,", "Dr. Z's experiments with toxic waste have", "created some unexpected results."]);
     // #END
     return z.END;
   },
@@ -1247,7 +1247,7 @@ P[40] = {
     //
     // Since our hero needs to quench his thirst,
     // you also get a small increase in health.
-    await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "POP CAN AMMO", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "\"Yum.  Sugar water,\" Smiley says.", "", "Smiley fires a Rambo Magnum Laser Blaster,", "fueled by CO² from soda in pop cans  ", "(recyclable cans, of course).", "", "Pick up the fizzing pop cans to restore", "your ammo.", "", "Since our hero needs to quench his thirst,", "you also get a small increase in health."]);
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "POP CAN AMMO", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "\"Yum.  Sugar water,\" Smiley says.", "", "Smiley fires a Rambo Magnum Laser Blaster,", "fueled by CO² from soda in pop cans  ", "(recyclable cans, of course).", "", "Pick up the fizzing pop cans to restore", "your ammo.", "", "Since our hero needs to quench his thirst,", "you also get a small increase in health."]);
     // #END
     return z.END;
   },
@@ -1275,7 +1275,7 @@ P[41] = {
     // Hearts increase health.  Pick them up.  If
     // you run out of health, you die, and the
     // game ends.
-    await z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "HEALTH", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Hearts increase health.  Pick them up.  If", "you run out of health, you die, and the", "game ends."]);
+    z.say(o, [{"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}, {"text": "HEALTH", "align": "center"}, {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, "", "Hearts increase health.  Pick them up.  If", "you run out of health, you die, and the", "game ends."]);
     // #END 
     return z.END;
   },
@@ -1349,7 +1349,7 @@ P[43] = {
     //
     // Smiley likes apples, but these are
     // not exactly red delicious.
-    await z.say(o, ["Things are starting to look gloomy.", "Apple Tree Lane is suppose to be a", "cheery place.  ", "", "Smiley likes apples, but these are", "not exactly red delicious."]);
+    z.say(o, ["Things are starting to look gloomy.", "Apple Tree Lane is suppose to be a", "cheery place.  ", "", "Smiley likes apples, but these are", "not exactly red delicious."]);
   },
   async function on_check(o, z) {
     // :CHECK
@@ -1604,7 +1604,7 @@ P[49] = {
     // #PLAY T+EFEFEF
     z.play("T+EFEFEF");
     // Snake in the grass
-    await z.say(o, ["Snake in the grass"]);
+    z.say(o, ["Snake in the grass"]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #SEND SNAKE1:ALIVE1
@@ -1868,7 +1868,7 @@ P[54] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #GIVE AMMO 20
     z.give("ammo", 20);
     // #GIVE HEALTH 5
@@ -1961,7 +1961,7 @@ P[56] = {
     // a certain cute blond, who you will meet
     // soon, will give you your official 
     // membership card.  
-    await z.say(o, [{"text": "Wait . . . hold on a minute . . . ", "align": "center"}, {"text": "let's take a break in the action . . .", "align": "center"}, {"text": "intermission.", "align": "center"}, "", "Just to keep things interesting, how would", "you like to have a chance to join an", "elite group of heroes know as the SWAC", "Force?", "", "SWAC stands for Smiley's Weird Adventure", "Commando.  I'm not sure whether \"weird\" ", "applies to Smiley, the adventure, the", "commando . . . or maybe all three.", "", "Just complete the adventure.  At the end,", "a certain cute blond, who you will meet", "soon, will give you your official ", "membership card.  "]);
+    z.say(o, [{"text": "Wait . . . hold on a minute . . . ", "align": "center"}, {"text": "let's take a break in the action . . .", "align": "center"}, {"text": "intermission.", "align": "center"}, "", "Just to keep things interesting, how would", "you like to have a chance to join an", "elite group of heroes know as the SWAC", "Force?", "", "SWAC stands for Smiley's Weird Adventure", "Commando.  I'm not sure whether \"weird\" ", "applies to Smiley, the adventure, the", "commando . . . or maybe all three.", "", "Just complete the adventure.  At the end,", "a certain cute blond, who you will meet", "soon, will give you your official ", "membership card.  "]);
     // #DIE
     return z.die(o);
     // #END 
@@ -1995,7 +1995,7 @@ P[57] = {
     // Killer apples.  This is getting weird.
     //
     // !APPLE;"How do I get past the apples?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▓▒ ▒▓", "align": "center"}, {"text": "HINTS  ▓▒█▒▓", "align": "center"}, {"text": "▄▄▄▄▄  ▓▒ ▒▓ ", "align": "center"}, "", "Killer apples.  This is getting weird.", "", {"choice": "apple", "text": "\"How do I get past the apples?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▓▒ ▒▓", "align": "center"}, {"text": "HINTS  ▓▒█▒▓", "align": "center"}, {"text": "▄▄▄▄▄  ▓▒ ▒▓ ", "align": "center"}, "", "Killer apples.  This is getting weird.", "", {"choice": "apple", "text": "\"How do I get past the apples?\""}]);
     // #END
     return z.END;
   },
@@ -2004,7 +2004,7 @@ P[57] = {
     // Shoot.  Pick your ground.
     //
     // !SPOT;"What spot?"
-    if (await z.say(o, ["Shoot.  Pick your ground.", "", {"choice": "spot", "text": "\"What spot?\""}])) return z.GOTO;
+    z.say(o, ["Shoot.  Pick your ground.", "", {"choice": "spot", "text": "\"What spot?\""}]);
     // #END
     return z.END;
   },
@@ -2012,7 +2012,7 @@ P[57] = {
     // :SPOT
     // Set up just below a tree.  Wait for
     // them to line up for you.
-    await z.say(o, ["Set up just below a tree.  Wait for", "them to line up for you."]);
+    z.say(o, ["Set up just below a tree.  Wait for", "them to line up for you."]);
     // #END
     return z.END;
   },
@@ -2061,7 +2061,7 @@ P[58] = {
     // #PLAY T++C-BAG+C-BAG
     z.play("T++C-BAG+C-BAG");
     // The green power crystal.
-    await z.say(o, ["The green power crystal."]);
+    z.say(o, ["The green power crystal."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #END
@@ -2096,7 +2096,7 @@ P[59] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A daisy with a foul smell.
-    await z.say(o, ["A daisy with a foul smell."]);
+    z.say(o, ["A daisy with a foul smell."]);
     // #RESTART
     return z.RESTART;
   },
@@ -2187,7 +2187,7 @@ P[61] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A toxin-laden archery arrow on the ground.
-    await z.say(o, ["A toxin-laden archery arrow on the ground."]);
+    z.say(o, ["A toxin-laden archery arrow on the ground."]);
     // #END
     return z.END;
   },
@@ -2309,7 +2309,7 @@ P[62] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A rose with sharp metalic thorns.
-    await z.say(o, ["A rose with sharp metalic thorns."]);
+    z.say(o, ["A rose with sharp metalic thorns."]);
     // #END
     return z.END;
   },
@@ -2361,7 +2361,7 @@ P[63] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A petunia with metal leaves and bad scent.
-    await z.say(o, ["A petunia with metal leaves and bad scent."]);
+    z.say(o, ["A petunia with metal leaves and bad scent."]);
     // #RESTART
     return z.RESTART;
   },
@@ -2497,7 +2497,7 @@ P[66] = {
     //
     // Smiley tries to warn her of danger, but
     // she doesn't seem to understand.
-    await z.say(o, ["Pristine greets Smiley.  ", "", "\"Listen, they are playing our song,\" she", "says.", "", "Smiley is more concerned about the weird", "mutuants.  ", "", "\"Bog has built such a beautiful park,\"", "she continues.  \"I brought my little", "cousins, Susie and Billy, to play here.", "", "Smiley tries to warn her of danger, but", "she doesn't seem to understand."]);
+    z.say(o, ["Pristine greets Smiley.  ", "", "\"Listen, they are playing our song,\" she", "says.", "", "Smiley is more concerned about the weird", "mutuants.  ", "", "\"Bog has built such a beautiful park,\"", "she continues.  \"I brought my little", "cousins, Susie and Billy, to play here.", "", "Smiley tries to warn her of danger, but", "she doesn't seem to understand."]);
     // #END
     return z.END;
   },
@@ -2532,7 +2532,7 @@ P[67] = {
   async function on_touch(o, z) {
     // :TOUCH
     // "Yo, I'm Billy.  I like Rambo."
-    await z.say(o, ["\"Yo, I'm Billy.  I like Rambo.\""]);
+    z.say(o, ["\"Yo, I'm Billy.  I like Rambo.\""]);
     // #RESTART
     return z.RESTART;
   },
@@ -2565,7 +2565,7 @@ P[68] = {
   async function on_touch(o, z) {
     // :TOUCH
     // "Hi, I'm Susie.  YOU are my hero, Smiley."
-    await z.say(o, ["\"Hi, I'm Susie.  YOU are my hero, Smiley.\""]);
+    z.say(o, ["\"Hi, I'm Susie.  YOU are my hero, Smiley.\""]);
     // #RESTART
     return z.RESTART;
   },
@@ -2592,7 +2592,7 @@ P[69] = {
   async function on_touch(o, z) {
     // :TOUCH
     // Garlic ... smells better than the flowers.
-    await z.say(o, ["Garlic ... smells better than the flowers."]);
+    z.say(o, ["Garlic ... smells better than the flowers."]);
     // #RESTART
     return z.RESTART;
   },
@@ -2655,7 +2655,7 @@ P[70] = {
       return z.RESTART;
     }
     // Bog says, "I'll wait here."
-    await z.say(o, ["Bog says, \"I'll wait here.\""]);
+    z.say(o, ["Bog says, \"I'll wait here.\""]);
     // #END
     return z.END;
   },
@@ -2681,7 +2681,7 @@ P[71] = {
     // #CHAR 153
     z.setChar(o, 153);
     // Mutant Mouse
-    await z.say(o, ["Mutant Mouse"]);
+    z.say(o, ["Mutant Mouse"]);
     // ?E?E?E?E?W?W?W?W
     await z.tryStep(o, "e");
     await z.tryStep(o, "e");
@@ -2730,7 +2730,7 @@ P[72] = {
     // #CHAR 153
     z.setChar(o, 153);
     // Mutant Mouse
-    await z.say(o, ["Mutant Mouse"]);
+    z.say(o, ["Mutant Mouse"]);
     // ?S?S?S?N?N?N
     await z.tryStep(o, "s");
     await z.tryStep(o, "s");
@@ -2778,7 +2778,7 @@ P[73] = {
     // #CHAR 153
     z.setChar(o, 153);
     // Mutant Mouse
-    await z.say(o, ["Mutant Mouse"]);
+    z.say(o, ["Mutant Mouse"]);
     // ?N?N?S?S
     await z.tryStep(o, "n");
     await z.tryStep(o, "n");
@@ -2952,7 +2952,7 @@ P[78] = {
     // The force field is turned off.  Billy
     // and Susie have escaped to freedom.
     // Smiley must still find Pristine.
-    await z.say(o, ["The force field is turned off.  Billy", "and Susie have escaped to freedom.", "Smiley must still find Pristine."]);
+    z.say(o, ["The force field is turned off.  Billy", "and Susie have escaped to freedom.", "Smiley must still find Pristine."]);
     // #END
     return z.END;
   },
@@ -2976,7 +2976,7 @@ P[79] = {
     // Here's Bog.
     //
     // !WHAT;"What's happening, Bog?" 
-    if (await z.say(o, ["Here's Bog.", "", {"choice": "what", "text": "\"What's happening, Bog?\" "}])) return z.GOTO;
+    z.say(o, ["Here's Bog.", "", {"choice": "what", "text": "\"What's happening, Bog?\" "}]);
     // #END
     return z.END;
   },
@@ -2988,7 +2988,7 @@ P[79] = {
     // creating toxic mutants again."
     //
     // !HEAD;"What do you know about the head?"
-    if (await z.say(o, ["\"We thought we had stopped Dr. Z's plans", "to conquer the world with toxic waste,\"", "Bog explains.  \"He has escaped and is", "creating toxic mutants again.\"", "", {"choice": "head", "text": "\"What do you know about the head?\""}])) return z.GOTO;
+    z.say(o, ["\"We thought we had stopped Dr. Z's plans", "to conquer the world with toxic waste,\"", "Bog explains.  \"He has escaped and is", "creating toxic mutants again.\"", "", {"choice": "head", "text": "\"What do you know about the head?\""}]);
     // #END
     return z.END;
   },
@@ -3002,7 +3002,7 @@ P[79] = {
     // something he called the Toxic Termiantor.
     //
     // !WHERE;"Where is that scum Dr. Z."
-    if (await z.say(o, ["\"It is part machine . . . part ", "living,\"  Bog continues.  \"It recieves", "data from outer space and controls devices", "on the ground.  Z did say it is a", "prototype for an even worse machine . . .", "something he called the Toxic Termiantor.", "", {"choice": "where", "text": "\"Where is that scum Dr. Z.\""}])) return z.GOTO;
+    z.say(o, ["\"It is part machine . . . part ", "living,\"  Bog continues.  \"It recieves", "data from outer space and controls devices", "on the ground.  Z did say it is a", "prototype for an even worse machine . . .", "something he called the Toxic Termiantor.", "", {"choice": "where", "text": "\"Where is that scum Dr. Z.\""}]);
     // #END
     return z.END;
   },
@@ -3019,7 +3019,7 @@ P[79] = {
     // time to sleep!  
     //
     // !KEY;Take key from Bog.
-    if (await z.say(o, ["\"You can look in the lab.  I have the key,", "but I do not think you will find much.\"", "", "\"Meanwhile, all this excitement has worn", "me out,\"  Bog yawns.  \"I think I'll take", "a nap.\"", "", "\"What!\"  Smiley exclaims.  \"This is no", "time to sleep!  ", "", {"choice": "key", "text": "Take key from Bog."}])) return z.GOTO;
+    z.say(o, ["\"You can look in the lab.  I have the key,", "but I do not think you will find much.\"", "", "\"Meanwhile, all this excitement has worn", "me out,\"  Bog yawns.  \"I think I'll take", "a nap.\"", "", "\"What!\"  Smiley exclaims.  \"This is no", "time to sleep!  ", "", {"choice": "key", "text": "Take key from Bog."}]);
     // #END
     return z.END;
   },
@@ -3041,14 +3041,14 @@ P[79] = {
       if (await z.send(o, "self", "touch1")) return z.GOTO;
     }
     // Bog is asleep.
-    await z.say(o, ["Bog is asleep."]);
+    z.say(o, ["Bog is asleep."]);
     // #END
     return z.END;
   },
   async function on_shot(o, z) {
     // :SHOT
     // Bog is still asleep.
-    await z.say(o, ["Bog is still asleep."]);
+    z.say(o, ["Bog is still asleep."]);
     // #END
     return z.END;
   },
@@ -3076,7 +3076,7 @@ P[79] = {
     // "Here is some neutralizer for your gun,"
     // Bog says.  "It should de-tox the flowers.
     // Let's get out of here."
-    await z.say(o, ["Bog looks excited.  ", "", "\"The head has come to life,\" he says.", "\"A beam is coming down from the sky, and", "the head is redirecting it.  It destroys ", "everything it hits.  ", "", "Smiley sees the children, Susie and", "Billy, captive inside the head.", "", {"text": "\"Where is Pristine?\"  he wonders.", "align": "center"}, "", "\"Here is some neutralizer for your gun,\"", "Bog says.  \"It should de-tox the flowers.", "Let's get out of here.\""]);
+    z.say(o, ["Bog looks excited.  ", "", "\"The head has come to life,\" he says.", "\"A beam is coming down from the sky, and", "the head is redirecting it.  It destroys ", "everything it hits.  ", "", "Smiley sees the children, Susie and", "Billy, captive inside the head.", "", {"text": "\"Where is Pristine?\"  he wonders.", "align": "center"}, "", "\"Here is some neutralizer for your gun,\"", "Bog says.  \"It should de-tox the flowers.", "Let's get out of here.\""]);
     // #LOCK
     o.locked = true;
     // #SET DETOX
@@ -3260,7 +3260,7 @@ P[84] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A force field blocks the way.
-    await z.say(o, ["A force field blocks the way."]);
+    z.say(o, ["A force field blocks the way."]);
     // #RESTART
     return z.RESTART;
   },
@@ -3334,7 +3334,7 @@ P[86] = {
     // Susie and Billy greet Smiley.  The Guy
     // tells the kids to stay put while he 
     // figures out how to get them free.
-    await z.say(o, ["Susie and Billy greet Smiley.  The Guy", "tells the kids to stay put while he ", "figures out how to get them free."]);
+    z.say(o, ["Susie and Billy greet Smiley.  The Guy", "tells the kids to stay put while he ", "figures out how to get them free."]);
     // #SEND DO
     if (await z.send(o, "self", "do")) return z.GOTO;
   },
@@ -3837,7 +3837,7 @@ P[104] = {
     z.rt.setFlag("apple");
     // An apple, not yet polluted, lies on the
     // ground.  Smiley takes it.
-    await z.say(o, ["An apple, not yet polluted, lies on the", "ground.  Smiley takes it."]);
+    z.say(o, ["An apple, not yet polluted, lies on the", "ground.  Smiley takes it."]);
     // #DIE
     return z.die(o);
   },
@@ -3869,7 +3869,7 @@ P[105] = {
     // Nearby stands the huge building that
     // housed Dr. Z's laboratory, part machine,
     // part living mutant.  
-    await z.say(o, ["A small tree grows among new trees of", "various sizes and freshly seeded grass.", "", "Nearby stands the huge building that", "housed Dr. Z's laboratory, part machine,", "part living mutant.  "]);
+    z.say(o, ["A small tree grows among new trees of", "various sizes and freshly seeded grass.", "", "Nearby stands the huge building that", "housed Dr. Z's laboratory, part machine,", "part living mutant.  "]);
     // #END
     return z.END;
   },
@@ -3919,7 +3919,7 @@ P[107] = {
     // by Dr. Z.
     //
     // !WHAT;"So, what's going on?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The lab grounds look green from Bog's", "beautification efforts.  It is much", "improved from the grim appearance created", "by Dr. Z.", "", {"choice": "what", "text": "\"So, what's going on?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The lab grounds look green from Bog's", "beautification efforts.  It is much", "improved from the grim appearance created", "by Dr. Z.", "", {"choice": "what", "text": "\"So, what's going on?\""}]);
     // #END
     return z.END;
   },
@@ -3929,14 +3929,14 @@ P[107] = {
     // Something is about to happen.
     //
     // !OUT;"I'm stumped.  Nothing has happened."
-    if (await z.say(o, ["Check out the park and grounds area. ", "Something is about to happen.", "", {"choice": "out", "text": "\"I'm stumped.  Nothing has happened.\""}])) return z.GOTO;
+    z.say(o, ["Check out the park and grounds area. ", "Something is about to happen.", "", {"choice": "out", "text": "\"I'm stumped.  Nothing has happened.\""}]);
     // #END
     return z.END;
   },
   async function on_out(o, z) {
     // :OUT
     // You missed something.
-    await z.say(o, ["You missed something."]);
+    z.say(o, ["You missed something."]);
     // #END
     return z.END;
   },
@@ -3973,7 +3973,7 @@ P[108] = {
     // fond of saying . . .  keep smiling, guy."
     //
     // Z's weird laugh echoes as he escapes.
-    await z.say(o, ["Dr. Z runs from behind a tree.  He", "yells at Smiley, \"Earth is being attacked", "from above by the Toxic Terminator.\"", "", "He forces an evil grin, \"As you're so", "fond of saying . . .  keep smiling, guy.\"", "", "Z's weird laugh echoes as he escapes."]);
+    z.say(o, ["Dr. Z runs from behind a tree.  He", "yells at Smiley, \"Earth is being attacked", "from above by the Toxic Terminator.\"", "", "He forces an evil grin, \"As you're so", "fond of saying . . .  keep smiling, guy.\"", "", "Z's weird laugh echoes as he escapes."]);
     // /E/E/N/N
     await z.step(o, "e");
     await z.step(o, "e");
@@ -4048,7 +4048,7 @@ P[110] = {
     // So, he takes it.
     //
     // A roll of thunder comes from outside.
-    await z.say(o, ["Smiley finds a shovel.", "", "\"Bog must have left it here,\" he thinks.", "So, he takes it.", "", "A roll of thunder comes from outside."]);
+    z.say(o, ["Smiley finds a shovel.", "", "\"Bog must have left it here,\" he thinks.", "So, he takes it.", "", "A roll of thunder comes from outside."]);
     // #SEND SHOVEL1:DIE
     if (await z.send(o, "shovel1", "die")) return z.GOTO;
     // /I
@@ -4084,7 +4084,7 @@ P[111] = {
     //
     // The shadows cast strange patterns upon
     // the walls.  
-    await z.say(o, ["The interior of the lab is shrouded in", "dim shadows.  Bog has gutted the place,", "leaving little of what was once Dr. Z's", "laboratory.", "", "The shadows cast strange patterns upon", "the walls.  "]);
+    z.say(o, ["The interior of the lab is shrouded in", "dim shadows.  Bog has gutted the place,", "leaving little of what was once Dr. Z's", "laboratory.", "", "The shadows cast strange patterns upon", "the walls.  "]);
     // #END
     return z.END;
   },
@@ -4116,7 +4116,7 @@ P[112] = {
     // Here's 100 bonus points for finding the
     // hidden room.
     //
-    await z.say(o, ["Here's 100 bonus points for finding the", "hidden room."]);
+    z.say(o, ["Here's 100 bonus points for finding the", "hidden room."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
   },
@@ -4128,7 +4128,7 @@ P[112] = {
     // Living Laboratory,' the first Smiley
     // Guy adventure.  It is included in 
     // ZZT's Revenge."
-    await z.say(o, ["A note reads,", "\"See the mad doctor's bio-mechanical", "building in 'Smiley Guy versus Dr. Z's", "Living Laboratory,' the first Smiley", "Guy adventure.  It is included in ", "ZZT's Revenge.\""]);
+    z.say(o, ["A note reads,", "\"See the mad doctor's bio-mechanical", "building in 'Smiley Guy versus Dr. Z's", "Living Laboratory,' the first Smiley", "Guy adventure.  It is included in ", "ZZT's Revenge.\""]);
     // #RESTART
     return z.RESTART;
   },
@@ -4289,7 +4289,7 @@ P[121] = {
     //
     // "It feels like there are eyes on me," he
     // thinks.
-    await z.say(o, ["The hollow tree opens to an underground", "cavern.", "", "Smiley finds markings written in an", "unknown language.  It looks loke a  ", "cryptic code only someone like Dr. Z", "would invent.  ", "", "Smiley has trouble concentrating.  He", "feels as if he is being watched.", "", "\"It feels like there are eyes on me,\" he", "thinks."]);
+    z.say(o, ["The hollow tree opens to an underground", "cavern.", "", "Smiley finds markings written in an", "unknown language.  It looks loke a  ", "cryptic code only someone like Dr. Z", "would invent.  ", "", "Smiley has trouble concentrating.  He", "feels as if he is being watched.", "", "\"It feels like there are eyes on me,\" he", "thinks."]);
     // #END
     return z.END;
   },
@@ -4420,7 +4420,7 @@ P[129] = {
     // Smiley finds a shiny rock.  For 
     // persistence, he gets 100 bonus points.
     // The rock invites further inspection.
-    await z.say(o, ["Smiley finds a shiny rock.  For ", "persistence, he gets 100 bonus points.", "The rock invites further inspection."]);
+    z.say(o, ["Smiley finds a shiny rock.  For ", "persistence, he gets 100 bonus points.", "The rock invites further inspection."]);
     // #GIVE SCORE 100
     z.give("score", 100);
     // #ZAP TOUCH
@@ -4432,7 +4432,7 @@ P[129] = {
     // :TOUCH
     // Smiley thinks something might happen if
     // he checks it out again.
-    await z.say(o, ["Smiley thinks something might happen if", "he checks it out again."]);
+    z.say(o, ["Smiley thinks something might happen if", "he checks it out again."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #END
@@ -4452,7 +4452,7 @@ P[129] = {
     //
     // "Come out from your hiding place," Smiley
     // orders.
-    await z.say(o, ["Sure enough.", "", "In the shadows, a large brute named ", "Flakey takes back the 100 bonus points.", "", "\"Aw, come on!,\" Smiley calls out, feeling", "his temper rise.", "", "\"Come out from your hiding place,\" Smiley", "orders."]);
+    z.say(o, ["Sure enough.", "", "In the shadows, a large brute named ", "Flakey takes back the 100 bonus points.", "", "\"Aw, come on!,\" Smiley calls out, feeling", "his temper rise.", "", "\"Come out from your hiding place,\" Smiley", "orders."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #TAKE SCORE 100 LOWSCORE
@@ -4467,7 +4467,7 @@ P[129] = {
     // "Ok, you can have them back," Flakey 
     // says.  "Here's 100 points."  The clod
     // disappears into the shadows.
-    await z.say(o, ["\"Ok, you can have them back,\" Flakey ", "says.  \"Here's 100 points.\"  The clod", "disappears into the shadows."]);
+    z.say(o, ["\"Ok, you can have them back,\" Flakey ", "says.  \"Here's 100 points.\"  The clod", "disappears into the shadows."]);
     // #GIVE SCORE 100
     z.give("score", 100);
     // #RESTORE TOUCH
@@ -4486,7 +4486,7 @@ P[129] = {
   async function on_lowscore(o, z) {
     // :LOWSCORE
     // No points . . . you die.
-    await z.say(o, ["No points . . . you die."]);
+    z.say(o, ["No points . . . you die."]);
     // #ENDGAME
     z.endgame(o);
   },
@@ -4512,7 +4512,7 @@ P[130] = {
     // #PLAY T++C-BAG+C-BAG
     z.play("T++C-BAG+C-BAG");
     // The red power crystal.
-    await z.say(o, ["The red power crystal."]);
+    z.say(o, ["The red power crystal."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #END
@@ -4559,7 +4559,7 @@ P[131] = {
     // "I read about something watching."
     //
     // !EYES;"So what's the deal about eyes?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "\"I read about something watching.\"", "", {"choice": "eyes", "text": "\"So what's the deal about eyes?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "\"I read about something watching.\"", "", {"choice": "eyes", "text": "\"So what's the deal about eyes?\""}]);
     // #END
     return z.END;
   },
@@ -4568,7 +4568,7 @@ P[131] = {
     // Use your eyes and look around.
     //
     // !IDID;"I did.  So?"
-    if (await z.say(o, ["Use your eyes and look around.", "", {"choice": "idid", "text": "\"I did.  So?\""}])) return z.GOTO;
+    z.say(o, ["Use your eyes and look around.", "", {"choice": "idid", "text": "\"I did.  So?\""}]);
     // #END
     return z.END;
   },
@@ -4576,7 +4576,7 @@ P[131] = {
     // :IDID
     // The flicker indicates there's a path of 
     // loose rocks to the shiny eyes.
-    await z.say(o, ["The flicker indicates there's a path of ", "loose rocks to the shiny eyes."]);
+    z.say(o, ["The flicker indicates there's a path of ", "loose rocks to the shiny eyes."]);
     // #END
     return z.END;
   },
@@ -4633,7 +4633,7 @@ P[133] = {
     // #PLAY -C#C1
     z.play("-C#C1");
     // "Ouch! Falling rocks."
-    await z.say(o, ["\"Ouch! Falling rocks.\""]);
+    z.say(o, ["\"Ouch! Falling rocks.\""]);
     // ?S?S?S
     await z.tryStep(o, "s");
     await z.tryStep(o, "s");
@@ -4674,7 +4674,7 @@ P[134] = {
     // #PLAY -C#C1
     z.play("-C#C1");
     // "Ouch!  Falling rocks."
-    await z.say(o, ["\"Ouch!  Falling rocks.\""]);
+    z.say(o, ["\"Ouch!  Falling rocks.\""]);
     // ?S
     await z.tryStep(o, "s");
     // #TAKE HEALTH 5 TOOLOW
@@ -4773,7 +4773,7 @@ P[138] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum. Sugar water."
-    await z.say(o, ["\"Yum. Sugar water.\""]);
+    z.say(o, ["\"Yum. Sugar water.\""]);
     // #SEND FIZZ:DIE
     if (await z.send(o, "fizz", "die")) return z.GOTO;
     // #SEND FIZZ:DIE
@@ -4874,7 +4874,7 @@ P[141] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A force field blocks Smiley's way.
-    await z.say(o, ["A force field blocks Smiley's way."]);
+    z.say(o, ["A force field blocks Smiley's way."]);
     // #RESTART
     return z.RESTART;
   },
@@ -4885,13 +4885,13 @@ P[141] = {
     await z.idle(o);
     await z.idle(o);
     // The force field to the transporter . . .
-    await z.say(o, ["The force field to the transporter . . ."]);
+    z.say(o, ["The force field to the transporter . . ."]);
     // /I/I/I
     await z.idle(o);
     await z.idle(o);
     await z.idle(o);
     //  . . . . weakens and disappears!
-    await z.say(o, [" . . . . weakens and disappears!"]);
+    z.say(o, [" . . . . weakens and disappears!"]);
     // #PLAY IC-B!A!G!EDC
     z.play("IC-B!A!G!EDC");
     // #DIE
@@ -5012,14 +5012,14 @@ P[146] = {
     // It's a pipeline, carrying liquid toxic
     // waste throughout the underground 
     // cavern.
-    await z.say(o, ["It's a pipeline, carrying liquid toxic", "waste throughout the underground ", "cavern."]);
+    z.say(o, ["It's a pipeline, carrying liquid toxic", "waste throughout the underground ", "cavern."]);
     // #END
     return z.END;
   },
   async function on_shot(o, z) {
     // :SHOT
     // Ping . . . Ping
-    await z.say(o, ["Ping . . . Ping"]);
+    z.say(o, ["Ping . . . Ping"]);
     // #END
     return z.END;
   },
@@ -5055,7 +5055,7 @@ P[148] = {
     // :TOUCH
     // It's a pipeline carrying liquid toxic
     // waste throughout the cavern.
-    await z.say(o, ["It's a pipeline carrying liquid toxic", "waste throughout the cavern."]);
+    z.say(o, ["It's a pipeline carrying liquid toxic", "waste throughout the cavern."]);
     // #END
     return z.END;
   },
@@ -5078,7 +5078,7 @@ P[149] = {
     // :TOUCH
     // Smiley finds a barrel of liquid toxic
     // waste attached to a pipeline.
-    await z.say(o, ["Smiley finds a barrel of liquid toxic", "waste attached to a pipeline."]);
+    z.say(o, ["Smiley finds a barrel of liquid toxic", "waste attached to a pipeline."]);
     // #end
     return z.END;
   },
@@ -5461,7 +5461,7 @@ P[157] = {
     // Z pushes Pristine through the 
     // earth-to-space matter transporter.  His
     // weird laugh echoes back to Smiley.
-    await z.say(o, ["\"Hah,\" Dr. Z laughs at Smiley.  \"You ", "never will be able to follow us through", "the fog.\"", "", {"text": "\"Help me, Smiley,\" cries Pristine.", "align": "center"}, "", "Z pushes Pristine through the ", "earth-to-space matter transporter.  His", "weird laugh echoes back to Smiley."]);
+    z.say(o, ["\"Hah,\" Dr. Z laughs at Smiley.  \"You ", "never will be able to follow us through", "the fog.\"", "", {"text": "\"Help me, Smiley,\" cries Pristine.", "align": "center"}, "", "Z pushes Pristine through the ", "earth-to-space matter transporter.  His", "weird laugh echoes back to Smiley."]);
     // /I/I
     await z.idle(o);
     await z.idle(o);
@@ -5505,14 +5505,14 @@ P[158] = {
     // !HOW;"How do I get into the transporter?" 
     //
     // !FOG;"What is the fog?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Dr. Z is escaping through a matter ", "transporter.  To block Smiley, he has", "turned off the controls and used the last", "residual power to make his own escape.", "", {"choice": "todo", "text": "\"What am I to do?\""}, "", {"choice": "how", "text": "\"How do I get into the transporter?\" "}, "", {"choice": "fog", "text": "\"What is the fog?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Dr. Z is escaping through a matter ", "transporter.  To block Smiley, he has", "turned off the controls and used the last", "residual power to make his own escape.", "", {"choice": "todo", "text": "\"What am I to do?\""}, "", {"choice": "how", "text": "\"How do I get into the transporter?\" "}, "", {"choice": "fog", "text": "\"What is the fog?\""}]);
     // #END
     return z.END;
   },
   async function on_todo(o, z) {
     // :TODO
     // Go to the force field shielding Z.
-    await z.say(o, ["Go to the force field shielding Z."]);
+    z.say(o, ["Go to the force field shielding Z."]);
     // #END
     return z.END;
   },
@@ -5525,35 +5525,35 @@ P[158] = {
     // !ACCESS;  Access code
     //
     // !SWITCH;  Power Switch
-    if (await z.say(o, ["You have to do three things in any order.", "", {"choice": "crystals", "text": "  Power crystals"}, "", {"choice": "access", "text": "  Access code"}, "", {"choice": "switch", "text": "  Power Switch"}])) return z.GOTO;
+    z.say(o, ["You have to do three things in any order.", "", {"choice": "crystals", "text": "  Power crystals"}, "", {"choice": "access", "text": "  Access code"}, "", {"choice": "switch", "text": "  Power Switch"}]);
     // #END
     return z.END;
   },
   async function on_crystals(o, z) {
     // :CRYSTALS
     // Find and deposit five power crystals.
-    await z.say(o, ["Find and deposit five power crystals."]);
+    z.say(o, ["Find and deposit five power crystals."]);
     // #END
     return z.END;
   },
   async function on_access(o, z) {
     // :ACCESS
     // Enter a four digit number.
-    await z.say(o, ["Enter a four digit number."]);
+    z.say(o, ["Enter a four digit number."]);
     // #END
     return z.END;
   },
   async function on_switch(o, z) {
     // :SWITCH
     // Find the switch and turn on the power.
-    await z.say(o, ["Find the switch and turn on the power."]);
+    z.say(o, ["Find the switch and turn on the power."]);
     // #END
     return z.END;
   },
   async function on_fog(o, z) {
     // :FOG
     // Later.
-    await z.say(o, ["Later."]);
+    z.say(o, ["Later."]);
     // #END
     return z.END;
   },
@@ -5642,7 +5642,7 @@ P[161] = {
     o.locked = true;
     // "Insert power crystal here," a metalic
     // voice says.
-    await z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
+    z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
     // #TAKE GEMS 1 TOOLOW
     if (!z.take("gems", 1)) {
       if (await z.send(o, "self", "toolow")) return z.GOTO;
@@ -5650,7 +5650,7 @@ P[161] = {
     //
     // Smiley deposits a crystal.  An eerie
     // glow appears.
-    await z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears."]);
+    z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #SEND LETTER1:COUNT
@@ -5802,7 +5802,7 @@ P[163] = {
     o.locked = true;
     // "Insert power crystal here," a metalic
     // voice says.
-    await z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
+    z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
     // #TAKE GEMS 1 TOOLOW
     if (!z.take("gems", 1)) {
       if (await z.send(o, "self", "toolow")) return z.GOTO;
@@ -5810,7 +5810,7 @@ P[163] = {
     //
     // Smiley deposits a crystal.  An eerie
     // glow appears.
-    await z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears."]);
+    z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #SEND LETTER1:COUNT
@@ -5867,7 +5867,7 @@ P[164] = {
     o.locked = true;
     // "Insert power crystal here," a metalic 
     // voice says.
-    await z.say(o, ["\"Insert power crystal here,\" a metalic ", "voice says."]);
+    z.say(o, ["\"Insert power crystal here,\" a metalic ", "voice says."]);
     // #TAKE GEMS 1 TOOLOW
     if (!z.take("gems", 1)) {
       if (await z.send(o, "self", "toolow")) return z.GOTO;
@@ -5878,7 +5878,7 @@ P[164] = {
     //
     // The voice says, "Thank you, have a nice
     // day."
-    await z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears.", "", "The voice says, \"Thank you, have a nice", "day.\""]);
+    z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears.", "", "The voice says, \"Thank you, have a nice", "day.\""]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #SEND LETTER1:COUNT
@@ -5935,7 +5935,7 @@ P[165] = {
     o.locked = true;
     // "Insert power crystal here," a metalic
     // voice says.
-    await z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
+    z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
     // #TAKE GEMS 1 TOOLOW
     if (!z.take("gems", 1)) {
       if (await z.send(o, "self", "toolow")) return z.GOTO;
@@ -5943,7 +5943,7 @@ P[165] = {
     //
     // Smiley deposits a crystal.  An eerie
     // glow appears.
-    await z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears."]);
+    z.say(o, ["Smiley deposits a crystal.  An eerie", "glow appears."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #SEND LETTER1:COUNT
@@ -6000,7 +6000,7 @@ P[166] = {
     o.locked = true;
     // "Insert power crystal here," a metalic
     // voice says.
-    await z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
+    z.say(o, ["\"Insert power crystal here,\" a metalic", "voice says."]);
     // #TAKE GEMS 1 TOOLOW
     if (!z.take("gems", 1)) {
       if (await z.send(o, "self", "toolow")) return z.GOTO;
@@ -6011,7 +6011,7 @@ P[166] = {
     //
     // The voice says, "Thank you, have a nice
     // day."
-    await z.say(o, ["Smiley deposits a crystal.  An eerie glow", "appears.", "", "The voice says, \"Thank you, have a nice", "day.\""]);
+    z.say(o, ["Smiley deposits a crystal.  An eerie glow", "appears.", "", "The voice says, \"Thank you, have a nice", "day.\""]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #SEND LETTER1:COUNT
@@ -6766,7 +6766,7 @@ P[178] = {
     // #PLAY T++C-BAG+C-BAG+G
     z.play("T++C-BAG+C-BAG+G");
     // "Access code accepted", a voice says.
-    await z.say(o, ["\"Access code accepted\", a voice says."]);
+    z.say(o, ["\"Access code accepted\", a voice says."]);
     // #SEND POINTER:COMPLETE
     if (await z.send(o, "pointer", "complete")) return z.GOTO;
     // #ZAP TOUCH
@@ -6785,7 +6785,7 @@ P[178] = {
     // #PLAY 999999999
     z.play("999999999");
     // "WRONG CODE!", a voice says.
-    await z.say(o, ["\"WRONG CODE!\", a voice says."]);
+    z.say(o, ["\"WRONG CODE!\", a voice says."]);
     // #TAKE HEALTH 30 TOOLOW
     if (!z.take("health", 30)) {
       if (await z.send(o, "self", "toolow")) return z.GOTO;
@@ -6809,7 +6809,7 @@ P[178] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // The switch is broken.
-    await z.say(o, ["The switch is broken."]);
+    z.say(o, ["The switch is broken."]);
     // #END
     return z.END;
   },
@@ -7264,7 +7264,7 @@ P[186] = {
     //
     // Dr. Z's weird laugh echoes from the
     // transporter.  
-    await z.say(o, ["Smiley sees Dr. Z holding Pristine ", "captive on the other side of a force", "field.  They are entering an", "earth-to-space matter transporter.", " ", "\"Hah,\" Z laughs at Smiley.  \"You'll never", "figure out how to work the transporter", "controls,\" he says.  \"Even if you do,", "you will never follow us through the fog.\"", "", {"text": "\"Help me, Smiley,\" Pristine cries.", "align": "center"}, "", "As Z pushes Pristine out of sight, ", "Smiley wonders if he will ever be able", "to rescue Pristine.  Somewhere beyond", "the fog are Pristine . . . Dr. Z . . .", "and the Toxic Terminator.", "", "Dr. Z's weird laugh echoes from the", "transporter.  "]);
+    z.say(o, ["Smiley sees Dr. Z holding Pristine ", "captive on the other side of a force", "field.  They are entering an", "earth-to-space matter transporter.", " ", "\"Hah,\" Z laughs at Smiley.  \"You'll never", "figure out how to work the transporter", "controls,\" he says.  \"Even if you do,", "you will never follow us through the fog.\"", "", {"text": "\"Help me, Smiley,\" Pristine cries.", "align": "center"}, "", "As Z pushes Pristine out of sight, ", "Smiley wonders if he will ever be able", "to rescue Pristine.  Somewhere beyond", "the fog are Pristine . . . Dr. Z . . .", "and the Toxic Terminator.", "", "Dr. Z's weird laugh echoes from the", "transporter.  "]);
     // #SEND PRISTINE:DO
     if (await z.send(o, "pristine", "do")) return z.GOTO;
     // #SEND Z:DO
@@ -7304,7 +7304,7 @@ P[188] = {
     // :TOUCH
     // Smiley finds barrels of liquid toxic waste
     // attached to pipelines.
-    await z.say(o, ["Smiley finds barrels of liquid toxic waste", "attached to pipelines."]);
+    z.say(o, ["Smiley finds barrels of liquid toxic waste", "attached to pipelines."]);
   },
   ],
 };
@@ -7325,7 +7325,7 @@ P[189] = {
     // :TOUCH
     // Smiley finds barrels of liquid toxic waste
     // attached to pipe lines.
-    await z.say(o, ["Smiley finds barrels of liquid toxic waste", "attached to pipe lines."]);
+    z.say(o, ["Smiley finds barrels of liquid toxic waste", "attached to pipe lines."]);
   },
   ],
 };
@@ -7635,7 +7635,7 @@ P[194] = {
   async function start(o, z) {
     // @POINTER
     // Flying arrows.
-    await z.say(o, ["Flying arrows."]);
+    z.say(o, ["Flying arrows."]);
     // #END
     return z.END;
   },
@@ -7684,7 +7684,7 @@ P[196] = {
     // :TOUCH
     // Smiley finds barrels of liquid toxic waste
     // attached to pipelines.
-    await z.say(o, ["Smiley finds barrels of liquid toxic waste", "attached to pipelines."]);
+    z.say(o, ["Smiley finds barrels of liquid toxic waste", "attached to pipelines."]);
     // #END
     return z.END;
   },
@@ -7701,7 +7701,7 @@ P[197] = {
   async function start(o, z) {
     // @POINTER
     // Sewer worms . . . swamp flies.
-    await z.say(o, ["Sewer worms . . . swamp flies."]);
+    z.say(o, ["Sewer worms . . . swamp flies."]);
     // #END
     return z.END;
   },
@@ -7890,7 +7890,7 @@ P[202] = {
   async function start(o, z) {
     // @POINTER
     // Robo-bats.
-    await z.say(o, ["Robo-bats."]);
+    z.say(o, ["Robo-bats."]);
     // #END
     return z.END;
   },
@@ -8246,7 +8246,7 @@ P[219] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A barrel of liquid toxic waste.
-    await z.say(o, ["A barrel of liquid toxic waste."]);
+    z.say(o, ["A barrel of liquid toxic waste."]);
     // #END
     return z.END;
   },
@@ -8273,7 +8273,7 @@ P[220] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A stone pedestal for the torch.
-    await z.say(o, ["A stone pedestal for the torch."]);
+    z.say(o, ["A stone pedestal for the torch."]);
     // #END
     return z.END;
   },
@@ -8308,7 +8308,7 @@ P[221] = {
     z.give("torches", 1);
     // Smiley finds a small weak torch.  The
     // flame is about to go out.  He takes it.
-    await z.say(o, ["Smiley finds a small weak torch.  The", "flame is about to go out.  He takes it."]);
+    z.say(o, ["Smiley finds a small weak torch.  The", "flame is about to go out.  He takes it."]);
     // #DIE
     return z.die(o);
   },
@@ -8332,7 +8332,7 @@ P[222] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yuk.  Diet cola."
-    await z.say(o, ["\"Yuk.  Diet cola.\""]);
+    z.say(o, ["\"Yuk.  Diet cola.\""]);
     // #SEND FIZZ:DIE
     if (await z.send(o, "fizz", "die")) return z.GOTO;
     // #SEND FIZZ:DIE
@@ -8458,7 +8458,7 @@ P[226] = {
     // #LOCK
     o.locked = true;
     // Mr. Mutato Head grinds to a halt.
-    await z.say(o, ["Mr. Mutato Head grinds to a halt."]);
+    z.say(o, ["Mr. Mutato Head grinds to a halt."]);
     // #PLAY Q99HX9
     z.play("Q99HX9");
     // #CHAR 92
@@ -8499,7 +8499,7 @@ P[226] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // The switch is broken.
-    await z.say(o, ["The switch is broken."]);
+    z.say(o, ["The switch is broken."]);
     // #END
     return z.END;
   },
@@ -8634,7 +8634,7 @@ P[231] = {
     // !PATH;"How do I go south?"
     //
     // !TORCH;"What's that thing in the corner?
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "One of Dr. Z's mutant creations, Mr. ", "Mutato Head is part potato and part ", "machine.  ", "", {"choice": "shoot", "text": "\"How do I stop the shooting?\""}, "", {"choice": "path", "text": "\"How do I go south?\""}, "", {"choice": "torch", "text": "\"What's that thing in the corner?"}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "One of Dr. Z's mutant creations, Mr. ", "Mutato Head is part potato and part ", "machine.  ", "", {"choice": "shoot", "text": "\"How do I stop the shooting?\""}, "", {"choice": "path", "text": "\"How do I go south?\""}, "", {"choice": "torch", "text": "\"What's that thing in the corner?"}]);
     // #END
     return z.END;
   },
@@ -8644,28 +8644,28 @@ P[231] = {
     // machine, he has a weak spot.
     //
     // !SWITCH;"What is the weak spot?"
-    if (await z.say(o, ["As a potato, he is invicible.  As a", "machine, he has a weak spot.", "", {"choice": "switch", "text": "\"What is the weak spot?\""}])) return z.GOTO;
+    z.say(o, ["As a potato, he is invicible.  As a", "machine, he has a weak spot.", "", {"choice": "switch", "text": "\"What is the weak spot?\""}]);
     // #END
     return z.END;
   },
   async function on_switch(o, z) {
     // :SWITCH
     // Turn him off.
-    await z.say(o, ["Turn him off."]);
+    z.say(o, ["Turn him off."]);
     // #END
     return z.END;
   },
   async function on_path(o, z) {
     // :PATH
     // Defeat Mr. Mutato Head.
-    await z.say(o, ["Defeat Mr. Mutato Head."]);
+    z.say(o, ["Defeat Mr. Mutato Head."]);
     // #END
     return z.END;
   },
   async function on_torch(o, z) {
     // :TORCH
     // A small torch.
-    await z.say(o, ["A small torch."]);
+    z.say(o, ["A small torch."]);
     // #END
     return z.END;
   },
@@ -8754,7 +8754,7 @@ P[234] = {
     // :TOUCH
     // The heat from the eternal flame keeps
     // Smiley from getting closer.
-    await z.say(o, ["The heat from the eternal flame keeps", "Smiley from getting closer."]);
+    z.say(o, ["The heat from the eternal flame keeps", "Smiley from getting closer."]);
     // #IF BURNED THEN DO
     if (z.rt.hasFlag("burned")) {
       if (await z.send(o, "self", "do")) return z.GOTO;
@@ -8771,7 +8771,7 @@ P[234] = {
     // The flame ignites the small weak torch
     // Smiley is carrying.  The small one shines
     // bright and hot.
-    await z.say(o, ["The flame ignites the small weak torch", "Smiley is carrying.  The small one shines", "bright and hot."]);
+    z.say(o, ["The flame ignites the small weak torch", "Smiley is carrying.  The small one shines", "bright and hot."]);
     // #END
     return z.END;
   },
@@ -8785,7 +8785,7 @@ P[234] = {
     //
     // This time Smiley pushes onward, ignoring
     // the searing heat . . . ARGGGGHHHH!
-    await z.say(o, ["This time Smiley pushes onward, ignoring", "the searing heat . . . ARGGGGHHHH!"]);
+    z.say(o, ["This time Smiley pushes onward, ignoring", "the searing heat . . . ARGGGGHHHH!"]);
     // #DIE
     return z.die(o);
     // #END
@@ -8821,7 +8821,7 @@ P[235] = {
     // terminator must be better.  I will model
     // it after something more powerful.  YES...
     // something that even Smiley Guy will fear!"
-    await z.say(o, ["Beneath the light of a large torch,", "Smiley finds a hidden library with", "books 15 feet high.", "", "This book contains Dr. Z's plans for", "the toxic terminator.", "", "It reads, \"My first terminator was too", "primitive.  The head will serve as a relay", "station for the next.  The next toxic ", "terminator must be better.  I will model", "it after something more powerful.  YES...", "something that even Smiley Guy will fear!\""]);
+    z.say(o, ["Beneath the light of a large torch,", "Smiley finds a hidden library with", "books 15 feet high.", "", "This book contains Dr. Z's plans for", "the toxic terminator.", "", "It reads, \"My first terminator was too", "primitive.  The head will serve as a relay", "station for the next.  The next toxic ", "terminator must be better.  I will model", "it after something more powerful.  YES...", "something that even Smiley Guy will fear!\""]);
     // #END
     return z.END;
   },
@@ -8852,7 +8852,7 @@ P[236] = {
     // "Go for it." - Sly
     //
     // Smiley writes in "Keep smiling, guy."
-    await z.say(o, ["Here is a collection of famous macho", "sayings.", "", "\"Go ahead, make my day.\" - Clint", "", "\"I'll be back.\" - Arnold", "", "\"Go for it.\" - Sly", "", "Smiley writes in \"Keep smiling, guy.\""]);
+    z.say(o, ["Here is a collection of famous macho", "sayings.", "", "\"Go ahead, make my day.\" - Clint", "", "\"I'll be back.\" - Arnold", "", "\"Go for it.\" - Sly", "", "Smiley writes in \"Keep smiling, guy.\""]);
     // #END
     return z.END;
   },
@@ -8882,7 +8882,7 @@ P[237] = {
     //        I  =  ß
     //        O  =  τ
     //        U  =  Æ                     "
-    await z.say(o, ["Smiley finds several unfamiliar symbols.", "Most of the pages are missing.  The only", "readable page has a listing of vowels:", "", "\"      A  =  ╘", "       E  =  Ç", "       I  =  ß", "       O  =  τ", "       U  =  Æ                     \""]);
+    z.say(o, ["Smiley finds several unfamiliar symbols.", "Most of the pages are missing.  The only", "readable page has a listing of vowels:", "", "\"      A  =  ╘", "       E  =  Ç", "       I  =  ß", "       O  =  τ", "       U  =  Æ                     \""]);
     // #END
     return z.END;
   },
@@ -8910,7 +8910,7 @@ P[238] = {
     //
     // The photo is missing in a place labeled,
     // "Goober."
-    await z.say(o, ["The book has pictures of green blobs that", "look strangely familiar.  There are ", "groups of mucus creatures, posing like in", "a family photo album. ", "", "The photo is missing in a place labeled,", "\"Goober.\""]);
+    z.say(o, ["The book has pictures of green blobs that", "look strangely familiar.  There are ", "groups of mucus creatures, posing like in", "a family photo album. ", "", "The photo is missing in a place labeled,", "\"Goober.\""]);
     // #END 
     return z.END;
   },
@@ -8939,7 +8939,7 @@ P[239] = {
     // under the sheet.  Read quickly, it only
     // appears briefly."
     //
-    await z.say(o, ["The page reads,", "", "\"The location of the gold power crystal", "is written in invisible ink on this page.", "To reveal the location, hold a flame", "under the sheet.  Read quickly, it only", "appears briefly.\""]);
+    z.say(o, ["The page reads,", "", "\"The location of the gold power crystal", "is written in invisible ink on this page.", "To reveal the location, hold a flame", "under the sheet.  Read quickly, it only", "appears briefly.\""]);
     // #IF IGNITE THEN DO
     if (z.rt.hasFlag("ignite")) {
       if (await z.send(o, "self", "do")) return z.GOTO;
@@ -8953,14 +8953,14 @@ P[239] = {
     // Smiley holds the small torch under the
     // sheet, but the flame is too weak to
     // burn the invisible ink.
-    await z.say(o, ["Smiley holds the small torch under the", "sheet, but the flame is too weak to", "burn the invisible ink."]);
+    z.say(o, ["Smiley holds the small torch under the", "sheet, but the flame is too weak to", "burn the invisible ink."]);
     // #END
     return z.END;
   },
   async function on_notorch(o, z) {
     // :NOTORCH
     // Alas, Smiley does not have any matches.
-    await z.say(o, ["Alas, Smiley does not have any matches."]);
+    z.say(o, ["Alas, Smiley does not have any matches."]);
     // #END 
     return z.END;
   },
@@ -8984,7 +8984,7 @@ P[239] = {
     // The page and torch ignite in a burst of
     // flames  . . . Smiley's eyebrows are
     // singed . . . his eyes water . . .
-    await z.say(o, ["The page and torch ignite in a burst of", "flames  . . . Smiley's eyebrows are", "singed . . . his eyes water . . ."]);
+    z.say(o, ["The page and torch ignite in a burst of", "flames  . . . Smiley's eyebrows are", "singed . . . his eyes water . . ."]);
     // /I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -8992,7 +8992,7 @@ P[239] = {
     await z.idle(o);
     await z.idle(o);
     //  . . . in the eternal flame . . .
-    await z.say(o, [" . . . in the eternal flame . . ."]);
+    z.say(o, [" . . . in the eternal flame . . ."]);
     // /I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -9006,7 +9006,7 @@ P[239] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // The pages are burned.
-    await z.say(o, ["The pages are burned."]);
+    z.say(o, ["The pages are burned."]);
     // #END
     return z.END;
   },
@@ -9030,7 +9030,7 @@ P[240] = {
     // #LOCK
     o.locked = true;
     // Smiley reaches into the fire!
-    await z.say(o, ["Smiley reaches into the fire!"]);
+    z.say(o, ["Smiley reaches into the fire!"]);
     // /I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -9039,7 +9039,7 @@ P[240] = {
     await z.idle(o);
     await z.idle(o);
     // ARGGGGGGGGGGGHHHHHHHH!
-    await z.say(o, ["ARGGGGGGGGGGGHHHHHHHH!"]);
+    z.say(o, ["ARGGGGGGGGGGGHHHHHHHH!"]);
     // /I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -9052,7 +9052,7 @@ P[240] = {
     // #PLAY T++C-bBAG+C-BAG
     z.play("T++C-bBAG+C-BAG");
     // The gold power crystal.
-    await z.say(o, ["The gold power crystal."]);
+    z.say(o, ["The gold power crystal."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #UNLOCK
@@ -9152,7 +9152,7 @@ P[241] = {
     // :TOUCH
     // Smiley touched something.
     // The elevator has stopped working.
-    await z.say(o, ["Smiley touched something.", "The elevator has stopped working."]);
+    z.say(o, ["Smiley touched something.", "The elevator has stopped working."]);
     // #SEND ROOF:END
     if (await z.send(o, "roof", "end")) return z.GOTO;
     // #END
@@ -9252,7 +9252,7 @@ P[244] = {
     // waiting a long time for someone to bring
     // one good unpolluted apple."
     //
-    await z.say(o, ["Mopey, an inept repairman, greets Smiley.", "He points to the elevator next to him.", "", "\"It will get you where you want to go,", "but you have to be gentle with it,\" Mopey", "explains.  \"Don't mess too much with the", "controls.\"", "", "\"I would let you on, but I have been ", "waiting a long time for someone to bring", "one good unpolluted apple.\""]);
+    z.say(o, ["Mopey, an inept repairman, greets Smiley.", "He points to the elevator next to him.", "", "\"It will get you where you want to go,", "but you have to be gentle with it,\" Mopey", "explains.  \"Don't mess too much with the", "controls.\"", "", "\"I would let you on, but I have been ", "waiting a long time for someone to bring", "one good unpolluted apple.\""]);
     // #IF APPLE THEN DO
     if (z.rt.hasFlag("apple")) {
       if (await z.send(o, "self", "do")) return z.GOTO;
@@ -9261,7 +9261,7 @@ P[244] = {
     //
     // Smiley has seen some bad apples.  He
     // wonders if there is a good one he missed.
-    await z.say(o, ["Mopey yawns.  He shows no signs of moving.", "", "Smiley has seen some bad apples.  He", "wonders if there is a good one he missed."]);
+    z.say(o, ["Mopey yawns.  He shows no signs of moving.", "", "Smiley has seen some bad apples.  He", "wonders if there is a good one he missed."]);
     // #END
     return z.END;
   },
@@ -9272,7 +9272,7 @@ P[244] = {
     // #CLEAR APPLE
     z.rt.clearFlag("apple");
     // Smiley hands him an apple.
-    await z.say(o, ["Smiley hands him an apple."]);
+    z.say(o, ["Smiley hands him an apple."]);
     // ?S?S
     await z.tryStep(o, "s");
     await z.tryStep(o, "s");
@@ -9280,14 +9280,14 @@ P[244] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // Crunch.  "Thanks for the apple, sonny."
-    await z.say(o, ["Crunch.  \"Thanks for the apple, sonny.\""]);
+    z.say(o, ["Crunch.  \"Thanks for the apple, sonny.\""]);
     // #END
     return z.END;
   },
   async function on_shot(o, z) {
     // :SHOT
     // "You missed," Mopey yawns.
-    await z.say(o, ["\"You missed,\" Mopey yawns."]);
+    z.say(o, ["\"You missed,\" Mopey yawns."]);
     // #END
     return z.END;
   },
@@ -9336,7 +9336,7 @@ P[245] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ:DIE
     if (await z.send(o, "fizz", "die")) return z.GOTO;
     // #GIVE AMMO 20
@@ -9472,7 +9472,7 @@ P[248] = {
     // this mechanical nightmare.
     //
     // !HOW;"How do I work the elevator?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Mopey, Dr. Z's lazy assistant, maintains", "this mechanical nightmare.", "", {"choice": "how", "text": "\"How do I work the elevator?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Mopey, Dr. Z's lazy assistant, maintains", "this mechanical nightmare.", "", {"choice": "how", "text": "\"How do I work the elevator?\""}]);
     // #END
     return z.END;
   },
@@ -9482,14 +9482,14 @@ P[248] = {
     // around too much will break it.
     //
     // !HUH;"Huh?"
-    if (await z.say(o, ["If Mopey maintains it, then messing ", "around too much will break it.", "", {"choice": "huh", "text": "\"Huh?\""}])) return z.GOTO;
+    z.say(o, ["If Mopey maintains it, then messing ", "around too much will break it.", "", {"choice": "huh", "text": "\"Huh?\""}]);
     // #END
     return z.END;
   },
   async function on_huh(o, z) {
     // :HUH
     // Enjoy the ride.
-    await z.say(o, ["Enjoy the ride."]);
+    z.say(o, ["Enjoy the ride."]);
     // #END
     return z.END;
   },
@@ -9565,14 +9565,14 @@ P[250] = {
     // messages sent from the Toxic Terminator.
     //
     // !HOW;"How do I keep from getting zapped?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Inside the head, the electronics pulse to", "messages sent from the Toxic Terminator.", "", {"choice": "how", "text": "\"How do I keep from getting zapped?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Inside the head, the electronics pulse to", "messages sent from the Toxic Terminator.", "", {"choice": "how", "text": "\"How do I keep from getting zapped?\""}]);
     // #END
     return z.END;
   },
   async function on_how(o, z) {
     // :HOW
     // Lean into it.
-    await z.say(o, ["Lean into it."]);
+    z.say(o, ["Lean into it."]);
     // #END
     return z.END;
   },
@@ -9595,7 +9595,7 @@ P[251] = {
     // :TOUCH
     // Barrels of liquid toxic waste fuel the
     // giant head.
-    await z.say(o, ["Barrels of liquid toxic waste fuel the", "giant head."]);
+    z.say(o, ["Barrels of liquid toxic waste fuel the", "giant head."]);
     // #END
     return z.END;
   },
@@ -9800,7 +9800,7 @@ P[258] = {
     // /I
     await z.idle(o);
     // A metal voice says, "Power is turned on."
-    await z.say(o, ["A metal voice says, \"Power is turned on.\""]);
+    z.say(o, ["A metal voice says, \"Power is turned on.\""]);
     // #SET POWER
     z.rt.setFlag("power");
     // #CHAR 209
@@ -9813,7 +9813,7 @@ P[258] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // The switch is broken.
-    await z.say(o, ["The switch is broken."]);
+    z.say(o, ["The switch is broken."]);
     // #END
     return z.END;
   },
@@ -9842,7 +9842,7 @@ P[259] = {
     // In the instant before he is vaporized,
     // Smiley realizes, "This is not going to be
     // a nice d....."
-    await z.say(o, [{"text": "\"UH-OH!\"", "align": "center"}, "A blinding light.  A flash wave of heat.", "The switch set off a thermonuclear bomb.", "In the instant before he is vaporized,", "Smiley realizes, \"This is not going to be", "a nice d.....\""]);
+    z.say(o, [{"text": "\"UH-OH!\"", "align": "center"}, "A blinding light.  A flash wave of heat.", "The switch set off a thermonuclear bomb.", "In the instant before he is vaporized,", "Smiley realizes, \"This is not going to be", "a nice d.....\""]);
     // /I
     await z.idle(o);
     // #CHANGE YELLOW INVISIBLE YELLOW SOLID
@@ -9881,7 +9881,7 @@ P[260] = {
     //
     // Smiley can not tell which one is "this"
     // one.
-    await z.say(o, ["A sign, which was posted on the wall,", "lies on the floor.", "", "It reads, \"Mopey, do not play with the ", "switches.  They have been breaking down.", "Especially, do not touch this one, unless", "you want to set off the thermonuclear", "bomb. ", "           - Dr. Z\"", "", "Smiley can not tell which one is \"this\"", "one."]);
+    z.say(o, ["A sign, which was posted on the wall,", "lies on the floor.", "", "It reads, \"Mopey, do not play with the ", "switches.  They have been breaking down.", "Especially, do not touch this one, unless", "you want to set off the thermonuclear", "bomb. ", "           - Dr. Z\"", "", "Smiley can not tell which one is \"this\"", "one."]);
     // #END
     return z.END;
   },
@@ -9910,7 +9910,7 @@ P[261] = {
     // /I
     await z.idle(o);
     // A metalic voice says, "Secret panel open."
-    await z.say(o, ["A metalic voice says, \"Secret panel open.\""]);
+    z.say(o, ["A metalic voice says, \"Secret panel open.\""]);
     // #SEND PANEL1:DO
     if (await z.send(o, "panel1", "do")) return z.GOTO;
     // #SEND PANEL2:DO
@@ -9925,7 +9925,7 @@ P[261] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // The switch is broken.
-    await z.say(o, ["The switch is broken."]);
+    z.say(o, ["The switch is broken."]);
     // #END
     return z.END;
   },
@@ -10038,7 +10038,7 @@ P[265] = {
     // /I
     await z.idle(o);
     // A voice says, "Relay force field is off."
-    await z.say(o, ["A voice says, \"Relay force field is off.\""]);
+    z.say(o, ["A voice says, \"Relay force field is off.\""]);
     // #CHAR 210
     z.setChar(o, 210);
     // #SET FORCEFIELD
@@ -10051,7 +10051,7 @@ P[265] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // The switch is broken.
-    await z.say(o, ["The switch is broken."]);
+    z.say(o, ["The switch is broken."]);
     // #END
     return z.END;
   },
@@ -10089,7 +10089,7 @@ P[266] = {
     // !MANY;"How many switches do I throw?"
     //
     // !SPARK;"The sparks are killing me."
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The panel controls electrical switches", "running from the head through the    ", "underground complex to the transporter", "room.  The grid flashes with electrical", "sparks.", "", {"choice": "many", "text": "\"How many switches do I throw?\""}, "", {"choice": "spark", "text": "\"The sparks are killing me.\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The panel controls electrical switches", "running from the head through the    ", "underground complex to the transporter", "room.  The grid flashes with electrical", "sparks.", "", {"choice": "many", "text": "\"How many switches do I throw?\""}, "", {"choice": "spark", "text": "\"The sparks are killing me.\""}]);
     // #END
     return z.END;
   },
@@ -10099,7 +10099,7 @@ P[266] = {
     // don't mess with the fourth.
     //
     // !WAIT;"Wait . . . which is the fourth?"
-    if (await z.say(o, ["At least two . . .three would be good . . ", "don't mess with the fourth.", "", {"choice": "wait", "text": "\"Wait . . . which is the fourth?\""}])) return z.GOTO;
+    z.say(o, ["At least two . . .three would be good . . ", "don't mess with the fourth.", "", {"choice": "wait", "text": "\"Wait . . . which is the fourth?\""}]);
     // #END
     return z.END;
   },
@@ -10108,7 +10108,7 @@ P[266] = {
     // #PLAY 050590505
     z.play("050590505");
     // Only Dr. Z knows.
-    await z.say(o, ["Only Dr. Z knows."]);
+    z.say(o, ["Only Dr. Z knows."]);
     // #END
     return z.END;
   },
@@ -10117,14 +10117,14 @@ P[266] = {
     // It only hurts when YOU touch them.
     //
     // !MEAN;"Explain."
-    if (await z.say(o, ["It only hurts when YOU touch them.", "", {"choice": "mean", "text": "\"Explain.\""}])) return z.GOTO;
+    z.say(o, ["It only hurts when YOU touch them.", "", {"choice": "mean", "text": "\"Explain.\""}]);
     // #END
     return z.END;
   },
   async function on_mean(o, z) {
     // :MEAN
     // Let them push you.
-    await z.say(o, ["Let them push you."]);
+    z.say(o, ["Let them push you."]);
     // #END
     return z.END;
   },
@@ -10621,7 +10621,7 @@ P[277] = {
     // #PLAY T++C-BAG+C-BAG
     z.play("T++C-BAG+C-BAG");
     // The silver power crystal.
-    await z.say(o, ["The silver power crystal."]);
+    z.say(o, ["The silver power crystal."]);
     // #GIVE GEMS 1
     z.give("gems", 1);
     // #GIVE SCORE 100
@@ -11204,14 +11204,14 @@ P[286] = {
     // like a rubber ball.  He recognizes the
     // creature as Bouncer, a strange friend
     // he first met inside Dr. Z's lab.
-    await z.say(o, ["Smiley finds a moist mucus blob, bouncing", "like a rubber ball.  He recognizes the", "creature as Bouncer, a strange friend", "he first met inside Dr. Z's lab."]);
+    z.say(o, ["Smiley finds a moist mucus blob, bouncing", "like a rubber ball.  He recognizes the", "creature as Bouncer, a strange friend", "he first met inside Dr. Z's lab."]);
     // #IF PICTURE SEND PICTURE
     if (z.rt.hasFlag("picture")) {
       if (await z.send(o, "self", "picture")) return z.GOTO;
     }
     //
     // !WHERE; "Where am I," Smiley asks?
-    if (await z.say(o, [{"choice": "where", "text": " \"Where am I,\" Smiley asks?"}])) return z.GOTO;
+    z.say(o, [{"choice": "where", "text": " \"Where am I,\" Smiley asks?"}]);
     // #RESTART
     return z.RESTART;
   },
@@ -11227,12 +11227,12 @@ P[286] = {
     // who knows where in a million parts.  Now
     // I'm talking to a booger!"
     //
-    await z.say(o, ["\"Your atoms are being transported", "through space,\" Bouncer replies.  \"You", "now are crossing a void which leads to a", "vague area called the Fog.\"", "", "\"This is really weird,\" Smiley thinks to", "himself.  \"First my body is shot through", "who knows where in a million parts.  Now", "I'm talking to a booger!\""]);
+    z.say(o, ["\"Your atoms are being transported", "through space,\" Bouncer replies.  \"You", "now are crossing a void which leads to a", "vague area called the Fog.\"", "", "\"This is really weird,\" Smiley thinks to", "himself.  \"First my body is shot through", "who knows where in a million parts.  Now", "I'm talking to a booger!\""]);
   },
   async function on_pix(o, z) {
     // :PIX
     // !HELP;"Can you help me," Smiley asks?
-    if (await z.say(o, [{"choice": "help", "text": "\"Can you help me,\" Smiley asks?"}])) return z.GOTO;
+    z.say(o, [{"choice": "help", "text": "\"Can you help me,\" Smiley asks?"}]);
     // #RESTART
     return z.RESTART;
   },
@@ -11251,14 +11251,14 @@ P[286] = {
     // where the picture is, find it and bring 
     // it to me, I will tell you how to get to
     // the other side of the Fog."
-    await z.say(o, ["\"You help me, I'll help you,\" Bouncer", "offers.", "", "\"There are strange bugs and other little", "creatures living in the Fog.  They have", "hidden a picture of my cousin Goober", "somewhere in the caves.", "", "\"I'm guarding this way out to keep them ", "in the Fog.  If you can learn from them", "where the picture is, find it and bring ", "it to me, I will tell you how to get to", "the other side of the Fog.\""]);
+    z.say(o, ["\"You help me, I'll help you,\" Bouncer", "offers.", "", "\"There are strange bugs and other little", "creatures living in the Fog.  They have", "hidden a picture of my cousin Goober", "somewhere in the caves.", "", "\"I'm guarding this way out to keep them ", "in the Fog.  If you can learn from them", "where the picture is, find it and bring ", "it to me, I will tell you how to get to", "the other side of the Fog.\""]);
     // #RESTART
     return z.RESTART;
   },
   async function on_picture(o, z) {
     // :PICTURE
     // !SHOW;"I found this picture of Goober."
-    if (await z.say(o, [{"choice": "show", "text": "\"I found this picture of Goober.\""}])) return z.GOTO;
+    z.say(o, [{"choice": "show", "text": "\"I found this picture of Goober.\""}]);
     // #END
     return z.END;
   },
@@ -11280,7 +11280,7 @@ P[286] = {
     // "Oh, there is one exception.  Dr. Z has
     // turned loose a metalic moth to confuse
     // you.  Do the opposite of what it says."
-    await z.say(o, ["\"Thanks for finding the missing picture,\"", "Bouncer says.", "", "\"When you reach a crossroad in the Fog,", "creatures will touch you in the", "direction you should go.  Remember", "which way you are facing, so you know", "your left from your right.", "", "\"Keep going straight until you have to ", "change direction or you meet the", "creatures.", "", "\"Oh, there is one exception.  Dr. Z has", "turned loose a metalic moth to confuse", "you.  Do the opposite of what it says.\""]);
+    z.say(o, ["\"Thanks for finding the missing picture,\"", "Bouncer says.", "", "\"When you reach a crossroad in the Fog,", "creatures will touch you in the", "direction you should go.  Remember", "which way you are facing, so you know", "your left from your right.", "", "\"Keep going straight until you have to ", "change direction or you meet the", "creatures.", "", "\"Oh, there is one exception.  Dr. Z has", "turned loose a metalic moth to confuse", "you.  Do the opposite of what it says.\""]);
     // #RESTART
     return z.RESTART;
   },
@@ -11297,7 +11297,7 @@ P[287] = {
   async function start(o, z) {
     // @POINTER
     // THE FOG
-    await z.say(o, ["THE FOG"]);
+    z.say(o, ["THE FOG"]);
     // #END
     return z.END;
   },
@@ -11329,12 +11329,12 @@ P[288] = {
     // The fog surrounds Smiley on all sides.
     //
     // !SEE;"I can't see."
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The fog surrounds Smiley on all sides.", "", {"choice": "see", "text": "\"I can't see.\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The fog surrounds Smiley on all sides.", "", {"choice": "see", "text": "\"I can't see.\""}]);
     // /I/I
     await z.idle(o);
     await z.idle(o);
     // You are not suppose to see.
-    await z.say(o, ["You are not suppose to see."]);
+    z.say(o, ["You are not suppose to see."]);
     // #DIE
     return z.die(o);
   },
@@ -11360,7 +11360,7 @@ P[289] = {
     // A metalic voices speaks,
     // "You just found 100 bonus points.  Too
     // bad, you are going the wrong way."
-    await z.say(o, ["A metalic voices speaks,", "\"You just found 100 bonus points.  Too", "bad, you are going the wrong way.\""]);
+    z.say(o, ["A metalic voices speaks,", "\"You just found 100 bonus points.  Too", "bad, you are going the wrong way.\""]);
     // #DIE
     return z.die(o);
   },
@@ -11388,7 +11388,7 @@ P[290] = {
     // $▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
     // $TOXIC TERMINATOR!"
     // $▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-    await z.say(o, ["A metalic voice says,", "\"Prepare to board the starship of the", {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, {"text": "TOXIC TERMINATOR!\"", "align": "center"}, {"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}]);
+    z.say(o, ["A metalic voice says,", "\"Prepare to board the starship of the", {"text": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "align": "center"}, {"text": "TOXIC TERMINATOR!\"", "align": "center"}, {"text": "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "align": "center"}]);
     // #DIE
     return z.die(o);
   },
@@ -11419,7 +11419,7 @@ P[291] = {
     if (await z.send(o, "whisper2", "do")) return z.GOTO;
     // A distant voice tingles Smiley's right
     // ear.  It is too faint to understand.
-    await z.say(o, ["A distant voice tingles Smiley's right", "ear.  It is too faint to understand."]);
+    z.say(o, ["A distant voice tingles Smiley's right", "ear.  It is too faint to understand."]);
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -11463,7 +11463,7 @@ P[292] = {
     // Pristine? . . . calls to Smiley,
     // "The Toxic Terminator needs power crystals
     // to survive."
-    await z.say(o, ["A friendly voice . . . could it be", "Pristine? . . . calls to Smiley,", "\"The Toxic Terminator needs power crystals", "to survive.\""]);
+    z.say(o, ["A friendly voice . . . could it be", "Pristine? . . . calls to Smiley,", "\"The Toxic Terminator needs power crystals", "to survive.\""]);
     // #DIE
     return z.die(o);
   },
@@ -11487,7 +11487,7 @@ P[293] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum. Sugar water."
-    await z.say(o, ["\"Yum. Sugar water.\""]);
+    z.say(o, ["\"Yum. Sugar water.\""]);
     // #GIVE AMMO 20
     z.give("ammo", 20);
     // #GIVE HEALTH 5
@@ -11517,7 +11517,7 @@ P[294] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yuk. Diet cola."
-    await z.say(o, ["\"Yuk. Diet cola.\""]);
+    z.say(o, ["\"Yuk. Diet cola.\""]);
     // #GIVE AMMO 20
     z.give("ammo", 20);
     // #GIVE HEALTH 5
@@ -11554,7 +11554,7 @@ P[295] = {
     if (await z.send(o, "bugs2", "do")) return z.GOTO;
     // $YECH!
     // Bugs climb up Smiley's right leg.
-    await z.say(o, [{"text": "YECH!", "align": "center"}, "Bugs climb up Smiley's right leg."]);
+    z.say(o, [{"text": "YECH!", "align": "center"}, "Bugs climb up Smiley's right leg."]);
     // /I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -11621,7 +11621,7 @@ P[297] = {
     if (await z.send(o, "bugs4", "do")) return z.GOTO;
     // $YECH!
     // More bugs climb up Smiley's right leg.
-    await z.say(o, [{"text": "YECH!", "align": "center"}, "More bugs climb up Smiley's right leg."]);
+    z.say(o, [{"text": "YECH!", "align": "center"}, "More bugs climb up Smiley's right leg."]);
     // /I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -11735,7 +11735,7 @@ P[301] = {
     // $UGH!
     // Slime worms wrap around Smiley's left
     // foot.
-    await z.say(o, [{"text": "UGH!", "align": "center"}, "Slime worms wrap around Smiley's left", "foot."]);
+    z.say(o, [{"text": "UGH!", "align": "center"}, "Slime worms wrap around Smiley's left", "foot."]);
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -11829,7 +11829,7 @@ P[304] = {
     // $UGH!
     // Something cold and moist grabs Smiley's
     // right arm.
-    await z.say(o, [{"text": "UGH!", "align": "center"}, "Something cold and moist grabs Smiley's", "right arm."]);
+    z.say(o, [{"text": "UGH!", "align": "center"}, "Something cold and moist grabs Smiley's", "right arm."]);
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -11923,7 +11923,7 @@ P[307] = {
     if (await z.send(o, "flies2", "do")) return z.GOTO;
     // $BUZZ!
     // Swamp flies buzz in Smiley's right ear.
-    await z.say(o, [{"text": "BUZZ!", "align": "center"}, "Swamp flies buzz in Smiley's right ear."]);
+    z.say(o, [{"text": "BUZZ!", "align": "center"}, "Swamp flies buzz in Smiley's right ear."]);
     // #LOCK
     o.locked = true;
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
@@ -12020,7 +12020,7 @@ P[310] = {
     // $BUZZ!
     // More swamp flies buzz in Smiley's right
     // ear.
-    await z.say(o, [{"text": "BUZZ!", "align": "center"}, "More swamp flies buzz in Smiley's right", "ear."]);
+    z.say(o, [{"text": "BUZZ!", "align": "center"}, "More swamp flies buzz in Smiley's right", "ear."]);
     // #LOCK
     o.locked = true;
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
@@ -12111,7 +12111,7 @@ P[313] = {
     // A high-pitched whining voice whispers,
     // "If you want to find Goober's picture,
     // knock three times."
-    await z.say(o, ["A high-pitched whining voice whispers,", "\"If you want to find Goober's picture,", "knock three times.\""]);
+    z.say(o, ["A high-pitched whining voice whispers,", "\"If you want to find Goober's picture,", "knock three times.\""]);
     // #DIE
     return z.die(o);
   },
@@ -12133,7 +12133,7 @@ P[314] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A heart.
-    await z.say(o, ["A heart."]);
+    z.say(o, ["A heart."]);
     // #PLAY S+ECE.GB
     z.play("S+ECE.GB");
     // #GIVE HEALTH 20
@@ -12239,7 +12239,7 @@ P[318] = {
     if (await z.send(o, "moth2", "do")) return z.GOTO;
     // $FLUTTER
     // A moth flutters in Smiley's left ear.
-    await z.say(o, [{"text": "FLUTTER", "align": "center"}, "A moth flutters in Smiley's left ear."]);
+    z.say(o, [{"text": "FLUTTER", "align": "center"}, "A moth flutters in Smiley's left ear."]);
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -12280,7 +12280,7 @@ P[319] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yahoo.  Mountain Dew."
-    await z.say(o, ["\"Yahoo.  Mountain Dew.\""]);
+    z.say(o, ["\"Yahoo.  Mountain Dew.\""]);
     // #GIVE AMMO 20
     z.give("ammo", 20);
     // #GIVE HEALTH 5
@@ -12318,7 +12318,7 @@ P[320] = {
     // $UGH!
     // Something cold and moist grabs Smiley's
     // left arm.
-    await z.say(o, [{"text": "UGH!", "align": "center"}, "Something cold and moist grabs Smiley's", "left arm."]);
+    z.say(o, [{"text": "UGH!", "align": "center"}, "Something cold and moist grabs Smiley's", "left arm."]);
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -12407,7 +12407,7 @@ P[323] = {
     // A high-pitched whining voice whispers,
     // "Look for Goober's picture in the rocks
     // above the left eye."
-    await z.say(o, ["A high-pitched whining voice whispers,", "\"Look for Goober's picture in the rocks", "above the left eye.\""]);
+    z.say(o, ["A high-pitched whining voice whispers,", "\"Look for Goober's picture in the rocks", "above the left eye.\""]);
     // #DIE
     return z.die(o);
   },
@@ -12457,7 +12457,7 @@ P[325] = {
     // an invisible whirlpool.  As his atoms
     // spin into oblivion, he thinks, "I forgot
     // to turn off the TV."
-    await z.say(o, ["Smiley finds himself being sucked into", "an invisible whirlpool.  As his atoms", "spin into oblivion, he thinks, \"I forgot", "to turn off the TV.\""]);
+    z.say(o, ["Smiley finds himself being sucked into", "an invisible whirlpool.  As his atoms", "spin into oblivion, he thinks, \"I forgot", "to turn off the TV.\""]);
     // /I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -12495,7 +12495,7 @@ P[326] = {
     z.play("T+++C5858585");
     // $YECH!
     // Bugs climb up Smiley's left leg.
-    await z.say(o, [{"text": "YECH!", "align": "center"}, "Bugs climb up Smiley's left leg."]);
+    z.say(o, [{"text": "YECH!", "align": "center"}, "Bugs climb up Smiley's left leg."]);
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -12589,7 +12589,7 @@ P[329] = {
     z.play("T+++C5858585");
     // $YECH!
     // A moth flutters in Smiley's right ear.
-    await z.say(o, [{"text": "YECH!", "align": "center"}, "A moth flutters in Smiley's right ear."]);
+    z.say(o, [{"text": "YECH!", "align": "center"}, "A moth flutters in Smiley's right ear."]);
     // /I/I/I/I/I/I/I/I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -12698,7 +12698,7 @@ P[333] = {
     // A metalic voice says,
     // "If you found this, you're lost.  There's
     // nothing but nothing in this area."
-    await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "A metalic voice says,", "\"If you found this, you're lost.  There's", "nothing but nothing in this area.\""]);
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "A metalic voice says,", "\"If you found this, you're lost.  There's", "nothing but nothing in this area.\""]);
     // #END
     return z.END;
   },
@@ -12715,7 +12715,7 @@ P[334] = {
   async function start(o, z) {
     // @LIVING ENGINE ROOM
     // Poison gas.
-    await z.say(o, ["Poison gas."]);
+    z.say(o, ["Poison gas."]);
   },
   async function on_loop(o, z) {
     // :LOOP
@@ -13049,7 +13049,7 @@ P[343] = {
     // relayed by the bio-mechaical head.  From
     // here, Smiley sees the full force of the
     // blast.
-    await z.say(o, ["Smiley is on a space ship.", "", "An energy beam fires from somewhere ", "in the craft down to earth, destroying", "the planet.  It is the same death ray", "relayed by the bio-mechaical head.  From", "here, Smiley sees the full force of the", "blast."]);
+    z.say(o, ["Smiley is on a space ship.", "", "An energy beam fires from somewhere ", "in the craft down to earth, destroying", "the planet.  It is the same death ray", "relayed by the bio-mechaical head.  From", "here, Smiley sees the full force of the", "blast."]);
     // #END
     return z.END;
   },
@@ -13192,7 +13192,7 @@ P[349] = {
     z.give("score", 100);
     // A metalic voice says, "Thanks for the 
     // flossing.  Here's 100 bonus points."
-    await z.say(o, ["A metalic voice says, \"Thanks for the ", "flossing.  Here's 100 bonus points.\""]);
+    z.say(o, ["A metalic voice says, \"Thanks for the ", "flossing.  Here's 100 bonus points.\""]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #END
@@ -13201,7 +13201,7 @@ P[349] = {
   async function on_touch_2(o, z) {
     // :TOUCH
     // "Ugh, bad breath."
-    await z.say(o, ["\"Ugh, bad breath.\""]);
+    z.say(o, ["\"Ugh, bad breath.\""]);
     // #END
     return z.END;
   },
@@ -13355,7 +13355,7 @@ P[356] = {
     //
     // "Great!  Where were you when I needed 
     // you,"  he asks.  "Who needs a torch now?"
-    await z.say(o, ["Smiley finds a bright torch.", "", "\"Great!  Where were you when I needed ", "you,\"  he asks.  \"Who needs a torch now?\""]);
+    z.say(o, ["Smiley finds a bright torch.", "", "\"Great!  Where were you when I needed ", "you,\"  he asks.  \"Who needs a torch now?\""]);
     // #DIE
     return z.die(o);
   },
@@ -13385,7 +13385,7 @@ P[357] = {
     // crystals.  Toxic-fed slime transfers 
     // the power with electrical charges to
     // and from the brain circuits."
-    await z.say(o, ["Here is a reference manual describing", "the Toxic Terminator.  It reads,", "", "\"The bio-mech is fueled by three power", "crystals.  Toxic-fed slime transfers ", "the power with electrical charges to", "and from the brain circuits.\""]);
+    z.say(o, ["Here is a reference manual describing", "the Toxic Terminator.  It reads,", "", "\"The bio-mech is fueled by three power", "crystals.  Toxic-fed slime transfers ", "the power with electrical charges to", "and from the brain circuits.\""]);
     // #END
     return z.END;
   },
@@ -13552,7 +13552,7 @@ P[364] = {
     // A flashing message on the panel says, 
     // "Warning:  self-destruct mechanism
     // is armed."
-    await z.say(o, ["Lights flash on the pilot's control ", "panel.  Smiley finds no pilot.", "", "A flashing message on the panel says, ", "\"Warning:  self-destruct mechanism", "is armed.\""]);
+    z.say(o, ["Lights flash on the pilot's control ", "panel.  Smiley finds no pilot.", "", "A flashing message on the panel says, ", "\"Warning:  self-destruct mechanism", "is armed.\""]);
     // #END
     return z.END;
   },
@@ -13589,7 +13589,7 @@ P[365] = {
     // !PILOT;"Who's flying this thing?
     //
     // !STUCK;"I'm struck in a loop."
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The deck is a weird place with a maze of", "secret passages.", "", {"choice": "doing", "text": "\"What am I doing here?\""}, "", {"choice": "pilot", "text": "\"Who's flying this thing?"}, "", {"choice": "stuck", "text": "\"I'm struck in a loop.\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "The deck is a weird place with a maze of", "secret passages.", "", {"choice": "doing", "text": "\"What am I doing here?\""}, "", {"choice": "pilot", "text": "\"Who's flying this thing?"}, "", {"choice": "stuck", "text": "\"I'm struck in a loop.\""}]);
     // #END
     return z.END;
   },
@@ -13598,14 +13598,14 @@ P[365] = {
     // You are picking up the goodies you need
     // for the final showdown with the Toxic
     // Terminator.
-    await z.say(o, ["You are picking up the goodies you need", "for the final showdown with the Toxic", "Terminator."]);
+    z.say(o, ["You are picking up the goodies you need", "for the final showdown with the Toxic", "Terminator."]);
     // #END
     return z.END;
   },
   async function on_pilot(o, z) {
     // :PILOT
     // Flakey . . . maybe.
-    await z.say(o, ["Flakey . . . maybe."]);
+    z.say(o, ["Flakey . . . maybe."]);
     // #END
     return z.END;
   },
@@ -13614,14 +13614,14 @@ P[365] = {
     // Try every direction.
     //
     // !STILL;"I'm still struck."
-    if (await z.say(o, ["Try every direction.", "", {"choice": "still", "text": "\"I'm still struck.\""}])) return z.GOTO;
+    z.say(o, ["Try every direction.", "", {"choice": "still", "text": "\"I'm still struck.\""}]);
     // #END
     return z.END;
   },
   async function on_still(o, z) {
     // :STILL
     // Look for a hidden path.
-    await z.say(o, ["Look for a hidden path."]);
+    z.say(o, ["Look for a hidden path."]);
     // #END
     return z.END;
   },
@@ -13650,7 +13650,7 @@ P[366] = {
     // favorite scums.  
     //
     // "Where is that crud?" Smiley wonders.
-    await z.say(o, ["The television screen shows taped ", "highlights of the pilot doing his job.", "The pilot is Flakey, one's Dr. Z's ", "favorite scums.  ", "", "\"Where is that crud?\" Smiley wonders."]);
+    z.say(o, ["The television screen shows taped ", "highlights of the pilot doing his job.", "The pilot is Flakey, one's Dr. Z's ", "favorite scums.  ", "", "\"Where is that crud?\" Smiley wonders."]);
     // #END
     return z.END;
   },
@@ -13678,7 +13678,7 @@ P[367] = {
     // "Mopey, 
     //  Clean the store room.
     //              - Z"
-    await z.say(o, ["A note lies of the floor.  It reads,", "", "\"Mopey, ", " Clean the store room.", "             - Z\""]);
+    z.say(o, ["A note lies of the floor.  It reads,", "", "\"Mopey, ", " Clean the store room.", "             - Z\""]);
     // #END
     return z.END;
   },
@@ -13860,7 +13860,7 @@ P[373] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A barrel of liquid toxic waste.
-    await z.say(o, ["A barrel of liquid toxic waste."]);
+    z.say(o, ["A barrel of liquid toxic waste."]);
     // #END
     return z.END;
   },
@@ -13878,7 +13878,7 @@ P[373] = {
     // #PLAY 4
     z.play("4");
     // A new barrel appears.
-    await z.say(o, ["A new barrel appears."]);
+    z.say(o, ["A new barrel appears."]);
     // #CHAR 8
     z.setChar(o, 8);
     // #UNLOCK
@@ -13920,7 +13920,7 @@ P[374] = {
     // #PLAY 80
     z.play("80");
     // An ice shield blocks the way.
-    await z.say(o, ["An ice shield blocks the way."]);
+    z.say(o, ["An ice shield blocks the way."]);
     // /I
     await z.idle(o);
     // #TAKE TORCHES 1 TOOLOW
@@ -13932,7 +13932,7 @@ P[374] = {
     await z.idle(o);
     await z.idle(o);
     // The torch melts the ice.
-    await z.say(o, ["The torch melts the ice."]);
+    z.say(o, ["The torch melts the ice."]);
     // /I
     await z.idle(o);
     // #PLAY 4
@@ -13976,7 +13976,7 @@ P[375] = {
   async function on_touch(o, z) {
     // :TOUCH
     // A barrel of liquid toxic waste.
-    await z.say(o, ["A barrel of liquid toxic waste."]);
+    z.say(o, ["A barrel of liquid toxic waste."]);
     // #END
     return z.END;
   },
@@ -13994,7 +13994,7 @@ P[375] = {
     // #PLAY 4
     z.play("4");
     // A new barrel appears.
-    await z.say(o, ["A new barrel appears."]);
+    z.say(o, ["A new barrel appears."]);
     // #CHAR 8
     z.setChar(o, 8);
     // #UNLOCK
@@ -14077,28 +14077,28 @@ P[377] = {
     // !GUN;"How do I survive the guns?"
     //
     // !KEY;"How do I get the yellow key?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Toxic fumes pass through the skull, where", "they are converted into the death ray ", "blasting Earth.  On each side, Smiley", "sees bubbling pools of toxic waste.", "", {"choice": "ice", "text": "\"How do I get past the ice shield?\""}, "", {"choice": "gun", "text": "\"How do I survive the guns?\""}, "", {"choice": "key", "text": "\"How do I get the yellow key?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Toxic fumes pass through the skull, where", "they are converted into the death ray ", "blasting Earth.  On each side, Smiley", "sees bubbling pools of toxic waste.", "", {"choice": "ice", "text": "\"How do I get past the ice shield?\""}, "", {"choice": "gun", "text": "\"How do I survive the guns?\""}, "", {"choice": "key", "text": "\"How do I get the yellow key?\""}]);
     // #END
     return z.END;
   },
   async function on_ice(o, z) {
     // :ICE
     // Look for something that affects ice.
-    await z.say(o, ["Look for something that affects ice."]);
+    z.say(o, ["Look for something that affects ice."]);
     // #END
     return z.END;
   },
   async function on_gun(o, z) {
     // :GUN
     // Shoot to teporarily disable one.
-    await z.say(o, ["Shoot to teporarily disable one."]);
+    z.say(o, ["Shoot to teporarily disable one."]);
     // #END
     return z.END;
   },
   async function on_key(o, z) {
     // :KEY
     // Keep shooting.
-    await z.say(o, ["Keep shooting."]);
+    z.say(o, ["Keep shooting."]);
     // #END
     return z.END;
   },
@@ -14322,7 +14322,7 @@ P[383] = {
     // is now clear.  To save Earth, Smiley
     // must fight and defeat a giant likeness
     // of himself.
-    await z.say(o, ["Smiley has found the Toxic Terminator,", "the bio-mechanical creature which ", "controls the ship and the attack on Earth.", "To make things worse, Dr. Z's killing", "machine is a ", "", {"text": "CLONE OF SMILEY GUY!", "align": "center"}, "", "Dr. Z's plan for the ultimate terminator", "is now clear.  To save Earth, Smiley", "must fight and defeat a giant likeness", "of himself."]);
+    z.say(o, ["Smiley has found the Toxic Terminator,", "the bio-mechanical creature which ", "controls the ship and the attack on Earth.", "To make things worse, Dr. Z's killing", "machine is a ", "", {"text": "CLONE OF SMILEY GUY!", "align": "center"}, "", "Dr. Z's plan for the ultimate terminator", "is now clear.  To save Earth, Smiley", "must fight and defeat a giant likeness", "of himself."]);
     // /I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -14409,7 +14409,7 @@ P[385] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ1:DIE
     if (await z.send(o, "fizz1", "die")) return z.GOTO;
     // #SEND FIZZ1:DIE
@@ -14443,7 +14443,7 @@ P[386] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ2:DIE
     if (await z.send(o, "fizz2", "die")) return z.GOTO;
     // #SEND FIZZ2:DIE
@@ -14477,7 +14477,7 @@ P[387] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ3:DIE
     if (await z.send(o, "fizz3", "die")) return z.GOTO;
     // #SEND FIZZ3:DIE
@@ -14631,7 +14631,7 @@ P[391] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ4:DIE
     if (await z.send(o, "fizz4", "die")) return z.GOTO;
     // #SEND FIZZ4:DIE
@@ -14858,7 +14858,7 @@ P[397] = {
     // #PLAY T++C-BAG+C-BAG
     z.play("T++C-BAG+C-BAG");
     // A red power crystal.
-    await z.say(o, ["A red power crystal."]);
+    z.say(o, ["A red power crystal."]);
     // #GIVE GEMS 1
     z.give("gems", 1);
     // #GIVE SCORE 100
@@ -14873,7 +14873,7 @@ P[397] = {
     // #PLAY T++C-BAG+C-BAG
     z.play("T++C-BAG+C-BAG");
     // A second red power crystal.
-    await z.say(o, ["A second red power crystal."]);
+    z.say(o, ["A second red power crystal."]);
     // #GIVE GEMS 1
     z.give("gems", 1);
     // #GIVE SCORE 100
@@ -14888,7 +14888,7 @@ P[397] = {
     // #PLAY T++C-BAG+C-BAG
     z.play("T++C-BAG+C-BAG");
     // The last red power crystal.
-    await z.say(o, ["The last red power crystal."]);
+    z.say(o, ["The last red power crystal."]);
     // #GIVE GEMS 1
     z.give("gems", 1);
     // #GIVE SCORE 100
@@ -14904,7 +14904,7 @@ P[397] = {
     //
     // A metalic voice sounds, "Self-destruct
     // sequence now engaged."
-    await z.say(o, ["With the taking of the third power", "crystal, the Toxic Terminator begins", "to weaken.", "", "A metalic voice sounds, \"Self-destruct", "sequence now engaged.\""]);
+    z.say(o, ["With the taking of the third power", "crystal, the Toxic Terminator begins", "to weaken.", "", "A metalic voice sounds, \"Self-destruct", "sequence now engaged.\""]);
     // #SEND KEY:CHANGE
     if (await z.send(o, "key", "change")) return z.GOTO;
     // #SEND SLIME1:DIE
@@ -14933,7 +14933,7 @@ P[398] = {
     // :TOUCH
     // The power of the red crystals shields  
     // the key from being taken.
-    await z.say(o, ["The power of the red crystals shields  ", "the key from being taken."]);
+    z.say(o, ["The power of the red crystals shields  ", "the key from being taken."]);
     // #END
     return z.END;
   },
@@ -14973,7 +14973,7 @@ P[399] = {
     //
     // Smiley sees he will be on a pod when he
     // enters the launch tube.
-    await z.say(o, ["Smiley has found Dr. Z and Pristine.", "They are boarding individual pods to", "escape from the space ship.", "", "\"Hurry,\" cries Pristine.  \"The toxic", "waste is spilling out and will trap us.\"", "", "Smiley sees he will be on a pod when he", "enters the launch tube."]);
+    z.say(o, ["Smiley has found Dr. Z and Pristine.", "They are boarding individual pods to", "escape from the space ship.", "", "\"Hurry,\" cries Pristine.  \"The toxic", "waste is spilling out and will trap us.\"", "", "Smiley sees he will be on a pod when he", "enters the launch tube."]);
     // #END
     return z.END;
   },
@@ -15071,7 +15071,7 @@ P[402] = {
     // #GIVE SCORE 100
     z.give("score", 100);
     // Here's 100 bonus points.
-    await z.say(o, ["Here's 100 bonus points."]);
+    z.say(o, ["Here's 100 bonus points."]);
     // #DIE
     return z.die(o);
   },
@@ -15305,7 +15305,7 @@ P[411] = {
     // Smiley and Pristine fly to Earth as
     // the ship self-destructs.  The blast
     // hurls Dr. Z into deep space. 
-    await z.say(o, ["Smiley and Pristine fly to Earth as", "the ship self-destructs.  The blast", "hurls Dr. Z into deep space. "]);
+    z.say(o, ["Smiley and Pristine fly to Earth as", "the ship self-destructs.  The blast", "hurls Dr. Z into deep space. "]);
     // /I
     await z.idle(o);
     // #PLAY 049T--CDCD
@@ -15457,7 +15457,7 @@ P[414] = {
   async function on_touch(o, z) {
     // :TOUCH
     // "You're THE guy, Smiley."
-    await z.say(o, ["\"You're THE guy, Smiley.\""]);
+    z.say(o, ["\"You're THE guy, Smiley.\""]);
     // #RESTART
     return z.RESTART;
   },
@@ -15483,7 +15483,7 @@ P[415] = {
   async function on_touch(o, z) {
     // :TOUCH
     // "You're my hero, Smiley."
-    await z.say(o, ["\"You're my hero, Smiley.\""]);
+    z.say(o, ["\"You're my hero, Smiley.\""]);
     // #RESTART
     return z.RESTART;
   },
@@ -15505,7 +15505,7 @@ P[416] = {
   async function on_touch(o, z) {
     // :TOUCH
     // "Welcome back.  You saved the world!"
-    await z.say(o, ["\"Welcome back.  You saved the world!\""]);
+    z.say(o, ["\"Welcome back.  You saved the world!\""]);
     // #END
     return z.END;
   },
@@ -15527,7 +15527,7 @@ P[417] = {
   async function on_touch(o, z) {
     // :TOUCH
     // "What a guy!"
-    await z.say(o, ["\"What a guy!\""]);
+    z.say(o, ["\"What a guy!\""]);
     // #END
     return z.END;
   },
@@ -15553,7 +15553,7 @@ P[418] = {
     //
     // Flakey sneers at Smiley.  He shows no
     // remorse for the difficulties he caused.
-    await z.say(o, ["It's Flakey, who somehow managed to get", "through the adventure safely.", "", "Flakey sneers at Smiley.  He shows no", "remorse for the difficulties he caused."]);
+    z.say(o, ["It's Flakey, who somehow managed to get", "through the adventure safely.", "", "Flakey sneers at Smiley.  He shows no", "remorse for the difficulties he caused."]);
     // #TAKE HEALTH 100 TOOLOW
     if (!z.take("health", 100)) {
       if (await z.send(o, "self", "toolow")) return z.GOTO;
@@ -15570,7 +15570,7 @@ P[418] = {
     // you want to make an exception this time,
     //
     // !DOIT;press enter here.
-    if (await z.say(o, ["Since you have finished the adventure with", "a least 100 health units, you have the", "privilege of getting revenge on Flakey.", "", "Smiley is normally a mild-mannered soul.", "He does not wish to harm other people.  If", "you want to make an exception this time,", "", {"choice": "doit", "text": "press enter here."}])) return z.GOTO;
+    z.say(o, ["Since you have finished the adventure with", "a least 100 health units, you have the", "privilege of getting revenge on Flakey.", "", "Smiley is normally a mild-mannered soul.", "He does not wish to harm other people.  If", "you want to make an exception this time,", "", {"choice": "doit", "text": "press enter here."}]);
     // #END
     return z.END;
   },
@@ -15582,7 +15582,7 @@ P[418] = {
     // Would you believe he has been carrying
     // the shovel all this time?  He tosses the
     // slime at Flakey.
-    await z.say(o, ["Smiley shows a shovel full of toxic slime.", "Would you believe he has been carrying", "the shovel all this time?  He tosses the", "slime at Flakey."]);
+    z.say(o, ["Smiley shows a shovel full of toxic slime.", "Would you believe he has been carrying", "the shovel all this time?  He tosses the", "slime at Flakey."]);
     // /I/I
     await z.idle(o);
     await z.idle(o);
@@ -15740,7 +15740,7 @@ P[418] = {
     //
     // Instead, you can only smile and walk
     // away.
-    await z.say(o, ["Had you finished the adventure with at", "least 100 health units, you would have", "had the privilege of getting revenge on", "Flakey.  ", "", "Instead, you can only smile and walk", "away."]);
+    z.say(o, ["Had you finished the adventure with at", "least 100 health units, you would have", "had the privilege of getting revenge on", "Flakey.  ", "", "Instead, you can only smile and walk", "away."]);
     // /I/I
     await z.idle(o);
     await z.idle(o);
@@ -15756,7 +15756,7 @@ P[418] = {
     // #PLAY 050590505
     z.play("050590505");
     // "Nah, nah, you missed."
-    await z.say(o, ["\"Nah, nah, you missed.\""]);
+    z.say(o, ["\"Nah, nah, you missed.\""]);
     // #END 
     return z.END;
   },
@@ -15794,7 +15794,7 @@ P[419] = {
     // "To get your official SWAC Force 
     // membership card, move to the screen on
     // your right."
-    await z.say(o, ["Alone together in the quiet shadows at", "Pristine's place, Pristine moves close ", ". . . very close . . . to Smiley.", " ", "She purrs, \"Smiley Guy, you're my guy!\"", "", "\"To get your official SWAC Force ", "membership card, move to the screen on", "your right.\""]);
+    z.say(o, ["Alone together in the quiet shadows at", "Pristine's place, Pristine moves close ", ". . . very close . . . to Smiley.", " ", "She purrs, \"Smiley Guy, you're my guy!\"", "", "\"To get your official SWAC Force ", "membership card, move to the screen on", "your right.\""]);
     // #END
     return z.END;
   },
@@ -15823,7 +15823,7 @@ P[420] = {
     // "But, I will let you have 100 bonus points
     // and some extra health," he adds as he
     // runs from the tunnel.
-    await z.say(o, ["Flakey looks down at Smiley and snarls,", "\"No gems leave the warped zone.\"", "", "\"But, I will let you have 100 bonus points", "and some extra health,\" he adds as he", "runs from the tunnel."]);
+    z.say(o, ["Flakey looks down at Smiley and snarls,", "\"No gems leave the warped zone.\"", "", "\"But, I will let you have 100 bonus points", "and some extra health,\" he adds as he", "runs from the tunnel."]);
     // /I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -15854,7 +15854,7 @@ P[420] = {
     // #PLAY 050590505
     z.play("050590505");
     // "Nah, nah, you missed."
-    await z.say(o, ["\"Nah, nah, you missed.\""]);
+    z.say(o, ["\"Nah, nah, you missed.\""]);
     // #END
     return z.END;
   },
@@ -15905,7 +15905,7 @@ P[422] = {
     // wrong game.  These here are gems.  They
     // just look like power crystals.  Besides,
     // I ain't going to let you keep them."
-    await z.say(o, ["Eight-foot tall Flakey shouts from the", "other end of the tunnel, \"You're in the", "wrong game.  These here are gems.  They", "just look like power crystals.  Besides,", "I ain't going to let you keep them.\""]);
+    z.say(o, ["Eight-foot tall Flakey shouts from the", "other end of the tunnel, \"You're in the", "wrong game.  These here are gems.  They", "just look like power crystals.  Besides,", "I ain't going to let you keep them.\""]);
     // #DIE
     return z.die(o);
   },
@@ -16018,7 +16018,7 @@ P[425] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ8:DIE
     if (await z.send(o, "fizz8", "die")) return z.GOTO;
     // #SEND FIZZ8:DIE
@@ -16092,7 +16092,7 @@ P[427] = {
     // #PLAY Q89
     z.play("Q89");
     // "Yum.  Sugar water."
-    await z.say(o, ["\"Yum.  Sugar water.\""]);
+    z.say(o, ["\"Yum.  Sugar water.\""]);
     // #SEND FIZZ6:DIE
     if (await z.send(o, "fizz6", "die")) return z.GOTO;
     // #SEND FIZZ6:DIE
@@ -16193,7 +16193,7 @@ P[429] = {
     // to the graphic symbols used on the screen.
     //
     // The adventure ends with 100 bonus points.
-    await z.say(o, ["By completing the adventure, you qualify", "for membership in the elite SWAC Force.", "Print the screen to receive your ", "membership card.  If your printer allows", "it, use a symbol set which corresponds", "to the graphic symbols used on the screen.", "", "The adventure ends with 100 bonus points."]);
+    z.say(o, ["By completing the adventure, you qualify", "for membership in the elite SWAC Force.", "Print the screen to receive your ", "membership card.  If your printer allows", "it, use a symbol set which corresponds", "to the graphic symbols used on the screen.", "", "The adventure ends with 100 bonus points."]);
     // #GIVE SCORE 100
     z.give("score", 100);
     // /I/I/I/I/I/I
@@ -16204,7 +16204,7 @@ P[429] = {
     await z.idle(o);
     await z.idle(o);
     // Keep smiling, guy.
-    await z.say(o, ["Keep smiling, guy."]);
+    z.say(o, ["Keep smiling, guy."]);
     // /I/I/I/I/I/I/I
     await z.idle(o);
     await z.idle(o);
@@ -16292,7 +16292,7 @@ P[431] = {
     // Smiley groans.  "Ugh, " he says.  "Z is
     // bad enough.  Now, Flakey?  This is too
     // much."
-    await z.say(o, ["The announcer on the television says,", "\"A space craft is orbiting Earth.  It is", "broadcasting a message from someone who", "calls himself Dr. Z.  He says Earth should", "surrender or face destruction from the", "Toxic Terminator, whatever that is.", "", "\"For tuning in today, you get 100 bonus", "points.  The news is brought to you by", "Flakey's Discount Bargains.\"", "", "Smiley groans.  \"Ugh, \" he says.  \"Z is", "bad enough.  Now, Flakey?  This is too", "much.\""]);
+    z.say(o, ["The announcer on the television says,", "\"A space craft is orbiting Earth.  It is", "broadcasting a message from someone who", "calls himself Dr. Z.  He says Earth should", "surrender or face destruction from the", "Toxic Terminator, whatever that is.", "", "\"For tuning in today, you get 100 bonus", "points.  The news is brought to you by", "Flakey's Discount Bargains.\"", "", "Smiley groans.  \"Ugh, \" he says.  \"Z is", "bad enough.  Now, Flakey?  This is too", "much.\""]);
     // #GIVE SCORE 100
     z.give("score", 100);
     // #DIE
@@ -16326,7 +16326,7 @@ P[432] = {
     // Here's 100 bonus points for finding 
     // ANOTHER hidden room.
     //
-    await z.say(o, ["Here's 100 bonus points for finding ", "ANOTHER hidden room."]);
+    z.say(o, ["Here's 100 bonus points for finding ", "ANOTHER hidden room."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
   },
@@ -16336,7 +16336,7 @@ P[432] = {
     // "So you don't go crazy, there's only
     // two hidden rooms here.  If you found this,
     // you found the second room."
-    await z.say(o, ["A note reads,", "\"So you don't go crazy, there's only", "two hidden rooms here.  If you found this,", "you found the second room.\""]);
+    z.say(o, ["A note reads,", "\"So you don't go crazy, there's only", "two hidden rooms here.  If you found this,", "you found the second room.\""]);
     // #RESTART
     return z.RESTART;
   },
@@ -16365,7 +16365,7 @@ P[433] = {
     //
     // The Guy notices the fake heart is taking
     // on a life of its own.
-    await z.say(o, ["It's a rubber heart.", "", "\"What a fake from a flake!\"  exclaims", "Smiley.  \"This creep is pushing off", "worthless junk.\"", "", "The Guy notices the fake heart is taking", "on a life of its own."]);
+    z.say(o, ["It's a rubber heart.", "", "\"What a fake from a flake!\"  exclaims", "Smiley.  \"This creep is pushing off", "worthless junk.\"", "", "The Guy notices the fake heart is taking", "on a life of its own."]);
     // #ZAP TOUCH
     z.zap(o, "TOUCH");
     // #CYCLE 1
@@ -16477,7 +16477,7 @@ P[434] = {
     // Smiley met The Flake once before inside
     // the Living Labs.  He knows Flakey has
     // nothing for free.
-    await z.say(o, ["Smiley cringes to find an old nemesis", "doing business at the edge of Sunny Dale", "Park.", "", "The sign says, \"The store is open.  But", "I (that's me, Flakey, har, har) am not", "here right now.  My slogan is, 'A raw deal", "is better than no deal at all.'  Help", "yourself.\"", "", "Smiley met The Flake once before inside", "the Living Labs.  He knows Flakey has", "nothing for free."]);
+    z.say(o, ["Smiley cringes to find an old nemesis", "doing business at the edge of Sunny Dale", "Park.", "", "The sign says, \"The store is open.  But", "I (that's me, Flakey, har, har) am not", "here right now.  My slogan is, 'A raw deal", "is better than no deal at all.'  Help", "yourself.\"", "", "Smiley met The Flake once before inside", "the Living Labs.  He knows Flakey has", "nothing for free."]);
     // #END
     return z.END;
   },
@@ -16509,7 +16509,7 @@ P[435] = {
     // #GIVE SCORE 100
     z.give("score", 100);
     // 100 bonus points
-    await z.say(o, ["100 bonus points"]);
+    z.say(o, ["100 bonus points"]);
     // #DIE
     return z.die(o);
   },
@@ -16547,7 +16547,7 @@ P[436] = {
     // !HEART;"Do I need the rubber heart?"
     //
     // !BOMB;"How do you beat the bomb?"
-    if (await z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Flakey is not in.  You may see him later.", "", "Flakey has set the Help to extract nine", "health units for answering each of the", "following questions:", "", {"choice": "heart", "text": "\"Do I need the rubber heart?\""}, "", {"choice": "bomb", "text": "\"How do you beat the bomb?\""}])) return z.GOTO;
+    z.say(o, [{"text": "▀▀▀▀▀  ▒▓ ▓▒", "align": "center"}, {"text": "HINTS  ▒▓█▓▒", "align": "center"}, {"text": "▄▄▄▄▄  ▒▓ ▓▒", "align": "center"}, "", "Flakey is not in.  You may see him later.", "", "Flakey has set the Help to extract nine", "health units for answering each of the", "following questions:", "", {"choice": "heart", "text": "\"Do I need the rubber heart?\""}, "", {"choice": "bomb", "text": "\"How do you beat the bomb?\""}]);
     // #END
     return z.END;
   },
@@ -16561,7 +16561,7 @@ P[436] = {
     }
     // Leave it alone.  It's just to let you
     // know something about Flakey.
-    await z.say(o, ["Leave it alone.  It's just to let you", "know something about Flakey."]);
+    z.say(o, ["Leave it alone.  It's just to let you", "know something about Flakey."]);
     // #END
     return z.END;
   },
@@ -16577,7 +16577,7 @@ P[436] = {
     // easier way.
     //
     // !CLOSE;"Still caught."
-    if (await z.say(o, ["You could try racing it, but there is an", "easier way.", "", {"choice": "close", "text": "\"Still caught.\""}])) return z.GOTO;
+    z.say(o, ["You could try racing it, but there is an", "easier way.", "", {"choice": "close", "text": "\"Still caught.\""}]);
     // #END
     return z.END;
   },
@@ -16585,7 +16585,7 @@ P[436] = {
     // :CLOSE
     // (Free help, har, har)
     // Find the safe spots.
-    await z.say(o, ["(Free help, har, har)", "Find the safe spots."]);
+    z.say(o, ["(Free help, har, har)", "Find the safe spots."]);
     // #END
     return z.END;
   },
@@ -16794,7 +16794,7 @@ P[444] = {
     //
     // "Oh, well," Smiley thinks.  "There's
     // nothing above me but my quiet back yard."
-    await z.say(o, ["A photograph lies on a rock shelf.  The", "picture shows a green blob that looks ", "something like mucus.", "", "Smiley takes the photo.", "", "He looks around.  The rock walls keep him", "from going further.", "", "\"Oh, well,\" Smiley thinks.  \"There's", "nothing above me but my quiet back yard.\""]);
+    z.say(o, ["A photograph lies on a rock shelf.  The", "picture shows a green blob that looks ", "something like mucus.", "", "Smiley takes the photo.", "", "He looks around.  The rock walls keep him", "from going further.", "", "\"Oh, well,\" Smiley thinks.  \"There's", "nothing above me but my quiet back yard.\""]);
     // #SEND PHOTO1:DIE
     if (await z.send(o, "photo1", "die")) return z.GOTO;
     // #DIE

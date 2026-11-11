@@ -55,14 +55,14 @@ P[2] = {
     // given a reward.
     // !x1;Kiss Chulmir's brow.
     // !x2;Leave.
-    if (await z.say(o, ["    This is the statue of Chulmir.It is", "said that those that kiss his brow are ", "given a reward.", {"choice": "x1", "text": "Kiss Chulmir's brow."}, {"choice": "x2", "text": "Leave."}])) return z.GOTO;
+    z.say(o, ["    This is the statue of Chulmir.It is", "said that those that kiss his brow are ", "given a reward.", {"choice": "x1", "text": "Kiss Chulmir's brow."}, {"choice": "x2", "text": "Leave."}]);
     // #end
     return z.END;
   },
   async function on_x1(o, z) {
     // :x1
     // You are granted 20 gems!
-    await z.say(o, ["You are granted 20 gems!"]);
+    z.say(o, ["You are granted 20 gems!"]);
     // #give gems 20
     z.give("gems", 20);
     // #zap touch
@@ -78,7 +78,7 @@ P[2] = {
   async function on_touch_2(o, z) {
     // :touch 
     // The statue will grant you no more gems.
-    await z.say(o, ["The statue will grant you no more gems."]);
+    z.say(o, ["The statue will grant you no more gems."]);
     // #end
     return z.END;
   },
@@ -103,7 +103,7 @@ P[3] = {
     // Lucius's arsenal.Dynamite is stored within
     // and can explode on contact!No torches
     // beyond this point!
-    await z.say(o, ["    Beware:Beyond this wall lies King ", "Lucius's arsenal.Dynamite is stored within", "and can explode on contact!No torches", "beyond this point!"]);
+    z.say(o, ["    Beware:Beyond this wall lies King ", "Lucius's arsenal.Dynamite is stored within", "and can explode on contact!No torches", "beyond this point!"]);
     // #end
     return z.END;
   },
@@ -126,7 +126,7 @@ P[4] = {
     // :touch
     //      Beware:In these woods lies the bear
     // cave!
-    await z.say(o, ["     Beware:In these woods lies the bear", "cave!"]);
+    z.say(o, ["     Beware:In these woods lies the bear", "cave!"]);
     // #end
     return z.END;
   },
@@ -148,7 +148,7 @@ P[5] = {
   async function on_touch(o, z) {
     // :touch
     // The Skeleton of a dead explorer!
-    await z.say(o, ["The Skeleton of a dead explorer!"]);
+    z.say(o, ["The Skeleton of a dead explorer!"]);
     // #end
     return z.END;
   },
@@ -170,7 +170,7 @@ P[6] = {
   async function on_touch(o, z) {
     // :touch
     // You set off the dynamite!
-    await z.say(o, ["You set off the dynamite!"]);
+    z.say(o, ["You set off the dynamite!"]);
     // #take energy 5
     z.take("energy", 5);
     // #die
@@ -179,7 +179,7 @@ P[6] = {
   async function on_shot(o, z) {
     // :shot
     // You set off the dynamite!
-    await z.say(o, ["You set off the dynamite!"]);
+    z.say(o, ["You set off the dynamite!"]);
     // #die
     return z.die(o);
     // #end
@@ -220,7 +220,7 @@ P[8] = {
     // Worthy lives on!It speaks to you:
     // "Hold,thief!Thou shalt not my emeralds 
     // steal!Perish at my hands!"
-    await z.say(o, ["    The spectral form of greedy Duke ", "Worthy lives on!It speaks to you:", "\"Hold,thief!Thou shalt not my emeralds ", "steal!Perish at my hands!\""]);
+    z.say(o, ["    The spectral form of greedy Duke ", "Worthy lives on!It speaks to you:", "\"Hold,thief!Thou shalt not my emeralds ", "steal!Perish at my hands!\""]);
     // #Shoot seek
     z.shoot(o, "seek", false);
     // #shoot seek
@@ -257,7 +257,7 @@ P[9] = {
     // I beg of thee to take all of his blasted
     // emeralds so our souls can finally rest in
     // peace!"
-    await z.say(o, ["     The ghostly form of the once ", "beautiful Duchess Worthy appears before", "you!She speaks to you:", "\"In the hall south of the training room,", "at the far western end,push south on the ", "wall.You will be in Duke Worthy's ", "treasure chamber.He wishes to gaurd his", "gems eternally,and I cannot continue on to", "the spirit world and leave him here,alone.", "I beg of thee to take all of his blasted", "emeralds so our souls can finally rest in", "peace!\""]);
+    z.say(o, ["     The ghostly form of the once ", "beautiful Duchess Worthy appears before", "you!She speaks to you:", "\"In the hall south of the training room,", "at the far western end,push south on the ", "wall.You will be in Duke Worthy's ", "treasure chamber.He wishes to gaurd his", "gems eternally,and I cannot continue on to", "the spirit world and leave him here,alone.", "I beg of thee to take all of his blasted", "emeralds so our souls can finally rest in", "peace!\""]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -268,7 +268,7 @@ P[9] = {
     //      "Please,I trust in thee to do what 
     // must be done!Allow my husband and I to 
     // rest in peace,I beg of thee!"
-    await z.say(o, ["     \"Please,I trust in thee to do what ", "must be done!Allow my husband and I to ", "rest in peace,I beg of thee!\""]);
+    z.say(o, ["     \"Please,I trust in thee to do what ", "must be done!Allow my husband and I to ", "rest in peace,I beg of thee!\""]);
     // #end 
     return z.END;
   },
@@ -290,7 +290,7 @@ P[10] = {
   async function on_touch(o, z) {
     // :touch
     // This way to Duke Worthy's treasury.
-    await z.say(o, ["This way to Duke Worthy's treasury."]);
+    z.say(o, ["This way to Duke Worthy's treasury."]);
     // #end
     return z.END;
   },
@@ -312,7 +312,7 @@ P[11] = {
   async function on_touch(o, z) {
     // :touch
     // This way to dining hall.
-    await z.say(o, ["This way to dining hall."]);
+    z.say(o, ["This way to dining hall."]);
     // #end
     return z.END;
   },
@@ -334,7 +334,7 @@ P[12] = {
   async function on_touch(o, z) {
     // :touch
     // This way to training room.
-    await z.say(o, ["This way to training room."]);
+    z.say(o, ["This way to training room."]);
     // #end
     return z.END;
   },
@@ -357,7 +357,7 @@ P[13] = {
     // :touch
     //      Magically heated ovens.
     // Beware:Contents explosive!
-    await z.say(o, ["     Magically heated ovens.", "Beware:Contents explosive!"]);
+    z.say(o, ["     Magically heated ovens.", "Beware:Contents explosive!"]);
     // #end
     return z.END;
   },
@@ -379,7 +379,7 @@ P[14] = {
   async function on_touch(o, z) {
     // :touch
     // This way to kitchen.
-    await z.say(o, ["This way to kitchen."]);
+    z.say(o, ["This way to kitchen."]);
     // #end
     return z.END;
   },
@@ -465,7 +465,7 @@ P[19] = {
   async function on_touch(o, z) {
     // :touch
     // Ouch!Boiling Oil!!
-    await z.say(o, ["Ouch!Boiling Oil!!"]);
+    z.say(o, ["Ouch!Boiling Oil!!"]);
     // #shoot seek
     z.shoot(o, "seek", false);
     // #end
@@ -489,7 +489,7 @@ P[20] = {
   async function on_touch(o, z) {
     // :touch
     // Up.
-    await z.say(o, ["Up."]);
+    z.say(o, ["Up."]);
     // #end
     return z.END;
   },
@@ -511,7 +511,7 @@ P[21] = {
   async function on_touch(o, z) {
     // :touch
     // Down.
-    await z.say(o, ["Down."]);
+    z.say(o, ["Down."]);
     // #end
     return z.END;
   },
@@ -535,11 +535,11 @@ P[22] = {
     // #play 2x2x2x2x2x2x2x2x2x2
     z.play("2x2x2x2x2x2x2x2x2x2");
     // #change sliderns fake wall
-    z.rt.unsupported("#change", "#change sliderns fake wall");
+    z.change(null, "sliderns", null, "fake");
     // #play 2x2x2x2x2x2
     z.play("2x2x2x2x2x2");
     // #change sliderew fake wall
-    z.rt.unsupported("#change", "#change sliderew fake wall");
+    z.change(null, "sliderew", null, "fake");
     // #end
     return z.END;
   },
@@ -564,7 +564,7 @@ P[23] = {
     // "Art thou such a coward as to take the 
     // test only because thou couldst be safe?
     // Surely thou dost not deserve to live!"
-    await z.say(o, ["     A voice booms through the chamber:", "\"Art thou such a coward as to take the ", "test only because thou couldst be safe?", "Surely thou dost not deserve to live!\""]);
+    z.say(o, ["     A voice booms through the chamber:", "\"Art thou such a coward as to take the ", "test only because thou couldst be safe?", "Surely thou dost not deserve to live!\""]);
     // #endgame
     z.endgame(o);
   },
@@ -590,7 +590,7 @@ P[24] = {
     // and found it not so difficult as it may
     // first have appeared.Thou art truly a brave
     // warrior!"
-    await z.say(o, ["     A voice booms through the chamber:", "\"Congratulations,thou hast taken the test", "and found it not so difficult as it may", "first have appeared.Thou art truly a brave", "warrior!\""]);
+    z.say(o, ["     A voice booms through the chamber:", "\"Congratulations,thou hast taken the test", "and found it not so difficult as it may", "first have appeared.Thou art truly a brave", "warrior!\""]);
     // #give score 1000
     z.give("score", 1000);
     // #give energy 50
@@ -630,7 +630,7 @@ P[25] = {
     // !x2;9-4-3
     // !x3;1-3-5
     // !x4;5-6-2
-    if (await z.say(o, ["     This is the locked strongbox that ", "contains the armory's profits.Do you know", "the combination?", {"choice": "x1", "text": "6-2-7"}, {"choice": "x2", "text": "9-4-3"}, {"choice": "x3", "text": "1-3-5"}, {"choice": "x4", "text": "5-6-2"}])) return z.GOTO;
+    z.say(o, ["     This is the locked strongbox that ", "contains the armory's profits.Do you know", "the combination?", {"choice": "x1", "text": "6-2-7"}, {"choice": "x2", "text": "9-4-3"}, {"choice": "x3", "text": "1-3-5"}, {"choice": "x4", "text": "5-6-2"}]);
     // #end
     return z.END;
   },
@@ -638,7 +638,7 @@ P[25] = {
     // :x1
     // Wrong combination!You trigger a trap on
     // the chest!
-    await z.say(o, ["Wrong combination!You trigger a trap on", "the chest!"]);
+    z.say(o, ["Wrong combination!You trigger a trap on", "the chest!"]);
     // #shoot seek
     z.shoot(o, "seek", false);
     // #end
@@ -648,7 +648,7 @@ P[25] = {
     // :x2
     // Wrong combination!You trigger a trap on
     // the chest!
-    await z.say(o, ["Wrong combination!You trigger a trap on", "the chest!"]);
+    z.say(o, ["Wrong combination!You trigger a trap on", "the chest!"]);
     // #shoot seek
     z.shoot(o, "seek", false);
     // #end
@@ -657,7 +657,7 @@ P[25] = {
   async function on_x3(o, z) {
     // :x3
     // Click!The chest pops open!10 gems!
-    await z.say(o, ["Click!The chest pops open!10 gems!"]);
+    z.say(o, ["Click!The chest pops open!10 gems!"]);
     // #give gems 10
     z.give("gems", 10);
     // #zap touch
@@ -669,7 +669,7 @@ P[25] = {
     // :x4
     // Wrong combination!You trigger a trap on
     // the chest!
-    await z.say(o, ["Wrong combination!You trigger a trap on", "the chest!"]);
+    z.say(o, ["Wrong combination!You trigger a trap on", "the chest!"]);
     // #shoot seek
     z.shoot(o, "seek", false);
     // #end
@@ -678,7 +678,7 @@ P[25] = {
   async function on_touch_2(o, z) {
     // :touch
     // The chest is empty.
-    await z.say(o, ["The chest is empty."]);
+    z.say(o, ["The chest is empty."]);
     // #end
     return z.END;
   },
@@ -700,7 +700,7 @@ P[26] = {
   async function on_touch(o, z) {
     // :touch
     // This is just a rusty old helmet.
-    await z.say(o, ["This is just a rusty old helmet."]);
+    z.say(o, ["This is just a rusty old helmet."]);
     // #end
     return z.END;
   },
@@ -722,7 +722,7 @@ P[27] = {
   async function on_touch(o, z) {
     // :touch
     // This is an old shield.
-    await z.say(o, ["This is an old shield."]);
+    z.say(o, ["This is an old shield."]);
     // #end
     return z.END;
   },
@@ -744,7 +744,7 @@ P[28] = {
   async function on_touch(o, z) {
     // :touch
     // This is a suit of rusted armor.
-    await z.say(o, ["This is a suit of rusted armor."]);
+    z.say(o, ["This is a suit of rusted armor."]);
     // #end
     return z.END;
   },
@@ -787,7 +787,7 @@ P[30] = {
     // system?"
     // !x1;Yes
     // !x2;No
-    if (await z.say(o, ["     A mechanical skeleton is standing ", "against the wall here.As you approach it,", "the eyes light up and it says:", "\"Do you wish me to negate the security ", "system?\"", {"choice": "x1", "text": "Yes"}, {"choice": "x2", "text": "No"}])) return z.GOTO;
+    z.say(o, ["     A mechanical skeleton is standing ", "against the wall here.As you approach it,", "the eyes light up and it says:", "\"Do you wish me to negate the security ", "system?\"", {"choice": "x1", "text": "Yes"}, {"choice": "x2", "text": "No"}]);
     // #end
     return z.END;
   },
@@ -838,7 +838,7 @@ P[30] = {
     // post at the doorway,now?"
     // !x3;Yes
     // !x4;No
-    if (await z.say(o, ["     \"Would you like me to return to my ", "post at the doorway,now?\"", {"choice": "x3", "text": "Yes"}, {"choice": "x4", "text": "No"}])) return z.GOTO;
+    z.say(o, ["     \"Would you like me to return to my ", "post at the doorway,now?\"", {"choice": "x3", "text": "Yes"}, {"choice": "x4", "text": "No"}]);
     // #end
     return z.END;
   },
@@ -882,7 +882,7 @@ P[30] = {
     // at the doorway,now?"
     // !x5;Yes
     // !x6;No
-    if (await z.say(o, ["     \"Do you want me to return to my post", "at the doorway,now?\"", {"choice": "x5", "text": "Yes"}, {"choice": "x6", "text": "No"}])) return z.GOTO;
+    z.say(o, ["     \"Do you want me to return to my post", "at the doorway,now?\"", {"choice": "x5", "text": "Yes"}, {"choice": "x6", "text": "No"}]);
     // #end
     return z.END;
   },
@@ -957,7 +957,7 @@ P[32] = {
   async function on_touch(o, z) {
     // :touch
     // This is a fake key!
-    await z.say(o, ["This is a fake key!"]);
+    z.say(o, ["This is a fake key!"]);
     // #end
     return z.END;
   },
@@ -1056,7 +1056,7 @@ P[33] = {
     // In a hideous concert of grinding,sparking
     // metal,the robotic skeleton falls to the 
     // ground,functioning no more!
-    await z.say(o, ["In a hideous concert of grinding,sparking", "metal,the robotic skeleton falls to the ", "ground,functioning no more!"]);
+    z.say(o, ["In a hideous concert of grinding,sparking", "metal,the robotic skeleton falls to the ", "ground,functioning no more!"]);
     // #give score 200
     z.give("score", 200);
     // #die
@@ -1156,14 +1156,14 @@ P[36] = {
     // !x5; 8
     // !x6; 10
     // !x7; 13
-    if (await z.say(o, ["     There is a face etched into this wall", "and as you approach,its features spring to", "life!", "\"I suppose you want to enter the storage ", "room?Well,to do so,you must tell me how ", "many FAKE red keys there are on the third", "floor.Any guesses?", {"choice": "x1", "text": " 1"}, {"choice": "x2", "text": " 2"}, {"choice": "x3", "text": " 4"}, {"choice": "x4", "text": " 5"}, {"choice": "x5", "text": " 8"}, {"choice": "x6", "text": " 10"}, {"choice": "x7", "text": " 13"}])) return z.GOTO;
+    z.say(o, ["     There is a face etched into this wall", "and as you approach,its features spring to", "life!", "\"I suppose you want to enter the storage ", "room?Well,to do so,you must tell me how ", "many FAKE red keys there are on the third", "floor.Any guesses?", {"choice": "x1", "text": " 1"}, {"choice": "x2", "text": " 2"}, {"choice": "x3", "text": " 4"}, {"choice": "x4", "text": " 5"}, {"choice": "x5", "text": " 8"}, {"choice": "x6", "text": " 10"}, {"choice": "x7", "text": " 13"}]);
     // #end
     return z.END;
   },
   async function on_x1(o, z) {
     // :x1
     // You are incorrect.
-    await z.say(o, ["You are incorrect."]);
+    z.say(o, ["You are incorrect."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -1172,7 +1172,7 @@ P[36] = {
   async function on_x2(o, z) {
     // :x2
     // You are incorrect.
-    await z.say(o, ["You are incorrect."]);
+    z.say(o, ["You are incorrect."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -1181,7 +1181,7 @@ P[36] = {
   async function on_x3(o, z) {
     // :x3
     // You are incorrect.
-    await z.say(o, ["You are incorrect."]);
+    z.say(o, ["You are incorrect."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -1190,7 +1190,7 @@ P[36] = {
   async function on_x4(o, z) {
     // :x4
     // You are incorrect.
-    await z.say(o, ["You are incorrect."]);
+    z.say(o, ["You are incorrect."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -1199,7 +1199,7 @@ P[36] = {
   async function on_x5(o, z) {
     // :x5
     // You are incorrect.
-    await z.say(o, ["You are incorrect."]);
+    z.say(o, ["You are incorrect."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -1208,14 +1208,14 @@ P[36] = {
   async function on_x6(o, z) {
     // :x6
     // That's right!You may enter!
-    await z.say(o, ["That's right!You may enter!"]);
+    z.say(o, ["That's right!You may enter!"]);
     // #die
     return z.die(o);
   },
   async function on_x7(o, z) {
     // :x7
     // You are incorrect.
-    await z.say(o, ["You are incorrect."]);
+    z.say(o, ["You are incorrect."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -1227,7 +1227,7 @@ P[36] = {
     // guess again.If you didn't know before,I'm
     // not supposed to let you go count the keys
     // and THEN guess again.Sorry."
-    await z.say(o, ["     \"I'm afraid I can't allow you to ", "guess again.If you didn't know before,I'm", "not supposed to let you go count the keys", "and THEN guess again.Sorry.\""]);
+    z.say(o, ["     \"I'm afraid I can't allow you to ", "guess again.If you didn't know before,I'm", "not supposed to let you go count the keys", "and THEN guess again.Sorry.\""]);
     // #end
     return z.END;
   },
@@ -1267,7 +1267,7 @@ P[38] = {
     // projected a field of light around Agumat.
     // Try as you might,you cannot penetrate the
     // white field.
-    await z.say(o, ["     The three pyramidal generators have", "projected a field of light around Agumat.", "Try as you might,you cannot penetrate the", "white field."]);
+    z.say(o, ["     The three pyramidal generators have", "projected a field of light around Agumat.", "Try as you might,you cannot penetrate the", "white field."]);
     // #end
     return z.END;
   },
@@ -1287,7 +1287,7 @@ P[38] = {
     // #set agumat
     z.rt.setFlag("agumat");
     // You know have the holy sword,Agumat!
-    await z.say(o, ["You know have the holy sword,Agumat!"]);
+    z.say(o, ["You know have the holy sword,Agumat!"]);
     // #give score 10000
     z.give("score", 10000);
     // #die 
@@ -1315,14 +1315,14 @@ P[39] = {
     // light from the rainbow walls.Currently,it
     // is on.
     // !x1;Shut rainbow generators off
-    if (await z.say(o, ["     This is the rainbow generator switch.", "It appears that it controls the flow of", "light from the rainbow walls.Currently,it", "is on.", {"choice": "x1", "text": "Shut rainbow generators off"}])) return z.GOTO;
+    z.say(o, ["     This is the rainbow generator switch.", "It appears that it controls the flow of", "light from the rainbow walls.Currently,it", "is on.", {"choice": "x1", "text": "Shut rainbow generators off"}]);
     // #end
     return z.END;
   },
   async function on_x1(o, z) {
     // :x1
     // You flip the switch.
-    await z.say(o, ["You flip the switch."]);
+    z.say(o, ["You flip the switch."]);
     // #char 243
     z.setChar(o, 243);
     // #zap touch
@@ -1398,7 +1398,7 @@ P[41] = {
     // blade down upon it and with a flash 
     // of blinding light,King Lucius is no
     // more.
-    await z.say(o, ["     You raise Agumat above you.The ", "king's ghost cringes.You bring the ", "blade down upon it and with a flash ", "of blinding light,King Lucius is no", "more."]);
+    z.say(o, ["     You raise Agumat above you.The ", "king's ghost cringes.You bring the ", "blade down upon it and with a flash ", "of blinding light,King Lucius is no", "more."]);
     // #send ender:endtime
     if (await z.send(o, "ender", "endtime")) return z.GOTO;
     // #die    
@@ -1430,7 +1430,7 @@ P[42] = {
     // finished and available,sometime early in
     // 1992.Be sure to look for it!Hail!
     // $-Eli (Avatar) Tremblay-
-    await z.say(o, [{"text": "CONGRATULATIONS!", "align": "center"}, "     You have finished The Castle of King", "Lucius module for the ZZT game!I hope you", "have enjoyed playing my module,and would", "like to inform you that the Scourge of ", "Sorania SuperZZT module is expected to be", "finished and available,sometime early in", "1992.Be sure to look for it!Hail!", {"text": "-Eli (Avatar) Tremblay-", "align": "center"}]);
+    z.say(o, [{"text": "CONGRATULATIONS!", "align": "center"}, "     You have finished The Castle of King", "Lucius module for the ZZT game!I hope you", "have enjoyed playing my module,and would", "like to inform you that the Scourge of ", "Sorania SuperZZT module is expected to be", "finished and available,sometime early in", "1992.Be sure to look for it!Hail!", {"text": "-Eli (Avatar) Tremblay-", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },

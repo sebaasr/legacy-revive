@@ -15,7 +15,7 @@ P[0] = {
   segments: [
   async function start(o, z) {
     // From the author of Stolen Gems,
-    await z.say(o, ["From the author of Stolen Gems,"]);
+    z.say(o, ["From the author of Stolen Gems,"]);
     // /i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -24,7 +24,7 @@ P[0] = {
     await z.idle(o);
     await z.idle(o);
     // The Lost Pyramid, and Space Trek, comes...
-    await z.say(o, ["The Lost Pyramid, and Space Trek, comes..."]);
+    z.say(o, ["The Lost Pyramid, and Space Trek, comes..."]);
     // /i/i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -34,38 +34,38 @@ P[0] = {
     await z.idle(o);
     await z.idle(o);
     // -=*            *=-
-    await z.say(o, ["-=*            *=-"]);
+    z.say(o, ["-=*            *=-"]);
     // /i
     await z.idle(o);
     // -=*      E     *=-
-    await z.say(o, ["-=*      E     *=-"]);
+    z.say(o, ["-=*      E     *=-"]);
     // /i
     await z.idle(o);
     // -=*     ER     *=-
-    await z.say(o, ["-=*     ER     *=-"]);
+    z.say(o, ["-=*     ER     *=-"]);
     // /i
     await z.idle(o);
     // -=*    ME R    *=-
-    await z.say(o, ["-=*    ME R    *=-"]);
+    z.say(o, ["-=*    ME R    *=-"]);
     // /i
     await z.idle(o);
     // -=*   IME RI   *=-
-    await z.say(o, ["-=*   IME RI   *=-"]);
+    z.say(o, ["-=*   IME RI   *=-"]);
     // /i
     await z.idle(o);
     // -=*  RIME RIN  *=-
-    await z.say(o, ["-=*  RIME RIN  *=-"]);
+    z.say(o, ["-=*  RIME RIN  *=-"]);
     // /i
     await z.idle(o);
     // -=* CRIME RING *=-
-    await z.say(o, ["-=* CRIME RING *=-"]);
+    z.say(o, ["-=* CRIME RING *=-"]);
     // /i/i/i/i
     await z.idle(o);
     await z.idle(o);
     await z.idle(o);
     await z.idle(o);
     // By James Holub
-    await z.say(o, ["By James Holub"]);
+    z.say(o, ["By James Holub"]);
     // /i/i/i/i/i/i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -79,7 +79,7 @@ P[0] = {
     await z.idle(o);
     await z.idle(o);
     // Where crime lurks...
-    await z.say(o, ["Where crime lurks..."]);
+    z.say(o, ["Where crime lurks..."]);
     // /i/i/i/i/i/i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -93,7 +93,7 @@ P[0] = {
     await z.idle(o);
     await z.idle(o);
     // ...around every street corner...
-    await z.say(o, ["...around every street corner..."]);
+    z.say(o, ["...around every street corner..."]);
     // /i/i/i/i/i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -106,7 +106,7 @@ P[0] = {
     await z.idle(o);
     await z.idle(o);
     // Good luck, dude...
-    await z.say(o, ["Good luck, dude..."]);
+    z.say(o, ["Good luck, dude..."]);
     // /i/i/i/i/i/i/i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -120,7 +120,7 @@ P[0] = {
     await z.idle(o);
     await z.idle(o);
     // You're gonna need it!
-    await z.say(o, ["You're gonna need it!"]);
+    z.say(o, ["You're gonna need it!"]);
     // #end
     return z.END;
   },
@@ -268,7 +268,7 @@ P[2] = {
     // #lock
     o.locked = true;
     // You open your apartment door.
-    await z.say(o, ["You open your apartment door."]);
+    z.say(o, ["You open your apartment door."]);
     // #play 0
     z.play("0");
     // #char 92
@@ -318,7 +318,7 @@ P[3] = {
   async function on_touch(o, z) {
     // :touch
     // It's locked.
-    await z.say(o, ["It's locked."]);
+    z.say(o, ["It's locked."]);
     // #end
     return z.END;
   },
@@ -362,7 +362,7 @@ P[5] = {
     // $Just fine...
     //
     // Great! Glad to hear it!
-    await z.say(o, ["Hi Jason! ", "", {"text": "Hello Mr. Roberts.", "align": "center"}, "", "How are things going at the station?!", "", {"text": "Just fine...", "align": "center"}, "", "Great! Glad to hear it!"]);
+    z.say(o, ["Hi Jason! ", "", {"text": "Hello Mr. Roberts.", "align": "center"}, "", "How are things going at the station?!", "", {"text": "Just fine...", "align": "center"}, "", "Great! Glad to hear it!"]);
     // #zap talk
     z.zap(o, "talk");
     // #end
@@ -375,7 +375,7 @@ P[5] = {
     // (he looks like he hasn't slept in days on
     // end. He has major bags under his eyes and
     // his breath has hints of alcohol on it.)
-    await z.say(o, ["Please, I have a lot of work to do...", "", "(he looks like he hasn't slept in days on", "end. He has major bags under his eyes and", "his breath has hints of alcohol on it.)"]);
+    z.say(o, ["Please, I have a lot of work to do...", "", "(he looks like he hasn't slept in days on", "end. He has major bags under his eyes and", "his breath has hints of alcohol on it.)"]);
     // #zap talk
     z.zap(o, "talk");
     // #end
@@ -386,7 +386,7 @@ P[5] = {
     // #play T-DEGACBEFD
     z.play("T-DEGACBEFD");
     // Go away!
-    await z.say(o, ["Go away!"]);
+    z.say(o, ["Go away!"]);
     // #end
     return z.END;
   },
@@ -412,7 +412,7 @@ P[6] = {
   async function on_touch(o, z) {
     // :touch
     // It's locked.
-    await z.say(o, ["It's locked."]);
+    z.say(o, ["It's locked."]);
     // #end
     return z.END;
   },
@@ -483,7 +483,7 @@ P[9] = {
       if (await z.send(o, "self", "x2")) return z.GOTO;
     }
     // In your mailbox you find nothing.
-    await z.say(o, ["In your mailbox you find nothing."]);
+    z.say(o, ["In your mailbox you find nothing."]);
     // #end
     return z.END;
   },
@@ -500,7 +500,7 @@ P[9] = {
     //
     //                         Your supierior,
     //                         Captain Brigsby"
-    await z.say(o, ["In your mailbox you find an envelope with", "a check for 50 bucks and a letter. The", "letter says:", "", " \"Good work, Jason! Without your help, we", "would never have captured Switchblade Sam.", "Here's a little bonus spending money for", "ya!", "", "                        Your supierior,", "                        Captain Brigsby\""]);
+    z.say(o, ["In your mailbox you find an envelope with", "a check for 50 bucks and a letter. The", "letter says:", "", " \"Good work, Jason! Without your help, we", "would never have captured Switchblade Sam.", "Here's a little bonus spending money for", "ya!", "", "                        Your supierior,", "                        Captain Brigsby\""]);
     // #give gems 50
     z.give("gems", 50);
     // #clear dayone
@@ -519,7 +519,7 @@ P[9] = {
     // Taped to the note is a red rose. The note
     // was just put in here, because the rose is
     // still fresh.
-    await z.say(o, ["You peer into your mailbox, and find a", "note:", "", " \"Get off this case, copper! This is a", "warning. -The Ring Leader\"", "", "Taped to the note is a red rose. The note", "was just put in here, because the rose is", "still fresh."]);
+    z.say(o, ["You peer into your mailbox, and find a", "note:", "", " \"Get off this case, copper! This is a", "warning. -The Ring Leader\"", "", "Taped to the note is a red rose. The note", "was just put in here, because the rose is", "still fresh."]);
     // #set rose
     z.rt.setFlag("rose");
     //
@@ -541,7 +541,7 @@ P[9] = {
     //
     // !send;Fill out the entry and send it in.
     // !toss;Forget it...
-    if (await z.say(o, ["You crinkle the note into a ball and stuff", "it into your pocket. Upon searching the", "mailbox some more, you come across a", "letter, which says:", "", " \"You have been chosen as one of this", "week's lucky winners to receive ONE of the", "following FABULOUS prizes:", "", {"text": "A NEW 1993 Coop daSilva!", "align": "center"}, {"text": "A luxary Victorian mansion!", "align": "center"}, {"text": "Precious jewelry worth over $100,000!", "align": "center"}, {"text": "A free chessburger deluxe at MacDonalds!", "align": "center"}, "", "Act FAST and send in your entry NOW!", "", {"choice": "send", "text": "Fill out the entry and send it in."}, {"choice": "toss", "text": "Forget it..."}])) return z.GOTO;
+    z.say(o, ["You crinkle the note into a ball and stuff", "it into your pocket. Upon searching the", "mailbox some more, you come across a", "letter, which says:", "", " \"You have been chosen as one of this", "week's lucky winners to receive ONE of the", "following FABULOUS prizes:", "", {"text": "A NEW 1993 Coop daSilva!", "align": "center"}, {"text": "A luxary Victorian mansion!", "align": "center"}, {"text": "Precious jewelry worth over $100,000!", "align": "center"}, {"text": "A free chessburger deluxe at MacDonalds!", "align": "center"}, "", "Act FAST and send in your entry NOW!", "", {"choice": "send", "text": "Fill out the entry and send it in."}, {"choice": "toss", "text": "Forget it..."}]);
     // #clear daytwo
     z.rt.clearFlag("daytwo");
     // #set capn
@@ -554,7 +554,7 @@ P[9] = {
     // You rip the envelope with the entry into
     // a zillion scraps and stuff them in your
     // pocket.
-    await z.say(o, ["You rip the envelope with the entry into", "a zillion scraps and stuff them in your", "pocket."]);
+    z.say(o, ["You rip the envelope with the entry into", "a zillion scraps and stuff them in your", "pocket."]);
     // #end
     return z.END;
   },
@@ -564,7 +564,7 @@ P[9] = {
     // put them into the included envelope. You
     // pull down the mail door and drop the
     // envelope in. You hope you win...
-    await z.say(o, ["You write out your name, address, etc. and", "put them into the included envelope. You", "pull down the mail door and drop the", "envelope in. You hope you win..."]);
+    z.say(o, ["You write out your name, address, etc. and", "put them into the included envelope. You", "pull down the mail door and drop the", "envelope in. You hope you win..."]);
     // #send entry
     if (await z.send(o, "self", "entry")) return z.GOTO;
     // #end
@@ -602,7 +602,7 @@ P[11] = {
   async function on_touch(o, z) {
     // :touch
     // It's locked.
-    await z.say(o, ["It's locked."]);
+    z.say(o, ["It's locked."]);
     // #end
     return z.END;
   },
@@ -831,7 +831,7 @@ P[17] = {
     // #lock
     o.locked = true;
     // You swing the closet door open.
-    await z.say(o, ["You swing the closet door open."]);
+    z.say(o, ["You swing the closet door open."]);
     // #play 0
     z.play("0");
     // #char 92
@@ -884,7 +884,7 @@ P[18] = {
   async function on_touch(o, z) {
     // :touch
     // The kitchen countertop.
-    await z.say(o, ["The kitchen countertop."]);
+    z.say(o, ["The kitchen countertop."]);
     // #end
     return z.END;
   },
@@ -919,7 +919,7 @@ P[20] = {
   async function on_touch(o, z) {
     // :touch
     // The kitchen trashcan.
-    await z.say(o, ["The kitchen trashcan."]);
+    z.say(o, ["The kitchen trashcan."]);
     // #end
     return z.END;
   },
@@ -942,7 +942,7 @@ P[21] = {
   async function on_touch(o, z) {
     // :touch
     // You enter the kitchen.
-    await z.say(o, ["You enter the kitchen."]);
+    z.say(o, ["You enter the kitchen."]);
     // #die
     return z.die(o);
   },
@@ -963,7 +963,7 @@ P[22] = {
   async function on_touch(o, z) {
     // :touch
     // You see your duel-tubbed kitchen sink.
-    await z.say(o, ["You see your duel-tubbed kitchen sink."]);
+    z.say(o, ["You see your duel-tubbed kitchen sink."]);
     // #end
     return z.END;
   },
@@ -984,7 +984,7 @@ P[23] = {
   async function on_touch(o, z) {
     // :touch
     // You enter the bathroom.
-    await z.say(o, ["You enter the bathroom."]);
+    z.say(o, ["You enter the bathroom."]);
     // #die
     return z.die(o);
   },
@@ -1013,7 +1013,7 @@ P[24] = {
     //
     // You relieve yourself from last night's
     // coffee...
-    await z.say(o, [{"text": "The Toilet", "align": "center"}, "", "You relieve yourself from last night's", "coffee..."]);
+    z.say(o, [{"text": "The Toilet", "align": "center"}, "", "You relieve yourself from last night's", "coffee..."]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -1021,7 +1021,7 @@ P[24] = {
     // #play T--EFGAAAAAAAAAAAGGGGFFFEEDDCC
     z.play("T--EFGAAAAAAAAAAAGGGGFFFEEDDCC");
     // <<FLUSH>>
-    await z.say(o, ["<<FLUSH>>"]);
+    z.say(o, ["<<FLUSH>>"]);
     // #unlock
     o.locked = false;
     // #end
@@ -1030,7 +1030,7 @@ P[24] = {
   async function on_touch_2(o, z) {
     // :touch
     // You don't have to go, stupid!
-    await z.say(o, ["You don't have to go, stupid!"]);
+    z.say(o, ["You don't have to go, stupid!"]);
     // #end
     return z.END;
   },
@@ -1052,7 +1052,7 @@ P[25] = {
   async function on_touch(o, z) {
     // :touch
     // You see your foam rubber pillow.
-    await z.say(o, ["You see your foam rubber pillow."]);
+    z.say(o, ["You see your foam rubber pillow."]);
     // #end
     return z.END;
   },
@@ -1092,7 +1092,7 @@ P[27] = {
       if (await z.send(o, "self", "sleep")) return z.GOTO;
     }
     // This is NOT the time to take a snooze!
-    await z.say(o, ["This is NOT the time to take a snooze!"]);
+    z.say(o, ["This is NOT the time to take a snooze!"]);
     // #end
     return z.END;
   },
@@ -1112,7 +1112,7 @@ P[27] = {
     // your teeth, comb your hair, etc. Then grab
     // your wallet and prepare for yet another
     // boring <NOT!> day at the station...
-    await z.say(o, ["This IS the time to take a snooze!", "", "<snore>..........<snore>...........", "", "8 hours later...", "", "You wake up, feeling refreshed! You brush", "your teeth, comb your hair, etc. Then grab", "your wallet and prepare for yet another", "boring <NOT!> day at the station..."]);
+    z.say(o, ["This IS the time to take a snooze!", "", "<snore>..........<snore>...........", "", "8 hours later...", "", "You wake up, feeling refreshed! You brush", "your teeth, comb your hair, etc. Then grab", "your wallet and prepare for yet another", "boring <NOT!> day at the station..."]);
     // #set daytwo
     z.rt.setFlag("daytwo");
     // #clear bedtime
@@ -1130,7 +1130,7 @@ P[27] = {
     // danger. You were suspended...
     //
     // $Game over.
-    await z.say(o, ["Uh oh! You didn't respond to the Carnival", "call! Neglecting to respond to an", "emergency call is putting the public in", "danger. You were suspended...", "", {"text": "Game over.", "align": "center"}]);
+    z.say(o, ["Uh oh! You didn't respond to the Carnival", "call! Neglecting to respond to an", "emergency call is putting the public in", "danger. You were suspended...", "", {"text": "Game over.", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -1168,7 +1168,7 @@ P[29] = {
     // Your dresser is stocked full of dirty
     // underwear. A strange scent rises from
     // within the drawer...
-    await z.say(o, ["Your dresser is stocked full of dirty", "underwear. A strange scent rises from", "within the drawer..."]);
+    z.say(o, ["Your dresser is stocked full of dirty", "underwear. A strange scent rises from", "within the drawer..."]);
     // #end
     return z.END;
   },
@@ -1205,7 +1205,7 @@ P[31] = {
     // :touch
     // Your green trench coat hangs in the
     // closet.
-    await z.say(o, ["Your green trench coat hangs in the", "closet."]);
+    z.say(o, ["Your green trench coat hangs in the", "closet."]);
     // #end
     return z.END;
   },
@@ -1227,7 +1227,7 @@ P[32] = {
   async function on_touch(o, z) {
     // :touch
     // The sofa.
-    await z.say(o, ["The sofa."]);
+    z.say(o, ["The sofa."]);
     // #end
     return z.END;
   },
@@ -1277,7 +1277,7 @@ P[35] = {
   async function on_touch(o, z) {
     // :touch
     // Your quite small but enjoyable TV set.
-    await z.say(o, ["Your quite small but enjoyable TV set."]);
+    z.say(o, ["Your quite small but enjoyable TV set."]);
     // #end
     return z.END;
   },
@@ -1304,7 +1304,7 @@ P[36] = {
     // grab your wallet and prepare to go to the
     // police station for another exciting (yawn)
     // day at the station...
-    await z.say(o, [{"text": "Crime Ring", "align": "center"}, "", "You are Jason J. Kule, Vice detective for", "the Casper City police. Waking up, you", "grab your wallet and prepare to go to the", "police station for another exciting (yawn)", "day at the station..."]);
+    z.say(o, [{"text": "Crime Ring", "align": "center"}, "", "You are Jason J. Kule, Vice detective for", "the Casper City police. Waking up, you", "grab your wallet and prepare to go to the", "police station for another exciting (yawn)", "day at the station..."]);
     // #set dayone
     z.rt.setFlag("dayone");
     // #die
@@ -1329,7 +1329,7 @@ P[37] = {
     // :touch
     // This is your thinking desk, where you sit
     // and think when you don't know something.
-    await z.say(o, ["This is your thinking desk, where you sit", "and think when you don't know something."]);
+    z.say(o, ["This is your thinking desk, where you sit", "and think when you don't know something."]);
     // #end
     return z.END;
   },
@@ -1364,7 +1364,7 @@ P[39] = {
   async function on_touch(o, z) {
     // :touch
     // Your thinking chair.
-    await z.say(o, ["Your thinking chair."]);
+    z.say(o, ["Your thinking chair."]);
     // #end
     return z.END;
   },
@@ -1386,7 +1386,7 @@ P[40] = {
   async function on_touch(o, z) {
     // :touch
     // A bush.
-    await z.say(o, ["A bush."]);
+    z.say(o, ["A bush."]);
     // #end
     return z.END;
   },
@@ -1418,7 +1418,7 @@ P[42] = {
     // You go cross-town to the station.
     //
     // (you are the red car)
-    await z.say(o, ["You go cross-town to the station.", "", "(you are the red car)"]);
+    z.say(o, ["You go cross-town to the station.", "", "(you are the red car)"]);
   },
   ],
 };
@@ -1488,7 +1488,7 @@ P[44] = {
   async function on_touch(o, z) {
     // :touch
     // There's nothing interesting that way.
-    await z.say(o, ["There's nothing interesting that way."]);
+    z.say(o, ["There's nothing interesting that way."]);
     // #end
     return z.END;
   },
@@ -1545,7 +1545,7 @@ P[47] = {
       if (await z.send(o, "self", "die")) return z.GOTO;
     }
     // You have no reason to go in your car!
-    await z.say(o, ["You have no reason to go in your car!"]);
+    z.say(o, ["You have no reason to go in your car!"]);
     // #end
     return z.END;
   },
@@ -1574,7 +1574,7 @@ P[48] = {
   async function on_touch(o, z) {
     // :touch
     // It's the key to the jail.
-    await z.say(o, ["It's the key to the jail."]);
+    z.say(o, ["It's the key to the jail."]);
     // #end
     return z.END;
   },
@@ -1677,7 +1677,7 @@ P[52] = {
     // #play 976
     z.play("976");
     // This is not your locker!
-    await z.say(o, ["This is not your locker!"]);
+    z.say(o, ["This is not your locker!"]);
     // #end
     return z.END;
   },
@@ -1721,7 +1721,7 @@ P[54] = {
     // #give ammo 10
     z.give("ammo", 10);
     // You found your locker!
-    await z.say(o, ["You found your locker!"]);
+    z.say(o, ["You found your locker!"]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -1731,7 +1731,7 @@ P[54] = {
     // #play 01
     z.play("01");
     // Inside you find your gun with 10 ammo...
-    await z.say(o, ["Inside you find your gun with 10 ammo..."]);
+    z.say(o, ["Inside you find your gun with 10 ammo..."]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -1741,7 +1741,7 @@ P[54] = {
     // #play 01
     z.play("01");
     // You close your locker...
-    await z.say(o, ["You close your locker..."]);
+    z.say(o, ["You close your locker..."]);
     // #zap touch
     z.zap(o, "touch");
     // #unlock
@@ -1752,7 +1752,7 @@ P[54] = {
   async function on_touch_2(o, z) {
     // :touch
     // There's nothing in your locker.
-    await z.say(o, ["There's nothing in your locker."]);
+    z.say(o, ["There's nothing in your locker."]);
     // #end
     return z.END;
   },
@@ -1776,7 +1776,7 @@ P[55] = {
     // This is your desk.
     //
     // $Your In/Out Basket is empty.
-    await z.say(o, ["This is your desk.", "", {"text": "Your In/Out Basket is empty.", "align": "center"}]);
+    z.say(o, ["This is your desk.", "", {"text": "Your In/Out Basket is empty.", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -1797,7 +1797,7 @@ P[56] = {
   async function on_touch(o, z) {
     // :touch
     // Your chair.
-    await z.say(o, ["Your chair."]);
+    z.say(o, ["Your chair."]);
     // #end
     return z.END;
   },
@@ -1821,7 +1821,7 @@ P[57] = {
     // Your telephone.
     //
     // !ca;Call someone.
-    if (await z.say(o, ["Your telephone.", "", {"choice": "ca", "text": "Call someone."}])) return z.GOTO;
+    z.say(o, ["Your telephone.", "", {"choice": "ca", "text": "Call someone."}]);
     // #end
     return z.END;
   },
@@ -1832,20 +1832,20 @@ P[57] = {
     // !op;The operator.
     // !wf;Your wife.
     // !ma;Make a prank call.
-    if (await z.say(o, ["Who?", "", {"choice": "op", "text": "The operator."}, {"choice": "wf", "text": "Your wife."}, {"choice": "ma", "text": "Make a prank call."}])) return z.GOTO;
+    z.say(o, ["Who?", "", {"choice": "op", "text": "The operator."}, {"choice": "wf", "text": "Your wife."}, {"choice": "ma", "text": "Make a prank call."}]);
     // #if not flowers then end
     if (!(z.rt.hasFlag("flowers"))) {
       return z.END;
     }
     // !re;Call a newspaper about false checks.
-    if (await z.say(o, [{"choice": "re", "text": "Call a newspaper about false checks."}])) return z.GOTO;
+    z.say(o, [{"choice": "re", "text": "Call a newspaper about false checks."}]);
     // #end
     return z.END;
   },
   async function on_wf(o, z) {
     // :wf
     // You don't have a wife, you doofus!
-    await z.say(o, ["You don't have a wife, you doofus!"]);
+    z.say(o, ["You don't have a wife, you doofus!"]);
     // #end
     return z.END;
   },
@@ -1863,7 +1863,7 @@ P[57] = {
     //
     // Feeling rather silly, you quickly hang up
     // and resolve not to do that again.
-    await z.say(o, ["You dial a number at random.", "", "\"Hello?\"", "", {"text": "Is your refrigerator running?", "align": "center"}, "", "\"... Yes, it is.\"", "", {"text": "Then go run after it!", "align": "center"}, "", "Feeling rather silly, you quickly hang up", "and resolve not to do that again."]);
+    z.say(o, ["You dial a number at random.", "", "\"Hello?\"", "", {"text": "Is your refrigerator running?", "align": "center"}, "", "\"... Yes, it is.\"", "", {"text": "Then go run after it!", "align": "center"}, "", "Feeling rather silly, you quickly hang up", "and resolve not to do that again."]);
     // #zap ma
     z.zap(o, "ma");
     // #end
@@ -1872,7 +1872,7 @@ P[57] = {
   async function on_ma_2(o, z) {
     // :ma
     // Not again!
-    await z.say(o, ["Not again!"]);
+    z.say(o, ["Not again!"]);
     // #end
     return z.END;
   },
@@ -1883,7 +1883,7 @@ P[57] = {
       if (await z.send(o, "self", "ok")) return z.GOTO;
     }
     // You have no reason to dial the operator.
-    await z.say(o, ["You have no reason to dial the operator."]);
+    z.say(o, ["You have no reason to dial the operator."]);
     // #end
     return z.END;
   },
@@ -1925,11 +1925,11 @@ P[57] = {
     // That's all I have, Officer."
     //
     // $Thank you very much. Goodbye.
-    await z.say(o, ["\"This is the operator.\"", "", {"text": "Could you look up the name George", "align": "center"}, {"text": "Roberts?", "align": "center"}, "", "\"Locally?\"", "", {"text": "Yes, please.", "align": "center"}, "", "(several minutes later)", "", "\"I don't seem to have a listing of that", "name, sir.\"", "", {"text": "Could you do a nationwide scan.", "align": "center"}, "", "\"...... Yes sir.\"", "", "(about ten minutes later)", "", "\"We seem to have several listings of that", "name.\"", "", {"text": "This is officer Kule of the local PD. I", "align": "center"}, {"text": "am requesting the towns and states of", "align": "center"}, {"text": "every listing you have of that name.", "align": "center"}, "", "\"Very well Officer. Here they are:", "", "Buffalo, New York", "Miami, Florida", "Los Angeles, California", "", "That's all I have, Officer.\"", "", {"text": "Thank you very much. Goodbye.", "align": "center"}]);
+    z.say(o, ["\"This is the operator.\"", "", {"text": "Could you look up the name George", "align": "center"}, {"text": "Roberts?", "align": "center"}, "", "\"Locally?\"", "", {"text": "Yes, please.", "align": "center"}, "", "(several minutes later)", "", "\"I don't seem to have a listing of that", "name, sir.\"", "", {"text": "Could you do a nationwide scan.", "align": "center"}, "", "\"...... Yes sir.\"", "", "(about ten minutes later)", "", "\"We seem to have several listings of that", "name.\"", "", {"text": "This is officer Kule of the local PD. I", "align": "center"}, {"text": "am requesting the towns and states of", "align": "center"}, {"text": "every listing you have of that name.", "align": "center"}, "", "\"Very well Officer. Here they are:", "", "Buffalo, New York", "Miami, Florida", "Los Angeles, California", "", "That's all I have, Officer.\"", "", {"text": "Thank you very much. Goodbye.", "align": "center"}]);
     // /i
     await z.idle(o);
     // <click>
-    await z.say(o, ["<click>"]);
+    z.say(o, ["<click>"]);
     // #play 0
     z.play("0");
     // #give score 1000
@@ -1963,7 +1963,7 @@ P[57] = {
     // go in tomorrow's edition."
     //
     // <click>
-    await z.say(o, ["You dial the Day-Per-Day News.", "", "<ring>.....<ring>.........<ring>.........", "", "\"Day-Per-Day News. How can I help you?\"", "", "(you identify who you are and describe the", "situation about the false checks, and", "request a front page ad.)", "", "\"Well... I guess we can drop the article", "about Elvis seen on Mars and replace it", "with this.\"", "", {"text": "Thanks.", "align": "center"}, "", "\"You're very welcome, officer. The ad will", "go in tomorrow's edition.\"", "", "<click>"]);
+    z.say(o, ["You dial the Day-Per-Day News.", "", "<ring>.....<ring>.........<ring>.........", "", "\"Day-Per-Day News. How can I help you?\"", "", "(you identify who you are and describe the", "situation about the false checks, and", "request a front page ad.)", "", "\"Well... I guess we can drop the article", "about Elvis seen on Mars and replace it", "with this.\"", "", {"text": "Thanks.", "align": "center"}, "", "\"You're very welcome, officer. The ad will", "go in tomorrow's edition.\"", "", "<click>"]);
     // #clear flowers
     z.rt.clearFlag("flowers");
     // #set ad
@@ -1980,7 +1980,7 @@ P[57] = {
     // <RING>
     // <<RING>>
     // <RING>
-    await z.say(o, ["<RING>", "<<RING>>", "<RING>"]);
+    z.say(o, ["<RING>", "<<RING>>", "<RING>"]);
     // #play TBABABABABABABABABA
     z.play("TBABABABABABABABABA");
     // /i/i/i/i/i/i/i/i/i/i
@@ -2017,7 +2017,7 @@ P[57] = {
     // <click>
     //
     // Well you heard the man, let's roll!
-    await z.say(o, [{"text": "Hello?", "align": "center"}, "", "Dispatch:", "", "\"There's a 10-33 at E. Casper, rubber", "factory. Armed employee is holding the", "rest of the building hostage. A unit has", "responded.\"", "", {"text": "Roger, enroute.", "align": "center"}, "", "<click>", "", "Well you heard the man, let's roll!"]);
+    z.say(o, [{"text": "Hello?", "align": "center"}, "", "Dispatch:", "", "\"There's a 10-33 at E. Casper, rubber", "factory. Armed employee is holding the", "rest of the building hostage. A unit has", "responded.\"", "", {"text": "Roger, enroute.", "align": "center"}, "", "<click>", "", "Well you heard the man, let's roll!"]);
     // #restore touch
     z.restore(o, "touch");
     // #end
@@ -2041,7 +2041,7 @@ P[58] = {
   async function on_touch(o, z) {
     // :touch
     // Leave that phone alone! Go use yours!
-    await z.say(o, ["Leave that phone alone! Go use yours!"]);
+    z.say(o, ["Leave that phone alone! Go use yours!"]);
     // #end
     return z.END;
   },
@@ -2115,7 +2115,7 @@ P[62] = {
     // #play 9xxx9xxx9xx9xx9x9x999999999999999999
     z.play("9xxx9xxx9xx9xx9x9x999999999999999999");
     // <<SNORE>>
-    await z.say(o, ["<<SNORE>>"]);
+    z.say(o, ["<<SNORE>>"]);
     // #end
     return z.END;
   },
@@ -2140,7 +2140,7 @@ P[62] = {
     // $Yes sir.
     //
     // Report back to me when you're finished.
-    await z.say(o, ["You pound on the Captain's desk and he", "promptly wakes up.", "", {"text": "Hi Cap'n!", "align": "center"}, "", "Oh yes, hi Jason.", "", "(just then, his personal phone rings.)", "", "Pardon me for a minute...", "", "(the Captain talks to whoever just rung.)", "", "Jason, there's an accident down by the", "docks. Get down there and see what's up.", "", {"text": "Yes sir.", "align": "center"}, "", "Report back to me when you're finished."]);
+    z.say(o, ["You pound on the Captain's desk and he", "promptly wakes up.", "", {"text": "Hi Cap'n!", "align": "center"}, "", "Oh yes, hi Jason.", "", "(just then, his personal phone rings.)", "", "Pardon me for a minute...", "", "(the Captain talks to whoever just rung.)", "", "Jason, there's an accident down by the", "docks. Get down there and see what's up.", "", {"text": "Yes sir.", "align": "center"}, "", "Report back to me when you're finished."]);
     // #set ready
     z.rt.setFlag("ready");
     // #zap touch
@@ -2162,7 +2162,7 @@ P[62] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // MOVE IT!
-    await z.say(o, ["MOVE IT!"]);
+    z.say(o, ["MOVE IT!"]);
     // #end
     return z.END;
   },
@@ -2197,7 +2197,7 @@ P[62] = {
     // Report when you have news.
     //
     // $10-4
-    await z.say(o, ["Jason, did ya here? Sam escaped!", "", {"text": "He did? How'd it happen?", "align": "center"}, "", "Dunno! The jailer was doing his ordinary", "checkup on the prisoners when he noticed", "Sam was gone.", "", {"text": "Have you gotten any black 'n' whites out", "align": "center"}, {"text": "searching the area?", "align": "center"}, "", "Four patrols are out searching the area", "right now. Jason, I want you to get on", "this.", "", {"text": "But sir... He could be armed! I could", "align": "center"}, {"text": "get killed!", "align": "center"}, "", "But don't forget the poor civilians who", "might get terrorized by him.", "", {"text": "Yes sir... I understand. I'll get right", "align": "center"}, {"text": "on it.", "align": "center"}, "", "Report when you have news.", "", {"text": "10-4", "align": "center"}]);
+    z.say(o, ["Jason, did ya here? Sam escaped!", "", {"text": "He did? How'd it happen?", "align": "center"}, "", "Dunno! The jailer was doing his ordinary", "checkup on the prisoners when he noticed", "Sam was gone.", "", {"text": "Have you gotten any black 'n' whites out", "align": "center"}, {"text": "searching the area?", "align": "center"}, "", "Four patrols are out searching the area", "right now. Jason, I want you to get on", "this.", "", {"text": "But sir... He could be armed! I could", "align": "center"}, {"text": "get killed!", "align": "center"}, "", "But don't forget the poor civilians who", "might get terrorized by him.", "", {"text": "Yes sir... I understand. I'll get right", "align": "center"}, {"text": "on it.", "align": "center"}, "", "Report when you have news.", "", {"text": "10-4", "align": "center"}]);
     // #clear rodney
     z.rt.clearFlag("rodney");
     // #set rodney2
@@ -2214,7 +2214,7 @@ P[62] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // MOVE IT!
-    await z.say(o, ["MOVE IT!"]);
+    z.say(o, ["MOVE IT!"]);
     // #end
     return z.END;
   },
@@ -2225,7 +2225,7 @@ P[62] = {
     // want to talk to him.
     //
     // $Ok, thanks.
-    await z.say(o, ["Jason, we just picked up a suspect about", "an hour ago. Talk to the jailer if you", "want to talk to him.", "", {"text": "Ok, thanks.", "align": "center"}]);
+    z.say(o, ["Jason, we just picked up a suspect about", "an hour ago. Talk to the jailer if you", "want to talk to him.", "", {"text": "Ok, thanks.", "align": "center"}]);
     // #zap talk
     z.zap(o, "talk");
     // #end
@@ -2240,7 +2240,7 @@ P[62] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // MOVE IT!
-    await z.say(o, ["MOVE IT!"]);
+    z.say(o, ["MOVE IT!"]);
     // #end
     return z.END;
   },
@@ -2280,7 +2280,7 @@ P[62] = {
     // $Right sir.
     //
     // Now beat it.
-    await z.say(o, [{"text": "<pant pant pant>", "align": "center"}, {"text": "I just <pant> came from Zak's Pizza. Sam", "align": "center"}, {"text": "and I <pant> had a shootout and I'm", "align": "center"}, {"text": "wounded.", "align": "center"}, "", "Yes, Jason. According to your reports,", "combined with that of the patrols we have", "out, it appears that there was no way", "these \"incidents\" could have happened", "unless there was a LOT of teamwork ", "involved. I suspect there's a major crime", "ring in this city, plotting a reign of", "terror. Jay, you are our best detective,", "you've cracked some of the most impossible", "cases we've ever had, so I want YOU to", "hunt out this crime ring and put a hault", "to this. Oh, and, by the way, since that", "\"accident\" down at the docks was an", "obvious attempt on the victim's life, and", "since that is Homicide's department, I'm", "transferring you from Vice to Homicide.", "", {"text": "But...", "align": "center"}, "", "No buts!", "", {"text": "Yes sir.", "align": "center"}, "", "First go to the hospital to fix up your", "arm.", "", {"text": "Right sir.", "align": "center"}, "", "Now beat it."]);
+    z.say(o, [{"text": "<pant pant pant>", "align": "center"}, {"text": "I just <pant> came from Zak's Pizza. Sam", "align": "center"}, {"text": "and I <pant> had a shootout and I'm", "align": "center"}, {"text": "wounded.", "align": "center"}, "", "Yes, Jason. According to your reports,", "combined with that of the patrols we have", "out, it appears that there was no way", "these \"incidents\" could have happened", "unless there was a LOT of teamwork ", "involved. I suspect there's a major crime", "ring in this city, plotting a reign of", "terror. Jay, you are our best detective,", "you've cracked some of the most impossible", "cases we've ever had, so I want YOU to", "hunt out this crime ring and put a hault", "to this. Oh, and, by the way, since that", "\"accident\" down at the docks was an", "obvious attempt on the victim's life, and", "since that is Homicide's department, I'm", "transferring you from Vice to Homicide.", "", {"text": "But...", "align": "center"}, "", "No buts!", "", {"text": "Yes sir.", "align": "center"}, "", "First go to the hospital to fix up your", "arm.", "", {"text": "Right sir.", "align": "center"}, "", "Now beat it."]);
     // #zap talk
     z.zap(o, "talk");
     // #zap talking
@@ -2301,7 +2301,7 @@ P[62] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // MOVE IT!
-    await z.say(o, ["MOVE IT!"]);
+    z.say(o, ["MOVE IT!"]);
     // #end
     return z.END;
   },
@@ -2309,7 +2309,7 @@ P[62] = {
     // :talking
     // Nothing new, Jason? Well, the day's over,
     // so go home, go to bed, and get some rest.
-    await z.say(o, ["Nothing new, Jason? Well, the day's over,", "so go home, go to bed, and get some rest."]);
+    z.say(o, ["Nothing new, Jason? Well, the day's over,", "so go home, go to bed, and get some rest."]);
     // #zap talk
     z.zap(o, "talk");
     // #zap talking
@@ -2336,7 +2336,7 @@ P[62] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // GO HOME!
-    await z.say(o, ["GO HOME!"]);
+    z.say(o, ["GO HOME!"]);
     // #end
     return z.END;
   },
@@ -2357,7 +2357,7 @@ P[62] = {
     // Nope. Get to work on your case.
     //
     // $Yes sir.
-    await z.say(o, [{"text": "Hi boss!", "align": "center"}, "", "Hi Jason.", "", {"text": "Anything new?", "align": "center"}, "", "Nope. Get to work on your case.", "", {"text": "Yes sir.", "align": "center"}]);
+    z.say(o, [{"text": "Hi boss!", "align": "center"}, "", "Hi Jason.", "", {"text": "Anything new?", "align": "center"}, "", "Nope. Get to work on your case.", "", {"text": "Yes sir.", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -2370,7 +2370,7 @@ P[62] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // GET WORKING ON YOUR CASE!
-    await z.say(o, ["GET WORKING ON YOUR CASE!"]);
+    z.say(o, ["GET WORKING ON YOUR CASE!"]);
     // #end
     return z.END;
   },
@@ -2385,7 +2385,7 @@ P[62] = {
     // ideas?
     //
     // $Hmmm...
-    await z.say(o, [{"text": "Captain, the suspected ring leader is", "align": "center"}, {"text": "going around town using Mrs. Robert's", "align": "center"}, {"text": "checks and signing her name on them.", "align": "center"}, "", "Then we have to know about any more checks", "signed with Mrs. Robert's name. Got any", "ideas?", "", {"text": "Hmmm...", "align": "center"}]);
+    z.say(o, [{"text": "Captain, the suspected ring leader is", "align": "center"}, {"text": "going around town using Mrs. Robert's", "align": "center"}, {"text": "checks and signing her name on them.", "align": "center"}, "", "Then we have to know about any more checks", "signed with Mrs. Robert's name. Got any", "ideas?", "", {"text": "Hmmm...", "align": "center"}]);
     // #zap talk
     z.zap(o, "talk");
     // #zap talking
@@ -2400,7 +2400,7 @@ P[62] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // GET WORKING ON YOUR CASE!
-    await z.say(o, ["GET WORKING ON YOUR CASE!"]);
+    z.say(o, ["GET WORKING ON YOUR CASE!"]);
     // #end
     return z.END;
   },
@@ -2488,7 +2488,7 @@ P[65] = {
   async function on_touch(o, z) {
     // :touch
     // It's a lock.
-    await z.say(o, ["It's a lock."]);
+    z.say(o, ["It's a lock."]);
     // #end
     return z.END;
   },
@@ -2539,7 +2539,7 @@ P[67] = {
   async function on_touch(o, z) {
     // :touch
     // It's a lock.
-    await z.say(o, ["It's a lock."]);
+    z.say(o, ["It's a lock."]);
     // #end
     return z.END;
   },
@@ -2599,7 +2599,7 @@ P[68] = {
     // !x4;Samuel Franklen
     // !x5;Don Slavota
     // !x6;James Holub
-    if (await z.say(o, ["Who do you want to look up?", "", {"choice": "x1", "text": "Samuel Jones"}, {"choice": "x2", "text": "Frank Karp"}, {"choice": "x3", "text": "Jimmy Adams"}, {"choice": "x4", "text": "Samuel Franklen"}, {"choice": "x5", "text": "Don Slavota"}, {"choice": "x6", "text": "James Holub"}])) return z.GOTO;
+    z.say(o, ["Who do you want to look up?", "", {"choice": "x1", "text": "Samuel Jones"}, {"choice": "x2", "text": "Frank Karp"}, {"choice": "x3", "text": "Jimmy Adams"}, {"choice": "x4", "text": "Samuel Franklen"}, {"choice": "x5", "text": "Don Slavota"}, {"choice": "x6", "text": "James Holub"}]);
     // #end
     return z.END;
   },
@@ -2611,7 +2611,7 @@ P[68] = {
     // Residence : Good-Times Inn
     // Wanted For: Holdup of candy store
     // $CASE CLOSED
-    await z.say(o, ["Name      : Samuel Jones", "Alias     : The Blade", "Job       : Boat yard worker", "Residence : Good-Times Inn", "Wanted For: Holdup of candy store", {"text": "CASE CLOSED", "align": "center"}]);
+    z.say(o, ["Name      : Samuel Jones", "Alias     : The Blade", "Job       : Boat yard worker", "Residence : Good-Times Inn", "Wanted For: Holdup of candy store", {"text": "CASE CLOSED", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -2623,7 +2623,7 @@ P[68] = {
     // Residence : Unknown
     // Wanted For: Attempted murder
     // $CASE OPEN
-    await z.say(o, ["Name      : Frank Karp", "Alias     : Mr. Sharp", "Job       : None", "Residence : Unknown", "Wanted For: Attempted murder", {"text": "CASE OPEN", "align": "center"}]);
+    z.say(o, ["Name      : Frank Karp", "Alias     : Mr. Sharp", "Job       : None", "Residence : Unknown", "Wanted For: Attempted murder", {"text": "CASE OPEN", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -2635,7 +2635,7 @@ P[68] = {
     // Residence : Dock house
     // Wanted For: Harassing of customers
     // $CASE CLOSED
-    await z.say(o, ["Name      : Jimmy Adams", "Alias     : Midnight Man", "Job       : Salesman", "Residence : Dock house", "Wanted For: Harassing of customers", {"text": "CASE CLOSED", "align": "center"}]);
+    z.say(o, ["Name      : Jimmy Adams", "Alias     : Midnight Man", "Job       : Salesman", "Residence : Dock house", "Wanted For: Harassing of customers", {"text": "CASE CLOSED", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -2647,7 +2647,7 @@ P[68] = {
     // Residence : Garden Apartments (Room 118)
     // Wanted For: Assault
     // $CASE CLOSED
-    await z.say(o, ["Name      : Samuel Franklen", "Alias     : Switchblade Sam", "Job       : None", "Residence : Garden Apartments (Room 118)", "Wanted For: Assault", {"text": "CASE CLOSED", "align": "center"}]);
+    z.say(o, ["Name      : Samuel Franklen", "Alias     : Switchblade Sam", "Job       : None", "Residence : Garden Apartments (Room 118)", "Wanted For: Assault", {"text": "CASE CLOSED", "align": "center"}]);
     // #set samfile
     z.rt.setFlag("samfile");
     // #end
@@ -2661,7 +2661,7 @@ P[68] = {
     // Residence : Hunting goods store
     // Wanted For: Slashing tag off mattres
     // $CASE OPEN
-    await z.say(o, ["Name      : Don Slavota", "Alias     : Slash Gordon", "Job       : Hunting goods stockman", "Residence : Hunting goods store", "Wanted For: Slashing tag off mattres", {"text": "CASE OPEN", "align": "center"}]);
+    z.say(o, ["Name      : Don Slavota", "Alias     : Slash Gordon", "Job       : Hunting goods stockman", "Residence : Hunting goods store", "Wanted For: Slashing tag off mattres", {"text": "CASE OPEN", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -2674,7 +2674,7 @@ P[68] = {
     // Wanted For: Excessive verbosity/
     //             Run time failures
     // $CASE OPEN
-    await z.say(o, ["Name      : James Holub", "Alias     : Copperhead", "Job       : Game designer", "Residence : Unknown", "Wanted For: Excessive verbosity/", "            Run time failures", {"text": "CASE OPEN", "align": "center"}]);
+    z.say(o, ["Name      : James Holub", "Alias     : Copperhead", "Job       : Game designer", "Residence : Unknown", "Wanted For: Excessive verbosity/", "            Run time failures", {"text": "CASE OPEN", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -2741,7 +2741,7 @@ P[71] = {
     // #play T-FEFEF
     z.play("T-FEFEF");
     // Hi Jay!
-    await z.say(o, ["Hi Jay!"]);
+    z.say(o, ["Hi Jay!"]);
     // #end
     return z.END;
   },
@@ -2780,7 +2780,7 @@ P[73] = {
     //
     // !ok;Yes, I want some ammo.
     // !no;No.
-    if (await z.say(o, ["You want some ammo?", "", {"choice": "ok", "text": "Yes, I want some ammo."}, {"choice": "no", "text": "No."}])) return z.GOTO;
+    z.say(o, ["You want some ammo?", "", {"choice": "ok", "text": "Yes, I want some ammo."}, {"choice": "no", "text": "No."}]);
     // #end
     return z.END;
   },
@@ -2799,7 +2799,7 @@ P[73] = {
   async function on_ok(o, z) {
     // :ok
     // You don't even HAVE your gun!
-    await z.say(o, ["You don't even HAVE your gun!"]);
+    z.say(o, ["You don't even HAVE your gun!"]);
     // #end
     return z.END;
   },
@@ -2824,7 +2824,7 @@ P[74] = {
     //
     // !ok;Yes, I want some ammo.
     // !no;No.
-    if (await z.say(o, ["You want some ammo?", "", {"choice": "ok", "text": "Yes, I want some ammo."}, {"choice": "no", "text": "No."}])) return z.GOTO;
+    z.say(o, ["You want some ammo?", "", {"choice": "ok", "text": "Yes, I want some ammo."}, {"choice": "no", "text": "No."}]);
     // #end
     return z.END;
   },
@@ -2835,7 +2835,7 @@ P[74] = {
       if (await z.send(o, "self", "toopoor")) return z.GOTO;
     }
     // You have enough ammo!
-    await z.say(o, ["You have enough ammo!"]);
+    z.say(o, ["You have enough ammo!"]);
     // #give ammo 10
     z.give("ammo", 10);
     // #end
@@ -2846,7 +2846,7 @@ P[74] = {
     // #give ammo 5
     z.give("ammo", 5);
     // Here's some ammo!
-    await z.say(o, ["Here's some ammo!"]);
+    z.say(o, ["Here's some ammo!"]);
     // #end
     return z.END;
   },
@@ -2914,7 +2914,7 @@ P[75] = {
     // $Thanks.
     //
     // You're NOT welcome, bud.
-    await z.say(o, ["Whud do ya want, mac?", "", {"text": "I am just going to ask a few questions.", "align": "center"}, "", "Yeah? Well I don't FEEL like answering", "questions, how's that?", "", {"text": "Why not?", "align": "center"}, "", "Sam threw me outta his club.", "", {"text": "What's the name of this \"club\"?", "align": "center"}, "", "Zak's Place is the name.", "", {"text": "Thanks.", "align": "center"}, "", "You're NOT welcome, bud."]);
+    z.say(o, ["Whud do ya want, mac?", "", {"text": "I am just going to ask a few questions.", "align": "center"}, "", "Yeah? Well I don't FEEL like answering", "questions, how's that?", "", {"text": "Why not?", "align": "center"}, "", "Sam threw me outta his club.", "", {"text": "What's the name of this \"club\"?", "align": "center"}, "", "Zak's Place is the name.", "", {"text": "Thanks.", "align": "center"}, "", "You're NOT welcome, bud."]);
     // #zap touch
     z.zap(o, "touch");
     // #set club
@@ -2929,7 +2929,7 @@ P[75] = {
     // #play T-CGDFEACBGDF
     z.play("T-CGDFEACBGDF");
     // SHUT UP, COPPER!
-    await z.say(o, ["SHUT UP, COPPER!"]);
+    z.say(o, ["SHUT UP, COPPER!"]);
     // /i
     await z.idle(o);
     // #send walk
@@ -2959,7 +2959,7 @@ P[76] = {
     // If you have a VHS tape or some other form
     // of film or photography, you would view it
     // in here.
-    await z.say(o, [{"text": "Viewing Room", "align": "center"}, "", "If you have a VHS tape or some other form", "of film or photography, you would view it", "in here."]);
+    z.say(o, [{"text": "Viewing Room", "align": "center"}, "", "If you have a VHS tape or some other form", "of film or photography, you would view it", "in here."]);
     // #if not VHS then end
     if (!(z.rt.hasFlag("vhs"))) {
       return z.END;
@@ -2967,7 +2967,7 @@ P[76] = {
     //
     // Since you have a VHS tape you wish to 
     // view, you enter the Viewing Room...
-    await z.say(o, ["Since you have a VHS tape you wish to ", "view, you enter the Viewing Room..."]);
+    z.say(o, ["Since you have a VHS tape you wish to ", "view, you enter the Viewing Room..."]);
     // #lock
     o.locked = true;
     // /s
@@ -3017,7 +3017,7 @@ P[77] = {
     // After viewing the film, which doesn't
     // provide much, you check it into Evidence
     // and ponder at what you just saw.
-    await z.say(o, ["After viewing the film, which doesn't", "provide much, you check it into Evidence", "and ponder at what you just saw."]);
+    z.say(o, ["After viewing the film, which doesn't", "provide much, you check it into Evidence", "and ponder at what you just saw."]);
     // #become green normal
     return z.become(o, "green", "normal");
   },
@@ -3041,7 +3041,7 @@ P[78] = {
     // #play T-FDFDF
     z.play("T-FDFDF");
     // Hi Jason!
-    await z.say(o, ["Hi Jason!"]);
+    z.say(o, ["Hi Jason!"]);
     // #end
     return z.END;
   },
@@ -3057,7 +3057,7 @@ P[78] = {
     // Hi Jason
     //
     // !pri;I'd like to talk to the prisoner.
-    if (await z.say(o, ["Hi Jason", "", {"choice": "pri", "text": "I'd like to talk to the prisoner."}])) return z.GOTO;
+    z.say(o, ["Hi Jason", "", {"choice": "pri", "text": "I'd like to talk to the prisoner."}]);
     // #end
     return z.END;
   },
@@ -3066,7 +3066,7 @@ P[78] = {
     // #lock
     o.locked = true;
     // No problem, maestro.
-    await z.say(o, ["No problem, maestro."]);
+    z.say(o, ["No problem, maestro."]);
     // #send doors:close
     if (await z.send(o, "doors", "close")) return z.GOTO;
     // /e/e/e
@@ -3091,7 +3091,7 @@ P[78] = {
     // /e
     await z.step(o, "e");
     // Talk to me when you're finished.
-    await z.say(o, ["Talk to me when you're finished."]);
+    z.say(o, ["Talk to me when you're finished."]);
     // #zap touch
     z.zap(o, "touch");
     // #unlock
@@ -3131,7 +3131,7 @@ P[78] = {
     // #play T-DFDF
     z.play("T-DFDF");
     // You talked to the prisoner already!
-    await z.say(o, ["You talked to the prisoner already!"]);
+    z.say(o, ["You talked to the prisoner already!"]);
     // #end
     return z.END;
   },
@@ -3158,7 +3158,7 @@ P[79] = {
     }
     // This is a phone directory that's chained
     // to the file cabinet.
-    await z.say(o, ["This is a phone directory that's chained", "to the file cabinet."]);
+    z.say(o, ["This is a phone directory that's chained", "to the file cabinet."]);
     // #if vcook then lookup
     if (z.rt.hasFlag("vcook")) {
       if (await z.send(o, "self", "lookup")) return z.GOTO;
@@ -3170,7 +3170,7 @@ P[79] = {
     //
     // $You don't need to use the phone directory
     // $right now...
-    await z.say(o, [{"text": "You don't need to use the phone directory", "align": "center"}, {"text": "right now...", "align": "center"}]);
+    z.say(o, [{"text": "You don't need to use the phone directory", "align": "center"}, {"text": "right now...", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -3197,7 +3197,7 @@ P[79] = {
     // !not;Tom Jones
     // !not;George Towers
     // !not;Jesse Balmwell
-    if (await z.say(o, ["You have a sudden urge to look up a name", "in the directory...", "", {"choice": "not", "text": "Johnny Cash"}, {"choice": "not", "text": "Phil Green"}, {"choice": "not", "text": "Craig Johnson"}, {"choice": "not", "text": "Robert Brown"}, {"choice": "not", "text": "Rip Torne"}, {"choice": "not", "text": "Alice Pedraikis"}, {"choice": "not", "text": "Joseph Crackenburg"}, {"choice": "not", "text": "Rodney Blood"}, {"choice": "not", "text": "Roger Whilco"}, {"choice": "yes", "text": "Vincent Cook"}, {"choice": "not", "text": "Larry Laffe"}, {"choice": "not", "text": "Cory Cabot"}, {"choice": "not", "text": "Chad Slacker"}, {"choice": "not", "text": "Jimmy Jones"}, {"choice": "not", "text": "Joseph Campoto"}, {"choice": "not", "text": "Tom Jones"}, {"choice": "not", "text": "George Towers"}, {"choice": "not", "text": "Jesse Balmwell"}])) return z.GOTO;
+    z.say(o, ["You have a sudden urge to look up a name", "in the directory...", "", {"choice": "not", "text": "Johnny Cash"}, {"choice": "not", "text": "Phil Green"}, {"choice": "not", "text": "Craig Johnson"}, {"choice": "not", "text": "Robert Brown"}, {"choice": "not", "text": "Rip Torne"}, {"choice": "not", "text": "Alice Pedraikis"}, {"choice": "not", "text": "Joseph Crackenburg"}, {"choice": "not", "text": "Rodney Blood"}, {"choice": "not", "text": "Roger Whilco"}, {"choice": "yes", "text": "Vincent Cook"}, {"choice": "not", "text": "Larry Laffe"}, {"choice": "not", "text": "Cory Cabot"}, {"choice": "not", "text": "Chad Slacker"}, {"choice": "not", "text": "Jimmy Jones"}, {"choice": "not", "text": "Joseph Campoto"}, {"choice": "not", "text": "Tom Jones"}, {"choice": "not", "text": "George Towers"}, {"choice": "not", "text": "Jesse Balmwell"}]);
     // #if deadbody then george
     if (z.rt.hasFlag("deadbody")) {
       if (await z.send(o, "self", "george")) return z.GOTO;
@@ -3207,14 +3207,14 @@ P[79] = {
       return z.END;
     }
     // !yea;Robert Johnson
-    if (await z.say(o, [{"choice": "yea", "text": "Robert Johnson"}])) return z.GOTO;
+    z.say(o, [{"choice": "yea", "text": "Robert Johnson"}]);
     // #end
     return z.END;
   },
   async function on_not(o, z) {
     // :not
     // Hmm... Not interested in that name...
-    await z.say(o, ["Hmm... Not interested in that name..."]);
+    z.say(o, ["Hmm... Not interested in that name..."]);
     // #end
     return z.END;
   },
@@ -3225,7 +3225,7 @@ P[79] = {
     // read the address:
     //
     // $Manor Park Apt. 48
-    await z.say(o, ["Ah ha! Vincent Cook, that name was on the", "false ID that the bank robber had. You", "read the address:", "", {"text": "Manor Park Apt. 48", "align": "center"}]);
+    z.say(o, ["Ah ha! Vincent Cook, that name was on the", "false ID that the bank robber had. You", "read the address:", "", {"text": "Manor Park Apt. 48", "align": "center"}]);
     // #zap yes
     z.zap(o, "yes");
     // #clear vcook
@@ -3240,7 +3240,7 @@ P[79] = {
   async function on_yes_2(o, z) {
     // :yes
     // You looked that one up already!
-    await z.say(o, ["You looked that one up already!"]);
+    z.say(o, ["You looked that one up already!"]);
     // #end
     return z.END;
   },
@@ -3250,7 +3250,7 @@ P[79] = {
     // document from the desk in Manor Park.
     //
     // $Robert Apartments, APT. 1
-    await z.say(o, ["Ahh... Robert Johnson, the name on the", "document from the desk in Manor Park.", "", {"text": "Robert Apartments, APT. 1", "align": "center"}]);
+    z.say(o, ["Ahh... Robert Johnson, the name on the", "document from the desk in Manor Park.", "", {"text": "Robert Apartments, APT. 1", "align": "center"}]);
     // #clear robjon
     z.rt.clearFlag("robjon");
     // #set apt1
@@ -3265,14 +3265,14 @@ P[79] = {
   async function on_yea_2(o, z) {
     // :yea
     // You looked that one up already!
-    await z.say(o, ["You looked that one up already!"]);
+    z.say(o, ["You looked that one up already!"]);
     // #end
     return z.END;
   },
   async function on_uhuh(o, z) {
     // :uhuh
     // The day's over! Go home.
-    await z.say(o, ["The day's over! Go home."]);
+    z.say(o, ["The day's over! Go home."]);
     // #end
     return z.END;
   },
@@ -3302,7 +3302,7 @@ P[81] = {
   segments: [
   async function start(o, z) {
     // Where would you like to drive?
-    await z.say(o, ["Where would you like to drive?"]);
+    z.say(o, ["Where would you like to drive?"]);
     // #become white breakable
     return z.become(o, "white", "breakable");
   },
@@ -3331,7 +3331,7 @@ P[82] = {
       if (await z.send(o, "self", "yo")) return z.GOTO;
     }
     // You have no reason to go in there!
-    await z.say(o, ["You have no reason to go in there!"]);
+    z.say(o, ["You have no reason to go in there!"]);
     // #end
     return z.END;
   },
@@ -3358,7 +3358,7 @@ P[83] = {
   async function on_touch(o, z) {
     // :touch
     // It's a boat that's turned on it's side.
-    await z.say(o, ["It's a boat that's turned on it's side."]);
+    z.say(o, ["It's a boat that's turned on it's side."]);
     // #end
     return z.END;
   },
@@ -3395,7 +3395,7 @@ P[85] = {
     // :touch
     // This is where the car came through the
     // fence.
-    await z.say(o, ["This is where the car came through the", "fence."]);
+    z.say(o, ["This is where the car came through the", "fence."]);
     // #end
     return z.END;
   },
@@ -3430,7 +3430,7 @@ P[87] = {
   async function on_touch(o, z) {
     // :touch
     // It's the door to the blue car.
-    await z.say(o, ["It's the door to the blue car."]);
+    z.say(o, ["It's the door to the blue car."]);
     // #end
     return z.END;
   },
@@ -3477,7 +3477,7 @@ P[88] = {
     // (the medical personnel help her into the
     // back of the ambulance. You watch as they
     // drive away with the sirens blaring.)
-    await z.say(o, [{"text": "Mrs. Roberts?!", "align": "center"}, "", "(the very shaken woman answers you.)", "", "Yes, Jason.", "", {"text": "What happened?", "align": "center"}, "", "I was driving home from the supermarket", "when this car came speeding out of nowhere", "and rammed into me. We both went through", "the fence and stopped. The other car", "skidded over there.", "", "(she points towards the water.)", "", "The car began to sink in the water, so I", "got someone to call an ambulance.", "", {"text": "Thanks Mrs. Roberts.", "align": "center"}, "", "You're welcome.", "", "(the medical personnel help her into the", "back of the ambulance. You watch as they", "drive away with the sirens blaring.)"]);
+    z.say(o, [{"text": "Mrs. Roberts?!", "align": "center"}, "", "(the very shaken woman answers you.)", "", "Yes, Jason.", "", {"text": "What happened?", "align": "center"}, "", "I was driving home from the supermarket", "when this car came speeding out of nowhere", "and rammed into me. We both went through", "the fence and stopped. The other car", "skidded over there.", "", "(she points towards the water.)", "", "The car began to sink in the water, so I", "got someone to call an ambulance.", "", {"text": "Thanks Mrs. Roberts.", "align": "center"}, "", "You're welcome.", "", "(the medical personnel help her into the", "back of the ambulance. You watch as they", "drive away with the sirens blaring.)"]);
     // #send EMS:die
     if (await z.send(o, "ems", "die")) return z.GOTO;
     // #send changer:change
@@ -3502,7 +3502,7 @@ P[89] = {
   async function on_touch(o, z) {
     // :touch
     // A tire.
-    await z.say(o, ["A tire."]);
+    z.say(o, ["A tire."]);
     // #end
     return z.END;
   },
@@ -3524,7 +3524,7 @@ P[90] = {
   async function on_touch(o, z) {
     // :touch
     // The door to the back of the ambulance.
-    await z.say(o, ["The door to the back of the ambulance."]);
+    z.say(o, ["The door to the back of the ambulance."]);
     // #end
     return z.END;
   },
@@ -3599,7 +3599,7 @@ P[94] = {
   async function on_touch(o, z) {
     // :touch
     // Shards of glass.
-    await z.say(o, ["Shards of glass."]);
+    z.say(o, ["Shards of glass."]);
     // #end
     return z.END;
   },
@@ -3623,7 +3623,7 @@ P[95] = {
     // #zap touch
     z.zap(o, "touch");
     // She's ok, but she's VERY shaken up.
-    await z.say(o, ["She's ok, but she's VERY shaken up."]);
+    z.say(o, ["She's ok, but she's VERY shaken up."]);
     // /i
     await z.idle(o);
     // /n
@@ -3656,7 +3656,7 @@ P[96] = {
     // You search the glove compartment and find
     // a registration that mentions the name
     // Rodney Franklen.
-    await z.say(o, ["You search the glove compartment and find", "a registration that mentions the name", "Rodney Franklen."]);
+    z.say(o, ["You search the glove compartment and find", "a registration that mentions the name", "Rodney Franklen."]);
     // #give score 1000
     z.give("score", 1000);
     // #set rodney
@@ -3669,7 +3669,7 @@ P[96] = {
   async function on_touch_2(o, z) {
     // :touch
     // There's nothing else in the compartment.
-    await z.say(o, ["There's nothing else in the compartment."]);
+    z.say(o, ["There's nothing else in the compartment."]);
     // #end
     return z.END;
   },
@@ -3693,12 +3693,12 @@ P[97] = {
     // #play 254
     z.play("254");
     // You find a small stick near the gas pedal.
-    await z.say(o, ["You find a small stick near the gas pedal."]);
+    z.say(o, ["You find a small stick near the gas pedal."]);
     // #give score 10
     z.give("score", 10);
     //
     // I wonder where the driver went?
-    await z.say(o, ["I wonder where the driver went?"]);
+    z.say(o, ["I wonder where the driver went?"]);
     // #die
     return z.die(o);
   },
@@ -3775,7 +3775,7 @@ P[100] = {
     }
     // Yes sir, what can I do for you?
     //
-    await z.say(o, ["Yes sir, what can I do for you?"]);
+    z.say(o, ["Yes sir, what can I do for you?"]);
   },
   async function on_officer(o, z) {
     // :officer
@@ -3783,7 +3783,7 @@ P[100] = {
     // !may;May I see the guest list?
     // !arr;You're under arrest!
     // !bad;Show badge.
-    if (await z.say(o, [{"choice": "see", "text": "I'd like to see a room, please."}, {"choice": "may", "text": "May I see the guest list?"}, {"choice": "arr", "text": "You're under arrest!"}, {"choice": "bad", "text": "Show badge."}])) return z.GOTO;
+    z.say(o, [{"choice": "see", "text": "I'd like to see a room, please."}, {"choice": "may", "text": "May I see the guest list?"}, {"choice": "arr", "text": "You're under arrest!"}, {"choice": "bad", "text": "Show badge."}]);
     // #if samfile then check
     if (z.rt.hasFlag("samfile")) {
       if (await z.send(o, "self", "check")) return z.GOTO;
@@ -3806,7 +3806,7 @@ P[100] = {
   async function on_check2(o, z) {
     // :check2
     // !key;Ask for the key to room 118.
-    if (await z.say(o, [{"choice": "key", "text": "Ask for the key to room 118."}])) return z.GOTO;
+    z.say(o, [{"choice": "key", "text": "Ask for the key to room 118."}]);
     // #end
     return z.END;
   },
@@ -3819,7 +3819,7 @@ P[100] = {
     // Sure! That'll be $475 a month!
     //
     // $No thanks...
-    await z.say(o, ["Sure! That'll be $475 a month!", "", {"text": "No thanks...", "align": "center"}]);
+    z.say(o, ["Sure! That'll be $475 a month!", "", {"text": "No thanks...", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -3827,7 +3827,7 @@ P[100] = {
     // :noway
     // Sorry, we're all booked. Our last vacancy
     // was rented last night.
-    await z.say(o, ["Sorry, we're all booked. Our last vacancy", "was rented last night."]);
+    z.say(o, ["Sorry, we're all booked. Our last vacancy", "was rented last night."]);
     // #end
     return z.END;
   },
@@ -3836,7 +3836,7 @@ P[100] = {
     // Yeah right! Like I'm gonna show the guest
     // list to every Tom, Fred, and Harry who
     // asks for it!
-    await z.say(o, ["Yeah right! Like I'm gonna show the guest", "list to every Tom, Fred, and Harry who", "asks for it!"]);
+    z.say(o, ["Yeah right! Like I'm gonna show the guest", "list to every Tom, Fred, and Harry who", "asks for it!"]);
     // #end
     return z.END;
   },
@@ -3850,14 +3850,14 @@ P[100] = {
   async function on_arr(o, z) {
     // :arr
     // Hahahaha! That's a funny joke!
-    await z.say(o, ["Hahahaha! That's a funny joke!"]);
+    z.say(o, ["Hahahaha! That's a funny joke!"]);
     // #end
     return z.END;
   },
   async function on_bad(o, z) {
     // :bad
     // Very nice, officer.
-    await z.say(o, ["Very nice, officer."]);
+    z.say(o, ["Very nice, officer."]);
     // #zap may
     z.zap(o, "may");
     // #send officer
@@ -3872,7 +3872,7 @@ P[100] = {
       if (await z.send(o, "self", "nono")) return z.GOTO;
     }
     // I don't care if you're Queen of Sheba!
-    await z.say(o, ["I don't care if you're Queen of Sheba!"]);
+    z.say(o, ["I don't care if you're Queen of Sheba!"]);
     // #end
     return z.END;
   },
@@ -3892,7 +3892,7 @@ P[100] = {
     // $Chad Slacker (room 45)
     // $Jimmy Jones (room 67)
     // $Jersey Jake (room 88)
-    await z.say(o, ["Well, I don't normally do this, but ok,", "just this once.", "", "(you scan the names on the list.)", "", {"text": "Tom Jones (room 113)", "align": "center"}, {"text": "Frank Calvin (room 117)", "align": "center"}, {"text": "Jimmy Scotch (room 98)", "align": "center"}, {"text": "Robert Ball (room 110)", "align": "center"}, {"text": "George Towers (room 114)", "align": "center"}, {"text": "Samuel Franklen (room 118)", "align": "center"}, {"text": "Chad Slacker (room 45)", "align": "center"}, {"text": "Jimmy Jones (room 67)", "align": "center"}, {"text": "Jersey Jake (room 88)", "align": "center"}]);
+    z.say(o, ["Well, I don't normally do this, but ok,", "just this once.", "", "(you scan the names on the list.)", "", {"text": "Tom Jones (room 113)", "align": "center"}, {"text": "Frank Calvin (room 117)", "align": "center"}, {"text": "Jimmy Scotch (room 98)", "align": "center"}, {"text": "Robert Ball (room 110)", "align": "center"}, {"text": "George Towers (room 114)", "align": "center"}, {"text": "Samuel Franklen (room 118)", "align": "center"}, {"text": "Chad Slacker (room 45)", "align": "center"}, {"text": "Jimmy Jones (room 67)", "align": "center"}, {"text": "Jersey Jake (room 88)", "align": "center"}]);
     // #give score 1000
     z.give("score", 1000);
     // #zap check
@@ -3907,7 +3907,7 @@ P[100] = {
     // #play T-CGDFECF
     z.play("T-CGDFECF");
     // Not again!
-    await z.say(o, ["Not again!"]);
+    z.say(o, ["Not again!"]);
     // #end
     return z.END;
   },
@@ -3921,7 +3921,7 @@ P[100] = {
     // $[  ROOM  \______
     // $[  118          >
     // $ ~~~~~~~~~^^^^^^
-    await z.say(o, ["Grrr... YEAH, ALRIGHT, here it is.", "", "(the man hands you a key.)", "", {"text": " ________        ", "align": "center"}, {"text": "[  ROOM  \\______", "align": "center"}, {"text": "[  118          >", "align": "center"}, {"text": " ~~~~~~~~~^^^^^^", "align": "center"}]);
+    z.say(o, ["Grrr... YEAH, ALRIGHT, here it is.", "", "(the man hands you a key.)", "", {"text": " ________        ", "align": "center"}, {"text": "[  ROOM  \\______", "align": "center"}, {"text": "[  118          >", "align": "center"}, {"text": " ~~~~~~~~~^^^^^^", "align": "center"}]);
     // #set key118
     z.rt.setFlag("key118");
     // #clear samfile
@@ -3932,7 +3932,7 @@ P[100] = {
   async function on_yes(o, z) {
     // :yes
     // Yes, officer?
-    await z.say(o, ["Yes, officer?"]);
+    z.say(o, ["Yes, officer?"]);
     // #send officer
     if (await z.send(o, "self", "officer")) return z.GOTO;
     // #end
@@ -3970,21 +3970,21 @@ P[102] = {
   async function on_touch(o, z) {
     // :touch
     // $Room 118
-    await z.say(o, [{"text": "Room 118", "align": "center"}]);
+    z.say(o, [{"text": "Room 118", "align": "center"}]);
     // #if key118 then ok
     if (z.rt.hasFlag("key118")) {
       if (await z.send(o, "self", "ok")) return z.GOTO;
     }
     //
     // You don't have the key for this door.
-    await z.say(o, ["You don't have the key for this door."]);
+    z.say(o, ["You don't have the key for this door."]);
     // #end
     return z.END;
   },
   async function on_ok(o, z) {
     // :ok
     // !ulok;Unlock the door with key 118.
-    if (await z.say(o, [{"choice": "ulok", "text": "Unlock the door with key 118."}])) return z.GOTO;
+    z.say(o, [{"choice": "ulok", "text": "Unlock the door with key 118."}]);
     // #end
     return z.END;
   },
@@ -3996,7 +3996,7 @@ P[102] = {
     // slowly turn it clockwise...
     //
     // $CLICK!
-    await z.say(o, ["You insert the key into the door, and", "slowly turn it clockwise...", "", {"text": "CLICK!", "align": "center"}]);
+    z.say(o, ["You insert the key into the door, and", "slowly turn it clockwise...", "", {"text": "CLICK!", "align": "center"}]);
     // #clear key118
     z.rt.clearFlag("key118");
     // #give score 1000
@@ -4024,7 +4024,7 @@ P[103] = {
     // $Room 119
     //
     // You don't have the key for this door.
-    await z.say(o, [{"text": "Room 119", "align": "center"}, "", "You don't have the key for this door."]);
+    z.say(o, [{"text": "Room 119", "align": "center"}, "", "You don't have the key for this door."]);
     // #end
     return z.END;
   },
@@ -4048,7 +4048,7 @@ P[104] = {
     // $Room 117
     //
     // You don't have the key for this door.
-    await z.say(o, [{"text": "Room 117", "align": "center"}, "", "You don't have the key for this door."]);
+    z.say(o, [{"text": "Room 117", "align": "center"}, "", "You don't have the key for this door."]);
     // #end
     return z.END;
   },
@@ -4072,7 +4072,7 @@ P[105] = {
     // $Room 116
     //
     // You don't have the key for this door.
-    await z.say(o, [{"text": "Room 116", "align": "center"}, "", "You don't have the key for this door."]);
+    z.say(o, [{"text": "Room 116", "align": "center"}, "", "You don't have the key for this door."]);
     // #end
     return z.END;
   },
@@ -4096,7 +4096,7 @@ P[106] = {
     // $Room 115
     //
     // You don't have the key for this door.
-    await z.say(o, [{"text": "Room 115", "align": "center"}, "", "You don't have the key for this door."]);
+    z.say(o, [{"text": "Room 115", "align": "center"}, "", "You don't have the key for this door."]);
     // #end
     return z.END;
   },
@@ -4336,7 +4336,7 @@ P[116] = {
     await z.idle(o);
     // "Hey Jason!" screems Joe. "Don't worry, I
     // can take care of the body!"
-    await z.say(o, ["\"Hey Jason!\" screems Joe. \"Don't worry, I", "can take care of the body!\""]);
+    z.say(o, ["\"Hey Jason!\" screems Joe. \"Don't worry, I", "can take care of the body!\""]);
     // #restore touch
     z.restore(o, "touch");
     // #end
@@ -4346,7 +4346,7 @@ P[116] = {
     // :touch
     // Don't worry, I have everything under con-
     // trol. Continue on with your case.
-    await z.say(o, ["Don't worry, I have everything under con-", "trol. Continue on with your case."]);
+    z.say(o, ["Don't worry, I have everything under con-", "trol. Continue on with your case."]);
     // #end
     return z.END;
   },
@@ -4386,7 +4386,7 @@ P[118] = {
   async function on_touch(o, z) {
     // :touch
     // The toilet.
-    await z.say(o, ["The toilet."]);
+    z.say(o, ["The toilet."]);
     // #end
     return z.END;
   },
@@ -4407,7 +4407,7 @@ P[119] = {
   async function on_touch(o, z) {
     // :touch
     // The sink.
-    await z.say(o, ["The sink."]);
+    z.say(o, ["The sink."]);
     // #end
     return z.END;
   },
@@ -4429,7 +4429,7 @@ P[120] = {
   async function on_touch(o, z) {
     // :touch
     // The shower curtain.
-    await z.say(o, ["The shower curtain."]);
+    z.say(o, ["The shower curtain."]);
     // #end
     return z.END;
   },
@@ -4464,7 +4464,7 @@ P[122] = {
   async function on_touch(o, z) {
     // :touch
     // The TV set.
-    await z.say(o, ["The TV set."]);
+    z.say(o, ["The TV set."]);
     // #end
     return z.END;
   },
@@ -4487,7 +4487,7 @@ P[123] = {
     // :touch
     // You take a peek in the empty drawer of the
     // night table.
-    await z.say(o, ["You take a peek in the empty drawer of the", "night table."]);
+    z.say(o, ["You take a peek in the empty drawer of the", "night table."]);
     // #end
     return z.END;
   },
@@ -4512,7 +4512,7 @@ P[124] = {
     // Well, well, well! What do we have here?
     // A snooping detective, eh? MOVE AN INCH
     // AND YOU'RE HISTORY DUDE!!!
-    await z.say(o, ["Well, well, well! What do we have here?", "A snooping detective, eh? MOVE AN INCH", "AND YOU'RE HISTORY DUDE!!!"]);
+    z.say(o, ["Well, well, well! What do we have here?", "A snooping detective, eh? MOVE AN INCH", "AND YOU'RE HISTORY DUDE!!!"]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -4520,7 +4520,7 @@ P[124] = {
     // Think I'll blast ya anyway...
     //
     // Hahahaha!!!
-    await z.say(o, ["Think I'll blast ya anyway...", "", "Hahahaha!!!"]);
+    z.say(o, ["Think I'll blast ya anyway...", "", "Hahahaha!!!"]);
     // #restore shot
     z.restore(o, "shot");
     // #cycle 1
@@ -4555,7 +4555,7 @@ P[124] = {
     //
     // Realizing that he is dead, you rip out
     // your radio and call an ambulance.
-    await z.say(o, [{"text": "AARRGGHH...", "align": "center"}, "", "Rodney slumps to the floor...", "", "Realizing that he is dead, you rip out", "your radio and call an ambulance."]);
+    z.say(o, [{"text": "AARRGGHH...", "align": "center"}, "", "Rodney slumps to the floor...", "", "Realizing that he is dead, you rip out", "your radio and call an ambulance."]);
     // #clear rodney2
     z.rt.clearFlag("rodney2");
     // #set roddead
@@ -4585,7 +4585,7 @@ P[124] = {
     //
     // This guy must be rich, he's wearing an
     // expensive-looking business suit.
-    await z.say(o, ["You search the well-dressed body and find", "a note addressed to him.", "", "It says:", "", "Rod,", "   Meet me at the club by noon. If you're", "not there, then I'm off without you.", "                                    -Sam", "", "This guy must be rich, he's wearing an", "expensive-looking business suit."]);
+    z.say(o, ["You search the well-dressed body and find", "a note addressed to him.", "", "It says:", "", "Rod,", "   Meet me at the club by noon. If you're", "not there, then I'm off without you.", "                                    -Sam", "", "This guy must be rich, he's wearing an", "expensive-looking business suit."]);
     // #bind Binder
     return z.bind(o, "Binder");
     // #end
@@ -4615,7 +4615,7 @@ P[125] = {
   async function on_touch(o, z) {
     // :touch
     // No going out the door allowed!
-    await z.say(o, ["No going out the door allowed!"]);
+    z.say(o, ["No going out the door allowed!"]);
     // #end
     return z.END;
   },
@@ -4643,7 +4643,7 @@ P[126] = {
     // #play TCDEFGABAGFEDC
     z.play("TCDEFGABAGFEDC");
     // You found a wallet with 25 dollars!
-    await z.say(o, ["You found a wallet with 25 dollars!"]);
+    z.say(o, ["You found a wallet with 25 dollars!"]);
     // #give gems 25
     z.give("gems", 25);
     // #die
@@ -4667,14 +4667,14 @@ P[127] = {
   async function on_shot(o, z) {
     // :shot
     // You shot him already!
-    await z.say(o, ["You shot him already!"]);
+    z.say(o, ["You shot him already!"]);
     // #end
     return z.END;
   },
   async function on_touch(o, z) {
     // :touch
     // You searched him already!
-    await z.say(o, ["You searched him already!"]);
+    z.say(o, ["You searched him already!"]);
     // #end
     return z.END;
   },
@@ -4763,7 +4763,7 @@ P[130] = {
       if (await z.send(o, "self", "doit")) return z.GOTO;
     }
     // You have no need to go in there!
-    await z.say(o, ["You have no need to go in there!"]);
+    z.say(o, ["You have no need to go in there!"]);
     // #end
     return z.END;
   },
@@ -4803,7 +4803,7 @@ P[131] = {
     // never sees ya, got it?
     //
     // !pay;Pay the bouncer 100 dollars.
-    if (await z.say(o, ["Whudya want, kid?", "", {"text": "Let me in, er... LEMME IN!", "align": "center"}, "", "Look, uh, the boss don't want no snoopers", "walkin' 'round here. Tell ya what, you", "gimme 100 bucks and I'll letcha in and I", "never sees ya, got it?", "", {"choice": "pay", "text": "Pay the bouncer 100 dollars."}])) return z.GOTO;
+    z.say(o, ["Whudya want, kid?", "", {"text": "Let me in, er... LEMME IN!", "align": "center"}, "", "Look, uh, the boss don't want no snoopers", "walkin' 'round here. Tell ya what, you", "gimme 100 bucks and I'll letcha in and I", "never sees ya, got it?", "", {"choice": "pay", "text": "Pay the bouncer 100 dollars."}]);
     // #end
     return z.END;
   },
@@ -4818,14 +4818,14 @@ P[131] = {
     // /w
     await z.step(o, "w");
     // Hurry along, kiddo.
-    await z.say(o, ["Hurry along, kiddo."]);
+    z.say(o, ["Hurry along, kiddo."]);
     // #end
     return z.END;
   },
   async function on_toopoor(o, z) {
     // :toopoor
     // BEAT IT!
-    await z.say(o, ["BEAT IT!"]);
+    z.say(o, ["BEAT IT!"]);
     // #end
     return z.END;
   },
@@ -4833,7 +4833,7 @@ P[131] = {
     // :touch
     // Look kid, you're gonna get me in trouble!
     // GET OUTTA HERE!
-    await z.say(o, ["Look kid, you're gonna get me in trouble!", "GET OUTTA HERE!"]);
+    z.say(o, ["Look kid, you're gonna get me in trouble!", "GET OUTTA HERE!"]);
     // #end
     return z.END;
   },
@@ -4862,7 +4862,7 @@ P[132] = {
     // blasts you with an UZI. This place is a
     // den of crime, you feel it alright, right
     // in your chest.
-    await z.say(o, ["The punks in this place instantly recog-", "nize you as not \"one of them\". One of them", "blasts you with an UZI. This place is a", "den of crime, you feel it alright, right", "in your chest."]);
+    z.say(o, ["The punks in this place instantly recog-", "nize you as not \"one of them\". One of them", "blasts you with an UZI. This place is a", "den of crime, you feel it alright, right", "in your chest."]);
     // #endgame
     z.endgame(o);
     // #end
@@ -4871,7 +4871,7 @@ P[132] = {
   async function on_nevermind(o, z) {
     // :nevermind
     // This place is a den of crime. You feel it.
-    await z.say(o, ["This place is a den of crime. You feel it."]);
+    z.say(o, ["This place is a den of crime. You feel it."]);
     // #send music:start
     if (await z.send(o, "music", "start")) return z.GOTO;
     // /i/i
@@ -4890,7 +4890,7 @@ P[132] = {
     // Medium voice: "Why not?"
     //
     // Deep voice: "Shut up, kid."
-    await z.say(o, ["You overhear a conversation, not knowing", "from who...", "", "Medium voice: \"When's our next heist,", "               boss?\"", "", "Deep voice: \"Look, we ain't like the Miami", "             connection, where the boss", "             tells his boys EVERYTHING.\"", "", "Medium voice: \"Why not?\"", "", "Deep voice: \"Shut up, kid.\""]);
+    z.say(o, ["You overhear a conversation, not knowing", "from who...", "", "Medium voice: \"When's our next heist,", "               boss?\"", "", "Deep voice: \"Look, we ain't like the Miami", "             connection, where the boss", "             tells his boys EVERYTHING.\"", "", "Medium voice: \"Why not?\"", "", "Deep voice: \"Shut up, kid.\""]);
     // #die
     return z.die(o);
   },
@@ -4912,7 +4912,7 @@ P[133] = {
   async function on_touch(o, z) {
     // :touch
     // Beat it! I'm busy...
-    await z.say(o, ["Beat it! I'm busy..."]);
+    z.say(o, ["Beat it! I'm busy..."]);
     // #end
     return z.END;
   },
@@ -4934,7 +4934,7 @@ P[134] = {
   async function on_touch(o, z) {
     // :touch
     // Not allowed back there!
-    await z.say(o, ["Not allowed back there!"]);
+    z.say(o, ["Not allowed back there!"]);
     // #end
     return z.END;
   },
@@ -5000,7 +5000,7 @@ P[137] = {
   async function on_touch(o, z) {
     // :touch
     // This punk is drunk. (hey, it rhymes!)
-    await z.say(o, ["This punk is drunk. (hey, it rhymes!)"]);
+    z.say(o, ["This punk is drunk. (hey, it rhymes!)"]);
     // #end
     return z.END;
   },
@@ -5023,7 +5023,7 @@ P[137] = {
   async function on_shot(o, z) {
     // :shot
     // ARGH...
-    await z.say(o, ["ARGH..."]);
+    z.say(o, ["ARGH..."]);
     // #give score 100
     z.give("score", 100);
     // #die
@@ -5061,7 +5061,7 @@ P[139] = {
   async function on_touch(o, z) {
     // :touch
     // This punk is out cold.
-    await z.say(o, ["This punk is out cold."]);
+    z.say(o, ["This punk is out cold."]);
     // #end
     return z.END;
   },
@@ -5109,7 +5109,7 @@ P[141] = {
     //
     // (Sam pulls out his magnum .44 and begins
     // blasting you)
-    await z.say(o, ["(in a medium voice, the man says...)", "", "Beat it! ... Hey, you're the guy who", "arrested me!", "", "DIE, COPPER!", "", "(Sam pulls out his magnum .44 and begins", "blasting you)"]);
+    z.say(o, ["(in a medium voice, the man says...)", "", "Beat it! ... Hey, you're the guy who", "arrested me!", "", "DIE, COPPER!", "", "(Sam pulls out his magnum .44 and begins", "blasting you)"]);
     // /i
     await z.idle(o);
     // #send leader:die
@@ -5135,7 +5135,7 @@ P[141] = {
     // automatics at you. One of them nails you
     // in the arm as you stumble to the wall.
     // When you look up, Sam has disappeared!
-    await z.say(o, ["Sam tumbles to the floor, holding his", "bullet wound with one hand, holding his", "gun in the other. You try to hold your gun", "on him, but his buddies start firing their", "automatics at you. One of them nails you", "in the arm as you stumble to the wall.", "When you look up, Sam has disappeared!"]);
+    z.say(o, ["Sam tumbles to the floor, holding his", "bullet wound with one hand, holding his", "gun in the other. You try to hold your gun", "on him, but his buddies start firing their", "automatics at you. One of them nails you", "in the arm as you stumble to the wall.", "When you look up, Sam has disappeared!"]);
     // #send punk:killem
     if (await z.send(o, "punk", "killem")) return z.GOTO;
     // #set samgone
@@ -5266,7 +5266,7 @@ P[145] = {
   async function on_touch(o, z) {
     // :touch
     // Aaa, nothing interesting in there!
-    await z.say(o, ["Aaa, nothing interesting in there!"]);
+    z.say(o, ["Aaa, nothing interesting in there!"]);
     // #end
     return z.END;
   },
@@ -5337,7 +5337,7 @@ P[148] = {
   async function on_touch(o, z) {
     // :touch
     // Hi!
-    await z.say(o, ["Hi!"]);
+    z.say(o, ["Hi!"]);
     // #end
     return z.END;
   },
@@ -5401,7 +5401,7 @@ P[150] = {
     // A security guard sees you pulling out your
     // gun and shoots you first!
     // $GAME OVER
-    await z.say(o, ["A security guard sees you pulling out your", "gun and shoots you first!", {"text": "GAME OVER", "align": "center"}]);
+    z.say(o, ["A security guard sees you pulling out your", "gun and shoots you first!", {"text": "GAME OVER", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -5451,7 +5451,7 @@ P[151] = {
     // A security guard sees you pulling out your
     // gun and shoots you first!
     // $GAME OVER
-    await z.say(o, ["A security guard sees you pulling out your", "gun and shoots you first!", {"text": "GAME OVER", "align": "center"}]);
+    z.say(o, ["A security guard sees you pulling out your", "gun and shoots you first!", {"text": "GAME OVER", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -5521,7 +5521,7 @@ P[155] = {
     // :touch
     // Hello, I'm just sitting here by the
     // fountain relaxing.
-    await z.say(o, ["Hello, I'm just sitting here by the", "fountain relaxing."]);
+    z.say(o, ["Hello, I'm just sitting here by the", "fountain relaxing."]);
     // #end
     return z.END;
   },
@@ -5593,7 +5593,7 @@ P[159] = {
   async function on_touch(o, z) {
     // :touch
     // ░▒▓█ CLOTHES 'R' US █▓▒░
-    await z.say(o, ["░▒▓█ CLOTHES 'R' US █▓▒░"]);
+    z.say(o, ["░▒▓█ CLOTHES 'R' US █▓▒░"]);
     // #end
     return z.END;
   },
@@ -5614,7 +5614,7 @@ P[160] = {
   async function on_touch(o, z) {
     // :touch
     // ░▒▓█ PENNY SAVINGS BANK █▓▒░
-    await z.say(o, ["░▒▓█ PENNY SAVINGS BANK █▓▒░"]);
+    z.say(o, ["░▒▓█ PENNY SAVINGS BANK █▓▒░"]);
     // #end
     return z.END;
   },
@@ -5635,7 +5635,7 @@ P[161] = {
   async function on_touch(o, z) {
     // :touch
     // ░▒▓█ SPORTS CENTER █▓▒░
-    await z.say(o, ["░▒▓█ SPORTS CENTER █▓▒░"]);
+    z.say(o, ["░▒▓█ SPORTS CENTER █▓▒░"]);
     // #end
     return z.END;
   },
@@ -5651,7 +5651,7 @@ P[162] = {
   segments: [
   async function start(o, z) {
     // I wonder why there's no people down here?
-    await z.say(o, ["I wonder why there's no people down here?"]);
+    z.say(o, ["I wonder why there's no people down here?"]);
     // #become red breakable
     return z.become(o, "red", "breakable");
   },
@@ -5667,7 +5667,7 @@ P[163] = {
   segments: [
   async function start(o, z) {
     // Boy, this place isn't very "giga", is it?
-    await z.say(o, ["Boy, this place isn't very \"giga\", is it?"]);
+    z.say(o, ["Boy, this place isn't very \"giga\", is it?"]);
     // #become blue breakable
     return z.become(o, "blue", "breakable");
   },
@@ -5689,7 +5689,7 @@ P[164] = {
   async function on_touch(o, z) {
     // :touch
     // The person is sleeping.
-    await z.say(o, ["The person is sleeping."]);
+    z.say(o, ["The person is sleeping."]);
     // #end
     return z.END;
   },
@@ -5725,7 +5725,7 @@ P[166] = {
   async function on_touch(o, z) {
     // :touch
     // WOW! Just look at these bats!
-    await z.say(o, ["WOW! Just look at these bats!"]);
+    z.say(o, ["WOW! Just look at these bats!"]);
     // #end
     return z.END;
   },
@@ -5760,7 +5760,7 @@ P[168] = {
   async function on_touch(o, z) {
     // :touch
     // These are two bats with very thin barrels.
-    await z.say(o, ["These are two bats with very thin barrels."]);
+    z.say(o, ["These are two bats with very thin barrels."]);
     // #end
     return z.END;
   },
@@ -5782,7 +5782,7 @@ P[169] = {
   async function on_touch(o, z) {
     // :touch
     // Look at all these baseball gloves!
-    await z.say(o, ["Look at all these baseball gloves!"]);
+    z.say(o, ["Look at all these baseball gloves!"]);
     // #end
     return z.END;
   },
@@ -5818,7 +5818,7 @@ P[171] = {
   async function on_touch(o, z) {
     // :touch
     // Some baseballs are stacked on the floor.
-    await z.say(o, ["Some baseballs are stacked on the floor."]);
+    z.say(o, ["Some baseballs are stacked on the floor."]);
     // #end
     return z.END;
   },
@@ -5868,7 +5868,7 @@ P[173] = {
     // WELL EAT MY LEAD, DUDE!!!
     //
     // $"Here we go again," you think.
-    await z.say(o, ["(The bandit turns around and sees you.)", "", "Well, an undercover cop, eh?", "", "(you wonder how he knew that.)", "", "WELL EAT MY LEAD, DUDE!!!", "", {"text": "\"Here we go again,\" you think.", "align": "center"}]);
+    z.say(o, ["(The bandit turns around and sees you.)", "", "Well, an undercover cop, eh?", "", "(you wonder how he knew that.)", "", "WELL EAT MY LEAD, DUDE!!!", "", {"text": "\"Here we go again,\" you think.", "align": "center"}]);
     // /i
     await z.idle(o);
     // #restore shot
@@ -5897,7 +5897,7 @@ P[173] = {
     // radio and call an ambulance.
     //
     // "We'll be there any minute!" they say.
-    await z.say(o, ["Ahh...", "", "The robber drips some blood on the floor,", "looks at you, and slumps to the ground,", "dead.", "", "Realizing that he's dead, you rip out your", "radio and call an ambulance.", "", "\"We'll be there any minute!\" they say."]);
+    z.say(o, ["Ahh...", "", "The robber drips some blood on the floor,", "looks at you, and slumps to the ground,", "dead.", "", "Realizing that he's dead, you rip out your", "radio and call an ambulance.", "", "\"We'll be there any minute!\" they say."]);
     // #bind binder
     return z.bind(o, "binder");
     // #end
@@ -5921,7 +5921,7 @@ P[174] = {
   async function on_shot(o, z) {
     // :shot
     // You shot him already!
-    await z.say(o, ["You shot him already!"]);
+    z.say(o, ["You shot him already!"]);
     // #end
     return z.END;
   },
@@ -5935,7 +5935,7 @@ P[174] = {
     // Vincent Cook.
     //
     // Boy, he sure is scroungey-looking!
-    await z.say(o, ["You search him and find 35 dollars, as", "well as a false ID (you know these kind", "of things <heheheh>).", "", "The fales ID describes him as being", "Vincent Cook.", "", "Boy, he sure is scroungey-looking!"]);
+    z.say(o, ["You search him and find 35 dollars, as", "well as a false ID (you know these kind", "of things <heheheh>).", "", "The fales ID describes him as being", "Vincent Cook.", "", "Boy, he sure is scroungey-looking!"]);
     // #set vcook
     z.rt.setFlag("vcook");
     // #give gems 35
@@ -5950,7 +5950,7 @@ P[174] = {
   async function on_touch_2(o, z) {
     // :touch
     // You searched him already!
-    await z.say(o, ["You searched him already!"]);
+    z.say(o, ["You searched him already!"]);
     // #end
     return z.END;
   },
@@ -5966,7 +5966,7 @@ P[175] = {
   segments: [
   async function start(o, z) {
     // There's a hold-up in progress!
-    await z.say(o, ["There's a hold-up in progress!"]);
+    z.say(o, ["There's a hold-up in progress!"]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -5974,7 +5974,7 @@ P[175] = {
     await z.idle(o);
     await z.idle(o);
     // Gimme all yer money!
-    await z.say(o, ["Gimme all yer money!"]);
+    z.say(o, ["Gimme all yer money!"]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -5982,7 +5982,7 @@ P[175] = {
     await z.idle(o);
     await z.idle(o);
     // Alright, but don't shoot!!!
-    await z.say(o, ["Alright, but don't shoot!!!"]);
+    z.say(o, ["Alright, but don't shoot!!!"]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -6006,7 +6006,7 @@ P[176] = {
   segments: [
   async function start(o, z) {
     // Boy, this sure is one weird place...
-    await z.say(o, ["Boy, this sure is one weird place..."]);
+    z.say(o, ["Boy, this sure is one weird place..."]);
     // #become purple breakable
     return z.become(o, "purple", "breakable");
   },
@@ -6028,7 +6028,7 @@ P[177] = {
   async function on_touch(o, z) {
     // :touch
     // Hiya!
-    await z.say(o, ["Hiya!"]);
+    z.say(o, ["Hiya!"]);
     // #if punkcl then ask
     if (z.rt.hasFlag("punkcl")) {
       if (await z.send(o, "self", "ask")) return z.GOTO;
@@ -6039,7 +6039,7 @@ P[177] = {
   async function on_ask(o, z) {
     // :ask
     // !buy;I'd like to buy this item, please.
-    if (await z.say(o, [{"choice": "buy", "text": "I'd like to buy this item, please."}])) return z.GOTO;
+    z.say(o, [{"choice": "buy", "text": "I'd like to buy this item, please."}]);
     // #end
     return z.END;
   },
@@ -6052,7 +6052,7 @@ P[177] = {
     // #lock
     o.locked = true;
     // That'll be 10 clams!
-    await z.say(o, ["That'll be 10 clams!"]);
+    z.say(o, ["That'll be 10 clams!"]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -6060,7 +6060,7 @@ P[177] = {
     await z.idle(o);
     await z.idle(o);
     // You pay her the money.
-    await z.say(o, ["You pay her the money."]);
+    z.say(o, ["You pay her the money."]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -6068,7 +6068,7 @@ P[177] = {
     await z.idle(o);
     await z.idle(o);
     // Boy, you feel funny wearing this outfit!
-    await z.say(o, ["Boy, you feel funny wearing this outfit!"]);
+    z.say(o, ["Boy, you feel funny wearing this outfit!"]);
     // #give score 1000
     z.give("score", 1000);
     // #clear punkcl
@@ -6087,7 +6087,7 @@ P[177] = {
     // "You don't have enough!" she says.
     //
     // You give it back to the employee.
-    await z.say(o, ["\"You don't have enough!\" she says.", "", "You give it back to the employee."]);
+    z.say(o, ["\"You don't have enough!\" she says.", "", "You give it back to the employee."]);
     // #send Outfit:putback
     if (await z.send(o, "outfit", "putback")) return z.GOTO;
     // #send Ger:backger
@@ -6098,7 +6098,7 @@ P[177] = {
   async function on_stealtest(o, z) {
     // :stealtest
     // Uh, sir, don't you want to pay for that?
-    await z.say(o, ["Uh, sir, don't you want to pay for that?"]);
+    z.say(o, ["Uh, sir, don't you want to pay for that?"]);
     // #end
     return z.END;
   },
@@ -6138,14 +6138,14 @@ P[179] = {
     // 10 bucks!
     //
     // !take;Take outfit to counter.
-    if (await z.say(o, ["Something catches your eye... It's a", "genuine punk outfit! On sale too! Only", "10 bucks!", "", {"choice": "take", "text": "Take outfit to counter."}])) return z.GOTO;
+    z.say(o, ["Something catches your eye... It's a", "genuine punk outfit! On sale too! Only", "10 bucks!", "", {"choice": "take", "text": "Take outfit to counter."}]);
     // #end
     return z.END;
   },
   async function on_take(o, z) {
     // :take
     // You unhesitantly take the outfit.
-    await z.say(o, ["You unhesitantly take the outfit."]);
+    z.say(o, ["You unhesitantly take the outfit."]);
     // #char 255
     z.setChar(o, 255);
     // #zap touch
@@ -6259,7 +6259,7 @@ P[181] = {
     // catches you before you escape, and you
     // go to jail for 10 years for shoplifting.
     // $GAME OVER
-    await z.say(o, ["You try to push past the barrier, but", "the security guard around the corner", "catches you before you escape, and you", "go to jail for 10 years for shoplifting.", {"text": "GAME OVER", "align": "center"}]);
+    z.say(o, ["You try to push past the barrier, but", "the security guard around the corner", "catches you before you escape, and you", "go to jail for 10 years for shoplifting.", {"text": "GAME OVER", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #end
@@ -6283,7 +6283,7 @@ P[182] = {
   async function on_touch(o, z) {
     // :touch
     // Boring outfits...
-    await z.say(o, ["Boring outfits..."]);
+    z.say(o, ["Boring outfits..."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -6292,7 +6292,7 @@ P[182] = {
   async function on_touch_2(o, z) {
     // :touch
     // And more boring outfits...
-    await z.say(o, ["And more boring outfits..."]);
+    z.say(o, ["And more boring outfits..."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -6301,7 +6301,7 @@ P[182] = {
   async function on_touch_3(o, z) {
     // :touch
     // And yet MORE boring outfits...
-    await z.say(o, ["And yet MORE boring outfits..."]);
+    z.say(o, ["And yet MORE boring outfits..."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -6310,7 +6310,7 @@ P[182] = {
   async function on_touch_4(o, z) {
     // :touch
     // Boring... Boring... Boring...
-    await z.say(o, ["Boring... Boring... Boring..."]);
+    z.say(o, ["Boring... Boring... Boring..."]);
     // #end
     return z.END;
   },
@@ -6354,7 +6354,7 @@ P[184] = {
       if (await z.send(o, "self", "aid")) return z.GOTO;
     }
     // You have no reason to enter the hospital!
-    await z.say(o, ["You have no reason to enter the hospital!"]);
+    z.say(o, ["You have no reason to enter the hospital!"]);
     // #end
     return z.END;
   },
@@ -6363,7 +6363,7 @@ P[184] = {
     // You get treated for your wound. It wasn't
     // a serious wound (thank goodness), but a
     // wound nonetheless.
-    await z.say(o, ["You get treated for your wound. It wasn't", "a serious wound (thank goodness), but a", "wound nonetheless."]);
+    z.say(o, ["You get treated for your wound. It wasn't", "a serious wound (thank goodness), but a", "wound nonetheless."]);
     // #give health 500
     z.give("health", 500);
     // #give score 1000
@@ -6376,7 +6376,7 @@ P[184] = {
   async function on_aid_2(o, z) {
     // :aid
     // You got treated for your wound already!
-    await z.say(o, ["You got treated for your wound already!"]);
+    z.say(o, ["You got treated for your wound already!"]);
     // #end
     return z.END;
   },
@@ -6403,7 +6403,7 @@ P[185] = {
       return z.become(o, "white", "fake");
     }
     // You have no reason to go here!
-    await z.say(o, ["You have no reason to go here!"]);
+    z.say(o, ["You have no reason to go here!"]);
     // #end
     return z.END;
   },
@@ -6477,7 +6477,7 @@ P[188] = {
   async function on_touch(o, z) {
     // :touch
     // Wow, look at all the barrels of candy!
-    await z.say(o, ["Wow, look at all the barrels of candy!"]);
+    z.say(o, ["Wow, look at all the barrels of candy!"]);
     // #end
     return z.END;
   },
@@ -6573,7 +6573,7 @@ P[192] = {
       if (await z.send(o, "self", "talk")) return z.GOTO;
     }
     // I'm busy...
-    await z.say(o, ["I'm busy..."]);
+    z.say(o, ["I'm busy..."]);
     // #end
     return z.END;
   },
@@ -6627,7 +6627,7 @@ P[192] = {
     // No, officer.
     //
     // $Thank you.
-    await z.say(o, [{"text": "Excuse me.", "align": "center"}, "", "Yes sir?", "", "(you pull out your wallet and show your", "badge.)", "", "Yes officer?", "", {"text": "I was wondering if you could help me. Did", "align": "center"}, {"text": "you happen to see a woman in green dress", "align": "center"}, {"text": "buying groceries here?", "align": "center"}, "", "Yes I did. As a matter of fact, I'm the", "person who checked out her items.", "", {"text": "Were there any suspicious characters", "align": "center"}, {"text": "near here when you checked here out?", "align": "center"}, "", "Yes, there were two spying on her from one", "of the isles.", "", {"text": "Can you describe them?", "align": "center"}, "", "One was a shadey character, sort of a", "scroungey type of man. The other was a", "man dressed in an expensive-looking", "business suit, carrying a briefcase.", "", {"text": "Did you notice anything else?", "align": "center"}, "", "Those two men seemed to be watching her", "hands, not necessarily HER directly,", "which I found quite strange.", "", {"text": "Anything else?", "align": "center"}, "", "When she left, they watched her out the", "window getting into her car and drive", "away. Then they ran out the door, hopped", "into a red car and drove in an opposite", "direction.", "", {"text": "Anything else?", "align": "center"}, "", "No, officer.", "", {"text": "Thank you.", "align": "center"}]);
+    z.say(o, [{"text": "Excuse me.", "align": "center"}, "", "Yes sir?", "", "(you pull out your wallet and show your", "badge.)", "", "Yes officer?", "", {"text": "I was wondering if you could help me. Did", "align": "center"}, {"text": "you happen to see a woman in green dress", "align": "center"}, {"text": "buying groceries here?", "align": "center"}, "", "Yes I did. As a matter of fact, I'm the", "person who checked out her items.", "", {"text": "Were there any suspicious characters", "align": "center"}, {"text": "near here when you checked here out?", "align": "center"}, "", "Yes, there were two spying on her from one", "of the isles.", "", {"text": "Can you describe them?", "align": "center"}, "", "One was a shadey character, sort of a", "scroungey type of man. The other was a", "man dressed in an expensive-looking", "business suit, carrying a briefcase.", "", {"text": "Did you notice anything else?", "align": "center"}, "", "Those two men seemed to be watching her", "hands, not necessarily HER directly,", "which I found quite strange.", "", {"text": "Anything else?", "align": "center"}, "", "When she left, they watched her out the", "window getting into her car and drive", "away. Then they ran out the door, hopped", "into a red car and drove in an opposite", "direction.", "", {"text": "Anything else?", "align": "center"}, "", "No, officer.", "", {"text": "Thank you.", "align": "center"}]);
     // #zap talk
     z.zap(o, "talk");
     // #zap touch
@@ -6638,7 +6638,7 @@ P[192] = {
   async function on_touch_2(o, z) {
     // :touch
     // I've told you all I know!
-    await z.say(o, ["I've told you all I know!"]);
+    z.say(o, ["I've told you all I know!"]);
     // #end
     return z.END;
   },
@@ -6664,7 +6664,7 @@ P[193] = {
       if (await z.send(o, "self", "talk")) return z.GOTO;
     }
     // I'm busy...
-    await z.say(o, ["I'm busy..."]);
+    z.say(o, ["I'm busy..."]);
     // #end
     return z.END;
   },
@@ -6686,7 +6686,7 @@ P[193] = {
     // Sorry, officer, I didn't see her.
     //
     // $Thanks.
-    await z.say(o, [{"text": "Excuse me.", "align": "center"}, "", "Yes sir?", "", "(you pull out your wallet and show your", "badge.)", "", "Yes officer?", "", {"text": "I was wondering if you could help me. Did", "align": "center"}, {"text": "you happen to see a woman in green dress", "align": "center"}, {"text": "buying groceries here?", "align": "center"}, "", "Sorry, officer, I didn't see her.", "", {"text": "Thanks.", "align": "center"}]);
+    z.say(o, [{"text": "Excuse me.", "align": "center"}, "", "Yes sir?", "", "(you pull out your wallet and show your", "badge.)", "", "Yes officer?", "", {"text": "I was wondering if you could help me. Did", "align": "center"}, {"text": "you happen to see a woman in green dress", "align": "center"}, {"text": "buying groceries here?", "align": "center"}, "", "Sorry, officer, I didn't see her.", "", {"text": "Thanks.", "align": "center"}]);
     // #zap talk
     z.zap(o, "talk");
     // #zap touch
@@ -6697,7 +6697,7 @@ P[193] = {
   async function on_touch_2(o, z) {
     // :touch
     // I've told you all I know!
-    await z.say(o, ["I've told you all I know!"]);
+    z.say(o, ["I've told you all I know!"]);
     // #end
     return z.END;
   },
@@ -6868,27 +6868,27 @@ P[198] = {
   async function on_officer(o, z) {
     // :officer
     // Yes sir?
-    await z.say(o, ["Yes sir?"]);
+    z.say(o, ["Yes sir?"]);
     // #send goforit
     if (await z.send(o, "self", "goforit")) return z.GOTO;
   },
   async function on_officer_2(o, z) {
     // :officer
     // Yes Officer?
-    await z.say(o, ["Yes Officer?"]);
+    z.say(o, ["Yes Officer?"]);
   },
   async function on_goforit(o, z) {
     // :goforit
     //
     // !show;Show badge.
     // !seelist;Request to see the tenant list.
-    if (await z.say(o, [{"choice": "show", "text": "Show badge."}, {"choice": "seelist", "text": "Request to see the tenant list."}])) return z.GOTO;
+    z.say(o, [{"choice": "show", "text": "Show badge."}, {"choice": "seelist", "text": "Request to see the tenant list."}]);
     // #if not sawvk then end
     if (!(z.rt.hasFlag("sawvk"))) {
       return z.END;
     }
     // !cook;Request the key to room 48.
-    if (await z.say(o, [{"choice": "cook", "text": "Request the key to room 48."}])) return z.GOTO;
+    z.say(o, [{"choice": "cook", "text": "Request the key to room 48."}]);
     // #end
     return z.END;
   },
@@ -6910,7 +6910,7 @@ P[198] = {
     // #play S--CDCD
     z.play("S--CDCD");
     // Certinly not!
-    await z.say(o, ["Certinly not!"]);
+    z.say(o, ["Certinly not!"]);
     // #end
     return z.END;
   },
@@ -6926,7 +6926,7 @@ P[198] = {
     // $Chad Slacker (room 22)
     // $Jimmy Jones (room 45)
     // $................
-    await z.say(o, ["Certinly officer!", "", "(You scan the names on the list)", "", {"text": "Johnny Cash (room 12)", "align": "center"}, {"text": "Rod Rockowitz (room 37)", "align": "center"}, {"text": "Freddy Pains (room 31)", "align": "center"}, {"text": "Chad Slacker (room 22)", "align": "center"}, {"text": "Jimmy Jones (room 45)", "align": "center"}, {"text": "................", "align": "center"}]);
+    z.say(o, ["Certinly officer!", "", "(You scan the names on the list)", "", {"text": "Johnny Cash (room 12)", "align": "center"}, {"text": "Rod Rockowitz (room 37)", "align": "center"}, {"text": "Freddy Pains (room 31)", "align": "center"}, {"text": "Chad Slacker (room 22)", "align": "center"}, {"text": "Jimmy Jones (room 45)", "align": "center"}, {"text": "................", "align": "center"}]);
     // #if vcook2 then vincook
     if (z.rt.hasFlag("vcook2")) {
       if (await z.send(o, "self", "vincook")) return z.GOTO;
@@ -6934,7 +6934,7 @@ P[198] = {
     //
     // You scan further down the list, but don't
     // come across any information of value.
-    await z.say(o, ["You scan further down the list, but don't", "come across any information of value."]);
+    z.say(o, ["You scan further down the list, but don't", "come across any information of value."]);
     // #end
     return z.END;
   },
@@ -6943,7 +6943,7 @@ P[198] = {
     // You scan further down the list and find:
     //
     // $Vincent Cook (room 48)
-    await z.say(o, ["You scan further down the list and find:", "", {"text": "Vincent Cook (room 48)", "align": "center"}]);
+    z.say(o, ["You scan further down the list and find:", "", {"text": "Vincent Cook (room 48)", "align": "center"}]);
     // #set sawvk
     z.rt.setFlag("sawvk");
     // #give score 1000
@@ -6956,7 +6956,7 @@ P[198] = {
     // Well... Ok.
     //
     // (he hands you a key labeled APT 48)
-    await z.say(o, ["Well... Ok.", "", "(he hands you a key labeled APT 48)"]);
+    z.say(o, ["Well... Ok.", "", "(he hands you a key labeled APT 48)"]);
     // #set key48
     z.rt.setFlag("key48");
     // #lock
@@ -6984,7 +6984,7 @@ P[199] = {
     // #play 6226
     z.play("6226");
     // It's locked.
-    await z.say(o, ["It's locked."]);
+    z.say(o, ["It's locked."]);
     // #end
     return z.END;
   },
@@ -7484,7 +7484,7 @@ P[204] = {
     // !f2;Floor 2
     // !f3;Floor 3
     // !f4;Floor 4
-    if (await z.say(o, ["What floor?", "", {"choice": "f2", "text": "Floor 2"}, {"choice": "f3", "text": "Floor 3"}, {"choice": "f4", "text": "Floor 4"}])) return z.GOTO;
+    z.say(o, ["What floor?", "", {"choice": "f2", "text": "Floor 2"}, {"choice": "f3", "text": "Floor 3"}, {"choice": "f4", "text": "Floor 4"}]);
     // #end
     return z.END;
   },
@@ -7546,7 +7546,7 @@ P[205] = {
     // !f1;Floor 1
     // !f3;Floor 3
     // !f4;Floor 4
-    if (await z.say(o, ["What floor?", "", {"choice": "f1", "text": "Floor 1"}, {"choice": "f3", "text": "Floor 3"}, {"choice": "f4", "text": "Floor 4"}])) return z.GOTO;
+    z.say(o, ["What floor?", "", {"choice": "f1", "text": "Floor 1"}, {"choice": "f3", "text": "Floor 3"}, {"choice": "f4", "text": "Floor 4"}]);
     // #end
     return z.END;
   },
@@ -7608,7 +7608,7 @@ P[206] = {
     // !f1;Floor 1
     // !f2;Floor 2
     // !f4;Floor 4
-    if (await z.say(o, ["What floor?", "", {"choice": "f1", "text": "Floor 1"}, {"choice": "f2", "text": "Floor 2"}, {"choice": "f4", "text": "Floor 4"}])) return z.GOTO;
+    z.say(o, ["What floor?", "", {"choice": "f1", "text": "Floor 1"}, {"choice": "f2", "text": "Floor 2"}, {"choice": "f4", "text": "Floor 4"}]);
     // #end
     return z.END;
   },
@@ -7670,7 +7670,7 @@ P[207] = {
     // !f1;Floor 1
     // !f2;Floor 2
     // !f3;Floor 3
-    if (await z.say(o, ["What floor?", "", {"choice": "f1", "text": "Floor 1"}, {"choice": "f2", "text": "Floor 2"}, {"choice": "f3", "text": "Floor 3"}])) return z.GOTO;
+    z.say(o, ["What floor?", "", {"choice": "f1", "text": "Floor 1"}, {"choice": "f2", "text": "Floor 2"}, {"choice": "f3", "text": "Floor 3"}]);
     // #end
     return z.END;
   },
@@ -7849,7 +7849,7 @@ P[212] = {
   async function on_touch(o, z) {
     // :touch
     // Room 20
-    await z.say(o, ["Room 20"]);
+    z.say(o, ["Room 20"]);
     // #end
     return z.END;
   },
@@ -7870,7 +7870,7 @@ P[213] = {
   async function on_touch(o, z) {
     // :touch
     // Room 21
-    await z.say(o, ["Room 21"]);
+    z.say(o, ["Room 21"]);
     // #end
     return z.END;
   },
@@ -7891,7 +7891,7 @@ P[214] = {
   async function on_touch(o, z) {
     // :touch
     // Room 22
-    await z.say(o, ["Room 22"]);
+    z.say(o, ["Room 22"]);
     // #end
     return z.END;
   },
@@ -7912,7 +7912,7 @@ P[215] = {
   async function on_touch(o, z) {
     // :touch
     // Room 23
-    await z.say(o, ["Room 23"]);
+    z.say(o, ["Room 23"]);
     // #end
     return z.END;
   },
@@ -7933,7 +7933,7 @@ P[216] = {
   async function on_touch(o, z) {
     // :touch
     // Room 24
-    await z.say(o, ["Room 24"]);
+    z.say(o, ["Room 24"]);
     // #end
     return z.END;
   },
@@ -7954,7 +7954,7 @@ P[217] = {
   async function on_touch(o, z) {
     // :touch
     // Room 25
-    await z.say(o, ["Room 25"]);
+    z.say(o, ["Room 25"]);
     // #end
     return z.END;
   },
@@ -7975,7 +7975,7 @@ P[218] = {
   async function on_touch(o, z) {
     // :touch
     // Room 26
-    await z.say(o, ["Room 26"]);
+    z.say(o, ["Room 26"]);
     // #end
     return z.END;
   },
@@ -7996,7 +7996,7 @@ P[219] = {
   async function on_touch(o, z) {
     // :touch
     // Room 27
-    await z.say(o, ["Room 27"]);
+    z.say(o, ["Room 27"]);
     // #end
     return z.END;
   },
@@ -8017,7 +8017,7 @@ P[220] = {
   async function on_touch(o, z) {
     // :touch
     // Room 28
-    await z.say(o, ["Room 28"]);
+    z.say(o, ["Room 28"]);
     // #end
     return z.END;
   },
@@ -8038,7 +8038,7 @@ P[221] = {
   async function on_touch(o, z) {
     // :touch
     // Room 30
-    await z.say(o, ["Room 30"]);
+    z.say(o, ["Room 30"]);
     // #end
     return z.END;
   },
@@ -8060,7 +8060,7 @@ P[222] = {
   async function on_touch(o, z) {
     // :touch
     // A soda machine.
-    await z.say(o, ["A soda machine."]);
+    z.say(o, ["A soda machine."]);
     // #end
     return z.END;
   },
@@ -8095,7 +8095,7 @@ P[224] = {
   async function on_touch(o, z) {
     // :touch
     // Room 29
-    await z.say(o, ["Room 29"]);
+    z.say(o, ["Room 29"]);
     // #end
     return z.END;
   },
@@ -8116,7 +8116,7 @@ P[225] = {
   async function on_touch(o, z) {
     // :touch
     // Room 31
-    await z.say(o, ["Room 31"]);
+    z.say(o, ["Room 31"]);
     // #end
     return z.END;
   },
@@ -8137,7 +8137,7 @@ P[226] = {
   async function on_touch(o, z) {
     // :touch
     // Room 32
-    await z.say(o, ["Room 32"]);
+    z.say(o, ["Room 32"]);
     // #end
     return z.END;
   },
@@ -8158,7 +8158,7 @@ P[227] = {
   async function on_touch(o, z) {
     // :touch
     // Room 33
-    await z.say(o, ["Room 33"]);
+    z.say(o, ["Room 33"]);
     // #end
     return z.END;
   },
@@ -8179,7 +8179,7 @@ P[228] = {
   async function on_touch(o, z) {
     // :touch
     // Room 34
-    await z.say(o, ["Room 34"]);
+    z.say(o, ["Room 34"]);
     // #end
     return z.END;
   },
@@ -8200,7 +8200,7 @@ P[229] = {
   async function on_touch(o, z) {
     // :touch
     // Room 35
-    await z.say(o, ["Room 35"]);
+    z.say(o, ["Room 35"]);
     // #end
     return z.END;
   },
@@ -8221,7 +8221,7 @@ P[230] = {
   async function on_touch(o, z) {
     // :touch
     // Room 36
-    await z.say(o, ["Room 36"]);
+    z.say(o, ["Room 36"]);
     // #end
     return z.END;
   },
@@ -8242,7 +8242,7 @@ P[231] = {
   async function on_touch(o, z) {
     // :touch
     // Room 37
-    await z.say(o, ["Room 37"]);
+    z.say(o, ["Room 37"]);
     // #end
     return z.END;
   },
@@ -8263,7 +8263,7 @@ P[232] = {
   async function on_touch(o, z) {
     // :touch
     // Room 38
-    await z.say(o, ["Room 38"]);
+    z.say(o, ["Room 38"]);
     // #end
     return z.END;
   },
@@ -8284,7 +8284,7 @@ P[233] = {
   async function on_touch(o, z) {
     // :touch
     // Room 39
-    await z.say(o, ["Room 39"]);
+    z.say(o, ["Room 39"]);
     // #end
     return z.END;
   },
@@ -8305,7 +8305,7 @@ P[234] = {
   async function on_touch(o, z) {
     // :touch
     // Room 40
-    await z.say(o, ["Room 40"]);
+    z.say(o, ["Room 40"]);
     // #end
     return z.END;
   },
@@ -8326,7 +8326,7 @@ P[235] = {
   async function on_touch(o, z) {
     // :touch
     // Room 41
-    await z.say(o, ["Room 41"]);
+    z.say(o, ["Room 41"]);
     // #end
     return z.END;
   },
@@ -8347,7 +8347,7 @@ P[236] = {
   async function on_touch(o, z) {
     // :touch
     // Room 42
-    await z.say(o, ["Room 42"]);
+    z.say(o, ["Room 42"]);
     // #end
     return z.END;
   },
@@ -8368,7 +8368,7 @@ P[237] = {
   async function on_touch(o, z) {
     // :touch
     // Room 43
-    await z.say(o, ["Room 43"]);
+    z.say(o, ["Room 43"]);
     // #end
     return z.END;
   },
@@ -8389,7 +8389,7 @@ P[238] = {
   async function on_touch(o, z) {
     // :touch
     // Room 44
-    await z.say(o, ["Room 44"]);
+    z.say(o, ["Room 44"]);
     // #end
     return z.END;
   },
@@ -8410,7 +8410,7 @@ P[239] = {
   async function on_touch(o, z) {
     // :touch
     // Room 45
-    await z.say(o, ["Room 45"]);
+    z.say(o, ["Room 45"]);
     // #end
     return z.END;
   },
@@ -8431,7 +8431,7 @@ P[240] = {
   async function on_touch(o, z) {
     // :touch
     // Room 46
-    await z.say(o, ["Room 46"]);
+    z.say(o, ["Room 46"]);
     // #end
     return z.END;
   },
@@ -8452,7 +8452,7 @@ P[241] = {
   async function on_touch(o, z) {
     // :touch
     // Room 47
-    await z.say(o, ["Room 47"]);
+    z.say(o, ["Room 47"]);
     // #end
     return z.END;
   },
@@ -8473,14 +8473,14 @@ P[242] = {
   async function on_touch(o, z) {
     // :touch
     // Room 48
-    await z.say(o, ["Room 48"]);
+    z.say(o, ["Room 48"]);
     // #if not key48 then end
     if (!(z.rt.hasFlag("key48"))) {
       return z.END;
     }
     //
     // !open;Open the door with key 48.
-    if (await z.say(o, [{"choice": "open", "text": "Open the door with key 48."}])) return z.GOTO;
+    z.say(o, [{"choice": "open", "text": "Open the door with key 48."}]);
     // #end
     return z.END;
   },
@@ -8491,7 +8491,7 @@ P[242] = {
     // #play 1
     z.play("1");
     // Click...
-    await z.say(o, ["Click..."]);
+    z.say(o, ["Click..."]);
     // #clear key48
     z.rt.clearFlag("key48");
     // #clear sawvk
@@ -8518,7 +8518,7 @@ P[243] = {
   async function on_touch(o, z) {
     // :touch
     // Room 49
-    await z.say(o, ["Room 49"]);
+    z.say(o, ["Room 49"]);
     // #end
     return z.END;
   },
@@ -8542,7 +8542,7 @@ P[244] = {
     // A yellow jacket.
     //
     // !search;Search the jacket.
-    if (await z.say(o, ["A yellow jacket.", "", {"choice": "search", "text": "Search the jacket."}])) return z.GOTO;
+    z.say(o, ["A yellow jacket.", "", {"choice": "search", "text": "Search the jacket."}]);
     // #end
     return z.END;
   },
@@ -8550,7 +8550,7 @@ P[244] = {
     // :search
     // You search through all the pockets and
     // "frisk" it, but come up empty-handed.
-    await z.say(o, ["You search through all the pockets and", "\"frisk\" it, but come up empty-handed."]);
+    z.say(o, ["You search through all the pockets and", "\"frisk\" it, but come up empty-handed."]);
     // #end
     return z.END;
   },
@@ -8572,7 +8572,7 @@ P[245] = {
   async function on_touch(o, z) {
     // :touch
     // The toilet.
-    await z.say(o, ["The toilet."]);
+    z.say(o, ["The toilet."]);
     // #end
     return z.END;
   },
@@ -8607,7 +8607,7 @@ P[247] = {
   async function on_touch(o, z) {
     // :touch
     // The shower head.
-    await z.say(o, ["The shower head."]);
+    z.say(o, ["The shower head."]);
     // #end
     return z.END;
   },
@@ -8629,7 +8629,7 @@ P[248] = {
   async function on_touch(o, z) {
     // :touch
     // The trashcan.
-    await z.say(o, ["The trashcan."]);
+    z.say(o, ["The trashcan."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -8638,7 +8638,7 @@ P[248] = {
   async function on_touch_2(o, z) {
     // :touch
     // It's a trashcan!!!
-    await z.say(o, ["It's a trashcan!!!"]);
+    z.say(o, ["It's a trashcan!!!"]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -8650,7 +8650,7 @@ P[248] = {
     // thing?!?!
     //
     // !search;Search the trashcan.
-    if (await z.say(o, ["WHAT NOW?!?! You wanna search it or some-", "thing?!?!", "", {"choice": "search", "text": "Search the trashcan."}])) return z.GOTO;
+    z.say(o, ["WHAT NOW?!?! You wanna search it or some-", "thing?!?!", "", {"choice": "search", "text": "Search the trashcan."}]);
     // #end
     return z.END;
   },
@@ -8674,7 +8674,7 @@ P[248] = {
     // $with his REAL name on it?
     //
     // You stuff the card back in the trash.
-    await z.say(o, ["You dump the contents of the trashcan onto", "the bathroom floor. Used tissues, baby", "towelettes, and cigarette butts are the", "trash. Among the trash, you find an", "expired driver's license.", "", "You look at the driver's license.", "", {"text": "Yup, it's not a fake.", "align": "center"}, "", "It has the photo of the scroungey man you", "shot at the bank, with the name Vincent", "Cook.", "", {"text": "Why would this guy carry a false ID card", "align": "center"}, {"text": "with his REAL name on it?", "align": "center"}, "", "You stuff the card back in the trash."]);
+    z.say(o, ["You dump the contents of the trashcan onto", "the bathroom floor. Used tissues, baby", "towelettes, and cigarette butts are the", "trash. Among the trash, you find an", "expired driver's license.", "", "You look at the driver's license.", "", {"text": "Yup, it's not a fake.", "align": "center"}, "", "It has the photo of the scroungey man you", "shot at the bank, with the name Vincent", "Cook.", "", {"text": "Why would this guy carry a false ID card", "align": "center"}, {"text": "with his REAL name on it?", "align": "center"}, "", "You stuff the card back in the trash."]);
     // #give score 1000
     z.give("score", 1000);
     // #clear vcook2
@@ -8687,7 +8687,7 @@ P[248] = {
   async function on_touch_4(o, z) {
     // :touch
     // I'm not going through THAT stuff again!
-    await z.say(o, ["I'm not going through THAT stuff again!"]);
+    z.say(o, ["I'm not going through THAT stuff again!"]);
     // #end
     return z.END;
   },
@@ -8710,7 +8710,7 @@ P[249] = {
     // #lock
     o.locked = true;
     // You swing the closet door open.
-    await z.say(o, ["You swing the closet door open."]);
+    z.say(o, ["You swing the closet door open."]);
     // #play 0
     z.play("0");
     // #char 92
@@ -8759,7 +8759,7 @@ P[250] = {
   async function on_touch(o, z) {
     // :touch
     // The washer machine.
-    await z.say(o, ["The washer machine."]);
+    z.say(o, ["The washer machine."]);
     // #end
     return z.END;
   },
@@ -8780,7 +8780,7 @@ P[251] = {
   async function on_touch(o, z) {
     // :touch
     // A pile of clean clothes the need folding.
-    await z.say(o, ["A pile of clean clothes the need folding."]);
+    z.say(o, ["A pile of clean clothes the need folding."]);
     // #end
     return z.END;
   },
@@ -8802,7 +8802,7 @@ P[252] = {
   async function on_touch(o, z) {
     // :touch
     // A foam rubber pillow.
-    await z.say(o, ["A foam rubber pillow."]);
+    z.say(o, ["A foam rubber pillow."]);
     // #end
     return z.END;
   },
@@ -8824,7 +8824,7 @@ P[253] = {
   async function on_touch(o, z) {
     // :touch
     // The bed.
-    await z.say(o, ["The bed."]);
+    z.say(o, ["The bed."]);
     // #end
     return z.END;
   },
@@ -8848,7 +8848,7 @@ P[254] = {
     // A desk
     //
     // !search;Search the desk.
-    if (await z.say(o, ["A desk", "", {"choice": "search", "text": "Search the desk."}])) return z.GOTO;
+    z.say(o, ["A desk", "", {"choice": "search", "text": "Search the desk."}]);
     // #end
     return z.END;
   },
@@ -8873,7 +8873,7 @@ P[254] = {
     //
     // (you put the letter back in the desk
     // drawer)
-    await z.say(o, ["You scrounge through the desk and find a", "letter (with no envelope), from somebody", "named Judge Phelps. It reads:", "", " \"I hearby and forthwith declare, that the", "subject in question, namely <name has been", "scratched out>, has been granted a name", "change to Robert Johnson, for personal", "reasons.\"", "", {"text": "Personal reasons? PERSONAL REASONS?!", "align": "center"}, {"text": "Oh sure, and I suppose this guy robbed", "align": "center"}, {"text": "the bank for \"personal\" reasons, too.", "align": "center"}, "", {"text": "However, the name is scratched out, so", "align": "center"}, {"text": "this could be anybody.", "align": "center"}, "", "(you put the letter back in the desk", "drawer)"]);
+    z.say(o, ["You scrounge through the desk and find a", "letter (with no envelope), from somebody", "named Judge Phelps. It reads:", "", " \"I hearby and forthwith declare, that the", "subject in question, namely <name has been", "scratched out>, has been granted a name", "change to Robert Johnson, for personal", "reasons.\"", "", {"text": "Personal reasons? PERSONAL REASONS?!", "align": "center"}, {"text": "Oh sure, and I suppose this guy robbed", "align": "center"}, {"text": "the bank for \"personal\" reasons, too.", "align": "center"}, "", {"text": "However, the name is scratched out, so", "align": "center"}, {"text": "this could be anybody.", "align": "center"}, "", "(you put the letter back in the desk", "drawer)"]);
     // #zap search
     z.zap(o, "search");
     // #set robjon
@@ -8886,7 +8886,7 @@ P[254] = {
   async function on_search_2(o, z) {
     // :search
     // You searched the desk already!
-    await z.say(o, ["You searched the desk already!"]);
+    z.say(o, ["You searched the desk already!"]);
     // #end
     return z.END;
   },
@@ -8907,7 +8907,7 @@ P[255] = {
   async function on_touch(o, z) {
     // :touch
     // It's a chair.
-    await z.say(o, ["It's a chair."]);
+    z.say(o, ["It's a chair."]);
     // #end
     return z.END;
   },
@@ -8928,7 +8928,7 @@ P[256] = {
   async function on_touch(o, z) {
     // :touch
     // There's nothing in there.
-    await z.say(o, ["There's nothing in there."]);
+    z.say(o, ["There's nothing in there."]);
     // #end
     return z.END;
   },
@@ -8950,7 +8950,7 @@ P[257] = {
   async function on_touch(o, z) {
     // :touch
     // A bed. (duh, like you didn't know that!)
-    await z.say(o, ["A bed. (duh, like you didn't know that!)"]);
+    z.say(o, ["A bed. (duh, like you didn't know that!)"]);
     // #end
     return z.END;
   },
@@ -9007,7 +9007,7 @@ P[258] = {
     //
     //                            David
     // \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-    await z.say(o, ["It's a night table. You search it and find", "a letter dated with yesterday's date,", "addressed to Mrs. Roberts:", "", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "Mrs. Roberts,", "", "  Due to your interference in our affairs", "with your son David, we have decided to", "take immediate steps to put you out of the", "picture for good, including a complete", "name change of your son, so you may not", "track him down. He will do our bidding,", "so do not try to stop us.", "", "                          Sincerely,", "", "                        The Ring Leader", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "", "You also find a note from David Roberts,", "dated 5 days ago, to \"mom\":", "", "\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/", "Dear Mom,", "", "  I'm writing this message in secret, so", "I'll be brief. Even though I don't want", "to work for the Shadow Ring, I must or", "they will kill George. Please try to", "understand!", "", "                          Your son,", "", "                           David", "\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/"]);
+    z.say(o, ["It's a night table. You search it and find", "a letter dated with yesterday's date,", "addressed to Mrs. Roberts:", "", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "Mrs. Roberts,", "", "  Due to your interference in our affairs", "with your son David, we have decided to", "take immediate steps to put you out of the", "picture for good, including a complete", "name change of your son, so you may not", "track him down. He will do our bidding,", "so do not try to stop us.", "", "                          Sincerely,", "", "                        The Ring Leader", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "", "You also find a note from David Roberts,", "dated 5 days ago, to \"mom\":", "", "\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/", "Dear Mom,", "", "  I'm writing this message in secret, so", "I'll be brief. Even though I don't want", "to work for the Shadow Ring, I must or", "they will kill George. Please try to", "understand!", "", "                          Your son,", "", "                           David", "\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/"]);
     // #zap touch
     z.zap(o, "touch");
     // #set wasinapt
@@ -9022,7 +9022,7 @@ P[258] = {
   async function on_touch_2(o, z) {
     // :touch
     // You searched the night table already!
-    await z.say(o, ["You searched the night table already!"]);
+    z.say(o, ["You searched the night table already!"]);
     // #end
     return z.END;
   },
@@ -9045,7 +9045,7 @@ P[259] = {
     // :touch
     // It's a desk. You search it, but find
     // nothing.
-    await z.say(o, ["It's a desk. You search it, but find", "nothing."]);
+    z.say(o, ["It's a desk. You search it, but find", "nothing."]);
     // #end
     return z.END;
   },
@@ -9066,7 +9066,7 @@ P[260] = {
   async function on_touch(o, z) {
     // :touch
     // Just a potted plant.
-    await z.say(o, ["Just a potted plant."]);
+    z.say(o, ["Just a potted plant."]);
     // #end
     return z.END;
   },
@@ -9087,7 +9087,7 @@ P[261] = {
   async function on_touch(o, z) {
     // :touch
     // The closet is empty.
-    await z.say(o, ["The closet is empty."]);
+    z.say(o, ["The closet is empty."]);
     // #end
     return z.END;
   },
@@ -9109,7 +9109,7 @@ P[262] = {
   async function on_touch(o, z) {
     // :touch
     // AWESOME DUDE! It's a toilet!
-    await z.say(o, ["AWESOME DUDE! It's a toilet!"]);
+    z.say(o, ["AWESOME DUDE! It's a toilet!"]);
     // #end
     return z.END;
   },
@@ -9130,7 +9130,7 @@ P[263] = {
   async function on_touch(o, z) {
     // :touch
     // A closed trash can...
-    await z.say(o, ["A closed trash can..."]);
+    z.say(o, ["A closed trash can..."]);
     // #end
     return z.END;
   },
@@ -9168,7 +9168,7 @@ P[264] = {
     // You rip out your radio and call an
     // ambulance. "We'll be right there!" bellows
     // Joe.
-    await z.say(o, [{"text": "<gasp>", "align": "center"}, "", "Mrs. Roberts lies slumped in the corner,", "dead. Searching her, you find nothing, but", "you note that her gunshot wound has powder", "burns, indicating that the gun barrel was", "in contact with the victim upon firing.", "", "On the floor, you find a bullet shell", "belonging to a .32 caliber bullet. You", "take it with you...", "", "You rip out your radio and call an", "ambulance. \"We'll be right there!\" bellows", "Joe."]);
+    z.say(o, [{"text": "<gasp>", "align": "center"}, "", "Mrs. Roberts lies slumped in the corner,", "dead. Searching her, you find nothing, but", "you note that her gunshot wound has powder", "burns, indicating that the gun barrel was", "in contact with the victim upon firing.", "", "On the floor, you find a bullet shell", "belonging to a .32 caliber bullet. You", "take it with you...", "", "You rip out your radio and call an", "ambulance. \"We'll be right there!\" bellows", "Joe."]);
     // #set deadbody
     z.rt.setFlag("deadbody");
     // #clear realfun
@@ -9209,7 +9209,7 @@ P[265] = {
     // Shoppe, NW Casper, 10-32."
     //
     // $Roger 25S1, 10-17. Over and out.
-    await z.say(o, ["\"Jason Kule, Casper City 25S1.\"", "", {"text": "Go ahead 25S1.", "align": "center"}, "", "\"We have a 10-33 at Carnival Ice Cream", "Shoppe, NW Casper, 10-32.\"", "", {"text": "Roger 25S1, 10-17. Over and out.", "align": "center"}]);
+    z.say(o, ["\"Jason Kule, Casper City 25S1.\"", "", {"text": "Go ahead 25S1.", "align": "center"}, "", "\"We have a 10-33 at Carnival Ice Cream", "Shoppe, NW Casper, 10-32.\"", "", {"text": "Roger 25S1, 10-17. Over and out.", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -9422,7 +9422,7 @@ P[266] = {
   async function on_dayone(o, z) {
     // :dayone
     // dayone
-    await z.say(o, ["dayone"]);
+    z.say(o, ["dayone"]);
     // #send h
     if (await z.send(o, "self", "h")) return z.GOTO;
     //
@@ -9430,7 +9430,7 @@ P[266] = {
   async function on_rodney(o, z) {
     // :rodney
     // rodney
-    await z.say(o, ["rodney"]);
+    z.say(o, ["rodney"]);
     // #send h2
     if (await z.send(o, "self", "h2")) return z.GOTO;
     //
@@ -9438,7 +9438,7 @@ P[266] = {
   async function on_rodney2(o, z) {
     // :rodney2
     // rodney2
-    await z.say(o, ["rodney2"]);
+    z.say(o, ["rodney2"]);
     // #send h3
     if (await z.send(o, "self", "h3")) return z.GOTO;
     //
@@ -9446,7 +9446,7 @@ P[266] = {
   async function on_map(o, z) {
     // :map
     // map
-    await z.say(o, ["map"]);
+    z.say(o, ["map"]);
     // #send h4
     if (await z.send(o, "self", "h4")) return z.GOTO;
     //
@@ -9454,7 +9454,7 @@ P[266] = {
   async function on_samfile(o, z) {
     // :samfile
     // samfile
-    await z.say(o, ["samfile"]);
+    z.say(o, ["samfile"]);
     // #send h5
     if (await z.send(o, "self", "h5")) return z.GOTO;
     //
@@ -9462,7 +9462,7 @@ P[266] = {
   async function on_badge(o, z) {
     // :badge
     // badge
-    await z.say(o, ["badge"]);
+    z.say(o, ["badge"]);
     // #send h6
     if (await z.send(o, "self", "h6")) return z.GOTO;
     //
@@ -9470,7 +9470,7 @@ P[266] = {
   async function on_sawlist(o, z) {
     // :sawlist
     // sawlist
-    await z.say(o, ["sawlist"]);
+    z.say(o, ["sawlist"]);
     // #send h7
     if (await z.send(o, "self", "h7")) return z.GOTO;
     //
@@ -9478,7 +9478,7 @@ P[266] = {
   async function on_key118(o, z) {
     // :key118
     // key118
-    await z.say(o, ["key118"]);
+    z.say(o, ["key118"]);
     // #send h8
     if (await z.send(o, "self", "h8")) return z.GOTO;
     //
@@ -9486,7 +9486,7 @@ P[266] = {
   async function on_roddead(o, z) {
     // :roddead
     // roddead
-    await z.say(o, ["roddead"]);
+    z.say(o, ["roddead"]);
     // #send h9
     if (await z.send(o, "self", "h9")) return z.GOTO;
     //
@@ -9494,7 +9494,7 @@ P[266] = {
   async function on_punkc(o, z) {
     // :punkc
     // punkc
-    await z.say(o, ["punkc"]);
+    z.say(o, ["punkc"]);
     // #send h10
     if (await z.send(o, "self", "h10")) return z.GOTO;
     //
@@ -9502,7 +9502,7 @@ P[266] = {
   async function on_gun(o, z) {
     // :gun
     // gun
-    await z.say(o, ["gun"]);
+    z.say(o, ["gun"]);
     // #send h11
     if (await z.send(o, "self", "h11")) return z.GOTO;
     //
@@ -9510,7 +9510,7 @@ P[266] = {
   async function on_rodgot(o, z) {
     // :rodgot
     // rodgot
-    await z.say(o, ["rodgot"]);
+    z.say(o, ["rodgot"]);
     // #send h12
     if (await z.send(o, "self", "h12")) return z.GOTO;
     //
@@ -9518,7 +9518,7 @@ P[266] = {
   async function on_punkcl(o, z) {
     // :punkcl
     // punkcl
-    await z.say(o, ["punkcl"]);
+    z.say(o, ["punkcl"]);
     // #send h13
     if (await z.send(o, "self", "h13")) return z.GOTO;
     //
@@ -9526,7 +9526,7 @@ P[266] = {
   async function on_samgone(o, z) {
     // :samgone
     // samgone
-    await z.say(o, ["samgone"]);
+    z.say(o, ["samgone"]);
     // #send h14
     if (await z.send(o, "self", "h14")) return z.GOTO;
     //
@@ -9534,7 +9534,7 @@ P[266] = {
   async function on_realfun(o, z) {
     // :realfun
     // realfun
-    await z.say(o, ["realfun"]);
+    z.say(o, ["realfun"]);
     // #send h15
     if (await z.send(o, "self", "h15")) return z.GOTO;
     //
@@ -9542,7 +9542,7 @@ P[266] = {
   async function on_vcook(o, z) {
     // :vcook
     // vcook
-    await z.say(o, ["vcook"]);
+    z.say(o, ["vcook"]);
     // #send h16
     if (await z.send(o, "self", "h16")) return z.GOTO;
     //
@@ -9550,7 +9550,7 @@ P[266] = {
   async function on_vcook2(o, z) {
     // :vcook2
     // vcook2
-    await z.say(o, ["vcook2"]);
+    z.say(o, ["vcook2"]);
     // #send h17
     if (await z.send(o, "self", "h17")) return z.GOTO;
     //
@@ -9558,7 +9558,7 @@ P[266] = {
   async function on_badge2(o, z) {
     // :badge2
     // badge2
-    await z.say(o, ["badge2"]);
+    z.say(o, ["badge2"]);
     // #send h18
     if (await z.send(o, "self", "h18")) return z.GOTO;
     //
@@ -9566,7 +9566,7 @@ P[266] = {
   async function on_sawvk(o, z) {
     // :sawvk
     // sawvk
-    await z.say(o, ["sawvk"]);
+    z.say(o, ["sawvk"]);
     // #send h19
     if (await z.send(o, "self", "h19")) return z.GOTO;
     //
@@ -9574,7 +9574,7 @@ P[266] = {
   async function on_key48(o, z) {
     // :key48
     // key48
-    await z.say(o, ["key48"]);
+    z.say(o, ["key48"]);
     // #send h20
     if (await z.send(o, "self", "h20")) return z.GOTO;
     //
@@ -9582,7 +9582,7 @@ P[266] = {
   async function on_license(o, z) {
     // :license
     // license
-    await z.say(o, ["license"]);
+    z.say(o, ["license"]);
     // #send h21
     if (await z.send(o, "self", "h21")) return z.GOTO;
     //
@@ -9590,7 +9590,7 @@ P[266] = {
   async function on_bedtime(o, z) {
     // :bedtime
     // bedtime
-    await z.say(o, ["bedtime"]);
+    z.say(o, ["bedtime"]);
     // #send h22
     if (await z.send(o, "self", "h22")) return z.GOTO;
     //
@@ -9598,7 +9598,7 @@ P[266] = {
   async function on_daytwo(o, z) {
     // :daytwo
     // daytwo
-    await z.say(o, ["daytwo"]);
+    z.say(o, ["daytwo"]);
     // #send h23
     if (await z.send(o, "self", "h23")) return z.GOTO;
     //
@@ -9606,7 +9606,7 @@ P[266] = {
   async function on_entry(o, z) {
     // :entry
     // entry
-    await z.say(o, ["entry"]);
+    z.say(o, ["entry"]);
     // #send h24
     if (await z.send(o, "self", "h24")) return z.GOTO;
     //
@@ -9614,7 +9614,7 @@ P[266] = {
   async function on_robjon(o, z) {
     // :robjon
     // robjon
-    await z.say(o, ["robjon"]);
+    z.say(o, ["robjon"]);
     // #send h25
     if (await z.send(o, "self", "h25")) return z.GOTO;
     //
@@ -9622,7 +9622,7 @@ P[266] = {
   async function on_apt1(o, z) {
     // :apt1
     // apt1
-    await z.say(o, ["apt1"]);
+    z.say(o, ["apt1"]);
     // #send h26
     if (await z.send(o, "self", "h26")) return z.GOTO;
     //
@@ -9630,7 +9630,7 @@ P[266] = {
   async function on_wasinapt(o, z) {
     // :wasinapt
     // wasinapt
-    await z.say(o, ["wasinapt"]);
+    z.say(o, ["wasinapt"]);
     // #end
     return z.END;
   },
@@ -9655,7 +9655,7 @@ P[267] = {
       if (await z.send(o, "self", "yo")) return z.GOTO;
     }
     // You have no reason to go in there!
-    await z.say(o, ["You have no reason to go in there!"]);
+    z.say(o, ["You have no reason to go in there!"]);
     // #end
     return z.END;
   },
@@ -9686,7 +9686,7 @@ P[268] = {
     // #play 76
     z.play("76");
     // ░▒▓█ Closed █▓▒░
-    await z.say(o, ["░▒▓█ Closed █▓▒░"]);
+    z.say(o, ["░▒▓█ Closed █▓▒░"]);
     // #end
     return z.END;
   },
@@ -9721,7 +9721,7 @@ P[270] = {
   async function on_touch(o, z) {
     // :touch
     // The flap is locked.
-    await z.say(o, ["The flap is locked."]);
+    z.say(o, ["The flap is locked."]);
     // #end
     return z.END;
   },
@@ -9750,21 +9750,21 @@ P[271] = {
   async function on_officer(o, z) {
     // :officer
     // Yes sir?
-    await z.say(o, ["Yes sir?"]);
+    z.say(o, ["Yes sir?"]);
     // #send goforit
     if (await z.send(o, "self", "goforit")) return z.GOTO;
   },
   async function on_officer_2(o, z) {
     // :officer
     // Yes Officer?
-    await z.say(o, ["Yes Officer?"]);
+    z.say(o, ["Yes Officer?"]);
   },
   async function on_goforit(o, z) {
     // :goforit
     //
     // !show;Show badge.
     // !seelist;Request to see the tenant list.
-    if (await z.say(o, [{"choice": "show", "text": "Show badge."}, {"choice": "seelist", "text": "Request to see the tenant list."}])) return z.GOTO;
+    z.say(o, [{"choice": "show", "text": "Show badge."}, {"choice": "seelist", "text": "Request to see the tenant list."}]);
     // #end
     return z.END;
   },
@@ -9786,7 +9786,7 @@ P[271] = {
     // #play S--CDCD
     z.play("S--CDCD");
     // Certinly not!
-    await z.say(o, ["Certinly not!"]);
+    z.say(o, ["Certinly not!"]);
     // #end
     return z.END;
   },
@@ -9805,7 +9805,7 @@ P[271] = {
     //
     // You scan further down the list, but don't
     // come across any information of value.
-    await z.say(o, ["Certinly officer!", "", "(You scan the names on the list)", "", {"text": "Ivgotabig Vain (room 12)", "align": "center"}, {"text": "Brad Slacker (room 37)", "align": "center"}, {"text": "Joey Locke (room 31)", "align": "center"}, {"text": "Bubba Licious (room 22)", "align": "center"}, {"text": "John Unibull (room 45)", "align": "center"}, {"text": "................", "align": "center"}, "", "You scan further down the list, but don't", "come across any information of value."]);
+    z.say(o, ["Certinly officer!", "", "(You scan the names on the list)", "", {"text": "Ivgotabig Vain (room 12)", "align": "center"}, {"text": "Brad Slacker (room 37)", "align": "center"}, {"text": "Joey Locke (room 31)", "align": "center"}, {"text": "Bubba Licious (room 22)", "align": "center"}, {"text": "John Unibull (room 45)", "align": "center"}, {"text": "................", "align": "center"}, "", "You scan further down the list, but don't", "come across any information of value."]);
     // #end
     return z.END;
   },
@@ -9827,7 +9827,7 @@ P[272] = {
   async function on_touch(o, z) {
     // :touch
     // An unshattered window.
-    await z.say(o, ["An unshattered window."]);
+    z.say(o, ["An unshattered window."]);
     // #end
     return z.END;
   },
@@ -9883,7 +9883,7 @@ P[275] = {
     // You find a bullet shell in the street.
     // After examining it, you determine it's
     // from a .32 caliber handgun bullet.
-    await z.say(o, ["You find a bullet shell in the street.", "After examining it, you determine it's", "from a .32 caliber handgun bullet."]);
+    z.say(o, ["You find a bullet shell in the street.", "After examining it, you determine it's", "from a .32 caliber handgun bullet."]);
     // #give score 1000
     z.give("score", 1000);
     // #die
@@ -9920,7 +9920,7 @@ P[276] = {
     // the counter.
     //
     // $I see.
-    await z.say(o, ["Oh officer! It was terrible! Just plain", "terrible!", "", {"text": "What happened?", "align": "center"}, "", "A drive-by shooting! We've had crime here,", "but none as bad as this!", "", {"text": "Did you get a look at who did it?", "align": "center"}, "", "No sir! I was looking for something under", "the counter.", "", {"text": "I see.", "align": "center"}]);
+    z.say(o, ["Oh officer! It was terrible! Just plain", "terrible!", "", {"text": "What happened?", "align": "center"}, "", "A drive-by shooting! We've had crime here,", "but none as bad as this!", "", {"text": "Did you get a look at who did it?", "align": "center"}, "", "No sir! I was looking for something under", "the counter.", "", {"text": "I see.", "align": "center"}]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -9929,7 +9929,7 @@ P[276] = {
   async function on_touch_2(o, z) {
     // :touch
     // It was terrible!
-    await z.say(o, ["It was terrible!"]);
+    z.say(o, ["It was terrible!"]);
     // #end
     return z.END;
   },
@@ -9961,7 +9961,7 @@ P[277] = {
     // "Certainly officer!"
     //
     // (you take the VHS tape)
-    await z.say(o, ["A camera! Inside there's a", "VHS tape.", "", {"text": "Hey sir, can I take this VHS tape back", "align": "center"}, {"text": "to the police station for examination?", "align": "center"}, "", "\"Certainly officer!\"", "", "(you take the VHS tape)"]);
+    z.say(o, ["A camera! Inside there's a", "VHS tape.", "", {"text": "Hey sir, can I take this VHS tape back", "align": "center"}, {"text": "to the police station for examination?", "align": "center"}, "", "\"Certainly officer!\"", "", "(you take the VHS tape)"]);
     // #give score 1000
     z.give("score", 1000);
     // #clear deadbody
@@ -9992,7 +9992,7 @@ P[278] = {
     // :touch
     // Some rubber marks are in the road. You
     // memorize their distinct tread pattern.
-    await z.say(o, ["Some rubber marks are in the road. You", "memorize their distinct tread pattern."]);
+    z.say(o, ["Some rubber marks are in the road. You", "memorize their distinct tread pattern."]);
     // #set marks
     z.rt.setFlag("marks");
     // #end
@@ -10092,7 +10092,7 @@ P[283] = {
     // #cycle 1
     o.cycle = 1;
     // VID CAM
-    await z.say(o, ["VID CAM"]);
+    z.say(o, ["VID CAM"]);
     // /i
     await z.idle(o);
     // #restart
@@ -10109,15 +10109,15 @@ P[283] = {
   async function on_stop_3(o, z) {
     // :stop
     // VID CAM STOP
-    await z.say(o, ["VID CAM STOP"]);
+    z.say(o, ["VID CAM STOP"]);
     // /i
     await z.idle(o);
     // VID CAM STOP
-    await z.say(o, ["VID CAM STOP"]);
+    z.say(o, ["VID CAM STOP"]);
     // /i
     await z.idle(o);
     // VID CAM STOP
-    await z.say(o, ["VID CAM STOP"]);
+    z.say(o, ["VID CAM STOP"]);
     // /i
     await z.idle(o);
     // /i
@@ -10428,7 +10428,7 @@ P[295] = {
     // jumped into my head 15 minutes ago...
     //
     // $James Holub, the programmer.
-    await z.say(o, [{"text": "Viewing Room", "align": "center"}, "", "What you are about to see are actual", "digitized photos that were organized into", "frame-by-frame order, to bring you this", "life-like motion film.", "", "Ok, so I over-hyped a little on the", "\"frame-by-frame\" stuff. Actually, it's", "just a bunch of objects that took me", "5 minutes to program, and this idea", "jumped into my head 15 minutes ago...", "", {"text": "James Holub, the programmer.", "align": "center"}]);
+    z.say(o, [{"text": "Viewing Room", "align": "center"}, "", "What you are about to see are actual", "digitized photos that were organized into", "frame-by-frame order, to bring you this", "life-like motion film.", "", "Ok, so I over-hyped a little on the", "\"frame-by-frame\" stuff. Actually, it's", "just a bunch of objects that took me", "5 minutes to program, and this idea", "jumped into my head 15 minutes ago...", "", {"text": "James Holub, the programmer.", "align": "center"}]);
     // #set sawfilm
     z.rt.setFlag("sawfilm");
     // #clear VHS
@@ -10480,7 +10480,7 @@ P[297] = {
       if (await z.send(o, "self", "identify")) return z.GOTO;
     }
     // Rubber marks.
-    await z.say(o, ["Rubber marks."]);
+    z.say(o, ["Rubber marks."]);
     // #end
     return z.END;
   },
@@ -10490,7 +10490,7 @@ P[297] = {
     // street. BAM! Suddenly it hits you, these
     // are the same tread marks that were at
     // Carnival Ice Cream Shoppe!
-    await z.say(o, ["You look down at the rubber marks in the", "street. BAM! Suddenly it hits you, these", "are the same tread marks that were at", "Carnival Ice Cream Shoppe!"]);
+    z.say(o, ["You look down at the rubber marks in the", "street. BAM! Suddenly it hits you, these", "are the same tread marks that were at", "Carnival Ice Cream Shoppe!"]);
     // #give score 1000
     z.give("score", 1000);
     // #zap touch
@@ -10507,7 +10507,7 @@ P[297] = {
   async function on_touch_2(o, z) {
     // :touch
     // The rubber marks you just looked at.
-    await z.say(o, ["The rubber marks you just looked at."]);
+    z.say(o, ["The rubber marks you just looked at."]);
     // #end
     return z.END;
   },
@@ -10534,7 +10534,7 @@ P[298] = {
     //
     // !buy;Buy a rose.
     // !bad;Show badge.
-    if (await z.say(o, ["Hi! Would you like to by some flowers? We", "have a special on roses today! Only $3.00", "a piece!", "", {"choice": "buy", "text": "Buy a rose."}, {"choice": "bad", "text": "Show badge."}])) return z.GOTO;
+    z.say(o, ["Hi! Would you like to by some flowers? We", "have a special on roses today! Only $3.00", "a piece!", "", {"choice": "buy", "text": "Buy a rose."}, {"choice": "bad", "text": "Show badge."}]);
   },
   async function on_checker(o, z) {
     // :checker
@@ -10543,7 +10543,7 @@ P[298] = {
       return z.END;
     }
     // !id;Who left those rubber marks?
-    if (await z.say(o, [{"choice": "id", "text": "Who left those rubber marks?"}])) return z.GOTO;
+    z.say(o, [{"choice": "id", "text": "Who left those rubber marks?"}]);
     // #end
     return z.END;
   },
@@ -10555,14 +10555,14 @@ P[298] = {
     }
     // Wow, you just bought a rose! Now what are
     // you going to do with it?
-    await z.say(o, ["Wow, you just bought a rose! Now what are", "you going to do with it?"]);
+    z.say(o, ["Wow, you just bought a rose! Now what are", "you going to do with it?"]);
     // #end
     return z.END;
   },
   async function on_toopoor(o, z) {
     // :toopoor
     // You don't have enough money!
-    await z.say(o, ["You don't have enough money!"]);
+    z.say(o, ["You don't have enough money!"]);
     // #end
     return z.END;
   },
@@ -10574,14 +10574,14 @@ P[298] = {
     //
     // I'm sorry sir, I don't give out that
     // information to strangers.
-    await z.say(o, ["One of my customers.", "", {"text": "Who?", "align": "center"}, "", "I'm sorry sir, I don't give out that", "information to strangers."]);
+    z.say(o, ["One of my customers.", "", {"text": "Who?", "align": "center"}, "", "I'm sorry sir, I don't give out that", "information to strangers."]);
     // #end
     return z.END;
   },
   async function on_bad(o, z) {
     // :bad
     // Very nice officer!
-    await z.say(o, ["Very nice officer!"]);
+    z.say(o, ["Very nice officer!"]);
     // #zap talk
     z.zap(o, "talk");
     // #zap id
@@ -10598,7 +10598,7 @@ P[298] = {
     // rose, only $3.00 a piece!
     //
     // !buy;Buy a rose.
-    if (await z.say(o, ["Want to buy some flowers, officer? Mabye", "for your girl? I'm sure she'll love a", "rose, only $3.00 a piece!", "", {"choice": "buy", "text": "Buy a rose."}])) return z.GOTO;
+    z.say(o, ["Want to buy some flowers, officer? Mabye", "for your girl? I'm sure she'll love a", "rose, only $3.00 a piece!", "", {"choice": "buy", "text": "Buy a rose."}]);
     // #if face then face
     if (z.rt.hasFlag("face")) {
       if (await z.send(o, "self", "face")) return z.GOTO;
@@ -10611,7 +10611,7 @@ P[298] = {
   async function on_face(o, z) {
     // :face
     // !de;Could you describe the man?
-    if (await z.say(o, [{"choice": "de", "text": "Could you describe the man?"}])) return z.GOTO;
+    z.say(o, [{"choice": "de", "text": "Could you describe the man?"}]);
     // #end
     return z.END;
   },
@@ -10622,7 +10622,7 @@ P[298] = {
     // that would blind ya when it shined.
     //
     // $Thanks.
-    await z.say(o, ["Well, all I can remember is that he had", "a jet-black moustache, and a gold tooth", "that would blind ya when it shined.", "", {"text": "Thanks.", "align": "center"}]);
+    z.say(o, ["Well, all I can remember is that he had", "a jet-black moustache, and a gold tooth", "that would blind ya when it shined.", "", {"text": "Thanks.", "align": "center"}]);
     // #clear face
     z.rt.clearFlag("face");
     // #set flowers
@@ -10635,7 +10635,7 @@ P[298] = {
   async function on_de_2(o, z) {
     // :de
     // I told you already!
-    await z.say(o, ["I told you already!"]);
+    z.say(o, ["I told you already!"]);
     // #end
     return z.END;
   },
@@ -10662,7 +10662,7 @@ P[298] = {
     // That's no problem, I have another copy.
     //
     // $Thanks.
-    await z.say(o, ["One of my customers.", "", {"text": "Who?", "align": "center"}, "", "(he hands you his receipt. It's a receipt", "for $3.00 for the purchase of a rose.)", "", "I thought it was kinda funny that he wrote", "a check for a single $3.00 rose.", "", "(you pull out the note you got in your", "mailbox this morning and compare the", "handwriting to the receipt. The check is", "signed \"Roberts\", and it matches perfectly", "to the handwriting on the note.)", "", {"text": "Mind if I keep this receipt?", "align": "center"}, "", "That's no problem, I have another copy.", "", {"text": "Thanks.", "align": "center"}]);
+    z.say(o, ["One of my customers.", "", {"text": "Who?", "align": "center"}, "", "(he hands you his receipt. It's a receipt", "for $3.00 for the purchase of a rose.)", "", "I thought it was kinda funny that he wrote", "a check for a single $3.00 rose.", "", "(you pull out the note you got in your", "mailbox this morning and compare the", "handwriting to the receipt. The check is", "signed \"Roberts\", and it matches perfectly", "to the handwriting on the note.)", "", {"text": "Mind if I keep this receipt?", "align": "center"}, "", "That's no problem, I have another copy.", "", {"text": "Thanks.", "align": "center"}]);
     // #clear identify
     z.rt.clearFlag("identify");
     // #clear rose
@@ -10681,7 +10681,7 @@ P[298] = {
   async function on_id_3(o, z) {
     // :id
     // I told you, one of my customers.
-    await z.say(o, ["I told you, one of my customers."]);
+    z.say(o, ["I told you, one of my customers."]);
     // #end
     return z.END;
   },
@@ -10706,7 +10706,7 @@ P[299] = {
     // desk rather than through the window.
     //
     // $James Holub, the programmer.
-    await z.say(o, ["It's a window, but I think it's better if", "you would talk to the receptionist at her", "desk rather than through the window.", "", {"text": "James Holub, the programmer.", "align": "center"}]);
+    z.say(o, ["It's a window, but I think it's better if", "you would talk to the receptionist at her", "desk rather than through the window.", "", {"text": "James Holub, the programmer.", "align": "center"}]);
     // #end
     return z.END;
   },
@@ -10773,7 +10773,7 @@ P[300] = {
     // "You're welcome, officer."
     //
     // (the doctor walks into another room)
-    await z.say(o, ["(you flash your badge to the receptionist)", "", "\"Yes officer?\"", "", {"text": "I was wondering if you could give me some", "align": "center"}, {"text": "information on a possible patient of", "align": "center"}, {"text": "yours.", "align": "center"}, "", "\"What is his name?\"", "", {"text": "That's what I'm trying to find out. All I", "align": "center"}, {"text": "know is that he has a gold tooth, and I", "align": "center"}, {"text": "thought perhaps you might have any useful", "align": "center"}, {"text": "information for me.", "align": "center"}, "", "\"Hmmm... Let me check with the doctor.\"", "", "(she leaves the room, and within a minute,", "the doctor comes into the room)", "", "\"You said you're looking for someone's", "name, and that he has a gold tooth?\"", "", {"text": "Yes.", "align": "center"}, "", "\"Why do you want this information?\"", "", "(you flash your badge to the doctor and", "explain why you want to know the name)", "", "\"I see. Well, I remember about two years", "ago, a man came into my office and", "requested a gold cap, and payed for it", "in cash to boot.\"", "", "(the doctor goes over to the file cabinet", "and starts shuffling through the files)", "", "\"My only patient that requested a gold", "cap was a man named Robert Johnson.\"", "", {"text": "Thanks.", "align": "center"}, "", "\"You're welcome, officer.\"", "", "(the doctor walks into another room)"]);
+    z.say(o, ["(you flash your badge to the receptionist)", "", "\"Yes officer?\"", "", {"text": "I was wondering if you could give me some", "align": "center"}, {"text": "information on a possible patient of", "align": "center"}, {"text": "yours.", "align": "center"}, "", "\"What is his name?\"", "", {"text": "That's what I'm trying to find out. All I", "align": "center"}, {"text": "know is that he has a gold tooth, and I", "align": "center"}, {"text": "thought perhaps you might have any useful", "align": "center"}, {"text": "information for me.", "align": "center"}, "", "\"Hmmm... Let me check with the doctor.\"", "", "(she leaves the room, and within a minute,", "the doctor comes into the room)", "", "\"You said you're looking for someone's", "name, and that he has a gold tooth?\"", "", {"text": "Yes.", "align": "center"}, "", "\"Why do you want this information?\"", "", "(you flash your badge to the doctor and", "explain why you want to know the name)", "", "\"I see. Well, I remember about two years", "ago, a man came into my office and", "requested a gold cap, and payed for it", "in cash to boot.\"", "", "(the doctor goes over to the file cabinet", "and starts shuffling through the files)", "", "\"My only patient that requested a gold", "cap was a man named Robert Johnson.\"", "", {"text": "Thanks.", "align": "center"}, "", "\"You're welcome, officer.\"", "", "(the doctor walks into another room)"]);
     // #set flyok
     z.rt.setFlag("flyok");
     // #zap talk
@@ -10784,7 +10784,7 @@ P[300] = {
   async function on_talk_2(o, z) {
     // :talk
     // We've told you all we know.
-    await z.say(o, ["We've told you all we know."]);
+    z.say(o, ["We've told you all we know."]);
     // #end
     return z.END;
   },
@@ -10827,7 +10827,7 @@ P[302] = {
   async function on_touch(o, z) {
     // :touch
     // Hey! You can't go in there!
-    await z.say(o, ["Hey! You can't go in there!"]);
+    z.say(o, ["Hey! You can't go in there!"]);
     // #end
     return z.END;
   },
@@ -12065,7 +12065,7 @@ P[350] = {
     // Officer Kule, the suspect has a hostage
     // and is armed with a standard police issue
     // pistol.
-    await z.say(o, ["Officer Kule, the suspect has a hostage", "and is armed with a standard police issue", "pistol."]);
+    z.say(o, ["Officer Kule, the suspect has a hostage", "and is armed with a standard police issue", "pistol."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -12074,7 +12074,7 @@ P[350] = {
   async function on_touch_2(o, z) {
     // :touch
     // What are you going to do?
-    await z.say(o, ["What are you going to do?"]);
+    z.say(o, ["What are you going to do?"]);
     // #end
     return z.END;
   },
@@ -12290,7 +12290,7 @@ P[358] = {
     // is the hostage's plea for help.
     //
     // $Game over
-    await z.say(o, ["The gunman sees you coming through the", "door and, acting quick, pumps a few rounds", "into your chest. The last thing you hear", "is the hostage's plea for help.", "", {"text": "Game over", "align": "center"}]);
+    z.say(o, ["The gunman sees you coming through the", "door and, acting quick, pumps a few rounds", "into your chest. The last thing you hear", "is the hostage's plea for help.", "", {"text": "Game over", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #end
@@ -12306,7 +12306,7 @@ P[358] = {
     // right through you like water.
     //
     // $Game over
-    await z.say(o, ["You crack trying to shoot the suspect", "without hitting the hostage and your shot", "is completely off target. The suspect", "throws the hostage to the floor and whirls", "to fire. Still in shock, the bullet rips", "right through you like water.", "", {"text": "Game over", "align": "center"}]);
+    z.say(o, ["You crack trying to shoot the suspect", "without hitting the hostage and your shot", "is completely off target. The suspect", "throws the hostage to the floor and whirls", "to fire. Still in shock, the bullet rips", "right through you like water.", "", {"text": "Game over", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #end
@@ -12321,7 +12321,7 @@ P[358] = {
     // the cement floor, you pass out.
     //
     // $Game over
-    await z.say(o, ["Bad move, Jason. The man is of obvious", "physical strength and coordination, and", "he very smoothly and slickly flips you", "over his shoulder. Hitting your head on", "the cement floor, you pass out.", "", {"text": "Game over", "align": "center"}]);
+    z.say(o, ["Bad move, Jason. The man is of obvious", "physical strength and coordination, and", "he very smoothly and slickly flips you", "over his shoulder. Hitting your head on", "the cement floor, you pass out.", "", {"text": "Game over", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #end
@@ -12342,7 +12342,7 @@ P[358] = {
     //
     // $I'm sorry, but the demo's over! Look for
     // $the final version, coming soon!
-    await z.say(o, ["Calling on your old baseball stance, you", "swing the crowbar and rap him right on the", "side of his head, knocking him stone cold.", "", "The hostage thanks you for saving his", "life, and gets back to work.", "", "You pull out your radio and call an", "ambulance. \"We'll be right there!\"", "bellows Joe.", "", {"text": "I'm sorry, but the demo's over! Look for", "align": "center"}, {"text": "the final version, coming soon!", "align": "center"}]);
+    z.say(o, ["Calling on your old baseball stance, you", "swing the crowbar and rap him right on the", "side of his head, knocking him stone cold.", "", "The hostage thanks you for saving his", "life, and gets back to work.", "", "You pull out your radio and call an", "ambulance. \"We'll be right there!\"", "bellows Joe.", "", {"text": "I'm sorry, but the demo's over! Look for", "align": "center"}, {"text": "the final version, coming soon!", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #end
@@ -12354,7 +12354,7 @@ P[358] = {
     // delay.
     //
     // $Game over
-    await z.say(o, ["The gunman sees you and fires without", "delay.", "", {"text": "Game over", "align": "center"}]);
+    z.say(o, ["The gunman sees you and fires without", "delay.", "", {"text": "Game over", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #end
@@ -12416,7 +12416,7 @@ P[360] = {
   async function on_touch(o, z) {
     // :touch
     // You see numerous tools on the wall.
-    await z.say(o, ["You see numerous tools on the wall."]);
+    z.say(o, ["You see numerous tools on the wall."]);
     // #end
     return z.END;
   },
@@ -12438,7 +12438,7 @@ P[361] = {
   async function on_touch(o, z) {
     // :touch
     // Machines block your path.
-    await z.say(o, ["Machines block your path."]);
+    z.say(o, ["Machines block your path."]);
     // #end
     return z.END;
   },
@@ -12489,7 +12489,7 @@ P[364] = {
     // :touch
     // You find a crowbar on the wall. Aah, what
     // the heck, you take it with you!
-    await z.say(o, ["You find a crowbar on the wall. Aah, what", "the heck, you take it with you!"]);
+    z.say(o, ["You find a crowbar on the wall. Aah, what", "the heck, you take it with you!"]);
     // #send gunman:doober
     if (await z.send(o, "gunman", "doober")) return z.GOTO;
     // #die
@@ -12549,7 +12549,7 @@ P[367] = {
   async function on_touch(o, z) {
     // :touch
     // Do something officer!
-    await z.say(o, ["Do something officer!"]);
+    z.say(o, ["Do something officer!"]);
     // #end
     return z.END;
   },

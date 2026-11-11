@@ -134,7 +134,9 @@ def build_zzt(world: str) -> dict:
     }
     (app / "stats.json").write_text(json.dumps(stats, indent=2, ensure_ascii=False), encoding="utf-8")
     (app / "MIGRATION.md").write_text(migration_md(ir, stats), encoding="utf-8")
-    return stats
+    from zzt import postbuild  # reconstructed-behaviour notes and element coverage (iteration 2)
+    postbuild.finish(world)
+    return json.loads((app / "stats.json").read_text(encoding="utf-8"))
 
 
 def migration_md(ir, st) -> str:

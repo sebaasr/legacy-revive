@@ -43,7 +43,9 @@
                    {"expect": {"counter": {"name": "score", "equals": 50}, "flag": {"name": "broadsword", "value": true}, "entityAlive": {"name": "Broadsword", "value": false}}} ] },
       { "name": "North edge leads to board 2", "source": "board-1 exit north = board-2",
         "steps": [ {"start": true}, {"waitFor": {"js": "rt.dialogOpen", "timeout": 5000}}, {"dismiss": true}, {"wait": 600},
-                   {"edge": "north"}, {"expect": {"screen": "board-2"}} ] }
+                   {"edge": "north"}, {"expect": {"screen": "board-2"}} ] },
+      {"name": "Golden box: #if book then check 2 reaches :check2 (book, candle, bell open it) (added in iteration 2)", "open": "board=14", "source": "@Box :touch #if book then check 2 / :check2 #if candle then check3 / :check3 #if bell then open / :open text, #char 007, #zap touch", "steps": [{"start": true}, {"setup": "rt.setFlag('book'); rt.setFlag('candle'); rt.setFlag('bell');"}, {"touch": "Box"}, {"expect": {"dialog": {"contains": "peels back"}}}]},
+      {"name": "Dark board: message on entry, T lights a torch (added in iteration 2)", "open": "board=14", "source": "board 14 dark flag (SPEC 2.5 prop 1); engine design: torches light an 8x5 ellipse", "steps": [{"start": true}, {"expect": {"shown": {"contains": "Room is dark"}}}, {"setup": "rt.set('torches', 2);"}, {"key": "t"}, {"expect": {"counter": {"name": "torches", "equals": 1}, "js": {"label": "torch burning", "code": "game.torch > 0"}}}]}
     ]
   },
   "kingl2-kingl2": {
@@ -64,7 +66,11 @@
       { "name": "Picking up a torch adds 1", "source": "built-in torch element (6)",
         "steps": [ {"start": true}, {"snapshot": true}, {"takeItem": 6}, {"expect": {"counter": {"name": "torches", "delta": 1}}} ] },
       { "name": "Passage leads to board 2", "source": "passage (2,2) -> board-2",
-        "steps": [ {"start": true}, {"touch": "board-1-stat-1"}, {"expect": {"screen": "board-2"}} ] }
+        "steps": [ {"start": true}, {"touch": "board-1-stat-1"}, {"expect": {"screen": "board-2"}} ] },
+      {"name": "Release Lever: #change sliderns/sliderew fake wall (added in iteration 2)", "open": "board=2", "source": "@Release Lever :touch #change sliderns fake wall; #change sliderew fake wall", "steps": [{"start": true}, {"expect": {"js": {"label": "sliders on the board", "code": "[...game.board.el].some(e => e === 25 || e === 26)"}}}, {"touch": "Release Lever"}, {"wait": 1500}, {"expect": {"js": {"label": "no sliders left", "code": "![...game.board.el].some(e => e === 25 || e === 26)"}}}]},
+      {"name": "Lions move once the player presses a key (added in iteration 2)", "open": "board=8", "source": "141 lions (element 41, p1 intelligence); engine design: random or seeking steps", "steps": [{"start": true}, {"setup": "window.__pos = game.board.entities.filter(o => o.el === 41).map(o => o.x + ',' + o.y);"}, {"key": "Space"}, {"wait": 3000}, {"expect": {"js": {"label": ">= 20 lions moved", "code": "game.board.entities.filter(o => o.el === 41 && !o.dead && !window.__pos.includes(o.x + ',' + o.y)).length >= 20"}}}]},
+      {"name": "A lion that reaches the player costs 10 health and dies (added in iteration 2)", "open": "board=8", "source": "engine design: creature attack = -10 health, the creature is destroyed", "steps": [{"start": true}, {"setup": "game.board.entities.find(o => o.el === 41 && __H.approach(o.x, o.y)); game.board.entities.forEach(o => { if (o.el === 41) o.p1 = 10; }); window.__lions = game.board.entities.filter(o => o.el === 41 && !o.dead).length;"}, {"key": "Space"}, {"waitFor": {"js": "rt.get('health') < 100", "timeout": 8000}}, {"expect": {"js": {"label": "fewer lions", "code": "game.board.entities.filter(o => o.el === 41 && !o.dead).length < window.__lions"}}}]},
+      {"name": "Energizer makes the player invincible (added in iteration 2)", "open": "board=4", "source": "element 14 (the board's one is walled in by items, so one is placed next to the player); engine design: 75 ticks, all:energize", "steps": [{"start": true}, {"setup": "const g = game, b = g.board; for (let i = 61; i < 1500; i++) { const x = i % 60, y = (i / 60) | 0; if (x > 0 && b.el[i] === 0 && g._free(b, x, y) && g._free(b, x - 1, y)) { b.el[i] = 14; b.fg[i] = 5; b.ch[i] = -1; g.player.x = x - 1; g.player.y = y; g.keys.clear(); g.queued = []; return; } }"}, {"key": "ArrowRight"}, {"expect": {"shown": {"contains": "Energizer"}, "js": {"label": "energized", "code": "game.energy > 0"}}}]}
     ]
   },
   "lostmonk-lostmonk": {
@@ -108,7 +114,12 @@
       { "name": "Passage leads to board 2", "source": "passage (28,5) -> board-2",
         "steps": [ {"start": true}, {"touch": "board-1-stat-2"}, {"expect": {"screen": "board-2"}} ] },
       { "name": "South edge leads to board 30", "source": "board-1 exit south = board-30",
-        "steps": [ {"start": true}, {"edge": "south"}, {"expect": {"screen": "board-30"}} ] }
+        "steps": [ {"start": true}, {"edge": "south"}, {"expect": {"screen": "board-30"}} ] },
+      {"name": "Tigers shoot at the player (added in iteration 2)", "open": "board=19", "source": "12 tigers (element 42, p2 firing rate 4): shoot when the player is within 2 rows/columns", "steps": [{"start": true}, {"setup": "game.board.entities.find(o => o.el === 42 && __H.approach(o.x, o.y));"}, {"key": "Space"}, {"waitFor": {"js": "game.board.entities.some(o => o.bullet && o.owner !== 'player') || rt.get('health') < 100", "timeout": 10000}}]},
+      {"name": "Centipedes move and the segments follow their head (added in iteration 2)", "open": "board=18", "source": "8 heads (44) + 68 segments (45), follower/leader rebuilt by adjacency", "steps": [{"start": true}, {"setup": "window.__heads = game.board.entities.filter(o => o.el === 44).map(o => o.x + ',' + o.y);"}, {"key": "Space"}, {"wait": 3000}, {"expect": {"js": {"label": "a head moved", "code": "game.board.entities.some(o => o.el === 44 && !o.dead && !window.__heads.includes(o.x + ',' + o.y))"}}}, {"expect": {"js": {"label": "linked segments touch their leader", "code": "(s => s.length > 10 && s.every(o => Math.abs(o.x - o.leaderE.x) + Math.abs(o.y - o.leaderE.y) === 1))(game.board.entities.filter(o => !o.dead && o.el === 45 && o.leaderE))"}}}]},
+      {"name": "Conveyor carries a gem around (added in iteration 2)", "open": "board=12", "source": "43 conveyors (elements 16/17)", "steps": [{"start": true}, {"setup": "const g = game, b = g.board, R = [[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]]; for (const c of b.entities.filter(o => o.el === 16)) for (let k = 0; k < 8; k++) { const [x, y] = [c.x + R[k][0], c.y + R[k][1]], [x2, y2] = [c.x + R[(k + 1) % 8][0], c.y + R[(k + 1) % 8][1]]; if (g._free(b, x, y) && g._free(b, x2, y2)) { const i = y * 60 + x; b.el[i] = 7; b.fg[i] = 14; b.ch[i] = -1; window.__gem = i; return; } }"}, {"key": "Space"}, {"wait": 2500}, {"expect": {"js": {"label": "the gem left its cell", "code": "window.__gem != null && game.board.el[window.__gem] !== 7"}}}]},
+      {"name": "Board time limit counts down (added in iteration 2)", "open": "board=28", "source": "board 28 time_limit = 100 (SPEC 2.5 prop 68)", "steps": [{"start": true}, {"wait": 3500}, {"expect": {"js": {"label": "time between 90 and 99", "code": "rt.get('time') < 100 && rt.get('time') >= 90"}}}]},
+      {"name": "Touching a bomb lights it; it counts down and explodes (added in iteration 2)", "open": "board=6", "source": "bomb board-6-stat-10 (element 13, p1 = 0); engine design: p1 = 9 countdown, explosion radius", "steps": [{"start": true}, {"touch": "board-6-stat-10"}, {"expect": {"shown": {"contains": "Bomb activated"}}}, {"waitFor": {"js": "!game.board.entities.some(o => o.id === 'board-6-stat-10' && !o.dead)", "timeout": 10000}}, {"expect": {"entityAlive": {"name": "board-6-stat-10", "value": false}}}]}
     ]
   },
   "zzttoxic-smiley": {
@@ -142,7 +153,10 @@
                    {"expect": {"dialog": true}}, {"expect": {"js": {"label": "a new text (not the Part 1 menu) is shown", "code": "!document.querySelector('.lr-dialog').innerText.includes('Apple Tree Lane')"}}} ] },
       { "name": "Return to Main Menu", "source": "!RETURN -> :RETURN #SEND MAIN",
         "steps": [ {"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"dismiss": true}, {"wait": 500}, {"answer": "Part 1"}, {"wait": 800}, {"answer": "Return to Main Menu"}, {"wait": 800},
-                   {"expect": {"dialog": {"contains": "Under Ground"}}} ] }
+                   {"expect": {"dialog": {"contains": "Under Ground"}}} ] },
+      {"name": "Choosing Part 1 in the merged first window opens its submenu (added in iteration 2)", "source": ":TOUCH text falls through into :MAIN; one window holds intro + !PART1/!PART2/!PART3 (replaces the dismiss step of scenarios 2-4, which assumed two windows)", "steps": [{"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"expect": {"dialog": {"contains": "Toxic Terminator features"}}}, {"answer": "Part 1"}, {"wait": 800}, {"expect": {"dialog": {"contains": "Smiley's Place"}}}]},
+      {"name": "A topic shows its hint text, from the merged first window (added in iteration 2)", "source": ":PART1 !PLACE -> :PLACE text", "steps": [{"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"answer": "Part 1"}, {"wait": 800}, {"answer": "Smiley's Place"}, {"wait": 800}, {"expect": {"dialog": {"contains": "Read the H"}}}]},
+      {"name": "Return to Main Menu, from the merged first window (added in iteration 2)", "source": "!RETURN -> :RETURN #SEND MAIN", "steps": [{"start": true}, {"touch": "HINTS & SOLUTIONS"}, {"answer": "Part 1"}, {"wait": 800}, {"answer": "Return to Main Menu"}, {"wait": 800}, {"expect": {"dialog": {"contains": "Under Ground"}}}]}
     ]
   },
   "zzttoxic-toxic": {
@@ -168,7 +182,8 @@
                    {"expect": {"entityAlive": {"name": "FUMES RISING FROM DIRT", "value": false}}},
                    {"touch": "board-1-stat-3"}, {"expect": {"screen": "board-9"}} ] },
       { "name": "East edge leads to board 3", "source": "board-1 exit east = board-3",
-        "steps": [ {"start": true}, {"edge": "east"}, {"expect": {"screen": "board-3"}} ] }
+        "steps": [ {"start": true}, {"edge": "east"}, {"expect": {"screen": "board-3"}} ] },
+      {"name": "Transporter moves the player through (added in iteration 2)", "open": "board=16", "source": "transporter board-16-stat-6 at (38,4), step (0,1)", "steps": [{"start": true}, {"place": [37, 2]}, {"key": "ArrowDown"}, {"expect": {"js": {"label": "player past the transporter", "code": "[game.player.x, game.player.y]", "equals": [37, 4]}}}]}
     ]
   }
 }

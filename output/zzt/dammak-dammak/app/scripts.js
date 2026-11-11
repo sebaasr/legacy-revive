@@ -43,7 +43,7 @@ P[1] = {
     //      "Hello,would you like a room for the
     // night for 3 gems?"
     // !x1;Yes,I'll take it.
-    if (await z.say(o, ["     \"Hello,would you like a room for the", "night for 3 gems?\"", {"choice": "x1", "text": "Yes,I'll take it."}])) return z.GOTO;
+    z.say(o, ["     \"Hello,would you like a room for the", "night for 3 gems?\"", {"choice": "x1", "text": "Yes,I'll take it."}]);
     // #end
     return z.END;
   },
@@ -55,7 +55,7 @@ P[1] = {
     }
     //      "It's the room at the end of the hall
     // with the blue door."
-    await z.say(o, ["     \"It's the room at the end of the hall", "with the blue door.\""]);
+    z.say(o, ["     \"It's the room at the end of the hall", "with the blue door.\""]);
     // #send door:bought
     if (await z.send(o, "door", "bought")) return z.GOTO;
     // #put w blue key
@@ -68,7 +68,7 @@ P[1] = {
   async function on_getout(o, z) {
     // :getout
     // You haven't got 3 gems!
-    await z.say(o, ["You haven't got 3 gems!"]);
+    z.say(o, ["You haven't got 3 gems!"]);
     // #end
     return z.END;
   },
@@ -96,7 +96,7 @@ P[2] = {
     // !x3;Axe.......................4 gems
     // !x4;Spear.....................2 gems
     // !x5;Mace......................3 gems
-    if (await z.say(o, ["     \"Hello.Are you interested in buying", "any weapons or arrows for your bow?\"", {"choice": "x1", "text": "10 arrows.................1 gem"}, {"choice": "x2", "text": "Sword.....................3 gems"}, {"choice": "x3", "text": "Axe.......................4 gems"}, {"choice": "x4", "text": "Spear.....................2 gems"}, {"choice": "x5", "text": "Mace......................3 gems"}])) return z.GOTO;
+    z.say(o, ["     \"Hello.Are you interested in buying", "any weapons or arrows for your bow?\"", {"choice": "x1", "text": "10 arrows.................1 gem"}, {"choice": "x2", "text": "Sword.....................3 gems"}, {"choice": "x3", "text": "Axe.......................4 gems"}, {"choice": "x4", "text": "Spear.....................2 gems"}, {"choice": "x5", "text": "Mace......................3 gems"}]);
     // #end
     return z.END;
   },
@@ -107,7 +107,7 @@ P[2] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here you go.
-    await z.say(o, ["Here you go."]);
+    z.say(o, ["Here you go."]);
     // #give ammo 10
     z.give("ammo", 10);
     // #end
@@ -120,7 +120,7 @@ P[2] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here's your sword.
-    await z.say(o, ["Here's your sword."]);
+    z.say(o, ["Here's your sword."]);
     // #set sword
     z.rt.setFlag("sword");
     // #end
@@ -133,7 +133,7 @@ P[2] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here's your axe.
-    await z.say(o, ["Here's your axe."]);
+    z.say(o, ["Here's your axe."]);
     // #set axe
     z.rt.setFlag("axe");
     // #end
@@ -146,7 +146,7 @@ P[2] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here's your spear.
-    await z.say(o, ["Here's your spear."]);
+    z.say(o, ["Here's your spear."]);
     // #set spear
     z.rt.setFlag("spear");
     // #end
@@ -157,7 +157,7 @@ P[2] = {
     // #take gems 3
     z.take("gems", 3);
     // Here's your mace.
-    await z.say(o, ["Here's your mace."]);
+    z.say(o, ["Here's your mace."]);
     // #set mace
     z.rt.setFlag("mace");
     // #end
@@ -166,7 +166,7 @@ P[2] = {
   async function on_notenuff(o, z) {
     // :notenuff
     // You don't have enough.
-    await z.say(o, ["You don't have enough."]);
+    z.say(o, ["You don't have enough."]);
     // #end
     return z.END;
   },
@@ -192,7 +192,7 @@ P[3] = {
     // !x1;Chain mail...................7 gems
     // !x2;Scale mail...................10 gems
     // !x3;Chest plate..................15 gems
-    if (await z.say(o, ["     \"Welcome.Are you in need of fine ", "metal armor?\"", {"choice": "x1", "text": "Chain mail...................7 gems"}, {"choice": "x2", "text": "Scale mail...................10 gems"}, {"choice": "x3", "text": "Chest plate..................15 gems"}])) return z.GOTO;
+    z.say(o, ["     \"Welcome.Are you in need of fine ", "metal armor?\"", {"choice": "x1", "text": "Chain mail...................7 gems"}, {"choice": "x2", "text": "Scale mail...................10 gems"}, {"choice": "x3", "text": "Chest plate..................15 gems"}]);
     // #end
     return z.END;
   },
@@ -203,7 +203,7 @@ P[3] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here's your chain mail shirt.
-    await z.say(o, ["Here's your chain mail shirt."]);
+    z.say(o, ["Here's your chain mail shirt."]);
     // #set chain
     z.rt.setFlag("chain");
     // #end
@@ -216,7 +216,7 @@ P[3] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here's your scale mail shirt.
-    await z.say(o, ["Here's your scale mail shirt."]);
+    z.say(o, ["Here's your scale mail shirt."]);
     // #set scale
     z.rt.setFlag("scale");
     // #end
@@ -229,7 +229,7 @@ P[3] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here's your steel chest plate.
-    await z.say(o, ["Here's your steel chest plate."]);
+    z.say(o, ["Here's your steel chest plate."]);
     // #set plate
     z.rt.setFlag("plate");
     // #end
@@ -238,7 +238,7 @@ P[3] = {
   async function on_notenuff(o, z) {
     // :notenuff
     // You don't have enough gems.
-    await z.say(o, ["You don't have enough gems."]);
+    z.say(o, ["You don't have enough gems."]);
     // #end
     return z.END;
   },
@@ -260,7 +260,7 @@ P[4] = {
   async function on_touch(o, z) {
     // :touch
     // Don't bother the patrons!
-    await z.say(o, ["Don't bother the patrons!"]);
+    z.say(o, ["Don't bother the patrons!"]);
     // #end
     return z.END;
   },
@@ -303,7 +303,7 @@ P[6] = {
     // gloomy and scared.Perhaps things in the
     // barony of Dammak's are worse than rumors
     // related them!
-    await z.say(o, ["     As you approach the little town of", "Delmar,you think back to the border patrol", "of Baron Dammak,that confiscated all of ", "your possessions except for your bow and", "a hidden pouch of 10 gems.The rule of ", "Dammak is well known throughout the entire", "land as a hideous mockery of justice.You", "had dreaded coming into this land,but to ", "go around it would take weeks.The town is", "doing fairly well,but all the people are", "gloomy and scared.Perhaps things in the", "barony of Dammak's are worse than rumors", "related them!"]);
+    z.say(o, ["     As you approach the little town of", "Delmar,you think back to the border patrol", "of Baron Dammak,that confiscated all of ", "your possessions except for your bow and", "a hidden pouch of 10 gems.The rule of ", "Dammak is well known throughout the entire", "land as a hideous mockery of justice.You", "had dreaded coming into this land,but to ", "go around it would take weeks.The town is", "doing fairly well,but all the people are", "gloomy and scared.Perhaps things in the", "barony of Dammak's are worse than rumors", "related them!"]);
     // #give gems 10
     z.give("gems", 10);
     // #die
@@ -327,7 +327,7 @@ P[7] = {
   async function on_hint(o, z) {
     // :hint
     // Why not visit the local tavern?
-    await z.say(o, ["Why not visit the local tavern?"]);
+    z.say(o, ["Why not visit the local tavern?"]);
     // #end
     return z.END;
   },
@@ -353,7 +353,7 @@ P[8] = {
     // !x1;Boots......................1 gem
     // !x2;Belt.......................1 gem
     // !x3;Shirt......................2 gems
-    if (await z.say(o, ["     \"Hello.Would you care to purchase any", "fine leatherwork?\"", {"choice": "x1", "text": "Boots......................1 gem"}, {"choice": "x2", "text": "Belt.......................1 gem"}, {"choice": "x3", "text": "Shirt......................2 gems"}])) return z.GOTO;
+    z.say(o, ["     \"Hello.Would you care to purchase any", "fine leatherwork?\"", {"choice": "x1", "text": "Boots......................1 gem"}, {"choice": "x2", "text": "Belt.......................1 gem"}, {"choice": "x3", "text": "Shirt......................2 gems"}]);
     // #end
     return z.END;
   },
@@ -364,7 +364,7 @@ P[8] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here you are,one pair of boots.
-    await z.say(o, ["Here you are,one pair of boots."]);
+    z.say(o, ["Here you are,one pair of boots."]);
     // #set boots
     z.rt.setFlag("boots");
     // #end
@@ -377,7 +377,7 @@ P[8] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // One fine leather belt,coming up.
-    await z.say(o, ["One fine leather belt,coming up."]);
+    z.say(o, ["One fine leather belt,coming up."]);
     // #set belt
     z.rt.setFlag("belt");
     // #end
@@ -390,7 +390,7 @@ P[8] = {
       if (await z.send(o, "self", "notenuff")) return z.GOTO;
     }
     // Here you go,a shirt of fine leather.
-    await z.say(o, ["Here you go,a shirt of fine leather."]);
+    z.say(o, ["Here you go,a shirt of fine leather."]);
     // #set shirt
     z.rt.setFlag("shirt");
     // #end
@@ -399,7 +399,7 @@ P[8] = {
   async function on_notenuff(o, z) {
     // :notenuff
     // You don't have enough gems.
-    await z.say(o, ["You don't have enough gems."]);
+    z.say(o, ["You don't have enough gems."]);
     // #end
     return z.END;
   },
@@ -429,7 +429,7 @@ P[9] = {
     //      You take the cold mug of ale and sip
     // on it as you walk away,contemplating the
     // man's sad situation.
-    await z.say(o, ["     \"Here you go.Have a mug of ale on the", "house.I'm three weeks delinquent on my ", "taxes,so I'll be arrested soon anyway.Not", "a chance of me making the 150 gems in the", "next couple days,so I'm not worried about", "making any money.\"", "     You take the cold mug of ale and sip", "on it as you walk away,contemplating the", "man's sad situation."]);
+    z.say(o, ["     \"Here you go.Have a mug of ale on the", "house.I'm three weeks delinquent on my ", "taxes,so I'll be arrested soon anyway.Not", "a chance of me making the 150 gems in the", "next couple days,so I'm not worried about", "making any money.\"", "     You take the cold mug of ale and sip", "on it as you walk away,contemplating the", "man's sad situation."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -455,7 +455,7 @@ P[10] = {
     // Hmmm..An old firewood box.It is still 
     // laden with small branches that would make
     // perfect torches.You take the torches.
-    await z.say(o, ["Hmmm..An old firewood box.It is still ", "laden with small branches that would make", "perfect torches.You take the torches."]);
+    z.say(o, ["Hmmm..An old firewood box.It is still ", "laden with small branches that would make", "perfect torches.You take the torches."]);
     // #give torches 20
     z.give("torches", 20);
     // #zap touch
@@ -484,7 +484,7 @@ P[11] = {
     // to have left it behind.No sense in letting
     // it sit here,when you could use it.You take
     // the broadsword with you.
-    await z.say(o, ["     The owner of this fine weapon appears", "to have left it behind.No sense in letting", "it sit here,when you could use it.You take", "the broadsword with you."]);
+    z.say(o, ["     The owner of this fine weapon appears", "to have left it behind.No sense in letting", "it sit here,when you could use it.You take", "the broadsword with you."]);
     // #set broadsword
     z.rt.setFlag("broadsword");
     // #give score 50
@@ -556,7 +556,7 @@ P[12] = {
     // come to the foothills,be sure that you are
     // not being followed by the gaze of the 
     // Watcher in the tower..Good luck,my son!"
-    await z.say(o, ["     Well! You never expected to come face", "to face with Ewal The Prophet!In all the", "tales of yore,Ewal plays a major role.He ", "counseled Sir Jeremy when he marched ", "against the armies of Nadilia.He was said", "to have accompanied Lord Thenuul when he", "recovered the Sun Stone from the lands of", "evil.Ewal's name is known all across the ", "land,and here he is,sitting in a bar in ", "the derelict town of Delmar!", "     \"Hello,son.Been waiting for you for", "quite some time now.Aye,it's you I've been", "waiting for.Surely you don't think that ", "you'd have vanquished the ghost of King", "Lucius without the gods knowing?Oh yes,and", "the gods told me.And I know about your ", "future,my boy..I can see that you've done", "something that will cause you great pain ", "in the coming days..But,had you not done ", "it,you would never have reached your goal.", "I am here to tell you what you must do to", "remedy your predicament.\"", {"text": "What predicament is this??", "align": "center"}, "     \"Heh,heh..Boy,you've unleashed the", "power of light with an evil bent,and it's", "out to kill you.I can't tell you the whole", "story,but I CAN tell you that what you ", "must find is in Dammak's castle.Yes,that", "horrid place.And I can assure you that", "you'll risk your life many times before", "you get to even the first part of your", "journey.\"", {"text": "So what should I do?", "align": "center"}, "     \"First things first:go get yourself", "a room at the Inn..You'll need a place to", "stay..Then you'll want to buy yourself ", "some equipment.There's a wall north of the", "town that blocks off the main road.Get ", "past the gate guard any way you can.From ", "there on,you're pretty much on your own.\"", {"text": "On my own? But where should I go??", "align": "center"}, "     \"Don't worry,the gods will see to it", "that you don't go too far off the path.", "One thing I can tell you now is:when you", "come to the foothills,be sure that you are", "not being followed by the gaze of the ", "Watcher in the tower..Good luck,my son!\""]);
+    z.say(o, ["     Well! You never expected to come face", "to face with Ewal The Prophet!In all the", "tales of yore,Ewal plays a major role.He ", "counseled Sir Jeremy when he marched ", "against the armies of Nadilia.He was said", "to have accompanied Lord Thenuul when he", "recovered the Sun Stone from the lands of", "evil.Ewal's name is known all across the ", "land,and here he is,sitting in a bar in ", "the derelict town of Delmar!", "     \"Hello,son.Been waiting for you for", "quite some time now.Aye,it's you I've been", "waiting for.Surely you don't think that ", "you'd have vanquished the ghost of King", "Lucius without the gods knowing?Oh yes,and", "the gods told me.And I know about your ", "future,my boy..I can see that you've done", "something that will cause you great pain ", "in the coming days..But,had you not done ", "it,you would never have reached your goal.", "I am here to tell you what you must do to", "remedy your predicament.\"", {"text": "What predicament is this??", "align": "center"}, "     \"Heh,heh..Boy,you've unleashed the", "power of light with an evil bent,and it's", "out to kill you.I can't tell you the whole", "story,but I CAN tell you that what you ", "must find is in Dammak's castle.Yes,that", "horrid place.And I can assure you that", "you'll risk your life many times before", "you get to even the first part of your", "journey.\"", {"text": "So what should I do?", "align": "center"}, "     \"First things first:go get yourself", "a room at the Inn..You'll need a place to", "stay..Then you'll want to buy yourself ", "some equipment.There's a wall north of the", "town that blocks off the main road.Get ", "past the gate guard any way you can.From ", "there on,you're pretty much on your own.\"", {"text": "On my own? But where should I go??", "align": "center"}, "     \"Don't worry,the gods will see to it", "that you don't go too far off the path.", "One thing I can tell you now is:when you", "come to the foothills,be sure that you are", "not being followed by the gaze of the ", "Watcher in the tower..Good luck,my son!\""]);
     // #give score 1000
     z.give("score", 1000);
     // #zap touch
@@ -569,7 +569,7 @@ P[12] = {
     //      "I see you have returned..I can't 
     // help you any more right now..We shall meet
     // again,though..I assure you of that!"
-    await z.say(o, ["     \"I see you have returned..I can't ", "help you any more right now..We shall meet", "again,though..I assure you of that!\""]);
+    z.say(o, ["     \"I see you have returned..I can't ", "help you any more right now..We shall meet", "again,though..I assure you of that!\""]);
     // #end
     return z.END;
   },
@@ -597,7 +597,7 @@ P[13] = {
     //      "Hey,no one is permitted beyond this
     // point!Go back to the town or I'll have to
     // use force!"
-    await z.say(o, ["     \"Hey,no one is permitted beyond this", "point!Go back to the town or I'll have to", "use force!\""]);
+    z.say(o, ["     \"Hey,no one is permitted beyond this", "point!Go back to the town or I'll have to", "use force!\""]);
     // #end
     return z.END;
   },
@@ -628,7 +628,7 @@ P[13] = {
     // :hit1
     // You punch the guard,but he counters with
     // a slash from his sword!
-    await z.say(o, ["You punch the guard,but he counters with", "a slash from his sword!"]);
+    z.say(o, ["You punch the guard,but he counters with", "a slash from his sword!"]);
     // #take energy 50
     z.take("energy", 50);
     // #end
@@ -639,7 +639,7 @@ P[13] = {
     // You slice the guard and he falls to the
     // ground,dead.On his body you find 10 gems
     // and a Cyan Key.
-    await z.say(o, ["You slice the guard and he falls to the", "ground,dead.On his body you find 10 gems", "and a Cyan Key."]);
+    z.say(o, ["You slice the guard and he falls to the", "ground,dead.On his body you find 10 gems", "and a Cyan Key."]);
     // #give gems 10
     z.give("gems", 10);
     // #put south cyan key
@@ -650,7 +650,7 @@ P[13] = {
   async function on_hit3(o, z) {
     // :hit3
     // You club at the gaurd!
-    await z.say(o, ["You club at the gaurd!"]);
+    z.say(o, ["You club at the gaurd!"]);
     // #zap hit3
     z.zap(o, "hit3");
     // #end
@@ -660,7 +660,7 @@ P[13] = {
     // :hit3
     // You hit the gaurd again,and he falls!You 
     // find 10 gems and a Cyan Key on his corpse!
-    await z.say(o, ["You hit the gaurd again,and he falls!You ", "find 10 gems and a Cyan Key on his corpse!"]);
+    z.say(o, ["You hit the gaurd again,and he falls!You ", "find 10 gems and a Cyan Key on his corpse!"]);
     // #give gems 10
     z.give("gems", 10);
     // #put s cyan key
@@ -673,7 +673,7 @@ P[13] = {
     // The spear is too awkward to attack the
     // gaurd with,and he blocks your attack and
     // counters with a blow from his sword!
-    await z.say(o, ["The spear is too awkward to attack the", "gaurd with,and he blocks your attack and", "counters with a blow from his sword!"]);
+    z.say(o, ["The spear is too awkward to attack the", "gaurd with,and he blocks your attack and", "counters with a blow from his sword!"]);
     // #take energy 50
     z.take("energy", 50);
     // #end
@@ -685,7 +685,7 @@ P[13] = {
     // and the gaurd crumples.His severed head
     // bounces off into a ditch.On his body you
     // find a Cyan Key and 10 gems.
-    await z.say(o, ["You bring the Broadsword down on his neck", "and the gaurd crumples.His severed head", "bounces off into a ditch.On his body you", "find a Cyan Key and 10 gems."]);
+    z.say(o, ["You bring the Broadsword down on his neck", "and the gaurd crumples.His severed head", "bounces off into a ditch.On his body you", "find a Cyan Key and 10 gems."]);
     // #give gems 10
     z.give("gems", 10);
     // #put s cyan key
@@ -703,7 +703,7 @@ P[13] = {
     // :shot
     // Your arrow pierces the guard's armor,and 
     // he responds by hurling a knife at you!
-    await z.say(o, ["Your arrow pierces the guard's armor,and ", "he responds by hurling a knife at you!"]);
+    z.say(o, ["Your arrow pierces the guard's armor,and ", "he responds by hurling a knife at you!"]);
     // #shoot seek
     z.shoot(o, "seek", false);
     // #zap shot
@@ -713,7 +713,7 @@ P[13] = {
     // :shot
     // The guard falls to the gound dead.You find
     // a Cyan Key and 10 gems on his body.
-    await z.say(o, ["The guard falls to the gound dead.You find", "a Cyan Key and 10 gems on his body."]);
+    z.say(o, ["The guard falls to the gound dead.You find", "a Cyan Key and 10 gems on his body."]);
     // #give gems 10
     z.give("gems", 10);
     // #put s cyan key
@@ -748,7 +748,7 @@ P[14] = {
     // Bhakades river that runs thru the marsh.
     // Besides an unclear trail running northward
     // along the riverbank,you cannot continue.
-    await z.say(o, ["     The path leading eastward has been", "flooded by the seasonal swelling of the", "Bhakades river that runs thru the marsh.", "Besides an unclear trail running northward", "along the riverbank,you cannot continue."]);
+    z.say(o, ["     The path leading eastward has been", "flooded by the seasonal swelling of the", "Bhakades river that runs thru the marsh.", "Besides an unclear trail running northward", "along the riverbank,you cannot continue."]);
     // #end
     return z.END;
   },
@@ -779,7 +779,7 @@ P[15] = {
     // never seen a structure like this in all of
     // your travels,and are certain that it was 
     // not made by human hands.
-    await z.say(o, ["     You hack your way along the path and", "finally see its destination.A vine-covered", "ganite structure has been erected in a ", "small gap in the dense foliage.You have", "never seen a structure like this in all of", "your travels,and are certain that it was ", "not made by human hands."]);
+    z.say(o, ["     You hack your way along the path and", "finally see its destination.A vine-covered", "ganite structure has been erected in a ", "small gap in the dense foliage.You have", "never seen a structure like this in all of", "your travels,and are certain that it was ", "not made by human hands."]);
     // /i
     await z.idle(o);
     // /i
@@ -797,7 +797,7 @@ P[15] = {
     // the hair on your neck stand up and you
     // contemplate the wisdom of investigating
     // this temple any further.
-    await z.say(o, ["     As you draw closer,you notice the ", "intricate carvings that adorn the building", "and decide that it must be a temple of", "some sort.Noxious vapors wafting from the", "swampy patches of land remind you that no", "human would live here.This thought makes", "the hair on your neck stand up and you", "contemplate the wisdom of investigating", "this temple any further."]);
+    z.say(o, ["     As you draw closer,you notice the ", "intricate carvings that adorn the building", "and decide that it must be a temple of", "some sort.Noxious vapors wafting from the", "swampy patches of land remind you that no", "human would live here.This thought makes", "the hair on your neck stand up and you", "contemplate the wisdom of investigating", "this temple any further."]);
     // #end
     return z.END;
   },
@@ -819,7 +819,7 @@ P[16] = {
   async function on_touch(o, z) {
     // :touch
     // You find a quiver of 100 arrows!
-    await z.say(o, ["You find a quiver of 100 arrows!"]);
+    z.say(o, ["You find a quiver of 100 arrows!"]);
     // #give ammo 100
     z.give("ammo", 100);
     // #die
@@ -854,7 +854,7 @@ P[17] = {
     // obscured by a mechanical door that only
     // allows things to pass out of it.Perhaps
     // the entrance is elsewhere...
-    await z.say(o, ["     Hmm...Two giant statues of strange", "lizards,covered with Lapis Lazulai and", "Sapphire chips pose on either side of a", "tiny turqoise building.Its entrance is", "obscured by a mechanical door that only", "allows things to pass out of it.Perhaps", "the entrance is elsewhere..."]);
+    z.say(o, ["     Hmm...Two giant statues of strange", "lizards,covered with Lapis Lazulai and", "Sapphire chips pose on either side of a", "tiny turqoise building.Its entrance is", "obscured by a mechanical door that only", "allows things to pass out of it.Perhaps", "the entrance is elsewhere..."]);
     // #end
     return z.END;
   },
@@ -934,7 +934,7 @@ P[19] = {
     // Hordes of enemy soldiers and ferocious
     // beasts FLOCK out of the foothills!You are
     // overwhelmed in a tide of death!
-    await z.say(o, ["You have been seen by the Watchtower!!", "Hordes of enemy soldiers and ferocious", "beasts FLOCK out of the foothills!You are", "overwhelmed in a tide of death!"]);
+    z.say(o, ["You have been seen by the Watchtower!!", "Hordes of enemy soldiers and ferocious", "beasts FLOCK out of the foothills!You are", "overwhelmed in a tide of death!"]);
     // #endgame
     z.endgame(o);
   },
@@ -1018,7 +1018,7 @@ P[21] = {
     // physique through the red-painted chain
     // mail he wears.
     // !x1;Attack warrior
-    if (await z.say(o, ["Before you stands the guardian of the", "watchtower.You can make out his monstrous", "physique through the red-painted chain", "mail he wears.", {"choice": "x1", "text": "Attack warrior"}])) return z.GOTO;
+    z.say(o, ["Before you stands the guardian of the", "watchtower.You can make out his monstrous", "physique through the red-painted chain", "mail he wears.", {"choice": "x1", "text": "Attack warrior"}]);
     // #end
     return z.END;
   },
@@ -1026,7 +1026,7 @@ P[21] = {
     // :x1
     // The Warrior brings down his sword in an
     // arcing slash which strikes your shoulder!
-    await z.say(o, ["The Warrior brings down his sword in an", "arcing slash which strikes your shoulder!"]);
+    z.say(o, ["The Warrior brings down his sword in an", "arcing slash which strikes your shoulder!"]);
     // #if chain then hurt1
     if (z.rt.hasFlag("chain")) {
       if (await z.send(o, "self", "hurt1")) return z.GOTO;
@@ -1041,14 +1041,14 @@ P[21] = {
     }
     // The blow DEVASTATES you! You fall to the
     // floor in a crumpled, bleeding heap!
-    await z.say(o, ["The blow DEVASTATES you! You fall to the", "floor in a crumpled, bleeding heap!"]);
+    z.say(o, ["The blow DEVASTATES you! You fall to the", "floor in a crumpled, bleeding heap!"]);
     // #endgame
     z.endgame(o);
   },
   async function on_hurt1(o, z) {
     // :hurt1
     // His sword injurs you heavily!
-    await z.say(o, ["His sword injurs you heavily!"]);
+    z.say(o, ["His sword injurs you heavily!"]);
     // #take health 10
     z.take("health", 10);
     // /i
@@ -1059,7 +1059,7 @@ P[21] = {
   async function on_hurt2(o, z) {
     // :hurt2
     // His sword does slight damage!
-    await z.say(o, ["His sword does slight damage!"]);
+    z.say(o, ["His sword does slight damage!"]);
     // #take health 7
     z.take("health", 7);
     // /i
@@ -1070,7 +1070,7 @@ P[21] = {
   async function on_hurt3(o, z) {
     // :hurt3
     // You are merely grazed!
-    await z.say(o, ["You are merely grazed!"]);
+    z.say(o, ["You are merely grazed!"]);
     // #take health 5
     z.take("health", 5);
     // /i
@@ -1102,35 +1102,35 @@ P[21] = {
     }
     // You club at him with your fist,but his 
     // armor merely bruises your hand!!
-    await z.say(o, ["You club at him with your fist,but his ", "armor merely bruises your hand!!"]);
+    z.say(o, ["You club at him with your fist,but his ", "armor merely bruises your hand!!"]);
     // #send x1 
     if (await z.send(o, "self", "x1")) return z.GOTO;
   },
   async function on_hit1(o, z) {
     // :hit1
     // You ram your spear into his gut!
-    await z.say(o, ["You ram your spear into his gut!"]);
+    z.say(o, ["You ram your spear into his gut!"]);
     // #send dam1
     if (await z.send(o, "self", "dam1")) return z.GOTO;
   },
   async function on_hit2(o, z) {
     // :hit2
     // Your sword slashes him violently!
-    await z.say(o, ["Your sword slashes him violently!"]);
+    z.say(o, ["Your sword slashes him violently!"]);
     // #send dam1
     if (await z.send(o, "self", "dam1")) return z.GOTO;
   },
   async function on_hit3(o, z) {
     // :hit3
     // You smash at him with your mace!
-    await z.say(o, ["You smash at him with your mace!"]);
+    z.say(o, ["You smash at him with your mace!"]);
     // #send dam2
     if (await z.send(o, "self", "dam2")) return z.GOTO;
   },
   async function on_hit4(o, z) {
     // :hit4
     // Your axe cleaves him down the middle!!
-    await z.say(o, ["Your axe cleaves him down the middle!!"]);
+    z.say(o, ["Your axe cleaves him down the middle!!"]);
     // #give score 100
     z.give("score", 100);
     // #die
@@ -1139,7 +1139,7 @@ P[21] = {
   async function on_hit5(o, z) {
     // :hit5
     // Your mighty broadsword skewers the knight!
-    await z.say(o, ["Your mighty broadsword skewers the knight!"]);
+    z.say(o, ["Your mighty broadsword skewers the knight!"]);
     // #give score 100
     z.give("score", 100);
     // #die
@@ -1222,7 +1222,7 @@ P[22] = {
     // the shrieks of hideous, sub-human things!
     // The abominable gaurdians of the keep are 
     // charging forth from the surrounding hills!
-    await z.say(o, ["The Foothills rise to small peaks on all", "sides of you,now.Over the rising landscape", "you can make out the towers of the Keep of", "Dammak.The ground is sooty black and pools", "of molten rock are visible on the edges of", "the path.This is obviously quite the place", "to build a stronghold.Suddenly you hear ", "the shrieks of hideous, sub-human things!", "The abominable gaurdians of the keep are ", "charging forth from the surrounding hills!"]);
+    z.say(o, ["The Foothills rise to small peaks on all", "sides of you,now.Over the rising landscape", "you can make out the towers of the Keep of", "Dammak.The ground is sooty black and pools", "of molten rock are visible on the edges of", "the path.This is obviously quite the place", "to build a stronghold.Suddenly you hear ", "the shrieks of hideous, sub-human things!", "The abominable gaurdians of the keep are ", "charging forth from the surrounding hills!"]);
     // #end
     return z.END;
   },
@@ -1255,7 +1255,7 @@ P[23] = {
     // darkens your heart to think that this holy
     // artifact should be enshrined in such an 
     // evil place.
-    await z.say(o, ["     This is the fabled arch of Amuran!", "At one time this blue,crystal archway was", "the entrance to the golden city of Amuran.", "Since the destruction of the city(the city", "was devastated by the gods because of its", "citizen's excessive pride),the gate has ", "passed through many hands.It was said to", "be all that remained of the golden city,", "and was thus considered very valuable.It", "darkens your heart to think that this holy", "artifact should be enshrined in such an ", "evil place."]);
+    z.say(o, ["     This is the fabled arch of Amuran!", "At one time this blue,crystal archway was", "the entrance to the golden city of Amuran.", "Since the destruction of the city(the city", "was devastated by the gods because of its", "citizen's excessive pride),the gate has ", "passed through many hands.It was said to", "be all that remained of the golden city,", "and was thus considered very valuable.It", "darkens your heart to think that this holy", "artifact should be enshrined in such an ", "evil place."]);
     // #end
     return z.END;
   },
@@ -1278,7 +1278,7 @@ P[24] = {
     // :touch
     // The robed ferryman holds out his gloved 
     // palm as if awaiting payment for passage.
-    await z.say(o, ["The robed ferryman holds out his gloved ", "palm as if awaiting payment for passage."]);
+    z.say(o, ["The robed ferryman holds out his gloved ", "palm as if awaiting payment for passage."]);
     // #if coin then do
     if (z.rt.hasFlag("coin")) {
       if (await z.send(o, "self", "do")) return z.GOTO;
@@ -1291,7 +1291,7 @@ P[24] = {
     // A voice from beyond the grave echoes from
     // under the ferryman's hood.
     // $You may now cross,oh seeker.
-    await z.say(o, ["A voice from beyond the grave echoes from", "under the ferryman's hood.", {"text": "You may now cross,oh seeker.", "align": "center"}]);
+    z.say(o, ["A voice from beyond the grave echoes from", "under the ferryman's hood.", {"text": "You may now cross,oh seeker.", "align": "center"}]);
     // #change water fake
     z.change(null, "water", null, "fake");
     // #die
@@ -1319,7 +1319,7 @@ P[25] = {
     // is that sound reaching you here?You are
     // many miles from the sea and deep under-
     // ground...
-    await z.say(o, ["The sound of splashing tide comes to your", "ears.You pause and listen closely.Yes!It ", "is indeed the sound of the ocean!But,how", "is that sound reaching you here?You are", "many miles from the sea and deep under-", "ground..."]);
+    z.say(o, ["The sound of splashing tide comes to your", "ears.You pause and listen closely.Yes!It ", "is indeed the sound of the ocean!But,how", "is that sound reaching you here?You are", "many miles from the sea and deep under-", "ground..."]);
     // #end
     return z.END;
   },
@@ -1346,7 +1346,7 @@ P[26] = {
     // you will have to complete the three trials
     // in the room south of here before the box
     // will open and you can get the coin.
-    await z.say(o, ["     The coin has been placed here so that", "users can see the throne room to the north", "in this Beta version.In the final version,", "you will have to complete the three trials", "in the room south of here before the box", "will open and you can get the coin."]);
+    z.say(o, ["     The coin has been placed here so that", "users can see the throne room to the north", "in this Beta version.In the final version,", "you will have to complete the three trials", "in the room south of here before the box", "will open and you can get the coin."]);
     // #set coin
     z.rt.setFlag("coin");
     // #die
@@ -1370,7 +1370,7 @@ P[27] = {
   async function on_shot(o, z) {
     // :shot
     // BOOM!!!
-    await z.say(o, ["BOOM!!!"]);
+    z.say(o, ["BOOM!!!"]);
     // #change pusher boulder
     z.change(null, "pusher", null, "boulder");
     // #die
@@ -1734,7 +1734,7 @@ P[37] = {
   async function on_touch(o, z) {
     // :touch
     // Let the truth of love be lighted!
-    await z.say(o, ["Let the truth of love be lighted!"]);
+    z.say(o, ["Let the truth of love be lighted!"]);
     // #die
     return z.die(o);
   },
@@ -1756,7 +1756,7 @@ P[38] = {
   async function on_touch(o, z) {
     // :touch
     // Sensibility armed with Sense and Liberty!
-    await z.say(o, ["Sensibility armed with Sense and Liberty!"]);
+    z.say(o, ["Sensibility armed with Sense and Liberty!"]);
     // #die
     return z.die(o);
   },
@@ -1778,7 +1778,7 @@ P[39] = {
   async function on_touch(o, z) {
     // :touch
     // Let the love of truth shine clear!
-    await z.say(o, ["Let the love of truth shine clear!"]);
+    z.say(o, ["Let the love of truth shine clear!"]);
     // #die
     return z.die(o);
   },
@@ -1820,7 +1820,7 @@ P[40] = {
     // beaten The Red Knight,but know that his
     // brothers will not be so weak!May we meet
     // again,oh killer of light!"
-    await z.say(o, ["     \"I am the Knight of No Color.I pose", "no threat to you,and you none to me.I am ", "here only to warn.There are three Knights", "of Color.They were produced when King ", "Lucius's spirit was vanquished and his ", "tower of Spectral Energy was destroyed.", "King Lucius was once the guardian of light", "and energy,but the evil power of the three", "colored knights corrupted his soul and ", "brought about his death.His ghost lived on", "for many years,until recently.You are the", "one that slew his evil puppet-spirit.Thus", "you are blessed and cursed by your doings.", "You have unleashed the three Knights of ", "Color,and they seek to destroy you.I know", "that one of them guards the Watcher in the", "tower,and I sense that he has been slain", "by your hand.It is good that you have ", "beaten The Red Knight,but know that his", "brothers will not be so weak!May we meet", "again,oh killer of light!\""]);
+    z.say(o, ["     \"I am the Knight of No Color.I pose", "no threat to you,and you none to me.I am ", "here only to warn.There are three Knights", "of Color.They were produced when King ", "Lucius's spirit was vanquished and his ", "tower of Spectral Energy was destroyed.", "King Lucius was once the guardian of light", "and energy,but the evil power of the three", "colored knights corrupted his soul and ", "brought about his death.His ghost lived on", "for many years,until recently.You are the", "one that slew his evil puppet-spirit.Thus", "you are blessed and cursed by your doings.", "You have unleashed the three Knights of ", "Color,and they seek to destroy you.I know", "that one of them guards the Watcher in the", "tower,and I sense that he has been slain", "by your hand.It is good that you have ", "beaten The Red Knight,but know that his", "brothers will not be so weak!May we meet", "again,oh killer of light!\""]);
     // #give score 1000
     z.give("score", 1000);
     // #die
@@ -1844,7 +1844,9 @@ P[41] = {
   async function on_touch(o, z) {
     // :touch
     // #if book then check 2
-    z.rt.unsupported("#if", "#if book then check 2");
+    if (z.rt.hasFlag("book")) {
+      if (await z.send(o, "self", "check")) return z.GOTO;
+    }
   },
   async function on_message(o, z) {
     // :message
@@ -1854,7 +1856,7 @@ P[41] = {
     // The box's lid appears to have no hinges or
     // latch of any sort,and you cannot break it
     // open no matter how hard you try.
-    await z.say(o, ["There is a golden box with a transparent ", "lid resting on the ground.Inside the box", "lies a golden coin the size of your palm.", "The box's lid appears to have no hinges or", "latch of any sort,and you cannot break it", "open no matter how hard you try."]);
+    z.say(o, ["There is a golden box with a transparent ", "lid resting on the ground.Inside the box", "lies a golden coin the size of your palm.", "The box's lid appears to have no hinges or", "latch of any sort,and you cannot break it", "open no matter how hard you try."]);
     // #end
     return z.END;
   },
@@ -1880,7 +1882,7 @@ P[41] = {
     // :open
     // The golden box's lid peels back of its own
     // accord,revealing the golden coin!
-    await z.say(o, ["The golden box's lid peels back of its own", "accord,revealing the golden coin!"]);
+    z.say(o, ["The golden box's lid peels back of its own", "accord,revealing the golden coin!"]);
     // #char 007
     z.setChar(o, 7);
     // #zap touch
@@ -1891,7 +1893,7 @@ P[41] = {
   async function on_touch_2(o, z) {
     // :touch
     // You pluck the golden coin from the ground
-    await z.say(o, ["You pluck the golden coin from the ground"]);
+    z.say(o, ["You pluck the golden coin from the ground"]);
     // #set coin
     z.rt.setFlag("coin");
     // #die 
@@ -1929,7 +1931,7 @@ P[42] = {
     // have told me of your approach.I admit that
     // I am suprised you made it this far,but 
     // know that you will go no further!"
-    await z.say(o, ["     \"So,at last you have come!My servants", "have told me of your approach.I admit that", "I am suprised you made it this far,but ", "know that you will go no further!\""]);
+    z.say(o, ["     \"So,at last you have come!My servants", "have told me of your approach.I admit that", "I am suprised you made it this far,but ", "know that you will go no further!\""]);
     // #change red solid empty
     z.change("red", "solid", null, "empty");
     // #change red normal empty
@@ -1986,7 +1988,7 @@ P[42] = {
     // #give score 500
     z.give("score", 500);
     // THWAK!
-    await z.say(o, ["THWAK!"]);
+    z.say(o, ["THWAK!"]);
     // #zap shot
     z.zap(o, "shot");
     // #send attack
@@ -1995,7 +1997,7 @@ P[42] = {
   async function on_shot_5(o, z) {
     // :shot
     // AAAAAAGH!
-    await z.say(o, ["AAAAAAGH!"]);
+    z.say(o, ["AAAAAAGH!"]);
     // /i
     await z.idle(o);
     // /i
@@ -2003,7 +2005,7 @@ P[42] = {
     //      Your arrow sinks deep into his dragon
     // hide armor!He has been mortally wounded!
     // He turns and presses a knob on his throne!
-    await z.say(o, ["     Your arrow sinks deep into his dragon", "hide armor!He has been mortally wounded!", "He turns and presses a knob on his throne!"]);
+    z.say(o, ["     Your arrow sinks deep into his dragon", "hide armor!He has been mortally wounded!", "He turns and presses a knob on his throne!"]);
     // #send escape
     if (await z.send(o, "self", "escape")) return z.GOTO;
   },

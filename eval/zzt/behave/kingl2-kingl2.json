@@ -158,6 +158,96 @@
       ],
       "errors": [],
       "pass": true
+    },
+    {
+      "name": "Release Lever: #change sliderns/sliderew fake wall (added in iteration 2)",
+      "source": "@Release Lever :touch #change sliderns fake wall; #change sliderew fake wall",
+      "checks": [
+        {
+          "what": "sliders on the board",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no sliders left",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Lions move once the player presses a key (added in iteration 2)",
+      "source": "141 lions (element 41, p1 intelligence); engine design: random or seeking steps",
+      "checks": [
+        {
+          "what": ">= 20 lions moved",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "A lion that reaches the player costs 10 health and dies (added in iteration 2)",
+      "source": "engine design: creature attack = -10 health, the creature is destroyed",
+      "checks": [
+        {
+          "what": "fewer lions",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "name": "Energizer makes the player invincible (added in iteration 2)",
+      "source": "element 14 (the board's one is walled in by items, so one is placed next to the player); engine design: 75 ticks, all:energize",
+      "checks": [
+        {
+          "what": "text shown",
+          "pass": true,
+          "actual": "Room is dark - you need to light a torch!\n---\nEnergizer - You are invincible",
+          "expected": {
+            "contains": "Energizer"
+          }
+        },
+        {
+          "what": "energized",
+          "pass": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "what": "no JS/script errors",
+          "pass": true,
+          "actual": []
+        }
+      ],
+      "errors": [],
+      "pass": true
     }
   ],
   "smoke": {
@@ -171,6 +261,6 @@
     "pass": true,
     "runtimeStubs": []
   },
-  "pass": 6,
-  "total": 6
+  "pass": 10,
+  "total": 10
 }

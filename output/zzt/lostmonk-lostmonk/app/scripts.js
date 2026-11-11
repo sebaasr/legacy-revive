@@ -98,7 +98,7 @@ P[1] = {
     // enough to have a motor, or you would
     // have to paddle your boat to Monkey's
     // Pleasure by hand!
-    await z.say(o, ["It's the motor to your boat. Your lucky", "enough to have a motor, or you would", "have to paddle your boat to Monkey's", "Pleasure by hand!"]);
+    z.say(o, ["It's the motor to your boat. Your lucky", "enough to have a motor, or you would", "have to paddle your boat to Monkey's", "Pleasure by hand!"]);
     // #send loop
     if (await z.send(o, "self", "loop")) return z.GOTO;
   },
@@ -408,7 +408,7 @@ P[7] = {
     //
     // !A;Open the sack
     // !B;Take the sack
-    if (await z.say(o, ["You see your sack of equipment.", "", {"choice": "a", "text": "Open the sack"}, {"choice": "b", "text": "Take the sack"}])) return z.GOTO;
+    z.say(o, ["You see your sack of equipment.", "", {"choice": "a", "text": "Open the sack"}, {"choice": "b", "text": "Take the sack"}]);
     // #end
     return z.END;
   },
@@ -422,7 +422,7 @@ P[7] = {
     // $Healing Pills
     // $Banana
     // $Rope
-    await z.say(o, ["You untie the sack and peek inside and", "see many items.", "", {"text": "Ammunition", "align": "center"}, {"text": "Silk Torches", "align": "center"}, {"text": "Healing Pills", "align": "center"}, {"text": "Banana", "align": "center"}, {"text": "Rope", "align": "center"}]);
+    z.say(o, ["You untie the sack and peek inside and", "see many items.", "", {"text": "Ammunition", "align": "center"}, {"text": "Silk Torches", "align": "center"}, {"text": "Healing Pills", "align": "center"}, {"text": "Banana", "align": "center"}, {"text": "Rope", "align": "center"}]);
     // #lock
     o.locked = true;
     // /i/i
@@ -435,7 +435,7 @@ P[7] = {
     // #give ammo 50
     z.give("ammo", 50);
     // You take all 50 rounds of ammunition.
-    await z.say(o, ["You take all 50 rounds of ammunition."]);
+    z.say(o, ["You take all 50 rounds of ammunition."]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -447,7 +447,7 @@ P[7] = {
     // #give torches 5
     z.give("torches", 5);
     // You take 5 silk torches.
-    await z.say(o, ["You take 5 silk torches."]);
+    z.say(o, ["You take 5 silk torches."]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -459,7 +459,7 @@ P[7] = {
     // #give health 20
     z.give("health", 20);
     // You take and eat the healing pills.
-    await z.say(o, ["You take and eat the healing pills."]);
+    z.say(o, ["You take and eat the healing pills."]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -471,7 +471,7 @@ P[7] = {
     // #give score 10
     z.give("score", 10);
     // You put the banana in your backpack.
-    await z.say(o, ["You put the banana in your backpack."]);
+    z.say(o, ["You put the banana in your backpack."]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -483,7 +483,7 @@ P[7] = {
     // #give score 10
     z.give("score", 10);
     // You put the sturdy rope in your backpack.
-    await z.say(o, ["You put the sturdy rope in your backpack."]);
+    z.say(o, ["You put the sturdy rope in your backpack."]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -495,7 +495,7 @@ P[7] = {
     z.play("0");
     // The sack is too heavy and you have no
     // use to the sack.
-    await z.say(o, ["The sack is too heavy and you have no", "use to the sack."]);
+    z.say(o, ["The sack is too heavy and you have no", "use to the sack."]);
     // #restart
     return z.RESTART;
   },
@@ -568,7 +568,7 @@ P[9] = {
     //    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
     //
     // $Everything functioning properly
-    await z.say(o, [{"text": "- Boat Status Panel -", "align": "center"}, "", " ", "   █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█", "   █     ▒            | `   ` |     █", "   █ ▒   ▒            | `   ` |     █", "   █ ▒   ▒            | `   ` |     █ ", "   █ ▒   ▒            | `` `` |     █ ", "   █ ▒ ▒ ▒            | [] [] |     █", "   █ ▒ ▒ ▒             \\-----/      █", "   █ ▒ ▒ ▒ ▒             = =        █", "   █ ▒ ▒ ▒ ▒                        █", "   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "", {"text": "Everything functioning properly", "align": "center"}]);
+    z.say(o, [{"text": "- Boat Status Panel -", "align": "center"}, "", " ", "   █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█", "   █     ▒            | `   ` |     █", "   █ ▒   ▒            | `   ` |     █", "   █ ▒   ▒            | `   ` |     █ ", "   █ ▒   ▒            | `` `` |     █ ", "   █ ▒ ▒ ▒            | [] [] |     █", "   █ ▒ ▒ ▒             \\-----/      █", "   █ ▒ ▒ ▒ ▒             = =        █", "   █ ▒ ▒ ▒ ▒                        █", "   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "", {"text": "Everything functioning properly", "align": "center"}]);
   },
   ],
 };
@@ -622,7 +622,7 @@ P[12] = {
     // !A;_Open_Hatch_
     // !B;_Full_Power_
     // !C;_Eject_
-    if (await z.say(o, [{"text": "- Main Boat Controls -", "align": "center"}, "", {"choice": "a", "text": "_Open_Hatch_"}, {"choice": "b", "text": "_Full_Power_"}, {"choice": "c", "text": "_Eject_"}])) return z.GOTO;
+    z.say(o, [{"text": "- Main Boat Controls -", "align": "center"}, "", {"choice": "a", "text": "_Open_Hatch_"}, {"choice": "b", "text": "_Full_Power_"}, {"choice": "c", "text": "_Eject_"}]);
     // #end
     return z.END;
   },
@@ -633,7 +633,7 @@ P[12] = {
     // #play i+egwb
     z.play("i+egwb");
     // ■ Hatch Opening ■
-    await z.say(o, ["■ Hatch Opening ■"]);
+    z.say(o, ["■ Hatch Opening ■"]);
     // #send hatch:open
     if (await z.send(o, "hatch", "open")) return z.GOTO;
     // /i/i/i/i/i
@@ -658,7 +658,7 @@ P[12] = {
     // #play a
     z.play("a");
     // ■ Full Power activated ■
-    await z.say(o, ["■ Full Power activated ■"]);
+    z.say(o, ["■ Full Power activated ■"]);
     // #send blades:fast
     if (await z.send(o, "blades", "fast")) return z.GOTO;
     // /i/i/i
@@ -681,14 +681,14 @@ P[12] = {
     //
     // !Y;Yes
     // !N;No
-    if (await z.say(o, ["Are you sure you want to eject your", "wonderful boat?", "", {"choice": "y", "text": "Yes"}, {"choice": "n", "text": "No"}])) return z.GOTO;
+    z.say(o, ["Are you sure you want to eject your", "wonderful boat?", "", {"choice": "y", "text": "Yes"}, {"choice": "n", "text": "No"}]);
     // #end
     return z.END;
   },
   async function on_n(o, z) {
     // :N
     // You decide not to eject.
-    await z.say(o, ["You decide not to eject."]);
+    z.say(o, ["You decide not to eject."]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -705,7 +705,7 @@ P[12] = {
     // #take score 10
     z.take("score", 10);
     // ■ Eject sequence activated ■
-    await z.say(o, ["■ Eject sequence activated ■"]);
+    z.say(o, ["■ Eject sequence activated ■"]);
     // #send block:go
     if (await z.send(o, "block", "go")) return z.GOTO;
   },
@@ -731,7 +731,7 @@ P[13] = {
     // #play q7
     z.play("q7");
     // It's a seat to sit on.
-    await z.say(o, ["It's a seat to sit on."]);
+    z.say(o, ["It's a seat to sit on."]);
     // #end
     return z.END;
   },
@@ -775,7 +775,7 @@ P[13] = {
     // you into doggie chow.
     //
     // $You failed in finding Adam & Daisy...
-    await z.say(o, ["As your little pod ejects you into the", "ocean, the blades on your boat, slices", "you into doggie chow.", "", {"text": "You failed in finding Adam & Daisy...", "align": "center"}]);
+    z.say(o, ["As your little pod ejects you into the", "ocean, the blades on your boat, slices", "you into doggie chow.", "", {"text": "You failed in finding Adam & Daisy...", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -919,7 +919,7 @@ P[16] = {
     // $ATTN: ZZT/The Lost Monkeys Reg
     // $200 Palisades Drive
     // $Daly City, CA  94015
-    await z.say(o, ["The story follows:", "", "  You, Joe MacCarthy, must find Adam", "& Daisy, the two monkeys. Professor Dave", "wanted to give them a strengh shot, but", "they got scared and ran away. You will", "travel to many islands and venture deep", "into a dark cave.", "", "The game supports:", "", "■ Ega Ansi Graphics", "■ Music", "■ An ending to award the player", "■ Action and puzzle screens", "■ A fun adventure game to play", "■ All ages of fun", "", "oooooooooooooooooooooooooooooooooooooooooo", "Make $10.00 checks payable to Christopher", "Jong and send it with the printed out", "TDR-FORM.DOC to:", "", {"text": "Digital Reality", "align": "center"}, {"text": "ATTN: ZZT/The Lost Monkeys Reg", "align": "center"}, {"text": "200 Palisades Drive", "align": "center"}, {"text": "Daly City, CA  94015", "align": "center"}]);
+    z.say(o, ["The story follows:", "", "  You, Joe MacCarthy, must find Adam", "& Daisy, the two monkeys. Professor Dave", "wanted to give them a strengh shot, but", "they got scared and ran away. You will", "travel to many islands and venture deep", "into a dark cave.", "", "The game supports:", "", "■ Ega Ansi Graphics", "■ Music", "■ An ending to award the player", "■ Action and puzzle screens", "■ A fun adventure game to play", "■ All ages of fun", "", "oooooooooooooooooooooooooooooooooooooooooo", "Make $10.00 checks payable to Christopher", "Jong and send it with the printed out", "TDR-FORM.DOC to:", "", {"text": "Digital Reality", "align": "center"}, {"text": "ATTN: ZZT/The Lost Monkeys Reg", "align": "center"}, {"text": "200 Palisades Drive", "align": "center"}, {"text": "Daly City, CA  94015", "align": "center"}]);
   },
   ],
 };
@@ -943,7 +943,7 @@ P[17] = {
     // You see a shiny yellow jewel.
     //
     // !A;Take the jewel
-    if (await z.say(o, ["You see a shiny yellow jewel.", "", {"choice": "a", "text": "Take the jewel"}])) return z.GOTO;
+    z.say(o, ["You see a shiny yellow jewel.", "", {"choice": "a", "text": "Take the jewel"}]);
     // #end
     return z.END;
   },
@@ -957,7 +957,7 @@ P[17] = {
     z.give("score", 10);
     // You take the small yellow jewel and place
     // it in your pocket.
-    await z.say(o, ["You take the small yellow jewel and place", "it in your pocket."]);
+    z.say(o, ["You take the small yellow jewel and place", "it in your pocket."]);
     // #die 
     return z.die(o);
   },
@@ -981,7 +981,7 @@ P[18] = {
     // #play 000
     z.play("000");
     // The rock is too slipery to climb up.
-    await z.say(o, ["The rock is too slipery to climb up."]);
+    z.say(o, ["The rock is too slipery to climb up."]);
     // #end
     return z.END;
   },
@@ -992,7 +992,7 @@ P[18] = {
     // #play a
     z.play("a");
     // You shoot the rock and it crumbles.
-    await z.say(o, ["You shoot the rock and it crumbles."]);
+    z.say(o, ["You shoot the rock and it crumbles."]);
     // #char 176
     z.setChar(o, 176);
     // #become blue fake
@@ -1018,7 +1018,7 @@ P[19] = {
     // #play 000
     z.play("000");
     // The rock is too slipery to climb up.
-    await z.say(o, ["The rock is too slipery to climb up."]);
+    z.say(o, ["The rock is too slipery to climb up."]);
     // #end
     return z.END;
   },
@@ -1029,7 +1029,7 @@ P[19] = {
     // #play a
     z.play("a");
     // You shoot the rock and it crumbles.
-    await z.say(o, ["You shoot the rock and it crumbles."]);
+    z.say(o, ["You shoot the rock and it crumbles."]);
     // #char 177
     z.setChar(o, 177);
     // /i
@@ -1092,7 +1092,7 @@ P[20] = {
     // #play t--cg
     z.play("t--cg");
     // - Spurt -
-    await z.say(o, ["- Spurt -"]);
+    z.say(o, ["- Spurt -"]);
     // #zap shot
     z.zap(o, "shot");
     // /i/i
@@ -1123,7 +1123,7 @@ P[20] = {
     // #play I+a0
     z.play("I+a0");
     // "Ouch!"
-    await z.say(o, ["\"Ouch!\""]);
+    z.say(o, ["\"Ouch!\""]);
     // #take health 5
     z.take("health", 5);
     // /i/i/i
@@ -1155,7 +1155,7 @@ P[21] = {
     // #play q7
     z.play("q7");
     // It's a banana peel.
-    await z.say(o, ["It's a banana peel."]);
+    z.say(o, ["It's a banana peel."]);
   },
   ],
 };
@@ -1197,7 +1197,7 @@ P[23] = {
     // sounds of the crackling sea.
     //
     //                        ─── Professor Dave
-    await z.say(o, [{"text": "- The Pier -", "align": "center"}, "", "   Welcome to \"Monkeys Pleasures\" pier!", "Enjoy the sights of the ocean and the", "sounds of the crackling sea.", "", "                       ─── Professor Dave"]);
+    z.say(o, [{"text": "- The Pier -", "align": "center"}, "", "   Welcome to \"Monkeys Pleasures\" pier!", "Enjoy the sights of the ocean and the", "sounds of the crackling sea.", "", "                       ─── Professor Dave"]);
   },
   ],
 };
@@ -1224,7 +1224,7 @@ P[24] = {
     // !A;Look in telescope
     // !B;Extend telescope
     // !C;Take telescope
-    if (await z.say(o, ["  It's a telescope to view out sea.", "", {"choice": "a", "text": "Look in telescope"}, {"choice": "b", "text": "Extend telescope"}, {"choice": "c", "text": "Take telescope"}])) return z.GOTO;
+    z.say(o, ["  It's a telescope to view out sea.", "", {"choice": "a", "text": "Look in telescope"}, {"choice": "b", "text": "Extend telescope"}, {"choice": "c", "text": "Take telescope"}]);
     // #end
     return z.END;
   },
@@ -1237,7 +1237,7 @@ P[24] = {
     // #play 0
     z.play("0");
     // "Hmmmm. Everything is black."
-    await z.say(o, ["\"Hmmmm. Everything is black.\""]);
+    z.say(o, ["\"Hmmmm. Everything is black.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -1254,7 +1254,7 @@ P[24] = {
     // #play ix0x0x0
     z.play("ix0x0x0");
     // You extend the telescope.
-    await z.say(o, ["You extend the telescope."]);
+    z.say(o, ["You extend the telescope."]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -1278,7 +1278,7 @@ P[24] = {
     // #play 1
     z.play("1");
     // The telescope is bolted to the wall.
-    await z.say(o, ["The telescope is bolted to the wall."]);
+    z.say(o, ["The telescope is bolted to the wall."]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -1294,7 +1294,7 @@ P[24] = {
     z.rt.clearFlag("extend");
     // You see a beautiful view of a white
     // whale.
-    await z.say(o, ["You see a beautiful view of a white", "whale."]);
+    z.say(o, ["You see a beautiful view of a white", "whale."]);
     // /i
     await z.idle(o);
     // #send whale:show
@@ -1437,7 +1437,7 @@ P[30] = {
     // #play q7
     z.play("q7");
     // This telescope is out of order.
-    await z.say(o, ["This telescope is out of order."]);
+    z.say(o, ["This telescope is out of order."]);
   },
   ],
 };
@@ -1459,7 +1459,7 @@ P[31] = {
     // #play q7
     z.play("q7");
     // "I'm busy enjoying the sites."
-    await z.say(o, ["\"I'm busy enjoying the sites.\""]);
+    z.say(o, ["\"I'm busy enjoying the sites.\""]);
     // #end
     return z.END;
   },
@@ -1470,7 +1470,7 @@ P[31] = {
     // #take score 5
     z.take("score", 5);
     // "Ouch!"
-    await z.say(o, ["\"Ouch!\""]);
+    z.say(o, ["\"Ouch!\""]);
   },
   ],
 };
@@ -1510,7 +1510,7 @@ P[33] = {
     // $rail is for emergency exiting only.
     //
     // !A;Unlock and open rail
-    if (await z.say(o, [{"text": "Please do not unlock this rail. This", "align": "center"}, {"text": "rail is for emergency exiting only.", "align": "center"}, "", {"choice": "a", "text": "Unlock and open rail"}])) return z.GOTO;
+    z.say(o, [{"text": "Please do not unlock this rail. This", "align": "center"}, {"text": "rail is for emergency exiting only.", "align": "center"}, "", {"choice": "a", "text": "Unlock and open rail"}]);
     // #end
     return z.END;
   },
@@ -1524,7 +1524,7 @@ P[33] = {
     // the waves sweep you out to sea...
     //
     // $You failed in saving Adam & Daisy!
-    await z.say(o, ["You open the rail and the current of", "the waves sweep you out to sea...", "", {"text": "You failed in saving Adam & Daisy!", "align": "center"}]);
+    z.say(o, ["You open the rail and the current of", "the waves sweep you out to sea...", "", {"text": "You failed in saving Adam & Daisy!", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -1562,7 +1562,7 @@ P[34] = {
     // #play q7
     z.play("q7");
     // "Please don't bother me."
-    await z.say(o, ["\"Please don't bother me.\""]);
+    z.say(o, ["\"Please don't bother me.\""]);
     // #go opp seek
     await z.step(o, "opp seek");
     // /i
@@ -1579,7 +1579,7 @@ P[34] = {
     // #play 9
     z.play("9");
     // "Ouch!"
-    await z.say(o, ["\"Ouch!\""]);
+    z.say(o, ["\"Ouch!\""]);
     // #go opp seek
     await z.step(o, "opp seek");
     // /i
@@ -1697,7 +1697,7 @@ P[38] = {
     // #lock
     o.locked = true;
     // "Howdy traveler, you may pass."
-    await z.say(o, ["\"Howdy traveler, you may pass.\""]);
+    z.say(o, ["\"Howdy traveler, you may pass.\""]);
     // /e
     await z.step(o, "e");
     // /i/i/i/i/i
@@ -1722,7 +1722,7 @@ P[38] = {
     // #take score 10
     z.take("score", 10);
     // "I'm wearing a bullet proof vest!"
-    await z.say(o, ["\"I'm wearing a bullet proof vest!\""]);
+    z.say(o, ["\"I'm wearing a bullet proof vest!\""]);
   },
   ],
 };
@@ -1744,7 +1744,7 @@ P[39] = {
     // #play q7
     z.play("q7");
     // - Underground Store -
-    await z.say(o, ["- Underground Store -"]);
+    z.say(o, ["- Underground Store -"]);
   },
   ],
 };
@@ -1790,7 +1790,7 @@ P[40] = {
     // #take health 2
     z.take("health", 2);
     // "Yeeeoooww! That touch is lit!"
-    await z.say(o, ["\"Yeeeoooww! That touch is lit!\""]);
+    z.say(o, ["\"Yeeeoooww! That touch is lit!\""]);
     // /i
     await z.idle(o);
     // #send loop
@@ -1830,7 +1830,7 @@ P[42] = {
     // #play q7
     z.play("q7");
     // The shelves are empty.
-    await z.say(o, ["The shelves are empty."]);
+    z.say(o, ["The shelves are empty."]);
   },
   ],
 };
@@ -1870,7 +1870,7 @@ P[44] = {
     // #give gems 50
     z.give("gems", 50);
     // You found 50 gems.
-    await z.say(o, ["You found 50 gems."]);
+    z.say(o, ["You found 50 gems."]);
     // #die
     return z.die(o);
   },
@@ -1894,7 +1894,7 @@ P[45] = {
     // #play q7
     z.play("q7");
     // The door is locked.
-    await z.say(o, ["The door is locked."]);
+    z.say(o, ["The door is locked."]);
     // #end
     return z.END;
   },
@@ -1911,7 +1911,7 @@ P[45] = {
     // #give score 1
     z.give("score", 1);
     // Your bullet blows the lock off.
-    await z.say(o, ["Your bullet blows the lock off."]);
+    z.say(o, ["Your bullet blows the lock off."]);
     // #char 47
     z.setChar(o, 47);
     // /s
@@ -1962,7 +1962,7 @@ P[46] = {
     // $Information
     //
     // !I;Ask questions
-    if (await z.say(o, ["\"How may I help you kind fellow?\"", "", {"choice": "a", "text": "_Ammunition_[10]____________- 10 Gems"}, {"choice": "b", "text": "_Leather Torches_[5]________-  4 Gems"}, {"choice": "c", "text": "_Potions_[10]_______________- 15 Gems"}, "", {"text": "Special Offers", "align": "center"}, "", {"choice": "d", "text": "_Ammunition_[50]____________- 35 Gems"}, {"choice": "e", "text": "_Leather Torches_[20]_______- 10 Gems"}, {"choice": "f", "text": "_Potions_[40]_______________- 30 Gems"}, {"choice": "0", "text": "_Airplane Engine____________-550 Gems"}, {"choice": "9", "text": "_Airplane Manual____________- 25 Gems"}, "", {"text": "We buy used items", "align": "center"}, "", {"choice": "g", "text": "_Ammunition_[5]_____________-  3 Gems"}, {"choice": "h", "text": "_Worn Torches_[2]___________-  1 Gem"}, "", {"text": "Information", "align": "center"}, "", {"choice": "i", "text": "Ask questions"}])) return z.GOTO;
+    z.say(o, ["\"How may I help you kind fellow?\"", "", {"choice": "a", "text": "_Ammunition_[10]____________- 10 Gems"}, {"choice": "b", "text": "_Leather Torches_[5]________-  4 Gems"}, {"choice": "c", "text": "_Potions_[10]_______________- 15 Gems"}, "", {"text": "Special Offers", "align": "center"}, "", {"choice": "d", "text": "_Ammunition_[50]____________- 35 Gems"}, {"choice": "e", "text": "_Leather Torches_[20]_______- 10 Gems"}, {"choice": "f", "text": "_Potions_[40]_______________- 30 Gems"}, {"choice": "0", "text": "_Airplane Engine____________-550 Gems"}, {"choice": "9", "text": "_Airplane Manual____________- 25 Gems"}, "", {"text": "We buy used items", "align": "center"}, "", {"choice": "g", "text": "_Ammunition_[5]_____________-  3 Gems"}, {"choice": "h", "text": "_Worn Torches_[2]___________-  1 Gem"}, "", {"text": "Information", "align": "center"}, "", {"choice": "i", "text": "Ask questions"}]);
     // #end
     return z.END;
   },
@@ -1977,7 +1977,7 @@ P[46] = {
     // #play a
     z.play("a");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -1996,7 +1996,7 @@ P[46] = {
     // #play a
     z.play("a");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2015,7 +2015,7 @@ P[46] = {
     // #play a
     z.play("a");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2034,7 +2034,7 @@ P[46] = {
     // #play a
     z.play("a");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2053,7 +2053,7 @@ P[46] = {
     // #play a
     z.play("a");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2072,7 +2072,7 @@ P[46] = {
     // #play a
     z.play("a");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2089,7 +2089,7 @@ P[46] = {
     // #give gems 3
     z.give("gems", 3);
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2106,7 +2106,7 @@ P[46] = {
     // #give gems 1
     z.give("gems", 1);
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2119,7 +2119,7 @@ P[46] = {
     // #play 1244
     z.play("1244");
     // "Sir, you are short a few gems."
-    await z.say(o, ["\"Sir, you are short a few gems.\""]);
+    z.say(o, ["\"Sir, you are short a few gems.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2132,7 +2132,7 @@ P[46] = {
     // #play 1244
     z.play("1244");
     // "You do not have enough."
-    await z.say(o, ["\"You do not have enough.\""]);
+    z.say(o, ["\"You do not have enough.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2147,7 +2147,7 @@ P[46] = {
     // !1;Do you know anything about Adam &
     // $Daisy?
     // !2;How can I register "The Lost Monkeys?"
-    if (await z.say(o, ["\"I will tell you only what I know.\"", "", {"choice": "1", "text": "Do you know anything about Adam &"}, {"text": "Daisy?", "align": "center"}, {"choice": "2", "text": "How can I register \"The Lost Monkeys?\""}])) return z.GOTO;
+    z.say(o, ["\"I will tell you only what I know.\"", "", {"choice": "1", "text": "Do you know anything about Adam &"}, {"text": "Daisy?", "align": "center"}, {"choice": "2", "text": "How can I register \"The Lost Monkeys?\""}]);
     // #end
     return z.END;
   },
@@ -2157,7 +2157,7 @@ P[46] = {
     // are very intelligent and they took off
     // a few days ago. Forward your questions
     // toward to professor Dave."
-    await z.say(o, ["  \"All I know is that thoes two monkeys", "are very intelligent and they took off", "a few days ago. Forward your questions", "toward to professor Dave.\""]);
+    z.say(o, ["  \"All I know is that thoes two monkeys", "are very intelligent and they took off", "a few days ago. Forward your questions", "toward to professor Dave.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2180,7 +2180,7 @@ P[46] = {
     // $"How do you know all this?"
     //
     // "I uh, well, I just know it."
-    await z.say(o, ["  \"It's easy! Just fill out TDR-FORM.DOC", "that was included in the zip file and", "print it out with your $10.00 check", "or money order and send it to:", "", {"text": "Digital Reality", "align": "center"}, {"text": "ATTN: ZZT/Lost Monkeys Reg", "align": "center"}, {"text": "200 Palisades Drive", "align": "center"}, {"text": "Daly City, CA  94015", "align": "center"}, "", {"text": "\"How do you know all this?\"", "align": "center"}, "", "\"I uh, well, I just know it.\""]);
+    z.say(o, ["  \"It's easy! Just fill out TDR-FORM.DOC", "that was included in the zip file and", "print it out with your $10.00 check", "or money order and send it to:", "", {"text": "Digital Reality", "align": "center"}, {"text": "ATTN: ZZT/Lost Monkeys Reg", "align": "center"}, {"text": "200 Palisades Drive", "align": "center"}, {"text": "Daly City, CA  94015", "align": "center"}, "", {"text": "\"How do you know all this?\"", "align": "center"}, "", "\"I uh, well, I just know it.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -2197,7 +2197,7 @@ P[46] = {
     // #set engine
     z.rt.setFlag("engine");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #play a
     z.play("a");
     // #restart
@@ -2218,7 +2218,7 @@ P[46] = {
     // #play a
     z.play("a");
     // "Thanks for stoping by!"
-    await z.say(o, ["\"Thanks for stoping by!\""]);
+    z.say(o, ["\"Thanks for stoping by!\""]);
     // #restart
     return z.RESTART;
   },
@@ -2260,7 +2260,7 @@ P[48] = {
       if (await z.send(o, "self", "poor")) return z.GOTO;
     }
     // "Ha ha, I'm wearing a bullet proof vest!"
-    await z.say(o, ["\"Ha ha, I'm wearing a bullet proof vest!\""]);
+    z.say(o, ["\"Ha ha, I'm wearing a bullet proof vest!\""]);
     // /i
     await z.idle(o);
     // #shoot seek
@@ -2281,7 +2281,7 @@ P[48] = {
     z.play("q7");
     // "Hey, you don't belong back here, get
     // out!"
-    await z.say(o, ["\"Hey, you don't belong back here, get", "out!\""]);
+    z.say(o, ["\"Hey, you don't belong back here, get", "out!\""]);
   },
   ],
 };
@@ -2303,7 +2303,7 @@ P[49] = {
     // #play 99x0
     z.play("99x0");
     // The wall crumbles..
-    await z.say(o, ["The wall crumbles.."]);
+    z.say(o, ["The wall crumbles.."]);
     // #die
     return z.die(o);
   },
@@ -2341,7 +2341,7 @@ P[51] = {
     //  As you enter this part of the beach,
     // you notice many shiny yellow gems in
     // the mountain.
-    await z.say(o, [" As you enter this part of the beach,", "you notice many shiny yellow gems in", "the mountain."]);
+    z.say(o, [" As you enter this part of the beach,", "you notice many shiny yellow gems in", "the mountain."]);
   },
   ],
 };
@@ -2367,7 +2367,7 @@ P[52] = {
     // #play q7
     z.play("q7");
     // You see a keyhole in the mountain side.
-    await z.say(o, ["You see a keyhole in the mountain side."]);
+    z.say(o, ["You see a keyhole in the mountain side."]);
     // #end
     return z.END;
   },
@@ -2379,7 +2379,7 @@ P[52] = {
     z.rt.clearFlag("key");
     // You insert the key in the keyhole, and
     // the mountain sides open!
-    await z.say(o, ["You insert the key in the keyhole, and", "the mountain sides open!"]);
+    z.say(o, ["You insert the key in the keyhole, and", "the mountain sides open!"]);
     // /i
     await z.idle(o);
     // #send block:move
@@ -2499,7 +2499,7 @@ P[55] = {
     // #play q7
     z.play("q7");
     // It's a tiny tree.
-    await z.say(o, ["It's a tiny tree."]);
+    z.say(o, ["It's a tiny tree."]);
   },
   ],
 };
@@ -2535,7 +2535,7 @@ P[57] = {
     // #lock
     o.locked = true;
     // You open the door.
-    await z.say(o, ["You open the door."]);
+    z.say(o, ["You open the door."]);
     // #play q9
     z.play("q9");
     // #char 47
@@ -2587,7 +2587,7 @@ P[58] = {
     // #lock
     o.locked = true;
     // You open the door.
-    await z.say(o, ["You open the door."]);
+    z.say(o, ["You open the door."]);
     // #play q9
     z.play("q9");
     // #char 92
@@ -2641,7 +2641,7 @@ P[59] = {
     // #play q9
     z.play("q9");
     // You open the door.
-    await z.say(o, ["You open the door."]);
+    z.say(o, ["You open the door."]);
     // #char 47
     z.setChar(o, 47);
     // /n
@@ -2693,7 +2693,7 @@ P[60] = {
     // #play q9
     z.play("q9");
     // You open the door.
-    await z.say(o, ["You open the door."]);
+    z.say(o, ["You open the door."]);
     // #char 92
     z.setChar(o, 92);
     // /s
@@ -2743,7 +2743,7 @@ P[61] = {
     // #play q7
     z.play("q7");
     // A hard bed.
-    await z.say(o, ["A hard bed."]);
+    z.say(o, ["A hard bed."]);
   },
   ],
 };
@@ -2779,7 +2779,7 @@ P[63] = {
     // #play q7
     z.play("q7");
     // A soft feathered pillow.
-    await z.say(o, ["A soft feathered pillow."]);
+    z.say(o, ["A soft feathered pillow."]);
   },
   ],
 };
@@ -2814,7 +2814,7 @@ P[64] = {
     // "Wow, I better register this product!"
     //
     // You flip off the television.
-    await z.say(o, ["You flip on the television and see", "many ads. One ad catches your eye:", "", {"text": " Register \"The Lost Monkeys\" for only", "align": "center"}, {"text": " $10.00! You get an official hintbook", "align": "center"}, {"text": "and drawn maps in return! Just fill out", "align": "center"}, {"text": "TDR-FORM.DOC and print it out. Send it", "align": "center"}, {"text": "to the address posted on the form.", "align": "center"}, "", "\"Wow, I better register this product!\"", "", "You flip off the television."]);
+    z.say(o, ["You flip on the television and see", "many ads. One ad catches your eye:", "", {"text": " Register \"The Lost Monkeys\" for only", "align": "center"}, {"text": " $10.00! You get an official hintbook", "align": "center"}, {"text": "and drawn maps in return! Just fill out", "align": "center"}, {"text": "TDR-FORM.DOC and print it out. Send it", "align": "center"}, {"text": "to the address posted on the form.", "align": "center"}, "", "\"Wow, I better register this product!\"", "", "You flip off the television."]);
   },
   ],
 };
@@ -2850,7 +2850,7 @@ P[66] = {
     // #play q7
     z.play("q7");
     // You see a picture of Professor Dave.
-    await z.say(o, ["You see a picture of Professor Dave."]);
+    z.say(o, ["You see a picture of Professor Dave."]);
   },
   ],
 };
@@ -2875,7 +2875,7 @@ P[67] = {
     //
     // !A;Flush Toilet
     // !B;Sit down
-    if (await z.say(o, ["You see a marble toilet.", "", {"choice": "a", "text": "Flush Toilet"}, {"choice": "b", "text": "Sit down"}])) return z.GOTO;
+    z.say(o, ["You see a marble toilet.", "", {"choice": "a", "text": "Flush Toilet"}, {"choice": "b", "text": "Sit down"}]);
     // #end
     return z.END;
   },
@@ -2886,7 +2886,7 @@ P[67] = {
     // #play icdexedcxcde99111
     z.play("icdexedcxcde99111");
     // You flush the toilet...
-    await z.say(o, ["You flush the toilet..."]);
+    z.say(o, ["You flush the toilet..."]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -2905,7 +2905,7 @@ P[67] = {
     // #play qaa
     z.play("qaa");
     // You don't have the time!
-    await z.say(o, ["You don't have the time!"]);
+    z.say(o, ["You don't have the time!"]);
     // #restart
     return z.RESTART;
   },
@@ -2943,7 +2943,7 @@ P[69] = {
     // #play q7
     z.play("q7");
     // It's a shower curtain.
-    await z.say(o, ["It's a shower curtain."]);
+    z.say(o, ["It's a shower curtain."]);
   },
   ],
 };
@@ -2979,7 +2979,7 @@ P[71] = {
     // #play q7
     z.play("q7");
     // It's a drain.
-    await z.say(o, ["It's a drain."]);
+    z.say(o, ["It's a drain."]);
   },
   ],
 };
@@ -3003,7 +3003,7 @@ P[72] = {
     // You see a drawer.
     //
     // !A;Open drawer
-    if (await z.say(o, ["You see a drawer.", "", {"choice": "a", "text": "Open drawer"}])) return z.GOTO;
+    z.say(o, ["You see a drawer.", "", {"choice": "a", "text": "Open drawer"}]);
     // #end
     return z.END;
   },
@@ -3017,7 +3017,7 @@ P[72] = {
     // and start chewing..
     //
     // $You failed to save Adam & Daisy!
-    await z.say(o, ["As you open the drawer, you see many", "tiny ugly little creatures. Before you", "can close the drawer, they jump at you", "and start chewing..", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
+    z.say(o, ["As you open the drawer, you see many", "tiny ugly little creatures. Before you", "can close the drawer, they jump at you", "and start chewing..", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -3041,7 +3041,7 @@ P[73] = {
     // #play q7
     z.play("q7");
     // You see an oak desk.
-    await z.say(o, ["You see an oak desk."]);
+    z.say(o, ["You see an oak desk."]);
   },
   ],
 };
@@ -3077,7 +3077,7 @@ P[75] = {
     // #play t1112222
     z.play("t1112222");
     // You wash your hands in the sink.
-    await z.say(o, ["You wash your hands in the sink."]);
+    z.say(o, ["You wash your hands in the sink."]);
   },
   ],
 };
@@ -3115,7 +3115,7 @@ P[77] = {
     // You see a refrigerator.
     //
     // !A;Open refrigerator
-    if (await z.say(o, ["You see a refrigerator.", "", {"choice": "a", "text": "Open refrigerator"}])) return z.GOTO;
+    z.say(o, ["You see a refrigerator.", "", {"choice": "a", "text": "Open refrigerator"}]);
     // #end
     return z.END;
   },
@@ -3125,7 +3125,7 @@ P[77] = {
     z.play("+iff#ff#ff#");
     // As your open the refrigerator, a sinky
     // smell floats out.
-    await z.say(o, ["As your open the refrigerator, a sinky", "smell floats out."]);
+    z.say(o, ["As your open the refrigerator, a sinky", "smell floats out."]);
   },
   ],
 };
@@ -3153,7 +3153,7 @@ P[78] = {
     await z.idle(o);
     await z.idle(o);
     // "Please have a seat Joe."
-    await z.say(o, ["\"Please have a seat Joe.\""]);
+    z.say(o, ["\"Please have a seat Joe.\""]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -3181,7 +3181,7 @@ P[78] = {
     // !A;Of course professor!
     // !B;What's it worth?
     // !C;No.
-    if (await z.say(o, ["\"Glad you can make it Joe! My poor two", "little monkeys ran away! I was about to", "inject them with a strengh shot and they", "got so scared, so they ran off. You ", "must find Adam & Daisy! They may end up", "in the wrong hands, and may be used for", "evil purposes! Will you help me?\"", "", {"choice": "a", "text": "Of course professor!"}, {"choice": "b", "text": "What's it worth?"}, {"choice": "c", "text": "No."}])) return z.GOTO;
+    z.say(o, ["\"Glad you can make it Joe! My poor two", "little monkeys ran away! I was about to", "inject them with a strengh shot and they", "got so scared, so they ran off. You ", "must find Adam & Daisy! They may end up", "in the wrong hands, and may be used for", "evil purposes! Will you help me?\"", "", {"choice": "a", "text": "Of course professor!"}, {"choice": "b", "text": "What's it worth?"}, {"choice": "c", "text": "No."}]);
     // #end
     return z.END;
   },
@@ -3205,7 +3205,7 @@ P[78] = {
     // to the plane, you must use this key in
     // the moutain near the yellow gems. Hurry
     // now, I expect you not to return here."
-    await z.say(o, [" \"Thank you Joe! Please, go now. Oh,", "by the way, I need you to get an engine", "for the plane your going to fly.\"", "", {"text": "\"P-plane? But I don't know how to fly", "align": "center"}, {"text": "one!\"", "align": "center"}, "", "\"Don't worry, just buy an airplane manual", "at the underground store. Also, to get", "to the plane, you must use this key in", "the moutain near the yellow gems. Hurry", "now, I expect you not to return here.\""]);
+    z.say(o, [" \"Thank you Joe! Please, go now. Oh,", "by the way, I need you to get an engine", "for the plane your going to fly.\"", "", {"text": "\"P-plane? But I don't know how to fly", "align": "center"}, {"text": "one!\"", "align": "center"}, "", "\"Don't worry, just buy an airplane manual", "at the underground store. Also, to get", "to the plane, you must use this key in", "the moutain near the yellow gems. Hurry", "now, I expect you not to return here.\""]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -3214,7 +3214,7 @@ P[78] = {
   async function on_b(o, z) {
     // :B
     // "Well, about 1 million dollars."
-    await z.say(o, ["\"Well, about 1 million dollars.\""]);
+    z.say(o, ["\"Well, about 1 million dollars.\""]);
     // #send loop1
     if (await z.send(o, "self", "loop1")) return z.GOTO;
     // #restart
@@ -3230,7 +3230,7 @@ P[78] = {
     // you out.
     //
     // $You failed to save Adam & Daisy!
-    await z.say(o, ["The professor screams at you and kicks ", "you out.", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
+    z.say(o, ["The professor screams at you and kicks ", "you out.", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -3287,7 +3287,7 @@ P[80] = {
     // #lock
     o.locked = true;
     // - Bomb releasing -
-    await z.say(o, ["- Bomb releasing -"]);
+    z.say(o, ["- Bomb releasing -"]);
     // #send x1:begin
     if (await z.send(o, "x1", "begin")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -3384,7 +3384,7 @@ P[83] = {
     // #lock
     o.locked = true;
     // - Ammunition releasing -
-    await z.say(o, ["- Ammunition releasing -"]);
+    z.say(o, ["- Ammunition releasing -"]);
     // #send x2:begin
     if (await z.send(o, "x2", "begin")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -3423,7 +3423,7 @@ P[84] = {
     // #lock
     o.locked = true;
     // - Gem releasing -
-    await z.say(o, ["- Gem releasing -"]);
+    z.say(o, ["- Gem releasing -"]);
     // #send x3:begin
     if (await z.send(o, "x3", "begin")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -3462,7 +3462,7 @@ P[85] = {
     // #lock
     o.locked = true;
     // - Torch releasing -
-    await z.say(o, ["- Torch releasing -"]);
+    z.say(o, ["- Torch releasing -"]);
     // #send x4:begin
     if (await z.send(o, "x4", "begin")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -3501,7 +3501,7 @@ P[86] = {
     // #lock
     o.locked = true;
     // - Energizer releasing -
-    await z.say(o, ["- Energizer releasing -"]);
+    z.say(o, ["- Energizer releasing -"]);
     // #send x5:begin
     if (await z.send(o, "x5", "begin")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -3540,7 +3540,7 @@ P[87] = {
     // #lock
     o.locked = true;
     // - Key releasing -
-    await z.say(o, ["- Key releasing -"]);
+    z.say(o, ["- Key releasing -"]);
     // #send x6:begin
     if (await z.send(o, "x6", "begin")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -3579,7 +3579,7 @@ P[88] = {
     // #lock
     o.locked = true;
     // - Boulder releasing -
-    await z.say(o, ["- Boulder releasing -"]);
+    z.say(o, ["- Boulder releasing -"]);
     // #send x7:begin
     if (await z.send(o, "x7", "begin")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -3998,7 +3998,7 @@ P[102] = {
     // #play q7
     z.play("q7");
     // A fully working engine.
-    await z.say(o, ["A fully working engine."]);
+    z.say(o, ["A fully working engine."]);
   },
   ],
 };
@@ -4024,7 +4024,7 @@ P[103] = {
     // #play q7
     z.play("q7");
     // This engine is dead.
-    await z.say(o, ["This engine is dead."]);
+    z.say(o, ["This engine is dead."]);
     // #end
     return z.END;
   },
@@ -4037,7 +4037,7 @@ P[103] = {
     // #set engine1
     z.rt.setFlag("engine1");
     // You place the new engine in the airplane..
-    await z.say(o, ["You place the new engine in the airplane.."]);
+    z.say(o, ["You place the new engine in the airplane.."]);
   },
   ],
 };
@@ -4059,7 +4059,7 @@ P[104] = {
     // #play q7
     z.play("q7");
     // It's a red rose.
-    await z.say(o, ["It's a red rose."]);
+    z.say(o, ["It's a red rose."]);
     // #end
     return z.END;
   },
@@ -4070,7 +4070,7 @@ P[104] = {
     // #take score 1
     z.take("score", 1);
     // You killed the inocent red rose!
-    await z.say(o, ["You killed the inocent red rose!"]);
+    z.say(o, ["You killed the inocent red rose!"]);
     // #become red fake
     return z.become(o, "red", "fake");
   },
@@ -4112,7 +4112,7 @@ P[106] = {
     // #play q7
     z.play("q7");
     // You can't fly a plane without a manual.
-    await z.say(o, ["You can't fly a plane without a manual."]);
+    z.say(o, ["You can't fly a plane without a manual."]);
     // #end
     return z.END;
   },
@@ -4145,7 +4145,7 @@ P[107] = {
     // $- Control Unit -
     //
     // !A;─── Turn on Power
-    if (await z.say(o, [{"text": "- Control Unit -", "align": "center"}, "", {"choice": "a", "text": "─── Turn on Power"}])) return z.GOTO;
+    z.say(o, [{"text": "- Control Unit -", "align": "center"}, "", {"choice": "a", "text": "─── Turn on Power"}]);
     // #end
     return z.END;
   },
@@ -4158,7 +4158,7 @@ P[107] = {
     // #play t1129
     z.play("t1129");
     // Your ship needs another engine.
-    await z.say(o, ["Your ship needs another engine."]);
+    z.say(o, ["Your ship needs another engine."]);
     // #end
     return z.END;
   },
@@ -4168,7 +4168,7 @@ P[107] = {
     //
     // !1;Exit "Monkeys Pleasure" island
     // !3;Fire Lazer Machine Guns
-    if (await z.say(o, [{"text": " - All Systems on -", "align": "center"}, "", {"choice": "1", "text": "Exit \"Monkeys Pleasure\" island"}, {"choice": "3", "text": "Fire Lazer Machine Guns"}])) return z.GOTO;
+    z.say(o, [{"text": " - All Systems on -", "align": "center"}, "", {"choice": "1", "text": "Exit \"Monkeys Pleasure\" island"}, {"choice": "3", "text": "Fire Lazer Machine Guns"}]);
     // #end
     return z.END;
   },
@@ -4177,7 +4177,7 @@ P[107] = {
     // #lock
     o.locked = true;
     // - Blasting Off -
-    await z.say(o, ["- Blasting Off -"]);
+    z.say(o, ["- Blasting Off -"]);
     // #send cloud:move
     if (await z.send(o, "cloud", "move")) return z.GOTO;
     // #play i1xxx1xxxx1xxx1xx1xx1x1x1x111111111
@@ -4190,7 +4190,7 @@ P[107] = {
     await z.idle(o);
     // You plane comes to a halt 50,000 feet
     // in the air.
-    await z.say(o, ["You plane comes to a halt 50,000 feet", "in the air."]);
+    z.say(o, ["You plane comes to a halt 50,000 feet", "in the air."]);
     // #send door:open
     if (await z.send(o, "door", "open")) return z.GOTO;
     // #end
@@ -4583,7 +4583,7 @@ P[114] = {
     // #play q7
     z.play("q7");
     // It's a chair.
-    await z.say(o, ["It's a chair."]);
+    z.say(o, ["It's a chair."]);
   },
   ],
 };
@@ -4739,7 +4739,7 @@ P[118] = {
     // #play q7
     z.play("q7");
     // It's the engine to the plane.
-    await z.say(o, ["It's the engine to the plane."]);
+    z.say(o, ["It's the engine to the plane."]);
   },
   ],
 };
@@ -4782,7 +4782,7 @@ P[120] = {
     // #play q7
     z.play("q7");
     // The door to the map room is locked.
-    await z.say(o, ["The door to the map room is locked."]);
+    z.say(o, ["The door to the map room is locked."]);
   },
   ],
 };
@@ -4807,7 +4807,7 @@ P[121] = {
     //
     // !A;Open bag
     // !B;Take bag
-    if (await z.say(o, ["You see a bag in the corner of the plane.", "", {"choice": "a", "text": "Open bag"}, {"choice": "b", "text": "Take bag"}])) return z.GOTO;
+    z.say(o, ["You see a bag in the corner of the plane.", "", {"choice": "a", "text": "Open bag"}, {"choice": "b", "text": "Take bag"}]);
     // #end
     return z.END;
   },
@@ -4819,14 +4819,14 @@ P[121] = {
     z.give("ammo", 10);
     // You open the bag and find 10 rounds
     // of ammunition.
-    await z.say(o, ["You open the bag and find 10 rounds", "of ammunition."]);
+    z.say(o, ["You open the bag and find 10 rounds", "of ammunition."]);
     // #end
     return z.END;
   },
   async function on_b(o, z) {
     // :B
     // The bag is of no use to your adventure.
-    await z.say(o, ["The bag is of no use to your adventure."]);
+    z.say(o, ["The bag is of no use to your adventure."]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -4868,7 +4868,7 @@ P[123] = {
     // #play q7
     z.play("q7");
     // It's a chair or passengers.
-    await z.say(o, ["It's a chair or passengers."]);
+    z.say(o, ["It's a chair or passengers."]);
   },
   ],
 };
@@ -4890,7 +4890,7 @@ P[124] = {
     // #play q7
     z.play("q7");
     // It's a pillow.
-    await z.say(o, ["It's a pillow."]);
+    z.say(o, ["It's a pillow."]);
   },
   ],
 };
@@ -4928,7 +4928,7 @@ P[126] = {
     // It's a hard bed.
     //
     // !A;Sleep
-    if (await z.say(o, ["It's a hard bed.", "", {"choice": "a", "text": "Sleep"}])) return z.GOTO;
+    z.say(o, ["It's a hard bed.", "", {"choice": "a", "text": "Sleep"}]);
     // #end
     return z.END;
   },
@@ -4937,7 +4937,7 @@ P[126] = {
     // #lock
     o.locked = true;
     // You sit on the bed and sleep...
-    await z.say(o, ["You sit on the bed and sleep..."]);
+    z.say(o, ["You sit on the bed and sleep..."]);
     // /i
     await z.idle(o);
     // #play I--ed!xc
@@ -4946,7 +4946,7 @@ P[126] = {
     // you out and you drown in the ocean..
     //
     // $You failed to save Adam & Daisy!
-    await z.say(o, ["Oh no! You over slept! The crew kicks", "you out and you drown in the ocean..", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
+    z.say(o, ["Oh no! You over slept! The crew kicks", "you out and you drown in the ocean..", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -4972,7 +4972,7 @@ P[127] = {
     // It's a curtain so you can change clothes
     // in peace without players looking at
     // you all the time.
-    await z.say(o, ["It's a curtain so you can change clothes", "in peace without players looking at", "you all the time."]);
+    z.say(o, ["It's a curtain so you can change clothes", "in peace without players looking at", "you all the time."]);
   },
   ],
 };
@@ -4994,7 +4994,7 @@ P[128] = {
     // #play q7
     z.play("q7");
     // It's just a plain ordinary oak desk.
-    await z.say(o, ["It's just a plain ordinary oak desk."]);
+    z.say(o, ["It's just a plain ordinary oak desk."]);
   },
   ],
 };
@@ -5016,7 +5016,7 @@ P[129] = {
     // #play q7
     z.play("q7");
     // It's your parachute.
-    await z.say(o, ["It's your parachute."]);
+    z.say(o, ["It's your parachute."]);
   },
   ],
 };
@@ -5053,7 +5053,7 @@ P[131] = {
     z.play("q--baw.g");
     //   You feel the cold wind blow against
     // your face...
-    await z.say(o, ["  You feel the cold wind blow against", "your face..."]);
+    z.say(o, ["  You feel the cold wind blow against", "your face..."]);
   },
   ],
 };
@@ -5078,7 +5078,7 @@ P[132] = {
     // sink under.
     //
     // $You failed to save Adam & Daisy!
-    await z.say(o, ["The ground crumbles under you and you", "sink under.", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
+    z.say(o, ["The ground crumbles under you and you", "sink under.", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -5119,7 +5119,7 @@ P[134] = {
     //
     // $The path to the other side is very
     // $muddy. Cross with caution.
-    await z.say(o, ["You see a worn sign:", "", {"text": "The path to the other side is very", "align": "center"}, {"text": "muddy. Cross with caution.", "align": "center"}]);
+    z.say(o, ["You see a worn sign:", "", {"text": "The path to the other side is very", "align": "center"}, {"text": "muddy. Cross with caution.", "align": "center"}]);
   },
   ],
 };
@@ -5222,7 +5222,7 @@ P[137] = {
     // #play +c
     z.play("+c");
     // - Spurt -
-    await z.say(o, ["- Spurt -"]);
+    z.say(o, ["- Spurt -"]);
     // #zap shot
     z.zap(o, "shot");
     // #send loop
@@ -5252,7 +5252,7 @@ P[137] = {
     // #take health 5
     z.take("health", 5);
     // "YEOW!"
-    await z.say(o, ["\"YEOW!\""]);
+    z.say(o, ["\"YEOW!\""]);
     // /i/i
     await z.idle(o);
     await z.idle(o);
@@ -5281,7 +5281,7 @@ P[138] = {
     // #play q7
     z.play("q7");
     // It's a yellow ine hanging from a tree.
-    await z.say(o, ["It's a yellow ine hanging from a tree."]);
+    z.say(o, ["It's a yellow ine hanging from a tree."]);
   },
   ],
 };
@@ -5531,7 +5531,7 @@ P[145] = {
     // #give score 1000
     z.give("score", 1000);
     // - Ahhhhhh -
-    await z.say(o, ["- Ahhhhhh -"]);
+    z.say(o, ["- Ahhhhhh -"]);
     // #char 1
     z.setChar(o, 1);
     // #send door:open
@@ -5629,7 +5629,7 @@ P[146] = {
     // #give score 1000
     z.give("score", 1000);
     // - Ahhhhhh -
-    await z.say(o, ["- Ahhhhhh -"]);
+    z.say(o, ["- Ahhhhhh -"]);
     // #char 1
     z.setChar(o, 1);
     // #send door1:open1
@@ -5655,7 +5655,7 @@ P[147] = {
     z.play("I-egca");
     //   "You are not wanted here! Prepare to
     // face meet your fate!"
-    await z.say(o, ["  \"You are not wanted here! Prepare to", "face meet your fate!\""]);
+    z.say(o, ["  \"You are not wanted here! Prepare to", "face meet your fate!\""]);
     // #cycle 2
     o.cycle = 2;
   },
@@ -5767,7 +5767,7 @@ P[147] = {
     // #play 1919c-a
     z.play("1919c-a");
     // - Ahhhhh -
-    await z.say(o, ["- Ahhhhh -"]);
+    z.say(o, ["- Ahhhhh -"]);
     // #give score 5000
     z.give("score", 5000);
     // #zap shot
@@ -5864,7 +5864,7 @@ P[151] = {
     // is locked. It does have a shape of some 
     // sort of diamond in the middle of the 
     // door...
-    await z.say(o, ["The huge door that leads into the darkness", "is locked. It does have a shape of some ", "sort of diamond in the middle of the ", "door..."]);
+    z.say(o, ["The huge door that leads into the darkness", "is locked. It does have a shape of some ", "sort of diamond in the middle of the ", "door..."]);
     // #end
     return z.END;
   },
@@ -5880,7 +5880,7 @@ P[151] = {
     z.give("score", 100);
     // You place the jewel in the carved diamond
     // shape hold and the huge door opens!
-    await z.say(o, ["You place the jewel in the carved diamond", "shape hold and the huge door opens!"]);
+    z.say(o, ["You place the jewel in the carved diamond", "shape hold and the huge door opens!"]);
     // #die
     return z.die(o);
     // #end
@@ -5893,7 +5893,7 @@ P[151] = {
     // Your little bullet will not destroy the
     // huge door no matter how many times you
     // shoot at it.
-    await z.say(o, ["Your little bullet will not destroy the", "huge door no matter how many times you", "shoot at it."]);
+    z.say(o, ["Your little bullet will not destroy the", "huge door no matter how many times you", "shoot at it."]);
   },
   ],
 };
@@ -5920,7 +5920,7 @@ P[152] = {
     z.give("score", 1000);
     // You pull the magic sword out of the stone
     // rock.
-    await z.say(o, ["You pull the magic sword out of the stone", "rock."]);
+    z.say(o, ["You pull the magic sword out of the stone", "rock."]);
     // #send sword1:die
     if (await z.send(o, "sword1", "die")) return z.GOTO;
     // #die
@@ -5967,7 +5967,7 @@ P[154] = {
     z.play("i-da hg# e-dd");
     // $"Hmmmm. A banana peel. The monkeys must
     // $of came here.."
-    await z.say(o, [{"text": "\"Hmmmm. A banana peel. The monkeys must", "align": "center"}, {"text": "of came here..\"", "align": "center"}]);
+    z.say(o, [{"text": "\"Hmmmm. A banana peel. The monkeys must", "align": "center"}, {"text": "of came here..\"", "align": "center"}]);
   },
   ],
 };
@@ -6027,7 +6027,7 @@ P[155] = {
       if (await z.send(o, "self", "poor")) return z.GOTO;
     }
     // "OUCH! That bat bit me!"
-    await z.say(o, ["\"OUCH! That bat bit me!\""]);
+    z.say(o, ["\"OUCH! That bat bit me!\""]);
     // #end
     return z.END;
   },
@@ -6039,7 +6039,7 @@ P[155] = {
     // #play a-e9
     z.play("a-e9");
     // "Eeeek!"
-    await z.say(o, ["\"Eeeek!\""]);
+    z.say(o, ["\"Eeeek!\""]);
     // #zap shot
     z.zap(o, "shot");
     // #send loop
@@ -6059,7 +6059,7 @@ P[155] = {
     // #give score 100
     z.give("score", 100);
     // Your bullet knocks out the bat.
-    await z.say(o, ["Your bullet knocks out the bat."]);
+    z.say(o, ["Your bullet knocks out the bat."]);
     // #zap shot
     z.zap(o, "shot");
     // #become cyan fake
@@ -6136,7 +6136,7 @@ P[156] = {
       if (await z.send(o, "self", "poor")) return z.GOTO;
     }
     // "OUCH! That bat bit me!"
-    await z.say(o, ["\"OUCH! That bat bit me!\""]);
+    z.say(o, ["\"OUCH! That bat bit me!\""]);
     // #end
     return z.END;
   },
@@ -6148,7 +6148,7 @@ P[156] = {
     // #play a-e9
     z.play("a-e9");
     // "Eeeek!"
-    await z.say(o, ["\"Eeeek!\""]);
+    z.say(o, ["\"Eeeek!\""]);
     // #zap shot
     z.zap(o, "shot");
     // #send loop
@@ -6168,7 +6168,7 @@ P[156] = {
     // #give score 100
     z.give("score", 100);
     // Your bullet knocks out the bat.
-    await z.say(o, ["Your bullet knocks out the bat."]);
+    z.say(o, ["Your bullet knocks out the bat."]);
     // #zap shot
     z.zap(o, "shot");
     // #become cyan fake
@@ -6244,7 +6244,7 @@ P[157] = {
       if (await z.send(o, "self", "poor")) return z.GOTO;
     }
     // "OUCH! That bat bit me!"
-    await z.say(o, ["\"OUCH! That bat bit me!\""]);
+    z.say(o, ["\"OUCH! That bat bit me!\""]);
     // #end
     return z.END;
   },
@@ -6256,7 +6256,7 @@ P[157] = {
     // #play a-e9
     z.play("a-e9");
     // "Eeeek!"
-    await z.say(o, ["\"Eeeek!\""]);
+    z.say(o, ["\"Eeeek!\""]);
     // #zap shot
     z.zap(o, "shot");
     // #send loop
@@ -6276,7 +6276,7 @@ P[157] = {
     // #give score 100
     z.give("score", 100);
     // Your bullet knocks out the bat.
-    await z.say(o, ["Your bullet knocks out the bat."]);
+    z.say(o, ["Your bullet knocks out the bat."]);
     // #zap shot
     z.zap(o, "shot");
     // #become cyan fake
@@ -6354,7 +6354,7 @@ P[158] = {
       if (await z.send(o, "self", "poor")) return z.GOTO;
     }
     // "OUCH! That bat bit me!"
-    await z.say(o, ["\"OUCH! That bat bit me!\""]);
+    z.say(o, ["\"OUCH! That bat bit me!\""]);
     // #end
     return z.END;
   },
@@ -6366,7 +6366,7 @@ P[158] = {
     // #play a-e9
     z.play("a-e9");
     // "Eeeek!"
-    await z.say(o, ["\"Eeeek!\""]);
+    z.say(o, ["\"Eeeek!\""]);
     // #zap shot
     z.zap(o, "shot");
     // #send loop
@@ -6386,7 +6386,7 @@ P[158] = {
     // #give score 100
     z.give("score", 100);
     // Your bullet knocks out the bat.
-    await z.say(o, ["Your bullet knocks out the bat."]);
+    z.say(o, ["Your bullet knocks out the bat."]);
     // #zap shot
     z.zap(o, "shot");
     // #become cyan fake
@@ -6425,7 +6425,7 @@ P[159] = {
     // #give torches 1
     z.give("torches", 1);
     // You take the unlit torch from the wall.
-    await z.say(o, ["You take the unlit torch from the wall."]);
+    z.say(o, ["You take the unlit torch from the wall."]);
     // #die
     return z.die(o);
   },
@@ -6456,7 +6456,7 @@ P[160] = {
     z.take("health", 10);
     //  You steped on a mine! It blows you 1
     // feet back!
-    await z.say(o, [" You steped on a mine! It blows you 1", "feet back!"]);
+    z.say(o, [" You steped on a mine! It blows you 1", "feet back!"]);
     // #put n red fake
     z.put(o, "n", "red", "fake");
     // #put s red fake
@@ -6479,7 +6479,7 @@ P[160] = {
     // #give score 10
     z.give("score", 10);
     // You bullet activates a land mine!
-    await z.say(o, ["You bullet activates a land mine!"]);
+    z.say(o, ["You bullet activates a land mine!"]);
     // #put n red fake
     z.put(o, "n", "red", "fake");
     // #put s red fake
@@ -6532,7 +6532,7 @@ P[161] = {
     // #take health 1
     z.take("health", 1);
     // "Ouch, those blades are sharp!"
-    await z.say(o, ["\"Ouch, those blades are sharp!\""]);
+    z.say(o, ["\"Ouch, those blades are sharp!\""]);
     // #send loop
     if (await z.send(o, "self", "loop")) return z.GOTO;
   },
@@ -6632,7 +6632,7 @@ P[165] = {
     // #play q7
     z.play("q7");
     // It's the pilot's seat.
-    await z.say(o, ["It's the pilot's seat."]);
+    z.say(o, ["It's the pilot's seat."]);
   },
   ],
 };
@@ -6667,7 +6667,7 @@ P[166] = {
     //     █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
     //
     // !A;■ Open Map Room
-    if (await z.say(o, [{"text": "- Helicopter Control Panel", "align": "center"}, "", "    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "    █                               █", "    █ ▄▄▄▄▄▄▄▄▄▄▄        |█▓▓█|     █", "    █ ████▄▄▄▄▄▄▄       /▄████▄\\    █", "    █                               █", "    █ Machine Guns       Engine     █", "    █████████████████████████████████", "    █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█", "    █ ■ Open Map Room               █", "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█", "", {"choice": "a", "text": "■ Open Map Room"}])) return z.GOTO;
+    z.say(o, [{"text": "- Helicopter Control Panel", "align": "center"}, "", "    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "    █                               █", "    █ ▄▄▄▄▄▄▄▄▄▄▄        |█▓▓█|     █", "    █ ████▄▄▄▄▄▄▄       /▄████▄\\    █", "    █                               █", "    █ Machine Guns       Engine     █", "    █████████████████████████████████", "    █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█", "    █ ■ Open Map Room               █", "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█", "", {"choice": "a", "text": "■ Open Map Room"}]);
     // #end
     return z.END;
   },
@@ -7228,7 +7228,7 @@ P[177] = {
     z.play("q7");
     // The door can only be opened from the
     // main controls.
-    await z.say(o, ["The door can only be opened from the", "main controls."]);
+    z.say(o, ["The door can only be opened from the", "main controls."]);
   },
   ],
 };
@@ -7252,7 +7252,7 @@ P[178] = {
       if (await z.send(o, "self", "open")) return z.GOTO;
     }
     // "You don't have ticket to come aboard."
-    await z.say(o, ["\"You don't have ticket to come aboard.\""]);
+    z.say(o, ["\"You don't have ticket to come aboard.\""]);
     // #end
     return z.END;
   },
@@ -7263,7 +7263,7 @@ P[178] = {
     // #play iedcxffedxcc#cc#d#d
     z.play("iedcxffedxcc#cc#d#d");
     //  "Welcome aboard!"
-    await z.say(o, [" \"Welcome aboard!\""]);
+    z.say(o, [" \"Welcome aboard!\""]);
     // #die
     return z.die(o);
   },
@@ -7291,7 +7291,7 @@ P[179] = {
     // $"Top of the world mom!"
     //
     // $You failed to save Adam & Daisy!
-    await z.say(o, ["You jump off the pier and scream:", "", {"text": "\"Top of the world mom!\"", "align": "center"}, "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
+    z.say(o, ["You jump off the pier and scream:", "", {"text": "\"Top of the world mom!\"", "align": "center"}, "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
     // #endgame 
     z.endgame(o);
   },
@@ -7381,7 +7381,7 @@ P[182] = {
     // prepared before entering...
     //
     // Beware t** *i* m*n***r and w*** **e***r*!
-    await z.say(o, ["  The caves are dark and scary. Be", "prepared before entering...", "", "Beware t** *i* m*n***r and w*** **e***r*!"]);
+    z.say(o, ["  The caves are dark and scary. Be", "prepared before entering...", "", "Beware t** *i* m*n***r and w*** **e***r*!"]);
   },
   ],
 };
@@ -7407,7 +7407,7 @@ P[183] = {
     // #play iac.caxccd
     z.play("iac.caxccd");
     // Huge cave doors opening...
-    await z.say(o, ["Huge cave doors opening..."]);
+    z.say(o, ["Huge cave doors opening..."]);
     // /n
     await z.step(o, "n");
     // /s
@@ -7419,7 +7419,7 @@ P[183] = {
     //   Once the huge doors opens, you can hear
     // very strange noises beyond from where you
     // stand..
-    await z.say(o, ["  Once the huge doors opens, you can hear", "very strange noises beyond from where you", "stand.."]);
+    z.say(o, ["  Once the huge doors opens, you can hear", "very strange noises beyond from where you", "stand.."]);
     // #die
     return z.die(o);
   },
@@ -7443,7 +7443,7 @@ P[184] = {
     // #play s--da hg#
     z.play("s--da hg#");
     // It was person, now a skeleton.
-    await z.say(o, ["It was person, now a skeleton."]);
+    z.say(o, ["It was person, now a skeleton."]);
   },
   ],
 };
@@ -7469,7 +7469,7 @@ P[185] = {
     // #take health 10
     z.take("health", 10);
     // "YEOW!!"
-    await z.say(o, ["\"YEOW!!\""]);
+    z.say(o, ["\"YEOW!!\""]);
     // #put n red boulder
     z.put(o, "n", "red", "boulder");
     // #put s red boulder
@@ -7524,7 +7524,7 @@ P[186] = {
     z.play("a0");
     // You take out your mine detector and
     // turn it on..
-    await z.say(o, ["You take out your mine detector and", "turn it on.."]);
+    z.say(o, ["You take out your mine detector and", "turn it on.."]);
     // #mine:show
     if (await z.send(o, "mine", "show")) return z.GOTO;
   },
@@ -7571,7 +7571,7 @@ P[187] = {
     // #take health 1
     z.take("health", 1);
     // "Ouch, that's hot!"
-    await z.say(o, ["\"Ouch, that's hot!\""]);
+    z.say(o, ["\"Ouch, that's hot!\""]);
   },
   ],
 };
@@ -7598,7 +7598,7 @@ P[188] = {
     z.give("score", 500);
     // You take the big green key and place
     // it in your backpack.
-    await z.say(o, ["You take the big green key and place", "it in your backpack."]);
+    z.say(o, ["You take the big green key and place", "it in your backpack."]);
     // #die
     return z.die(o);
   },
@@ -7626,7 +7626,7 @@ P[189] = {
     // #take health 10
     z.take("health", 10);
     // "YEOW!!"
-    await z.say(o, ["\"YEOW!!\""]);
+    z.say(o, ["\"YEOW!!\""]);
     // #put n red boulder
     z.put(o, "n", "red", "boulder");
     // #put s red boulder
@@ -7676,7 +7676,7 @@ P[190] = {
   async function on_start(o, z) {
     // :start
     //  You use your mine detector once again.
-    await z.say(o, [" You use your mine detector once again."]);
+    z.say(o, [" You use your mine detector once again."]);
     // #mine:show
     if (await z.send(o, "mine", "show")) return z.GOTO;
   },
@@ -7705,7 +7705,7 @@ P[191] = {
     //
     // !1;_Explosives with detonator__- 55 Gems
     // !2;_Mine detector_____________- 100 Gems
-    if (await z.say(o, ["  \"What can I do for you young fellow?\"", "", "  \"I have the following items for sale:\"", "", {"choice": "1", "text": "_Explosives with detonator__- 55 Gems"}, {"choice": "2", "text": "_Mine detector_____________- 100 Gems"}])) return z.GOTO;
+    z.say(o, ["  \"What can I do for you young fellow?\"", "", "  \"I have the following items for sale:\"", "", {"choice": "1", "text": "_Explosives with detonator__- 55 Gems"}, {"choice": "2", "text": "_Mine detector_____________- 100 Gems"}]);
     // #end
     return z.END;
   },
@@ -7720,7 +7720,7 @@ P[191] = {
     // #set explode
     z.rt.setFlag("explode");
     // "Thanks for stopping by!"
-    await z.say(o, ["\"Thanks for stopping by!\""]);
+    z.say(o, ["\"Thanks for stopping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -7739,7 +7739,7 @@ P[191] = {
     // #set mine
     z.rt.setFlag("mine");
     // "Thanks for stopping by!"
-    await z.say(o, ["\"Thanks for stopping by!\""]);
+    z.say(o, ["\"Thanks for stopping by!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -7752,7 +7752,7 @@ P[191] = {
     // #play 109
     z.play("109");
     //  "You have insuffcient gems!"
-    await z.say(o, [" \"You have insuffcient gems!\""]);
+    z.say(o, [" \"You have insuffcient gems!\""]);
     // #restart
     return z.RESTART;
   },
@@ -7797,7 +7797,7 @@ P[193] = {
     z.play("c-cd");
     //   As you enter this part of the dark
     // cave, you hear strange loud noises..
-    await z.say(o, ["  As you enter this part of the dark", "cave, you hear strange loud noises.."]);
+    z.say(o, ["  As you enter this part of the dark", "cave, you hear strange loud noises.."]);
   },
   ],
 };
@@ -7846,7 +7846,7 @@ P[194] = {
     // #go opp seek
     await z.step(o, "opp seek");
     // You kick the small dragon in his stomach.
-    await z.say(o, ["You kick the small dragon in his stomach."]);
+    z.say(o, ["You kick the small dragon in his stomach."]);
     // /i
     await z.idle(o);
     // #send loop
@@ -7859,7 +7859,7 @@ P[194] = {
     // #play a1
     z.play("a1");
     // "Ha ha ha. Your little gun can't hurt me!"
-    await z.say(o, ["\"Ha ha ha. Your little gun can't hurt me!\""]);
+    z.say(o, ["\"Ha ha ha. Your little gun can't hurt me!\""]);
     // #send loop
     if (await z.send(o, "self", "loop")) return z.GOTO;
   },
@@ -7907,7 +7907,7 @@ P[195] = {
     // #play 09a
     z.play("09a");
     // "Grroowwll!"
-    await z.say(o, ["\"Grroowwll!\""]);
+    z.say(o, ["\"Grroowwll!\""]);
     // #put s green boulder
     z.put(o, "s", "green", "boulder");
     // /i
@@ -7971,7 +7971,7 @@ P[196] = {
     // #play 09a
     z.play("09a");
     // "Grroowwll!"
-    await z.say(o, ["\"Grroowwll!\""]);
+    z.say(o, ["\"Grroowwll!\""]);
     // #put s green boulder
     z.put(o, "s", "green", "boulder");
     // /i
@@ -8016,7 +8016,7 @@ P[197] = {
     z.play("aa");
     // This boulder is very heavy and can't be
     // moved.
-    await z.say(o, ["This boulder is very heavy and can't be", "moved."]);
+    z.say(o, ["This boulder is very heavy and can't be", "moved."]);
     // #end
     return z.END;
   },
@@ -8025,7 +8025,7 @@ P[197] = {
     // #shoot seek
     z.shoot(o, "seek", false);
     // Your bullet richoets off the boulder.
-    await z.say(o, ["Your bullet richoets off the boulder."]);
+    z.say(o, ["Your bullet richoets off the boulder."]);
     // #end
     return z.END;
   },
@@ -8039,7 +8039,7 @@ P[197] = {
     z.give("score", 120);
     // You pull out your gold sword and swing
     // it real hard on the boulder..
-    await z.say(o, ["You pull out your gold sword and swing", "it real hard on the boulder.."]);
+    z.say(o, ["You pull out your gold sword and swing", "it real hard on the boulder.."]);
     // /i/i
     await z.idle(o);
     await z.idle(o);
@@ -8047,7 +8047,7 @@ P[197] = {
     z.play("b");
     // The boulder cracked in half along with
     // your beautiful gold sword!
-    await z.say(o, ["The boulder cracked in half along with", "your beautiful gold sword!"]);
+    z.say(o, ["The boulder cracked in half along with", "your beautiful gold sword!"]);
     // #die
     return z.die(o);
   },
@@ -8107,13 +8107,13 @@ P[199] = {
     //     ███             
     // $ If you can't read it, it says
     // $ ─ G A S P ─
-    await z.say(o, ["         █████       ██████      █████", "   █████ █    █     ███       ██      ██", "  ██      █   ███        ███   ██     ██ ", "  █  ██   ████ ██       ██  █   ██ ███", " ██    █   █    ██  ██     █    █", "   █  ██   █    ██   ████      ██", "    ███             ", {"text": " If you can't read it, it says", "align": "center"}, {"text": " ─ G A S P ─", "align": "center"}]);
+    z.say(o, ["         █████       ██████      █████", "   █████ █    █     ███       ██      ██", "  ██      █   ███        ███   ██     ██ ", "  █  ██   ████ ██       ██  █   ██ ███", " ██    █   █    ██  ██     █    █", "   █  ██   █    ██   ████      ██", "    ███             ", {"text": " If you can't read it, it says", "align": "center"}, {"text": " ─ G A S P ─", "align": "center"}]);
     // /i
     await z.idle(o);
     // #play cd-b
     z.play("cd-b");
     // "I'm the evil genie of the lamp!"
-    await z.say(o, ["\"I'm the evil genie of the lamp!\""]);
+    z.say(o, ["\"I'm the evil genie of the lamp!\""]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -8123,7 +8123,7 @@ P[199] = {
     // #play cd-b
     z.play("cd-b");
     // "Don't forget that!"
-    await z.say(o, ["\"Don't forget that!\""]);
+    z.say(o, ["\"Don't forget that!\""]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -8133,7 +8133,7 @@ P[199] = {
     // #play cd-b
     z.play("cd-b");
     // "You have disturbed me!"
-    await z.say(o, ["\"You have disturbed me!\""]);
+    z.say(o, ["\"You have disturbed me!\""]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -8143,7 +8143,7 @@ P[199] = {
     // #play cd-b
     z.play("cd-b");
     // "And now you shall pay for that!"
-    await z.say(o, ["\"And now you shall pay for that!\""]);
+    z.say(o, ["\"And now you shall pay for that!\""]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -8153,7 +8153,7 @@ P[199] = {
     // #play cd-b
     z.play("cd-b");
     // "Wa ha... Ha..... Ha ha ha ha ha ha!"
-    await z.say(o, ["\"Wa ha... Ha..... Ha ha ha ha ha ha!\""]);
+    z.say(o, ["\"Wa ha... Ha..... Ha ha ha ha ha ha!\""]);
     // /i/i/i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -8185,7 +8185,7 @@ P[199] = {
     // $"Ouch!"
     //
     // $You failed to save Adam & Daisy!"
-    await z.say(o, ["  The genie uses his evil magic powers", "and casts a spell on you.", "", {"text": "\"Ha! Your magic didn't do anything! Your", "align": "center"}, {"text": "just a phoney!\"", "align": "center"}, "", " Suddenly gravity changes. Your body is", "slowly pushed towards the earth's surface.", "", "You feel very small...", "", "             \\ | | | | /", "              ---------", "             |  o   o  |", "             |    +    |", "             | --===-- |", "              ---------", "                /===\\", "            \\--=======--/", "              __|===|__", "", {"text": "\"Ouch!\"", "align": "center"}, "", {"text": "You failed to save Adam & Daisy!\"", "align": "center"}]);
+    z.say(o, ["  The genie uses his evil magic powers", "and casts a spell on you.", "", {"text": "\"Ha! Your magic didn't do anything! Your", "align": "center"}, {"text": "just a phoney!\"", "align": "center"}, "", " Suddenly gravity changes. Your body is", "slowly pushed towards the earth's surface.", "", "You feel very small...", "", "             \\ | | | | /", "              ---------", "             |  o   o  |", "             |    +    |", "             | --===-- |", "              ---------", "                /===\\", "            \\--=======--/", "              __|===|__", "", {"text": "\"Ouch!\"", "align": "center"}, "", {"text": "You failed to save Adam & Daisy!\"", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -8207,7 +8207,7 @@ P[200] = {
     // #play cdxcdxcde
     z.play("cdxcdxcde");
     //  This tunnel reminds you of something..
-    await z.say(o, [" This tunnel reminds you of something.."]);
+    z.say(o, [" This tunnel reminds you of something.."]);
   },
   ],
 };
@@ -8250,7 +8250,7 @@ P[201] = {
     // #play q11
     z.play("q11");
     // "Ouch! That's hot!"
-    await z.say(o, ["\"Ouch! That's hot!\""]);
+    z.say(o, ["\"Ouch! That's hot!\""]);
     // #send loop
     if (await z.send(o, "self", "loop")) return z.GOTO;
   },
@@ -8293,7 +8293,7 @@ P[202] = {
     // #give score 5
     z.give("score", 5);
     // "Ow!"
-    await z.say(o, ["\"Ow!\""]);
+    z.say(o, ["\"Ow!\""]);
     // #die
     return z.die(o);
     // #end
@@ -8445,7 +8445,7 @@ P[206] = {
     // #play a1a
     z.play("a1a");
     // "Ow!"
-    await z.say(o, ["\"Ow!\""]);
+    z.say(o, ["\"Ow!\""]);
     // #zap shot
     z.zap(o, "shot");
     // #send loop
@@ -8463,7 +8463,7 @@ P[206] = {
     // #give score 20
     z.give("score", 20);
     // - Splat! -
-    await z.say(o, ["- Splat! -"]);
+    z.say(o, ["- Splat! -"]);
     // #zap shot
     z.zap(o, "shot");
     // #send all:hah
@@ -8524,7 +8524,7 @@ P[207] = {
     // #play aa9
     z.play("aa9");
     // "My eye!"
-    await z.say(o, ["\"My eye!\""]);
+    z.say(o, ["\"My eye!\""]);
     // #zap shot
     z.zap(o, "shot");
     // #shoot seek
@@ -8589,7 +8589,7 @@ P[208] = {
     //
     // !A;_Skip Puzzle________________- 30 Gems
     // !B;_No_
-    if (await z.say(o, ["Would you like to skip this easy", "puzzle?", "", {"choice": "a", "text": "_Skip Puzzle________________- 30 Gems"}, {"choice": "b", "text": "_No_"}])) return z.GOTO;
+    z.say(o, ["Would you like to skip this easy", "puzzle?", "", {"choice": "a", "text": "_Skip Puzzle________________- 30 Gems"}, {"choice": "b", "text": "_No_"}]);
     // #end
     return z.END;
   },
@@ -8609,7 +8609,7 @@ P[208] = {
   async function on_b(o, z) {
     // :B
     // Go solve the puzzle now!
-    await z.say(o, ["Go solve the puzzle now!"]);
+    z.say(o, ["Go solve the puzzle now!"]);
     // #end
     return z.END;
   },
@@ -8618,7 +8618,7 @@ P[208] = {
     // #play 019b
     z.play("019b");
     // You don't have 30 gems!
-    await z.say(o, ["You don't have 30 gems!"]);
+    z.say(o, ["You don't have 30 gems!"]);
     // #restart
     return z.RESTART;
   },
@@ -8665,7 +8665,7 @@ P[209] = {
     // #take health 5
     z.take("health", 5);
     // "YEOW!"
-    await z.say(o, ["\"YEOW!\""]);
+    z.say(o, ["\"YEOW!\""]);
     // #send loop
     if (await z.send(o, "self", "loop")) return z.GOTO;
   },
@@ -8692,7 +8692,7 @@ P[210] = {
     z.rt.setFlag("rad");
     //  You will be radiation free in a few
     // spins..
-    await z.say(o, [" You will be radiation free in a few", "spins.."]);
+    z.say(o, [" You will be radiation free in a few", "spins.."]);
     // #play cdexcdexcdexcdexcdexcdexcdexcdexcde
     z.play("cdexcdexcdexcdexcdexcdexcdexcdexcde");
     // /i/i/i/i/i/i/i/i/i/i/i/i/i/i/i/i/i/i/i/i
@@ -8824,7 +8824,7 @@ P[213] = {
     // #play q7
     z.play("q7");
     // The door to the chamber opens...
-    await z.say(o, ["The door to the chamber opens..."]);
+    z.say(o, ["The door to the chamber opens..."]);
     // /w
     await z.step(o, "w");
     // /n
@@ -8935,7 +8935,7 @@ P[216] = {
     z.play("q7");
     //  You can't enter while you infected with
     // 35% of radiation!
-    await z.say(o, [" You can't enter while you infected with", "35% of radiation!"]);
+    z.say(o, [" You can't enter while you infected with", "35% of radiation!"]);
     // #end
     return z.END;
   },
@@ -8946,7 +8946,7 @@ P[216] = {
     // #clear rad
     z.rt.clearFlag("rad");
     // The big door opens..
-    await z.say(o, ["The big door opens.."]);
+    z.say(o, ["The big door opens.."]);
     // /n
     await z.step(o, "n");
   },
@@ -8997,7 +8997,7 @@ P[218] = {
     // #play q7
     z.play("q7");
     // It's the pilot's seat.
-    await z.say(o, ["It's the pilot's seat."]);
+    z.say(o, ["It's the pilot's seat."]);
   },
   ],
 };
@@ -9031,7 +9031,7 @@ P[219] = {
     // !1;1_Fire Super Duper Lazer Guns
     // !2;2_Turn on Power Rockets
     // !3;3_Open Map Room
-    if (await z.say(o, [{"text": "- Main Controls", "align": "center"}, "", "▄                                       ▄", "▓──1── Fire Super Duper Lazer Guns ──1──▓", "▓                                       ▓", "▓──2── Turn on Power Rockets       ──2──▓", "▓                                       ▓", "▓──3── Open Map Room               ──3──▓", "▀                                       ▀", "", {"choice": "1", "text": "1_Fire Super Duper Lazer Guns"}, {"choice": "2", "text": "2_Turn on Power Rockets"}, {"choice": "3", "text": "3_Open Map Room"}])) return z.GOTO;
+    z.say(o, [{"text": "- Main Controls", "align": "center"}, "", "▄                                       ▄", "▓──1── Fire Super Duper Lazer Guns ──1──▓", "▓                                       ▓", "▓──2── Turn on Power Rockets       ──2──▓", "▓                                       ▓", "▓──3── Open Map Room               ──3──▓", "▀                                       ▀", "", {"choice": "1", "text": "1_Fire Super Duper Lazer Guns"}, {"choice": "2", "text": "2_Turn on Power Rockets"}, {"choice": "3", "text": "3_Open Map Room"}]);
     // #end
     return z.END;
   },
@@ -9040,7 +9040,7 @@ P[219] = {
     // #lock
     o.locked = true;
     // _[ Super Duper Lazer Guns firing ]_
-    await z.say(o, ["_[ Super Duper Lazer Guns firing ]_"]);
+    z.say(o, ["_[ Super Duper Lazer Guns firing ]_"]);
     // #Gun:fire
     if (await z.send(o, "gun", "fire")) return z.GOTO;
     // #play 9x9x9edc
@@ -9065,7 +9065,7 @@ P[219] = {
     // #lock
     o.locked = true;
     // _[ Super Powerful Rockets activated ]_
-    await z.say(o, ["_[ Super Powerful Rockets activated ]_"]);
+    z.say(o, ["_[ Super Powerful Rockets activated ]_"]);
     // #rocket:fire
     if (await z.send(o, "rocket", "fire")) return z.GOTO;
     // #star:fly
@@ -9101,7 +9101,7 @@ P[219] = {
     // #lock
     o.locked = true;
     // _[ Map Room opening ]_
-    await z.say(o, ["_[ Map Room opening ]_"]);
+    z.say(o, ["_[ Map Room opening ]_"]);
     // #play 1x9
     z.play("1x9");
     // #door:open
@@ -9127,7 +9127,7 @@ P[220] = {
     // #play a9
     z.play("a9");
     //  Controls are non active.
-    await z.say(o, [" Controls are non active."]);
+    z.say(o, [" Controls are non active."]);
   },
   ],
 };
@@ -9466,7 +9466,7 @@ P[228] = {
     z.play("x9x9");
     // The doors can only be opened by the
     // control panel.
-    await z.say(o, ["The doors can only be opened by the", "control panel."]);
+    z.say(o, ["The doors can only be opened by the", "control panel."]);
     // #end
     return z.END;
   },
@@ -9508,7 +9508,7 @@ P[229] = {
     z.play("x9x9");
     // The doors can only be opened by the
     // control panel.
-    await z.say(o, ["The doors can only be opened by the", "control panel."]);
+    z.say(o, ["The doors can only be opened by the", "control panel."]);
     // #end
     return z.END;
   },
@@ -10296,7 +10296,7 @@ P[255] = {
     // #play q7
     z.play("q7");
     // One way ticket to the Africa Jungle....
-    await z.say(o, ["One way ticket to the Africa Jungle...."]);
+    z.say(o, ["One way ticket to the Africa Jungle...."]);
   },
   ],
 };
@@ -10318,7 +10318,7 @@ P[256] = {
     // #play q7
     z.play("q7");
     // One way ticket to Monkeys Pleasure....
-    await z.say(o, ["One way ticket to Monkeys Pleasure...."]);
+    z.say(o, ["One way ticket to Monkeys Pleasure...."]);
   },
   ],
 };
@@ -10340,7 +10340,7 @@ P[257] = {
     // #play q7
     z.play("q7");
     // One way ticket to Woof Town...
-    await z.say(o, ["One way ticket to Woof Town..."]);
+    z.say(o, ["One way ticket to Woof Town..."]);
   },
   ],
 };
@@ -10362,7 +10362,7 @@ P[258] = {
     // #play q7
     z.play("q7");
     // One way ticket to Banana Island...
-    await z.say(o, ["One way ticket to Banana Island..."]);
+    z.say(o, ["One way ticket to Banana Island..."]);
   },
   ],
 };
@@ -10384,7 +10384,7 @@ P[259] = {
     // #play q7
     z.play("q7");
     // One way ticket to The Underground Caves...
-    await z.say(o, ["One way ticket to The Underground Caves..."]);
+    z.say(o, ["One way ticket to The Underground Caves..."]);
   },
   ],
 };
@@ -10410,7 +10410,7 @@ P[260] = {
     // #play q7
     z.play("q7");
     // You need to have a banana to pass.
-    await z.say(o, ["You need to have a banana to pass."]);
+    z.say(o, ["You need to have a banana to pass."]);
     // #end
     return z.END;
   },
@@ -10445,7 +10445,7 @@ P[261] = {
     // #play q7
     z.play("q7");
     // You need to have a rope to pass.
-    await z.say(o, ["You need to have a rope to pass."]);
+    z.say(o, ["You need to have a rope to pass."]);
     // #end
     return z.END;
   },
@@ -10480,7 +10480,7 @@ P[262] = {
     // #play q7
     z.play("q7");
     // You need to have a Green Key to pass.
-    await z.say(o, ["You need to have a Green Key to pass."]);
+    z.say(o, ["You need to have a Green Key to pass."]);
     // #end
     return z.END;
   },
@@ -10516,7 +10516,7 @@ P[263] = {
     z.play("q7");
     // You need to have a stick of dynamite to
     // pass.
-    await z.say(o, ["You need to have a stick of dynamite to", "pass."]);
+    z.say(o, ["You need to have a stick of dynamite to", "pass."]);
     // #end
     return z.END;
   },
@@ -10551,7 +10551,7 @@ P[264] = {
     // #play q7
     z.play("q7");
     // You need to have a raft to pass.
-    await z.say(o, ["You need to have a raft to pass."]);
+    z.say(o, ["You need to have a raft to pass."]);
     // #end
     return z.END;
   },
@@ -10586,7 +10586,7 @@ P[265] = {
     // #play q7
     z.play("q7");
     // You need to have a B B Gun to Pass.
-    await z.say(o, ["You need to have a B B Gun to Pass."]);
+    z.say(o, ["You need to have a B B Gun to Pass."]);
     // #end
     return z.END;
   },
@@ -10624,7 +10624,7 @@ P[266] = {
     //
     // !A;Open the gate
     // !B;Who are you?
-    if (await z.say(o, [{"text": "─ The Front Gate to Woof Town ─", "align": "center"}, "", "  The guard screams at you:", "", " \"What do you want?\"", "", {"choice": "a", "text": "Open the gate"}, {"choice": "b", "text": "Who are you?"}])) return z.GOTO;
+    z.say(o, [{"text": "─ The Front Gate to Woof Town ─", "align": "center"}, "", "  The guard screams at you:", "", " \"What do you want?\"", "", {"choice": "a", "text": "Open the gate"}, {"choice": "b", "text": "Who are you?"}]);
     // #end
     return z.END;
   },
@@ -10633,7 +10633,7 @@ P[266] = {
     // #lock
     o.locked = true;
     // "Alright, hold on..."
-    await z.say(o, ["\"Alright, hold on...\""]);
+    z.say(o, ["\"Alright, hold on...\""]);
     // /w
     await z.step(o, "w");
     // /i/i/i
@@ -10657,7 +10657,7 @@ P[266] = {
     // :B
     //  "I'm the guard protecting this town
     // from wild beasts or enemies."
-    await z.say(o, [" \"I'm the guard protecting this town", "from wild beasts or enemies.\""]);
+    z.say(o, [" \"I'm the guard protecting this town", "from wild beasts or enemies.\""]);
     // #restart
     return z.RESTART;
   },
@@ -10896,7 +10896,7 @@ P[269] = {
     // #play q7
     z.play("q7");
     // A little baby tree.
-    await z.say(o, ["A little baby tree."]);
+    z.say(o, ["A little baby tree."]);
   },
   ],
 };
@@ -10918,7 +10918,7 @@ P[270] = {
     // #play q7
     z.play("q7");
     //    <_> The Bank <_>
-    await z.say(o, ["   <_> The Bank <_>"]);
+    z.say(o, ["   <_> The Bank <_>"]);
   },
   ],
 };
@@ -10975,7 +10975,7 @@ P[272] = {
     //
     // !A;Withdraw all gems
     // !B;Ask about bank
-    if (await z.say(o, [" \"What can I do for you?\"", "", {"choice": "a", "text": "Withdraw all gems"}, {"choice": "b", "text": "Ask about bank"}])) return z.GOTO;
+    z.say(o, [" \"What can I do for you?\"", "", {"choice": "a", "text": "Withdraw all gems"}, {"choice": "b", "text": "Ask about bank"}]);
     // #end
     return z.END;
   },
@@ -10986,7 +10986,7 @@ P[272] = {
     // #play a9
     z.play("a9");
     // "Let me see if you own an account here.."
-    await z.say(o, ["\"Let me see if you own an account here..\""]);
+    z.say(o, ["\"Let me see if you own an account here..\""]);
     // #man:walk
     if (await z.send(o, "man", "walk")) return z.GOTO;
     // /i/i/i/i/i/i/i/i/i/i
@@ -11013,7 +11013,7 @@ P[272] = {
     // :B
     //  "I've been running my bank for serveral
     // years. This is a good town."
-    await z.say(o, [" \"I've been running my bank for serveral", "years. This is a good town.\""]);
+    z.say(o, [" \"I've been running my bank for serveral", "years. This is a good town.\""]);
     // #restart
     return z.RESTART;
   },
@@ -11063,7 +11063,7 @@ P[273] = {
     // #play 99
     z.play("99");
     // "Sorry, you don't own an account here!"
-    await z.say(o, ["\"Sorry, you don't own an account here!\""]);
+    z.say(o, ["\"Sorry, you don't own an account here!\""]);
   },
   ],
 };
@@ -11085,7 +11085,7 @@ P[274] = {
     // #play q7
     z.play("q7");
     //   <_> The Bar <_>
-    await z.say(o, ["  <_> The Bar <_>"]);
+    z.say(o, ["  <_> The Bar <_>"]);
   },
   ],
 };
@@ -11107,7 +11107,7 @@ P[275] = {
     // #play q7
     z.play("q7");
     //  It's an old worn dart board.
-    await z.say(o, [" It's an old worn dart board."]);
+    z.say(o, [" It's an old worn dart board."]);
   },
   ],
 };
@@ -11134,7 +11134,7 @@ P[276] = {
     // !B;_Whiskey_[25]________________- 20 Gems
     // !C;_Milk_[15]___________________- 10 Gems
     // !D;_Brown Water_[5]_____________-  2 Gems
-    if (await z.say(o, [" \"What will it be?\"", "", {"choice": "a", "text": "_Beer_[10]___________________-  5 Gems"}, {"choice": "b", "text": "_Whiskey_[25]________________- 20 Gems"}, {"choice": "c", "text": "_Milk_[15]___________________- 10 Gems"}, {"choice": "d", "text": "_Brown Water_[5]_____________-  2 Gems"}])) return z.GOTO;
+    z.say(o, [" \"What will it be?\"", "", {"choice": "a", "text": "_Beer_[10]___________________-  5 Gems"}, {"choice": "b", "text": "_Whiskey_[25]________________- 20 Gems"}, {"choice": "c", "text": "_Milk_[15]___________________- 10 Gems"}, {"choice": "d", "text": "_Brown Water_[5]_____________-  2 Gems"}]);
     // #end
     return z.END;
   },
@@ -11147,7 +11147,7 @@ P[276] = {
     // #give health 10
     z.give("health", 10);
     //  You gulp down the beer."
-    await z.say(o, [" You gulp down the beer.\""]);
+    z.say(o, [" You gulp down the beer.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -11164,7 +11164,7 @@ P[276] = {
     // #give health 25
     z.give("health", 25);
     //  You drink all the whiskey. You feel sick.
-    await z.say(o, [" You drink all the whiskey. You feel sick."]);
+    z.say(o, [" You drink all the whiskey. You feel sick."]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -11181,7 +11181,7 @@ P[276] = {
     // #give health 15
     z.give("health", 15);
     //  "Milk, it does a body good!"
-    await z.say(o, [" \"Milk, it does a body good!\""]);
+    z.say(o, [" \"Milk, it does a body good!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -11198,7 +11198,7 @@ P[276] = {
     // #give health 5
     z.give("health", 5);
     //  You drink the yucky brown water.
-    await z.say(o, [" You drink the yucky brown water."]);
+    z.say(o, [" You drink the yucky brown water."]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -11211,7 +11211,7 @@ P[276] = {
     // #play t+cde
     z.play("t+cde");
     //  "Hey you! You don't have enough gems!"
-    await z.say(o, [" \"Hey you! You don't have enough gems!\""]);
+    z.say(o, [" \"Hey you! You don't have enough gems!\""]);
     // #restart
     return z.RESTART;
   },
@@ -11233,7 +11233,7 @@ P[277] = {
   async function on_touch(o, z) {
     // :Touch
     //   <_> Old Shopie <_>
-    await z.say(o, ["  <_> Old Shopie <_>"]);
+    z.say(o, ["  <_> Old Shopie <_>"]);
   },
   ],
 };
@@ -11257,7 +11257,7 @@ P[278] = {
     //  "Can I help you with something?"
     //
     // $"No thank you."
-    await z.say(o, [" \"Can I help you with something?\"", "", {"text": "\"No thank you.\"", "align": "center"}]);
+    z.say(o, [" \"Can I help you with something?\"", "", {"text": "\"No thank you.\"", "align": "center"}]);
   },
   ],
 };
@@ -11281,7 +11281,7 @@ P[279] = {
     // It's a sack.
     //
     // !A;Open it
-    if (await z.say(o, ["It's a sack.", "", {"choice": "a", "text": "Open it"}])) return z.GOTO;
+    z.say(o, ["It's a sack.", "", {"choice": "a", "text": "Open it"}]);
     // #end
     return z.END;
   },
@@ -11296,7 +11296,7 @@ P[279] = {
     // #play I+EGWB
     z.play("I+EGWB");
     // You find 50 gems in the sack!
-    await z.say(o, ["You find 50 gems in the sack!"]);
+    z.say(o, ["You find 50 gems in the sack!"]);
   },
   ],
 };
@@ -11318,7 +11318,7 @@ P[280] = {
     // #play q7
     z.play("q7");
     // It's a block of wood.
-    await z.say(o, ["It's a block of wood."]);
+    z.say(o, ["It's a block of wood."]);
   },
   ],
 };
@@ -11340,7 +11340,7 @@ P[281] = {
     // #play q7
     z.play("q7");
     // It's a green small key.
-    await z.say(o, ["It's a green small key."]);
+    z.say(o, ["It's a green small key."]);
   },
   ],
 };
@@ -11362,7 +11362,7 @@ P[282] = {
     // #play q7
     z.play("q7");
     // It's a dollar sign.
-    await z.say(o, ["It's a dollar sign."]);
+    z.say(o, ["It's a dollar sign."]);
   },
   ],
 };
@@ -11384,7 +11384,7 @@ P[283] = {
     // #play q7
     z.play("q7");
     // It's something strange.
-    await z.say(o, ["It's something strange."]);
+    z.say(o, ["It's something strange."]);
   },
   ],
 };
@@ -11406,7 +11406,7 @@ P[284] = {
     // #play q7
     z.play("q7");
     // It's a silk torch.
-    await z.say(o, ["It's a silk torch."]);
+    z.say(o, ["It's a silk torch."]);
   },
   ],
 };
@@ -11454,7 +11454,7 @@ P[286] = {
     // :Touch
     // !A;Open
     // !B;Close
-    if (await z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}])) return z.GOTO;
+    z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}]);
     // #end
     return z.END;
   },
@@ -11547,7 +11547,7 @@ P[288] = {
     // :Touch
     // !A;Open
     // !B;Close
-    if (await z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}])) return z.GOTO;
+    z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}]);
     // #end
     return z.END;
   },
@@ -11669,7 +11669,7 @@ P[291] = {
     // :Touch
     // !A;Open
     // !B;Close
-    if (await z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}])) return z.GOTO;
+    z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}]);
     // #end
     return z.END;
   },
@@ -11762,7 +11762,7 @@ P[293] = {
     // :Touch
     // !A;Open
     // !B;Close
-    if (await z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}])) return z.GOTO;
+    z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}]);
     // #end
     return z.END;
   },
@@ -11836,7 +11836,7 @@ P[294] = {
     // :Touch
     // !A;Open
     // !B;Close
-    if (await z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}])) return z.GOTO;
+    z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}]);
     // #end
     return z.END;
   },
@@ -11904,7 +11904,7 @@ P[295] = {
     // :Touch
     // !A;Open
     // !B;Close
-    if (await z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}])) return z.GOTO;
+    z.say(o, [{"choice": "a", "text": "Open"}, {"choice": "b", "text": "Close"}]);
     // #end
     return z.END;
   },
@@ -12373,7 +12373,7 @@ P[312] = {
     if (await z.send(o, "block1", "end")) return z.GOTO;
     // You have successfully passed this little
     // challenge.
-    await z.say(o, ["You have successfully passed this little", "challenge."]);
+    z.say(o, ["You have successfully passed this little", "challenge."]);
     // #die
     return z.die(o);
   },
@@ -12405,7 +12405,7 @@ P[313] = {
     // passage south from where you stand. 
     // Return when you have obtained the B B
     // gun."
-    await z.say(o, [" \"I'm sorry, you can't leave here without", "obtaining the B B gun. Go into that", "passage south from where you stand. ", "Return when you have obtained the B B", "gun.\""]);
+    z.say(o, [" \"I'm sorry, you can't leave here without", "obtaining the B B gun. Go into that", "passage south from where you stand. ", "Return when you have obtained the B B", "gun.\""]);
     // #end
     return z.END;
   },
@@ -12417,7 +12417,7 @@ P[313] = {
     z.play("sbbxccxdd");
     //  "Ahh. You have the B B gun! You may
     // pass!"
-    await z.say(o, [" \"Ahh. You have the B B gun! You may", "pass!\""]);
+    z.say(o, [" \"Ahh. You have the B B gun! You may", "pass!\""]);
     // #die
     return z.die(o);
   },
@@ -12497,7 +12497,7 @@ P[316] = {
     // /i
     await z.idle(o);
     //  "Hey! You don't belong here!"
-    await z.say(o, [" \"Hey! You don't belong here!\""]);
+    z.say(o, [" \"Hey! You don't belong here!\""]);
   },
   async function on_loop(o, z) {
     // :loop
@@ -12534,7 +12534,7 @@ P[316] = {
     // #play t++1245
     z.play("t++1245");
     // - Ouch -
-    await z.say(o, ["- Ouch -"]);
+    z.say(o, ["- Ouch -"]);
     // #zap shot
     z.zap(o, "shot");
     // #bad:hit
@@ -12610,7 +12610,7 @@ P[318] = {
     // #play t++00
     z.play("t++00");
     // "Yeow! That force field is strong!"
-    await z.say(o, ["\"Yeow! That force field is strong!\""]);
+    z.say(o, ["\"Yeow! That force field is strong!\""]);
     // #end
     return z.END;
   },
@@ -12625,7 +12625,7 @@ P[318] = {
     // #play t+114
     z.play("t+114");
     // - Bink -
-    await z.say(o, ["- Bink -"]);
+    z.say(o, ["- Bink -"]);
     // #zap shot
     z.zap(o, "shot");
     // #restart
@@ -12640,7 +12640,7 @@ P[318] = {
     // #play t-dbdbdc
     z.play("t-dbdbdc");
     // - B00M -
-    await z.say(o, ["- B00M -"]);
+    z.say(o, ["- B00M -"]);
     // #zap shot
     z.zap(o, "shot");
     // #become yellow fake
@@ -12722,7 +12722,7 @@ P[321] = {
     // #set bbgun
     z.rt.setFlag("bbgun");
     //  You found the B B gun!
-    await z.say(o, [" You found the B B gun!"]);
+    z.say(o, [" You found the B B gun!"]);
     // #die
     return z.die(o);
   },
@@ -12767,7 +12767,7 @@ P[322] = {
     // #big:end
     if (await z.send(o, "big", "end")) return z.GOTO;
     // "Hey, this big Bad Boss is a wimp!"
-    await z.say(o, ["\"Hey, this big Bad Boss is a wimp!\""]);
+    z.say(o, ["\"Hey, this big Bad Boss is a wimp!\""]);
     // #zap shot
     z.zap(o, "shot");
     // #char 1
@@ -12793,7 +12793,7 @@ P[323] = {
     // #play q7
     z.play("q7");
     // It's the pilot's seat.
-    await z.say(o, ["It's the pilot's seat."]);
+    z.say(o, ["It's the pilot's seat."]);
   },
   ],
 };
@@ -12821,7 +12821,7 @@ P[324] = {
     //
     // !1;_1_- Activate Super Fast Rockets -___
     // !2;_2_-        Open Map Room        -___
-    if (await z.say(o, [{"text": "- Super Fast Rocket Controls -", "align": "center"}, "", " _1___- Activate Super Fast Rockets -___", " _2___-        Open Map Room        -___", "", {"choice": "1", "text": "_1_- Activate Super Fast Rockets -___"}, {"choice": "2", "text": "_2_-        Open Map Room        -___"}])) return z.GOTO;
+    z.say(o, [{"text": "- Super Fast Rocket Controls -", "align": "center"}, "", " _1___- Activate Super Fast Rockets -___", " _2___-        Open Map Room        -___", "", {"choice": "1", "text": "_1_- Activate Super Fast Rockets -___"}, {"choice": "2", "text": "_2_-        Open Map Room        -___"}]);
     // #end
     return z.END;
   },
@@ -12830,7 +12830,7 @@ P[324] = {
     // #lock
     o.locked = true;
     // </> Super Duper Fast Rockets Activated <\>
-    await z.say(o, ["</> Super Duper Fast Rockets Activated <\\>"]);
+    z.say(o, ["</> Super Duper Fast Rockets Activated <\\>"]);
     // /i
     await z.idle(o);
     // #play ibcffbcffbceebceebcddbcddbcdef
@@ -12953,7 +12953,7 @@ P[326] = {
     z.play("q7");
     // The door can only be opened from the
     // control panel.
-    await z.say(o, ["The door can only be opened from the", "control panel."]);
+    z.say(o, ["The door can only be opened from the", "control panel."]);
     // #end
     return z.END;
   },
@@ -13236,7 +13236,7 @@ P[331] = {
     //
     // !A;Buy ticket
     // !B;Rent items
-    if (await z.say(o, [" \"What can I do for you sir?\"", "", {"choice": "a", "text": "Buy ticket"}, {"choice": "b", "text": "Rent items"}])) return z.GOTO;
+    z.say(o, [" \"What can I do for you sir?\"", "", {"choice": "a", "text": "Buy ticket"}, {"choice": "b", "text": "Rent items"}]);
     // #end
     return z.END;
   },
@@ -13245,7 +13245,7 @@ P[331] = {
     // A ticket for the boat ride is 500 gems.
     //
     // !1;_Buy Boat Ticket____________- 500 Gems
-    if (await z.say(o, ["A ticket for the boat ride is 500 gems.", "", {"choice": "1", "text": "_Buy Boat Ticket____________- 500 Gems"}])) return z.GOTO;
+    z.say(o, ["A ticket for the boat ride is 500 gems.", "", {"choice": "1", "text": "_Buy Boat Ticket____________- 500 Gems"}]);
     // #end
     return z.END;
   },
@@ -13260,7 +13260,7 @@ P[331] = {
     // #give score 243
     z.give("score", 243);
     // "Here's your ticket!"
-    await z.say(o, ["\"Here's your ticket!\""]);
+    z.say(o, ["\"Here's your ticket!\""]);
     // #zap touch
     z.zap(o, "touch");
     // #end
@@ -13269,7 +13269,7 @@ P[331] = {
   async function on_b(o, z) {
     // :B
     //  "Sorry, we have no items for rental."
-    await z.say(o, [" \"Sorry, we have no items for rental.\""]);
+    z.say(o, [" \"Sorry, we have no items for rental.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -13282,7 +13282,7 @@ P[331] = {
     // #play t-ggxbbf1
     z.play("t-ggxbbf1");
     // "Sir, you have insufficient gems."
-    await z.say(o, ["\"Sir, you have insufficient gems.\""]);
+    z.say(o, ["\"Sir, you have insufficient gems.\""]);
     // #restart
     return z.RESTART;
   },
@@ -13306,7 +13306,7 @@ P[332] = {
     // #play q7
     z.play("q7");
     // It's a bunch of life boats.
-    await z.say(o, ["It's a bunch of life boats."]);
+    z.say(o, ["It's a bunch of life boats."]);
   },
   ],
 };
@@ -13431,7 +13431,7 @@ P[336] = {
     //
     // !A;Eat dip
     // !B;Take dip
-    if (await z.say(o, ["It's a bowl of green dip.", "", {"choice": "a", "text": "Eat dip"}, {"choice": "b", "text": "Take dip"}])) return z.GOTO;
+    z.say(o, ["It's a bowl of green dip.", "", {"choice": "a", "text": "Eat dip"}, {"choice": "b", "text": "Take dip"}]);
     // #end
     return z.END;
   },
@@ -13442,7 +13442,7 @@ P[336] = {
     // #play ddxc
     z.play("ddxc");
     // "Yum."
-    await z.say(o, ["\"Yum.\""]);
+    z.say(o, ["\"Yum.\""]);
     // /i/i
     await z.idle(o);
     await z.idle(o);
@@ -13451,7 +13451,7 @@ P[336] = {
     // before your eyes...
     //
     // $You failed to save Adam & Daisy!
-    await z.say(o, [" Suddenly, you feel real sick. You fall", "to the ground and see your life past", "before your eyes...", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
+    z.say(o, [" Suddenly, you feel real sick. You fall", "to the ground and see your life past", "before your eyes...", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
     // #endgame
     z.endgame(o);
     // #zap touch
@@ -13464,7 +13464,7 @@ P[336] = {
     // #play 9x0
     z.play("9x0");
     // You don't need the dip!
-    await z.say(o, ["You don't need the dip!"]);
+    z.say(o, ["You don't need the dip!"]);
     // #restart
     return z.RESTART;
   },
@@ -13505,7 +13505,7 @@ P[338] = {
     //
     // !A;_Fries_[10]__________________- 10 Gems
     // !B;_Soda_[5]____________________-  5 Gems
-    if (await z.say(o, [" \"Yes? What would you like to order?\"", "", {"choice": "a", "text": "_Fries_[10]__________________- 10 Gems"}, {"choice": "b", "text": "_Soda_[5]____________________-  5 Gems"}])) return z.GOTO;
+    z.say(o, [" \"Yes? What would you like to order?\"", "", {"choice": "a", "text": "_Fries_[10]__________________- 10 Gems"}, {"choice": "b", "text": "_Soda_[5]____________________-  5 Gems"}]);
     // #end
     return z.END;
   },
@@ -13520,7 +13520,7 @@ P[338] = {
     // #play a
     z.play("a");
     // "Enjoy the food!"
-    await z.say(o, ["\"Enjoy the food!\""]);
+    z.say(o, ["\"Enjoy the food!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -13537,7 +13537,7 @@ P[338] = {
     // #give health 5
     z.give("health", 5);
     // "Enjoy the soda!"
-    await z.say(o, ["\"Enjoy the soda!\""]);
+    z.say(o, ["\"Enjoy the soda!\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -13550,7 +13550,7 @@ P[338] = {
     // #play t+cdxcd!
     z.play("t+cdxcd!");
     // "You don't have enough gems!"
-    await z.say(o, ["\"You don't have enough gems!\""]);
+    z.say(o, ["\"You don't have enough gems!\""]);
     // #restart
     return z.RESTART;
   },
@@ -13573,7 +13573,7 @@ P[339] = {
     await z.idle(o);
     await z.idle(o);
     //  "Wow! This place is packed!"
-    await z.say(o, [" \"Wow! This place is packed!\""]);
+    z.say(o, [" \"Wow! This place is packed!\""]);
   },
   ],
 };
@@ -13599,7 +13599,7 @@ P[340] = {
     //
     // !A;Open gate
     // !B;Kick gate
-    if (await z.say(o, ["You see the gate leading to the life", "boats.", "", {"choice": "a", "text": "Open gate"}, {"choice": "b", "text": "Kick gate"}])) return z.GOTO;
+    z.say(o, ["You see the gate leading to the life", "boats.", "", {"choice": "a", "text": "Open gate"}, {"choice": "b", "text": "Kick gate"}]);
     // #end
     return z.END;
   },
@@ -13608,7 +13608,7 @@ P[340] = {
     // #play i0
     z.play("i0");
     // The gate is locked.
-    await z.say(o, ["The gate is locked."]);
+    z.say(o, ["The gate is locked."]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -13626,7 +13626,7 @@ P[340] = {
     z.give("score", 15);
     // With all your might, you slam your feet
     // into the gates. It opens of course.
-    await z.say(o, ["With all your might, you slam your feet", "into the gates. It opens of course."]);
+    z.say(o, ["With all your might, you slam your feet", "into the gates. It opens of course."]);
     // /e
     await z.step(o, "e");
     // #char 92
@@ -13660,7 +13660,7 @@ P[341] = {
     //
     // !A;Open gate
     // !B;Kick gate
-    if (await z.say(o, ["You see the gate leading to the life", "boats.", "", {"choice": "a", "text": "Open gate"}, {"choice": "b", "text": "Kick gate"}])) return z.GOTO;
+    z.say(o, ["You see the gate leading to the life", "boats.", "", {"choice": "a", "text": "Open gate"}, {"choice": "b", "text": "Kick gate"}]);
     // #end
     return z.END;
   },
@@ -13669,7 +13669,7 @@ P[341] = {
     // #play i0
     z.play("i0");
     // The gate is locked.
-    await z.say(o, ["The gate is locked."]);
+    z.say(o, ["The gate is locked."]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -13687,7 +13687,7 @@ P[341] = {
     z.give("score", 15);
     // With all your might, you slam your feet
     // into the gates. It opens of course.
-    await z.say(o, ["With all your might, you slam your feet", "into the gates. It opens of course."]);
+    z.say(o, ["With all your might, you slam your feet", "into the gates. It opens of course."]);
     // /e
     await z.step(o, "e");
     // #char 47
@@ -13719,7 +13719,7 @@ P[342] = {
       if (await z.send(o, "self", "okay")) return z.GOTO;
     }
     // You can't leave this ship!
-    await z.say(o, ["You can't leave this ship!"]);
+    z.say(o, ["You can't leave this ship!"]);
     // #end
     return z.END;
   },
@@ -13728,7 +13728,7 @@ P[342] = {
     // #clear blow
     z.rt.clearFlag("blow");
     // Hurry, the ship is about to blow!
-    await z.say(o, ["Hurry, the ship is about to blow!"]);
+    z.say(o, ["Hurry, the ship is about to blow!"]);
     // #die
     return z.die(o);
   },
@@ -14000,7 +14000,7 @@ P[351] = {
     // You see a blow up raft.
     //
     // !A;Take raft
-    if (await z.say(o, ["You see a blow up raft.", "", {"choice": "a", "text": "Take raft"}])) return z.GOTO;
+    z.say(o, ["You see a blow up raft.", "", {"choice": "a", "text": "Take raft"}]);
     // #end
     return z.END;
   },
@@ -14015,7 +14015,7 @@ P[351] = {
     // #set raft
     z.rt.setFlag("raft");
     // You take the raft.
-    await z.say(o, ["You take the raft."]);
+    z.say(o, ["You take the raft."]);
     // #become yellow fake.
     return z.become(o, "yellow", "fake");
   },
@@ -14061,7 +14061,7 @@ P[353] = {
     // #cycle 2
     o.cycle = 2;
     // "You win never win this game!"
-    await z.say(o, ["\"You win never win this game!\""]);
+    z.say(o, ["\"You win never win this game!\""]);
   },
   async function on_loop(o, z) {
     // :loop
@@ -14105,7 +14105,7 @@ P[353] = {
     // #play i1aa
     z.play("i1aa");
     // - Aarrggg -
-    await z.say(o, ["- Aarrggg -"]);
+    z.say(o, ["- Aarrggg -"]);
     // #zap shot
     z.zap(o, "shot");
     // #block:hit
@@ -14134,7 +14134,7 @@ P[353] = {
     await z.idle(o);
     // You take the key to the ship from around
     // his neck.
-    await z.say(o, ["You take the key to the ship from around", "his neck."]);
+    z.say(o, ["You take the key to the ship from around", "his neck."]);
     // #zap shot
     z.zap(o, "shot");
     // #char 1
@@ -14165,7 +14165,7 @@ P[354] = {
     z.play("q7");
     // The door to the ship is locked. You must
     // defeat the "Wacko Man."
-    await z.say(o, ["The door to the ship is locked. You must", "defeat the \"Wacko Man.\""]);
+    z.say(o, ["The door to the ship is locked. You must", "defeat the \"Wacko Man.\""]);
     // #end
     return z.END;
   },
@@ -14221,7 +14221,7 @@ P[356] = {
     //  ▌▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
     //  ▌           10   20   30   40   50
     //
-    await z.say(o, [{"text": " - Status Control Panel -", "align": "center"}, "", " ┌▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", " ▌ ", " ▌Shields >░░░░░░ ", " ▌", " ▌Power   >░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ", " ▌", " ▌Engines >░░░░░░░░░░░░░░░░░░░░ ", " ▌▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", " ▌           10   20   30   40   50", "               "]);
+    z.say(o, [{"text": " - Status Control Panel -", "align": "center"}, "", " ┌▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", " ▌ ", " ▌Shields >░░░░░░ ", " ▌", " ▌Power   >░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ", " ▌", " ▌Engines >░░░░░░░░░░░░░░░░░░░░ ", " ▌▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", " ▌           10   20   30   40   50", "               "]);
   },
   ],
 };
@@ -14244,7 +14244,7 @@ P[357] = {
     z.play("q7");
     // !1;_1_- Activate Rockets -__
     // !2;_2_-   Open Map Room  -__
-    if (await z.say(o, [{"choice": "1", "text": "_1_- Activate Rockets -__"}, {"choice": "2", "text": "_2_-   Open Map Room  -__"}])) return z.GOTO;
+    z.say(o, [{"choice": "1", "text": "_1_- Activate Rockets -__"}, {"choice": "2", "text": "_2_-   Open Map Room  -__"}]);
     // #end
     return z.END;
   },
@@ -14253,7 +14253,7 @@ P[357] = {
     // #lock
     o.locked = true;
     // </> Rockets charging up <\>
-    await z.say(o, ["</> Rockets charging up <\\>"]);
+    z.say(o, ["</> Rockets charging up <\\>"]);
     // /i
     await z.idle(o);
     // #play ibcffbcffbceebceebcddbcddbcdef
@@ -14300,7 +14300,7 @@ P[357] = {
     // #play ax9
     z.play("ax9");
     // </> Map Room Opened <\>
-    await z.say(o, ["</> Map Room Opened <\\>"]);
+    z.say(o, ["</> Map Room Opened <\\>"]);
     // #door:open
     if (await z.send(o, "door", "open")) return z.GOTO;
   },
@@ -14324,7 +14324,7 @@ P[358] = {
     // #play q7
     z.play("q7");
     // It's the map room.
-    await z.say(o, ["It's the map room."]);
+    z.say(o, ["It's the map room."]);
     // #end
     return z.END;
   },
@@ -14416,7 +14416,7 @@ P[360] = {
     // #play q7
     z.play("q7");
     // It's the map room.
-    await z.say(o, ["It's the map room."]);
+    z.say(o, ["It's the map room."]);
     // #end
     return z.END;
   },
@@ -14461,7 +14461,7 @@ P[361] = {
     // !A;Hunt for gold_______________- 35 Gems
     //
     // !B;Buy Pan_____________________- 15 Gems
-    if (await z.say(o, ["\"Would you like to hunt for gold?", "", {"choice": "a", "text": "Hunt for gold_______________- 35 Gems"}, "", {"choice": "b", "text": "Buy Pan_____________________- 15 Gems"}])) return z.GOTO;
+    z.say(o, ["\"Would you like to hunt for gold?", "", {"choice": "a", "text": "Hunt for gold_______________- 35 Gems"}, "", {"choice": "b", "text": "Buy Pan_____________________- 15 Gems"}]);
     // #end
     return z.END;
   },
@@ -14475,7 +14475,7 @@ P[361] = {
     z.play("i102");
     // "You must have a pan in order to hunt
     // for gold."
-    await z.say(o, ["\"You must have a pan in order to hunt", "for gold.\""]);
+    z.say(o, ["\"You must have a pan in order to hunt", "for gold.\""]);
     // #end
     return z.END;
   },
@@ -14489,7 +14489,7 @@ P[361] = {
     // the gold nugget hidden somewhere in the
     // ocean. Exit the gate before 2 minutes are
     // up, or you will be stuck in the sea.."
-    await z.say(o, [" \"Alright, you have 2 minutes to find ", "the gold nugget hidden somewhere in the", "ocean. Exit the gate before 2 minutes are", "up, or you will be stuck in the sea..\""]);
+    z.say(o, [" \"Alright, you have 2 minutes to find ", "the gold nugget hidden somewhere in the", "ocean. Exit the gate before 2 minutes are", "up, or you will be stuck in the sea..\""]);
     // #door:open
     if (await z.send(o, "door", "open")) return z.GOTO;
     // #clock:start
@@ -14512,7 +14512,7 @@ P[361] = {
     // #play b
     z.play("b");
     //  "Here's your pan to find gold."
-    await z.say(o, [" \"Here's your pan to find gold.\""]);
+    z.say(o, [" \"Here's your pan to find gold.\""]);
     // #restart
     return z.RESTART;
     // #zap touch
@@ -14525,7 +14525,7 @@ P[361] = {
     // #play t+bbg!
     z.play("t+bbg!");
     // "You don't have enough gems."
-    await z.say(o, ["\"You don't have enough gems.\""]);
+    z.say(o, ["\"You don't have enough gems.\""]);
     // #restart
     return z.RESTART;
     // #end
@@ -14545,7 +14545,7 @@ P[361] = {
     // Here's your money, 500 gems.."
     //
     // $"Thanks!"
-    await z.say(o, [" \"Wow, you really found the gold nugget!", "Here's your money, 500 gems..\"", "", {"text": "\"Thanks!\"", "align": "center"}]);
+    z.say(o, [" \"Wow, you really found the gold nugget!", "Here's your money, 500 gems..\"", "", {"text": "\"Thanks!\"", "align": "center"}]);
   },
   ],
 };
@@ -14581,7 +14581,7 @@ P[362] = {
     // time."
     //
     // $You failed to save Adam & Daisy!
-    await z.say(o, ["\"Game ended. You didn't find the gold in", "time.\"", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
+    z.say(o, ["\"Game ended. You didn't find the gold in", "time.\"", "", {"text": "You failed to save Adam & Daisy!", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },
@@ -14609,7 +14609,7 @@ P[363] = {
     // #play a1
     z.play("a1");
     // 1:59
-    await z.say(o, ["1:59"]);
+    z.say(o, ["1:59"]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -14617,7 +14617,7 @@ P[363] = {
     // #play a1
     z.play("a1");
     // 1:58
-    await z.say(o, ["1:58"]);
+    z.say(o, ["1:58"]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
@@ -14625,13 +14625,13 @@ P[363] = {
     // #play a1
     z.play("a1");
     // 1:57
-    await z.say(o, ["1:57"]);
+    z.say(o, ["1:57"]);
     // /i/i/i
     await z.idle(o);
     await z.idle(o);
     await z.idle(o);
     // 1:56
-    await z.say(o, ["1:56"]);
+    z.say(o, ["1:56"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14639,7 +14639,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:55
-    await z.say(o, ["1:55"]);
+    z.say(o, ["1:55"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14647,7 +14647,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:54
-    await z.say(o, ["1:54"]);
+    z.say(o, ["1:54"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14655,7 +14655,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:53
-    await z.say(o, ["1:53"]);
+    z.say(o, ["1:53"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14663,7 +14663,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:52
-    await z.say(o, ["1:52"]);
+    z.say(o, ["1:52"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14671,7 +14671,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:51
-    await z.say(o, ["1:51"]);
+    z.say(o, ["1:51"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14679,7 +14679,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:50
-    await z.say(o, ["1:50"]);
+    z.say(o, ["1:50"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14687,7 +14687,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:49
-    await z.say(o, ["1:49"]);
+    z.say(o, ["1:49"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14695,7 +14695,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:48
-    await z.say(o, ["1:48"]);
+    z.say(o, ["1:48"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14703,7 +14703,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:47
-    await z.say(o, ["1:47"]);
+    z.say(o, ["1:47"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14711,7 +14711,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:46
-    await z.say(o, ["1:46"]);
+    z.say(o, ["1:46"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14719,7 +14719,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:45
-    await z.say(o, ["1:45"]);
+    z.say(o, ["1:45"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14727,7 +14727,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:44
-    await z.say(o, ["1:44"]);
+    z.say(o, ["1:44"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14735,7 +14735,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:43
-    await z.say(o, ["1:43"]);
+    z.say(o, ["1:43"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14743,7 +14743,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:42
-    await z.say(o, ["1:42"]);
+    z.say(o, ["1:42"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14751,7 +14751,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:41
-    await z.say(o, ["1:41"]);
+    z.say(o, ["1:41"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14759,7 +14759,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:40
-    await z.say(o, ["1:40"]);
+    z.say(o, ["1:40"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14767,7 +14767,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:39
-    await z.say(o, ["1:39"]);
+    z.say(o, ["1:39"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14775,7 +14775,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:38
-    await z.say(o, ["1:38"]);
+    z.say(o, ["1:38"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14783,7 +14783,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:37
-    await z.say(o, ["1:37"]);
+    z.say(o, ["1:37"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14791,7 +14791,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:36
-    await z.say(o, ["1:36"]);
+    z.say(o, ["1:36"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14799,7 +14799,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:35
-    await z.say(o, ["1:35"]);
+    z.say(o, ["1:35"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14807,7 +14807,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:34
-    await z.say(o, ["1:34"]);
+    z.say(o, ["1:34"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14815,7 +14815,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:33
-    await z.say(o, ["1:33"]);
+    z.say(o, ["1:33"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14823,7 +14823,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:32
-    await z.say(o, ["1:32"]);
+    z.say(o, ["1:32"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14831,7 +14831,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:31
-    await z.say(o, ["1:31"]);
+    z.say(o, ["1:31"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14839,7 +14839,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:30
-    await z.say(o, ["1:30"]);
+    z.say(o, ["1:30"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14847,7 +14847,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:29
-    await z.say(o, ["1:29"]);
+    z.say(o, ["1:29"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14855,7 +14855,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:28
-    await z.say(o, ["1:28"]);
+    z.say(o, ["1:28"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14863,7 +14863,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:27
-    await z.say(o, ["1:27"]);
+    z.say(o, ["1:27"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14871,7 +14871,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:26
-    await z.say(o, ["1:26"]);
+    z.say(o, ["1:26"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14879,7 +14879,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:25
-    await z.say(o, ["1:25"]);
+    z.say(o, ["1:25"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14887,7 +14887,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:24
-    await z.say(o, ["1:24"]);
+    z.say(o, ["1:24"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14895,7 +14895,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:23
-    await z.say(o, ["1:23"]);
+    z.say(o, ["1:23"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14903,7 +14903,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:22
-    await z.say(o, ["1:22"]);
+    z.say(o, ["1:22"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14911,7 +14911,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:21
-    await z.say(o, ["1:21"]);
+    z.say(o, ["1:21"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14919,7 +14919,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:20
-    await z.say(o, ["1:20"]);
+    z.say(o, ["1:20"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14927,7 +14927,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:19
-    await z.say(o, ["1:19"]);
+    z.say(o, ["1:19"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14935,7 +14935,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:18
-    await z.say(o, ["1:18"]);
+    z.say(o, ["1:18"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14943,7 +14943,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:17
-    await z.say(o, ["1:17"]);
+    z.say(o, ["1:17"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14951,7 +14951,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:16
-    await z.say(o, ["1:16"]);
+    z.say(o, ["1:16"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14959,7 +14959,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:15
-    await z.say(o, ["1:15"]);
+    z.say(o, ["1:15"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14967,7 +14967,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:14
-    await z.say(o, ["1:14"]);
+    z.say(o, ["1:14"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14975,7 +14975,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:13
-    await z.say(o, ["1:13"]);
+    z.say(o, ["1:13"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14983,7 +14983,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:12
-    await z.say(o, ["1:12"]);
+    z.say(o, ["1:12"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -14991,14 +14991,14 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:11
-    await z.say(o, ["1:11"]);
+    z.say(o, ["1:11"]);
     // #play a1
     z.play("a1");
     // /i/i/
     await z.idle(o);
     await z.idle(o);
     // 1:10
-    await z.say(o, ["1:10"]);
+    z.say(o, ["1:10"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15006,7 +15006,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:09
-    await z.say(o, ["1:09"]);
+    z.say(o, ["1:09"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15014,7 +15014,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:08
-    await z.say(o, ["1:08"]);
+    z.say(o, ["1:08"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15022,7 +15022,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:07
-    await z.say(o, ["1:07"]);
+    z.say(o, ["1:07"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15030,7 +15030,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:06
-    await z.say(o, ["1:06"]);
+    z.say(o, ["1:06"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15038,7 +15038,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:05
-    await z.say(o, ["1:05"]);
+    z.say(o, ["1:05"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15046,7 +15046,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:04
-    await z.say(o, ["1:04"]);
+    z.say(o, ["1:04"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15054,7 +15054,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:03
-    await z.say(o, ["1:03"]);
+    z.say(o, ["1:03"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15062,7 +15062,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:02
-    await z.say(o, ["1:02"]);
+    z.say(o, ["1:02"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15070,7 +15070,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:01
-    await z.say(o, ["1:01"]);
+    z.say(o, ["1:01"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15078,7 +15078,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 1:00
-    await z.say(o, ["1:00"]);
+    z.say(o, ["1:00"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15086,7 +15086,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:59
-    await z.say(o, ["00:59"]);
+    z.say(o, ["00:59"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15094,7 +15094,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:58
-    await z.say(o, ["00:58"]);
+    z.say(o, ["00:58"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15102,7 +15102,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:57
-    await z.say(o, ["00:57"]);
+    z.say(o, ["00:57"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15110,7 +15110,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:56
-    await z.say(o, ["00:56"]);
+    z.say(o, ["00:56"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15118,7 +15118,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:55
-    await z.say(o, ["00:55"]);
+    z.say(o, ["00:55"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15126,7 +15126,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:54
-    await z.say(o, ["00:54"]);
+    z.say(o, ["00:54"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15134,7 +15134,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:53
-    await z.say(o, ["00:53"]);
+    z.say(o, ["00:53"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15142,7 +15142,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:52
-    await z.say(o, ["00:52"]);
+    z.say(o, ["00:52"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15150,7 +15150,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:51
-    await z.say(o, ["00:51"]);
+    z.say(o, ["00:51"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15158,7 +15158,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:50
-    await z.say(o, ["00:50"]);
+    z.say(o, ["00:50"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15166,7 +15166,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:49
-    await z.say(o, ["00:49"]);
+    z.say(o, ["00:49"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15174,7 +15174,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:48
-    await z.say(o, ["00:48"]);
+    z.say(o, ["00:48"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15182,7 +15182,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:47
-    await z.say(o, ["00:47"]);
+    z.say(o, ["00:47"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15190,7 +15190,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:46
-    await z.say(o, ["00:46"]);
+    z.say(o, ["00:46"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15198,7 +15198,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:45
-    await z.say(o, ["00:45"]);
+    z.say(o, ["00:45"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15206,7 +15206,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:44
-    await z.say(o, ["00:44"]);
+    z.say(o, ["00:44"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15214,7 +15214,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:43
-    await z.say(o, ["00:43"]);
+    z.say(o, ["00:43"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15222,7 +15222,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:42
-    await z.say(o, ["00:42"]);
+    z.say(o, ["00:42"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15230,7 +15230,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:41
-    await z.say(o, ["00:41"]);
+    z.say(o, ["00:41"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15238,7 +15238,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:40
-    await z.say(o, ["00:40"]);
+    z.say(o, ["00:40"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15246,7 +15246,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:39
-    await z.say(o, ["00:39"]);
+    z.say(o, ["00:39"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15254,7 +15254,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:38
-    await z.say(o, ["00:38"]);
+    z.say(o, ["00:38"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15262,7 +15262,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:37
-    await z.say(o, ["00:37"]);
+    z.say(o, ["00:37"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15270,7 +15270,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:36
-    await z.say(o, ["00:36"]);
+    z.say(o, ["00:36"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15278,7 +15278,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:35
-    await z.say(o, ["00:35"]);
+    z.say(o, ["00:35"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15286,7 +15286,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:34
-    await z.say(o, ["00:34"]);
+    z.say(o, ["00:34"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15294,7 +15294,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:33
-    await z.say(o, ["00:33"]);
+    z.say(o, ["00:33"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15302,7 +15302,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:32
-    await z.say(o, ["00:32"]);
+    z.say(o, ["00:32"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15310,7 +15310,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:31
-    await z.say(o, ["00:31"]);
+    z.say(o, ["00:31"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15318,7 +15318,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:30
-    await z.say(o, ["00:30"]);
+    z.say(o, ["00:30"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15326,7 +15326,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:29
-    await z.say(o, ["00:29"]);
+    z.say(o, ["00:29"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15334,7 +15334,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:28
-    await z.say(o, ["00:28"]);
+    z.say(o, ["00:28"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15342,7 +15342,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:27
-    await z.say(o, ["00:27"]);
+    z.say(o, ["00:27"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15350,7 +15350,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:26
-    await z.say(o, ["00:26"]);
+    z.say(o, ["00:26"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15358,7 +15358,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:25
-    await z.say(o, ["00:25"]);
+    z.say(o, ["00:25"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15366,7 +15366,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:24
-    await z.say(o, ["00:24"]);
+    z.say(o, ["00:24"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15374,7 +15374,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:23
-    await z.say(o, ["00:23"]);
+    z.say(o, ["00:23"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15382,7 +15382,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:22
-    await z.say(o, ["00:22"]);
+    z.say(o, ["00:22"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15390,7 +15390,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:21
-    await z.say(o, ["00:21"]);
+    z.say(o, ["00:21"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15398,7 +15398,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:20
-    await z.say(o, ["00:20"]);
+    z.say(o, ["00:20"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15406,7 +15406,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:19
-    await z.say(o, ["00:19"]);
+    z.say(o, ["00:19"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15414,7 +15414,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:18
-    await z.say(o, ["00:18"]);
+    z.say(o, ["00:18"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15422,7 +15422,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:17
-    await z.say(o, ["00:17"]);
+    z.say(o, ["00:17"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15430,7 +15430,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:16
-    await z.say(o, ["00:16"]);
+    z.say(o, ["00:16"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15438,7 +15438,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:15
-    await z.say(o, ["00:15"]);
+    z.say(o, ["00:15"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15446,7 +15446,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:14
-    await z.say(o, ["00:14"]);
+    z.say(o, ["00:14"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15454,7 +15454,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:13
-    await z.say(o, ["00:13"]);
+    z.say(o, ["00:13"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15462,7 +15462,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:12
-    await z.say(o, ["00:12"]);
+    z.say(o, ["00:12"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15470,7 +15470,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:11
-    await z.say(o, ["00:11"]);
+    z.say(o, ["00:11"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15478,7 +15478,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:10
-    await z.say(o, ["00:10"]);
+    z.say(o, ["00:10"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15486,7 +15486,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:09
-    await z.say(o, ["00:09"]);
+    z.say(o, ["00:09"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15494,7 +15494,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:08
-    await z.say(o, ["00:08"]);
+    z.say(o, ["00:08"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15502,7 +15502,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:07
-    await z.say(o, ["00:07"]);
+    z.say(o, ["00:07"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15510,7 +15510,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:06
-    await z.say(o, ["00:06"]);
+    z.say(o, ["00:06"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15518,7 +15518,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:05
-    await z.say(o, ["00:05"]);
+    z.say(o, ["00:05"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15526,7 +15526,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:04
-    await z.say(o, ["00:04"]);
+    z.say(o, ["00:04"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15534,7 +15534,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:03
-    await z.say(o, ["00:03"]);
+    z.say(o, ["00:03"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15542,7 +15542,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:02
-    await z.say(o, ["00:02"]);
+    z.say(o, ["00:02"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15550,7 +15550,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:01
-    await z.say(o, ["00:01"]);
+    z.say(o, ["00:01"]);
     // #play a1
     z.play("a1");
     // /i/i/i
@@ -15558,7 +15558,7 @@ P[363] = {
     await z.idle(o);
     await z.idle(o);
     // 00:00
-    await z.say(o, ["00:00"]);
+    z.say(o, ["00:00"]);
     // #door:close
     if (await z.send(o, "door", "close")) return z.GOTO;
     // #end
@@ -15567,7 +15567,7 @@ P[363] = {
   async function on_stop(o, z) {
     // :stop
     // Clock has stoped.
-    await z.say(o, ["Clock has stoped."]);
+    z.say(o, ["Clock has stoped."]);
   },
   ],
 };
@@ -15592,7 +15592,7 @@ P[364] = {
     //
     // !A;Yes
     // !B;No
-    if (await z.say(o, ["Pan for gold here?", "", {"choice": "a", "text": "Yes"}, {"choice": "b", "text": "No"}])) return z.GOTO;
+    z.say(o, ["Pan for gold here?", "", {"choice": "a", "text": "Yes"}, {"choice": "b", "text": "No"}]);
     // #end
     return z.END;
   },
@@ -15603,7 +15603,7 @@ P[364] = {
       if (await z.send(o, "self", "okay")) return z.GOTO;
     }
     // You don't have a pan to pan for gold.
-    await z.say(o, ["You don't have a pan to pan for gold."]);
+    z.say(o, ["You don't have a pan to pan for gold."]);
     // #end
     return z.END;
   },
@@ -15616,7 +15616,7 @@ P[364] = {
     // #play 10x10x10x111x10x10x10x111
     z.play("10x10x10x111x10x10x10x111");
     // After several minutes, you find nothing.
-    await z.say(o, ["After several minutes, you find nothing."]);
+    z.say(o, ["After several minutes, you find nothing."]);
     // /i
     await z.idle(o);
     // #unlock
@@ -15631,7 +15631,7 @@ P[364] = {
   async function on_b(o, z) {
     // :B
     // You decide not to pan for gold here.
-    await z.say(o, ["You decide not to pan for gold here."]);
+    z.say(o, ["You decide not to pan for gold here."]);
     // #restart
     return z.RESTART;
   },
@@ -15658,7 +15658,7 @@ P[365] = {
     //
     // !A;Yes
     // !B;No
-    if (await z.say(o, ["Pan for gold here?", "", {"choice": "a", "text": "Yes"}, {"choice": "b", "text": "No"}])) return z.GOTO;
+    z.say(o, ["Pan for gold here?", "", {"choice": "a", "text": "Yes"}, {"choice": "b", "text": "No"}]);
     // #end
     return z.END;
   },
@@ -15669,7 +15669,7 @@ P[365] = {
       if (await z.send(o, "self", "okay")) return z.GOTO;
     }
     // You don't have a pan to pan for gold.
-    await z.say(o, ["You don't have a pan to pan for gold."]);
+    z.say(o, ["You don't have a pan to pan for gold."]);
     // #end
     return z.END;
   },
@@ -15688,7 +15688,7 @@ P[365] = {
     // After several minutes, you find a giant 
     // gold nugget! Quick, leave and exchange it
     // for gems!
-    await z.say(o, ["After several minutes, you find a giant ", "gold nugget! Quick, leave and exchange it", "for gems!"]);
+    z.say(o, ["After several minutes, you find a giant ", "gold nugget! Quick, leave and exchange it", "for gems!"]);
     // /i
     await z.idle(o);
     // #unlock
@@ -15703,7 +15703,7 @@ P[365] = {
   async function on_b(o, z) {
     // :B
     // You decide not to pan for gold here.
-    await z.say(o, ["You decide not to pan for gold here."]);
+    z.say(o, ["You decide not to pan for gold here."]);
     // #restart
     return z.RESTART;
   },
@@ -15733,7 +15733,7 @@ P[366] = {
     // The monkeys are in a force field and
     // can only be released when the Big Bad Girl
     // is defeated.
-    await z.say(o, ["The monkeys are in a force field and", "can only be released when the Big Bad Girl", "is defeated."]);
+    z.say(o, ["The monkeys are in a force field and", "can only be released when the Big Bad Girl", "is defeated."]);
     // #end
     return z.END;
   },
@@ -15747,7 +15747,7 @@ P[366] = {
     z.play("ieexee#");
     // You take Adam and put him in your back-
     // pack.
-    await z.say(o, ["You take Adam and put him in your back-", "pack."]);
+    z.say(o, ["You take Adam and put him in your back-", "pack."]);
     // #become green fake
     return z.become(o, "green", "fake");
   },
@@ -15804,7 +15804,7 @@ P[368] = {
     // The monkeys are in a force field and
     // can only be released when the Big Bad Girl
     // is defeated.
-    await z.say(o, ["The monkeys are in a force field and", "can only be released when the Big Bad Girl", "is defeated."]);
+    z.say(o, ["The monkeys are in a force field and", "can only be released when the Big Bad Girl", "is defeated."]);
     // #end
     return z.END;
   },
@@ -15818,7 +15818,7 @@ P[368] = {
     z.play("ieexee#");
     // You take Daisy and put her in your back-
     // pack.
-    await z.say(o, ["You take Daisy and put her in your back-", "pack."]);
+    z.say(o, ["You take Daisy and put her in your back-", "pack."]);
     // #become green fake
     return z.become(o, "green", "fake");
   },
@@ -15851,7 +15851,7 @@ P[369] = {
     // $myself, so I fled, she's too strong.
     //
     // $Best of luck.
-    await z.say(o, ["You find a sack full of ammunition with", "a note attached. The note reads:", "", {"text": "To who ever that reads this:", "align": "center"}, "", {"text": "Here is 50 rounds of ammo for you to", "align": "center"}, {"text": "defeat the Big Bad Girl. I couldn't", "align": "center"}, {"text": "myself, so I fled, she's too strong.", "align": "center"}, "", {"text": "Best of luck.", "align": "center"}]);
+    z.say(o, ["You find a sack full of ammunition with", "a note attached. The note reads:", "", {"text": "To who ever that reads this:", "align": "center"}, "", {"text": "Here is 50 rounds of ammo for you to", "align": "center"}, {"text": "defeat the Big Bad Girl. I couldn't", "align": "center"}, {"text": "myself, so I fled, she's too strong.", "align": "center"}, "", {"text": "Best of luck.", "align": "center"}]);
     // #give ammo 50
     z.give("ammo", 50);
     // #become green fake
@@ -15877,7 +15877,7 @@ P[370] = {
     // "You can't defeat me! You will never
     // save Adam & Daisy! For I will destroy
     // them and YOU!"
-    await z.say(o, ["\"You can't defeat me! You will never", "save Adam & Daisy! For I will destroy", "them and YOU!\""]);
+    z.say(o, ["\"You can't defeat me! You will never", "save Adam & Daisy! For I will destroy", "them and YOU!\""]);
   },
   async function on_loop(o, z) {
     // :loop
@@ -15967,7 +15967,7 @@ P[370] = {
     // #play t-b99
     z.play("t-b99");
     // - You dare to hit a girl?! -
-    await z.say(o, ["- You dare to hit a girl?! -"]);
+    z.say(o, ["- You dare to hit a girl?! -"]);
     // #zap shot
     z.zap(o, "shot");
     // /i/i
@@ -16023,7 +16023,7 @@ P[371] = {
     // #play q7
     z.play("q7");
     // You can't leave until to save Adam.
-    await z.say(o, ["You can't leave until to save Adam."]);
+    z.say(o, ["You can't leave until to save Adam."]);
     // #end
     return z.END;
   },
@@ -16052,7 +16052,7 @@ P[372] = {
     // #play q7
     z.play("q7");
     // You can't leave until to save Daisy.
-    await z.say(o, ["You can't leave until to save Daisy."]);
+    z.say(o, ["You can't leave until to save Daisy."]);
     // #end
     return z.END;
   },
@@ -16151,7 +16151,7 @@ P[374] = {
     //
     // $(C) Digital Reality
     // $Copyright 1993-1994 - All rights reserved
-    await z.say(o, [{"text": "</> Professor Speaking <\\>", "align": "center"}, "", "  \"Ahh, well done Joe, you saved my poor", "little monkeys.\"", "", {"text": "</> Author Speaking <\\>", "align": "center"}, "", "  \"Christopher Jong here. If you enjoyed", "this ZZT game, then register it!\"", "", {"text": "</> Credits <\\>", "align": "center"}, "", " Just to make this short, the whole game", "is produced by:", "", {"text": "Christopher Jong", "align": "center"}, {"text": "~~~~~~~~~~~~~~~~", "align": "center"}, "", "oooooooooooooooooooooooooooooooooooooooooo", "Checks payable to Christopher Jong.", " If you really enjoyed this ZZT game,", "send a $10.00 check or money order to:", "", {"text": "Digital Reality", "align": "center"}, {"text": "ATTN: ZZT/Lost Monkeys Reg", "align": "center"}, {"text": "200 Palisades Drive", "align": "center"}, {"text": "Daly City, CA  94015", "align": "center"}, "", "Then just fill out the TDR-FORM.DOC and", "send it to the address posted on the", "form. Print it out.", "", " You should really register this ZZT game,", "since this will be my last ZZT game I ", "will produce. I'm going to program games", "in a different language..", "oooooooooooooooooooooooooooooooooooooooooo", "", "Registered users will get an official", "\"Lost Monkeys\" hintbook.", "", "Coming soon:", "", "The Lost treasures of Digital Reality", "for ZZT = All ZZT & Super ZZT games", "together.", "", {"text": "(C) Digital Reality", "align": "center"}, {"text": "Copyright 1993-1994 - All rights reserved", "align": "center"}]);
+    z.say(o, [{"text": "</> Professor Speaking <\\>", "align": "center"}, "", "  \"Ahh, well done Joe, you saved my poor", "little monkeys.\"", "", {"text": "</> Author Speaking <\\>", "align": "center"}, "", "  \"Christopher Jong here. If you enjoyed", "this ZZT game, then register it!\"", "", {"text": "</> Credits <\\>", "align": "center"}, "", " Just to make this short, the whole game", "is produced by:", "", {"text": "Christopher Jong", "align": "center"}, {"text": "~~~~~~~~~~~~~~~~", "align": "center"}, "", "oooooooooooooooooooooooooooooooooooooooooo", "Checks payable to Christopher Jong.", " If you really enjoyed this ZZT game,", "send a $10.00 check or money order to:", "", {"text": "Digital Reality", "align": "center"}, {"text": "ATTN: ZZT/Lost Monkeys Reg", "align": "center"}, {"text": "200 Palisades Drive", "align": "center"}, {"text": "Daly City, CA  94015", "align": "center"}, "", "Then just fill out the TDR-FORM.DOC and", "send it to the address posted on the", "form. Print it out.", "", " You should really register this ZZT game,", "since this will be my last ZZT game I ", "will produce. I'm going to program games", "in a different language..", "oooooooooooooooooooooooooooooooooooooooooo", "", "Registered users will get an official", "\"Lost Monkeys\" hintbook.", "", "Coming soon:", "", "The Lost treasures of Digital Reality", "for ZZT = All ZZT & Super ZZT games", "together.", "", {"text": "(C) Digital Reality", "align": "center"}, {"text": "Copyright 1993-1994 - All rights reserved", "align": "center"}]);
     // #endgame
     z.endgame(o);
   },

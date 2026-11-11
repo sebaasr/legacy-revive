@@ -15,5 +15,17 @@
   },
   "stub_lines": [
     "#if"
-  ]
+  ],
+  "elements": {
+    "cells_by_status": {
+      "reconstructed": 28622,
+      "static": 33942,
+      "scripted": 1916,
+      "partial": 20
+    },
+    "partial_or_unsimulated_cells": {
+      "44 centipede head": 16,
+      "45 centipede segment": 4
+    }
+  }
 }
