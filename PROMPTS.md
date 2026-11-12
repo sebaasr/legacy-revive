@@ -113,3 +113,6 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
 8. "Yes, add the agents section to the README and to the presentation."
    - README: links to the five prompt files + how to run them; slides: agent files on "Five agents" slide,
      repo link on the closing slide.
+9. "Honest question: what does it modernize exactly? I never used the old ones and they look about the same in the pictures." **[KEY]**
+   - Explained: the look is kept on purpose (fidelity); what changes is platform, code (HyperTalk -> commented JS) and data (JSON).
+     Admitted the change is invisible in screenshots; offered a visible "modern" layer for the demo.
