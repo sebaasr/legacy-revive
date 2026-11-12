@@ -105,3 +105,6 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
      repo (/agents lists them); they run on the user's Claude plan; built outputs need no AI.
 5. "I want to share this in my final project submission, how can I?"
    - Gave options (private GitHub repo + slides link, or zip); nothing pushed yet, waiting for the user's choice.
+6. "But can I share the 5 agents?"
+   - Explained: yes, they're the .claude/agents/*.md files and travel with the repo; anyone with Claude Code who opens the
+     repo folder can run them.
