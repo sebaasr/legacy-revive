@@ -100,3 +100,6 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
 3. "So basically Legacy Revive just shows the new software, right, because the old ones aren't available anymore? What's the main point of this project, the agents?"
    - Explained: the old programs still run only in emulators; the point is the agent pipeline (bytes -> spec -> clean-room
      reader -> modern app -> verified), and the apps are the proof it works.
+4. "So do I have access to the 3 agents whenever I want?"
+   - Explained: there are 5; they're prompt files in .claude/agents/, available in any Claude Code session opened in the
+     repo (/agents lists them); they run on the user's Claude plan; built outputs need no AI.
