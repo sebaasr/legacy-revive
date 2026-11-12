@@ -89,3 +89,11 @@ runtime was built by the first Modernizer with an explicit contract for the seco
 hold-out scenarios the Modernizer never saw, so the last score is not tuned to the fixes.
    - Deliverables finished 2026-11-11: README.md, gallery index.html, eval/SUMMARY.md, and the class slides
      (13 slides with speaker notes: https://claude.ai/artifact/V2E7nzRvr3kaFE5HHg4PBd, sources in presentation/deck).
+
+## Session 2026-11-12 (transcript 99d8c60f-4936-4635-929c-5280e56faed6.jsonl, continued)
+1. "I have a question: which HyperCard did you do? The one from Apple from 1987?"
+   - Answered: yes, Apple's HyperCard, but only the stack files made with it were analyzed, never the app.
+     9 stacks use format 10 (HyperCard 2.x) and Inigo Gets Out uses format 8 (1.x era).
+2. "Add that to the slides so we know what we worked with."
+   - Slide 5 ("Two unrelated programs"): HyperCard 1987–2004, user-made stacks not the app, formats 2.x (9) + 1.x (1);
+     footnote and speaker notes say only user files were analyzed, never the programs.

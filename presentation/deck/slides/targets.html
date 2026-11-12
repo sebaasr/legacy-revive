@@ -2,26 +2,26 @@
 <h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Two unrelated programs, same pipeline</h2>
 <div style="display:flex;gap:32px;flex:1">
 <div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#1F242D;border:1px solid #3A414D;border-radius:16px;padding:48px">
-<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#E9A23B">APPLE · 1987 · MACINTOSH</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#E9A23B">APPLE · 1987–2004 · MACINTOSH</p>
 <h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:44px;font-weight:600">HyperCard</h3>
 <ul style="font-size:28px;line-height:1.5;color:#D5D8DD">
-<li>10 real stacks from the Internet Archive</li>
+<li>10 user-made stacks from the Internet Archive, not the app</li>
+<li>Both file formats: 2.x (9 stacks) and 1.x (1 stack)</li>
 <li>1-bit pictures in a compressed, undocumented codec</li>
-<li>Scripts in HyperTalk (288 scripts)</li>
-<li>Rendered in pixels: cards, buttons, fields</li>
+<li>Scripts in HyperTalk (288 scripts), rendered in pixels</li>
 </ul>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#1F242D;border:1px solid #3A414D;border-radius:16px;padding:48px">
 <p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#E9A23B">EPIC MEGAGAMES · 1991 · MS-DOS</p>
 <h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:44px;font-weight:600">ZZT</h3>
 <ul style="font-size:28px;line-height:1.5;color:#D5D8DD">
-<li>8 community-made world files, Museum of ZZT</li>
+<li>8 community-made world files, Museum of ZZT, not the app</li>
 <li>Run-length-encoded grids of text characters</li>
 <li>Scripts in ZZT-OOP (5,227 programs)</li>
 <li>Rendered in character cells, playable game</li>
 </ul>
 </div>
 </div>
-<p style="font-size:24px;color:#B9BEC7">My professor chose HyperCard; I chose ZZT to test generality. Epic’s own ZZT files are excluded: their license forbids reverse engineering.</p>
-<aside>To show the system is general, I ran it on two programs that have nothing in common. HyperCard is a Mac tool with pixel graphics and a language called HyperTalk. ZZT is a 1991 DOS game maker: text-mode graphics, its own scripting language, and thousands of worlds made by the community. One ethics note: ZZT’s license forbids reverse engineering Epic’s own files, so I only used worlds made by other people, and the agents never touched the ZZT program itself.</aside>
+<p style="font-size:24px;color:#B9BEC7">My professor chose HyperCard; I chose ZZT to test generality. Only files people made with each program were analyzed, never the programs themselves. Epic’s own ZZT files are excluded: their license forbids reverse engineering.</p>
+<aside>To show the system is general, I ran it on two programs that have nothing in common. HyperCard is Apple’s original 1987 Mac tool, sold until 2004, with pixel graphics and a language called HyperTalk. The agents never looked at the HyperCard application: they worked on stacks, the documents people made with it, like analyzing Word files without opening Word. The corpus covers both of its file formats: nine stacks from HyperCard 2.x and one older stack, Inigo Gets Out, in the 1.x format, and the reader handles both. ZZT is a 1991 DOS game maker: text-mode graphics, its own scripting language, and thousands of worlds made by the community. One ethics note: ZZT’s license forbids reverse engineering Epic’s own files, so I only used worlds made by other people, and the agents never touched the ZZT program itself.</aside>
 </section>
