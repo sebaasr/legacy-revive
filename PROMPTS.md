@@ -103,3 +103,5 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
 4. "So do I have access to the 3 agents whenever I want?"
    - Explained: there are 5; they're prompt files in .claude/agents/, available in any Claude Code session opened in the
      repo (/agents lists them); they run on the user's Claude plan; built outputs need no AI.
+5. "I want to share this in my final project submission, how can I?"
+   - Gave options (private GitHub repo + slides link, or zip); nothing pushed yet, waiting for the user's choice.
