@@ -97,3 +97,6 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
 2. "Add that to the slides so we know what we worked with."
    - Slide 5 ("Two unrelated programs"): HyperCard 1987–2004, user-made stacks not the app, formats 2.x (9) + 1.x (1);
      footnote and speaker notes say only user files were analyzed, never the programs.
+3. "So basically Legacy Revive just shows the new software, right, because the old ones aren't available anymore? What's the main point of this project, the agents?"
+   - Explained: the old programs still run only in emulators; the point is the agent pipeline (bytes -> spec -> clean-room
+     reader -> modern app -> verified), and the apps are the proof it works.
