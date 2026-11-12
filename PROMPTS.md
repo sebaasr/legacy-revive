@@ -108,3 +108,5 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
 6. "But can I share the 5 agents?"
    - Explained: yes, they're the .claude/agents/*.md files and travel with the repo; anyone with Claude Code who opens the
      repo folder can run them.
+7. "Do A, private repo, keep the Claude lines." **[KEY]**
+   - Created private GitHub repo https://github.com/sebaasr/legacy-revive and pushed all history (co-author lines kept).
