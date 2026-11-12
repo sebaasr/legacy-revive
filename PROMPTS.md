@@ -110,3 +110,6 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
      repo folder can run them.
 7. "Do A, private repo, keep the Claude lines." **[KEY]**
    - Created private GitHub repo https://github.com/sebaasr/legacy-revive and pushed all history (co-author lines kept).
+8. "Yes, add the agents section to the README and to the presentation."
+   - README: links to the five prompt files + how to run them; slides: agent files on "Five agents" slide,
+     repo link on the closing slide.

@@ -27,6 +27,23 @@ with a link to play each one. Every app opens by double-clicking its `index.html
                                                         + GAPS.md                                  ◄── defects ── Verifier
 ```
 
+Each agent is one short prompt file: its role, its rules, and the tools it may use. Read them here:
+
+| agent | prompt file |
+|---|---|
+| Analyst | [`.claude/agents/analyst.md`](.claude/agents/analyst.md) |
+| Documenter | [`.claude/agents/documenter.md`](.claude/agents/documenter.md) |
+| Clean-room Builder | [`.claude/agents/cleanroom-builder.md`](.claude/agents/cleanroom-builder.md) |
+| Modernizer | [`.claude/agents/modernizer.md`](.claude/agents/modernizer.md) |
+| Verifier | [`.claude/agents/verifier.md`](.claude/agents/verifier.md) |
+
+**Running them.** Install [Claude Code](https://claude.com/claude-code), clone this repo, and start `claude` inside the
+repo folder. `/agents` lists the five agents, and you call them in plain language, e.g. *"use the analyst agent on
+corpus/hypercard/obliquestrategies"* or *"run the verifier on the Game Genie app"*. They run on your own Claude plan.
+`CLAUDE.md` gives every session the pipeline and its rules. The agents expect this repo's folder layout, so run them
+here rather than copying the files elsewhere. Nothing they already built needs an AI to run: the readers, apps,
+gallery and tests are plain Python and JavaScript.
+
 | agent | input | output | rule |
 |---|---|---|---|
 | **Analyst** | sample files | `specs/<t>/notes/`, runnable `probes/` | bytes only: no web, no docs, no recalled knowledge; every claim cites offsets and is labelled confirmed / probable / unknown |
