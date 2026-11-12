@@ -96,6 +96,11 @@ application. ZZT's license forbids reverse engineering Epic's program and bundle
 only community-made worlds were used, and `ZZT.EXE` was never analyzed. The work is for interoperability and
 preservation, and no original code is copied into the output.
 
+The sample files in `corpus/` belong to their authors. They are included unchanged, for research and preservation,
+from where they are already freely available: the Internet Archive's `hypercardstacks` collection and the Museum of
+ZZT (each file's source is in its `item.json`). If you are an author and want a file removed, open an issue and it
+will be taken out.
+
 ## Repository map
 | path | contents |
 |---|---|

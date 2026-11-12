@@ -119,3 +119,6 @@ hold-out scenarios the Modernizer never saw, so the last score is not tuned to t
 10. "Can you add that before-and-after to the slides if you haven't yet? I'll tell you about the 2 options later."
    - New slide "Same look, new foundation" (before/after table) before the gallery slide; deck now 14 slides.
      The code before/after was already on the "Old scripts become readable JavaScript" slide.
+11. "I need to turn the GitHub repo public so the agents are open for everybody." **[KEY]**
+   - Asked first: keep corpus files (yes, with an authors/removal note in README) and keep Claude co-author lines (yes).
+     Pushed pending commits and made https://github.com/sebaasr/legacy-revive public.
